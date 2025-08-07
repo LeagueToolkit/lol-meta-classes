@@ -43,7 +43,7 @@ fn find_classes(data: &[u8]) -> &MetaVector {
         .expect("Failed to find PATTERN_CLASSES!")
 }
 
-pub fn dump_classes_from_file(path: impl AsRef<Path>) -> Result<Value, Box<dyn std::error::Error>> {
+pub fn dump_classes_from_file(path: impl AsRef<Path>) -> anyhow::Result<Value> {
     let map = loader::map_image(path)?;
     let data = unsafe { &*std::ptr::slice_from_raw_parts(map.data(), map.len()) };
 

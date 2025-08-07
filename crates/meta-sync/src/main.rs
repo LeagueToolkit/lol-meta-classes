@@ -1,10 +1,8 @@
-use std::{fs, io::Write, process::Command};
-
 use eyre::{Context, Result};
 use octocrab::Octocrab;
 use tempfile::NamedTempFile;
 
-const CDN_URL: &str = "http://lol.secure.dyn.riotcdn.net/channels/public";
+const CDN_URL: &str = "http://lol.secure.dyn.riotcdn.net/channels/public/bundles";
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -59,16 +57,26 @@ async fn process_version(version_item: &octocrab::models::repos::Content) -> Res
     let manifest = rman::Manifest::read(&mut manifest_reader).unwrap();
 
     // need to match file name with this regex - /.+\/LeagueofLegends
-    manifest.files.iter().for_each(|file| {
+    for file in manifest.files.iter() {
         if !file
             .name
             .eq("LeagueofLegends.app/Contents/MacOS/LeagueofLegends")
         {
-            return;
+            continue;
         }
 
-        file.download_all().download(agent, CDN_URL, writer)
-    });
+        // create a temp file
+        let mut temp_file = NamedTempFile::new().unwrap();
+
+        file.download_all()
+            .download(&mut ureq::Agent::new(), CDN_URL, &mut temp_file)
+            .map_err(|e| eyre::eyre!("Failed to download file: {}", e))?;
+
+        let classes = dumper::dump_classes_from_file(temp_file.path())
+            .map_err(|e| eyre::eyre!("Failed to dump classes: {}", e))?;
+
+        println!("{}", classes);
+    }
 
     Ok(())
 }

@@ -122,7 +122,7 @@ async fn get_version_manifest_url(download_url: &str) -> Result<String> {
 fn execute_dumper(input_path: impl AsRef<Path>, output_path: impl AsRef<Path>) -> Result<()> {
     let mut exe = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     exe.push("../../target");
-    exe.push("release"); // TODO: make this dynamic
+    exe.push("x86_64-unknown-linux-gnu/release"); // TODO: make this dynamic
     exe.push("dumper");
 
     println!("Executing dumper: {}", exe.display());

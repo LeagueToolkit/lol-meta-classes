@@ -1,0 +1,1 @@
+`/dumps` contains the meta dumps for each League of Legends version number.

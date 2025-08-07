@@ -2,3 +2,11 @@
 name = "meta-sync"
 version = "0.1.0"
 edition = "2024"
+
+[dependencies]
+octocrab = "0.44"
+tokio = { version = "1", features = ["full"] }
+eyre = "0.6"
+reqwest = "0.12"
+tempfile = "3.20.0"
+rman = { path = "../rman" }

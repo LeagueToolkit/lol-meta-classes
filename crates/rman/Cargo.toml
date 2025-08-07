@@ -1,0 +1,11 @@
+[package]
+name = "rman"
+version = "0.1.0"
+authors = ["moonshadow565 <moonshadow565@hotmail.com>"]
+edition = "2024"
+
+[dependencies]
+rayon = "1.5"
+zstd = "0.8.1+zstd.1.4.9"
+sha2 = { version = "0.9.5", features = [] }
+ureq = { version = "2.1.1", features = ["cookies", "tls", "native-certs"] }

@@ -3,8 +3,8 @@ use std::fs;
 use std::path::Path;
 
 mod macho;
-mod stubs;
 mod newer;
+mod stubs;
 
 pub fn map_image<P: AsRef<Path>>(path: P) -> anyhow::Result<MemoryMap> {
     // Read macho
@@ -19,7 +19,8 @@ pub fn map_image<P: AsRef<Path>>(path: P) -> anyhow::Result<MemoryMap> {
 
     unsafe {
         let run_until_alert_addr = stubs::resolve("run_until_alert");
-        let run_until_alert: extern "C" fn(func: extern "C" fn()) = std::mem::transmute(run_until_alert_addr);
+        let run_until_alert: extern "C" fn(func: extern "C" fn()) =
+            std::mem::transmute(run_until_alert_addr);
         let entry = macho.get_entry(image);
         run_until_alert(entry);
     }

@@ -1,4 +1,8 @@
-use std::path::Path;
+use std::{
+    fs,
+    path::{Path, PathBuf},
+    process::Command,
+};
 
 use eyre::{Context, Result};
 use octocrab::Octocrab;
@@ -61,7 +65,13 @@ async fn find_lol_game_client_directories(
 }
 
 async fn process_version(version_item: &octocrab::models::repos::Content) -> Result<()> {
-    println!("Processing version: {}", version_item.name);
+    let version = Path::new(&version_item.name)
+        .file_stem()
+        .unwrap()
+        .to_str()
+        .unwrap();
+
+    println!("Processing version: {}", version);
 
     let version_manifest_url =
         get_version_manifest_url(version_item.download_url.as_ref().unwrap()).await?;
@@ -83,16 +93,22 @@ async fn process_version(version_item: &octocrab::models::repos::Content) -> Res
         }
 
         // create a temp file
-        let mut temp_file = NamedTempFile::new().unwrap();
+        let temp_file_path = std::env::current_dir()
+            .unwrap()
+            .join("temp")
+            .join(version_item.name.clone());
+        fs::create_dir_all(temp_file_path.parent().unwrap())?;
+        let mut temp_file = fs::File::create(&temp_file_path)?;
+
+        let version_dump_path = Path::new("dumps").join(format!("{}.json", version));
+        fs::create_dir_all(version_dump_path.parent().unwrap())?;
 
         file.download_all()
             .download(&mut ureq::Agent::new(), CDN_URL, &mut temp_file)
             .map_err(|e| eyre::eyre!("Failed to download file: {}", e))?;
 
-        let classes = dumper::dump_classes_from_file(temp_file.path())
+        execute_dumper(&temp_file_path, &version_dump_path)
             .map_err(|e| eyre::eyre!("Failed to dump classes: {}", e))?;
-
-        println!("{}", classes);
     }
 
     Ok(())
@@ -101,4 +117,29 @@ async fn process_version(version_item: &octocrab::models::repos::Content) -> Res
 async fn get_version_manifest_url(download_url: &str) -> Result<String> {
     let content = reqwest::get(download_url).await?;
     Ok(content.text().await?)
+}
+
+fn execute_dumper(input_path: impl AsRef<Path>, output_path: impl AsRef<Path>) -> Result<()> {
+    let mut exe = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    exe.push("../../target");
+    exe.push("release"); // TODO: make this dynamic
+    exe.push("dumper");
+
+    println!("Executing dumper: {}", exe.display());
+    let output = Command::new(exe)
+        .arg(input_path.as_ref())
+        .arg("--output")
+        .arg(output_path.as_ref())
+        .output()
+        .map_err(|e| eyre::eyre!("Failed to execute dumper: {}", e))?;
+
+    if !output.status.success() {
+        eprintln!("Dumper failed with exit code: {}", output.status);
+        eprintln!("Stderr: {}", String::from_utf8_lossy(&output.stderr));
+        return Err(eyre::eyre!("Dumper execution failed"));
+    }
+
+    println!("Output: {}", String::from_utf8_lossy(&output.stdout));
+
+    Ok(())
 }

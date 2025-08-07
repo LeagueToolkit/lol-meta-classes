@@ -6,6 +6,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.80"
+clap = { version = "4.0", features = ["derive"] }
 goblin = { version = "0.8", default-features = false, features = [
     "std",
     "mach64",

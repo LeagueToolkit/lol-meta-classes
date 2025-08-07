@@ -1,3 +1,5 @@
+use std::path::Path;
+
 use eyre::{Context, Result};
 use octocrab::Octocrab;
 use tempfile::NamedTempFile;
@@ -30,7 +32,7 @@ async fn find_lol_game_client_directories(
     owner: &str,
     repo: &str,
 ) -> Result<()> {
-    let lol_contents = octocrab
+    let mut lol_contents = octocrab
         .repos(owner, repo)
         .get_content()
         .path("LoL/EUW1/macos/lol-game-client")
@@ -38,14 +40,29 @@ async fn find_lol_game_client_directories(
         .await
         .context("Failed to fetch repository contents from GitHub API")?;
 
-    for version_item in lol_contents.items {
-        process_version(&version_item).await?;
+    lol_contents.items.sort_by(|a, b| {
+        // remove extension from name
+        // format: x.y.z.txt
+
+        let a_version = Path::new(&a.name).file_stem().unwrap().to_str().unwrap();
+        let b_version = Path::new(&b.name).file_stem().unwrap().to_str().unwrap();
+
+        let a_version = semver::Version::parse(a_version).unwrap();
+        let b_version = semver::Version::parse(b_version).unwrap();
+
+        a_version.cmp(&b_version)
+    });
+
+    for version_item in lol_contents.items.iter().rev() {
+        process_version(version_item).await?;
     }
 
     Ok(())
 }
 
 async fn process_version(version_item: &octocrab::models::repos::Content) -> Result<()> {
+    println!("Processing version: {}", version_item.name);
+
     let version_manifest_url =
         get_version_manifest_url(version_item.download_url.as_ref().unwrap()).await?;
 

@@ -109,7 +109,7 @@ pub struct ContainerIVtable {
 pub struct ContainerI {
     pub vtable: &'static ContainerIVtable,
     pub value_type: BinType,
-    pub value_size: u32,
+    pub value_size: usize,
 }
 
 impl ContainerI {

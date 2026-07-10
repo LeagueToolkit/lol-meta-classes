@@ -15,7 +15,7 @@ on:
 
   # Fallback: scheduled run every 6 hours
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 0 * * 0'
 
 env:
   CARGO_TERM_COLOR: always

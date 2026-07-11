@@ -150,6 +150,15 @@ def build_history(dumps):
 
 
 def finalize(classes, latest_build, h_types, h_fields):
+    def translate_default_keys(obj):
+        # Nested default objects use field hashes as keys; resolve them for
+        # display, like database.py does. Values are left untouched.
+        if isinstance(obj, dict):
+            return {h_fields.get(k, k): translate_default_keys(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [translate_default_keys(x) for x in obj]
+        return obj
+
     def revs_out(revisions):
         out = []
         for rev in revisions:
@@ -160,6 +169,8 @@ def finalize(classes, latest_build, h_types, h_fields):
             if rev["_last"] != latest_build:
                 r["to"] = rev["_last"]
             r.update(rev["payload"])
+            if "default" in r:
+                r["default"] = translate_default_keys(r["default"])
             out.append(r)
         return out
 

@@ -1,15 +1,15 @@
 ## Database file format (db/database.py)
 
 ### Purpose
-- **What it is**: A stable, diff-friendly, Python-like text representation of the LoL meta schema (classes, inheritance, and properties) generated from a meta JSON dump.
+- **What it is**: A stable, diff-friendly, Python-like text representation of the LoL meta schema (classes, inheritance, and properties) **as of the latest build only**. For version history (removed classes/properties, type changes, when things were added), use `db/meta.db.json` — see `docs/meta-db-format.md`.
 - **What it is not**: Valid/executable Python. It is intentionally a simple text format that looks like Python so it’s easy to read and diff in Git.
 
 ### How it’s generated
-- Via `scripts/db_import.py`, which:
-  - Loads the latest (or provided) `dumps/*.json` and normalizes old/new meta formats.
+- Via `scripts/db_build.py`, which:
+  - Loads the latest dump from `dumps/*.json` and normalizes old/new meta formats.
   - Resolves known type and field hashes using `hashes/hashes.bintypes.txt` and `hashes/hashes.binfields.txt`.
-  - Merges classes, bases, and fields into a persistent database and writes `db/database.py` deterministically.
-- CI: The `Sync LoL Meta Classes` workflow regenerates and commits `db/database.py` when `dumps/` changes.
+  - Writes `db/database.py` deterministically (alongside the versioned `db/meta.db.json`).
+- CI: The `Sync LoL Meta Classes` workflow regenerates and commits both files when `dumps/` changes.
 
 ### File structure
 - Header line: `#!python` (for editor hinting only).
@@ -50,13 +50,13 @@ class ExampleClass(BaseType):
 - Each class’s `bases` are sorted before printing.
 - Each class’s `fields` are sorted before printing. Sorting uses `(FieldName, (ft, kt, vt, kh))` only; any default value does not affect ordering.
 
-### How merging works
-- Running `db_import.py` repeatedly merges in additional classes/fields from new dumps into the existing `db/database.py` representation.
-- Duplicate classes/fields are de-duplicated; conflicts (e.g., same field with different type tuple) will raise errors during import.
+### Snapshot semantics
+- The file is a pure snapshot of the newest dump: every class/property in it exists in the latest build, and nothing else. Removed entities and historical type variants live in `db/meta.db.json` instead.
+- (Historical note: `db_import.py` used to merge dumps *into* the existing file, which made it an aggregate of everything that ever existed — with duplicate fields on type changes and no way to spot removals. `db_build.py` replaced that flow.)
 
 ### Regeneration (manual)
 ```bash
-python3 scripts/db_import.py db/database.py dumps/<version>.json
+python3 scripts/db_build.py
 git diff -- db/database.py | cat
 ```
 

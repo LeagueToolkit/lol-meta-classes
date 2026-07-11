@@ -145,7 +145,7 @@ jobs:
             $ASSET_ARGS
         fi
 
-    - name: Regenerate db/database.py from latest dump
+    - name: Rebuild database from all dumps
       if: steps.changes.outputs.changes == 'true' || github.event.inputs.force_run == 'true'
       run: |
         set -e
@@ -154,14 +154,9 @@ jobs:
           exit 0
         fi
 
-        LATEST_DUMP=$(ls -1 dumps/*.json | sort -V | tail -1)
-        echo "Using latest dump: ${LATEST_DUMP}"
-
-        # Ensure db directory exists
-        mkdir -p db
-
-        # Generate/update the database file
-        python3 scripts/db_import.py db/database.py "${LATEST_DUMP}"
+        # Rebuilds db/meta.db.json (versioned history of every class/property)
+        # and db/database.py (snapshot of the latest build) from all dumps.
+        python3 scripts/db_build.py
 
     - name: Commit and push database and dump updates
       if: steps.changes.outputs.changes == 'true' || github.event.inputs.force_run == 'true'
@@ -172,10 +167,7 @@ jobs:
 
         # Stage dump files and database
         git add dumps/
-
-        if ! git diff --quiet -- db/database.py 2>/dev/null; then
-          git add db/database.py
-        fi
+        git add db/database.py db/meta.db.json
 
         # Check if there's anything to commit
         if git diff --cached --quiet; then

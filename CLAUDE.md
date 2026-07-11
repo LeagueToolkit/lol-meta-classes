@@ -60,16 +60,17 @@ The CI builds with `--target x86_64-unknown-linux-gnu`, placing binaries in `tar
 
 ## Data Files
 
-- `dumps/`: JSON metaclass dumps per version
-- `db/database.py`: Generated, diff-friendly merged schema
+- `dumps/`: JSON metaclass dumps per version (the raw source of truth)
+- `db/meta.db.json`: Generated, versioned history of every class/property across all dumps (see `docs/meta-db-format.md`)
+- `db/database.py`: Generated, diff-friendly snapshot of the latest build only
 - `hashes/hashes.bintypes.txt`: Type hash → name mappings
 - `hashes/hashes.binfields.txt`: Field hash → name mappings
 
 ## Scripts
 
 ```bash
-# Regenerate database from a dump
-python3 scripts/db_import.py db/database.py dumps/<version>.json
+# Rebuild db/meta.db.json + db/database.py from all dumps
+python3 scripts/db_build.py
 
 # Convert dump to C++-like structs
 python3 scripts/dump_meta.py dumps/<version>.json > /tmp/meta.hpp

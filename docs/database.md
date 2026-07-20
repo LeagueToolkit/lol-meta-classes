@@ -1,7 +1,7 @@
 ## Database file format (db/database.py)
 
 ### Purpose
-- **What it is**: A stable, diff-friendly, Python-like text representation of the LoL meta schema (classes, inheritance, and properties) **as of the latest build only**. For version history (removed classes/properties, type changes, when things were added), use `db/meta.db.json` — see `docs/meta-db-format.md`.
+- **What it is**: A stable, diff-friendly, Python-like text representation of the LoL meta schema (classes, inheritance, and properties) **as of the latest build only**. For version history (removed classes/properties, type changes, when things were added), use `db/meta.db.json` - see `docs/meta-db-format.md`.
 - **What it is not**: Valid/executable Python. It is intentionally a simple text format that looks like Python so it’s easy to read and diff in Git.
 
 ### How it’s generated
@@ -45,6 +45,13 @@ class ExampleClass(BaseType):
 - Type and field hashes are mapped using the files in `hashes/`.
 - If a hash is unknown, it is left as its raw hex form in the output (no prefixing). This applies to both class names and field names, and to the `kh` referenced type.
 
+#### Where the names come from
+- **Source of truth**: [CommunityDragon's](https://raw.communitydragon.org/data/hashes/lol/) hashtables (CDTB). The exact URLs live in `hashes/sources.toml`; `url` wins, `repo` + `path` (+ optional `ref`) is shorthand for a raw.githubusercontent.com URL.
+- **Refresh**: `python3 scripts/update_hashes.py`. It fetches each table, validates it, layers `hashes/overrides/` on top, normalizes the output (LF, sorted by name to match upstream), and records `hashes/provenance.json`. The tables stay committed so builds are reproducible and offline-capable - this is a deliberate, reviewed operation, not a build-time download.
+- **Drift**: the script does not compute one. The tables are committed, so `git diff -- hashes/` after a run *is* the drift, and the `db/database.py` diff after `db_build.py` shows what it changed downstream.
+- **Overrides** (`hashes/overrides/<table>.txt`, same `hash name` line format): genuinely-local cracks that upstream doesn't have. On conflict the override wins, but upstream is canonical in intent - anything kept here should also be submitted to CDTB so the override can eventually be deleted. The script warns when an override duplicates upstream verbatim.
+- **Refreshes land as reviewed PRs**, never silent commits: a rename cascades into class/property names across the entire `db/meta.db.json` history and into downstream wiki URLs. The `Update Hashtables` workflow opens that PR weekly.
+
 ### Ordering
 - Classes are written in alphabetical order by their display name (resolved type name if known, otherwise the raw hex). Ties are broken by class hash to ensure stability.
 - Each class’s `bases` are sorted before printing.
@@ -52,7 +59,7 @@ class ExampleClass(BaseType):
 
 ### Snapshot semantics
 - The file is a pure snapshot of the newest dump: every class/property in it exists in the latest build, and nothing else. Removed entities and historical type variants live in `db/meta.db.json` instead.
-- (Historical note: `db_import.py` used to merge dumps *into* the existing file, which made it an aggregate of everything that ever existed — with duplicate fields on type changes and no way to spot removals. `db_build.py` replaced that flow.)
+- (Historical note: `db_import.py` used to merge dumps *into* the existing file, which made it an aggregate of everything that ever existed - with duplicate fields on type changes and no way to spot removals. `db_build.py` replaced that flow.)
 
 ### Regeneration (manual)
 ```bash

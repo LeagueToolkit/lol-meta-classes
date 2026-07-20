@@ -2,7 +2,7 @@
 
 ### Purpose
 - **What it is**: The machine-readable source of truth for the LoL meta schema *across all game versions*. For every class and property it records which builds it existed in, and every distinct definition it ever had (type changes, base changes) as an ordered revision history.
-- **What it solves**: `db/database.py` used to be an ever-growing aggregate of everything that ever existed — it couldn't tell you which definition is current, why a property appeared twice (type change), or that a class had been removed from the game. `meta.db.json` answers all of those directly.
+- **What it solves**: `db/database.py` used to be an ever-growing aggregate of everything that ever existed - it couldn't tell you which definition is current, why a property appeared twice (type change), or that a class had been removed from the game. `meta.db.json` answers all of those directly.
 - **Relationship to `db/database.py`**: `database.py` is now a human-diffable snapshot of the **latest build only**, generated from the same script. Consumers that need history should read `meta.db.json`.
 
 ### How it's generated
@@ -17,6 +17,11 @@ python3 scripts/db_build.py
 ```jsonc
 {
   "formatVersion": 1,
+  "hashSource": {                    // optional: which name snapshot the `name`
+    "fetchedAt": "2026-07-20T00:00:00Z",   // fields below were resolved against.
+    "bintypes": {"url": "https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt", "entries": 3593},
+    "binfields": {"url": "…", "entries": 10361}
+  },
   "latest": 7915903,                 // build number of the newest dump
   "versions": [                      // every dump folded in, in order
     {"patch": "13.15", "build": 5229820},
@@ -29,6 +34,7 @@ python3 scripts/db_build.py
   "classes": { "<hex hash>": <Class>, ... }
 }
 ```
+- `hashSource` mirrors `hashes/provenance.json` and is **omitted entirely** when that file is absent (a pre-refresh checkout still builds). Consumers should treat it as optional. It lets a downstream API state exactly which name snapshot the dataset was resolved against.
 - Builds are the unit of time everywhere. They are globally unique and (almost always) monotonic, unlike patch strings, which don't sort lexicographically (`13.2` vs `13.15`). Use `versions` to map a build to its patch for display.
 
 ### Class entry
@@ -53,16 +59,16 @@ python3 scripts/db_build.py
   ]
 }
 ```
-- `type` is the same 4-tuple as `database.py` fields — `(ft, kt, vt, kh)` — see `docs/database.md`. `kh` stays a raw hash here; resolve it via `classes[kh].name` or `externalTypeNames`.
+- `type` is the same 4-tuple as `database.py` fields - `(ft, kt, vt, kh)` - see `docs/database.md`. `kh` stays a raw hash here; resolve it via `classes[kh].name` or `externalTypeNames`.
 - `default` is the most recent default value observed within that revision's range (revisions are keyed on the type tuple, so a default-only tweak updates the open revision in place rather than opening a new one).
 
 ### Revision semantics
 - A revision is one distinct definition plus the build range it was observed in: `from` = first build seen, `to` = last build seen.
-- **`to` is omitted on the open (current) revision** — i.e. the definition present in `latest`. This is deliberate: when a new build changes nothing, unchanged entities stay byte-identical, so the git diff for a quiet patch is a handful of lines.
+- **`to` is omitted on the open (current) revision** - i.e. the definition present in `latest`. This is deliberate: when a new build changes nothing, unchanged entities stay byte-identical, so the git diff for a quiet patch is a handful of lines.
 - Derived answers:
-  - **Current definition** — the last revision, iff it has no `to`.
-  - **Removed from the game** — the last revision has a `to`. It was last seen in build `to`.
-  - **Type/inheritance change** — adjacent revisions. Removed-then-re-added shows up as revisions with a gap between them.
+  - **Current definition** - the last revision, iff it has no `to`.
+  - **Removed from the game** - the last revision has a `to`. It was last seen in build `to`.
+  - **Type/inheritance change** - adjacent revisions. Removed-then-re-added shows up as revisions with a gap between them.
 - A new revision starts when either the definition changes **or** the entity was absent from the previous build (so a genuine remove + re-add is never masked, even if the definition matches).
 
 ### Identity and names

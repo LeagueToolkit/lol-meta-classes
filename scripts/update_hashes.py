@@ -139,6 +139,11 @@ def main():
 
         override_path = os.path.join(args.hashes, "overrides", f"{table}.txt")
         overrides = read_overrides(override_path)
+        # Normalize the override file itself, so a hand-edit (or a `sort` run
+        # under a different locale) is re-canonicalized here instead of
+        # surfacing later as a pile of no-op line moves.
+        if overrides and write_if_changed(override_path, render(overrides)):
+            print(f"[ok] {override_path}: renormalized")
         redundant = [h for h, name in overrides.items() if entries.get(h) == name]
         for h in redundant:
             print(f"[warn] {override_path}: {h} {overrides[h]} matches upstream "

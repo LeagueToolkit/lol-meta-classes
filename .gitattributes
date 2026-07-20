@@ -1,0 +1,7 @@
+# The hashtable pipeline writes LF and diffs against upstream (which serves LF).
+# Without this, core.autocrlf=true hands the checkout CRLF and every local
+# `scripts/update_hashes.py` run rewrites the tables.
+hashes/*.txt text eol=lf
+hashes/overrides/*.txt text eol=lf
+hashes/provenance.json text eol=lf
+hashes/sources.toml text eol=lf

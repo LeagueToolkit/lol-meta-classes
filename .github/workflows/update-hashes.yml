@@ -1,0 +1,66 @@
+name: Update Hashtables
+
+# Refreshes the vendored hashes/ tables from their configured source and opens
+# a PR. Never commits directly: a rename cascades into class/property names
+# across the whole db/meta.db.json history and into downstream wiki URLs, so a
+# human looks at that diff.
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 3 * * 1'
+
+jobs:
+  update-hashes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Refresh hashtables
+      run: python3 scripts/update_hashes.py
+
+    - name: Detect drift
+      id: drift
+      run: |
+        if git diff --quiet -- hashes/; then
+          echo "changed=false" >> $GITHUB_OUTPUT
+          echo "Hashtables are up to date."
+        else
+          echo "changed=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Rebuild database
+      if: steps.drift.outputs.changed == 'true'
+      # So the PR carries the downstream db/ diff too - that diff is the review.
+      run: python3 scripts/db_build.py
+
+    - name: Open pull request
+      if: steps.drift.outputs.changed == 'true'
+      uses: peter-evans/create-pull-request@v7
+      with:
+        branch: chore/update-hashes
+        title: 'chore: refresh hashtable name snapshot'
+        commit-message: 'chore: refresh hashtable name snapshot'
+        body: |
+          Automated refresh of `hashes/` from the sources in `hashes/sources.toml`,
+          with `db/` rebuilt on top.
+
+          Review the `hashes/` diff for renames, then confirm the `db/database.py`
+          diff contains only the corresponding renamed/added classes and fields.
+
+          Renamed classes change wiki URLs and any `db/docs/*.yaml` keyed by an
+          old name downstream - flag those before merging.
+        add-paths: |
+          hashes/
+          db/

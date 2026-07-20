@@ -1,0 +1,11 @@
+# Where the vendored hashtables come from. `url` takes precedence;
+# `repo` + `path` (+ optional `ref`, default "master") is shorthand for
+# a raw.githubusercontent.com URL.
+#
+# Refresh with:  python3 scripts/update_hashes.py
+
+[bintypes]
+url = "https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt"
+
+[binfields]
+url = "https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt"

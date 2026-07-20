@@ -210,13 +210,29 @@ def compact(obj):
     return json.dumps(obj, separators=(",", ":"))
 
 
-def write_db_json(path, versions, latest_build, classes_out, external):
+def read_hash_source(hashes_dir):
+    """Which name snapshot the names below were resolved against, from
+    hashes/provenance.json. Absent on pre-refresh checkouts."""
+    path = os.path.join(hashes_dir, "provenance.json")
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        prov = json.load(f)
+    out = {"fetchedAt": prov.get("fetchedAt")}
+    for table, info in prov.get("tables", {}).items():
+        out[table] = {"url": info.get("url"), "entries": info.get("entries")}
+    return out
+
+
+def write_db_json(path, versions, latest_build, classes_out, external, hash_source=None):
     """Hand-rolled layout: one line per property, one line per version entry.
     A schema change in one property diffs as a single-line change."""
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write("{\n")
         f.write(f'"formatVersion": {FORMAT_VERSION},\n')
+        if hash_source:
+            f.write(f'"hashSource": {compact(hash_source)},\n')
         f.write(f'"latest": {latest_build},\n')
         f.write('"versions": [\n')
         for i, v in enumerate(versions):
@@ -285,7 +301,8 @@ def main():
     external = external_type_names(classes_out, h_types)
 
     versions = [{"patch": d["patch"], "build": d["build"]} for d in dumps]
-    write_db_json(args.out, versions, latest["build"], classes_out, external)
+    hash_source = read_hash_source(args.hashes)
+    write_db_json(args.out, versions, latest["build"], classes_out, external, hash_source)
 
     # Sanity check: the hand-rolled writer must produce valid JSON.
     with open(args.out, encoding="utf-8") as f:

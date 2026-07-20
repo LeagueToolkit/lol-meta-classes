@@ -6,7 +6,10 @@ This repository tracks LoL meta class information across versions.
 - `dumps/`: meta dumps per version (e.g. `15.19.7151836.json`).
 - `scripts/`: helper scripts for reading/printing/importing meta.
 - `db/database.py`: generated, diff-friendly representation of the merged schema.
-- `hashes/`: name mappings for types and fields (used during generation).
+- `hashes/`: name mappings for types and fields (used during generation). Vendored
+  from [CommunityDragon](https://raw.communitydragon.org/data/hashes/lol/); the
+  source is declared in `hashes/sources.toml` and refreshed with
+  `python3 scripts/update_hashes.py`. See [docs/database.md](docs/database.md#name-resolution-and-unknowns).
 - `docs/`: documentation, including detailed database format notes.
 
 ### Database file

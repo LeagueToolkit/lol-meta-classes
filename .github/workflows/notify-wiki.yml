@@ -1,0 +1,49 @@
+name: Notify Wiki
+
+# Tells LeagueToolkit/lol-meta-wiki that db/meta.db.json moved so it can pull and
+# redeploy right away. Without this the wiki only learns via its own weekly cron
+# (Sun 06:00 UTC), so a mid-week sync sits unpublished for up to six days.
+#
+# Two entry points, because a db/ change arrives two ways and neither covers the
+# other:
+#   - `workflow_call` - the sync workflow calls this directly. Its push runs
+#     under GITHUB_TOKEN, and GitHub deliberately does not raise `push` events
+#     for those, so the trigger below would never see it.
+#   - `push` - a human merging a PR that touches db/meta.db.json, e.g. a
+#     hashtable name-snapshot refresh, which rewrites names across the database
+#     without any dump changing.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'db/meta.db.json'
+
+  workflow_call:
+    secrets:
+      WIKI_DISPATCH_TOKEN:
+        required: true
+
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dispatch meta-db-updated
+        env:
+          GH_TOKEN: ${{ secrets.WIKI_DISPATCH_TOKEN }}
+        run: |
+          set -e
+          gh api repos/LeagueToolkit/lol-meta-wiki/dispatches \
+            --input - <<EOF
+          {
+            "event_type": "meta-db-updated",
+            "client_payload": {
+              "sha": "${{ github.sha }}",
+              "run": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }
+          }
+          EOF
+          echo "Dispatched meta-db-updated to lol-meta-wiki."

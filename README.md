@@ -41,3 +41,17 @@ python3 scripts/dump_meta.py dumps/<version>.json > /tmp/meta.hpp
 
 ### Notes
 - Unknown hashes remain as `0x...` in outputs until mappings exist.
+
+### Acknowledgements
+The original meta dumper was created by [moonshadow](https://github.com/moonshadow565):
+- [lolmetadumper3](https://github.com/moonshadow565/lolmetadumper3)
+- [lolmetadumper2](https://github.com/moonshadow565/lolmetadumper2)
+- [LeagueToolkit/LeagueHashes](https://github.com/LeagueToolkit/LeagueHashes)
+
+This repository is a step up from that work and packs a ton of additions, most
+notably a full devops setup for automatic dumping and syncing of the database
+and hashes.
+
+Credits:
+- Huge thank you to moon for the original project - none of this would be possible otherwise.
+- [CommunityDragon](https://communitydragon.org/) for maintaining their hashtables and keeping track of game files.

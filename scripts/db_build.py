@@ -37,7 +37,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import db_import
-from db_import import read_hashes, read_meta, rehex_fnv1a
+from db_import import read_resolved_hashes, read_meta, rehex_fnv1a
 
 FORMAT_VERSION = 1
 RE_DUMP = re.compile(r"^(\d+)\.(\d+)\.(\d+)\.json$")
@@ -293,8 +293,8 @@ def main():
     print(f"[..] folding {len(dumps)} dumps "
           f"({dumps[0]['patch']}.{dumps[0]['build']} -> {latest['patch']}.{latest['build']})")
 
-    h_types = read_hashes(os.path.join(args.hashes, "hashes.bintypes.txt"))
-    h_fields = read_hashes(os.path.join(args.hashes, "hashes.binfields.txt"))
+    h_types = read_resolved_hashes(args.hashes, "bintypes")
+    h_fields = read_resolved_hashes(args.hashes, "binfields")
 
     classes = build_history(dumps)
     classes_out = finalize(classes, latest["build"], h_types, h_fields)

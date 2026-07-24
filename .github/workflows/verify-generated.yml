@@ -1,0 +1,51 @@
+name: Verify Generated DB
+
+# db/ is a pure function of its committed inputs: dumps/, the upstream hash
+# mirror (hashes/hashes.*.txt), the local overrides (hashes/overrides/), and the
+# build scripts. This check rebuilds db/ from those inputs and fails if the
+# committed db/ doesn't match - so a PR that touches an input (a new dump, a
+# refreshed mirror, or a hand-added override) can't merge without carrying the
+# regenerated db/.
+#
+# db_build.py is pure Python and reads only committed files, so this runs
+# offline in seconds - no dumper build, no network.
+#
+# Make this a required status check in branch protection (and require PRs to
+# main) for the guarantee to hold; without that a direct push can still bypass
+# it.
+
+on:
+  pull_request:
+    paths:
+      - 'dumps/**'
+      - 'hashes/**'
+      - 'scripts/db_build.py'
+      - 'scripts/db_import.py'
+      - 'scripts/dump_meta.py'
+      - '.github/workflows/verify-generated.yml'
+
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Rebuild db/ from committed inputs
+        run: python3 scripts/db_build.py
+
+      - name: Fail if committed db/ is stale
+        run: |
+          if git diff --exit-code -- db/; then
+            echo "db/ is up to date with dumps/ + hashes/."
+          else
+            echo "::error::db/ is out of date. An input under dumps/ or hashes/ changed without regenerating the database. Run 'python3 scripts/db_build.py' locally and commit the db/ diff shown above."
+            exit 1
+          fi

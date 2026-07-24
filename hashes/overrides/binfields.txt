@@ -15,7 +15,6 @@ d8b7cfd7 ActiveIcons
 06d4a62e ActiveTooltip
 8c4da8f8 ActiveTra
 e404f145 ActiveUi
-7b9718c4 AdditionalChannels
 78811384 AdditionalData
 2920447a AdditionalRotation
 c5b58261 AdditionalSettings
@@ -31,7 +30,6 @@ e21f1d86 AllowEmitterRotation
 4cf24bd7 AllowInactive
 2eddea64 AllowedSpells
 302afbcd AllyIndex
-44a9a2c2 AlphaChannel
 3360db7e AlphaCutoff
 e630d0a5 AlphaOnly
 e9faf118 AlphaSliceRange
@@ -69,7 +67,6 @@ d47ce07c BannerFrameData
 a1fa32f0 BirthRandomStartFrame
 cc2ddcc0 BlendData
 bceaaa2a BlockButton
-44956bbc BlueChannel
 c8c453d3 BoardButton
 7c666488 Boards
 625b5b86 BorderColor
@@ -94,7 +91,6 @@ d21ec815 BuffTarget
 801b0cad Buffs
 f61e9624 ButtonTarget
 6166b756 Calculation
-9ebe984e Camera
 dabb5d78 CameraDamping
 e1fb2076 CameraMass
 41dfbe54 CameraPos
@@ -125,15 +121,12 @@ e7e90aee CastShadow
 65b78965 CeremonyLink
 4f0e44f5 ChampionsLayout
 04681146 ChaosSequence
-035431c5 CharacterMesh
 13a1bb9a CharacterProbe
 9bc68be3 ChatRegion
 928eb9b4 CheatList
 d1519ad2 CheckMark
-56849af8 ChildComponent
 1418c47f Chroma
 c3a944e7 ChromaData
-9a1a92b5 ClearColor
 debd7dbe ClientData
 e6f743fc ClippingGuard
 72729cf8 ClockDefinition
@@ -326,14 +319,12 @@ de888209 FunctionOutputs
 bfe15a6a GameModeTemplate
 b4873916 GameTime
 162f520d GameplayRegion
-0f32e8cc GeometryComponent
 19752079 GeometryType
 b9b4d8d7 GoldAmount
 db0e9d5b GoldMax
 b5a4f01e GoldThreshold
 234f4a0c GoldToNextLevelTra
 726ae049 GoldUpgrade
-7ae6487f GreenChannel
 3aaf5ccb GridX
 39af5b38 GridY
 1ad36bf4 GroupElement
@@ -381,7 +372,6 @@ bc6e5ae5 InactiveFrame
 cfdb2d7c Includes
 0ba6f538 IncompleteColor
 3812e73e Increment
-090aa9ab Index
 1d2e3b42 InitialColor
 193b8a8a InitialFramerate
 16037af4 InitialState
@@ -429,7 +419,6 @@ d7150c53 KeysTemplate
 f1cea006 KillOffset
 6611a3fc KillThreshold
 e90c310b L
-e87dbba2 LaneDefinition
 fe87f21e LastHitData
 cebfa3e8 LeaderboardButton
 15b50d34 LeaderboardHighlight
@@ -439,9 +428,6 @@ cfce3637 LevelCard
 78c0fc71 LevelDescription
 6ea8c65e LevelSplash
 55172611 LevelTitle
-055a541d LifetimeComponent
-e29d1e2f Light
-0fb30c27 LightRegion
 db6ea1a7 LinkedPath
 9fb37b48 ListKey
 07f017af Live
@@ -509,9 +495,7 @@ f0ec999e ModuleName
 25883c4e Mutators
 30b1d74a NamePriority
 cee348f4 NamedTeams
-301dab05 NavRegionDef
 6c83351f NeedsPip
-7e5978a5 NeutralCamp
 df76b69e NewValue
 c870eb8b NextGroup
 20c34879 NextIcon
@@ -521,7 +505,6 @@ e6de9f61 Night
 b1c14e0d Node
 186c3198 NodeId
 514e905a Nodes
-8c6b1234 NormalOffsetBias
 70bb674e NotificationVfx
 342dcc43 NumPlayers
 b4222185 ObjectiveVfxs
@@ -623,7 +606,6 @@ e04df972 RarityTag
 edc675ea RarityType
 cb1bebae RecipeDef
 1a35cd0d RecipeTemplate
-2b6a031f RedChannel
 5a81f39a Reference
 bed02ff8 RegionTags
 20079c4c RemoveAll
@@ -660,7 +642,6 @@ c6f4b3f8 RightSource
 9a7587b2 RollTable
 ca62500c RootGroup
 f22f9104 RosterTitle
-3e2cdad7 RoundListOptions
 60cce187 SceneDuration
 5d192820 Scenes
 31a43617 ScoreBreakpoints
@@ -689,7 +670,6 @@ eca4ae5d SelectedClicked
 4ce2d8e5 SelectedInactive
 7dd33afb SelectedPreset
 c0ac6e28 SelectionAvailable
-33fae3fc Selector
 5b45d71e SelfHeader
 c060792d SelfLayout
 890cc538 SequenceLink
@@ -698,7 +678,6 @@ d8c398f2 SeriesBackgroundImageUrl
 9c50fe38 SeriesList
 dfe510ee SetOnStart
 a1d375b5 ShaderModel
-23e7082c ShaderParameters
 5cc8d99c ShadowColor0
 5dc8db2f ShadowColor1
 10087a83 ShadowsEnabled
@@ -766,7 +745,6 @@ f5d0c797 StatLocalizations
 a1832a8c StatValue
 6929e0fa StateDuration
 01e3c21c StateLabel
-2f60f64e StateMachineDef
 779a970d StateTransition
 77f310ef Statemachine
 07ca5f1b StaticFunction
@@ -820,7 +798,6 @@ c44cfe37 TeamsLayout
 59d65fab TextProperty
 67542274 TextureElementType
 dcf71c47 TextureHeight
-b6d29fce TextureResolution
 1f49a52a TextureVictory
 90df3f50 TextureWidth
 a330d712 TierItemType
@@ -864,7 +841,6 @@ acc83ffa UseFistBump
 7b66f15d UseTarget
 e1e591e3 UseText
 e2edf451 VerticalLayout
-1cf263eb VfxComponents
 57826247 VfxData
 df782aae VfxProperty
 8ed2871b VfxResource
@@ -885,19 +861,3 @@ db7ebe91 WipStat6
 df92e232 Zoom
 5ed132d9 ZoomDistance
 d1257b43 ZoomEasing
-82ab734b addressModeU
-83ab74de addressModeV
-84ab7671 addressModeW
-c914b02b bevel
-08f782f8 dataBuffers
-53ec22d9 envMesh
-8f59d48c inheritedTags
-b6887851 maxAnisotropy
-650eb4bb mipFilter
-21bafb31 mipLodBias
-30e1280e navRegion
-e0540d74 samplers
-f43f2e26 shapeData
-b26be7bf sharedDataBuffers
-a90a8855 sharedSamplers
-0ffde771 visionRegion

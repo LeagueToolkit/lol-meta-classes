@@ -150,6 +150,31 @@ def cmd_sort(args):
     return 0
 
 
+def cmd_prune(args):
+    tables = [args.table] if args.table else TABLES
+    total = 0
+    for table in tables:
+        over_path = override_path(args.hashes, table)
+        overrides = load(over_path)
+        # merged_path is the upstream mirror now (overrides aren't baked in), so
+        # an entry the mirror already resolves to the same name is dead weight.
+        mirror = load(merged_path(args.hashes, table))
+        redundant = {h: n for h, n in overrides.items() if mirror.get(h) == n}
+        if not redundant:
+            print(f"[ok] {over_path}: no redundant entries")
+            continue
+        kept = {h: n for h, n in overrides.items() if h not in redundant}
+        write_if_changed(over_path, render(kept))
+        total += len(redundant)
+        print(f"[prune] {table}: removed {len(redundant)} now served by upstream, "
+              f"{len(kept)} remain")
+        if args.verbose:
+            for h, n in sorted(redundant.items(), key=lambda kv: (kv[1], kv[0])):
+                print(f"    - {h} {n}")
+    print(f"[ok] pruned {total} redundant override(s)")
+    return 0
+
+
 def cmd_lookup(args):
     query = args.query
     hit = False
@@ -234,6 +259,11 @@ def main():
     p = sub.add_parser("sort", help="renormalize override file(s) in place")
     p.add_argument("table", nargs="?", help="bintypes | binfields (default both)")
     p.set_defaults(func=cmd_sort)
+
+    p = sub.add_parser("prune", help="drop overrides upstream now serves identically")
+    p.add_argument("table", nargs="?", help="bintypes | binfields (default both)")
+    p.add_argument("-v", "--verbose", action="store_true", help="list what was removed")
+    p.set_defaults(func=cmd_prune)
 
     p = sub.add_parser("lookup", help="resolve a hash or a name against the merged tables")
     p.add_argument("query")

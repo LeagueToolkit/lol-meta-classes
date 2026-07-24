@@ -63,15 +63,23 @@ The CI builds with `--target x86_64-unknown-linux-gnu`, placing binaries in `tar
 - `dumps/`: JSON metaclass dumps per version (the raw source of truth)
 - `db/meta.db.json`: Generated, versioned history of every class/property across all dumps (see `docs/meta-db-format.md`)
 - `db/database.py`: Generated, diff-friendly snapshot of the latest build only
-- `hashes/hashes.bintypes.txt`: Type hash → name mappings
-- `hashes/hashes.binfields.txt`: Field hash → name mappings
+- `hashes/hashes.bintypes.txt` / `hashes/hashes.binfields.txt`: exact mirrors of the upstream CDragon tables (type/field hash → name). Only `update_hashes.py` writes them.
+- `hashes/overrides/{bintypes,binfields}.txt`: local cracks upstream doesn't have. **Not** baked into the mirror above - layered on top at build time by `read_resolved_hashes` (db_import.py), so the two diff independently.
 
 ## Scripts
 
 ```bash
 # Rebuild db/meta.db.json + db/database.py from all dumps
+# (reads the upstream mirror + overrides; fully offline)
 python3 scripts/db_build.py
 
 # Convert dump to C++-like structs
 python3 scripts/dump_meta.py dumps/<version>.json > /tmp/meta.hpp
+
+# Refresh the upstream mirror from CDragon (network; opens a reviewed PR in CI)
+python3 scripts/update_hashes.py
+
+# Hash-table maintenance: fnv / add / sort / lookup / check
+python3 scripts/hashtool.py add bintypes SomeCrackedClassName
+python3 scripts/hashtool.py check names.txt
 ```

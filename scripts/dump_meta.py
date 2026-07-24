@@ -14,6 +14,16 @@ def readhashes(filename):
         lines = [ x.rstrip().split(' ') for x in inf.readlines() ]
         return { hex(int(h, 16)) : v for h, v in lines }
 
+def read_resolved_hashes(hashes_dir, table):
+    """Vendored upstream mirror (hashes.<table>.txt) overlaid with local cracks
+    (overrides/<table>.txt); an override wins on collision. Matches
+    db_import.read_resolved_hashes - the blend is joined at use, not on disk."""
+    names = readhashes(os.path.join(hashes_dir, f"hashes.{table}.txt"))
+    override_path = os.path.join(hashes_dir, "overrides", f"{table}.txt")
+    if os.path.exists(override_path):
+        names.update(readhashes(override_path))
+    return names
+
 def read_meta(filename):
     def convert_type(t, is_old):
         if t == None: return None
@@ -311,8 +321,8 @@ def dump(klasses, outf, filterf = None):
             dump_klass(klasses, khash, klass, outf)
 
 if __name__ == '__main__':
-    h_fields = readhashes(f"hashes/hashes.binfields.txt")
-    h_types = readhashes(f"hashes/hashes.bintypes.txt")
+    h_fields = read_resolved_hashes("hashes", "binfields")
+    h_types = read_resolved_hashes("hashes", "bintypes")
     meta_klasses = read_meta(sys.argv[1])
     unktypes = set()
     unkfields = set()

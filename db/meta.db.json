@@ -1,6 +1,6 @@
 {
 "formatVersion": 1,
-"hashSource": {"fetchedAt":"2026-07-20T09:46:58Z","bintypes":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt","entries":3820},"binfields":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt","entries":10302}},
+"hashSource": {"fetchedAt":"2026-07-24T15:04:02Z","bintypes":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt","entries":3683},"binfields":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt","entries":9439}},
 "latest": 7915903,
 "versions": [
 {"patch":"13.15","build":5229820},
@@ -1172,7 +1172,7 @@
  "0xc1be745d": {"name":"ExecuteBar","revisions":[{"from":6877272,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf9e1dd39": {"name":"icons","revisions":[{"from":5304653,"type":["Pointer","0x0","0x0","0x48184113"],"default":null}]}
 }},
-"0x70cf2e7": {"revisions": [{"from":7794239,"bases":["0xbe07ec3f"],"interface":true,"value":false}], "properties": {
+"0x70cf2e7": {"name": "InputEventBoolKeybind", "revisions": [{"from":7794239,"bases":["0xbe07ec3f"],"interface":true,"value":false}], "properties": {
  "0xf248d989": {"name":"InputEvent","revisions":[{"from":7794239,"type":["Link","0x0","0x0","0x5a51d019"]}]}
 }},
 "0x70e3593": {"name": "GameCalculationModified", "revisions": [{"from":5229820,"bases":["0x17373233"],"interface":false,"value":false}], "properties": {
@@ -1239,7 +1239,7 @@
  "0x6bfae91c": {"name":"SimulationFrames","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x754a85a6": {"name":"Cycles","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x79b4930": {"revisions": [{"from":7695709,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x79b4930": {"name": "ModesQuestTrackerViewController", "revisions": [{"from":7695709,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x386e926b": {"revisions":[{"from":7695709,"type":["U32","0x0","0x0","0x0"],"default":2}]},
  "0x3bd9d6f4": {"revisions":[{"from":7747445,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
  "0x4d302530": {"name":"MainScene","revisions":[{"from":7695709,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -2416,7 +2416,7 @@
 "0x109a4b6c": {"name": "GetModePreloadFlags", "revisions": [{"from":5437084,"bases":["0xe3c4beb7"],"interface":false,"value":false}], "properties": {
  "0xe8b74712": {"name":"ModePreloadFlags","revisions":[{"from":5437084,"type":["Embed","0x0","0x0","0x278cc982"],"default":{"Table":{},"Var":""}}]}
 }},
-"0x109d1833": {"revisions": [{"from":6421879,"to":7480682,"bases":["0x827227f3"],"interface":false,"value":false}], "properties": {
+"0x109d1833": {"name": "MonarchItemProperties", "revisions": [{"from":6421879,"to":7480682,"bases":["0x827227f3"],"interface":false,"value":false}], "properties": {
  "0x11de6cdc": {"name":"properties","revisions":[{"from":6421879,"to":7480682,"type":["List2","0x0","Pointer","0x3e149034"],"default":[]}]}
 }},
 "0x10a4976a": {"revisions": [{"from":7102027,"bases":[],"interface":true,"value":false}], "properties": {
@@ -2897,7 +2897,7 @@
  "0x95f72993": {"name":"tag","revisions":[{"from":7102027,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null}]},
  "0xd33ff5da": {"name":"Entity","revisions":[{"from":7102027,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
-"0x15000a12": {"revisions": [{"from":6161179,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x15000a12": {"name": "MonarchCraftingViewController", "revisions": [{"from":6161179,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x52a15d4": {"revisions":[{"from":6161179,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x1a35cd0d": {"name":"RecipeTemplate","revisions":[{"from":6161179,"to":7480682,"type":["Embed","0x0","0x0","0x1f3b373c"],"default":{"0xe209c13c":{"components":"0x0","FavoriteButton":"0x0","CraftButton":"0x0","Products":"0x0","0x8471f912":"0x0","0x881d46f":"0x0","0x9afa36b":"0x0","RootGroup":"0x0","0xeae7ff9e":"0x0"}}}]},
  "0x3f19432c": {"name":"BaseLoadable","revisions":[{"from":6161179,"to":6781456,"type":["Link","0x0","0x0","0xe0d5fc7e"],"default":"0x0"}]},
@@ -3060,7 +3060,7 @@
  "0x5dc8db2f": {"name":"ShadowColor1","revisions":[{"from":6774704,"type":["Color","0x0","0x0","0x0"],"default":[255,255,255,255]}]},
  "0x6d0fa515": {"name":"thickness","revisions":[{"from":6774704,"type":["F32","0x0","0x0","0x0"],"default":1.0}]}
 }},
-"0x165c0117": {"revisions": [{"from":7027993,"bases":["0x7971fbee"],"interface":false,"value":false}], "properties": {
+"0x165c0117": {"name": "OptionItemControlSelectionSettings", "revisions": [{"from":7027993,"bases":["0x7971fbee"],"interface":false,"value":false}], "properties": {
  "0x694aaa0b": {"name":"template","revisions":[{"from":7027993,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x165cc655": {"revisions": [{"from":5276396,"to":5290642,"bases":["0x5c108a08"],"interface":false,"value":false}], "properties": {
@@ -3077,7 +3077,7 @@
  "0xe785cbfc": {"name":"EventPassCompletedFrame","revisions":[{"from":5516065,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xed10fe9a": {"revisions":[{"from":5516065,"type":["Embed","0x0","0x0","0x627faf1d"],"default":{"ProgressBarDelayTime":0.0,"MeterEasingType":0,"ExpText":"0x0","NormalSkin":{"TipElements":[],"ReverseDirectionalTipElements":[],"Sliver":"0x0","BarElements":[],"0xb5df893e":[]},"XpValueToSegmentIndex":[],"LevelText":"0x0","ShowLevelUp":false,"BarVfxGroup":"0x0","LevelUpVfxGroup":"0x0","ProgressMeterSegments":[],"ProgressMeter":"0x0","BonusSkin":{"TipElements":[],"ReverseDirectionalTipElements":[],"Sliver":"0x0","BarElements":[],"0xb5df893e":[]},"MeterTransitionTimeSecs":0.0}}]}
 }},
-"0x166b5a5a": {"revisions": [{"from":6804378,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
+"0x166b5a5a": {"name": "MonarchTeamConfig", "revisions": [{"from":6804378,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
  "0xf4488f1": {"revisions":[{"from":6804378,"to":7016241,"type":["Link","0x0","0x0","0x5784d4c7"],"default":"0x0"}]},
  "0x3434677d": {"revisions":[{"from":7027993,"to":7190545,"type":["Link","0x0","0x0","0x2b949af2"],"default":"0x0"},{"from":7200925,"to":7480682,"type":["Link","0x0","0x0","0x40a9c74a"],"default":"0x0"}]}
 }},
@@ -3217,7 +3217,7 @@
  "0x3d0e8767": {"revisions":[{"from":6950646,"to":7480682,"type":["List2","0x0","Link","0x887d948d"],"default":[]}]},
  "0x6a9bc5c4": {"revisions":[{"from":6950646,"to":7480682,"type":["Embed","0x0","0x0","0x64be4d61"],"default":{"0xbb9be826":[],"ExcludeTags":[],"RequiredTags":[]}}]}
 }},
-"0x178d150b": {"revisions": [{"from":7538272,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x178d150b": {"name": "BattlegroundsTeamHealthViewController", "revisions": [{"from":7538272,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x2063cb13": {"name":"Scene","revisions":[{"from":7538272,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x9d12fe2e": {"revisions":[{"from":7538272,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xecc8235f": {"revisions":[{"from":7643737,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -3547,7 +3547,7 @@
  "0x341a92b5": {"name":"TeamDefinition","revisions":[{"from":7345787,"to":7345787,"type":["Link","0x0","0x0","0x341a92b5"],"default":"0x0"},{"from":7371049,"type":["Link","0x0","0x0","0x341a92b5"],"default":"0x0"}]},
  "0xa2fd7d0c": {"name":"Team","revisions":[{"from":7345787,"to":7345787,"type":["U32","0x0","0x0","0x0"],"default":100},{"from":7371049,"type":["U32","0x0","0x0","0x0"],"default":100}]}
 }},
-"0x1b2711f4": {"revisions": [{"from":7695709,"to":7829736,"bases":["0x2610a4a3"],"interface":true,"value":false}], "properties": {
+"0x1b2711f4": {"name": "ClientStateTFTPreGameUI", "revisions": [{"from":7695709,"to":7829736,"bases":["0x2610a4a3"],"interface":true,"value":false}], "properties": {
 }},
 "0x1b3a73f0": {"revisions": [{"from":6950646,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2f69cf6": {"name":"BannerGroup","revisions":[{"from":6950646,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -3609,7 +3609,7 @@
  "0xc67f5ef5": {"name":"HoverRegion","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xcd880326": {"name":"HighlightIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x1bf2060f": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x1bf2060f": {"name": "ParamsItemConsumedPurchased", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x1bfa3a9f": {"name": "DirectionAim", "revisions": [{"from":5229820,"bases":["0x7fcf3f30"],"interface":false,"value":false}], "properties": {
 }},
@@ -3637,7 +3637,7 @@
 "0x1c23f02c": {"revisions": [{"from":7643737,"bases":["0x3ff90079"],"interface":false,"value":false}], "properties": {
  "0xbe2133eb": {"revisions":[{"from":7643737,"type":["Link","0x0","0x0","0x83cccb6d"],"default":"0x0"}]}
 }},
-"0x1c315cd8": {"revisions": [{"from":7794239,"bases":["0xbe07ec3f"],"interface":true,"value":false}], "properties": {
+"0x1c315cd8": {"name": "InputEvent2AxisKeybind", "revisions": [{"from":7794239,"bases":["0xbe07ec3f"],"interface":true,"value":false}], "properties": {
  "0xf248d989": {"name":"InputEvent","revisions":[{"from":7794239,"type":["Link","0x0","0x0","0xa3f1520"]}]}
 }},
 "0x1c3ab3f1": {"revisions": [{"from":7426169,"bases":["0x2508c71e"],"interface":false,"value":false}], "properties": {
@@ -5341,7 +5341,7 @@
  "0xdf2b45ce": {"name":"IsEnabled","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xdfe787c4": {"name":"IsSelected","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
-"0x25ef31db": {"revisions": [{"from":6085125,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x25ef31db": {"name": "MonarchCameraSettings", "revisions": [{"from":6085125,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x44c31dc": {"revisions":[{"from":6877272,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x5bc420d": {"revisions":[{"from":6085125,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":0.20000000298023224}]},
  "0x684f780": {"revisions":[{"from":6085125,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":0.10000000149011612}]},
@@ -5406,7 +5406,7 @@
  "0xea2fb958": {"revisions":[{"from":6804378,"to":7480682,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xf1381710": {"revisions":[{"from":7067412,"to":7067412,"type":["Bool","0x0","0x0","0x0"],"default":true},{"from":7079808,"to":7480682,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
-"0x2610a4a3": {"revisions": [{"from":7695709,"to":7765552,"bases":["0x5afcc38b"],"interface":true,"value":false},{"from":7794239,"to":7829736,"bases":["0xeff5c6e9"],"interface":true,"value":false}], "properties": {
+"0x2610a4a3": {"name": "ClientState", "revisions": [{"from":7695709,"to":7765552,"bases":["0x5afcc38b"],"interface":true,"value":false},{"from":7794239,"to":7829736,"bases":["0xeff5c6e9"],"interface":true,"value":false}], "properties": {
 }},
 "0x2610e5a7": {"name": "TftArmorySlotData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x14541cac": {"name":"ItemFootprintSelectedVfx","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -5513,7 +5513,7 @@
  "0x533e8106": {"name":"Operation","revisions":[{"from":6841658,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xce5ef3cc": {"name":"VisibilityFlags","revisions":[{"from":6841658,"type":["U8","0x0","0x0","0x0"],"default":255}]}
 }},
-"0x2682f3f6": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x2682f3f6": {"name": "DamageShieldedParams", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x26868b0f": {"name": "TFTStreak", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0xaf41a3d2": {"name":"mMinimumStreakLength","revisions":[{"from":5229820,"type":["Option","0x0","U32","0x0"],"default":0}]},
@@ -5547,7 +5547,7 @@
  "0x4d302530": {"name":"MainScene","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xde9583a3": {"name":"TotalDurationSecs","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0x26b76506": {"revisions": [{"from":7231955,"bases":["0x3fc15f90"],"interface":false,"value":false}], "properties": {
+"0x26b76506": {"name": "RoleBoundQuestSelectionViewController", "revisions": [{"from":7231955,"bases":["0x3fc15f90"],"interface":false,"value":false}], "properties": {
  "0xb486cf62": {"revisions":[{"from":7300505,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xc918e952": {"revisions":[{"from":7300505,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
@@ -5606,7 +5606,7 @@
 }},
 "0x27470ba6": {"revisions": [{"from":7794239,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
-"0x274916b2": {"revisions": [{"from":6509216,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x274916b2": {"name": "MonarchTierRecipeModifier", "revisions": [{"from":6509216,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x5d90c3c": {"revisions":[{"from":6509216,"to":7480682,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x8f53a05f": {"revisions":[{"from":6509216,"to":7480682,"type":["Link","0x0","0x0","0xf0dd85e8"],"default":"0x0"}]}
 }},
@@ -5759,7 +5759,7 @@
  "0xdefe5eb0": {"name":"Tooltip","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xe3af402a"],"default":{"TimeTextHandle":"0x0","ReplayEventLineBaseIcons":{"FrameLeft":"0x0","TeamHighlight0":"0x0","TeamHighlight1":"0x0","IconLeft":"0x0","FrameCenter":"0x0","IconCenter":"0x0","IconKill":"0x0","IconRight":"0x0","FrameRight":"0x0"},"EventBackdrop":"0x0","TimeBackdropHandle":"0x0","SceneHandle":"0x0"}}]},
  "0xf682bece": {"name":"SliderBackdrop","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x2839cc82": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x2839cc82": {"name": "ParamsDamage", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x285023cf": {"name": "RecSpellRecommendations", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x5933da7e": {"name":"RecSpellRankUpInfolist","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -6158,7 +6158,7 @@
 "0x2b90bac6": {"revisions": [{"from":6359815,"to":7480682,"bases":["0x3e149034"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":6359815,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0x2b949af2": {"revisions": [{"from":7027993,"to":7190545,"bases":["0x9ef09bad","0xd738f7c9"],"interface":true,"value":false}], "properties": {
+"0x2b949af2": {"name": "GameEntityPrefab", "revisions": [{"from":7027993,"to":7190545,"bases":["0x9ef09bad","0xd738f7c9"],"interface":true,"value":false}], "properties": {
  "0x8d39bde6": {"name":"name","revisions":[{"from":7027993,"to":7190545,"type":["Hash","0x0","0x0","0x0"]}]},
  "0x9e5c6a2c": {"revisions":[{"from":7027993,"to":7190545,"type":["Hash","0x0","0x0","0x0"]}]},
  "0xbbe68da1": {"revisions":[{"from":7027993,"to":7190545,"type":["Bool","0x0","0x0","0x0"]}]}
@@ -6282,7 +6282,7 @@
  "0x6849532d": {"name":"BasicHoverRegion","revisions":[{"from":5798615,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x732aab4c": {"name":"BasicStatName","revisions":[{"from":5798615,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x2cc33a4b": {"revisions": [{"from":6841658,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x2cc33a4b": {"name": "CombatOverviewViewController", "revisions": [{"from":6841658,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x2d5f962": {"name":"MenuToggleScene","revisions":[{"from":6841658,"to":7085788,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x3062cfa": {"revisions":[{"from":6841658,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x47483a1": {"name":"EnemyLayout","revisions":[{"from":6877272,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -6326,7 +6326,7 @@
 }},
 "0x2cdc6a27": {"name": "LineTargetToCaster", "revisions": [{"from":5229820,"bases":["0x7fcf3f30"],"interface":false,"value":false}], "properties": {
 }},
-"0x2cfe8421": {"revisions": [{"from":6048769,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x2cfe8421": {"name": "MonarchKeybindSet", "revisions": [{"from":6048769,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x82d6dcb0": {"name":"Keybinds","revisions":[{"from":6048769,"to":7480682,"type":["List2","0x0","Pointer","0x9f6bccee"],"default":[]}]},
  "0x89ba4a26": {"name":"ControlSet","revisions":[{"from":6048769,"to":7480682,"type":["Link","0x0","0x0","0xf21128e4"],"default":"0x0"}]},
  "0xda433208": {"revisions":[{"from":6048769,"to":7480682,"type":["Link","0x0","0x0","0x2cfe8421"],"default":"0x0"}]}
@@ -6437,7 +6437,7 @@
 }},
 "0x2e1cea4f": {"revisions": [{"from":7584427,"bases":["0x4ca99280"],"interface":true,"value":false}], "properties": {
 }},
-"0x2e25285f": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x2e25285f": {"name": "ParamsDamageAttempt", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x2e69c9a2": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
@@ -6586,7 +6586,7 @@
  "0xc93f9c4d": {"name":"SplashPath","revisions":[{"from":6318255,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xf6ec748b": {"name":"VideoPath","revisions":[{"from":6161179,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x2fdd059c": {"revisions": [{"from":6359815,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x2fdd059c": {"name": "MonarchItemStat", "revisions": [{"from":6359815,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0xa1832a8c": {"name":"StatValue","revisions":[{"from":6359815,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xdefe5eb0": {"name":"Tooltip","revisions":[{"from":6359815,"to":7480682,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
@@ -6834,7 +6834,7 @@
 "0x318f8d72": {"revisions": [{"from":6950646,"bases":["0x62113c15"],"interface":false,"value":false}], "properties": {
  "0x1e1bd0c9": {"revisions":[{"from":6950646,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0x3190042a": {"revisions": [{"from":6649480,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x3190042a": {"name": "MonarchInteractRequirement", "revisions": [{"from":6649480,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x1987941": {"name":"Requirements","revisions":[{"from":6649480,"to":6750010,"type":["List2","0x0","Pointer","0x5c71eb26"],"default":[]},{"from":6774704,"to":7480682,"type":["List2","0x0","Pointer","0x7992a72c"],"default":[]}]},
  "0x2dd0c39d": {"revisions":[{"from":6774704,"to":7480682,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
  "0x869677ee": {"revisions":[{"from":6774704,"to":7480682,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
@@ -6981,7 +6981,7 @@
  "0xdd0d2e93": {"name":"ItemIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xee425ddc": {"revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x326fe4b8": {"revisions": [{"from":6012857,"to":6034237,"bases":["0x6ff8b2a7"],"interface":false,"value":false},{"from":6048769,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x326fe4b8": {"name": "MonarchInputUpdater", "revisions": [{"from":6012857,"to":6034237,"bases":["0x6ff8b2a7"],"interface":false,"value":false},{"from":6048769,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x5f841716": {"revisions":[{"from":6048769,"to":7480682,"type":["Link","0x0","0x0","0x2cfe8421"],"default":"0x0"}]},
  "0x6476eef4": {"revisions":[{"from":7102027,"to":7480682,"type":["Link","0x0","0x0","0xa3f1520"],"default":"0x0"}]},
  "0x6cb6c4fd": {"revisions":[{"from":7102027,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -7117,7 +7117,7 @@
  "0x472fe791": {"name":"queues","revisions":[{"from":7794239,"type":["List2","0x0","Link","0x9bc919f2"],"default":[]}]},
  "0x9346aa18": {"revisions":[{"from":7695709,"to":7765552,"type":["List2","0x0","Link","0x9bc919f2"],"default":[]}]}
 }},
-"0x3401293a": {"revisions": [{"from":6649480,"to":7480682,"bases":["0x1375d0b"],"interface":false,"value":false}], "properties": {
+"0x3401293a": {"name": "MonarchInteractComponentData", "revisions": [{"from":6649480,"to":7480682,"bases":["0x1375d0b"],"interface":false,"value":false}], "properties": {
  "0x9a61ffcf": {"revisions":[{"from":6649480,"to":7480682,"type":["Pointer","0x0","0x0","0x5a331a0c"],"default":null}]}
 }},
 "0x3402fe40": {"name": "TargeterDefinitionLine", "revisions": [{"from":5229820,"bases":["0x4c35e652"],"interface":false,"value":false}], "properties": {
@@ -7436,7 +7436,7 @@
  "0xcd3e6ad5": {"name":"DoneVotingTitleTra","revisions":[{"from":5639790,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xf5b8026a": {"name":"TitleText","revisions":[{"from":5639790,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x36aa243a": {"revisions": [{"from":6206549,"to":6724034,"bases":["0x1f6455ec"],"interface":false,"value":false},{"from":6738244,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x36aa243a": {"name": "MonarchRecipeComponentData", "revisions": [{"from":6206549,"to":6724034,"bases":["0x1f6455ec"],"interface":false,"value":false},{"from":6738244,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x40e1113a": {"revisions":[{"from":6206549,"to":7480682,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x926f1d7a": {"revisions":[{"from":6738244,"to":7480682,"type":["Pointer","0x0","0x0","0x645e288b"],"default":null}]},
  "0x9f3833e6": {"name":"Item","revisions":[{"from":6738244,"to":7480682,"type":["Link","0x0","0x0","0x887d948d"],"default":"0x0"}]},
@@ -7548,7 +7548,7 @@
  "0xef286ca5": {"name":"options","revisions":[{"from":6804378,"type":["List2","0x0","Pointer","0xb98830a1"],"default":[]}]},
  "0xf416eba0": {"name":"tags","revisions":[{"from":7496037,"to":7527101,"type":["List2","0x0","Link","0x122e1f0a"],"default":[]}]}
 }},
-"0x3794d4a2": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x3794d4a2": {"name": "ParamsItemUndo", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x37a8385c": {"name": "UiExpandableUnitStatsData", "revisions": [{"from":5837922,"bases":[],"interface":false,"value":true}], "properties": {
  "0x1f6a28a3": {"name":"ItemSlots","revisions":[{"from":5837922,"type":["Embed","0x0","0x0","0xeb259ae3"],"default":{"Item6":{"AmmoFx":"0x0","OverlayDisabled":"0x0","CompleteFx":"0x0","0x42522ee4":{},"0x42a45c9c":"0x0","ToggleFx":"0x0","HotkeyText":"0x0","BorderEnabled":"0x0","0x7b2ad5af":"0x0","BorderDisabled":"0x0","OverlayOom":"0x0","Backdrop":"0x0","0xb3e1c78a":"0x0","BorderDefault":"0x0","HitArea":"0x0","BorderSelected":"0x0","NewItemFx":"0x0","OverlayLoc":"0x0","0xd56f4129":"0x0","StackText":"0x0","Icon":"0x0","OverlayHover":"0x0","CooldownEffects":{"RadialEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","CooldownCompleteEffect":"0x0"},"MajorActive":"0x0"},"Item4":{"AmmoFx":"0x0","OverlayDisabled":"0x0","CompleteFx":"0x0","0x42522ee4":{},"0x42a45c9c":"0x0","ToggleFx":"0x0","HotkeyText":"0x0","BorderEnabled":"0x0","0x7b2ad5af":"0x0","BorderDisabled":"0x0","OverlayOom":"0x0","Backdrop":"0x0","0xb3e1c78a":"0x0","BorderDefault":"0x0","HitArea":"0x0","BorderSelected":"0x0","NewItemFx":"0x0","OverlayLoc":"0x0","0xd56f4129":"0x0","StackText":"0x0","Icon":"0x0","OverlayHover":"0x0","CooldownEffects":{"RadialEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","CooldownCompleteEffect":"0x0"},"MajorActive":"0x0"},"Item5":{"AmmoFx":"0x0","OverlayDisabled":"0x0","CompleteFx":"0x0","0x42522ee4":{},"0x42a45c9c":"0x0","ToggleFx":"0x0","HotkeyText":"0x0","BorderEnabled":"0x0","0x7b2ad5af":"0x0","BorderDisabled":"0x0","OverlayOom":"0x0","Backdrop":"0x0","0xb3e1c78a":"0x0","BorderDefault":"0x0","HitArea":"0x0","BorderSelected":"0x0","NewItemFx":"0x0","OverlayLoc":"0x0","0xd56f4129":"0x0","StackText":"0x0","Icon":"0x0","OverlayHover":"0x0","CooldownEffects":{"RadialEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","CooldownCompleteEffect":"0x0"},"MajorActive":"0x0"},"Item2":{"AmmoFx":"0x0","OverlayDisabled":"0x0","CompleteFx":"0x0","0x42522ee4":{},"0x42a45c9c":"0x0","ToggleFx":"0x0","HotkeyText":"0x0","BorderEnabled":"0x0","0x7b2ad5af":"0x0","BorderDisabled":"0x0","OverlayOom":"0x0","Backdrop":"0x0","0xb3e1c78a":"0x0","BorderDefault":"0x0","HitArea":"0x0","BorderSelected":"0x0","NewItemFx":"0x0","OverlayLoc":"0x0","0xd56f4129":"0x0","StackText":"0x0","Icon":"0x0","OverlayHover":"0x0","CooldownEffects":{"RadialEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","CooldownCompleteEffect":"0x0"},"MajorActive":"0x0"},"Item3":{"AmmoFx":"0x0","OverlayDisabled":"0x0","CompleteFx":"0x0","0x42522ee4":{},"0x42a45c9c":"0x0","ToggleFx":"0x0","HotkeyText":"0x0","BorderEnabled":"0x0","0x7b2ad5af":"0x0","BorderDisabled":"0x0","OverlayOom":"0x0","Backdrop":"0x0","0xb3e1c78a":"0x0","BorderDefault":"0x0","HitArea":"0x0","BorderSelected":"0x0","NewItemFx":"0x0","OverlayLoc":"0x0","0xd56f4129":"0x0","StackText":"0x0","Icon":"0x0","OverlayHover":"0x0","CooldownEffects":{"RadialEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","CooldownCompleteEffect":"0x0"},"MajorActive":"0x0"},"Item0":{"AmmoFx":"0x0","OverlayDisabled":"0x0","CompleteFx":"0x0","0x42522ee4":{},"0x42a45c9c":"0x0","ToggleFx":"0x0","HotkeyText":"0x0","BorderEnabled":"0x0","0x7b2ad5af":"0x0","BorderDisabled":"0x0","OverlayOom":"0x0","Backdrop":"0x0","0xb3e1c78a":"0x0","BorderDefault":"0x0","HitArea":"0x0","BorderSelected":"0x0","NewItemFx":"0x0","OverlayLoc":"0x0","0xd56f4129":"0x0","StackText":"0x0","Icon":"0x0","OverlayHover":"0x0","CooldownEffects":{"RadialEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","CooldownCompleteEffect":"0x0"},"MajorActive":"0x0"},"Item1":{"AmmoFx":"0x0","OverlayDisabled":"0x0","CompleteFx":"0x0","0x42522ee4":{},"0x42a45c9c":"0x0","ToggleFx":"0x0","HotkeyText":"0x0","BorderEnabled":"0x0","0x7b2ad5af":"0x0","BorderDisabled":"0x0","OverlayOom":"0x0","Backdrop":"0x0","0xb3e1c78a":"0x0","BorderDefault":"0x0","HitArea":"0x0","BorderSelected":"0x0","NewItemFx":"0x0","OverlayLoc":"0x0","0xd56f4129":"0x0","StackText":"0x0","Icon":"0x0","OverlayHover":"0x0","CooldownEffects":{"RadialEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","CooldownCompleteEffect":"0x0"},"MajorActive":"0x0"}}}]},
@@ -8140,7 +8140,7 @@
 "0x3e06357d": {"name": "MissileGroupSpawnerSpec", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x82f13684": {"name":"mChildMissileSpell","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0x5e7e5a06"],"default":"0x0"}]}
 }},
-"0x3e149034": {"revisions": [{"from":6359815,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
+"0x3e149034": {"name": "MonarchPropertyGet", "revisions": [{"from":6359815,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
  "0x6815c86c": {"name":"Key","revisions":[{"from":6359815,"to":7480682,"type":["Pointer","0x0","0x0","0x4cc1ed12"]}]}
 }},
 "0x3e265091": {"revisions": [{"from":5516065,"bases":[],"interface":true,"value":false}], "properties": {
@@ -9111,7 +9111,7 @@
  "0x629094b5": {"name":"CustomTooltip","revisions":[{"from":6841658,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x747e99c6": {"revisions":[{"from":6841658,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x448275ed": {"revisions": [{"from":6275678,"to":6804378,"bases":["0x856ba9bc"],"interface":false,"value":false}], "properties": {
+"0x448275ed": {"name": "MonarchRoundsViewController", "revisions": [{"from":6275678,"to":6804378,"bases":["0x856ba9bc"],"interface":false,"value":false}], "properties": {
  "0x14f72c9": {"name":"TimerText","revisions":[{"from":6275678,"to":6804378,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x2063cb13": {"name":"Scene","revisions":[{"from":6275678,"to":6804378,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x2cc9ea0f": {"name":"LeftPhaseIcons","revisions":[{"from":6275678,"to":6804378,"type":["List","0x3","Embed","0x43aaf187"],"default":[{"0x39b2057a":"0x0","PhaseIcon":"0x0","PhaseHitRegion":"0x0"},{"0x39b2057a":"0x0","PhaseIcon":"0x0","PhaseHitRegion":"0x0"},{"0x39b2057a":"0x0","PhaseIcon":"0x0","PhaseHitRegion":"0x0"}]}]},
@@ -9328,7 +9328,7 @@
  "0xb832d57c": {"name":"ButtonPrev","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf21aa4eb": {"name":"SlideTransitionSecs","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.20000000298023224}]}
 }},
-"0x46958bc2": {"revisions": [{"from":7695709,"to":7829736,"bases":["0x2610a4a3"],"interface":true,"value":false}], "properties": {
+"0x46958bc2": {"name": "ClientStateCommon", "revisions": [{"from":7695709,"to":7829736,"bases":["0x2610a4a3"],"interface":true,"value":false}], "properties": {
 }},
 "0x46a048a9": {"revisions": [{"from":6950646,"bases":["0xc6674208"],"interface":false,"value":false}], "properties": {
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":6950646,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -9424,7 +9424,7 @@
 }},
 "0x47e340fa": {"name": "GameEntityOnEnterAlive", "revisions": [{"from":6421879,"to":6972104,"bases":["0x4e8d1d3e"],"interface":false,"value":false}], "properties": {
 }},
-"0x47f0573d": {"revisions": [{"from":6359815,"to":7480682,"bases":["0xc657a95d"],"interface":false,"value":false}], "properties": {
+"0x47f0573d": {"name": "MonarchItemStats", "revisions": [{"from":6359815,"to":7480682,"bases":["0xc657a95d"],"interface":false,"value":false}], "properties": {
  "0x6a311cec": {"name":"Stats","revisions":[{"from":6359815,"to":7480682,"type":["List2","0x0","Embed","0x2fdd059c"],"default":[]}]}
 }},
 "0x47f13ab0": {"revisions": [{"from":6421879,"bases":[],"interface":false,"value":false}], "properties": {
@@ -10030,7 +10030,7 @@
  "0x95876e1f": {"name":"Width","revisions":[{"from":6614445,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xf7fe534f": {"revisions":[{"from":6614445,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x4d85133e": {"revisions": [{"from":7102027,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x4d85133e": {"name": "MonarchAnnouncementsViewController", "revisions": [{"from":7102027,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0xf087db8": {"name":"ItemSceneTemplate","revisions":[{"from":7102027,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x38db73ae": {"name":"MessageTemplate","revisions":[{"from":7102027,"to":7480682,"type":["Embed","0x0","0x0","0x6a0a0a99"],"default":{"SlotArea":"0x0","0x87d3fa93":"0x0","0xa0e9b9b4":"0x0","0xa5987244":"0x0","0xa60fc46e":"0x0","Text":"0x0","Icon":"0x0"}}]},
  "0x6e341eba": {"name":"MessageDisplayData","revisions":[{"from":7102027,"to":7480682,"type":["Embed","0x0","0x0","0x4ba7e6b5"],"default":{"messageCount":4,"MessageDurationSecs":5.0,"TransitionIn":{"TransitionTime":0.10000000149011612,"EasingType":0,"minAlpha":0,"maxAlpha":255,"TransitionStartDelaySecs":0.0},"0xf13367cf":false}}]}
@@ -10485,7 +10485,7 @@
  "0xc7f06b74": {"revisions":[{"from":5329749,"to":5369576,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xd37f09b9": {"revisions":[{"from":5329749,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
-"0x51361676": {"revisions": [{"from":7067412,"to":7067412,"bases":["0xd0754dc9"],"interface":false,"value":false},{"from":7079808,"to":7480682,"bases":["0xd0754dc9"],"interface":false,"value":false}], "properties": {
+"0x51361676": {"name": "MonarchMegaMapViewController", "revisions": [{"from":7067412,"to":7067412,"bases":["0xd0754dc9"],"interface":false,"value":false},{"from":7079808,"to":7480682,"bases":["0xd0754dc9"],"interface":false,"value":false}], "properties": {
  "0x1a9c8e38": {"revisions":[{"from":7102027,"to":7480682,"type":["Map","Hash","String","0x0"],"default":{}}]},
  "0x1e308c67": {"revisions":[{"from":7135912,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x3844cbef": {"revisions":[{"from":7135912,"to":7480682,"type":["Map","Hash","Hash","0x0"],"default":{}}]},
@@ -10541,7 +10541,7 @@
  "0xa5912d83": {"name":"StopsMovement","revisions":[{"from":6919951,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf618789b": {"revisions":[{"from":6919951,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x51affcd0": {"revisions": [{"from":5923585,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
+"0x51affcd0": {"name": "IMonarchEncounterUiDef", "revisions": [{"from":5923585,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x51b98b7f": {"name": "IAugment", "revisions": [{"from":5681102,"to":6804378,"bases":[],"interface":true,"value":false},{"from":6841658,"bases":["0x808c79e4"],"interface":true,"value":false}], "properties": {
  "0x2f3b39e": {"name":"Enabled","revisions":[{"from":5681102,"type":["Bool","0x0","0x0","0x0"]}]},
@@ -10866,7 +10866,7 @@
  "0x6b8648e5": {"name":"Column0LabelTraKey","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x758026f0": {"name":"Column1LabelTraKey","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x554596d5": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x554596d5": {"name": "ParamsExpEarned", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x555dc791": {"name": "OptionTemplateHotkeysLabel", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0xf69717fd": {"name":"Label","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -11787,7 +11787,7 @@
 }},
 "0x5d56e0f2": {"revisions": [{"from":7794239,"to":7829736,"bases":["0x73ec6468"],"interface":true,"value":false}], "properties": {
 }},
-"0x5d6bf31f": {"revisions": [{"from":6841658,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x5d6bf31f": {"name": "MonarchMissionTemplate", "revisions": [{"from":6841658,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":6841658,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x6bb5cb4d": {"name":"StepTemplate","revisions":[{"from":6841658,"to":7480682,"type":["Link","0x0","0x0","0xdd2dffb1"],"default":"0x0"}]},
  "0x6e35697b": {"name":"MissionStatus","revisions":[{"from":6950646,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -11979,7 +11979,7 @@
  "0xdd98d130": {"name":"TopDownCamNearClipDistance","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":3000.0}]},
  "0xf4737280": {"revisions":[{"from":7345787,"to":7345787,"type":["F32","0x0","0x0","0x0"],"default":0.0},{"from":7371049,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0x5f011348": {"revisions": [{"from":6012857,"bases":[],"interface":false,"value":false}], "properties": {
+"0x5f011348": {"name": "SpellBookIndex", "revisions": [{"from":6012857,"bases":[],"interface":false,"value":false}], "properties": {
  "0x90aa9ab": {"name":"Index","revisions":[{"from":6012857,"type":["I32","0x0","0x0","0x0"],"default":0}]},
  "0x366ba559": {"name":"SlotType","revisions":[{"from":6012857,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xbc4804ec": {"name":"SpellBook","revisions":[{"from":6012857,"type":["U32","0x0","0x0","0x0"],"default":0}]}
@@ -12106,7 +12106,7 @@
  "0x19efbfdb": {"name":"mName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x9be36761": {"name":"mRequiredConstantsGroup","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0x2aee8b8c"],"default":"0x0"}]}
 }},
-"0x60e0bd1f": {"revisions": [{"from":6275678,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
+"0x60e0bd1f": {"name": "MonarchViewDef", "revisions": [{"from":6275678,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
  "0xed511190": {"name":"ViewController","revisions":[{"from":6275678,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x60e2ec74": {"revisions": [{"from":5516065,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
@@ -12122,7 +12122,7 @@
  "0x802223a2": {"revisions":[{"from":7496037,"type":["List2","0x0","U32","0x0"],"default":[]}]},
  "0x9f3d999f": {"revisions":[{"from":6738244,"type":["F32","0x0","0x0","0x0"],"default":1200.0}]}
 }},
-"0x60fd8a21": {"revisions": [{"from":7584427,"bases":["0xd83b6b03"],"interface":false,"value":false}], "properties": {
+"0x60fd8a21": {"name": "ParamsMinionKill", "revisions": [{"from":7584427,"bases":["0xd83b6b03"],"interface":false,"value":false}], "properties": {
  "0x62ab3bf": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x2e38e6c5": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x50a509c1": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
@@ -12526,7 +12526,7 @@
  "0xbde64e3e": {"name":"Text","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xefc505f6": {"name":"PulseBackground","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x64be4d61": {"revisions": [{"from":5964541,"to":5964541,"bases":[],"interface":false,"value":false},{"from":5967996,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x64be4d61": {"name": "MonarchTagQuery", "revisions": [{"from":5964541,"to":5964541,"bases":[],"interface":false,"value":false},{"from":5967996,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0xbb9be826": {"revisions":[{"from":5964541,"to":5964541,"type":["List2","0x0","Embed","0xf7fda9ff"],"default":[]},{"from":5967996,"to":7480682,"type":["List2","0x0","Embed","0xf7fda9ff"],"default":[]}]},
  "0xe40347b4": {"name":"ExcludeTags","revisions":[{"from":5964541,"to":5964541,"type":["List2","0x0","Embed","0xf7fda9ff"],"default":[]},{"from":5967996,"to":7480682,"type":["List2","0x0","Embed","0xf7fda9ff"],"default":[]}]},
  "0xfc922909": {"name":"RequiredTags","revisions":[{"from":5964541,"to":5964541,"type":["List2","0x0","Embed","0xf7fda9ff"],"default":[]},{"from":5967996,"to":7480682,"type":["List2","0x0","Embed","0xf7fda9ff"],"default":[]}]}
@@ -12560,7 +12560,7 @@
 "0x651375aa": {"name": "MapContextualClick", "revisions": [{"from":5229820,"bases":["0x44f9e6c"],"interface":false,"value":false}], "properties": {
  "0x71755aa6": {"name":"ClickParticles","revisions":[{"from":5229820,"type":["Map","String","Link","0x45cd899f"],"default":{}}]}
 }},
-"0x6548c848": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x6548c848": {"name": "ParamsChampionKill", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
  "0x62ab3bf": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xcaccb87": {"revisions":[{"from":7584427,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]},
  "0x1b8094ed": {"revisions":[{"from":7584427,"type":["I32","0x0","0x0","0x0"],"default":-1}]},
@@ -13104,7 +13104,7 @@
  "0xede99147": {"revisions":[{"from":6950646,"to":7480682,"type":["Embed","0x0","0x0","0x562bed30"],"default":{"texturePath":""}}]},
  "0xf1acc0c7": {"revisions":[{"from":6950646,"to":7480682,"type":["Embed","0x0","0x0","0x562bed30"],"default":{"texturePath":""}}]}
 }},
-"0x6a0a0a99": {"revisions": [{"from":7102027,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x6a0a0a99": {"name": "MonarchAnnouncementsTemplate", "revisions": [{"from":7102027,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x456a1d88": {"name":"SlotArea","revisions":[{"from":7102027,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x87d3fa93": {"revisions":[{"from":7102027,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa0e9b9b4": {"revisions":[{"from":7102027,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -13832,7 +13832,7 @@
  "0xe8e0dd0b": {"name":"ParentScene","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf61f63d4": {"name":"TeamData","revisions":[{"from":5229820,"type":["List","0x2","Embed","0xce1447dd"],"default":[{"TeamMember":{"Scene":"0x0","MultikillIcon":null,"Frame":{"UltimateSpellSlot":null,"0x150797f":"0x0","HealthMeter":null,"0x1a22f108":null,"SummonerSpellSlots":null,"0x1d924766":null,"ObjectivePlanningIcon":null,"0x213b14bb":"0x0","UltimateCooldownGem":null,"Portrait":{"SingleClickToPing":false,"RespawnTimerText":"0x0","Frame":"0x0","PortraitIconShape":0,"PortraitIcon":"0x0","FrameWhileDead":"0x0"},"0x4cee435":"0x0","VoiceChatHalo":"0x0","Group":"0x0","0x67531bf1":"0x0","ParMeter":null,"0x84b13172":"0x0","level":null,"KeystoneIcon":"0x0","SummonerName":null,"StatusEffects":null,"0xed8127c4":"0x0","HitRegion":"0x0"}},"TeamScore":null,"TeamMemberSlots":["0x0","0x0","0x0","0x0","0x0"],"TeamHealthMeter":null},{"TeamMember":{"Scene":"0x0","MultikillIcon":null,"Frame":{"UltimateSpellSlot":null,"0x150797f":"0x0","HealthMeter":null,"0x1a22f108":null,"SummonerSpellSlots":null,"0x1d924766":null,"ObjectivePlanningIcon":null,"0x213b14bb":"0x0","UltimateCooldownGem":null,"Portrait":{"SingleClickToPing":false,"RespawnTimerText":"0x0","Frame":"0x0","PortraitIconShape":0,"PortraitIcon":"0x0","FrameWhileDead":"0x0"},"0x4cee435":"0x0","VoiceChatHalo":"0x0","Group":"0x0","0x67531bf1":"0x0","ParMeter":null,"0x84b13172":"0x0","level":null,"KeystoneIcon":"0x0","SummonerName":null,"StatusEffects":null,"0xed8127c4":"0x0","HitRegion":"0x0"}},"TeamScore":null,"TeamMemberSlots":["0x0","0x0","0x0","0x0","0x0"],"TeamHealthMeter":null}]}]}
 }},
-"0x6fcdd30c": {"revisions": [{"from":6206549,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x6fcdd30c": {"name": "MonarchItemContainerDef", "revisions": [{"from":6206549,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x3cfec826": {"name":"Slots","revisions":[{"from":6206549,"to":7480682,"type":["List2","0x0","Link","0x83e552c9"],"default":[]}]},
  "0xf45fee61": {"name":"UiVfx","revisions":[{"from":6421879,"to":7480682,"type":["Map","U8","Embed","0x3a4433f6"],"default":{}}]},
  "0xfa5aebf6": {"revisions":[{"from":6206549,"to":7480682,"type":["Link","0x0","0x0","0x83e552c9"],"default":"0x0"}]}
@@ -14642,7 +14642,7 @@
 }},
 "0x77b42f3f": {"revisions": [{"from":6085125,"bases":["0x7a851cd8"],"interface":false,"value":false}], "properties": {
 }},
-"0x77c7753d": {"revisions": [{"from":6161179,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
+"0x77c7753d": {"name": "MonarchRecipeConfig", "revisions": [{"from":6161179,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
  "0xf0aff288": {"revisions":[{"from":6161179,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x77c7801e": {"name": "IdleParticlesVisibilityEventData", "revisions": [{"from":5229820,"bases":["0x798c7d28"],"interface":false,"value":false}], "properties": {
@@ -14698,7 +14698,7 @@
 }},
 "0x787e8697": {"name": "BuffScript", "revisions": [{"from":5606808,"bases":["0x30f0efe0"],"interface":false,"value":false}], "properties": {
 }},
-"0x78893681": {"revisions": [{"from":5923585,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x78893681": {"name": "MonarchEncounterManager", "revisions": [{"from":5923585,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x49eb334b": {"revisions":[{"from":5923585,"to":7480682,"type":["Link","0x0","0x0","0x91c0b1c"],"default":"0x0"}]}
 }},
 "0x7896c78b": {"revisions": [{"from":5276396,"to":5290642,"bases":["0x5c108a08"],"interface":false,"value":false}], "properties": {
@@ -15060,7 +15060,7 @@
 "0x7af9aae9": {"name": "BuffCounterByNamedDataValueCalculationPart", "revisions": [{"from":5229820,"bases":["0x76913151"],"interface":false,"value":false}], "properties": {
  "0xb386dcf1": {"name":"mDataValue","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x7b293789": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x7b293789": {"name": "ParamsCC", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x7b3057ad": {"revisions": [{"from":6649480,"bases":[],"interface":false,"value":false}], "properties": {
  "0x9ad0961e": {"name":"Dates","revisions":[{"from":6690024,"type":["Embed","0x0","0x0","0x4618e076"],"default":{"Pbe":{"0x927c10c9":0,"0xb9f88dc0":0},"Live":{"0x927c10c9":0,"0xb9f88dc0":0},"internal":{"0x927c10c9":0,"0xb9f88dc0":0}}}]},
@@ -15154,7 +15154,7 @@
 "0x7be31ad6": {"name": "ContextualConditionGlobalObjectiveBountyForTeam", "revisions": [{"from":5229820,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0xcb5d0824": {"name":"TeamCompareOp","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x7c044fe1": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x7c044fe1": {"name": "ParamsHeal", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x7c1c1df4": {"name": "NextSpellVars", "revisions": [{"from":5437084,"bases":["0x24f32dbe"],"interface":false,"value":false}], "properties": {
 }},
@@ -15186,7 +15186,7 @@
 }},
 "0x7c680834": {"name": "UiElementGroup", "revisions": [{"from":5229820,"bases":["0x9e490c6c"],"interface":false,"value":false}], "properties": {
 }},
-"0x7c689a48": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x7c689a48": {"name": "ParamsAssist", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x7c809adf": {"revisions": [{"from":6690024,"bases":[],"interface":false,"value":false}], "properties": {
  "0x62f06267": {"revisions":[{"from":6690024,"type":["U8","0x0","0x0","0x0"],"default":0}]},
@@ -16156,7 +16156,7 @@
  "0xd30dce53": {"revisions":[{"from":6124791,"type":["List2","0x0","I16","0x0"],"default":[]}]},
  "0xdffa5e65": {"name":"EndDivision","revisions":[{"from":6124791,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
-"0x836c79ee": {"revisions": [{"from":6161179,"to":6223713,"bases":[],"interface":false,"value":false},{"from":6236777,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
+"0x836c79ee": {"name": "MonarchRecipeDef", "revisions": [{"from":6161179,"to":6223713,"bases":[],"interface":false,"value":false},{"from":6236777,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
  "0x1987941": {"name":"Requirements","revisions":[{"from":6161179,"to":6804378,"type":["List2","0x0","Embed","0x1f6455ec"],"default":[]}]},
  "0x7e7c0bb": {"name":"UniqueId","revisions":[{"from":6161179,"to":6223713,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x1bf51169": {"name":"components","revisions":[{"from":6161179,"to":6182357,"type":["List2","0x0","Embed","0x1f6455ec"],"default":[]},{"from":6206549,"to":7480682,"type":["List2","0x0","Embed","0x36aa243a"],"default":[]}]},
@@ -16200,7 +16200,7 @@
  "0x2b7d1e76": {"revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x67104c43"],"default":{"0x27188523":{}}},{"from":7371049,"type":["Embed","0x0","0x0","0x67104c43"],"default":{"0x27188523":{}}}]},
  "0xb4d94af5": {"revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x67104c43"],"default":{"0x27188523":{}}},{"from":7371049,"type":["Embed","0x0","0x0","0x67104c43"],"default":{"0x27188523":{}}}]}
 }},
-"0x83e552c9": {"revisions": [{"from":6161179,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0x83e552c9": {"name": "MonarchItemSlotDef", "revisions": [{"from":6161179,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x71e60c24": {"name":"RestrictedType","revisions":[{"from":6161179,"to":7480682,"type":["U8","0x0","0x0","0x0"],"default":1}]},
  "0x74adca0b": {"name":"EmptyIcon","revisions":[{"from":6206549,"to":7480682,"type":["Embed","0x0","0x0","0x562bed30"],"default":{"texturePath":""}}]},
  "0x9dca327c": {"revisions":[{"from":6206549,"to":7480682,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
@@ -16340,7 +16340,7 @@
  "0xbc4b08e9": {"name":"UiTemplate","revisions":[{"from":6236777,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf9e1dd39": {"name":"icons","revisions":[{"from":6236777,"to":7480682,"type":["List2","0x0","Embed","0x275893aa"],"default":[]}]}
 }},
-"0x84a23145": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x84a23145": {"name": "ParamsDamageCriticalStrike", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x84a63373": {"name": "SumOfSubPartsCalculationPart", "revisions": [{"from":5229820,"bases":["0xb60012ce"],"interface":false,"value":false}], "properties": {
  "0xa066cc28": {"name":"mSubparts","revisions":[{"from":5229820,"type":["List","0x0","Pointer","0xb60012ce"],"default":[]}]}
@@ -16776,7 +16776,7 @@
  "0x29dc93a8": {"name":"BlackboardExtraPlayerName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x528cdb47": {"name":"NumExtraPlayers","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":1}]}
 }},
-"0x887d948d": {"revisions": [{"from":6124791,"to":6223713,"bases":[],"interface":false,"value":false},{"from":6236777,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
+"0x887d948d": {"name": "MonarchItemDef", "revisions": [{"from":6124791,"to":6223713,"bases":[],"interface":false,"value":false},{"from":6236777,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
  "0x7e7c0bb": {"name":"UniqueId","revisions":[{"from":6124791,"to":6223713,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x352afac6": {"name":"EquippedBuffs","revisions":[{"from":6161179,"to":6521536,"type":["List2","0x0","Embed","0xcdef618d"],"default":[]}]},
  "0x58526469": {"name":"SlotRestriction","revisions":[{"from":6161179,"to":7480682,"type":["U8","0x0","0x0","0x0"],"default":1}]},
@@ -16936,7 +16936,7 @@
  "0xde7d679e": {"name":"PremiumTag","revisions":[{"from":6877272,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xeebaa2ba": {"revisions":[{"from":6804378,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x89c17529": {"revisions": [{"from":5923585,"to":6120449,"bases":[],"interface":true,"value":false}], "properties": {
+"0x89c17529": {"name": "IMonarchEncounterAction", "revisions": [{"from":5923585,"to":6120449,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x89c633f3": {"revisions": [{"from":6950646,"bases":["0x289b31c8"],"interface":false,"value":false}], "properties": {
 }},
@@ -17180,13 +17180,13 @@
  "0x1ee02108": {"name":"MapParticleName","revisions":[{"from":5229820,"type":["List","0x0","String","0x0"],"default":[]}]},
  "0x790c294e": {"name":"Shuffle","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
-"0x8c1de691": {"revisions": [{"from":7584427,"bases":["0x6548c848"],"interface":false,"value":false}], "properties": {
+"0x8c1de691": {"name": "ParamsChampionKillPre", "revisions": [{"from":7584427,"bases":["0x6548c848"],"interface":false,"value":false}], "properties": {
 }},
 "0x8c27cd22": {"name": "StrawberryMap", "revisions": [{"from":5715678,"bases":["0x95e0c840"],"interface":false,"value":false}], "properties": {
  "0xbc687525": {"name":"MapContainers","revisions":[{"from":5798615,"type":["List2","0x0","Embed","0x90893201"],"default":[]}]},
  "0xdde8c114": {"name":"mapContainer","revisions":[{"from":5715678,"to":5783867,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x8c31df6a": {"revisions": [{"from":7170001,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x8c31df6a": {"name": "TFTTrovesViewControllerEvents", "revisions": [{"from":7170001,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x18f5bf4": {"revisions":[{"from":7170001,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x574b158": {"name":"moreInfoButton","revisions":[{"from":7170001,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x62e0522": {"revisions":[{"from":7200925,"to":7245161,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -17395,7 +17395,7 @@
  "0xd0666cc4": {"revisions":[{"from":5516065,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xd8c93d9d": {"name":"IconFrame","revisions":[{"from":5516065,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x8db1dc6a": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x8db1dc6a": {"name": "ParamsKillingSpree", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
  "0xcaccb87": {"revisions":[{"from":7893741,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]},
  "0xadce1b8d": {"name":"assistCount","revisions":[{"from":7893741,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xf785ce49": {"name":"Amount","revisions":[{"from":7584427,"type":["I32","0x0","0x0","0x0"],"default":0}]}
@@ -17572,7 +17572,7 @@
  "0x284daa14": {"revisions":[{"from":6421879,"to":7480682,"type":["Embed","0x0","0x0","0xf35298c9"],"default":{"0x34ea5faa":0,"0x494f7ea4":"0x0","RootGroup":"0x0","ItemLayout":"0x0"}}]},
  "0x3d5f0ec8": {"revisions":[{"from":6421879,"to":7480682,"type":["Map","U8","Embed","0xf35298c9"],"default":{}}]}
 }},
-"0x8f7f3f4e": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x8f7f3f4e": {"name": "ShieldingParams", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x8f81727c": {"revisions": [{"from":6649480,"bases":[],"interface":false,"value":false}], "properties": {
  "0xba8affe1": {"name":"DescriptionTraKey","revisions":[{"from":6649480,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -17723,7 +17723,7 @@
  "0xe6a808ba": {"name":"IsLuaEnabled","revisions":[{"from":5798615,"to":6182357,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0xfb3d4d80": {"revisions":[{"from":6206549,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
-"0x90fcea80": {"revisions": [{"from":7893741,"bases":[],"interface":false,"value":true}], "properties": {
+"0x90fcea80": {"name": "JadeItemRecommendations", "revisions": [{"from":7893741,"bases":[],"interface":false,"value":true}], "properties": {
  "0x1adf1b22": {"revisions":[{"from":7893741,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
  "0x2cbb253c": {"revisions":[{"from":7893741,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
  "0x3dbbd893": {"revisions":[{"from":7893741,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
@@ -17778,7 +17778,7 @@
 "0x9170abc5": {"revisions": [{"from":7584427,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
  "0xbb5bc319": {"revisions":[{"from":7584427,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
-"0x91873e8a": {"revisions": [{"from":6841658,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
+"0x91873e8a": {"name": "IMonarchCameraUpdater", "revisions": [{"from":6841658,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x91b37a79": {"revisions": [{"from":6919951,"bases":["0x3c2ab5b0"],"interface":true,"value":false}], "properties": {
  "0x7c8a1308": {"name":"ConceptObject","revisions":[{"from":6919951,"type":["Pointer","0x0","0x0","0x662c1ec3"]}]}
@@ -18046,7 +18046,7 @@
  "0xf3eb6a16": {"name":"HitRegion","revisions":[{"from":5756478,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xffb45d12": {"name":"MilestoneRewardsIcon","revisions":[{"from":5756478,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x93f16627": {"revisions": [{"from":7695709,"to":7829736,"bases":["0x2610a4a3"],"interface":true,"value":false}], "properties": {
+"0x93f16627": {"name": "ClientStateGameplay", "revisions": [{"from":7695709,"to":7829736,"bases":["0x2610a4a3"],"interface":true,"value":false}], "properties": {
 }},
 "0x93f5c410": {"name": "ExperienceCurveData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x9980fa2e": {"name":"mExperienceGrantedMultForSharedKillPerLevel","revisions":[{"from":5229820,"type":["List","0x0","F32","0x0"],"default":[]}]},
@@ -18118,7 +18118,7 @@
 "0x948c3e89": {"revisions": [{"from":7102027,"bases":[],"interface":false,"value":false}], "properties": {
  "0x65b78965": {"name":"CeremonyLink","revisions":[{"from":7102027,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x94950d2f": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x94950d2f": {"name": "ParamsGoldSpent", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x949c4b8a": {"name": "TftBattlepassSelectedRewardUiData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x698fa777": {"name":"RewardIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -18762,7 +18762,7 @@
 }},
 "0x9b0f2144": {"name": "Area", "revisions": [{"from":5229820,"bases":["0x7fcf3f30"],"interface":false,"value":false}], "properties": {
 }},
-"0x9b16eee4": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0x9b16eee4": {"name": "ParamsItemChange", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x9b19f2b5": {"name": "VfxLingerDefinitionData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0x2fec8a25": {"name":"UseSeparateLingerColor","revisions":[{"from":5229820,"type":["Flag","0x0","0x0","0x0"],"default":false}]},
@@ -19785,7 +19785,7 @@
  "0xe19a6b2d": {"name":"SpellSlot","revisions":[{"from":6012857,"to":7480682,"type":["Embed","0x0","0x0","0x5f011348"],"default":{"SlotType":0,"Index":0,"SpellBook":0}}]},
  "0xf248d989": {"name":"InputEvent","revisions":[{"from":6012857,"to":7480682,"type":["Link","0x0","0x0","0x5a51d019"],"default":"0x0"}]}
 }},
-"0xa361c5ef": {"revisions": [{"from":7170001,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
+"0xa361c5ef": {"name": "MonarchRegionConfig", "revisions": [{"from":7170001,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
  "0xe2ba931c": {"revisions":[{"from":7170001,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xa36e0358": {"name": "WadFileDescriptor", "revisions": [{"from":5229820,"to":5241760,"bases":[],"interface":true,"value":false}], "properties": {
@@ -19899,7 +19899,7 @@
 "0xa487a000": {"name": "LuaPropertyDataBoolean", "revisions": [{"from":5229820,"bases":["0x9a2769a4"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
-"0xa4892234": {"revisions": [{"from":7643737,"bases":["0xed511190"],"interface":true,"value":false}], "properties": {
+"0xa4892234": {"name": "PlayerInventoryViewControllerBase", "revisions": [{"from":7643737,"bases":["0xed511190"],"interface":true,"value":false}], "properties": {
  "0x3b1c66a": {"name":"DrawAreaList","revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0x3b1c66a"]}]},
  "0x2063cb13": {"name":"Scene","revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"]}]},
  "0x40aa9d58": {"revisions":[{"from":7643737,"type":["U8","0x0","0x0","0x0"]}]},
@@ -19981,7 +19981,7 @@
  "0x84f6f1cd": {"name":"TipBodyText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x87599d02": {"name":"CondensedTipIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xa50c40a2": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0xa50c40a2": {"name": "ParamsGoldEarned", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0xa51270e5": {"name": "LayoutStyleBase", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
  "0xa1527ead": {"name":"HorizontalJustification","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"]}]},
@@ -20003,7 +20003,7 @@
 "0xa52921f7": {"revisions": [{"from":7465697,"bases":["0xeb31be9b"],"interface":false,"value":false}], "properties": {
  "0x95f72993": {"name":"tag","revisions":[{"from":7465697,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xa52f76d9": {"revisions": [{"from":6206549,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xa52f76d9": {"name": "MonarchCommonViewController", "revisions": [{"from":6206549,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x6173f330": {"name":"CommonLoadable","revisions":[{"from":6206549,"to":6781456,"type":["Link","0x0","0x0","0xe0d5fc7e"],"default":"0x0"}]}
 }},
 "0xa5316cec": {"name": "UiScript", "revisions": [{"from":6919951,"to":7336673,"bases":["0xbad95a7a"],"interface":false,"value":false},{"from":7347485,"to":7347485,"bases":["0xbad95a7a"],"interface":false,"value":false}], "properties": {
@@ -20275,7 +20275,7 @@
  "0x62c2ad1f": {"name":"rangeEnd","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x645606ca": {"name":"rangeStart","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0xa7e315dc": {"revisions": [{"from":5964541,"to":5964541,"bases":[],"interface":false,"value":false},{"from":5967996,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0xa7e315dc": {"name": "MonarchBuffLink", "revisions": [{"from":5964541,"to":5964541,"bases":[],"interface":false,"value":false},{"from":5967996,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x33673871": {"revisions":[{"from":5964541,"to":5964541,"type":["String","0x0","0x0","0x0"],"default":""},{"from":5967996,"to":7480682,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xa10ad504": {"name":"BuffType","revisions":[{"from":6421879,"to":7480682,"type":["U8","0x0","0x0","0x0"],"default":1}]},
  "0xd6b6109c": {"name":"BuffLink","revisions":[{"from":5964541,"to":5964541,"type":["Link","0x0","0x0","0x5e7e5a06"],"default":"0x0"},{"from":5967996,"to":7480682,"type":["Link","0x0","0x0","0x5e7e5a06"],"default":"0x0"}]},
@@ -20332,7 +20332,7 @@
 }},
 "0xa8b35a0d": {"revisions": [{"from":7170001,"to":7765552,"bases":["0xe057ab66"],"interface":false,"value":false},{"from":7794239,"bases":["0xb5754dad"],"interface":false,"value":false}], "properties": {
 }},
-"0xa8c0476d": {"revisions": [{"from":6206549,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
+"0xa8c0476d": {"name": "MonarchInventoryConfig", "revisions": [{"from":6206549,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
  "0x1bdade49": {"name":"DefaultPlayerInventory","revisions":[{"from":6206549,"to":7480682,"type":["Embed","0x0","0x0","0xde92b53e"],"default":{"Equipped":{"Slots":[],"UiVfx":{},"0xfa5aebf6":"0x0"},"Backpack":{"Slots":[],"UiVfx":{},"0xfa5aebf6":"0x0"}}}]},
  "0x4dee92ec": {"revisions":[{"from":6206549,"to":7480682,"type":["Embed","0x0","0x0","0xde92b53e"],"default":{"Equipped":{"Slots":[],"UiVfx":{},"0xfa5aebf6":"0x0"},"Backpack":{"Slots":[],"UiVfx":{},"0xfa5aebf6":"0x0"}}}]},
  "0xa2e57a8e": {"revisions":[{"from":6421879,"to":7480682,"type":["Map","Hash","Embed","0x1f0ad9b2"],"default":{}}]},
@@ -20872,7 +20872,7 @@
  "0x62f43a1d": {"revisions":[{"from":7538272,"type":["List2","0x0","Pointer","0xaf6bce07"],"default":[]}]},
  "0x8f00ba04": {"revisions":[{"from":7538272,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
-"0xadc216ee": {"revisions": [{"from":6649480,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
+"0xadc216ee": {"name": "MonarchInteractDef", "revisions": [{"from":6649480,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
  "0x1987941": {"name":"Requirements","revisions":[{"from":6774704,"to":7480682,"type":["List2","0x0","Embed","0x3190042a"],"default":[]}]},
  "0x4310d45d": {"name":"CasterRequirements","revisions":[{"from":6649480,"to":6750010,"type":["List2","0x0","Embed","0x3190042a"],"default":[]}]},
  "0x454944d8": {"revisions":[{"from":6649480,"to":7480682,"type":["U32","0x0","0x0","0x0"],"default":0}]},
@@ -21189,7 +21189,7 @@
 }},
 "0xb0607142": {"revisions": [{"from":6919951,"bases":["0xc621aa68"],"interface":true,"value":false}], "properties": {
 }},
-"0xb06a22db": {"revisions": [{"from":7345787,"to":7345787,"bases":[],"interface":false,"value":true},{"from":7371049,"bases":[],"interface":false,"value":true}], "properties": {
+"0xb06a22db": {"name": "UIControlScheme", "revisions": [{"from":7345787,"to":7345787,"bases":[],"interface":false,"value":true},{"from":7371049,"bases":[],"interface":false,"value":true}], "properties": {
  "0x55868758": {"revisions":[{"from":7345787,"to":7345787,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7371049,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x840f452a": {"revisions":[{"from":7345787,"to":7345787,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7371049,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa8adb9b1": {"revisions":[{"from":7345787,"to":7345787,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7371049,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -22343,7 +22343,7 @@
 }},
 "0xb95142cd": {"revisions": [{"from":6804378,"to":7765552,"bases":["0xbe07ec3f"],"interface":false,"value":false},{"from":7794239,"bases":["0x70cf2e7"],"interface":false,"value":false}], "properties": {
 }},
-"0xb9542d9d": {"revisions": [{"from":7643737,"bases":["0xed511190"],"interface":true,"value":false}], "properties": {
+"0xb9542d9d": {"name": "PlayerFrameViewControllerBase", "revisions": [{"from":7643737,"bases":["0xed511190"],"interface":true,"value":false}], "properties": {
  "0x3b1c66a": {"name":"DrawAreaList","revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0x3b1c66a"]}]},
  "0x1c05ee9d": {"revisions":[{"from":7643737,"type":["List2","0x0","Embed","0xc3f95838"]}]},
  "0x1f4dd8bb": {"name":"ResourceBars","revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0xa4c4c795"]}]},
@@ -22488,7 +22488,7 @@
  "0xec18e169": {"name":"TroveNameText","revisions":[{"from":5379010,"to":5479214,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xfddc357d": {"name":"TroveButton","revisions":[{"from":5379010,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xba9ff884": {"revisions": [{"from":7170001,"bases":["0x26c7d48a"],"interface":false,"value":false}], "properties": {
+"0xba9ff884": {"name": "ThirdPersonCameraUpdateStrategy", "revisions": [{"from":7170001,"bases":["0x26c7d48a"],"interface":false,"value":false}], "properties": {
  "0x27d0f67": {"revisions":[{"from":7170001,"type":["F32","0x0","0x0","0x0"],"default":60.0}]},
  "0x5991009": {"name":"nearClip","revisions":[{"from":7170001,"type":["F32","0x0","0x0","0x0"],"default":50.0}]},
  "0x8514c9d": {"revisions":[{"from":7170001,"type":["F32","0x0","0x0","0x0"],"default":0.10000000149011612}]},
@@ -22555,7 +22555,7 @@
 }},
 "0xbb0904fc": {"revisions": [{"from":7426169,"to":7765552,"bases":["0xbe07ec3f"],"interface":false,"value":false},{"from":7794239,"bases":["0x70cf2e7"],"interface":false,"value":false}], "properties": {
 }},
-"0xbb109c9b": {"revisions": [{"from":7496037,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xbb109c9b": {"name": "AugmentSelectionViewController", "revisions": [{"from":7496037,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x5e0c072": {"revisions":[{"from":7695709,"type":["Vec4","0x0","0x0","0x0"],"default":[0.0,0.10000000149011612,1.0,0.8999999761581421]}]},
  "0x7c4b972": {"revisions":[{"from":7538272,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
  "0xb860061": {"name":"MaxAugmentSlots","revisions":[{"from":7496037,"to":7569613,"type":["U32","0x0","0x0","0x0"],"default":3},{"from":7584427,"type":["U8","0x0","0x0","0x0"],"default":3}]},
@@ -22986,7 +22986,7 @@
  "0x9ba9ed34": {"revisions":[{"from":5516065,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xbcde5149": {"revisions":[{"from":5516065,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xbe0ca55e": {"revisions": [{"from":7794239,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xbe0ca55e": {"name": "AbilityPreviewViewController", "revisions": [{"from":7794239,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x2063cb13": {"name":"Scene","revisions":[{"from":7794239,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x40aa9d58": {"revisions":[{"from":7794239,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x558c76b4": {"name":"HotkeyText","revisions":[{"from":7794239,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -23402,7 +23402,7 @@
 "0xc1ac7bf0": {"name": "GameModeEventList", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x12d8e384": {"name":"events","revisions":[{"from":5229820,"type":["Map","String","Embed","0xf126ca49"],"default":{}}]}
 }},
-"0xc1b95e5d": {"revisions": [{"from":6421879,"to":6934876,"bases":["0xca92d111"],"interface":false,"value":false},{"from":6950646,"to":7480682,"bases":["0xca92d111"],"interface":true,"value":false}], "properties": {
+"0xc1b95e5d": {"name": "MonarchRecipeModifierDef", "revisions": [{"from":6421879,"to":6934876,"bases":["0xca92d111"],"interface":false,"value":false},{"from":6950646,"to":7480682,"bases":["0xca92d111"],"interface":true,"value":false}], "properties": {
  "0x5d90c3c": {"revisions":[{"from":6421879,"to":6494112,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x37c3a421": {"name":"TagQuery","revisions":[{"from":6421879,"to":6494112,"type":["Embed","0x0","0x0","0x64be4d61"],"default":{"0xbb9be826":[],"ExcludeTags":[],"RequiredTags":[]}}]},
  "0x3d0e8767": {"revisions":[{"from":6509216,"to":6934876,"type":["List2","0x0","Link","0x887d948d"],"default":[]}]},
@@ -23734,7 +23734,7 @@
  "0xda882c4e": {"name":"TeamTooltipAnchor","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe51c9c6c": {"revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xc657a95d": {"revisions": [{"from":6359815,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
+"0xc657a95d": {"name": "IMonarchItemData", "revisions": [{"from":6359815,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0xc65d2528": {"revisions": [{"from":5964541,"to":5964541,"bases":["0x22383aea","0xee2395e5"],"interface":false,"value":false},{"from":5967996,"bases":["0x22383aea","0xee2395e5"],"interface":false,"value":false}], "properties": {
 }},
@@ -24271,7 +24271,7 @@
  "0xbea92ccf": {"name":"RewardDayText","revisions":[{"from":5639790,"to":5706276,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xeacdfcfd": {"name":"Parent","revisions":[{"from":5639790,"to":5706276,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xc9a3743d": {"revisions": [{"from":6649480,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
+"0xc9a3743d": {"name": "MonarchInteractConfig", "revisions": [{"from":6649480,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
  "0x28ec32a": {"revisions":[{"from":6649480,"to":7480682,"type":["U32","0x0","0x0","0x0"],"default":20}]},
  "0x31d38604": {"revisions":[{"from":6649480,"to":7480682,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
  "0x5704431d": {"revisions":[{"from":6774704,"to":7480682,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
@@ -24389,7 +24389,7 @@
 }},
 "0xca9295fb": {"name": "UiElementAssetData", "revisions": [{"from":5229820,"bases":["0x62fa6cad"],"interface":true,"value":false}], "properties": {
 }},
-"0xca92d111": {"revisions": [{"from":6236777,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
+"0xca92d111": {"name": "MonarchEntityDef", "revisions": [{"from":6236777,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
  "0x8d39bde6": {"name":"name","revisions":[{"from":6236777,"to":7480682,"type":["String","0x0","0x0","0x0"]}]},
  "0xd2538e5a": {"name":"ScriptData","revisions":[{"from":6236777,"to":7480682,"type":["Embed","0x0","0x0","0x40900b41"]}]}
 }},
@@ -24524,7 +24524,7 @@
  "0x4d823f17": {"name":"BaseHoverGlow","revisions":[{"from":5756478,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd3467f57": {"revisions":[{"from":5756478,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xcc2dcb80": {"revisions": [{"from":7345787,"to":7345787,"bases":["0xed511190"],"interface":false,"value":false},{"from":7371049,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xcc2dcb80": {"name": "ControlSchemeSelectionViewController", "revisions": [{"from":7345787,"to":7345787,"bases":["0xed511190"],"interface":false,"value":false},{"from":7371049,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x11d15802": {"revisions":[{"from":7345787,"to":7345787,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7371049,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x43fd0cea": {"revisions":[{"from":7345787,"to":7345787,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7371049,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x7b533d65": {"revisions":[{"from":7345787,"to":7345787,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7371049,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -24928,7 +24928,7 @@
 "0xce60a9a0": {"revisions": [{"from":7067412,"to":7067412,"bases":["0xc03bb018"],"interface":false,"value":false},{"from":7079808,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
  "0x361c0548": {"revisions":[{"from":7067412,"to":7067412,"type":["U32","0x0","0x0","0x0"],"default":4294967295},{"from":7079808,"type":["U32","0x0","0x0","0x0"],"default":4294967295}]}
 }},
-"0xce61401f": {"revisions": [{"from":6359815,"to":7480682,"bases":["0x827227f3"],"interface":false,"value":false}], "properties": {
+"0xce61401f": {"name": "MonarchItemTags", "revisions": [{"from":6359815,"to":7480682,"bases":["0x827227f3"],"interface":false,"value":false}], "properties": {
  "0xf416eba0": {"name":"tags","revisions":[{"from":6359815,"to":7480682,"type":["List2","0x0","Embed","0xf7fda9ff"],"default":[]}]}
 }},
 "0xce73ae4d": {"revisions": [{"from":7135912,"to":7151836,"bases":["0xe057ab66"],"interface":false,"value":false}], "properties": {
@@ -25342,7 +25342,7 @@
  "0xedc62dad": {"revisions":[{"from":5466062,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf5b8026a": {"name":"TitleText","revisions":[{"from":5466062,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xd1b2d11b": {"revisions": [{"from":6841658,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0xd1b2d11b": {"name": "MonarchRecipeRequirements", "revisions": [{"from":6841658,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x1987941": {"name":"Requirements","revisions":[{"from":6841658,"to":7480682,"type":["List2","0x0","Pointer","0x7992a72c"],"default":[]}]}
 }},
 "0xd1c5edb6": {"name": "TFTAnnouncementData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -26182,7 +26182,7 @@
  "0xa2db2598": {"revisions":[{"from":7538272,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xb7571618": {"revisions":[{"from":7538272,"type":["Color","0x0","0x0","0x0"],"default":[0,215,255,255]}]}
 }},
-"0xd83b6b03": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0xd83b6b03": {"name": "ParamsDie", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
  "0xcaccb87": {"revisions":[{"from":7584427,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]},
  "0x1b8094ed": {"revisions":[{"from":7584427,"type":["I32","0x0","0x0","0x0"],"default":-1}]},
  "0x53858b44": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
@@ -26621,7 +26621,7 @@
  "0xabb44364": {"revisions":[{"from":7747445,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xe548412c": {"name":"Product","revisions":[{"from":7747445,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0xdc211c0e": {"revisions": [{"from":6236777,"to":7480682,"bases":["0x1375d0b"],"interface":false,"value":false}], "properties": {
+"0xdc211c0e": {"name": "MonarchTagComponentData", "revisions": [{"from":6236777,"to":7480682,"bases":["0x1375d0b"],"interface":false,"value":false}], "properties": {
  "0xf416eba0": {"name":"tags","revisions":[{"from":6236777,"to":7480682,"type":["List2","0x0","Embed","0xf7fda9ff"],"default":[]}]}
 }},
 "0xdc227f32": {"name": "VfxGeometryComponent", "revisions": [{"from":7231955,"to":7527101,"bases":["0x80d55cb7"],"interface":false,"value":false},{"from":7538272,"bases":["0x389424af"],"interface":false,"value":false}], "properties": {
@@ -26659,7 +26659,7 @@
 }},
 "0xdc65ffe4": {"name": "IsRangedCastRequirement", "revisions": [{"from":5229820,"bases":["0x5c71eb26"],"interface":false,"value":false}], "properties": {
 }},
-"0xdc7b01b2": {"revisions": [{"from":7465697,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xdc7b01b2": {"name": "ItemAutoBuyViewController", "revisions": [{"from":7465697,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0xaa001b": {"revisions":[{"from":7538272,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x9a4acdf": {"revisions":[{"from":7465697,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x15829e9f": {"revisions":[{"from":7538272,"type":["F32","0x0","0x0","0x0"],"default":10.0}]},
@@ -26773,7 +26773,7 @@
 }},
 "0xdd017d46": {"name": "UiMetricUnitBounty", "revisions": [{"from":5276396,"bases":["0x784e827a"],"interface":false,"value":false}], "properties": {
 }},
-"0xdd2dffb1": {"revisions": [{"from":6236777,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0xdd2dffb1": {"name": "MonarchMissionStepTemplate", "revisions": [{"from":6236777,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x33f51dde": {"revisions":[{"from":6236777,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x51babcb8": {"name":"StepText","revisions":[{"from":6236777,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x7995e2cd": {"name":"StepScene","revisions":[{"from":6841658,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -27135,7 +27135,7 @@
 }},
 "0xde847095": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
-"0xde92b53e": {"revisions": [{"from":6206549,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0xde92b53e": {"name": "MonarchInventoryDef", "revisions": [{"from":6206549,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x329cc30": {"name":"Equipped","revisions":[{"from":6206549,"to":7480682,"type":["Embed","0x0","0x0","0x6fcdd30c"],"default":{"Slots":[],"UiVfx":{},"0xfa5aebf6":"0x0"}}]},
  "0x7d7eabcb": {"name":"Backpack","revisions":[{"from":6206549,"to":7480682,"type":["Embed","0x0","0x0","0x6fcdd30c"],"default":{"Slots":[],"UiVfx":{},"0xfa5aebf6":"0x0"}}]}
 }},
@@ -27582,7 +27582,7 @@
 }},
 "0xe24c8317": {"name": "IGameModeConfig", "revisions": [{"from":5229820,"to":5290642,"bases":[],"interface":true,"value":false},{"from":5304653,"bases":["0x3e5051fa"],"interface":true,"value":false}], "properties": {
 }},
-"0xe24d73c6": {"revisions": [{"from":7389684,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xe24d73c6": {"name": "AugmentSetTooltipViewController", "revisions": [{"from":7389684,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x4161e976": {"revisions":[{"from":7389684,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x484a9c55": {"revisions":[{"from":7426169,"type":["F32","0x0","0x0","0x0"],"default":0.20000000298023224}]},
  "0x73e8c79a": {"name":"DefaultAdjustments","revisions":[{"from":7389684,"type":["Embed","0x0","0x0","0x9e5aed77"],"default":{"TopHrYPostAdjustment":0,"BottomYPaddingAdjustment":0,"TitleYAdjustment":0,"TopHrYPreAdjustment":0,"BottomHrYPreAdjustment":0,"BottomHrYPostAdjustment":0}}]},
@@ -27747,7 +27747,7 @@
 }},
 "0xe443fb30": {"name": "PathingAngleParametricUpdater", "revisions": [{"from":5229820,"bases":["0xec2d115"],"interface":false,"value":false}], "properties": {
 }},
-"0xe45d99fc": {"revisions": [{"from":6359815,"to":7480682,"bases":[],"interface":false,"value":true}], "properties": {
+"0xe45d99fc": {"name": "MonarchPropertyInclude", "revisions": [{"from":6359815,"to":7480682,"bases":[],"interface":false,"value":true}], "properties": {
  "0x11de6cdc": {"name":"properties","revisions":[{"from":6359815,"to":7480682,"type":["List2","0x0","Pointer","0x3e149034"],"default":[]}]},
  "0xcfdb2d7c": {"name":"Includes","revisions":[{"from":6359815,"to":7480682,"type":["List2","0x0","Link","0xe45d99fc"],"default":[]}]}
 }},
@@ -28228,7 +28228,7 @@
 }},
 "0xe8349096": {"name": "SkinnedPbrShadingModel", "revisions": [{"from":5229820,"bases":["0x85b4695f"],"interface":false,"value":false}], "properties": {
 }},
-"0xe8402935": {"revisions": [{"from":7389684,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xe8402935": {"name": "AugmentSetTraitTrackerViewController", "revisions": [{"from":7389684,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x17a6dc9c": {"revisions":[{"from":7465697,"type":["List2","0x0","Link","0x45cd899f"],"default":[]}]},
  "0x2063cb13": {"name":"Scene","revisions":[{"from":7389684,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x40aec206": {"revisions":[{"from":7465697,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
@@ -29011,7 +29011,7 @@
 "0xed8a5faa": {"revisions": [{"from":7893741,"bases":["0x4a8a5a5d"],"interface":false,"value":false}], "properties": {
  "0x8ff60339": {"name":"Mission","revisions":[{"from":7893741,"type":["Link","0x0","0x0","0xe3ce28e9"],"default":"0x0"}]}
 }},
-"0xed8bda7c": {"revisions": [{"from":6161179,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0xed8bda7c": {"name": "MonarchRecipeViewTemplate", "revisions": [{"from":6161179,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x881d46f": {"revisions":[{"from":6206549,"to":7480682,"type":["Link","0x0","0x0","0xf33b8b7e"],"default":"0x0"}]},
  "0x9afa36b": {"revisions":[{"from":6206549,"to":7480682,"type":["Link","0x0","0x0","0xf33b8b7e"],"default":"0x0"}]},
  "0x1bf51169": {"name":"components","revisions":[{"from":6161179,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -29453,7 +29453,7 @@
  "0xec5f2c03": {"name":"SubtitleRightElement","revisions":[{"from":6919951,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf0427d2c": {"name":"TitleLeftElement","revisions":[{"from":6919951,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xf0c57b38": {"revisions": [{"from":6048769,"to":6804378,"bases":["0xe24c8317"],"interface":false,"value":false},{"from":6841658,"to":7480682,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
+"0xf0c57b38": {"name": "MonarchCameraConfig", "revisions": [{"from":6048769,"to":6804378,"bases":["0xe24c8317"],"interface":false,"value":false},{"from":6841658,"to":7480682,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
  "0x5bc420d": {"revisions":[{"from":6048769,"to":6070022,"type":["F32","0x0","0x0","0x0"],"default":0.20000000298023224}]},
  "0x684f780": {"revisions":[{"from":6048769,"to":6070022,"type":["F32","0x0","0x0","0x0"],"default":0.10000000149011612}]},
  "0x6b84d78": {"name":"OffsetRight","revisions":[{"from":6048769,"to":6070022,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -29623,7 +29623,7 @@
 }},
 "0xf2485b58": {"revisions": [{"from":7170001,"to":7765552,"bases":["0xe057ab66"],"interface":false,"value":false},{"from":7794239,"bases":["0xb5754dad"],"interface":false,"value":false}], "properties": {
 }},
-"0xf24aeac2": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+"0xf24aeac2": {"name": "ParamsUndoEnabledChange", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0xf252334a": {"revisions": [{"from":5437084,"to":5479214,"bases":["0x2755f1f9"],"interface":false,"value":false}], "properties": {
  "0x548e8cea": {"name":"OuterRadius","revisions":[{"from":5437084,"to":5479214,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -29881,7 +29881,7 @@
  "0xf5a853e9": {"revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0x83d442cc"],"default":{"Group":"0x0","0x68af9261":[0,0,255,255],"TeamNameText":"0x0","ScoreText":"0x0","0xb7571618":[0,215,255,255]}}]},
  "0xfd24fad2": {"revisions":[{"from":7643737,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0xf37213a8": {"revisions": [{"from":7584427,"bases":[],"interface":true,"value":false}], "properties": {
+"0xf37213a8": {"name": "AudioContextEvent", "revisions": [{"from":7584427,"bases":[],"interface":true,"value":false}], "properties": {
  "0xd3aa34a": {"revisions":[{"from":7695709,"type":["Hash","0x0","0x0","0x0"]}]},
  "0xdca93a3a": {"name":"PathHash","revisions":[{"from":7584427,"type":["Hash","0x0","0x0","0x0"]}]}
 }},
@@ -30132,7 +30132,7 @@
  "0x47704df2": {"name":"QualitySetting","revisions":[{"from":5379010,"type":["Link","0x0","0x0","0x47704df2"],"default":"0x0"}]},
  "0x6dbb4e22": {"name":"VersionThreshold","revisions":[{"from":5379010,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0xf524e8bd": {"revisions": [{"from":7345787,"to":7345787,"bases":[],"interface":false,"value":false},{"from":7371049,"bases":[],"interface":false,"value":false}], "properties": {
+"0xf524e8bd": {"name": "BattlegroundsMap", "revisions": [{"from":7345787,"to":7345787,"bases":[],"interface":false,"value":false},{"from":7371049,"bases":[],"interface":false,"value":false}], "properties": {
  "0xb3d1ed04": {"name":"MapId","revisions":[{"from":7345787,"to":7345787,"type":["U8","0x0","0x0","0x0"],"default":1},{"from":7371049,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
 "0xf52cb77e": {"revisions": [{"from":7269074,"bases":["0x2324a55c"],"interface":false,"value":false}], "properties": {
@@ -30251,7 +30251,7 @@
 "0xf663c272": {"name": "RandomChanceScriptCondition", "revisions": [{"from":5229820,"bases":["0xc621aa68"],"interface":false,"value":false}], "properties": {
  "0x9292a6c1": {"name":"Chance","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":null}]}
 }},
-"0xf6690031": {"revisions": [{"from":5923585,"to":6223713,"bases":[],"interface":false,"value":false},{"from":6236777,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
+"0xf6690031": {"name": "MonarchEncounterDef", "revisions": [{"from":5923585,"to":6223713,"bases":[],"interface":false,"value":false},{"from":6236777,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
  "0x59e86a1": {"name":"IdleUi","revisions":[{"from":5923585,"to":7480682,"type":["Pointer","0x0","0x0","0x51affcd0"],"default":null}]},
  "0x7e7c0bb": {"name":"UniqueId","revisions":[{"from":5923585,"to":5944901,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":5964541,"to":5964541,"type":["String","0x0","0x0","0x0"],"default":""},{"from":5967495,"to":5967495,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":5967996,"to":6223713,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x234e1570": {"revisions":[{"from":5923585,"to":6120449,"type":["List2","0x0","Pointer","0x89c17529"],"default":[]}]},
@@ -30445,7 +30445,7 @@
  "0xcb47df8f": {"name":"spawningSkinOffsets","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x530b4b47"],"default":[]}]},
  "0xfc6183f5": {"name":"relativeColorSwapTable","revisions":[{"from":5229820,"type":["List","0x0","I32","0x0"],"default":[]}]}
 }},
-"0xf7fda9ff": {"revisions": [{"from":5964541,"to":5964541,"bases":[],"interface":false,"value":false},{"from":5967996,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
+"0xf7fda9ff": {"name": "MonarchTagPtr", "revisions": [{"from":5964541,"to":5964541,"bases":[],"interface":false,"value":false},{"from":5967996,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0xe8c8e17": {"name":"TagLink","revisions":[{"from":5964541,"to":5964541,"type":["Link","0x0","0x0","0x677514d3"],"default":"0x0"},{"from":5967996,"to":7480682,"type":["Link","0x0","0x0","0x677514d3"],"default":"0x0"}]}
 }},
 "0xf8026218": {"name": "OptionItemFilter_Osx", "revisions": [{"from":5229820,"bases":["0xcb8dfbc8"],"interface":false,"value":false}], "properties": {
@@ -30726,7 +30726,7 @@
  "0xdbc03b26": {"name":"HoverVfxSystem","revisions":[{"from":5229820,"to":7668562,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
  "0xdfc337ad": {"revisions":[{"from":7584427,"to":7668562,"type":["Embed","0x0","0x0","0x6685fe5a"],"default":{"0x16118b27":"","0x756be398":"","0xc8c5e272":"","0xd6ce8043":""}}]}
 }},
-"0xfb1e7399": {"revisions": [{"from":6161179,"to":7480682,"bases":[],"interface":false,"value":true}], "properties": {
+"0xfb1e7399": {"name": "MonarchResourceLink", "revisions": [{"from":6161179,"to":7480682,"bases":[],"interface":false,"value":true}], "properties": {
  "0x29df7ff5": {"name":"Resource","revisions":[{"from":6161179,"to":7480682,"type":["Link","0x0","0x0","0x20a178b8"],"default":"0x0"}]},
  "0x8d39bde6": {"name":"name","revisions":[{"from":6161179,"to":7480682,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},

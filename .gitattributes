@@ -5,3 +5,8 @@ hashes/*.txt text eol=lf
 hashes/overrides/*.txt text eol=lf
 hashes/provenance.json text eol=lf
 hashes/sources.toml text eol=lf
+
+# db_build.py writes LF; pin it so a CRLF checkout can't make the PR-verify
+# workflow's `git diff --exit-code` fail on line endings alone.
+db/database.py text eol=lf
+db/meta.db.json text eol=lf

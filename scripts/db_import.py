@@ -22,6 +22,19 @@ def read_hashes(filename):
         lines = [ x.rstrip().split(' ') for x in inf.readlines() ]
         return { hex(int(h, 16)) : v for h, v in lines }
 
+def read_resolved_hashes(hashes_dir, table):
+    """Resolve names for one table: the vendored upstream mirror
+    (hashes/hashes.<table>.txt, an exact copy of CDragon as served) with the local
+    cracks in hashes/overrides/<table>.txt layered on top - an override wins on
+    hash collision. The blend is never written to disk; it is joined here, at
+    the point of use, so the two committed files stay independently reviewable
+    (upstream diff vs. local diff)."""
+    names = read_hashes(os.path.join(hashes_dir, f"hashes.{table}.txt"))
+    override_path = os.path.join(hashes_dir, "overrides", f"{table}.txt")
+    if os.path.exists(override_path):
+        names.update(read_hashes(override_path))
+    return names
+
 def _canon_json(value_str):
     if value_str is None:
         return None
@@ -246,8 +259,8 @@ def read_meta(filename):
         }
 
 if __name__ == '__main__':
-    h_fields = read_hashes(f"hashes/hashes.binfields.txt")
-    h_types = read_hashes(f"hashes/hashes.bintypes.txt")
+    h_fields = read_resolved_hashes("hashes", "binfields")
+    h_types = read_resolved_hashes("hashes", "bintypes")
     database = read_database(sys.argv[1])
     for arg in sys.argv[2:]:
         for filename in sorted(glob.iglob(arg)):

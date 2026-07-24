@@ -7,7 +7,7 @@
 ### How it’s generated
 - Via `scripts/db_build.py`, which:
   - Loads the latest dump from `dumps/*.json` and normalizes old/new meta formats.
-  - Resolves known type and field hashes using `hashes/hashes.bintypes.txt` and `hashes/hashes.binfields.txt`.
+  - Resolves known type and field hashes using the upstream mirror (`hashes/hashes.bintypes.txt`, `hashes/hashes.binfields.txt`) with `hashes/overrides/` layered on top at read time (`read_resolved_hashes`).
   - Writes `db/database.py` deterministically (alongside the versioned `db/meta.db.json`).
 - CI: The `Sync LoL Meta Classes` workflow regenerates and commits both files when `dumps/` changes.
 
@@ -47,9 +47,9 @@ class ExampleClass(BaseType):
 
 #### Where the names come from
 - **Source of truth**: [CommunityDragon's](https://raw.communitydragon.org/data/hashes/lol/) hashtables (CDTB). The exact URLs live in `hashes/sources.toml`; `url` wins, `repo` + `path` (+ optional `ref`) is shorthand for a raw.githubusercontent.com URL.
-- **Refresh**: `python3 scripts/update_hashes.py`. It fetches each table, validates it, layers `hashes/overrides/` on top, normalizes the output (LF, sorted by name to match upstream), and records `hashes/provenance.json`. The tables stay committed so builds are reproducible and offline-capable - this is a deliberate, reviewed operation, not a build-time download.
+- **Refresh**: `python3 scripts/update_hashes.py`. It fetches each table, validates it, and writes `hashes/hashes.<table>.txt` as an exact mirror of upstream (LF, sorted by name), then records `hashes/provenance.json`. It does **not** bake overrides into the mirror - those are layered at build time (see below). The tables stay committed so builds are reproducible and offline-capable - this is a deliberate, reviewed operation, not a build-time download.
 - **Drift**: the script does not compute one. The tables are committed, so `git diff -- hashes/` after a run *is* the drift, and the `db/database.py` diff after `db_build.py` shows what it changed downstream.
-- **Overrides** (`hashes/overrides/<table>.txt`, same `hash name` line format): genuinely-local cracks that upstream doesn't have. On conflict the override wins, but upstream is canonical in intent - anything kept here should also be submitted to CDTB so the override can eventually be deleted. The script warns when an override duplicates upstream verbatim.
+- **Overrides** (`hashes/overrides/<table>.txt`, same `hash name` line format): genuinely-local cracks that upstream doesn't have. They are layered over the upstream mirror by `read_resolved_hashes` when a build reads names - never baked into `hashes/hashes.*.txt` - so the two files diff independently. On conflict the override wins, but upstream is canonical in intent - anything kept here should also be submitted to CDTB so the override can eventually be deleted. `update_hashes.py` warns when an override has become redundant (upstream now serves the identical name).
 - **Refreshes land as reviewed PRs**, never silent commits: a rename cascades into class/property names across the entire `db/meta.db.json` history and into downstream wiki URLs. The `Update Hashtables` workflow opens that PR weekly.
 
 ### Ordering

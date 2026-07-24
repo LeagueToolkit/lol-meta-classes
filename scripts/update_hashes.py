@@ -1,9 +1,16 @@
 #!/bin/env python
 """Refresh the vendored hashtables in hashes/ from their configured source.
 
-Sources live in hashes/sources.toml. Genuinely-local cracks that upstream does
-not have live in hashes/overrides/<table>.txt and are layered on top of the
-fetched table (override wins on hash collision).
+Sources live in hashes/sources.toml. hashes/hashes.<table>.txt is an **exact
+mirror** of the fetched upstream table - this script writes it byte-for-byte as
+served, so `git diff` on it is pure upstream drift.
+
+Genuinely-local cracks that upstream does not have live in
+hashes/overrides/<table>.txt and are NOT baked in here. They are layered over
+the mirror at the point of use (db_import.read_resolved_hashes), so the two
+committed files stay independently reviewable. This script still reads the
+overrides to renormalize them and to warn when one has become redundant
+(upstream now serves the identical name).
 
 The tables are committed, so `git diff` after a run is the drift report; this
 script does not compute one. Refreshes are meant to land as reviewed PRs,
@@ -144,18 +151,21 @@ def main():
         # surfacing later as a pile of no-op line moves.
         if overrides and write_if_changed(override_path, render(overrides)):
             print(f"[ok] {override_path}: renormalized")
+        # Overrides are layered at build time, not baked into the mirror, so an
+        # entry that upstream now serves identically is dead weight - flag it for
+        # deletion. (No `entries.update(overrides)`: the written table below is an
+        # exact upstream mirror.)
         redundant = [h for h, name in overrides.items() if entries.get(h) == name]
         for h in redundant:
             print(f"[warn] {override_path}: {h} {overrides[h]} matches upstream "
-                  f"verbatim - the override can be deleted")
-        entries.update(overrides)
+                  f"exactly - the override can be deleted")
 
         out_path = os.path.join(args.hashes, f"hashes.{table}.txt")
         if write_if_changed(out_path, render(entries)):
             changed = True
-            print(f"[ok] {out_path}: {len(entries)} entries (updated)")
+            print(f"[ok] {out_path}: {len(entries)} upstream entries (updated)")
         else:
-            print(f"[ok] {out_path}: {len(entries)} entries (unchanged)")
+            print(f"[ok] {out_path}: {len(entries)} upstream entries (unchanged)")
 
         provenance["tables"][table] = {
             "url": url,

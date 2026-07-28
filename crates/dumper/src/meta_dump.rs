@@ -237,7 +237,7 @@ fn dump_instance_properties(
     for &BaseOff(class, offset) in class.secondary_bases.slice() {
         dump_instance_properties(class, instance + offset as usize, results);
     }
-    for property in class.properties.slice() {
+    for property in class.iter_properties() {
         let key = dump_hex(property.hash);
         let value = dump_instance_property(instance, property);
         results.insert(key, value);
@@ -282,7 +282,10 @@ fn dump_property(base: usize, property: &Property) -> PropertyDump {
     }
 }
 
-fn dump_property_list(base: usize, properties: &[Property]) -> BTreeMap<String, PropertyDump> {
+fn dump_property_list<'a>(
+    base: usize,
+    properties: impl Iterator<Item = &'a Property>,
+) -> BTreeMap<String, PropertyDump> {
     let mut results = BTreeMap::new();
     for property in properties {
         let key = dump_hex(property.hash);
@@ -369,7 +372,7 @@ pub fn dump_class(base: usize, class: &Class) -> ClassDump {
         alignment: class.alignment,
         flags: dump_class_flags(class),
         functions: dump_class_functions(base, class),
-        properties: dump_property_list(base, class.properties.slice()),
+        properties: dump_property_list(base, class.iter_properties()),
         defaults: dump_class_defaults(class),
     }
 }

@@ -1,4 +1,5 @@
 use serde::Serialize;
+use std::sync::atomic::{AtomicUsize, Ordering};
 
 #[repr(C)]
 pub struct StdVector<T> {
@@ -33,6 +34,18 @@ impl<'a, T> RiotVector<T> {
         (self.size != 0)
             .then(|| unsafe { std::slice::from_raw_parts(self.data, self.size()) })
             .unwrap_or_default()
+    }
+
+    /// Walk the elements using an explicit byte stride rather than
+    /// `size_of::<T>()`, for records whose in-image size differs from the Rust
+    /// struct describing them. See [`property_stride`].
+    pub fn iter_strided(&self, stride: usize) -> impl Iterator<Item = &'a T>
+    where
+        T: 'a,
+    {
+        let base = self.data as usize;
+        let count = self.size();
+        (0..count).map(move |i| unsafe { &*((base + i * stride) as *const T) })
     }
 }
 
@@ -274,6 +287,127 @@ pub struct Property {
     pub unkptr2: usize,
 }
 
+// ---------------------------------------------------------------------------
+// Property stride
+//
+// 16.14 dropped one of `Property`'s trailing 8-byte fields, taking the record
+// from 56 to 48 bytes. Everything up to and including `map` kept its offset -
+// confirmed both by disassembly (the game's own finalize pass walks properties
+// with a 48-byte stride) and by the 16.14 crash, whose faulting address decoded
+// to exactly `property[1] + 8`, i.e. one stride's worth of overshoot.
+//
+// The `Property` struct below still describes the 56-byte form. The two fields
+// that may or may not be present, `hashed` and `unkptr2`, are both unread by
+// the dumper, so only the stride has to vary.
+// ---------------------------------------------------------------------------
+
+/// `Property` size up to and including 16.13.
+const PROPERTY_STRIDE_LEGACY: usize = 56;
+
+/// `Property` size from 16.14 onward.
+const PROPERTY_STRIDE_16_14: usize = 48;
+
+/// First version using the shorter record, as (major, minor).
+const PROPERTY_SHRANK_AT: (u32, u32) = (16, 14);
+
+static PROPERTY_STRIDE: AtomicUsize = AtomicUsize::new(PROPERTY_STRIDE_LEGACY);
+
+fn parse_major_minor(version: &str) -> Option<(u32, u32)> {
+    let mut parts = version.split('.');
+    let major = parts.next()?.parse().ok()?;
+    let minor = parts.next()?.parse().ok()?;
+    Some((major, minor))
+}
+
+/// Pick the `Property` stride for a detected version string, which may be
+/// either `"16.14"` or `"16.14.7949266"`.
+///
+/// An unrecognised version falls back to the legacy stride: that is what every
+/// dump in the repository was produced with, so it is the choice that keeps
+/// historical behaviour rather than silently switching layout.
+pub fn property_stride_for(version: Option<&str>) -> usize {
+    match version.and_then(parse_major_minor) {
+        Some(v) if v >= PROPERTY_SHRANK_AT => PROPERTY_STRIDE_16_14,
+        Some(_) => PROPERTY_STRIDE_LEGACY,
+        None => {
+            eprintln!(
+                "WARNING: could not parse version {:?}; assuming the pre-16.14 \
+                 {}-byte property layout. If this is a newer build the dump will \
+                 be wrong or the dumper will crash.",
+                version, PROPERTY_STRIDE_LEGACY
+            );
+            PROPERTY_STRIDE_LEGACY
+        }
+    }
+}
+
+pub fn set_property_stride(stride: usize) {
+    PROPERTY_STRIDE.store(stride, Ordering::Relaxed);
+}
+
+pub fn property_stride() -> usize {
+    PROPERTY_STRIDE.load(Ordering::Relaxed)
+}
+
+#[cfg(test)]
+mod stride_tests {
+    use super::*;
+
+    #[test]
+    fn legacy_versions_use_the_56_byte_record() {
+        // find_version yields "16.13"; find_version2 yields "16.13.7915903".
+        //
+        // 16.12 is deliberately here: it crashes too, but with a null-deref
+        // signature rather than the stride overshoot, so it is a separate bug
+        // and must keep the layout 16.13 demonstrably dumps correctly.
+        for v in [
+            "16.12",
+            "16.12.7884269",
+            "16.13",
+            "16.13.7915903",
+            "16.1",
+            "15.24",
+            "13.14.5227601",
+        ] {
+            assert_eq!(property_stride_for(Some(v)), PROPERTY_STRIDE_LEGACY, "{v}");
+        }
+    }
+
+    #[test]
+    fn versions_from_16_14_use_the_48_byte_record() {
+        for v in ["16.14", "16.14.7949266", "16.15", "16.20", "17.1"] {
+            assert_eq!(property_stride_for(Some(v)), PROPERTY_STRIDE_16_14, "{v}");
+        }
+    }
+
+    #[test]
+    fn minor_versions_compare_numerically_not_lexically() {
+        // "16.9" > "16.14" as strings; the ordering that matters is numeric.
+        assert_eq!(property_stride_for(Some("16.9")), PROPERTY_STRIDE_LEGACY);
+        assert_eq!(property_stride_for(Some("16.2")), PROPERTY_STRIDE_LEGACY);
+        assert_eq!(property_stride_for(Some("16.100")), PROPERTY_STRIDE_16_14);
+    }
+
+    #[test]
+    fn unparseable_versions_fall_back_to_legacy() {
+        for v in [None, Some("unknown"), Some(""), Some("16"), Some("16.x")] {
+            assert_eq!(property_stride_for(v), PROPERTY_STRIDE_LEGACY, "{v:?}");
+        }
+    }
+
+    #[test]
+    fn the_legacy_stride_matches_the_rust_struct() {
+        // `Property` describes the 56-byte form; if a field is ever added to it
+        // without revisiting the constants here, the strides silently disagree.
+        assert_eq!(
+            std::mem::size_of::<Property>(),
+            PROPERTY_STRIDE_LEGACY,
+            "Property struct changed size - update the stride constants"
+        );
+        assert_eq!(PROPERTY_STRIDE_LEGACY - PROPERTY_STRIDE_16_14, 8);
+    }
+}
+
 #[repr(C)]
 pub struct BaseOff(pub &'static Class, pub u32);
 
@@ -298,6 +432,14 @@ pub struct Class {
 }
 
 impl Class {
+    /// The class's properties, walked at the stride this image actually uses.
+    ///
+    /// Always prefer this over `self.properties.slice()`, which assumes the
+    /// record is `size_of::<Property>()` bytes and is wrong from 16.14 on.
+    pub fn iter_properties(&self) -> impl Iterator<Item = &'static Property> {
+        self.properties.iter_strided(property_stride())
+    }
+
     pub fn create_instance(&self) -> usize {
         let ctor = self
             .constructor_fn

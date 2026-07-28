@@ -115,6 +115,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let version = find_version(data).or_else(|| find_version2(data));
     eprintln!("Found version: {:?}", version);
 
+    // The Property record shrank in 16.14, so the walk stride depends on which
+    // build this is. Must be set before any class is touched.
+    let stride = meta::property_stride_for(version.as_deref());
+    meta::set_property_stride(stride);
+    eprintln!("Property stride: {} bytes", stride);
+
     eprintln!("Finding metaclasses...");
     let classes = find_classes(data);
     eprintln!(

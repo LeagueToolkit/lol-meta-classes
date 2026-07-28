@@ -25,9 +25,11 @@ pub fn map_image<P: AsRef<Path>>(path: P) -> anyhow::Result<MemoryMap> {
     eprintln!("  Fixing up TLV...");
     macho.fixup_tlv(image);
     eprintln!("  Running mod_init...");
+    crate::diag::set_phase(crate::diag::Phase::ModInit);
     macho.run_mod_init(image);
 
     eprintln!("  Running entry point...");
+    crate::diag::set_phase(crate::diag::Phase::EntryPoint);
     unsafe {
         let run_until_alert_addr = stubs::resolve("run_until_alert");
         let run_until_alert: extern "C" fn(func: extern "C" fn()) =

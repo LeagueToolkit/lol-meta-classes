@@ -1,0 +1,128 @@
+# Runs the dumper against a single version with crash diagnostics enabled and
+# reports what faulted. Purely investigative: it commits nothing and touches no
+# tracked file, so it is safe to run repeatedly while chasing a crash.
+name: Diagnose Dump
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to diagnose (e.g. 16.14.7949266)'
+        required: true
+        type: string
+      poison:
+        description: 'Poison unresolved imports (identifies missing stubs by name)'
+        required: false
+        type: boolean
+        default: true
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-A warnings -C link-args=-Wl,-export-dynamic"
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install system dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y libc++1 build-essential cmake
+
+    - name: Setup Rust
+      uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        toolchain: stable
+        target: x86_64-unknown-linux-gnu
+
+    - name: Cache cargo dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-
+
+    # Covers the poison encode/decode arithmetic the fault report depends on.
+    # If this is wrong, a crash gets blamed on the wrong symbol.
+    - name: Test dumper diagnostics
+      run: |
+        cargo test -p dumper --target x86_64-unknown-linux-gnu
+
+    - name: Build dumper
+      run: |
+        cargo build --release --bin dumper --target x86_64-unknown-linux-gnu
+
+    - name: Download binary
+      run: |
+        cargo run --release --bin download-binary --target x86_64-unknown-linux-gnu -- \
+          "${{ inputs.version }}" -o "temp/${{ inputs.version }}"
+
+    - name: Run dumper with diagnostics
+      id: run
+      env:
+        DUMPER_POISON_IMPORTS: ${{ inputs.poison && '1' || '0' }}
+      run: |
+        mkdir -p dumps
+        set +e
+        ./target/x86_64-unknown-linux-gnu/release/dumper \
+          "temp/${{ inputs.version }}" \
+          -o "dumps/${{ inputs.version }}.json" 2>&1 | tee /tmp/dumper.log
+        CODE=${PIPESTATUS[0]}
+        set -e
+        echo "exit_code=${CODE}" >> $GITHUB_OUTPUT
+        echo "Dumper exit code: ${CODE}"
+
+    - name: Summarise diagnosis
+      if: always()
+      run: |
+        {
+          echo "## Diagnosis: ${{ inputs.version }}"
+          echo ""
+          echo "- Poisoning: \`${{ inputs.poison }}\`"
+          echo "- Dumper exit code: \`${{ steps.run.outputs.exit_code }}\`"
+          echo ""
+          if grep -q '!!! FAULT' /tmp/dumper.log 2>/dev/null; then
+            echo "### Fault report"
+            echo '```'
+            grep -A 6 '!!! FAULT' /tmp/dumper.log
+            echo '```'
+          elif [ "${{ steps.run.outputs.exit_code }}" = "0" ]; then
+            echo "### No fault - dump completed"
+            ls -la "dumps/${{ inputs.version }}.json" 2>/dev/null || true
+          else
+            echo "### Failed without a fault report"
+            echo '```'
+            tail -30 /tmp/dumper.log 2>/dev/null || echo "(no log)"
+            echo '```'
+          fi
+          echo ""
+          echo "### Import resolution"
+          echo '```'
+          grep -E 'Resolved [0-9]+/|Poisoned |First unresolved' /tmp/dumper.log 2>/dev/null || echo "(not reached)"
+          echo '```'
+        } >> $GITHUB_STEP_SUMMARY
+
+    - name: Upload logs and dump
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: diagnose-${{ inputs.version }}-${{ github.run_id }}
+        path: |
+          /tmp/dumper.log
+          dumps/
+        retention-days: 14
+        if-no-files-found: warn
+
+    - name: Fail if the dumper crashed
+      if: always() && steps.run.outputs.exit_code != '0'
+      run: |
+        echo "::error::Dumper exited ${{ steps.run.outputs.exit_code }} - see the job summary for the fault report."
+        exit 1

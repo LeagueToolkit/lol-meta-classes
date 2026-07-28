@@ -6,19 +6,6 @@ use std::path::PathBuf;
 #[macro_use]
 extern crate lazy_static;
 
-// Install a SIGSEGV handler to print the faulting address
-fn install_sigsegv_handler() {
-    unsafe {
-        libc::signal(libc::SIGSEGV, sigsegv_handler as usize);
-    }
-}
-
-extern "C" fn sigsegv_handler(sig: libc::c_int) {
-    eprintln!("\n!!! SIGSEGV (signal {}) caught !!!", sig);
-    eprintln!("The program crashed. This is likely due to an unresolved import.");
-    std::process::exit(139);
-}
-
 /// A tool to dump metaclass information from League of Legends executables
 #[derive(Parser)]
 #[command(name = "dumper")]
@@ -33,6 +20,7 @@ struct Args {
     output: PathBuf,
 }
 
+mod diag;
 #[allow(dead_code)]
 mod loader;
 #[allow(dead_code)]
@@ -111,10 +99,17 @@ fn find_classes(data: &[u8]) -> &MetaVector {
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Args::parse();
 
+    // Before anything maps or runs shipped code, so every fault below is caught.
+    diag::install();
+    if diag::poison_enabled() {
+        eprintln!("Import poisoning ENABLED (DUMPER_POISON_IMPORTS)");
+    }
+
     eprintln!("Mapping image...");
     let map = loader::map_image(&args.input)?;
     let data = unsafe { &*std::ptr::slice_from_raw_parts(map.data(), map.len()) };
     eprintln!("Mapped at: {:#x}", data.as_ptr() as usize);
+    diag::set_image_range(data.as_ptr() as usize, data.len());
 
     eprintln!("Extracting version info...");
     let version = find_version(data).or_else(|| find_version2(data));
@@ -128,6 +123,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         classes.slice().len()
     );
 
+    // Re-assert our handlers: mod_init and the entry point have run by now, and
+    // shipped code (sentry/crashpad) installs its own. Without this the class
+    // walk - the part we actually need diagnosed - could fault into their
+    // handler instead of ours.
+    diag::install();
+
     eprintln!("Processing classes...");
     let meta_info = meta_dump::dump_meta(
         data.as_ptr() as usize,
@@ -136,6 +137,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     );
 
     eprintln!("Writing output to {}...", args.output.display());
+    diag::set_phase(diag::Phase::Writing);
     let output_file = File::create(&args.output)?;
     let writer = BufWriter::new(output_file);
     serde_json::to_writer_pretty(writer, &meta_info).expect("Failed to serialize json!");

@@ -340,11 +340,18 @@ fn is_empty(class: &Class) -> bool {
 }
 
 pub fn dump_class_defaults(class: &Class) -> Option<BTreeMap<String, Value>> {
+    use crate::diag::{set_phase, Phase};
+
     if class.constructor_fn.is_some() {
         let mut results = serde_json::Map::new();
         if !is_empty(class) {
+            // Each of these runs shipped game code and can fault. Narrowing the
+            // phase means a crash report says which of the three it was.
+            set_phase(Phase::ClassConstructor);
             let instance = class.create_instance();
+            set_phase(Phase::ClassDefaults);
             dump_instance_properties(class, instance, &mut results);
+            set_phase(Phase::ClassDestructor);
             class.destroy_instance(instance);
         }
         Some(results.into_iter().collect())
@@ -370,10 +377,15 @@ pub fn dump_class(base: usize, class: &Class) -> ClassDump {
 pub fn dump_class_list(base: usize, classes: &[&Class]) -> BTreeMap<String, ClassDump> {
     let mut results = BTreeMap::new();
     for &class in classes {
+        // Published before any work on this class so a fault handler can name
+        // the class that killed us.
+        crate::diag::set_current_class(class.hash);
+        crate::diag::set_phase(crate::diag::Phase::ClassMetadata);
         let key = dump_hex(class.hash);
         let value = dump_class(base, class);
         results.insert(key, value);
     }
+    crate::diag::set_current_class(0);
     results
 }
 

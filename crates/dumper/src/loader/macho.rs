@@ -423,6 +423,10 @@ impl MachOImage {
         let mut unresolved = 0;
         let mut unresolved_names: Vec<&str> = Vec::new();
 
+        // Every unresolved name, in poison-slot order. Kept separate from the
+        // truncated `unresolved_names` preview below, which is only for logging.
+        let mut poison_names: Vec<String> = Vec::new();
+
         for import in self.imports.iter() {
             // dont bind weak symbols
             if import.is_weak {
@@ -434,6 +438,20 @@ impl MachOImage {
                 if unresolved_names.len() < 20 {
                     unresolved_names.push(&import.name);
                 }
+
+                // Normally the slot is left holding whatever the bind encoding
+                // put there. Under DUMPER_POISON_IMPORTS it instead gets a
+                // unique unmapped sentinel, so faulting through it identifies
+                // the missing symbol rather than jumping into garbage.
+                if crate::diag::poison_enabled() {
+                    let poison = crate::diag::poison_for(poison_names.len());
+                    let addr = import.address - self.vmbase;
+                    unsafe {
+                        let target = image.as_mut_ptr().offset(addr as _).cast::<usize>();
+                        target.write_unaligned(poison);
+                    }
+                }
+                poison_names.push(import.name.to_string());
                 continue;
             }
             resolved += 1;
@@ -449,6 +467,10 @@ impl MachOImage {
         if !unresolved_names.is_empty() {
             eprintln!("    First unresolved: {:?}", unresolved_names);
         }
+        if crate::diag::poison_enabled() {
+            eprintln!("    Poisoned {} unresolved import slot(s) for diagnosis", poison_names.len());
+        }
+        crate::diag::set_poison_names(poison_names);
     }
 
     pub fn resolve_exports<R: Fn(&str, usize) -> bool>(&self, image: &mut [u8], resolver: R) {

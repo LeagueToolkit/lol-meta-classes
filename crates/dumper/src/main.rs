@@ -28,7 +28,9 @@ mod meta;
 #[allow(dead_code)]
 mod meta_dump;
 
-type MetaVector = meta::RiotVector<&'static meta::Class>;
+/// The registry: a vector of raw class pointers, interpreted through
+/// [`meta::ClassRef`] once the image's layout is known.
+type MetaVector = meta::RiotVector<*const ()>;
 
 const PATTERN_CLASSES: &str =
     r"(?s-u)\x48\x8D\x3D(....)\x48?\x89\xDE\xE8....\x48\x83\xC4\x08\x5B\x5D\xFF\x60\x10";
@@ -115,11 +117,20 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let version = find_version(data).or_else(|| find_version2(data));
     eprintln!("Found version: {:?}", version);
 
-    // The Property record shrank in 16.14, so the walk stride depends on which
-    // build this is. Must be set before any class is touched.
-    let stride = meta::property_stride_for(version.as_deref());
-    meta::set_property_stride(stride);
-    eprintln!("Property stride: {} bytes", stride);
+    // Record layouts vary by build, so both must be selected before any class
+    // or property is read.
+    let property_layout = meta::property_layout_for(version.as_deref());
+    meta::set_property_layout(property_layout);
+    eprintln!(
+        "Property layout: {:?} ({} bytes)",
+        property_layout,
+        meta::PropertyRef::record_size(property_layout)
+    );
+
+    // 16.12 uses a different Class layout: one extra field at +0x18.
+    let class_layout = meta::class_layout_for(version.as_deref());
+    meta::set_class_layout(class_layout);
+    eprintln!("Class layout: {:?}", class_layout);
 
     eprintln!("Finding metaclasses...");
     let classes = find_classes(data);

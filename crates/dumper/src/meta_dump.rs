@@ -116,7 +116,7 @@ fn dump_instance_hash(instance: usize) -> Value {
     dump_hex(result).into()
 }
 
-fn dump_instance_link(instance: usize, _class: &Class) -> Value {
+fn dump_instance_link(instance: usize, _class: ClassRef) -> Value {
     dump_instance_hash(instance)
 }
 
@@ -125,13 +125,13 @@ fn dump_instance_path(instance: usize) -> Value {
     dump_hex(result).into()
 }
 
-fn dump_instance_embed(instance: usize, class: &Class) -> Value {
+fn dump_instance_embed(instance: usize, class: ClassRef) -> Value {
     let mut results = serde_json::Map::new();
     dump_instance_properties(class, instance, &mut results);
     results.into()
 }
 
-fn dump_instance_pointer(instance: usize, class: &Class) -> Value {
+fn dump_instance_pointer(instance: usize, class: ClassRef) -> Value {
     let instance = unsafe { *(instance as *const usize) };
     if instance != 0 {
         return dump_instance_embed(instance, class);
@@ -139,7 +139,7 @@ fn dump_instance_pointer(instance: usize, class: &Class) -> Value {
     Value::Null
 }
 
-fn dump_instance_list(instance: usize, container: &ContainerI, class: Option<&Class>) -> Value {
+fn dump_instance_list(instance: usize, container: &ContainerI, class: Option<ClassRef>) -> Value {
     let size = container.get_size(instance);
     let mut result = Vec::<Value>::new();
     for index in 0..size {
@@ -150,7 +150,7 @@ fn dump_instance_list(instance: usize, container: &ContainerI, class: Option<&Cl
     result.into()
 }
 
-fn dump_instance_map(instance: usize, map: &MapI, _class: Option<&Class>) -> Value {
+fn dump_instance_map(instance: usize, map: &MapI, _class: Option<ClassRef>) -> Value {
     let size = map.get_size(instance);
     if size != 0 {
         eprintln!(
@@ -166,14 +166,14 @@ fn dump_instance_flag(instance: usize, bitmask: u8) -> Value {
     ((result & bitmask) != 0).into()
 }
 
-fn dump_instance_option(instance: usize, container: &ContainerI, class: Option<&Class>) -> Value {
+fn dump_instance_option(instance: usize, container: &ContainerI, class: Option<ClassRef>) -> Value {
     match container.get_size(instance) {
         0 => Value::Null,
         _ => dump_instance_nestable(instance, container.value_type, class),
     }
 }
 
-fn dump_instance_nestable(instance: usize, item_type: BinType, class: Option<&Class>) -> Value {
+fn dump_instance_nestable(instance: usize, item_type: BinType, class: Option<ClassRef>) -> Value {
     match item_type {
         BinType::None => panic!("Trying to print None!"),
         BinType::Bool => dump_instance_bool(instance),
@@ -208,14 +208,14 @@ fn dump_instance_nestable(instance: usize, item_type: BinType, class: Option<&Cl
 /// Describe a property for a diagnostic message. A broken invariant here almost
 /// always means the record was read at the wrong offset or stride, so the raw
 /// field values are what identify the misread.
-fn property_context(property: &Property) -> String {
+fn property_context(property: PropertyRef) -> String {
     format!(
         "class {} property {} type {:?} offset {} bitmask {:#x} container {} map {}",
         dump_hex(crate::diag::current_class()),
-        dump_hex(property.hash),
-        property.value_type,
-        property.offset,
-        property.bitmask,
+        dump_hex(property.hash()),
+        property.value_type(),
+        property.offset(),
+        property.bitmask(),
         if property.container().is_some() { "set" } else { "NULL" },
         if property.map().is_some() { "set" } else { "NULL" },
     ) + &format!(" union_slot {:#x}", property.union_raw())
@@ -225,7 +225,7 @@ fn property_context(property: &Property) -> String {
 ///
 /// Panics by default; under `DUMPER_TOLERATE_ANOMALIES` it records the
 /// inconsistency and lets the walk continue so the full extent is visible.
-fn require<'a, T>(value: Option<&'a T>, what: &str, property: &Property) -> Option<&'a T> {
+fn require<'a, T>(value: Option<&'a T>, what: &str, property: PropertyRef) -> Option<&'a T> {
     if value.is_none() {
         let message = format!("{what}: {}", property_context(property));
         if crate::diag::tolerate_anomalies() {
@@ -237,46 +237,46 @@ fn require<'a, T>(value: Option<&'a T>, what: &str, property: &Property) -> Opti
     value
 }
 
-fn dump_instance_property(instance: usize, property: &Property) -> Value {
-    let instance = instance + property.offset as usize;
-    match property.value_type {
+fn dump_instance_property(instance: usize, property: PropertyRef) -> Value {
+    let instance = instance + property.offset() as usize;
+    match property.value_type() {
         BinType::List | BinType::List2 => {
             match require(property.container(), "List needs container", property) {
-                Some(container) => dump_instance_list(instance, container, property.other_class),
+                Some(container) => dump_instance_list(instance, container, property.other_class()),
                 None => Value::Null,
             }
         }
         BinType::Map => match require(property.map(), "Map needs map", property) {
-            Some(map) => dump_instance_map(instance, map, property.other_class),
+            Some(map) => dump_instance_map(instance, map, property.other_class()),
             None => Value::Null,
         },
         BinType::Option => {
             match require(property.container(), "Option needs container", property) {
-                Some(container) => dump_instance_option(instance, container, property.other_class),
+                Some(container) => dump_instance_option(instance, container, property.other_class()),
                 None => Value::Null,
             }
         }
-        BinType::Flag => dump_instance_flag(instance, property.bitmask),
-        _ => dump_instance_nestable(instance, property.value_type, property.other_class),
+        BinType::Flag => dump_instance_flag(instance, property.bitmask()),
+        _ => dump_instance_nestable(instance, property.value_type(), property.other_class()),
     }
 }
 
 fn dump_instance_properties(
-    class: &Class,
+    class: ClassRef,
     instance: usize,
     results: &mut serde_json::Map<String, Value>,
 ) {
-    if let Some(class) = class.base_class {
+    if let Some(class) = class.base_class() {
         dump_instance_properties(class, instance, results);
     }
-    for entry in raw_base_offs(class.secondary_bases.slice()) {
+    for entry in class.secondary_bases().slice() {
         let Some(base) = check_base_off(entry, "secondary_bases (instance walk)") else {
             continue;
         };
         dump_instance_properties(base, instance + entry.offset as usize, results);
     }
     for property in class.iter_properties() {
-        let key = dump_hex(property.hash);
+        let key = dump_hex(property.hash());
         let value = dump_instance_property(instance, property);
         results.insert(key, value);
     }
@@ -306,117 +306,104 @@ fn dump_property_map(base: usize, map: &MapI) -> MapDump {
     }
 }
 
-fn dump_property(base: usize, property: &Property) -> PropertyDump {
+fn dump_property(base: usize, property: PropertyRef) -> PropertyDump {
     PropertyDump {
-        other_class: property.other_class.map(|c| dump_hex(c.hash)),
-        offset: property.offset,
-        bitmask: property.bitmask,
-        value_type: convert_bin_type(property.value_type),
+        other_class: property.other_class().map(|c| dump_hex(c.hash())),
+        offset: property.offset(),
+        bitmask: property.bitmask(),
+        value_type: convert_bin_type(property.value_type()),
         container: property
             .container()
-            .map(|c| dump_property_container(base, c, property.value_type)),
+            .map(|c| dump_property_container(base, c, property.value_type())),
         map: property.map().map(|m| dump_property_map(base, m)),
         unkptr: dump_hex(0usize),
     }
 }
 
-fn dump_property_list<'a>(
+fn dump_property_list(
     base: usize,
-    properties: impl Iterator<Item = &'a Property>,
+    properties: impl Iterator<Item = PropertyRef>,
 ) -> BTreeMap<String, PropertyDump> {
     let mut results = BTreeMap::new();
     for property in properties {
-        let key = dump_hex(property.hash);
+        let key = dump_hex(property.hash());
         let value = dump_property(base, property);
         results.insert(key, value);
     }
     results
 }
 
-fn dump_class_functions(base: usize, class: &Class) -> ClassFunctions {
+fn dump_class_functions(base: usize, class: ClassRef) -> ClassFunctions {
     ClassFunctions {
         upcast_secondary: class
-            .upcast_secondary_fn
+            .upcast_secondary_fn()
             .map(|c| dump_hex(c as usize - base)),
-        constructor: class.constructor_fn.map(|c| dump_hex(c as usize - base)),
-        destructor: class.destructor_fn.map(|c| dump_hex(c as usize - base)),
+        constructor: class.constructor_fn().map(|c| dump_hex(c as usize - base)),
+        destructor: class.destructor_fn().map(|c| dump_hex(c as usize - base)),
         inplace_constructor: class
-            .inplace_constructor_fn
+            .inplace_constructor_fn()
             .map(|c| dump_hex(c as usize - base)),
         inplace_destructor: class
-            .inplace_destructor_fn
+            .inplace_destructor_fn()
             .map(|c| dump_hex(c as usize - base)),
-        register: class.register_fn.map(|c| dump_hex(c as usize - base)),
+        register: class.register_fn().map(|c| dump_hex(c as usize - base)),
     }
 }
 
-fn dump_class_flags(class: &Class) -> ClassFlags {
+fn dump_class_flags(class: ClassRef) -> ClassFlags {
     ClassFlags {
-        interface: class.constructor_fn.is_none(),
-        value: class.is_value,
-        secondary_base: class.is_secondary_base,
-        unk5: class.is_unk5,
+        interface: class.constructor_fn().is_none(),
+        value: class.is_value(),
+        secondary_base: class.is_secondary_base(),
+        unk5: class.is_unk5(),
     }
 }
 
-/// Raw view of [`BaseOff`], whose first field is a non-nullable reference.
-#[repr(C)]
-#[derive(Clone, Copy)]
-struct RawBaseOff {
-    class: *const Class,
-    offset: u32,
-}
-
-/// Reinterpret a `BaseOff` slice so its class pointer can be inspected before
-/// being trusted as a reference.
-fn raw_base_offs(pairs: &[BaseOff]) -> &[RawBaseOff] {
-    unsafe { std::slice::from_raw_parts(pairs.as_ptr().cast(), pairs.len()) }
-}
-
-/// Validate a `BaseOff`'s class pointer, reporting rather than faulting at
+/// Resolve a `BaseOff`'s class pointer, reporting rather than faulting at
 /// `Class+0x08` if it is null.
-fn check_base_off(entry: &RawBaseOff, what: &str) -> Option<&'static Class> {
-    if entry.class.is_null() {
+fn check_base_off(entry: &BaseOff, what: &str) -> Option<ClassRef> {
+    let class = ClassRef::from_ptr(entry.class);
+    if class.is_none() {
         let message = format!(
             "null class pointer in {what} of class {}",
             dump_hex(crate::diag::current_class())
         );
         if crate::diag::tolerate_anomalies() {
             crate::diag::record_anomaly(&message);
-            return None;
+        } else {
+            panic!("{message}");
         }
-        panic!("{message}");
     }
-    Some(unsafe { &*entry.class })
+    class
 }
 
 fn dump_class_secondary(class_offset_pairs: &[BaseOff], what: &str) -> BTreeMap<String, u32> {
     let mut results = BTreeMap::new();
-    for (index, entry) in raw_base_offs(class_offset_pairs).iter().enumerate() {
+    for (index, entry) in class_offset_pairs.iter().enumerate() {
         let Some(class) = check_base_off(entry, &format!("{what}[{index}]")) else {
             continue;
         };
-        results.insert(dump_hex(class.hash), entry.offset);
+        results.insert(dump_hex(class.hash()), entry.offset);
     }
     results
 }
 
-fn is_empty(class: &Class) -> bool {
+fn is_empty(class: ClassRef) -> bool {
     // FIXME: 16.1+ these depend on game flow being started
     let blacklist: &[u32] = &[
         0xfea4e3fe,
         0xe501834f,
     ];
-    if blacklist.contains(&class.hash) {
+    if blacklist.contains(&class.hash()) {
         return true;
     }
-    class.properties.size() == 0 && class.base_class.iter().all(|class| is_empty(class))
+    class.properties().size() == 0 && class.base_class().is_none_or(is_empty)
 }
 
-pub fn dump_class_defaults(class: &Class) -> Option<BTreeMap<String, Value>> {
+pub fn dump_class_defaults(class: ClassRef) -> Option<BTreeMap<String, Value>> {
     use crate::diag::{set_phase, Phase};
 
-    if class.constructor_fn.is_some() {
+    if class.constructor_fn().is_some() {
         let mut results = serde_json::Map::new();
         if !is_empty(class) {
             // Each of these runs shipped game code and can fault. Narrowing the
@@ -427,12 +414,12 @@ pub fn dump_class_defaults(class: &Class) -> Option<BTreeMap<String, Value>> {
             dump_instance_properties(class, instance, &mut results);
             set_phase(Phase::ClassDestructor);
             
-            if class.destructor_fn.is_some() {
+            if class.destructor_fn().is_some() {
                 class.destroy_instance(instance);
             } else {
                 let message = format!(
                     "class {} has a constructor but no destructor; leaking the instance",
-                    dump_hex(class.hash)
+                    dump_hex(class.hash())
                 );
                 if crate::diag::tolerate_anomalies() {
                     crate::diag::record_anomaly(&message);
@@ -447,16 +434,16 @@ pub fn dump_class_defaults(class: &Class) -> Option<BTreeMap<String, Value>> {
     }
 }
 
-pub fn dump_class(base: usize, class: &Class) -> ClassDump {
+pub fn dump_class(base: usize, class: ClassRef) -> ClassDump {
     ClassDump {
-        base: class.base_class.map(|c| dump_hex(c.hash)),
-        secondary_bases: dump_class_secondary(class.secondary_bases.slice(), "secondary_bases"),
+        base: class.base_class().map(|c| dump_hex(c.hash())),
+        secondary_bases: dump_class_secondary(class.secondary_bases().slice(), "secondary_bases"),
         secondary_children: dump_class_secondary(
-            class.secondary_children.slice(),
+            class.secondary_children().slice(),
             "secondary_children",
         ),
-        size: class.class_size,
-        alignment: class.alignment,
+        size: class.class_size(),
+        alignment: class.alignment(),
         flags: dump_class_flags(class),
         functions: dump_class_functions(base, class),
         properties: dump_property_list(base, class.iter_properties()),
@@ -464,36 +451,34 @@ pub fn dump_class(base: usize, class: &Class) -> ClassDump {
     }
 }
 
-pub fn dump_class_list(base: usize, classes: &[&Class]) -> BTreeMap<String, ClassDump> {
+pub fn dump_class_list(base: usize, classes: &[*const ()]) -> BTreeMap<String, ClassDump> {
     let mut results = BTreeMap::new();
-    let slots: &[*const Class] =
-        unsafe { std::slice::from_raw_parts(classes.as_ptr().cast(), classes.len()) };
 
-    for (index, &ptr) in slots.iter().enumerate() {
+    // The registry holds raw pointers, so a null entry is data to report rather
+    // than a reference that is already invalid by the time we see it.
+    for (index, &ptr) in classes.iter().enumerate() {
         crate::diag::set_current_slot(index, ptr as usize);
 
-        if ptr.is_null() {
+        let Some(class) = ClassRef::from_ptr(ptr) else {
             let message = format!("null class pointer at vector index {index}");
             if crate::diag::tolerate_anomalies() {
                 crate::diag::record_anomaly(&message);
                 continue;
             }
             panic!("{message}");
-        }
-        let class: &Class = unsafe { &*ptr };
+        };
 
         // Published before any work on this class so a fault handler can name
         // the class that killed us.
-        crate::diag::set_current_class(class.hash);
+        crate::diag::set_current_class(class.hash());
         crate::diag::set_phase(crate::diag::Phase::ClassMetadata);
-        if crate::diag::dump_class_filter() == Some(class.hash) {
-            let (data, count) = class.properties.raw_parts();
-            crate::diag::hexdump("class", class as *const _ as usize, 0x88);
-            // Two records' worth at the larger stride, so both candidate
-            // layouts are visible in one dump.
+        if crate::diag::dump_class_filter() == Some(class.hash()) {
+            let (data, count) = class.properties().raw_parts();
+            crate::diag::hexdump("class", class.as_ptr() as usize, 0x90);
+            // Sized at the larger stride so every candidate layout is covered.
             crate::diag::hexdump("properties", data, (count * 56).min(512));
         }
-        let key = dump_hex(class.hash);
+        let key = dump_hex(class.hash());
         let value = dump_class(base, class);
         results.insert(key, value);
     }
@@ -501,7 +486,7 @@ pub fn dump_class_list(base: usize, classes: &[&Class]) -> BTreeMap<String, Clas
     results
 }
 
-pub fn dump_meta(base: usize, classes: &[&Class], version: String) -> MetaDump {
+pub fn dump_meta(base: usize, classes: &[*const ()], version: String) -> MetaDump {
     MetaDump {
         version,
         classes: dump_class_list(base, classes),

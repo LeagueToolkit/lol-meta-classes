@@ -41,17 +41,6 @@ impl<'a, T> RiotVector<T> {
         (self.data as usize, self.size())
     }
 
-    /// Walk the elements using an explicit byte stride rather than
-    /// `size_of::<T>()`, for records whose in-image size differs from the Rust
-    /// struct describing them. See [`property_stride`].
-    pub fn iter_strided(&self, stride: usize) -> impl Iterator<Item = &'a T>
-    where
-        T: 'a,
-    {
-        let base = self.data as usize;
-        let count = self.size();
-        (0..count).map(move |i| unsafe { &*((base + i * stride) as *const T) })
-    }
 }
 
 #[repr(C)]
@@ -277,97 +266,130 @@ pub struct HashedIVtable {
     pub to_hash: extern "C" fn(this: &HashedI, instance: usize) -> u64,
 }
 
-/// A metaclass property record.
-///
-/// The head of the record - everything up to and including `value_type` - is
-/// identical in both layouts and is read directly. From `+0x18` on the layouts
-/// diverge, so those fields are private and reached through accessors that pick
-/// the right offset for the record in use:
-///
-/// ```text
-///          pre-16.14 (56 bytes)        16.14+ (48 bytes)
-///   +0x18  container                   unidentified (NULL in every registrar)
-///   +0x20  map                         container | map  (union, tagged by value_type)
-///   +0x28  hashed                      owning pointer
-///   +0x30  unkptr2                     -
-/// ```
-#[repr(C)]
-pub struct Property {
-    pub other_class: Option<&'static Class>,
-    pub hash: u32,
-    pub offset: u32,
-    pub bitmask: u8,
-    pub value_type: BinType,
-    /// `container` before 16.14; unidentified and always NULL from 16.14 on.
-    container_legacy: Option<&'static ContainerI>,
-    /// `map` before 16.14; the `container`/`map` union from 16.14 on.
-    union_slot: usize,
-    /// added in 13.13; an owning pointer from 16.14 on. Never read.
-    hashed: Option<&'static HashedI>,
-    /// added in 16.1; does not exist from 16.14 on. Never read.
-    unkptr2: usize,
-}
-
-impl Property {
-    fn union_as<T>(&self) -> Option<&'static T> {
-        (self.union_slot != 0).then(|| unsafe { &*(self.union_slot as *const T) })
-    }
-
-    /// Raw value of the `+0x20` slot, for diagnostics.
-    pub fn union_raw(&self) -> usize {
-        self.union_slot
-    }
-
-    /// The container backing a `List`, `List2` or `Option` property.
-    pub fn container(&self) -> Option<&'static ContainerI> {
-        if property_stride() == PROPERTY_STRIDE_LEGACY {
-            return self.container_legacy;
-        }
-        // 16.14+: one slot serves both, so the type is what says which pointer
-        // this is. Reading it for any other type would hand back whatever else
-        // the registrar stored there.
-        match self.value_type {
-            BinType::List | BinType::List2 | BinType::Option => self.union_as(),
-            _ => None,
-        }
-    }
-
-    /// The map backing a `Map` property.
-    pub fn map(&self) -> Option<&'static MapI> {
-        if property_stride() == PROPERTY_STRIDE_LEGACY {
-            return self.union_as();
-        }
-        match self.value_type {
-            BinType::Map => self.union_as(),
-            _ => None,
-        }
-    }
-}
-
 // ---------------------------------------------------------------------------
-// Property stride
+// Layout dispatch
 //
-// 16.14 dropped one of `Property`'s trailing 8-byte fields, taking the record
-// from 56 to 48 bytes. Everything up to and including `map` kept its offset -
-// confirmed both by disassembly (the game's own finalize pass walks properties
-// with a 48-byte stride) and by the 16.14 crash, whose faulting address decoded
-// to exactly `property[1] + 8`, i.e. one stride's worth of overshoot.
+// Record layouts change between builds. Each is declared as its own
+// `#[repr(C)]` struct so the compiler derives the offsets rather than them
+// being written out by hand.
 //
-// The `Property` struct below still describes the 56-byte form. The two fields
-// that may or may not be present, `hashed` and `unkptr2`, are both unread by
-// the dumper, so only the stride has to vary.
+// `layout_selector!` defines the set of layouts plus the cell holding the one in
+// use; `layout_ref!` defines a Copy handle that dispatches field reads over
+// them. Dispatch stays dynamic so no generics leak into the dump pipeline.
+//
+// Adding a future layout is: declare the struct, add one variant to the
+// selector, add one line to the `layout_ref!` variant list.
 // ---------------------------------------------------------------------------
 
-/// `Property` size up to and including 16.13.
-const PROPERTY_STRIDE_LEGACY: usize = 56;
+/// Define a layout selector enum and the cell holding the active choice.
+macro_rules! layout_selector {
+    (
+        $(#[$meta:meta])*
+        $Layout:ident in $CELL:ident, get = $get:ident, set = $set:ident {
+            $( $Variant:ident ),+ $(,)?
+        }
+    ) => {
+        $(#[$meta])*
+        #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+        #[repr(usize)]
+        pub enum $Layout { $( $Variant ),+ }
 
-/// `Property` size from 16.14 onward.
-const PROPERTY_STRIDE_16_14: usize = 48;
+        impl $Layout {
+            /// Every layout, in discriminant order.
+            pub const ALL: &'static [$Layout] = &[ $( $Layout::$Variant ),+ ];
+        }
 
-/// First version using the shorter record, as (major, minor).
-const PROPERTY_SHRANK_AT: (u32, u32) = (16, 14);
+        static $CELL: AtomicUsize = AtomicUsize::new(0);
 
-static PROPERTY_STRIDE: AtomicUsize = AtomicUsize::new(PROPERTY_STRIDE_LEGACY);
+        /// The layout in use. Set once before the walk, never changed during it.
+        pub fn $get() -> $Layout {
+            $Layout::ALL[$CELL.load(Ordering::Relaxed)]
+        }
+
+        pub fn $set(layout: $Layout) {
+            $CELL.store(layout as usize, Ordering::Relaxed);
+        }
+    };
+}
+
+/// Define a Copy handle that reads a record through whichever layout is active.
+///
+/// Generates the handle, its constructor and its record size - everything that
+/// varies only over the *variant* list. Field forwarding is deliberately not
+/// here: it would need a repetition over variants nested inside a repetition
+/// over fields, which `macro_rules!` cannot express (both sit at the same
+/// depth). Use `forward_fields!` alongside this for that.
+macro_rules! layout_ref {
+    (
+        $(#[$meta:meta])*
+        $Ref:ident over $Layout:ident, active = $active:ident {
+            $( $Variant:ident => $Struct:ident ),+ $(,)?
+        }
+    ) => {
+        $(#[$meta])*
+        #[derive(Clone, Copy)]
+        pub enum $Ref { $( $Variant(&'static $Struct) ),+ }
+
+        impl $Ref {
+            /// Interpret a raw record pointer under the active layout.
+            ///
+            /// `None` for null, so malformed data reports itself rather than
+            /// faulting on the first field read.
+            pub fn from_ptr(ptr: *const ()) -> Option<Self> {
+                if ptr.is_null() {
+                    return None;
+                }
+                Some(match $active() {
+                    $( $Layout::$Variant => $Ref::$Variant(unsafe { &*(ptr as *const $Struct) }) ),+
+                })
+            }
+
+            pub fn as_ptr(self) -> *const () {
+                match self { $( $Ref::$Variant(r) => r as *const _ as *const () ),+ }
+            }
+
+            /// Size of the record, derived from the struct rather than declared.
+            pub fn record_size(layout: $Layout) -> usize {
+                match layout {
+                    $( $Layout::$Variant => core::mem::size_of::<$Struct>() ),+
+                }
+            }
+        }
+    };
+}
+
+/// Forward field reads across a handle's variants.
+///
+/// The variant arms are written out once per handle; the field list is what
+/// repeats. Adding a layout means adding one arm here, whatever the field count.
+macro_rules! forward_fields {
+    // Internal: one field, expanded across the variant list.
+    //
+    // The variant list arrives as a single token tree and is destructured here.
+    // That indirection is what makes this legal: a field name bound by the outer
+    // repetition cannot be used inside a repetition over variants, since both
+    // sit at the same depth, but a field bound singly in this rule can.
+    (@one $Ref:ident, { $( $Variant:ident ),+ $(,)? }, $f:ident, $t:ty, by_value) => {
+        pub fn $f(self) -> $t {
+            match self { $( $Ref::$Variant(r) => r.$f ),+ }
+        }
+    };
+    (@one $Ref:ident, { $( $Variant:ident ),+ $(,)? }, $f:ident, $t:ty, by_ref) => {
+        pub fn $f(self) -> &'static $t {
+            match self { $( $Ref::$Variant(r) => &r.$f ),+ }
+        }
+    };
+    (
+        $Ref:ident $variants:tt
+        copy { $( $cf:ident : $cty:ty ),* $(,)? }
+        by_ref { $( $rf:ident : $rty:ty ),* $(,)? }
+    ) => {
+        impl $Ref {
+            $( forward_fields!(@one $Ref, $variants, $cf, $cty, by_value); )*
+            $( forward_fields!(@one $Ref, $variants, $rf, $rty, by_ref); )*
+        }
+    };
+}
 
 fn parse_major_minor(version: &str) -> Option<(u32, u32)> {
     let mut parts = version.split('.');
@@ -376,47 +398,173 @@ fn parse_major_minor(version: &str) -> Option<(u32, u32)> {
     Some((major, minor))
 }
 
-/// Pick the `Property` stride for a detected version string, which may be
-/// either `"16.14"` or `"16.14.7949266"`.
+// ---------------------------------------------------------------------------
+// Property layouts
+//
+// 16.14 shrank the record from 56 to 48 bytes: `container` and `map` share one
+// slot at +0x20, discriminated by `value_type`.
+// ---------------------------------------------------------------------------
+
+layout_selector! {
+    /// Which property record layout the image uses.
+    PropertyLayout in PROPERTY_LAYOUT, get = property_layout, set = set_property_layout {
+        Canonical,
+        V16_14,
+    }
+}
+
+/// First version using the 48-byte record.
+const PROPERTY_SHRANK_AT: (u32, u32) = (16, 14);
+
+/// Pick the property layout for a detected version string, which may be either
+/// `"16.14"` or `"16.14.7949266"`.
 ///
-/// An unrecognised version falls back to the legacy stride: that is what every
-/// dump in the repository was produced with, so it is the choice that keeps
-/// historical behaviour rather than silently switching layout.
-pub fn property_stride_for(version: Option<&str>) -> usize {
+/// An unrecognised version falls back to the canonical layout: that is what
+/// every dump in the repository was produced with, so it keeps historical
+/// behaviour rather than silently switching.
+pub fn property_layout_for(version: Option<&str>) -> PropertyLayout {
     match version.and_then(parse_major_minor) {
-        Some(v) if v >= PROPERTY_SHRANK_AT => PROPERTY_STRIDE_16_14,
-        Some(_) => PROPERTY_STRIDE_LEGACY,
+        Some(v) if v >= PROPERTY_SHRANK_AT => PropertyLayout::V16_14,
+        Some(_) => PropertyLayout::Canonical,
         None => {
             eprintln!(
-                "WARNING: could not parse version {:?}; assuming the pre-16.14 \
-                 {}-byte property layout. If this is a newer build the dump will \
-                 be wrong or the dumper will crash.",
-                version, PROPERTY_STRIDE_LEGACY
+                "WARNING: could not parse version {version:?}; assuming the \
+                 pre-16.14 property layout. If this is a newer build the dump \
+                 will be wrong or the dumper will crash."
             );
-            PROPERTY_STRIDE_LEGACY
+            PropertyLayout::Canonical
         }
     }
 }
 
-pub fn set_property_stride(stride: usize) {
-    PROPERTY_STRIDE.store(stride, Ordering::Relaxed);
+/// The property record up to and including 16.13: 56 bytes, `container` and
+/// `map` in separate slots.
+#[repr(C)]
+pub struct PropertyCanonical {
+    pub other_class_ptr: *const (),
+    pub hash: u32,
+    pub offset: u32,
+    pub bitmask: u8,
+    pub value_type: BinType,
+    pub container: Option<&'static ContainerI>,
+    pub map: Option<&'static MapI>,
+    /// added in 13.13. Never read.
+    pub hashed: Option<&'static HashedI>,
+    /// added in 16.1. Never read.
+    pub unkptr2: usize,
 }
 
-pub fn property_stride() -> usize {
-    PROPERTY_STRIDE.load(Ordering::Relaxed)
+/// The property record from 16.14: 48 bytes. `container` and `map` share one
+/// slot, and the slot that used to hold `container` is unused.
+#[repr(C)]
+pub struct Property1614 {
+    pub other_class_ptr: *const (),
+    pub hash: u32,
+    pub offset: u32,
+    pub bitmask: u8,
+    pub value_type: BinType,
+    /// Unused; always null.
+    pub unk_18: usize,
+    /// `container` or `map`, according to `value_type`.
+    pub union_slot: usize,
+    /// Owning pointer, move-transferred on reallocation. Never read.
+    pub owned: usize,
+}
+
+layout_ref! {
+    /// A property record, resolved to whichever layout this image uses.
+    PropertyRef over PropertyLayout, active = property_layout {
+        Canonical => PropertyCanonical,
+        V16_14 => Property1614,
+    }
+}
+
+forward_fields! {
+    PropertyRef { Canonical, V16_14 }
+    copy {
+        hash: u32,
+        offset: u32,
+        bitmask: u8,
+        value_type: BinType,
+        other_class_ptr: *const (),
+    }
+    by_ref {}
+}
+
+impl PropertyRef {
+    /// The class this property refers to, for `Embed`, `Pointer` and `Link`.
+    pub fn other_class(self) -> Option<ClassRef> {
+        ClassRef::from_ptr(self.other_class_ptr())
+    }
+
+    /// Raw value of the 16.14 union slot, for diagnostics. Zero pre-16.14.
+    pub fn union_raw(self) -> usize {
+        match self {
+            PropertyRef::Canonical(_) => 0,
+            PropertyRef::V16_14(p) => p.union_slot,
+        }
+    }
+
+    /// The container backing a `List`, `List2` or `Option` property.
+    ///
+    /// Hand-written rather than forwarded: from 16.14 this pointer shares a slot
+    /// with `map`, so only `value_type` says which one it is. Reading the slot
+    /// for any other type would hand back an unrelated pointer.
+    pub fn container(self) -> Option<&'static ContainerI> {
+        match self {
+            PropertyRef::Canonical(p) => p.container,
+            PropertyRef::V16_14(p) => match p.value_type {
+                BinType::List | BinType::List2 | BinType::Option => {
+                    (p.union_slot != 0).then(|| unsafe { &*(p.union_slot as *const ContainerI) })
+                }
+                _ => None,
+            },
+        }
+    }
+
+    /// The map backing a `Map` property.
+    pub fn map(self) -> Option<&'static MapI> {
+        match self {
+            PropertyRef::Canonical(p) => p.map,
+            PropertyRef::V16_14(p) => match p.value_type {
+                BinType::Map => {
+                    (p.union_slot != 0).then(|| unsafe { &*(p.union_slot as *const MapI) })
+                }
+                _ => None,
+            },
+        }
+    }
 }
 
 #[cfg(test)]
-mod stride_tests {
+mod layout_tests {
     use super::*;
 
+    /// Serialises the tests that mutate the global layout selection. Without it
+    /// they race each other under the default parallel test runner.
+    static LAYOUT_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+
+    fn lock_layout() -> std::sync::MutexGuard<'static, ()> {
+        LAYOUT_LOCK.lock().unwrap_or_else(|e| e.into_inner())
+    }
+
+    /// Byte offset of a field within its struct.
+    macro_rules! offset_of_field {
+        ($ty:ty, $field:ident) => {{
+            let probe = std::mem::MaybeUninit::<$ty>::uninit();
+            let base = probe.as_ptr() as usize;
+            let field = unsafe { std::ptr::addr_of!((*probe.as_ptr()).$field) } as usize;
+            field - base
+        }};
+    }
+
+    // -- version -> layout selection -----------------------------------------
+
     #[test]
-    fn legacy_versions_use_the_56_byte_record() {
-        // find_version yields "16.13"; find_version2 yields "16.13.7915903".
-        //
-        // 16.12 is deliberately here: it crashes too, but with a null-deref
-        // signature rather than the stride overshoot, so it is a separate bug
-        // and must keep the layout 16.13 demonstrably dumps correctly.
+    fn property_layout_is_selected_by_version() {
+        // 16.12 is deliberately canonical here: it crashes for an unrelated
+        // reason (its Class layout), and must keep the property layout that
+        // 16.13 either side of it demonstrably dumps correctly.
         for v in [
             "16.12",
             "16.12.7884269",
@@ -426,120 +574,249 @@ mod stride_tests {
             "15.24",
             "13.14.5227601",
         ] {
-            assert_eq!(property_stride_for(Some(v)), PROPERTY_STRIDE_LEGACY, "{v}");
+            assert_eq!(
+                property_layout_for(Some(v)),
+                PropertyLayout::Canonical,
+                "{v}"
+            );
         }
-    }
-
-    #[test]
-    fn versions_from_16_14_use_the_48_byte_record() {
         for v in ["16.14", "16.14.7949266", "16.15", "16.20", "17.1"] {
-            assert_eq!(property_stride_for(Some(v)), PROPERTY_STRIDE_16_14, "{v}");
+            assert_eq!(property_layout_for(Some(v)), PropertyLayout::V16_14, "{v}");
         }
     }
 
     #[test]
     fn minor_versions_compare_numerically_not_lexically() {
         // "16.9" > "16.14" as strings; the ordering that matters is numeric.
-        assert_eq!(property_stride_for(Some("16.9")), PROPERTY_STRIDE_LEGACY);
-        assert_eq!(property_stride_for(Some("16.2")), PROPERTY_STRIDE_LEGACY);
-        assert_eq!(property_stride_for(Some("16.100")), PROPERTY_STRIDE_16_14);
+        assert_eq!(property_layout_for(Some("16.9")), PropertyLayout::Canonical);
+        assert_eq!(property_layout_for(Some("16.2")), PropertyLayout::Canonical);
+        assert_eq!(
+            property_layout_for(Some("16.100")),
+            PropertyLayout::V16_14
+        );
     }
 
     #[test]
-    fn unparseable_versions_fall_back_to_legacy() {
+    fn unparseable_versions_fall_back_to_canonical() {
         for v in [None, Some("unknown"), Some(""), Some("16"), Some("16.x")] {
-            assert_eq!(property_stride_for(v), PROPERTY_STRIDE_LEGACY, "{v:?}");
+            assert_eq!(property_layout_for(v), PropertyLayout::Canonical, "{v:?}");
+        }
+        assert_eq!(class_layout_for(None), ClassLayout::Canonical);
+    }
+
+    #[test]
+    fn class_layout_is_selected_by_version() {
+        assert_eq!(class_layout_for(Some("16.12")), ClassLayout::V16_12);
+        assert_eq!(class_layout_for(Some("16.12.7884269")), ClassLayout::V16_12);
+        for v in ["16.11", "16.13", "16.14", "16.2", "15.24"] {
+            assert_eq!(class_layout_for(Some(v)), ClassLayout::Canonical, "{v}");
         }
     }
 
-    /// Serialises the tests that mutate the global stride. Without it they race
-    /// each other under the default parallel test runner.
-    static STRIDE_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+    // -- record layouts ------------------------------------------------------
 
-    fn lock_stride() -> std::sync::MutexGuard<'static, ()> {
-        STRIDE_LOCK.lock().unwrap_or_else(|e| e.into_inner())
+    #[test]
+    fn property_layouts_match_the_image() {
+        assert_eq!(offset_of_field!(PropertyCanonical, hash), 0x08);
+        assert_eq!(offset_of_field!(PropertyCanonical, offset), 0x0C);
+        assert_eq!(offset_of_field!(PropertyCanonical, bitmask), 0x10);
+        assert_eq!(offset_of_field!(PropertyCanonical, value_type), 0x11);
+        assert_eq!(offset_of_field!(PropertyCanonical, container), 0x18);
+        assert_eq!(offset_of_field!(PropertyCanonical, map), 0x20);
+        assert_eq!(std::mem::size_of::<PropertyCanonical>(), 56);
+
+        assert_eq!(offset_of_field!(Property1614, hash), 0x08);
+        assert_eq!(offset_of_field!(Property1614, offset), 0x0C);
+        assert_eq!(offset_of_field!(Property1614, bitmask), 0x10);
+        assert_eq!(offset_of_field!(Property1614, value_type), 0x11);
+        assert_eq!(offset_of_field!(Property1614, unk_18), 0x18);
+        assert_eq!(offset_of_field!(Property1614, union_slot), 0x20);
+        assert_eq!(std::mem::size_of::<Property1614>(), 48);
+
+        // The record size the walk uses comes from the struct, not a constant.
+        assert_eq!(PropertyRef::record_size(PropertyLayout::Canonical), 56);
+        assert_eq!(PropertyRef::record_size(PropertyLayout::V16_14), 48);
     }
 
-    /// Build a Property whose head fields are set, with a chosen union slot.
-    fn probe(value_type: BinType, union_slot: usize) -> Property {
-        Property {
-            other_class: None,
+    #[test]
+    fn canonical_class_layout_matches_the_image() {
+        assert_eq!(offset_of_field!(ClassCanonical, hash), 0x08);
+        assert_eq!(offset_of_field!(ClassCanonical, constructor_fn), 0x10);
+        assert_eq!(offset_of_field!(ClassCanonical, destructor_fn), 0x18);
+        assert_eq!(offset_of_field!(ClassCanonical, base_class_ptr), 0x38);
+        assert_eq!(offset_of_field!(ClassCanonical, class_size), 0x40);
+        assert_eq!(offset_of_field!(ClassCanonical, alignment), 0x48);
+        assert_eq!(offset_of_field!(ClassCanonical, is_value), 0x50);
+        assert_eq!(offset_of_field!(ClassCanonical, properties), 0x58);
+        assert_eq!(offset_of_field!(ClassCanonical, secondary_bases), 0x68);
+        assert_eq!(offset_of_field!(ClassCanonical, secondary_children), 0x78);
+        assert_eq!(std::mem::size_of::<ClassCanonical>(), 0x88);
+    }
+
+    #[test]
+    fn the_16_12_layout_is_the_canonical_one_shifted_from_0x18() {
+        // The canonical layout with one extra slot at +0x18.
+        assert_eq!(offset_of_field!(Class1612, hash), 0x08);
+        assert_eq!(offset_of_field!(Class1612, constructor_fn), 0x10);
+        assert_eq!(offset_of_field!(Class1612, unk_18), 0x18);
+        assert_eq!(offset_of_field!(Class1612, destructor_fn), 0x20);
+        assert_eq!(offset_of_field!(Class1612, class_size), 0x48);
+        assert_eq!(offset_of_field!(Class1612, alignment), 0x50);
+        assert_eq!(offset_of_field!(Class1612, properties), 0x60);
+        assert_eq!(std::mem::size_of::<Class1612>(), 0x90);
+
+        // Nothing before `destructor_fn` moves...
+        assert_eq!(
+            offset_of_field!(Class1612, hash),
+            offset_of_field!(ClassCanonical, hash)
+        );
+        assert_eq!(
+            offset_of_field!(Class1612, constructor_fn),
+            offset_of_field!(ClassCanonical, constructor_fn)
+        );
+        // ...and everything from it on is displaced by exactly 8.
+        for (a, b) in [
+            (
+                offset_of_field!(Class1612, destructor_fn),
+                offset_of_field!(ClassCanonical, destructor_fn),
+            ),
+            (
+                offset_of_field!(Class1612, properties),
+                offset_of_field!(ClassCanonical, properties),
+            ),
+            (
+                offset_of_field!(Class1612, secondary_children),
+                offset_of_field!(ClassCanonical, secondary_children),
+            ),
+        ] {
+            assert_eq!(a - b, 8);
+        }
+    }
+
+    // -- union semantics -----------------------------------------------------
+
+    /// A sentinel handed back as a pointer. Never dereferenced - these tests
+    /// only check which slot the accessors select.
+    const SLOT: usize = 0x1000;
+
+    fn probe_16_14(value_type: BinType, union_slot: usize) -> Property1614 {
+        Property1614 {
+            other_class_ptr: std::ptr::null(),
             hash: 0xdead_beef,
             offset: 0,
             bitmask: 0,
             value_type,
-            container_legacy: None,
+            unk_18: 0,
             union_slot,
-            hashed: None,
-            unkptr2: 0,
+            owned: 0,
         }
     }
-
-    /// A sentinel the accessors will hand back as a reference. Never
-    /// dereferenced - the tests only check which slot was selected.
-    const SLOT: usize = 0x1000;
 
     #[test]
     fn union_slot_is_tagged_by_type_from_16_14() {
-        let _guard = lock_stride();
-        set_property_stride(PROPERTY_STRIDE_16_14);
+        let _guard = lock_layout();
+        set_property_layout(PropertyLayout::V16_14);
 
         // Container types read the union...
         for t in [BinType::List, BinType::List2, BinType::Option] {
-            let p = probe(t, SLOT);
-            assert!(p.container().is_some(), "{t:?} should resolve a container");
-            assert!(p.map().is_none(), "{t:?} must not resolve a map");
+            let p = probe_16_14(t, SLOT);
+            let r = PropertyRef::V16_14(unsafe { &*(&p as *const _) });
+            assert!(r.container().is_some(), "{t:?} should resolve a container");
+            assert!(r.map().is_none(), "{t:?} must not resolve a map");
         }
 
         // ...Map reads the same slot as a map...
-        let p = probe(BinType::Map, SLOT);
-        assert!(p.map().is_some());
-        assert!(p.container().is_none());
+        let p = probe_16_14(BinType::Map, SLOT);
+        let r = PropertyRef::V16_14(unsafe { &*(&p as *const _) });
+        assert!(r.map().is_some());
+        assert!(r.container().is_none());
 
-        // ...and anything else must claim neither, or the registrar's other
-        // use of that slot would be handed back as a container.
+        // ...and anything else claims neither: the slot holds an unrelated
+        // pointer for those types.
         for t in [BinType::Embed, BinType::Pointer, BinType::Link, BinType::U32] {
-            let p = probe(t, SLOT);
-            assert!(p.container().is_none(), "{t:?} must not resolve a container");
-            assert!(p.map().is_none(), "{t:?} must not resolve a map");
+            let p = probe_16_14(t, SLOT);
+            let r = PropertyRef::V16_14(unsafe { &*(&p as *const _) });
+            assert!(r.container().is_none(), "{t:?} must not resolve a container");
+            assert!(r.map().is_none(), "{t:?} must not resolve a map");
         }
 
         // A NULL slot stays None even for a container type.
-        assert!(probe(BinType::List, 0).container().is_none());
+        let p = probe_16_14(BinType::List, 0);
+        let r = PropertyRef::V16_14(unsafe { &*(&p as *const _) });
+        assert!(r.container().is_none());
 
-        set_property_stride(PROPERTY_STRIDE_LEGACY);
+        set_property_layout(PropertyLayout::Canonical);
     }
 
     #[test]
-    fn legacy_keeps_container_and_map_in_separate_slots() {
-        let _guard = lock_stride();
-        set_property_stride(PROPERTY_STRIDE_LEGACY);
+    fn canonical_keeps_container_and_map_in_separate_slots() {
+        let _guard = lock_layout();
+        set_property_layout(PropertyLayout::Canonical);
 
-        // Pre-16.14 the union slot IS the map field, read regardless of type,
-        // and container comes from its own field.
-        let p = probe(BinType::List, SLOT);
-        assert!(p.container().is_none(), "legacy container comes from +0x18");
-        assert!(p.map().is_some(), "legacy map is the +0x20 field");
+        let p = PropertyCanonical {
+            other_class_ptr: std::ptr::null(),
+            hash: 0xdead_beef,
+            offset: 0,
+            bitmask: 0,
+            value_type: BinType::List,
+            container: None,
+            map: None,
+            hashed: None,
+            unkptr2: 0,
+        };
+        let r = PropertyRef::Canonical(unsafe { &*(&p as *const _) });
+        // Both come from their own fields, and neither is inferred from the type.
+        assert!(r.container().is_none());
+        assert!(r.map().is_none());
+        assert_eq!(r.union_raw(), 0);
     }
 
+    // -- selector storage ----------------------------------------------------
+
     #[test]
-    fn the_legacy_stride_matches_the_rust_struct() {
-        // `Property` describes the 56-byte form; if a field is ever added to it
-        // without revisiting the constants here, the strides silently disagree.
-        assert_eq!(
-            std::mem::size_of::<Property>(),
-            PROPERTY_STRIDE_LEGACY,
-            "Property struct changed size - update the stride constants"
-        );
-        assert_eq!(PROPERTY_STRIDE_LEGACY - PROPERTY_STRIDE_16_14, 8);
+    fn selector_round_trips_every_layout() {
+        let _guard = lock_layout();
+        // Guards against storing the choice as a boolean, which silently caps
+        // the design at two layouts.
+        for &layout in ClassLayout::ALL {
+            set_class_layout(layout);
+            assert_eq!(class_layout(), layout);
+        }
+        set_class_layout(ClassLayout::Canonical);
+
+        for &layout in PropertyLayout::ALL {
+            set_property_layout(layout);
+            assert_eq!(property_layout(), layout);
+        }
+        set_property_layout(PropertyLayout::Canonical);
     }
 }
 
+/// A `(class, offset)` pair. The class pointer is raw: it is only valid under
+/// whichever layout the image uses, and a null is possible in malformed data.
 #[repr(C)]
-pub struct BaseOff(pub &'static Class, pub u32);
+#[derive(Clone, Copy)]
+pub struct BaseOff {
+    pub class: *const (),
+    pub offset: u32,
+}
 
+// ---------------------------------------------------------------------------
+// Class layouts
+//
+// 16.12 carries an extra 8-byte field at +0x18, pushing everything from
+// `destructor_fn` onward down by 8. It is an outlier: 16.11 and 16.13 either
+// side of it use the canonical layout, as does 16.14, so the alternate layout
+// is keyed to exactly 16.12.
+//
+// Each layout is a plain `#[repr(C)]` struct so the compiler derives the field
+// offsets. `ClassRef` then dispatches over them, which keeps the rest of the
+// dumper free of both generics and hand-written offset arithmetic.
+// ---------------------------------------------------------------------------
+
+/// The metaclass layout used by every version except 16.12.
 #[repr(C)]
-pub struct Class {
+pub struct ClassCanonical {
     pub upcast_secondary_fn: Option<extern "C" fn(instance: usize) -> usize>,
     pub hash: u32,
     pub constructor_fn: Option<extern "C" fn() -> usize>,
@@ -547,32 +824,116 @@ pub struct Class {
     pub inplace_constructor_fn: Option<extern "C" fn(instance: usize)>,
     pub inplace_destructor_fn: Option<extern "C" fn(instance: usize)>,
     pub register_fn: Option<extern "C" fn(instance: usize)>,
-    pub base_class: Option<&'static Class>,
+    pub base_class_ptr: *const (),
     pub class_size: usize,
     pub alignment: usize,
     pub is_value: bool,
     pub is_secondary_base: bool,
+    /// Not a class flag: an internal "already processed" marker, set by the
+    /// game rather than describing the class. Still reported as `unk5` in the
+    /// dump schema.
     pub is_unk5: bool,
-    pub properties: RiotVector<Property>,
+    pub properties: RiotVector<u8>,
     pub secondary_bases: RiotVector<BaseOff>,
     pub secondary_children: RiotVector<BaseOff>,
 }
 
-impl Class {
-    /// The class's properties, walked at the stride this image actually uses.
+/// The 16.12 metaclass layout: one extra pointer-sized field at `+0x18`.
+#[repr(C)]
+pub struct Class1612 {
+    pub upcast_secondary_fn: Option<extern "C" fn(instance: usize) -> usize>,
+    pub hash: u32,
+    pub constructor_fn: Option<extern "C" fn() -> usize>,
+    /// Unused; always null. A dead slot in the lifecycle-function block, and
+    /// the whole difference between this layout and the canonical one. Gone
+    /// again in 16.14, which is why that record is 8 bytes shorter.
+    pub unk_18: usize,
+    pub destructor_fn: Option<extern "C" fn(instance: usize)>,
+    pub inplace_constructor_fn: Option<extern "C" fn(instance: usize)>,
+    pub inplace_destructor_fn: Option<extern "C" fn(instance: usize)>,
+    pub register_fn: Option<extern "C" fn(instance: usize)>,
+    pub base_class_ptr: *const (),
+    pub class_size: usize,
+    pub alignment: usize,
+    pub is_value: bool,
+    pub is_secondary_base: bool,
+    /// Not a class flag: an internal "already processed" marker, set by the
+    /// game rather than describing the class. Still reported as `unk5` in the
+    /// dump schema.
+    pub is_unk5: bool,
+    pub properties: RiotVector<u8>,
+    pub secondary_bases: RiotVector<BaseOff>,
+    pub secondary_children: RiotVector<BaseOff>,
+}
+
+layout_selector! {
+    /// Which metaclass layout the image being dumped uses.
+    ClassLayout in CLASS_LAYOUT, get = class_layout, set = set_class_layout {
+        Canonical,
+        V16_12,
+    }
+}
+
+/// The one version carrying the extra field.
+const CLASS_LAYOUT_ALT_VERSION: (u32, u32) = (16, 12);
+
+pub fn class_layout_for(version: Option<&str>) -> ClassLayout {
+    match version.and_then(parse_major_minor) {
+        Some(v) if v == CLASS_LAYOUT_ALT_VERSION => ClassLayout::V16_12,
+        _ => ClassLayout::Canonical,
+    }
+}
+
+layout_ref! {
+    /// A metaclass, resolved to whichever layout this image uses.
+    ClassRef over ClassLayout, active = class_layout {
+        Canonical => ClassCanonical,
+        V16_12 => Class1612,
+    }
+}
+
+forward_fields! {
+    ClassRef { Canonical, V16_12 }
+    copy {
+        hash: u32,
+        upcast_secondary_fn: Option<extern "C" fn(usize) -> usize>,
+        constructor_fn: Option<extern "C" fn() -> usize>,
+        destructor_fn: Option<extern "C" fn(usize)>,
+        inplace_constructor_fn: Option<extern "C" fn(usize)>,
+        inplace_destructor_fn: Option<extern "C" fn(usize)>,
+        register_fn: Option<extern "C" fn(usize)>,
+        class_size: usize,
+        alignment: usize,
+        is_value: bool,
+        is_secondary_base: bool,
+        is_unk5: bool,
+        base_class_ptr: *const (),
+    }
+    by_ref {
+        properties: RiotVector<u8>,
+        secondary_bases: RiotVector<BaseOff>,
+        secondary_children: RiotVector<BaseOff>,
+    }
+}
+
+impl ClassRef {
+    /// The base class, resolved under the same layout.
+    pub fn base_class(self) -> Option<ClassRef> {
+        ClassRef::from_ptr(self.base_class_ptr())
+    }
+
+    /// The class's properties, walked at the record size this image uses.
     ///
-    /// Always prefer this over `self.properties.slice()`, which assumes the
-    /// record is `size_of::<Property>()` bytes and is wrong from 16.14 on.
-    ///
-    /// A non-zero count with a NULL backing pointer is treated as an anomaly
-    /// rather than walked: the records would start at address 0 and the first
-    /// field read faults, which is a crash that says nothing about its cause.
-    pub fn iter_properties(&self) -> impl Iterator<Item = &'static Property> {
-        let (data, count) = self.properties.raw_parts();
+    /// A non-zero count with a NULL backing pointer is reported rather than
+    /// walked: the records would start at address 0 and the first field read
+    /// would fault, which is a crash that says nothing about its cause.
+    pub fn iter_properties(self) -> impl Iterator<Item = PropertyRef> {
+        let (data, count) = self.properties().raw_parts();
         let count = if data == 0 && count != 0 {
             let message = format!(
                 "class {:#x} declares {} properties but the array pointer is NULL",
-                self.hash, count
+                self.hash(),
+                count
             );
             if crate::diag::tolerate_anomalies() {
                 crate::diag::record_anomaly(&message);
@@ -583,20 +944,20 @@ impl Class {
         } else {
             count
         };
-        let stride = property_stride();
-        (0..count).map(move |i| unsafe { &*((data + i * stride) as *const Property) })
+        let stride = PropertyRef::record_size(property_layout());
+        (0..count).filter_map(move |i| PropertyRef::from_ptr((data + i * stride) as *const ()))
     }
 
-    pub fn create_instance(&self) -> usize {
+    pub fn create_instance(self) -> usize {
         let ctor = self
-            .constructor_fn
+            .constructor_fn()
             .expect("Can not create instance (it might be interface)!");
         (ctor)()
     }
 
-    pub fn destroy_instance(&self, instance: usize) {
+    pub fn destroy_instance(self, instance: usize) {
         let dtor = self
-            .destructor_fn
+            .destructor_fn()
             .expect("Can not destroy instance (it might be interface)!");
         (dtor)(instance)
     }

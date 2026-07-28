@@ -20,11 +20,10 @@
 //! with a unique unmapped sentinel derived from its index, so the faulting
 //! address decodes straight back to a symbol name.
 //!
-//! Poisoning is opt-in because it is not behaviour-preserving. Plenty of the
-//! ~208 unresolved symbols are data (`_NSZeroRect`, `_kSec*`) that shipped code
-//! reads without ever dereferencing meaningfully; leaving them as garbage is
-//! survivable, whereas a poisoned pointer faults the moment it is dereferenced.
-//! Turning it on unconditionally could break versions that currently dump fine.
+//! Poisoning is opt-in because it is not behaviour-preserving. Many unresolved
+//! symbols are data that shipped code reads without meaningfully dereferencing;
+//! leaving those as garbage is survivable, whereas a poisoned pointer faults on
+//! first use. Turning it on by default could break versions that dump fine.
 
 use std::ffi::c_void;
 use std::sync::atomic::{AtomicU32, AtomicUsize, Ordering};
@@ -204,11 +203,9 @@ pub fn anomaly_count() -> usize {
 // ---------------------------------------------------------------------------
 // Raw memory dumps
 //
-// Metaclass records are built at runtime, so a disassembler only ever sees
-// zeroes where the property array will be. The running dumper is the only
-// vantage point from which the real bytes can be observed - which makes a
-// hexdump, checked against values a known-good version already recorded, the
-// one way to settle a record's layout without inferring it.
+// Metaclass records are built at runtime, so the running dumper is the only
+// place the real bytes can be observed. Checking them against a version that
+// already dumps correctly is how a record's layout gets settled.
 // ---------------------------------------------------------------------------
 
 /// Class hash selected by `DUMPER_DUMP_CLASS`, e.g. `DUMPER_DUMP_CLASS=fa33b8e8`

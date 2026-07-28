@@ -1,0 +1,74 @@
+# Rust test suite.
+#
+# Until now `cargo test` only ran inside the manually-dispatched diagnose
+# workflow, so nothing exercised the schema compatibility tests on a normal
+# change. Those tests are the guard that every committed dump stays readable and
+# that the serialized shape does not move - both worthless if they never run.
+name: Tests
+
+on:
+  push:
+    paths:
+      - 'crates/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/tests.yml'
+  pull_request:
+    paths:
+      - 'crates/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/tests.yml'
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-A warnings -C link-args=-Wl,-export-dynamic"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # The dumper links a C++ stub library, so the workspace needs these even
+    # though the schema tests on their own would not.
+    - name: Install system dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y libc++1 build-essential cmake
+
+    - name: Setup Rust
+      uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        toolchain: stable
+        target: x86_64-unknown-linux-gnu
+
+    - name: Cache cargo dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-
+
+    - name: Run tests
+      run: |
+        cargo test --workspace --target x86_64-unknown-linux-gnu
+
+    # The compatibility tests read from dumps/, and pass vacuously if that
+    # directory is empty. A checkout should always have it, so treat its absence
+    # as a broken run rather than a green one.
+    - name: Confirm the dump corpus was present
+      run: |
+        COUNT=$(ls -1 dumps/*.json 2>/dev/null | wc -l)
+        echo "dumps present: ${COUNT}"
+        if [ "$COUNT" -eq 0 ]; then
+          echo "::error::No dumps found - the schema compatibility tests had nothing to check."
+          exit 1
+        fi

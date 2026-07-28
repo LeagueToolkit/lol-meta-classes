@@ -488,6 +488,7 @@ pub fn dump_class_list(base: usize, classes: &[*const ()]) -> BTreeMap<String, C
 
 pub fn dump_meta(base: usize, classes: &[*const ()], version: String) -> MetaDump {
     MetaDump {
+        format_version: lol_meta_schema::FORMAT_VERSION,
         version,
         classes: dump_class_list(base, classes),
     }

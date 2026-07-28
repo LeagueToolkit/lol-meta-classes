@@ -20,9 +20,25 @@
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 
+/// Schema version written into new dumps.
+///
+/// Bump on any change to the shape or meaning of the fields below, and handle
+/// the older value on read. Dumps are historical records of what a given build
+/// contained and are never regenerated, so compatibility is a read-side concern:
+/// this crate tolerates every version ever written, while the dumper only ever
+/// emits the current one.
+pub const FORMAT_VERSION: u32 = 1;
+
+/// Version of dumps written before the field existed.
+pub const FORMAT_VERSION_UNVERSIONED: u32 = 0;
+
 /// Root structure for a metaclass dump file.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MetaDump {
+    /// Schema version of this file. Absent in every dump written before the
+    /// field was introduced, which reads back as [`FORMAT_VERSION_UNVERSIONED`].
+    #[serde(rename = "formatVersion", default)]
+    pub format_version: u32,
     /// Game version string (e.g., "14.24.6442327").
     pub version: String,
     /// Map of class hash (hex string) to class definition.

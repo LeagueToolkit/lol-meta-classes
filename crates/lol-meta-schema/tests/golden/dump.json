@@ -1,0 +1,97 @@
+{
+  "formatVersion": 1,
+  "version": "16.14.7949266",
+  "classes": {
+    "0x635d04b7": {
+      "base": null,
+      "secondary_bases": {},
+      "secondary_children": {
+        "0x1003c990": 0
+      },
+      "size": 0,
+      "alignment": 1,
+      "is": {
+        "interface": true,
+        "value": false,
+        "secondary_base": true,
+        "unk5": true
+      },
+      "fn": {
+        "upcast_secondary": "0x1234",
+        "constructor": null,
+        "destructor": null,
+        "inplace_constructor": null,
+        "inplace_destructor": null,
+        "register": "0x5678"
+      },
+      "properties": {},
+      "defaults": null
+    },
+    "0xfa33b8e8": {
+      "base": "0x91873e8a",
+      "secondary_bases": {
+        "0xb0607142": 8
+      },
+      "secondary_children": {},
+      "size": 48,
+      "alignment": 8,
+      "is": {
+        "interface": false,
+        "value": false,
+        "secondary_base": false,
+        "unk5": false
+      },
+      "fn": {
+        "upcast_secondary": null,
+        "constructor": "0x2e3e0",
+        "destructor": "0x2e410",
+        "inplace_constructor": "0x2e430",
+        "inplace_destructor": "0x2e460",
+        "register": null
+      },
+      "properties": {
+        "0x4bc37f00": {
+          "other_class": null,
+          "offset": 8,
+          "bitmask": 4,
+          "value_type": "Flag",
+          "container": null,
+          "map": null,
+          "unkptr": "0x0"
+        },
+        "0x8e2676a9": {
+          "other_class": "0xcafebabe",
+          "offset": 16,
+          "bitmask": 0,
+          "value_type": "List",
+          "container": {
+            "vtable": "0x2512c60",
+            "value_type": "U32",
+            "value_size": 4,
+            "fixed_size": null,
+            "storage": "UnknownVector"
+          },
+          "map": null,
+          "unkptr": "0x0"
+        },
+        "0x9a1b2c3d": {
+          "other_class": null,
+          "offset": 32,
+          "bitmask": 0,
+          "value_type": "Map",
+          "container": null,
+          "map": {
+            "vtable": "0x2512d00",
+            "key_type": "Hash",
+            "value_type": "Embed",
+            "storage": "UnknownMap"
+          },
+          "unkptr": "0x0"
+        }
+      },
+      "defaults": {
+        "0x4bc37f00": false
+      }
+    }
+  }
+}

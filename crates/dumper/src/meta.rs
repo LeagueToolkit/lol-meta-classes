@@ -563,8 +563,28 @@ impl Class {
     ///
     /// Always prefer this over `self.properties.slice()`, which assumes the
     /// record is `size_of::<Property>()` bytes and is wrong from 16.14 on.
+    ///
+    /// A non-zero count with a NULL backing pointer is treated as an anomaly
+    /// rather than walked: the records would start at address 0 and the first
+    /// field read faults, which is a crash that says nothing about its cause.
     pub fn iter_properties(&self) -> impl Iterator<Item = &'static Property> {
-        self.properties.iter_strided(property_stride())
+        let (data, count) = self.properties.raw_parts();
+        let count = if data == 0 && count != 0 {
+            let message = format!(
+                "class {:#x} declares {} properties but the array pointer is NULL",
+                self.hash, count
+            );
+            if crate::diag::tolerate_anomalies() {
+                crate::diag::record_anomaly(&message);
+                0
+            } else {
+                panic!("{message}");
+            }
+        } else {
+            count
+        };
+        let stride = property_stride();
+        (0..count).map(move |i| unsafe { &*((data + i * stride) as *const Property) })
     }
 
     pub fn create_instance(&self) -> usize {

@@ -269,8 +269,11 @@ fn dump_instance_properties(
     if let Some(class) = class.base_class {
         dump_instance_properties(class, instance, results);
     }
-    for &BaseOff(class, offset) in class.secondary_bases.slice() {
-        dump_instance_properties(class, instance + offset as usize, results);
+    for entry in raw_base_offs(class.secondary_bases.slice()) {
+        let Some(base) = check_base_off(entry, "secondary_bases (instance walk)") else {
+            continue;
+        };
+        dump_instance_properties(base, instance + entry.offset as usize, results);
     }
     for property in class.iter_properties() {
         let key = dump_hex(property.hash);
@@ -364,28 +367,35 @@ struct RawBaseOff {
     offset: u32,
 }
 
+/// Reinterpret a `BaseOff` slice so its class pointer can be inspected before
+/// being trusted as a reference.
+fn raw_base_offs(pairs: &[BaseOff]) -> &[RawBaseOff] {
+    unsafe { std::slice::from_raw_parts(pairs.as_ptr().cast(), pairs.len()) }
+}
+
+/// Validate a `BaseOff`'s class pointer, reporting rather than faulting at
+/// `Class+0x08` if it is null.
+fn check_base_off(entry: &RawBaseOff, what: &str) -> Option<&'static Class> {
+    if entry.class.is_null() {
+        let message = format!(
+            "null class pointer in {what} of class {}",
+            dump_hex(crate::diag::current_class())
+        );
+        if crate::diag::tolerate_anomalies() {
+            crate::diag::record_anomaly(&message);
+            return None;
+        }
+        panic!("{message}");
+    }
+    Some(unsafe { &*entry.class })
+}
+
 fn dump_class_secondary(class_offset_pairs: &[BaseOff], what: &str) -> BTreeMap<String, u32> {
     let mut results = BTreeMap::new();
-
-    // Same reasoning as the class vector: read the pointer before trusting it,
-    // so a null reports itself instead of faulting at `Class+0x08`.
-    let raw: &[RawBaseOff] = unsafe {
-        std::slice::from_raw_parts(class_offset_pairs.as_ptr().cast(), class_offset_pairs.len())
-    };
-
-    for (index, entry) in raw.iter().enumerate() {
-        if entry.class.is_null() {
-            let message = format!(
-                "null class pointer in {what}[{index}] of class {}",
-                dump_hex(crate::diag::current_class())
-            );
-            if crate::diag::tolerate_anomalies() {
-                crate::diag::record_anomaly(&message);
-                continue;
-            }
-            panic!("{message}");
-        }
-        let class = unsafe { &*entry.class };
+    for (index, entry) in raw_base_offs(class_offset_pairs).iter().enumerate() {
+        let Some(class) = check_base_off(entry, &format!("{what}[{index}]")) else {
+            continue;
+        };
         results.insert(dump_hex(class.hash), entry.offset);
     }
     results

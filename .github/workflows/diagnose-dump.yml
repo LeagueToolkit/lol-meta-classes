@@ -15,6 +15,16 @@ on:
         required: false
         type: boolean
         default: true
+      tolerate:
+        description: 'Continue past broken records instead of panicking (shows how many there are)'
+        required: false
+        type: boolean
+        default: false
+      dump_class:
+        description: 'Hexdump one class and its property records, by hash (e.g. fa33b8e8)'
+        required: false
+        type: string
+        default: ''
 
 env:
   CARGO_TERM_COLOR: always
@@ -56,7 +66,11 @@ jobs:
       run: |
         cargo test -p dumper --target x86_64-unknown-linux-gnu
 
+    # Debug info in the release build so a gdb backtrace names functions and
+    # lines. Diagnostic-only; the sync workflow builds without it.
     - name: Build dumper
+      env:
+        CARGO_PROFILE_RELEASE_DEBUG: "true"
       run: |
         cargo build --release --bin dumper --target x86_64-unknown-linux-gnu
 
@@ -69,6 +83,8 @@ jobs:
       id: run
       env:
         DUMPER_POISON_IMPORTS: ${{ inputs.poison && '1' || '0' }}
+        DUMPER_TOLERATE_ANOMALIES: ${{ inputs.tolerate && '1' || '0' }}
+        DUMPER_DUMP_CLASS: ${{ inputs.dump_class }}
       run: |
         mkdir -p dumps
         set +e
@@ -79,6 +95,31 @@ jobs:
         set -e
         echo "exit_code=${CODE}" >> $GITHUB_OUTPUT
         echo "Dumper exit code: ${CODE}"
+
+    # Only for hardware faults. A Rust panic already unwinds with a backtrace,
+    # and gdb would just show the panic machinery.
+    - name: Backtrace under gdb
+      if: always() && steps.run.outputs.exit_code == '139'
+      env:
+        DUMPER_POISON_IMPORTS: ${{ inputs.poison && '1' || '0' }}
+        DUMPER_TOLERATE_ANOMALIES: ${{ inputs.tolerate && '1' || '0' }}
+        DUMPER_DUMP_CLASS: ${{ inputs.dump_class }}
+      run: |
+        sudo apt-get install -y gdb
+        # gdb intercepts the fault before our handler, so this is the real
+        # stop point rather than the handler's frame.
+        gdb --batch \
+          -ex 'run' \
+          -ex 'echo \n=== BACKTRACE ===\n' \
+          -ex 'bt 40' \
+          -ex 'echo \n=== REGISTERS ===\n' \
+          -ex 'info registers' \
+          -ex 'echo \n=== FAULTING INSN ===\n' \
+          -ex 'x/4i $pc' \
+          --args ./target/x86_64-unknown-linux-gnu/release/dumper \
+            "temp/${{ inputs.version }}" \
+            -o "dumps/${{ inputs.version }}.json" \
+          2>&1 | tail -120 | tee /tmp/gdb.log
 
     - name: Summarise diagnosis
       if: always()
@@ -108,6 +149,22 @@ jobs:
           echo '```'
           grep -E 'Resolved [0-9]+/|Poisoned |First unresolved' /tmp/dumper.log 2>/dev/null || echo "(not reached)"
           echo '```'
+          if [ -s /tmp/gdb.log ]; then
+            echo ""
+            echo "### gdb backtrace"
+            echo '```'
+            sed -n '/=== BACKTRACE ===/,$p' /tmp/gdb.log | head -50
+            echo '```'
+          fi
+          if grep -q 'panicked at\|ANOMALY' /tmp/dumper.log 2>/dev/null; then
+            echo ""
+            echo "### Panic / anomalies"
+            echo "Distinct anomalies: \`$(grep -c '^ANOMALY' /tmp/dumper.log 2>/dev/null || echo 0)\` printed"
+            echo '```'
+            grep -E 'panicked at|^ANOMALY|anomal(y|ies) (was|were) tolerated|Property stride' /tmp/dumper.log \
+              | head -40
+            echo '```'
+          fi
         } >> $GITHUB_STEP_SUMMARY
 
     - name: Upload logs and dump
@@ -117,6 +174,7 @@ jobs:
         name: diagnose-${{ inputs.version }}-${{ github.run_id }}
         path: |
           /tmp/dumper.log
+          /tmp/gdb.log
           dumps/
         retention-days: 14
         if-no-files-found: warn

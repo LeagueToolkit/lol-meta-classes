@@ -45,7 +45,9 @@ fn convert_bin_type(t: BinType) -> SchemaBinType {
         BinType::Option => SchemaBinType::Option,
         BinType::Map => SchemaBinType::Map,
         BinType::Flag => SchemaBinType::Flag,
-        _ => panic!("Unknown BinType!"),
+        // Reached when a record is read at the wrong offset, so the raw
+        // discriminant is the useful part of the message.
+        _ => panic!("Unknown BinType {:#04x}", t as u8),
     }
 }
 
@@ -203,24 +205,57 @@ fn dump_instance_nestable(instance: usize, item_type: BinType, class: Option<&Cl
     }
 }
 
+/// Describe a property for a diagnostic message. A broken invariant here almost
+/// always means the record was read at the wrong offset or stride, so the raw
+/// field values are what identify the misread.
+fn property_context(property: &Property) -> String {
+    format!(
+        "class {} property {} type {:?} offset {} bitmask {:#x} container {} map {}",
+        dump_hex(crate::diag::current_class()),
+        dump_hex(property.hash),
+        property.value_type,
+        property.offset,
+        property.bitmask,
+        if property.container().is_some() { "set" } else { "NULL" },
+        if property.map().is_some() { "set" } else { "NULL" },
+    ) + &format!(" union_slot {:#x}", property.union_raw())
+}
+
+/// Resolve a pointer a property's type says must be present.
+///
+/// Panics by default; under `DUMPER_TOLERATE_ANOMALIES` it records the
+/// inconsistency and lets the walk continue so the full extent is visible.
+fn require<'a, T>(value: Option<&'a T>, what: &str, property: &Property) -> Option<&'a T> {
+    if value.is_none() {
+        let message = format!("{what}: {}", property_context(property));
+        if crate::diag::tolerate_anomalies() {
+            crate::diag::record_anomaly(&message);
+        } else {
+            panic!("{message}");
+        }
+    }
+    value
+}
+
 fn dump_instance_property(instance: usize, property: &Property) -> Value {
     let instance = instance + property.offset as usize;
     match property.value_type {
-        BinType::List | BinType::List2 => dump_instance_list(
-            instance,
-            property.container.expect("List needs container"),
-            property.other_class,
-        ),
-        BinType::Map => dump_instance_map(
-            instance,
-            property.map.expect("Map needs map"),
-            property.other_class,
-        ),
-        BinType::Option => dump_instance_option(
-            instance,
-            property.container.expect("Option needs container"),
-            property.other_class,
-        ),
+        BinType::List | BinType::List2 => {
+            match require(property.container(), "List needs container", property) {
+                Some(container) => dump_instance_list(instance, container, property.other_class),
+                None => Value::Null,
+            }
+        }
+        BinType::Map => match require(property.map(), "Map needs map", property) {
+            Some(map) => dump_instance_map(instance, map, property.other_class),
+            None => Value::Null,
+        },
+        BinType::Option => {
+            match require(property.container(), "Option needs container", property) {
+                Some(container) => dump_instance_option(instance, container, property.other_class),
+                None => Value::Null,
+            }
+        }
         BinType::Flag => dump_instance_flag(instance, property.bitmask),
         _ => dump_instance_nestable(instance, property.value_type, property.other_class),
     }
@@ -275,9 +310,9 @@ fn dump_property(base: usize, property: &Property) -> PropertyDump {
         bitmask: property.bitmask,
         value_type: convert_bin_type(property.value_type),
         container: property
-            .container
+            .container()
             .map(|c| dump_property_container(base, c, property.value_type)),
-        map: property.map.map(|m| dump_property_map(base, m)),
+        map: property.map().map(|m| dump_property_map(base, m)),
         unkptr: dump_hex(0usize),
     }
 }
@@ -384,6 +419,13 @@ pub fn dump_class_list(base: usize, classes: &[&Class]) -> BTreeMap<String, Clas
         // the class that killed us.
         crate::diag::set_current_class(class.hash);
         crate::diag::set_phase(crate::diag::Phase::ClassMetadata);
+        if crate::diag::dump_class_filter() == Some(class.hash) {
+            let (data, count) = class.properties.raw_parts();
+            crate::diag::hexdump("class", class as *const _ as usize, 0x88);
+            // Two records' worth at the larger stride, so both candidate
+            // layouts are visible in one dump.
+            crate::diag::hexdump("properties", data, (count * 56).min(512));
+        }
         let key = dump_hex(class.hash);
         let value = dump_class(base, class);
         results.insert(key, value);

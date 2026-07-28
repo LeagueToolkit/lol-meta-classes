@@ -36,6 +36,11 @@ impl<'a, T> RiotVector<T> {
             .unwrap_or_default()
     }
 
+    /// Backing pointer and element count, for raw memory dumps.
+    pub fn raw_parts(&self) -> (usize, usize) {
+        (self.data as usize, self.size())
+    }
+
     /// Walk the elements using an explicit byte stride rather than
     /// `size_of::<T>()`, for records whose in-image size differs from the Rust
     /// struct describing them. See [`property_stride`].
@@ -272,6 +277,20 @@ pub struct HashedIVtable {
     pub to_hash: extern "C" fn(this: &HashedI, instance: usize) -> u64,
 }
 
+/// A metaclass property record.
+///
+/// The head of the record - everything up to and including `value_type` - is
+/// identical in both layouts and is read directly. From `+0x18` on the layouts
+/// diverge, so those fields are private and reached through accessors that pick
+/// the right offset for the record in use:
+///
+/// ```text
+///          pre-16.14 (56 bytes)        16.14+ (48 bytes)
+///   +0x18  container                   unidentified (NULL in every registrar)
+///   +0x20  map                         container | map  (union, tagged by value_type)
+///   +0x28  hashed                      owning pointer
+///   +0x30  unkptr2                     -
+/// ```
 #[repr(C)]
 pub struct Property {
     pub other_class: Option<&'static Class>,
@@ -279,12 +298,50 @@ pub struct Property {
     pub offset: u32,
     pub bitmask: u8,
     pub value_type: BinType,
-    pub container: Option<&'static ContainerI>,
-    pub map: Option<&'static MapI>,
-    // added in 13.13
-    pub hashed: Option<&'static HashedI>,
-    // added in 16.1
-    pub unkptr2: usize,
+    /// `container` before 16.14; unidentified and always NULL from 16.14 on.
+    container_legacy: Option<&'static ContainerI>,
+    /// `map` before 16.14; the `container`/`map` union from 16.14 on.
+    union_slot: usize,
+    /// added in 13.13; an owning pointer from 16.14 on. Never read.
+    hashed: Option<&'static HashedI>,
+    /// added in 16.1; does not exist from 16.14 on. Never read.
+    unkptr2: usize,
+}
+
+impl Property {
+    fn union_as<T>(&self) -> Option<&'static T> {
+        (self.union_slot != 0).then(|| unsafe { &*(self.union_slot as *const T) })
+    }
+
+    /// Raw value of the `+0x20` slot, for diagnostics.
+    pub fn union_raw(&self) -> usize {
+        self.union_slot
+    }
+
+    /// The container backing a `List`, `List2` or `Option` property.
+    pub fn container(&self) -> Option<&'static ContainerI> {
+        if property_stride() == PROPERTY_STRIDE_LEGACY {
+            return self.container_legacy;
+        }
+        // 16.14+: one slot serves both, so the type is what says which pointer
+        // this is. Reading it for any other type would hand back whatever else
+        // the registrar stored there.
+        match self.value_type {
+            BinType::List | BinType::List2 | BinType::Option => self.union_as(),
+            _ => None,
+        }
+    }
+
+    /// The map backing a `Map` property.
+    pub fn map(&self) -> Option<&'static MapI> {
+        if property_stride() == PROPERTY_STRIDE_LEGACY {
+            return self.union_as();
+        }
+        match self.value_type {
+            BinType::Map => self.union_as(),
+            _ => None,
+        }
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -393,6 +450,76 @@ mod stride_tests {
         for v in [None, Some("unknown"), Some(""), Some("16"), Some("16.x")] {
             assert_eq!(property_stride_for(v), PROPERTY_STRIDE_LEGACY, "{v:?}");
         }
+    }
+
+    /// Serialises the tests that mutate the global stride. Without it they race
+    /// each other under the default parallel test runner.
+    static STRIDE_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+
+    fn lock_stride() -> std::sync::MutexGuard<'static, ()> {
+        STRIDE_LOCK.lock().unwrap_or_else(|e| e.into_inner())
+    }
+
+    /// Build a Property whose head fields are set, with a chosen union slot.
+    fn probe(value_type: BinType, union_slot: usize) -> Property {
+        Property {
+            other_class: None,
+            hash: 0xdead_beef,
+            offset: 0,
+            bitmask: 0,
+            value_type,
+            container_legacy: None,
+            union_slot,
+            hashed: None,
+            unkptr2: 0,
+        }
+    }
+
+    /// A sentinel the accessors will hand back as a reference. Never
+    /// dereferenced - the tests only check which slot was selected.
+    const SLOT: usize = 0x1000;
+
+    #[test]
+    fn union_slot_is_tagged_by_type_from_16_14() {
+        let _guard = lock_stride();
+        set_property_stride(PROPERTY_STRIDE_16_14);
+
+        // Container types read the union...
+        for t in [BinType::List, BinType::List2, BinType::Option] {
+            let p = probe(t, SLOT);
+            assert!(p.container().is_some(), "{t:?} should resolve a container");
+            assert!(p.map().is_none(), "{t:?} must not resolve a map");
+        }
+
+        // ...Map reads the same slot as a map...
+        let p = probe(BinType::Map, SLOT);
+        assert!(p.map().is_some());
+        assert!(p.container().is_none());
+
+        // ...and anything else must claim neither, or the registrar's other
+        // use of that slot would be handed back as a container.
+        for t in [BinType::Embed, BinType::Pointer, BinType::Link, BinType::U32] {
+            let p = probe(t, SLOT);
+            assert!(p.container().is_none(), "{t:?} must not resolve a container");
+            assert!(p.map().is_none(), "{t:?} must not resolve a map");
+        }
+
+        // A NULL slot stays None even for a container type.
+        assert!(probe(BinType::List, 0).container().is_none());
+
+        set_property_stride(PROPERTY_STRIDE_LEGACY);
+    }
+
+    #[test]
+    fn legacy_keeps_container_and_map_in_separate_slots() {
+        let _guard = lock_stride();
+        set_property_stride(PROPERTY_STRIDE_LEGACY);
+
+        // Pre-16.14 the union slot IS the map field, read regardless of type,
+        // and container comes from its own field.
+        let p = probe(BinType::List, SLOT);
+        assert!(p.container().is_none(), "legacy container comes from +0x18");
+        assert!(p.map().is_some(), "legacy map is the +0x20 field");
     }
 
     #[test]

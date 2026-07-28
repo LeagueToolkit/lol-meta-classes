@@ -148,6 +148,107 @@ pub fn set_current_class(hash: u32) {
     CURRENT_CLASS.store(hash, Ordering::Relaxed);
 }
 
+pub fn current_class() -> u32 {
+    CURRENT_CLASS.load(Ordering::Relaxed)
+}
+
+// ---------------------------------------------------------------------------
+// Anomaly tolerance
+//
+// A layout misread usually shows up as a broken invariant - a List-typed
+// property with no container, say. Dying on the first one tells you it
+// happened; surviving to the end tells you whether it is one stray record or
+// thousands, which is the difference between a quirk and a wrong layout.
+//
+// Off by default: a dump that silently skips records is worse than no dump,
+// so tolerance is only for diagnosis.
+// ---------------------------------------------------------------------------
+
+static ANOMALIES: AtomicUsize = AtomicUsize::new(0);
+
+/// Cap on printed anomalies. The count keeps rising after this.
+const ANOMALY_PRINT_LIMIT: usize = 25;
+
+pub fn tolerate_anomalies() -> bool {
+    static ENABLED: OnceLock<bool> = OnceLock::new();
+    *ENABLED.get_or_init(|| {
+        matches!(
+            std::env::var("DUMPER_TOLERATE_ANOMALIES").as_deref(),
+            Ok("1") | Ok("true")
+        )
+    })
+}
+
+pub fn record_anomaly(what: &str) {
+    let n = ANOMALIES.fetch_add(1, Ordering::Relaxed);
+    if n < ANOMALY_PRINT_LIMIT {
+        eprintln!("ANOMALY: {what}");
+    } else if n == ANOMALY_PRINT_LIMIT {
+        eprintln!("ANOMALY: ...further anomalies suppressed, count reported at exit");
+    }
+}
+
+pub fn anomaly_count() -> usize {
+    ANOMALIES.load(Ordering::Relaxed)
+}
+
+// ---------------------------------------------------------------------------
+// Raw memory dumps
+//
+// Metaclass records are built at runtime, so a disassembler only ever sees
+// zeroes where the property array will be. The running dumper is the only
+// vantage point from which the real bytes can be observed - which makes a
+// hexdump, checked against values a known-good version already recorded, the
+// one way to settle a record's layout without inferring it.
+// ---------------------------------------------------------------------------
+
+/// Class hash selected by `DUMPER_DUMP_CLASS`, e.g. `DUMPER_DUMP_CLASS=fa33b8e8`
+/// (a leading `0x` is accepted).
+pub fn dump_class_filter() -> Option<u32> {
+    static FILTER: OnceLock<Option<u32>> = OnceLock::new();
+    *FILTER.get_or_init(|| {
+        let raw = std::env::var("DUMPER_DUMP_CLASS").ok()?;
+        let raw = raw.trim();
+        let raw = raw.strip_prefix("0x").unwrap_or(raw);
+        u32::from_str_radix(raw, 16).ok()
+    })
+}
+
+/// Print `len` bytes at `addr` as annotated hex.
+///
+/// Rendered with both the byte view and a little-endian u64 column: pointers
+/// and the `{hash, offset}` u32 pairs are what identify a field, and picking
+/// those out of a pure byte dump by eye is needless work.
+pub fn hexdump(label: &str, addr: usize, len: usize) {
+    if addr == 0 || len == 0 {
+        eprintln!("HEXDUMP {label}: <empty> (addr {addr:#x}, len {len})");
+        return;
+    }
+    eprintln!("HEXDUMP {label}: {len} bytes at {addr:#x}");
+    let mut offset = 0;
+    while offset < len {
+        let chunk = (len - offset).min(16);
+        let mut bytes = String::with_capacity(48);
+        for i in 0..chunk {
+            let b = unsafe { *((addr + offset + i) as *const u8) };
+            bytes.push_str(&format!("{b:02x} "));
+            if i == 7 {
+                bytes.push(' ');
+            }
+        }
+        // The u64 column only makes sense on a full, 8-aligned pair.
+        let words = if chunk == 16 && (addr + offset) % 8 == 0 {
+            let lo = unsafe { ((addr + offset) as *const u64).read_unaligned() };
+            let hi = unsafe { ((addr + offset + 8) as *const u64).read_unaligned() };
+            format!("  {lo:#018x} {hi:#018x}")
+        } else {
+            String::new()
+        };
+        eprintln!("  +{offset:04x}  {bytes:<50}{words}");
+        offset += chunk;
+    }
+}
+
 /// Record where the target image is mapped.
 pub fn set_image_range(base: usize, len: usize) {
     IMAGE_BASE.store(base, Ordering::Relaxed);

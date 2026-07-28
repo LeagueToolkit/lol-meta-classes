@@ -148,6 +148,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let writer = BufWriter::new(output_file);
     serde_json::to_writer_pretty(writer, &meta_info).expect("Failed to serialize json!");
 
+    let anomalies = diag::anomaly_count();
+    if anomalies > 0 {
+        eprintln!(
+            "WARNING: {} anomal{} tolerated - this dump is NOT trustworthy.",
+            anomalies,
+            if anomalies == 1 { "y was" } else { "ies were" }
+        );
+    }
+
     eprintln!("Done!");
     Ok(())
 }

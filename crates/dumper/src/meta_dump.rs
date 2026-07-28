@@ -426,7 +426,20 @@ pub fn dump_class_defaults(class: &Class) -> Option<BTreeMap<String, Value>> {
             set_phase(Phase::ClassDefaults);
             dump_instance_properties(class, instance, &mut results);
             set_phase(Phase::ClassDestructor);
-            class.destroy_instance(instance);
+            
+            if class.destructor_fn.is_some() {
+                class.destroy_instance(instance);
+            } else {
+                let message = format!(
+                    "class {} has a constructor but no destructor; leaking the instance",
+                    dump_hex(class.hash)
+                );
+                if crate::diag::tolerate_anomalies() {
+                    crate::diag::record_anomaly(&message);
+                } else {
+                    panic!("{message}");
+                }
+            }
         }
         Some(results.into_iter().collect())
     } else {

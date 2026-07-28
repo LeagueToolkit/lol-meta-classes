@@ -39,10 +39,11 @@ env:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    # For GITHUB_TOKEN, which still creates the release. The git push and the PR
-    # go through the app token instead.
+    # Least privilege: everything that writes - the branch push and the PR - goes
+    # through the app token, and the release moved to publish-release.yml, so
+    # GITHUB_TOKEN needs nothing beyond reading the repo.
     permissions:
-      contents: write
+      contents: read
 
     steps:
     - name: Mint an app token
@@ -143,36 +144,10 @@ jobs:
         done < /tmp/changed_dumps.txt
         echo "All dumps are within size limits."
 
-    - name: Create GitHub Release with dumps
-      if: steps.changes.outputs.changes == 'true'
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        set -e
-        VERSION="${{ steps.changes.outputs.latest_version }}"
-        TAG="v${VERSION}"
-
-        # Check if release already exists
-        if gh release view "$TAG" &>/dev/null; then
-          echo "Release $TAG already exists, updating assets..."
-          while IFS= read -r file; do
-            BASENAME=$(basename "$file")
-            # Delete existing asset if present, then upload new one
-            gh release delete-asset "$TAG" "$BASENAME" --yes 2>/dev/null || true
-            gh release upload "$TAG" "$file"
-          done < /tmp/changed_dumps.txt
-        else
-          echo "Creating release $TAG..."
-          ASSET_ARGS=""
-          while IFS= read -r file; do
-            ASSET_ARGS="$ASSET_ARGS $file"
-          done < /tmp/changed_dumps.txt
-
-          gh release create "$TAG" \
-            --title "LoL Meta Classes ${VERSION}" \
-            --notes "Meta class dumps for League of Legends version ${VERSION}" \
-            $ASSET_ARGS
-        fi
+    # The release is deliberately NOT created here. This step used to run before
+    # the dumps were committed, so the tag it created pointed at a commit that
+    # did not contain them. publish-release.yml handles it on the merge instead,
+    # where the tag can be anchored to the commit that carries the dumps.
 
     - name: Rebuild database from all dumps
       if: steps.changes.outputs.changes == 'true' || github.event.inputs.force_run == 'true'

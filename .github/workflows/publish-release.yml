@@ -1,0 +1,146 @@
+name: Publish Dump Release
+
+# Publishes the GitHub release for a batch of dumps, tagged at the commit that
+# actually contains them.
+#
+# This used to live in the sync workflow, where it ran *before* the dumps were
+# committed - so the tag was created against whatever main's head happened to be
+# at that moment, a commit with none of the dumps in its tree. Running it on the
+# merge instead means the tag and the tree agree.
+#
+# It fires at all because the sync's PR merges under a GitHub App token;
+# GITHUB_TOKEN raises no push events, and this would never run.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dumps/**'
+
+  # Re-publish a specific version by hand, e.g. after deleting a bad release.
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g. 16.14.7949266). Defaults to the newest dump.'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+# Serialised: two merges in quick succession would otherwise race to create or
+# update the same tag.
+concurrency:
+  group: publish-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        # Needs history to diff the push against its predecessor.
+        fetch-depth: 0
+
+    - name: Determine which dumps this push added
+      id: changes
+      run: |
+        set -e
+
+        if [ -n "${{ inputs.version }}" ]; then
+          CHANGED="dumps/${{ inputs.version }}.json"
+          if [ ! -f "$CHANGED" ]; then
+            echo "::error::No such dump: ${CHANGED}"
+            exit 1
+          fi
+        else
+          BEFORE="${{ github.event.before }}"
+          # A first push, a force-push, or a pruned commit leaves `before`
+          # unusable; the pushed commit's own parent is the sane fallback.
+          if [ -z "$BEFORE" ] \
+             || [ "$BEFORE" = "0000000000000000000000000000000000000000" ] \
+             || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+            BEFORE="${GITHUB_SHA}^"
+          fi
+          CHANGED=$(git diff --name-only --diff-filter=AM "$BEFORE" "$GITHUB_SHA" \
+                      -- 'dumps/*.json' || true)
+        fi
+
+        CHANGED=$(echo "$CHANGED" | grep -v '^$' || true)
+        if [ -z "$CHANGED" ]; then
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "No dump files added or modified by this push."
+          exit 0
+        fi
+
+        echo "changes=true" >> $GITHUB_OUTPUT
+        echo "Dumps in this push:"
+        echo "$CHANGED"
+        echo "$CHANGED" > /tmp/changed_dumps.txt
+
+        # The release is named for the newest dump in the batch; every changed
+        # dump rides along as an asset. -V so 16.9 sorts below 16.14.
+        LATEST_VERSION=$(echo "$CHANGED" \
+          | grep -E '^dumps/[0-9]+\.[0-9]+\.[0-9]+\.json$' \
+          | sed -E 's#^dumps/([0-9]+\.[0-9]+\.[0-9]+)\.json$#\1#' \
+          | sort -V \
+          | tail -1)
+        if [ -z "$LATEST_VERSION" ]; then
+          echo "::error::Dump files changed but none matched the expected name format."
+          exit 1
+        fi
+        echo "latest_version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
+
+    - name: Publish the release
+      if: steps.changes.outputs.changes == 'true'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        set -e
+        VERSION="${{ steps.changes.outputs.latest_version }}"
+        TAG="v${VERSION}"
+
+        if gh release view "$TAG" >/dev/null 2>&1; then
+          echo "Release ${TAG} exists; refreshing assets."
+          # --clobber overwrites in place, so a re-run cannot leave the release
+          # briefly missing an asset the way delete-then-upload could.
+          while IFS= read -r file; do
+            gh release upload "$TAG" "$file" --clobber
+          done < /tmp/changed_dumps.txt
+        else
+          echo "Creating release ${TAG} at ${GITHUB_SHA}."
+          ASSETS=""
+          while IFS= read -r file; do
+            ASSETS="$ASSETS $file"
+          done < /tmp/changed_dumps.txt
+
+          # --target is the whole point: the tag is created against the commit
+          # that carries these dumps, not against whatever main's head is when
+          # some other workflow happens to run.
+          gh release create "$TAG" \
+            --target "$GITHUB_SHA" \
+            --title "LoL Meta Classes ${VERSION}" \
+            --notes "Meta class dumps for League of Legends version ${VERSION}" \
+            $ASSETS
+        fi
+
+    - name: Summarise
+      if: always()
+      run: |
+        {
+          if [ "${{ steps.changes.outputs.changes }}" = "true" ]; then
+            echo "## Release \`v${{ steps.changes.outputs.latest_version }}\`"
+            echo ""
+            echo "Tagged at \`${GITHUB_SHA}\`."
+            echo ""
+            echo "Assets:"
+            sed 's/^/- `/;s/$/`/' /tmp/changed_dumps.txt 2>/dev/null || echo "- (none)"
+          else
+            echo "## No release"
+            echo ""
+            echo "This push touched \`dumps/\` but added or modified no dump files."
+          fi
+        } >> $GITHUB_STEP_SUMMARY

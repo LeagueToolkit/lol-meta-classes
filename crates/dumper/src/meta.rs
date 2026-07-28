@@ -829,10 +829,9 @@ pub struct ClassCanonical {
     pub alignment: usize,
     pub is_value: bool,
     pub is_secondary_base: bool,
-    /// Not a class flag: an internal "already processed" marker, set by the
-    /// game rather than describing the class. Still reported as `unk5` in the
-    /// dump schema.
-    pub is_unk5: bool,
+    /// Not a class flag: an "already processed" marker that the metaclass
+    /// registry sets when it finalises the entry.
+    pub is_finalized: bool,
     pub properties: RiotVector<u8>,
     pub secondary_bases: RiotVector<BaseOff>,
     pub secondary_children: RiotVector<BaseOff>,
@@ -857,10 +856,9 @@ pub struct Class1612 {
     pub alignment: usize,
     pub is_value: bool,
     pub is_secondary_base: bool,
-    /// Not a class flag: an internal "already processed" marker, set by the
-    /// game rather than describing the class. Still reported as `unk5` in the
-    /// dump schema.
-    pub is_unk5: bool,
+    /// Not a class flag: an "already processed" marker that the metaclass
+    /// registry sets when it finalises the entry.
+    pub is_finalized: bool,
     pub properties: RiotVector<u8>,
     pub secondary_bases: RiotVector<BaseOff>,
     pub secondary_children: RiotVector<BaseOff>,
@@ -906,7 +904,7 @@ forward_fields! {
         alignment: usize,
         is_value: bool,
         is_secondary_base: bool,
-        is_unk5: bool,
+        is_finalized: bool,
         base_class_ptr: *const (),
     }
     by_ref {

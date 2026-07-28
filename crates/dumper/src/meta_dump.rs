@@ -355,7 +355,7 @@ fn dump_class_flags(class: ClassRef) -> ClassFlags {
         interface: class.constructor_fn().is_none(),
         value: class.is_value(),
         secondary_base: class.is_secondary_base(),
-        unk5: class.is_unk5(),
+        finalized: class.is_finalized(),
     }
 }
 

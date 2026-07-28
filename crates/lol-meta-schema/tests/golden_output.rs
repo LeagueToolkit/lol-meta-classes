@@ -70,7 +70,7 @@ fn specimen() -> MetaDump {
             interface: false,
             value: false,
             secondary_base: false,
-            unk5: false,
+            finalized: false,
         },
         functions: ClassFunctions {
             upcast_secondary: None,
@@ -102,7 +102,7 @@ fn specimen() -> MetaDump {
             interface: true,
             value: false,
             secondary_base: true,
-            unk5: true,
+            finalized: true,
         },
         functions: ClassFunctions {
             upcast_secondary: Some("0x1234".to_string()),

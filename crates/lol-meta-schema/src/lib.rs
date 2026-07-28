@@ -27,7 +27,11 @@ use std::collections::BTreeMap;
 /// contained and are never regenerated, so compatibility is a read-side concern:
 /// this crate tolerates every version ever written, while the dumper only ever
 /// emits the current one.
-pub const FORMAT_VERSION: u32 = 1;
+///
+/// History:
+///   1 - the field was introduced; shape otherwise as dumped up to 16.14.
+///   2 - `ClassFlags::unk5` renamed to `finalized`.
+pub const FORMAT_VERSION: u32 = 2;
 
 /// Version of dumps written before the field existed.
 pub const FORMAT_VERSION_UNVERSIONED: u32 = 0;
@@ -79,8 +83,12 @@ pub struct ClassFlags {
     pub value: bool,
     /// True if this is a secondary base class.
     pub secondary_base: bool,
-    /// Unknown flag.
-    pub unk5: bool,
+    /// An "already processed" marker - the metaclass registry sets it when it finalises an entry.
+    ///
+    /// Written as `unk5` before format version 2, which is what every dump up to
+    /// 16.14 carries
+    #[serde(alias = "unk5")]
+    pub finalized: bool,
 }
 
 /// Function pointers for class operations.
@@ -211,5 +219,38 @@ mod tests {
         let dump: MetaDump = serde_json::from_str(json).unwrap();
         assert_eq!(dump.version, "14.24.6442327");
         assert!(dump.classes.is_empty());
+    }
+
+    #[test]
+    fn the_pre_v2_unk5_key_still_reads() {
+        // Every dump up to 16.14 spells this `unk5`. Those files cannot be
+        // regenerated, so dropping the alias would orphan the whole corpus.
+        let flags: ClassFlags = serde_json::from_str(
+            r#"{"interface":false,"value":false,"secondary_base":false,"unk5":true}"#,
+        )
+        .expect("the old key must still deserialize");
+        assert!(flags.finalized);
+    }
+
+    #[test]
+    fn the_current_finalized_key_reads() {
+        let flags: ClassFlags = serde_json::from_str(
+            r#"{"interface":false,"value":false,"secondary_base":false,"finalized":true}"#,
+        )
+        .unwrap();
+        assert!(flags.finalized);
+    }
+
+    #[test]
+    fn flags_are_written_under_the_new_name() {
+        let flags = ClassFlags {
+            interface: false,
+            value: false,
+            secondary_base: false,
+            finalized: true,
+        };
+        let json = serde_json::to_string(&flags).unwrap();
+        assert!(json.contains("\"finalized\""), "{json}");
+        assert!(!json.contains("unk5"), "the alias must not be written: {json}");
     }
 }

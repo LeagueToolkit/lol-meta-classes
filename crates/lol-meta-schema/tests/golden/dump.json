@@ -1,5 +1,5 @@
 {
-  "formatVersion": 1,
+  "formatVersion": 2,
   "version": "16.14.7949266",
   "classes": {
     "0x635d04b7": {
@@ -14,7 +14,7 @@
         "interface": true,
         "value": false,
         "secondary_base": true,
-        "unk5": true
+        "finalized": true
       },
       "fn": {
         "upcast_secondary": "0x1234",
@@ -39,7 +39,7 @@
         "interface": false,
         "value": false,
         "secondary_base": false,
-        "unk5": false
+        "finalized": false
       },
       "fn": {
         "upcast_secondary": null,

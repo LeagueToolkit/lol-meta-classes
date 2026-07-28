@@ -4,14 +4,15 @@ name: Notify Wiki
 # redeploy right away. Without this the wiki only learns via its own weekly cron
 # (Sun 06:00 UTC), so a mid-week sync sits unpublished for up to six days.
 #
-# Two entry points, because a db/ change arrives two ways and neither covers the
-# other:
-#   - `workflow_call` - the sync workflow calls this directly. Its push runs
-#     under GITHUB_TOKEN, and GitHub deliberately does not raise `push` events
-#     for those, so the trigger below would never see it.
-#   - `push` - a human merging a PR that touches db/meta.db.json, e.g. a
-#     hashtable name-snapshot refresh, which rewrites names across the database
-#     without any dump changing.
+# `push` is the entry point that matters: every db/ change now arrives by a PR
+# merging into main, whether that is the sync bot's own PR (merged under an app
+# token, which does raise `push` events - GITHUB_TOKEN would not) or a human
+# merging something like a hashtable name-snapshot refresh, which rewrites names
+# across the database without any dump changing.
+#
+# `workflow_call` is kept as an escape hatch for a caller that needs to dispatch
+# explicitly. The sync workflow no longer uses it: it would double-fire against
+# the `push` above.
 
 on:
   push:

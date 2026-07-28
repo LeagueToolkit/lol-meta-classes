@@ -1,5 +1,19 @@
 name: Sync LoL Meta Classes
 
+# Discovers new game builds, dumps them, rebuilds db/, and opens a PR.
+#
+# It opens a PR rather than pushing: main is protected and requires the `verify`
+# check, and a required check can never be satisfied by a direct push - it has to
+# be green on the commit before that commit is allowed to land.
+#
+# Setup this depends on:
+#   - secrets SYNC_APP_ID / SYNC_APP_PRIVATE_KEY, for a GitHub App installed on
+#     this repo with `contents: write` and `pull-requests: write`. It must be a
+#     an app (or a PAT) rather than GITHUB_TOKEN, whose actions raise no workflow
+#     events - a PR it opened would never trigger `verify` and could never merge.
+#   - "Allow auto-merge" enabled on the repo, so the PR lands unattended once
+#     `verify` passes. Without it the PR is still opened, with a warning.
+
 on:
   # Trigger when riot-manifests repository updates
   repository_dispatch:
@@ -13,7 +27,7 @@ on:
         required: false
         default: 'false'
 
-  # Fallback: scheduled run every 6 hours
+  # Fallback: weekly, Sunday 00:00 UTC
   schedule:
     - cron: '0 0 * * 0'
 
@@ -25,16 +39,24 @@ env:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    # For GITHUB_TOKEN, which still creates the release. The git push and the PR
+    # go through the app token instead.
     permissions:
       contents: write
-    outputs:
-      db_changed: ${{ steps.commit.outputs.db_changed }}
 
     steps:
+    - name: Mint an app token
+      id: app_token
+      uses: actions/create-github-app-token@v2
+      with:
+        app-id: ${{ secrets.SYNC_APP_ID }}
+        private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
+
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+        token: ${{ steps.app_token.outputs.token }}
         persist-credentials: true
 
     - name: Install system dependencies
@@ -165,13 +187,15 @@ jobs:
         # and db/database.py (snapshot of the latest build) from all dumps.
         python3 scripts/db_build.py
 
-    - name: Commit and push database and dump updates
+    - name: Open a pull request with the dump and database updates
       id: commit
       if: steps.changes.outputs.changes == 'true' || github.event.inputs.force_run == 'true'
+      env:
+        GH_TOKEN: ${{ steps.app_token.outputs.token }}
       run: |
         set -e
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "${{ steps.app_token.outputs.app-slug }}[bot]@users.noreply.github.com"
+        git config --local user.name "${{ steps.app_token.outputs.app-slug }}[bot]"
 
         # Stage dump files and database
         git add dumps/
@@ -184,23 +208,52 @@ jobs:
           exit 0
         fi
 
-        # Only the database file is what downstream consumes, so notify on that
-        # specifically - a dumps-only commit gives the wiki nothing to redeploy.
+        # Only the database file is what downstream consumes, so report on that
+        # specifically - a dumps-only change gives the wiki nothing to redeploy.
         if git diff --cached --quiet -- db/meta.db.json; then
-          echo "db_changed=false" >> $GITHUB_OUTPUT
+          DB_CHANGED=false
         else
-          echo "db_changed=true" >> $GITHUB_OUTPUT
+          DB_CHANGED=true
         fi
+        echo "db_changed=${DB_CHANGED}" >> $GITHUB_OUTPUT
 
         VERSION="${{ steps.changes.outputs.latest_version }}"
         if [ -n "$VERSION" ]; then
           COMMIT_MSG="chore(dumper): ${VERSION}"
+          BRANCH="sync/${VERSION}-${{ github.run_id }}"
         else
           COMMIT_MSG="Update LoL meta classes"
+          BRANCH="sync/update-${{ github.run_id }}"
         fi
 
+        git checkout -b "$BRANCH"
         git commit -m "$COMMIT_MSG"
-        git push
+        git push origin "$BRANCH"
+        echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
+
+        CHANGED=$(cat /tmp/changed_dumps.txt 2>/dev/null | sed 's/^/- `/;s/$/`/' || echo "- (none)")
+        PR_URL=$(gh pr create \
+          --base main \
+          --head "$BRANCH" \
+          --title "$COMMIT_MSG" \
+          --body "$(cat <<EOF
+        Automated sync from [run ${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+
+        Dumps added or changed:
+        ${CHANGED}
+
+        \`db/meta.db.json\` changed: \`${DB_CHANGED}\`
+        EOF
+        )")
+        echo "Opened ${PR_URL}"
+        echo "pr_url=${PR_URL}" >> $GITHUB_OUTPUT
+
+        # Queue it behind the required checks. Needs "Allow auto-merge" enabled
+        # on the repo; without it this is a warning rather than a failed sync,
+        # since the PR itself is the deliverable.
+        if ! gh pr merge --auto --squash --delete-branch "$PR_URL"; then
+          echo "::warning title=auto-merge::Could not enable auto-merge - merge ${PR_URL} manually."
+        fi
 
     - name: Upload artifacts
       if: always()
@@ -219,15 +272,10 @@ jobs:
         echo "::error title=meta-sync::One or more versions failed to process - see the 'Run meta-sync' step log for the per-version reason."
         exit 1
 
-  # Called rather than left to notify-wiki.yml's own `push` trigger: the push
-  # above is made with GITHUB_TOKEN, and GitHub does not raise `push` events for
-  # those, so nothing downstream would ever fire.
+  # notify-wiki is deliberately NOT called from here any more.
   #
-  # `!cancelled()` rather than plain `needs.sync.outputs.db_changed`: the sync job
-  # now fails when any single version fails, and a bare `needs:` would skip this.
-  # A partially-successful run still pushed a new db that the wiki must pick up.
-  notify-wiki:
-    needs: sync
-    if: ${{ !cancelled() && needs.sync.outputs.db_changed == 'true' }}
-    uses: ./.github/workflows/notify-wiki.yml
-    secrets: inherit
+  # It used to be, because a GITHUB_TOKEN push raises no `push` event and its own
+  # trigger would never have seen the sync. The sync no longer pushes to main at
+  # all - it opens a PR that merges under an app token, and that merge does raise
+  # a `push` event. notify-wiki.yml picks it up itself, on the real db/ change
+  # rather than in anticipation of one. Calling it here as well would double-fire.

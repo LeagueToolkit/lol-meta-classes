@@ -27,6 +27,7 @@ mod manifest;
 use config::{Config, LEGACY_CUTOFF};
 use error::Result;
 use octocrab::Octocrab;
+use std::io::Write;
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -102,11 +103,20 @@ async fn main() -> Result<()> {
     println!("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
     if failed_count > 0 {
-        println!("⚠️  Some versions failed to process. Check logs above for details.");
+        println!("⚠️  {} version(s) failed to process. Check logs above for details.", failed_count);
     } else if processed_count > 0 {
         println!("🎉 All versions processed successfully!");
     } else {
         println!("✓ No new versions to process");
+    }
+
+    // Exit non-zero when any version failed. This used to return Ok(()) regardless,
+    // so a run where every version failed still went green and the failures stayed
+    // buried in the log. Versions that did succeed are already written to dumps/,
+    // and the workflow commits them before acting on this exit code.
+    if failed_count > 0 {
+        std::io::stdout().flush()?;
+        std::process::exit(1);
     }
 
     Ok(())

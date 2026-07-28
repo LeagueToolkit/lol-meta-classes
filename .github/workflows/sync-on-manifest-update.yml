@@ -63,7 +63,12 @@ jobs:
       run: |
         cargo build --release --bin dumper --target x86_64-unknown-linux-gnu
 
+    # meta-sync exits non-zero if any individual version failed. That must not stop
+    # the job here: versions that succeeded are already on disk and still need to be
+    # committed and released. The outcome is re-raised in the final step instead.
     - name: Run meta-sync
+      id: meta_sync
+      continue-on-error: true
       run: |
         cargo run --release --bin meta-sync
       env:
@@ -206,11 +211,23 @@ jobs:
           dumps/
         retention-days: 30
 
+    # Runs last so everything above (release, db rebuild, commit, push, artifacts)
+    # still happens for the versions that did succeed.
+    - name: Report version failures
+      if: always() && steps.meta_sync.outcome == 'failure'
+      run: |
+        echo "::error title=meta-sync::One or more versions failed to process - see the 'Run meta-sync' step log for the per-version reason."
+        exit 1
+
   # Called rather than left to notify-wiki.yml's own `push` trigger: the push
   # above is made with GITHUB_TOKEN, and GitHub does not raise `push` events for
   # those, so nothing downstream would ever fire.
+  #
+  # `!cancelled()` rather than plain `needs.sync.outputs.db_changed`: the sync job
+  # now fails when any single version fails, and a bare `needs:` would skip this.
+  # A partially-successful run still pushed a new db that the wiki must pick up.
   notify-wiki:
     needs: sync
-    if: needs.sync.outputs.db_changed == 'true'
+    if: ${{ !cancelled() && needs.sync.outputs.db_changed == 'true' }}
     uses: ./.github/workflows/notify-wiki.yml
     secrets: inherit

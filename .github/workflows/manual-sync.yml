@@ -68,7 +68,10 @@ jobs:
         VERSION_FILTER: ${{ github.event.inputs.version_filter }}
         DUMPER_PATH: ${{ github.workspace }}/target/x86_64-unknown-linux-gnu/release/dumper
 
+    # always(): meta-sync now exits non-zero on per-version failures, and the dumps
+    # it did produce are the main thing worth inspecting after a failed manual run.
     - name: Upload results
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: manual-sync-results-${{ github.run_id }}

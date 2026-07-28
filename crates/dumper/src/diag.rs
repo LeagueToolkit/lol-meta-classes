@@ -152,6 +152,15 @@ pub fn current_class() -> u32 {
     CURRENT_CLASS.load(Ordering::Relaxed)
 }
 
+/// Index and raw pointer of the class-vector slot being processed.
+static CURRENT_SLOT: AtomicUsize = AtomicUsize::new(usize::MAX);
+static CURRENT_SLOT_PTR: AtomicUsize = AtomicUsize::new(0);
+
+pub fn set_current_slot(index: usize, ptr: usize) {
+    CURRENT_SLOT.store(index, Ordering::Relaxed);
+    CURRENT_SLOT_PTR.store(ptr, Ordering::Relaxed);
+}
+
 // ---------------------------------------------------------------------------
 // Anomaly tolerance
 //
@@ -348,10 +357,24 @@ extern "C" fn fault_handler(sig: libc::c_int, info: *mut libc::siginfo_t, ctx: *
     w(b"\n    phase: ");
     w(Phase::from_usize(CURRENT_PHASE.load(Ordering::Relaxed)).name());
 
+    let slot = CURRENT_SLOT.load(Ordering::Relaxed);
+    if slot != usize::MAX {
+        w(b"\n    slot:  #");
+        w_dec(slot);
+        w(b" ptr ");
+        w_hex(CURRENT_SLOT_PTR.load(Ordering::Relaxed));
+        if CURRENT_SLOT_PTR.load(Ordering::Relaxed) == 0 {
+            w(b"  <-- NULL entry in the class vector");
+        }
+    }
+
     let class = CURRENT_CLASS.load(Ordering::Relaxed);
     if class != 0 {
         w(b"\n    class: ");
         w_hex(class as usize);
+        if CURRENT_SLOT_PTR.load(Ordering::Relaxed) == 0 {
+            w(b" (previous slot - this one never loaded)");
+        }
     }
 
     match poison_lookup(addr) {

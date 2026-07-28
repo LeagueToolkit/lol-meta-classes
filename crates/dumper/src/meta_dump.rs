@@ -356,11 +356,37 @@ fn dump_class_flags(class: &Class) -> ClassFlags {
     }
 }
 
-fn dump_class_secondary(class_offset_pairs: &[BaseOff]) -> BTreeMap<String, u32> {
+/// Raw view of [`BaseOff`], whose first field is a non-nullable reference.
+#[repr(C)]
+#[derive(Clone, Copy)]
+struct RawBaseOff {
+    class: *const Class,
+    offset: u32,
+}
+
+fn dump_class_secondary(class_offset_pairs: &[BaseOff], what: &str) -> BTreeMap<String, u32> {
     let mut results = BTreeMap::new();
-    for &BaseOff(class, offset) in class_offset_pairs {
-        let key = dump_hex(class.hash);
-        results.insert(key, offset);
+
+    // Same reasoning as the class vector: read the pointer before trusting it,
+    // so a null reports itself instead of faulting at `Class+0x08`.
+    let raw: &[RawBaseOff] = unsafe {
+        std::slice::from_raw_parts(class_offset_pairs.as_ptr().cast(), class_offset_pairs.len())
+    };
+
+    for (index, entry) in raw.iter().enumerate() {
+        if entry.class.is_null() {
+            let message = format!(
+                "null class pointer in {what}[{index}] of class {}",
+                dump_hex(crate::diag::current_class())
+            );
+            if crate::diag::tolerate_anomalies() {
+                crate::diag::record_anomaly(&message);
+                continue;
+            }
+            panic!("{message}");
+        }
+        let class = unsafe { &*entry.class };
+        results.insert(dump_hex(class.hash), entry.offset);
     }
     results
 }
@@ -401,8 +427,11 @@ pub fn dump_class_defaults(class: &Class) -> Option<BTreeMap<String, Value>> {
 pub fn dump_class(base: usize, class: &Class) -> ClassDump {
     ClassDump {
         base: class.base_class.map(|c| dump_hex(c.hash)),
-        secondary_bases: dump_class_secondary(class.secondary_bases.slice()),
-        secondary_children: dump_class_secondary(class.secondary_children.slice()),
+        secondary_bases: dump_class_secondary(class.secondary_bases.slice(), "secondary_bases"),
+        secondary_children: dump_class_secondary(
+            class.secondary_children.slice(),
+            "secondary_children",
+        ),
         size: class.class_size,
         alignment: class.alignment,
         flags: dump_class_flags(class),
@@ -414,7 +443,22 @@ pub fn dump_class(base: usize, class: &Class) -> ClassDump {
 
 pub fn dump_class_list(base: usize, classes: &[&Class]) -> BTreeMap<String, ClassDump> {
     let mut results = BTreeMap::new();
-    for &class in classes {
+    let slots: &[*const Class] =
+        unsafe { std::slice::from_raw_parts(classes.as_ptr().cast(), classes.len()) };
+
+    for (index, &ptr) in slots.iter().enumerate() {
+        crate::diag::set_current_slot(index, ptr as usize);
+
+        if ptr.is_null() {
+            let message = format!("null class pointer at vector index {index}");
+            if crate::diag::tolerate_anomalies() {
+                crate::diag::record_anomaly(&message);
+                continue;
+            }
+            panic!("{message}");
+        }
+        let class: &Class = unsafe { &*ptr };
+
         // Published before any work on this class so a fault handler can name
         // the class that killed us.
         crate::diag::set_current_class(class.hash);

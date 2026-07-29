@@ -14111,8 +14111,8 @@
 "0x71d0eabd": {"name": "BarracksEntity", "revisions": [{"from":6421879,"to":7016241,"bases":["0x9d021f61"],"interface":false,"value":false},{"from":7027993,"bases":["0x9d021f61"],"interface":true,"value":false}], "properties": {
  "0x84145ca0": {"name":"definition","revisions":[{"from":6421879,"to":7016241,"type":["Pointer","0x0","0x0","0xfde6a2d7"],"default":null}]}
 }},
-"0x71ddfd3c": {"revisions": [{"from":7893741,"bases":["0x44f9e6c"],"interface":false,"value":false}], "properties": {
- "0x6e4ce585": {"revisions":[{"from":7893741,"type":["U8","0x0","0x0","0x0"],"default":0}]}
+"0x71ddfd3c": {"name": "MapQualityLodComponent", "revisions": [{"from":7893741,"bases":["0x44f9e6c"],"interface":false,"value":false}], "properties": {
+ "0x6e4ce585": {"name":"LodQualities","revisions":[{"from":7893741,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x71eb4498": {"name": "ISkinAugment", "revisions": [{"from":5352535,"bases":["0x95e0c840"],"interface":true,"value":false}], "properties": {
 }},

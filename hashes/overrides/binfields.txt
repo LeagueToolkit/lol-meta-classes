@@ -460,6 +460,7 @@ e2622bf2 LockedColor
 3df969ff LockedSlot
 27688fd4 LockedText
 3cebd87c LockedTra
+6e4ce585 LodQualities
 6bfb316f LogicalName
 9fd03293 LogoutButton
 82bb207a LowerBound

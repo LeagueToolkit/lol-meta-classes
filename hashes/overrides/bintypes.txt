@@ -124,6 +124,7 @@ d59587e0 MapGameplayTexture
 a9d20c63 MapGet
 fa8824c0 MapLightRegions
 b7fb3452 MapPlaceableTemplate
+71ddfd3c MapQualityLodComponent
 75c07b27 MeshEntity
 079b4930 ModesQuestTrackerViewController
 6a0a0a99 MonarchAnnouncementsTemplate

@@ -4588,10 +4588,6 @@ class 0x71cab931(IRunFunctionBlock):
     Function: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x71ddfd3c(MapComponent):
-    0x6e4ce585: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0x71fdeba8():
     ConnectedNodes: (List2, 0x0, Link, 0xa4613655) = []
     GridY: (U32, 0x0, 0x0, 0x0) = 0
@@ -19001,6 +18997,10 @@ class MapProp(MapPropCommon):
     pass
 
 class MapPropCommon(GameObject):
+    pass
+
+class MapQualityLodComponent(MapComponent):
+    LodQualities: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class MapScriptLocator(MapLocator):

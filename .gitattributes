@@ -3,6 +3,7 @@
 # `scripts/update_hashes.py` run rewrites the tables.
 hashes/*.txt text eol=lf
 hashes/overrides/*.txt text eol=lf
+hashes/overrides/ledger.tsv text eol=lf
 hashes/provenance.json text eol=lf
 hashes/sources.toml text eol=lf
 

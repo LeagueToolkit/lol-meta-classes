@@ -11,23 +11,46 @@ The bin-hash algorithm is FNV-1a-32 of the lowercased name; the file format is
 
 Usage:
     python3 scripts/hashtool.py fnv GameEntityPrefab AnchorHierarchy
-    python3 scripts/hashtool.py add bintypes GameEntityPrefab FooBarBaz
-    python3 scripts/hashtool.py add binfields envMesh
+    python3 scripts/hashtool.py add bintypes GameEntityPrefab -b vfx-driver-graph
+    python3 scripts/hashtool.py add binfields envMesh -e "Map+80; attested Map12/22/33"
     python3 scripts/hashtool.py sort                 # renormalize both overrides
     python3 scripts/hashtool.py lookup 2b949af2      # hash -> name (any table)
     python3 scripts/hashtool.py lookup GameEntityPrefab
     python3 scripts/hashtool.py check names.txt      # what's missing from the repo
+    python3 scripts/hashtool.py ledger               # backlog, by batch
+    python3 scripts/hashtool.py ledger --reconcile   # sync status against upstream
+    python3 scripts/hashtool.py ledger --set 51e9b98e --status submitted --pr 42
+    python3 scripts/hashtool.py ledger --batch vfx-driver-graph --list
+    python3 scripts/hashtool.py ledger --batch vfx-driver-graph --status submitted --pr 42
+    python3 scripts/hashtool.py ledger --match 'Monarch*' --status local
 
 `check` accepts a plain one-name-per-line list, or the sectioned
 `Classes:` / `Fields:` format (blank lines and `# comments` ignored); a
 `Classes:`/`Fields:` header routes following names to bintypes/binfields, and an
 unsectioned list is checked against both tables.
+
+Every `add` also writes a row to hashes/overrides/ledger.tsv, which is what
+records when a crack happened and whether it has been sent upstream yet - see
+ledger.py. Overrides alone can't answer "what still needs a CDragon PR?".
+
+Cracks are grouped into batches (`-b` on `add`): the campaign a name came out of,
+and the unit an upstream PR is built from. `--batch` is the ledger's selector -
+it filters `--list`, and with `--status/--pr` it marks the whole campaign
+submitted in one command. `--match GLOB` selects by name instead, across
+batches, for a family that was cracked over several sittings.
+
+Not every crack should go upstream: `--status local` (or `add -l`) holds a name
+back permanently - it still resolves here, but drops out of `--list pending`,
+which is the "what still needs a CDragon PR" view.
 """
 
 import argparse
+import datetime
+import fnmatch
 import os
 import sys
 
+import ledger as ledger_mod
 # Same directory on sys.path[0] when run as a script, so this import is the one
 # source of truth for line format, parsing, and canonical ordering.
 from update_hashes import RE_LINE, parse_table, render, write_if_changed
@@ -102,6 +125,12 @@ def cmd_add(args):
     if args.table not in TABLES:
         print(f"[error] table must be one of {TABLES}", file=sys.stderr)
         return 2
+    batch = args.batch or ledger_mod.UNSORTED
+    try:
+        ledger_mod.check_slug(batch)
+    except ValueError as e:
+        print(f"[error] {e}", file=sys.stderr)
+        return 2
 
     over_path = override_path(args.hashes, args.table)
     overrides, merged = load_tables(args.hashes, args.table)
@@ -133,6 +162,33 @@ def cmd_add(args):
     if added:
         print(f"[ok] {over_path}: {len(added)} added, now {len(overrides)} entries "
               f"- rebuild with `python3 scripts/db_build.py` (or update_hashes.py)")
+        # A crack with no ledger row is a crack that gets forgotten, so this is
+        # not optional and not a separate command.
+        led_path = ledger_mod.ledger_path(args.hashes)
+        led = ledger_mod.load(led_path)
+        today = datetime.date.today().isoformat()
+        status = ledger_mod.LOCAL if args.local else "pending"
+        for h, name in added:
+            led.rows[(args.table, h)] = ledger_mod.make_row(
+                h, args.table, name, today, batch=batch, status=status)
+        if args.evidence:
+            led.batches[batch] = args.evidence
+        led.batches.setdefault(batch, "")
+        write_if_changed(led_path, ledger_mod.render(led))
+        print(f"[ok] {led_path}: {len(added)} row(s) {status} in batch {batch}")
+        if args.local:
+            print("[note] marked local-only: these resolve here but are held "
+                  "back from upstream, so they won't show up in `--list pending`")
+        if batch == ledger_mod.UNSORTED:
+            print("[note] no -b/--batch given; these rows sit in `unsorted` "
+                  "until attributed")
+        elif not led.batches[batch]:
+            why = ("say why it's held back - that reason is the only thing "
+                   "stopping someone submitting it later"
+                   if args.local else
+                   "it's what the upstream PR description is built from")
+            print(f"[note] batch {batch!r} has no evidence note; add one with "
+                  f"`ledger --batch {batch} -e \"...\"` - {why}")
     return 0
 
 
@@ -242,6 +298,210 @@ def cmd_check(args):
     return 1 if missing else 0
 
 
+def select_rows(led, batch=None, match=None):
+    """Rows in a batch, whose name matches a glob, or both. Glob is
+    case-sensitive: these names are recorded as they were cracked, and casing is
+    a claim about the name, not a formatting detail."""
+    return [r for r in led.rows.values()
+            if (batch is None or r["batch"] == batch)
+            and (match is None or fnmatch.fnmatchcase(r["name"], match))]
+
+
+def print_batches(led):
+    """The default view: one line per campaign, not one per crack."""
+    order = led.order()
+    if not order:
+        print("  (empty ledger)")
+        return
+    width = max(len(s) for s in order)
+    cols = [ledger_mod.ABBREV[s] for s in ledger_mod.STATUSES]
+    print(f"  {'batch'.ljust(width)}  rows  " + "  ".join(cols) + "  evidence")
+    for slug in order:
+        c = led.counts(slug)
+        note = led.batches.get(slug, "") or "(none)"
+        cells = "  ".join(f"{c[s]:>{len(ledger_mod.ABBREV[s])}}"
+                          for s in ledger_mod.STATUSES)
+        print(f"  {slug.ljust(width)}  {len(led.of_batch(slug)):4}  {cells}  "
+              f"{note[:56]}")
+
+
+def cmd_ledger(args):
+    led_path = ledger_mod.ledger_path(args.hashes)
+    led = ledger_mod.load(led_path)
+    rows = led.rows
+    overrides = {t: load(override_path(args.hashes, t)) for t in TABLES}
+    mirrors = {t: load(merged_path(args.hashes, t)) for t in TABLES}
+    dirty = False
+
+    if args.batch:
+        try:
+            ledger_mod.check_slug(args.batch)
+        except ValueError as e:
+            print(f"[error] {e}", file=sys.stderr)
+            return 2
+    if args.set and (args.batch or args.match):
+        print("[error] --set selects one row; --batch/--match select many. "
+              "Use one or the other", file=sys.stderr)
+        return 2
+    if args.evidence and not args.batch:
+        # The note is stored per batch, so there's nowhere to put it otherwise.
+        print("[error] -e/--evidence needs --batch", file=sys.stderr)
+        return 2
+
+    if args.seed:
+        # Entries predating the ledger: date them from git blame of the override
+        # line, so the history is real rather than all-today. The commit that
+        # introduced the line also names the batch - one sitting, one commit,
+        # one campaign - which is the only attribution recoverable after the
+        # fact. The batch note stays blank: that isn't recoverable, and
+        # inventing it would be worse than an honest gap.
+        repo_root = os.path.dirname(os.path.abspath(args.hashes)) or "."
+        today = datetime.date.today().isoformat()
+        seeded = rebatched = 0
+        for table in TABLES:
+            rel = os.path.join(args.hashes, "overrides", f"{table}.txt")
+            blame = ledger_mod.blame_lines(repo_root, rel.replace("\\", "/"))
+            for h, name in overrides[table].items():
+                date, slug = blame.get(f"{h} {name}", (today, ledger_mod.UNSORTED))
+                if (table, h) not in rows:
+                    rows[(table, h)] = ledger_mod.make_row(
+                        h, table, name, date or today, batch=slug)
+                    seeded += 1
+                elif rows[(table, h)]["batch"] == ledger_mod.UNSORTED:
+                    # An older row, or one added without -b: attribute it now
+                    # but leave its recorded crack date alone.
+                    rows[(table, h)]["batch"] = slug
+                    rebatched += slug != ledger_mod.UNSORTED
+        print(f"[seed] {seeded} pre-existing override(s) recorded as pending"
+              if seeded else "[seed] nothing to seed - every override has a row")
+        if rebatched:
+            print(f"[seed] {rebatched} unsorted row(s) attributed to a batch "
+                  f"from the commit that introduced them")
+        dirty = dirty or bool(seeded or rebatched)
+
+    if args.batch and args.batch not in led.order():
+        # A mistyped selector must not read as "that campaign is empty".
+        print(f"[error] no batch {args.batch!r} - known: "
+              f"{', '.join(led.order()) or '(none)'}", file=sys.stderr)
+        return 1
+
+    if args.set:
+        h = f"{int(args.set, 16):08x}"
+        matches = [k for k in rows if k[1] == h
+                   and (args.table is None or k[0] == args.table)]
+        if not matches:
+            print(f"[error] {h}: no ledger row (add the crack first)", file=sys.stderr)
+            return 1
+        if len(matches) > 1:
+            # The 6 class-and-field names land here; make the caller pick.
+            print(f"[error] {h} is in {', '.join(t for t, _ in matches)} - "
+                  f"disambiguate with --table", file=sys.stderr)
+            return 2
+        if not (args.status or args.pr):
+            print("[error] --set needs --status and/or --pr", file=sys.stderr)
+            return 2
+        r = rows[matches[0]]
+        if args.status:
+            r["status"] = args.status
+        if args.pr:
+            r["pr"] = args.pr
+        print(f"[set] {h} {r['name']} [{r['table']}]: "
+              f"status={r['status']} pr={r['pr']}")
+        dirty = True
+
+    elif (args.batch or args.match) and (args.status or args.pr or args.evidence):
+        # The payoff of batching: a campaign goes upstream as one PR, so it
+        # flips to submitted as one command. --match cuts the other way, across
+        # batches: a name family (`Monarch*`) can be spread over several
+        # campaigns and still be one decision about what leaves this repo.
+        target = select_rows(led, args.batch, args.match)
+        if not target and (args.status or args.pr):
+            print(f"[error] no rows match {args.match!r}"
+                  + (f" in batch {args.batch}" if args.batch else ""),
+                  file=sys.stderr)
+            return 1
+        for r in target:
+            if args.status:
+                r["status"] = args.status
+            if args.pr:
+                r["pr"] = args.pr
+        if args.evidence:
+            led.batches[args.batch] = args.evidence
+        where = args.batch or f"match {args.match!r}"
+        print(f"[batch] {where}: {len(target)} row(s)"
+              + (f" status={args.status}" if args.status else "")
+              + (f" pr={args.pr}" if args.pr else "")
+              + (" evidence set" if args.evidence else ""))
+        if args.status == ledger_mod.LOCAL:
+            # A bare `local` with no reason is indistinguishable from a crack
+            # someone forgot to submit, and reads as one a year later.
+            where_why = (f"the batch note (`-e`)" if args.batch else
+                         "hashes/overrides/README.md, under Local-only cracks "
+                         "- this selection crosses batches, so the per-batch "
+                         "note is the wrong place")
+            print(f"[note] local-only: held back from upstream on purpose. "
+                  f"Record why in {where_why}")
+        dirty = True
+
+    if args.reconcile:
+        # Upstream serving the identical name is the one signal that a crack
+        # actually landed, whatever the row claimed.
+        landed = [r for r in rows.values()
+                  if mirrors[r["table"]].get(r["hash"]) == r["name"]
+                  and r["status"] != "merged"]
+        for r in landed:
+            if r["status"] == ledger_mod.LOCAL:
+                # Held back here, public anyway. Worth saying out loud: it means
+                # either someone submitted it, or the name reached upstream by
+                # another route - and the row was claiming otherwise.
+                print(f"[warn] {r['hash']} {r['name']}: marked local-only, but "
+                      f"upstream now serves this name - it is public; "
+                      f"recording it merged")
+            else:
+                print(f"[merged] {r['hash']} {r['name']} - upstream serves it; "
+                      f"`prune` will drop the override")
+            r["status"] = "merged"
+        orphan = [r for r in rows.values()
+                  if r["hash"] not in overrides[r["table"]] and r["status"] != "merged"]
+        for r in orphan:
+            print(f"[warn] {r['hash']} {r['name']}: ledger row but no override "
+                  f"in {r['table']} - was it removed by hand?")
+        untracked = [(t, h, n) for t in TABLES
+                     for h, n in overrides[t].items() if (t, h) not in rows]
+        for t, h, n in untracked:
+            print(f"[warn] {h} {n} [{t}]: override with no ledger row - "
+                  f"run `ledger --seed`")
+        if not (landed or orphan or untracked):
+            print("[ok] ledger and override tables agree")
+        dirty = dirty or bool(landed)
+
+    if dirty:
+        write_if_changed(led_path, ledger_mod.render(led))
+        print(f"[ok] {led_path}: {len(rows)} row(s) in {len(led.order())} batch(es)")
+
+    print_batches(led)
+    counts = led.counts()
+    print("  total: " + "  ".join(f"{s} {counts[s]}" for s in ledger_mod.STATUSES))
+
+    want = args.list
+    if want:
+        # Listing stays grouped: a flat 1200-line dump by date is what the
+        # batches exist to replace.
+        for slug in led.order():
+            if args.batch and slug != args.batch:
+                continue
+            listed = [r for r in select_rows(led, slug, args.match)
+                      if want == "all" or r["status"] == want]
+            if not listed:
+                continue
+            print(f"\n# {slug} ({len(listed)} {want})")
+            for r in sorted(listed, key=lambda r: (r["cracked"], r["name"])):
+                pr = "" if r["pr"] == ledger_mod.NO_PR else f"  {r['pr']}"
+                print(f"  {r['cracked']}  {r['hash']}  {r['name']}  "
+                      f"[{r['table']}/{r['status']}]{pr}")
+    return 0
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--hashes", default="hashes", help="directory of hash name lists")
@@ -254,6 +514,16 @@ def main():
     p = sub.add_parser("add", help="add cracked name(s) to an override table")
     p.add_argument("table", help="bintypes | binfields")
     p.add_argument("names", nargs="+")
+    p.add_argument("-b", "--batch", default=None,
+                   help="batch slug: the campaign these cracks came from, and "
+                        "the unit the upstream PR is built from "
+                        "(default: unsorted)")
+    p.add_argument("-e", "--evidence", default="",
+                   help="one line: the batch's method and what attests it "
+                        "(stored per batch, reused in the upstream PR)")
+    p.add_argument("-l", "--local", action="store_true",
+                   help="mark these local-only: resolved here, held back from "
+                        "upstream (unreleased content, etc.)")
     p.set_defaults(func=cmd_add)
 
     p = sub.add_parser("sort", help="renormalize override file(s) in place")
@@ -272,6 +542,34 @@ def main():
     p = sub.add_parser("check", help="report which names in a list aren't resolved yet")
     p.add_argument("file")
     p.set_defaults(func=cmd_check)
+
+    p = sub.add_parser("ledger", help="crack history by batch + submission status")
+    p.add_argument("--list", nargs="?", const="pending", default=None,
+                   choices=(*ledger_mod.STATUSES, "all"),
+                   help="list rows with this status, grouped by batch "
+                        "(default pending)")
+    p.add_argument("--seed", action="store_true",
+                   help="record every override that has no row yet, dating and "
+                        "batching it from the commit that introduced it")
+    p.add_argument("--reconcile", action="store_true",
+                   help="mark rows merged once upstream serves the name, and "
+                        "warn about rows and overrides that disagree")
+    p.add_argument("--set", metavar="HASH", help="select one row")
+    p.add_argument("--batch", metavar="SLUG",
+                   help="select a whole batch: filters --list, and applies the "
+                        "edits below to every row in it")
+    p.add_argument("--match", metavar="GLOB",
+                   help="select by name across batches, case-sensitively "
+                        "(e.g. 'Monarch*'); combines with --batch to narrow")
+    p.add_argument("--table", choices=TABLES,
+                   help="with --set: disambiguate a hash present in both tables")
+    p.add_argument("--status", choices=ledger_mod.STATUSES,
+                   help="edit: set status on the selected row(s); `local` holds "
+                        "them back from upstream for good")
+    p.add_argument("--pr", help="edit: upstream PR link or number")
+    p.add_argument("-e", "--evidence",
+                   help="with --batch: set the batch's evidence note")
+    p.set_defaults(func=cmd_ledger)
 
     args = parser.parse_args()
     return args.func(args)

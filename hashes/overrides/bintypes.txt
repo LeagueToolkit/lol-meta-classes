@@ -55,6 +55,9 @@ edd5a857 GameEntityOnDeactivate
 66b08b77 GameEntityOnInit
 deb252e8 GameEntityOnUpdate
 2b949af2 GameEntityPrefab
+e75836d4 GameEntityTemplateLocatorPreview
+de5dac9e GameEntityTemplateProxyLink
+c7a79d2b GameScreenContainerBase
 fcb92181 GamemodeDefinition
 8fc31a1b GamemodeEntity
 2f910682 IChromaData
@@ -65,6 +68,7 @@ ee2395e5 IColorGet
 01375d0b IComponentData
 83eae5d9 ICustomGet
 3ff050d9 IEntityGet
+65c802be IGameScreenNode
 5ba190cc IKeyBind
 0f12869d IMapGroup
 35cff9f4 IMonarchAction
@@ -241,6 +245,8 @@ ba9ff884 ThirdPersonCameraUpdateStrategy
 bcbc4216 TimersViewController
 cd25febc TooltipInstanceSpec
 b06a22db UIControlScheme
+7ec8e5ed UiBehavior
+174c7096 UiComponent
 6c6c0878 UiElementIGet
 37a8385c UiExpandableUnitStatsData
 a5316cec UiScript

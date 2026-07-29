@@ -3203,7 +3203,7 @@
  "0x6cb6c4fd": {"revisions":[{"from":7426169,"to":7765552,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xc53c0790": {"revisions":[{"from":7426169,"to":7728292,"type":["List2","0x0","Link","0xc8400f38"],"default":[]}]}
 }},
-"0x174c7096": {"revisions": [{"from":7269074,"bases":["0xe0d5fc7e"],"interface":false,"value":false}], "properties": {
+"0x174c7096": {"name": "UiComponent", "revisions": [{"from":7269074,"bases":["0xe0d5fc7e"],"interface":false,"value":false}], "properties": {
  "0x1b1cc8c3": {"revisions":[{"from":7695709,"to":7915903,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x29ab62c2": {"revisions":[{"from":7695709,"to":7915903,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x3b060ae5": {"name":"ViewModel","revisions":[{"from":7945912,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -12686,7 +12686,7 @@
 "0x65c4db8f": {"revisions": [{"from":5579166,"bases":["0x6c7a6a03"],"interface":false,"value":false}], "properties": {
  "0x1bcf29d8": {"name":"Source","revisions":[{"from":5579166,"type":["Link","0x0","0x0","0x7a5e5ed6"],"default":"0x0"}]}
 }},
-"0x65c802be": {"revisions": [{"from":7643737,"bases":[],"interface":true,"value":false}], "properties": {
+"0x65c802be": {"name": "IGameScreenNode", "revisions": [{"from":7643737,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x65ce18c8": {"name": "ISpellRankUpRequirement", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -15640,7 +15640,7 @@
  "0xbdb8cd08": {"revisions":[{"from":7170001,"type":["F32","0x0","0x0","0x0"],"default":0.09999999403953552}]},
  "0xcb49a225": {"revisions":[{"from":7170001,"type":["F32","0x0","0x0","0x0"],"default":10.0}]}
 }},
-"0x7ec8e5ed": {"revisions": [{"from":7851316,"bases":[],"interface":false,"value":false}], "properties": {
+"0x7ec8e5ed": {"name": "UiBehavior", "revisions": [{"from":7851316,"bases":[],"interface":false,"value":false}], "properties": {
 }},
 "0x7ecb2959": {"revisions": [{"from":7345787,"to":7345787,"bases":["0x3497f0cf","0x4feb7d99"],"interface":false,"value":false},{"from":7371049,"to":7374870,"bases":["0x3497f0cf","0x4feb7d99"],"interface":false,"value":false},{"from":7389684,"to":7728292,"bases":["0x129e311","0x3497f0cf","0x4feb7d99"],"interface":false,"value":false},{"from":7747445,"bases":["0x129e311","0x2576b4fc","0x3497f0cf","0x4feb7d99"],"interface":false,"value":false}], "properties": {
 }},
@@ -23953,7 +23953,7 @@
 "0xc78713b5": {"revisions": [{"from":6841658,"bases":[],"interface":false,"value":false}], "properties": {
  "0xcf85d043": {"name":"Buddies","revisions":[{"from":6841658,"type":["List2","0x0","Link","0x17d73579"],"default":[]}]}
 }},
-"0xc7a79d2b": {"revisions": [{"from":7584427,"to":7620675,"bases":[],"interface":true,"value":false},{"from":7643737,"bases":["0x65c802be","0xe1df3f2f"],"interface":true,"value":false}], "properties": {
+"0xc7a79d2b": {"name": "GameScreenContainerBase", "revisions": [{"from":7584427,"to":7620675,"bases":[],"interface":true,"value":false},{"from":7643737,"bases":["0x65c802be","0xe1df3f2f"],"interface":true,"value":false}], "properties": {
 }},
 "0xc7b0a712": {"name": "RegaliaPrestigeCrestList", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x9a05d1e0": {"name":"PrestigeCrests","revisions":[{"from":5229820,"type":["List","0x0","Link","0x8842b9ae"],"default":[]}]}
@@ -27191,7 +27191,7 @@
 "0xde5cceb3": {"name": "ContextualConditionTeammateDeathsNearby", "revisions": [{"from":5229820,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x39f46977": {"name":"mTeammateDeaths","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0xde5dac9e": {"revisions": [{"from":7200925,"bases":["0x40a9c74a"],"interface":false,"value":false}], "properties": {
+"0xde5dac9e": {"name": "GameEntityTemplateProxyLink", "revisions": [{"from":7200925,"bases":["0x40a9c74a"],"interface":false,"value":false}], "properties": {
 }},
 "0xde683827": {"name": "AnnouncementStyleBasic", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x15acf82a": {"name":"TextField","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -28175,7 +28175,7 @@
 }},
 "0xe7555bdb": {"name": "PingSecondaryRadialViewController", "revisions": [{"from":5229820,"bases":["0xfd91cc12"],"interface":false,"value":false}], "properties": {
 }},
-"0xe75836d4": {"revisions": [{"from":7794239,"bases":["0x702b5022"],"interface":false,"value":false}], "properties": {
+"0xe75836d4": {"name": "GameEntityTemplateLocatorPreview", "revisions": [{"from":7794239,"bases":["0x702b5022"],"interface":false,"value":false}], "properties": {
 }},
 "0xe75aad84": {"revisions": [{"from":5437084,"bases":[],"interface":false,"value":false}], "properties": {
  "0x10a065ec": {"revisions":[{"from":5798615,"to":5869705,"type":["List2","0x0","U8","0x0"],"default":[]},{"from":5876777,"type":["List2","0x0","F32","0x0"],"default":[]}]},

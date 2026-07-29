@@ -60,6 +60,8 @@ de5dac9e GameEntityTemplateProxyLink
 c7a79d2b GameScreenContainerBase
 fcb92181 GamemodeDefinition
 8fc31a1b GamemodeEntity
+ff5060b7 GameplayTextureChannel
+8d65d994 GameplayTextureSampler
 2f910682 IChromaData
 6630fcec IClientBlock
 ea87b2b3 IClockDefinition
@@ -117,6 +119,8 @@ d8a0b4e6 LoLModesEventChoiceViewController
 51f3b0ef LoLSpellSlotLevelUpKeybind
 1e90bc62 LocatorEntity
 9d021f61 LolGameEntity
+a8efd56d MapAntiAliasing
+d59587e0 MapGameplayTexture
 a9d20c63 MapGet
 fa8824c0 MapLightRegions
 b7fb3452 MapPlaceableTemplate

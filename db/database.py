@@ -528,7 +528,7 @@ class 0x1c3dfd0c(0x2015ccfc):
     pass
 
 class 0x1c4bac51(MapGraphicsFeature):
-    0x8536b021: (U32, 0x0, 0x0, 0x0) = 4096
+    RenderTargetSize: (U32, 0x0, 0x0, 0x0) = 4096
     pass
 
 class 0x1c5e3bb6(0x2b00c366):
@@ -5910,11 +5910,6 @@ class 0x8d31b69b():
     0xee2e0dbc: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x8d65d994():
-    name: (String, 0x0, 0x0, 0x0) = ""
-    texturePath: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x8d8b1535():
     0x3392c041: (String, 0x0, 0x0, 0x0) = ""
     0x58766309: (String, 0x0, 0x0, 0x0) = ""
@@ -7129,11 +7124,6 @@ class 0xa8c7473f(0xb041c60a):
 
 class 0xa8dd91e9(ILogicFloatDriver):
     mBoolDriver: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
-    pass
-
-class 0xa8efd56d(MapGraphicsFeature):
-    0xb91780a6: (U8, 0x0, 0x0, 0x0) = 1
-    Mode: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class 0xa8fef3df():
@@ -8769,7 +8759,7 @@ class 0xcb3604f0(IScriptCondition):
     pass
 
 class 0xcb6a541(ILogicBoolDriver):
-    0xed892164: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    GameplayTexture: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xcb6bad8():
@@ -9200,17 +9190,6 @@ class 0xd574bc5b(IOptionItemFilter):
     pass
 
 class 0xd59163d9(IsMovingParametricUpdater):
-    pass
-
-class 0xd59587e0(MapGraphicsFeature):
-    ShaderParameters: (Map, String, F32, 0x0) = {}
-    RedChannel: (Link, 0x0, 0x0, 0xff5060b7) = "0x0"
-    BlueChannel: (Link, 0x0, 0x0, 0xff5060b7) = "0x0"
-    AlphaChannel: (Link, 0x0, 0x0, 0xff5060b7) = "0x0"
-    GreenChannel: (Link, 0x0, 0x0, 0xff5060b7) = "0x0"
-    AdditionalChannels: (List2, 0x0, Link, 0xff5060b7) = []
-    0xa5aaf88e: (List2, 0x0, Embed, 0x8d65d994) = []
-    TextureResolution: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0xd5a52c2b(ViewController):
@@ -11197,14 +11176,6 @@ class 0xff3c9ff8():
     pass
 
 class 0xff4e30bb(ILoopScriptBlock):
-    pass
-
-class 0xff5060b7():
-    0x10706d43: (U8, 0x0, 0x0, 0x0) = 0
-    0x54a1d02e: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xbc3b7fdc: (Map, String, F32, 0x0) = {}
-    MinimapColor: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
-    0xec768d6b: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0xff55db60():
@@ -15328,6 +15299,19 @@ class GameplayFeatureToggles():
     fowCastRayAccurate: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
+class GameplayTextureChannel():
+    0x10706d43: (U8, 0x0, 0x0, 0x0) = 0
+    0x54a1d02e: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ShaderParameterOverrides: (Map, String, F32, 0x0) = {}
+    MinimapColor: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
+    0xec768d6b: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class GameplayTextureSampler():
+    name: (String, 0x0, 0x0, 0x0) = ""
+    texturePath: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class GammaParameters():
     Contrast: (F32, 0x0, 0x0, 0x0) = 1.100000023841858
     Brightness: (F32, 0x0, 0x0, 0x0) = 1.0499999523162842
@@ -18658,6 +18642,11 @@ class MapAnimatedProp(GenericMapPlaceable):
     isClickable: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
+class MapAntiAliasing(MapGraphicsFeature):
+    0xb91780a6: (U8, 0x0, 0x0, 0x0) = 1
+    Mode: (U8, 0x0, 0x0, 0x0) = 1
+    pass
+
 class MapAreaEventConstraintInfo(ListenerConstraintInfo):
     ExclusionChecks: (Embed, 0x0, 0x0, ChallengeMapAreaGroupCheck) = {"AreaCheckQuantifier":0,"AreasToCheck":[]}
     SpecificEventType: (U32, 0x0, 0x0, 0x0) = 0
@@ -18799,6 +18788,17 @@ class MapFrustum(MapPlaceable):
     fov: (F32, 0x0, 0x0, 0x0) = 60.0
     far: (F32, 0x0, 0x0, 0x0) = 500.0
     Orthographic: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class MapGameplayTexture(MapGraphicsFeature):
+    ShaderParameters: (Map, String, F32, 0x0) = {}
+    RedChannel: (Link, 0x0, 0x0, GameplayTextureChannel) = "0x0"
+    BlueChannel: (Link, 0x0, 0x0, GameplayTextureChannel) = "0x0"
+    AlphaChannel: (Link, 0x0, 0x0, GameplayTextureChannel) = "0x0"
+    GreenChannel: (Link, 0x0, 0x0, GameplayTextureChannel) = "0x0"
+    AdditionalChannels: (List2, 0x0, Link, GameplayTextureChannel) = []
+    0xa5aaf88e: (List2, 0x0, Embed, GameplayTextureSampler) = []
+    TextureResolution: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class MapGet(IScriptValueGet):

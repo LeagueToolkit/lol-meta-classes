@@ -1946,7 +1946,7 @@
  "0xe64015f0": {"name":"Icon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xcb6a541": {"revisions": [{"from":7643737,"bases":["0x7a851cd8"],"interface":false,"value":false}], "properties": {
- "0xed892164": {"revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0xed892164": {"name":"GameplayTexture","revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xcb6bad8": {"revisions": [{"from":7426169,"bases":[],"interface":false,"value":false}], "properties": {
  "0x99b0deea": {"revisions":[{"from":7426169,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -3665,7 +3665,7 @@
  "0xa7084719": {"name":"probabilityTables","revisions":[{"from":7695709,"type":["List","0x3","Pointer","0x53a6c97e"],"default":[null,null,null]}]}
 }},
 "0x1c4bac51": {"revisions": [{"from":7345787,"to":7345787,"bases":["0x3f47efa"],"interface":false,"value":false},{"from":7371049,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
- "0x8536b021": {"revisions":[{"from":7345787,"to":7345787,"type":["U32","0x0","0x0","0x0"],"default":4096},{"from":7371049,"type":["U32","0x0","0x0","0x0"],"default":4096}]}
+ "0x8536b021": {"name":"RenderTargetSize","revisions":[{"from":7345787,"to":7345787,"type":["U32","0x0","0x0","0x0"],"default":4096},{"from":7371049,"type":["U32","0x0","0x0","0x0"],"default":4096}]}
 }},
 "0x1c54bed0": {"name": "TftArmoryBadgeDisplayData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -17477,7 +17477,7 @@
 "0x8d579c0a": {"revisions": [{"from":6509216,"to":6564086,"bases":[],"interface":false,"value":false}], "properties": {
  "0xe64015f0": {"name":"Icon","revisions":[{"from":6509216,"to":6564086,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x8d65d994": {"revisions": [{"from":7794239,"bases":[],"interface":false,"value":false}], "properties": {
+"0x8d65d994": {"name": "GameplayTextureSampler", "revisions": [{"from":7794239,"bases":[],"interface":false,"value":false}], "properties": {
  "0x8d39bde6": {"name":"name","revisions":[{"from":7794239,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xf0a363e3": {"name":"texturePath","revisions":[{"from":7794239,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
@@ -20454,7 +20454,7 @@
 "0xa8dd91e9": {"revisions": [{"from":7538272,"bases":["0xb33b2406"],"interface":false,"value":false}], "properties": {
  "0xecb7d556": {"name":"mBoolDriver","revisions":[{"from":7538272,"type":["Pointer","0x0","0x0","0x7a851cd8"],"default":null}]}
 }},
-"0xa8efd56d": {"revisions": [{"from":7851316,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
+"0xa8efd56d": {"name": "MapAntiAliasing", "revisions": [{"from":7851316,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
  "0xb91780a6": {"revisions":[{"from":7851316,"type":["U8","0x0","0x0","0x0"],"default":1}]},
  "0xec6ee012": {"name":"Mode","revisions":[{"from":7851316,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
@@ -25979,7 +25979,7 @@
 }},
 "0xd59163d9": {"revisions": [{"from":6275678,"bases":["0x6c816d62"],"interface":false,"value":false}], "properties": {
 }},
-"0xd59587e0": {"revisions": [{"from":7538272,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
+"0xd59587e0": {"name": "MapGameplayTexture", "revisions": [{"from":7538272,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
  "0x23e7082c": {"name":"ShaderParameters","revisions":[{"from":7643737,"type":["Map","String","F32","0x0"],"default":{}}]},
  "0x2b6a031f": {"name":"RedChannel","revisions":[{"from":7538272,"type":["Link","0x0","0x0","0xff5060b7"],"default":"0x0"}]},
  "0x44956bbc": {"name":"BlueChannel","revisions":[{"from":7538272,"type":["Link","0x0","0x0","0xff5060b7"],"default":"0x0"}]},
@@ -31382,10 +31382,10 @@
 }},
 "0xff4e30bb": {"revisions": [{"from":6919951,"bases":["0x4359be6"],"interface":true,"value":false}], "properties": {
 }},
-"0xff5060b7": {"revisions": [{"from":7538272,"bases":[],"interface":false,"value":false}], "properties": {
+"0xff5060b7": {"name": "GameplayTextureChannel", "revisions": [{"from":7538272,"bases":[],"interface":false,"value":false}], "properties": {
  "0x10706d43": {"revisions":[{"from":7747445,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x54a1d02e": {"revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xbc3b7fdc": {"revisions":[{"from":7643737,"type":["Map","String","F32","0x0"],"default":{}}]},
+ "0xbc3b7fdc": {"name":"ShaderParameterOverrides","revisions":[{"from":7643737,"type":["Map","String","F32","0x0"],"default":{}}]},
  "0xc5ea66ab": {"name":"MinimapColor","revisions":[{"from":7538272,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
  "0xec768d6b": {"revisions":[{"from":7538272,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},

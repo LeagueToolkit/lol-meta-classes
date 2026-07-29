@@ -328,6 +328,7 @@ de888209 FunctionOutputs
 bfe15a6a GameModeTemplate
 b4873916 GameTime
 162f520d GameplayRegion
+ed892164 GameplayTexture
 19752079 GeometryType
 b9b4d8d7 GoldAmount
 db0e9d5b GoldMax
@@ -632,6 +633,7 @@ bed02ff8 RegionTags
 ebb5881f RenderOrder
 8bfaa580 RenderPass
 62c9f9c0 RenderPhase
+8536b021 RenderTargetSize
 f3c442af RequiredCount
 31af55e6 RequiredLevel
 fc922909 RequiredTags
@@ -697,6 +699,7 @@ d8c398f2 SeriesBackgroundImageUrl
 9c50fe38 SeriesList
 dfe510ee SetOnStart
 a1d375b5 ShaderModel
+bc3b7fdc ShaderParameterOverrides
 5cc8d99c ShadowColor0
 5dc8db2f ShadowColor1
 10087a83 ShadowsEnabled

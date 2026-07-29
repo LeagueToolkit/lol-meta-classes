@@ -3,6 +3,8 @@
 #: pre-ledger-backlog	Predates the ledger; dates from git blame, method not recoverable
 #: season16-modes-ui	16.9-16.14 exes + dumps: Monarch/Battlegrounds/TFT, ClientState, keybinds, Params*
 #: vfx-driver-graph	IVfxBaseDriver graph; 16.13 exe MetaClass_register table, FNV-1a exact, no attested strings
+#: gameplay-texture	A map-sized RGBA render target the game paints into during a match, one gameplay layer per texture channel. The engine spells the subsystem out: shader macros GAMEPLAY_TEXTURE / GAMEPLAY_TEXTURE_VS, a GameplayTextureDataStream, and ASSETS/Shaders/HLSL/GameplayTexture/PS_GAMEPLAY_TEXTURE.ps. Registration order pins each name to its slot, and the Sampler entries are handed straight to Material::AppendSamplerValue. Present in 16.15, no authored data yet.
+#: map-graphics-unproven	Two map graphics finds where the hash is the only real evidence. Registration order narrows MapAntiAliasing to a MapA* name and its two U8 fields fit, but nothing in the client ever reads the class, so there is no behaviour to check the string against. RenderTargetSize is a U32 defaulting to 4096 on a class that is itself still unnamed. Plausible, not established - do not send upstream.
 #: meta-delta-16.14	16.14 dump (7949266) delta vs 16.13: family templates (VfxPhysics<X>Modifier, <X>RigPoseModifierData, VfxEmission<X>) plus a Start/End shared-prefix pairing proof on DynamicsChainProperties; every hash re-checked for a mov edx,<hash> registrar site in the installed 16.15 client.
 #: meta-delta-16.14-unproven	Same 16.14 sweep, names NOT established: WardSkin collides on 0x75895412 with HideRarity so the hash cannot choose between them; PropertyTraits names an empty interface with no structure to corroborate against; CollisionForce has no sibling or numeric support and is gone by 16.15. DO NOT submit upstream.
 #: propertyloadable-ui	PropertyLoadable's UI tree. Names pinned by their slot in the client's registration order; UiComponent also shows up in shipped paths.
@@ -1302,6 +1304,17 @@ fd0c5087	binfields	x	vfx-driver-graph	2026-07-28	pending	-
 fc0c4ef4	binfields	y	vfx-driver-graph	2026-07-28	pending	-
 ff0c53ad	binfields	z	vfx-driver-graph	2026-07-28	pending	-
 5a68002e	binfields	zw	vfx-driver-graph	2026-07-28	pending	-
+
+# gameplay-texture
+ed892164	binfields	GameplayTexture	gameplay-texture	2026-07-29	pending	-
+ff5060b7	bintypes	GameplayTextureChannel	gameplay-texture	2026-07-29	pending	-
+8d65d994	bintypes	GameplayTextureSampler	gameplay-texture	2026-07-29	pending	-
+d59587e0	bintypes	MapGameplayTexture	gameplay-texture	2026-07-29	pending	-
+bc3b7fdc	binfields	ShaderParameterOverrides	gameplay-texture	2026-07-29	pending	-
+
+# map-graphics-unproven
+a8efd56d	bintypes	MapAntiAliasing	map-graphics-unproven	2026-07-29	pending	-
+8536b021	binfields	RenderTargetSize	map-graphics-unproven	2026-07-29	pending	-
 
 # meta-delta-16.14
 7be73b55	binfields	AbilityDescription	meta-delta-16.14	2026-07-29	pending	-

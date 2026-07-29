@@ -288,15 +288,6 @@ class 0x17411ce(0x27d92a31):
 class 0x1742fda9(0xb87473b5):
     pass
 
-class 0x174c7096(UiPropertyLoadable):
-    ViewModel: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    VariableDefaults: (Map, Hash, Pointer, 0xb041c60a) = {}
-    name: (String, 0x0, 0x0, 0x0) = ""
-    BindingInstances: (List2, 0x0, Pointer, 0x41bb3fd7) = []
-    0xa1e5aa85: (List2, 0x0, Pointer, 0x7ec8e5ed) = []
-    0xac60f21e: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x17539cc2():
     0x6e84dbd7: (String, 0x0, 0x0, 0x0) = ""
     0xc49d0560: (String, 0x0, 0x0, 0x0) = ""
@@ -4035,9 +4026,6 @@ class 0x65c4db8f(0x6c7a6a03):
     Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
-class 0x65c802be():
-    pass
-
 class 0x65d203f4():
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     GoldIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -5216,9 +5204,6 @@ class 0x7ebc692d(0x26c7d48a):
     0xcb49a225: (F32, 0x0, 0x0, 0x0) = 10.0
     pass
 
-class 0x7ec8e5ed():
-    pass
-
 class 0x7ecb2959(0x129e311, 0x2576b4fc, 0x3497f0cf, 0x4feb7d99):
     pass
 
@@ -5597,7 +5582,7 @@ class 0x857c08ad(0x8ffd7c61):
     pass
 
 class 0x858de500(ViewController):
-    components: (List2, 0x0, Link, 0x174c7096) = []
+    components: (List2, 0x0, Link, UiComponent) = []
     pass
 
 class 0x859c9c2f():
@@ -6603,7 +6588,7 @@ class 0x9bc919f2():
     pass
 
 class 0x9bd3c53b(0x857c08ad):
-    0x2cc0bcea: (Link, 0x0, 0x0, 0x174c7096) = "0x0"
+    0x2cc0bcea: (Link, 0x0, 0x0, UiComponent) = "0x0"
     pass
 
 class 0x9be3a010():
@@ -8560,9 +8545,6 @@ class 0xc78713b5():
     Buddies: (List2, 0x0, Link, 0x17d73579) = []
     pass
 
-class 0xc7a79d2b(0x65c802be, BinFileContainer):
-    pass
-
 class 0xc7b1ec51(InputEventBoolKeybind):
     pass
 
@@ -9708,9 +9690,6 @@ class 0xde33e086():
     Positions: (List2, 0x0, Embed, 0xfa28444b) = []
     pass
 
-class 0xde5dac9e(GameEntityTemplate):
-    pass
-
 class 0xde75be67(0xb0607142):
     Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
@@ -10031,9 +10010,6 @@ class 0xe67a27c8(0xd37e7059):
     pass
 
 class 0xe6f0047():
-    pass
-
-class 0xe75836d4(0x702b5022):
     pass
 
 class 0xe75aad84():
@@ -15139,6 +15115,12 @@ class GameEntityTemplate(MapPlaceableBase, 0xd738f7c9):
     tags: (List2, 0x0, Hash, 0x0)
     pass
 
+class GameEntityTemplateLocatorPreview(0x702b5022):
+    pass
+
+class GameEntityTemplateProxyLink(GameEntityTemplate):
+    pass
+
 class GameFontDescription():
     resolutionData: (Link, 0x0, 0x0, FontResolutionData) = "0x0"
     outlineColor: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
@@ -15280,6 +15262,9 @@ class GameMutatorExpansions():
     pass
 
 class GameObject(0xa4795108, UObject):
+    pass
+
+class GameScreenContainerBase(IGameScreenNode, BinFileContainer):
     pass
 
 class GameScript(CommonScript):
@@ -16387,6 +16372,9 @@ class IGameModeConfigBase():
     pass
 
 class IGameModeConfigClient(IGameModeConfigBase):
+    pass
+
+class IGameScreenNode():
     pass
 
 class IGeComponentDef():
@@ -27401,6 +27389,9 @@ class UiAbilityPromptAnimData():
     PulseStartColor: (Color, 0x0, 0x0, 0x0) = [193,251,255,255]
     pass
 
+class UiBehavior():
+    pass
+
 class UiChampionSelectionSlotData():
     Portrait: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -27433,6 +27424,15 @@ class UiComboBoxDefinition():
 
 class UiComboBoxSoundEvents():
     OnSelectionEvent: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class UiComponent(UiPropertyLoadable):
+    ViewModel: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    VariableDefaults: (Map, Hash, Pointer, 0xb041c60a) = {}
+    name: (String, 0x0, 0x0, 0x0) = ""
+    BindingInstances: (List2, 0x0, Pointer, 0x41bb3fd7) = []
+    0xa1e5aa85: (List2, 0x0, Pointer, UiBehavior) = []
+    0xac60f21e: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class UiDraggableBasic():

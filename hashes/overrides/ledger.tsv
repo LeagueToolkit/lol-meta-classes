@@ -2,9 +2,10 @@
 #: game-entity-sweep	GameEntity sweep leftovers; its class half merged as CommunityDragon/Data#35
 #: pre-ledger-backlog	Predates the ledger; dates from git blame, method not recoverable
 #: season16-modes-ui	16.9-16.14 exes + dumps: Monarch/Battlegrounds/TFT, ClientState, keybinds, Params*
-#: vfx-driver-graph	IVfxBaseDriver graph; 16.13 exe MetaClass_register table, FNV-1a exact, no attested strings - docs/reversing/VfxDriverGraph.md
-#: meta-delta-16.14	16.14 dump (7949266) delta vs 16.13: family templates (VfxPhysics<X>Modifier, <X>RigPoseModifierData, VfxEmission<X>) plus a Start/End shared-prefix pairing proof on DynamicsChainProperties; every hash re-checked for a mov edx,<hash> registrar site in the installed 16.15 client. Per-name evidence: league_structs docs/reversing/MetaDelta_16_14.md
-#: meta-delta-16.14-unproven	Same 16.14 sweep, names NOT established: WardSkin collides on 0x75895412 with HideRarity so the hash cannot choose between them; PropertyTraits names an empty interface with no structure to corroborate against; CollisionForce has no sibling or numeric support and is gone by 16.15. DO NOT submit upstream. league_structs docs/reversing/MetaDelta_16_14.md
+#: vfx-driver-graph	IVfxBaseDriver graph; 16.13 exe MetaClass_register table, FNV-1a exact, no attested strings
+#: meta-delta-16.14	16.14 dump (7949266) delta vs 16.13: family templates (VfxPhysics<X>Modifier, <X>RigPoseModifierData, VfxEmission<X>) plus a Start/End shared-prefix pairing proof on DynamicsChainProperties; every hash re-checked for a mov edx,<hash> registrar site in the installed 16.15 client.
+#: meta-delta-16.14-unproven	Same 16.14 sweep, names NOT established: WardSkin collides on 0x75895412 with HideRarity so the hash cannot choose between them; PropertyTraits names an empty interface with no structure to corroborate against; CollisionForce has no sibling or numeric support and is gone by 16.15. DO NOT submit upstream.
+#: propertyloadable-ui	PropertyLoadable's UI tree. Names pinned by their slot in the client's registration order; UiComponent also shows up in shipped paths.
 
 hash	table	name	batch	cracked	status	pr
 
@@ -1348,3 +1349,11 @@ d4c2cd54	bintypes	VfxPhysicsWorldSpaceTranslationModifier	meta-delta-16.14	2026-
 2de6fb1a	binfields	CollisionForce	meta-delta-16.14-unproven	2026-07-29	pending	-
 2761403d	bintypes	PropertyTraits	meta-delta-16.14-unproven	2026-07-29	pending	-
 75895412	bintypes	WardSkin	meta-delta-16.14-unproven	2026-07-29	pending	-
+
+# propertyloadable-ui
+e75836d4	bintypes	GameEntityTemplateLocatorPreview	propertyloadable-ui	2026-07-29	submitted	https://github.com/CommunityDragon/Data/pull/36
+de5dac9e	bintypes	GameEntityTemplateProxyLink	propertyloadable-ui	2026-07-29	submitted	https://github.com/CommunityDragon/Data/pull/36
+c7a79d2b	bintypes	GameScreenContainerBase	propertyloadable-ui	2026-07-29	submitted	https://github.com/CommunityDragon/Data/pull/36
+65c802be	bintypes	IGameScreenNode	propertyloadable-ui	2026-07-29	submitted	https://github.com/CommunityDragon/Data/pull/36
+7ec8e5ed	bintypes	UiBehavior	propertyloadable-ui	2026-07-29	submitted	https://github.com/CommunityDragon/Data/pull/36
+174c7096	bintypes	UiComponent	propertyloadable-ui	2026-07-29	submitted	https://github.com/CommunityDragon/Data/pull/36

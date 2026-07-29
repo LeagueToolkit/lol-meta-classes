@@ -12,7 +12,7 @@ use zstd;
 pub struct DownloadChunk {
     pub size_compressed: u32,
     pub size_uncompressed: u32,
-    pub offset_uncompressed: BTreeSet<u32>,
+    pub offset_uncompressed: BTreeSet<u64>,
 }
 
 #[derive(Clone, Debug, Default)]
@@ -24,7 +24,7 @@ pub struct DownloadBundle {
 #[derive(Clone, Debug, Default)]
 pub struct DownloadFile {
     pub name: String,
-    pub size: u32,
+    pub size: u64,
     pub max_uncompressed: u32,
     pub bundles: HashMap<u64, DownloadBundle>,
 }
@@ -42,7 +42,7 @@ impl DownloadChunk {
         let uncompressed = re_throw(zstd::decode_all(compressed), "Failed to decompress chunk!")?;
         for &offset_uncompressed in &self.offset_uncompressed {
             re_throw(
-                writer.seek(io::SeekFrom::Start(offset_uncompressed as u64)),
+                writer.seek(io::SeekFrom::Start(offset_uncompressed)),
                 "Failed to seek to chunk!",
             )?;
             re_throw(writer.write_all(&uncompressed), "Failed to write chunk!")?;
@@ -133,7 +133,7 @@ impl DownloadFile {
         }
         let mut writer = re_throw(fs::File::create(&path), "Failed to create file!")?;
         self.download_with_progress(agent, cdn, &mut writer, progress)?;
-        re_throw(writer.set_len(self.size as u64), "Failed to set file len!")?;
+        re_throw(writer.set_len(self.size), "Failed to set file len!")?;
         Ok(())
     }
 

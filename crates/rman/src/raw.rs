@@ -34,7 +34,7 @@ pub struct Lang {
 pub struct File {
     pub id: u64,
     pub parent_id: u64,
-    pub size: u32,
+    pub size: u64,
     pub name: String,
     pub lang_flags: u64,
     pub unk5: u8,
@@ -381,12 +381,9 @@ impl Manifest {
         let mut results = Vec::new();
         for chunk_id in chunk_ids {
             let mut chunk = self.get_chunk(*chunk_id)?;
-            chunk.offset_uncompressed = offset_uncompressed as u32;
+            chunk.offset_uncompressed = offset_uncompressed;
             results.push(chunk);
             offset_uncompressed += chunk.size_uncompressed as u64;
-            if offset_uncompressed > u32::MAX as u64 {
-                throw("Uncompressed offset would go out of 4GB boundary!")?;
-            }
         }
         Ok(results)
     }

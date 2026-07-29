@@ -39,7 +39,7 @@ pub struct Chunk {
     pub size_compressed: u32,
     pub size_uncompressed: u32,
     pub offset_compressed: u32,
-    pub offset_uncompressed: u32,
+    pub offset_uncompressed: u64,
 }
 
 #[derive(Clone, Debug)]
@@ -47,7 +47,7 @@ pub struct File {
     pub id: u64,
     pub name: String,
     pub link_name: String,
-    pub size: u32,
+    pub size: u64,
     pub max_uncompressed: u32,
     pub hash_type: HashType,
     pub langs: HashSet<String>,
@@ -178,7 +178,7 @@ impl File {
     pub fn download_checked<R: io::Read + io::Seek>(&self, reader: &mut R) -> DownloadFile {
         let mut buffer = Vec::with_capacity(self.max_uncompressed as usize);
         self.download_if(|chunk| {
-            if let Ok(_) = reader.seek(io::SeekFrom::Start(chunk.offset_uncompressed as u64)) {
+            if let Ok(_) = reader.seek(io::SeekFrom::Start(chunk.offset_uncompressed)) {
                 buffer.resize(chunk.size_uncompressed as usize, 0u8);
                 if let Ok(_) = reader.read_exact(&mut buffer) {
                     if self.hash_type.compute(&buffer) == chunk.chunk_id {
@@ -236,7 +236,7 @@ impl Manifest {
                 if chunk.size_uncompressed > max_uncompressed {
                     return throw("Chunk too big!");
                 }
-                if chunk.offset_uncompressed + chunk.size_uncompressed > size {
+                if chunk.offset_uncompressed + chunk.size_uncompressed as u64 > size {
                     return throw("Chunk would go outside the file!");
                 }
             }

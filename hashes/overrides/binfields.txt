@@ -125,7 +125,11 @@ e7e90aee CastShadow
 65b78965 CeremonyLink
 4f0e44f5 ChampionsLayout
 04681146 ChaosSequence
+55c8f448 CharacterDefines
 13a1bb9a CharacterProbe
+580b328e CharacterProbeIndex
+98cc7895 CharacterSunLightColor
+35a14c57 CharacterSunLightDirection
 9bc68be3 ChatRegion
 928eb9b4 CheatList
 d1519ad2 CheckMark
@@ -212,6 +216,7 @@ c5597e8c Def
 d23c9e02 DepthFog
 4d87c515 DepthFogColor
 456d362f DepthFogEnd
+749b3695 DepthFogMaxIntensity
 a6ce8c9a DepthFogStart
 2afda2ce DescriptionFooter
 3b7aa707 DescriptionLong
@@ -278,6 +283,7 @@ a159f8ea EnemyMapSkin
 8a3fc6eb EntityDefinition
 4a22b647 EntityInputs
 989015d3 EntityRef
+58389612 EnvironmentDefines
 b3ddaeab EquipTrakey
 0329cc30 Equipped
 221758ae EquippedBorder
@@ -348,6 +354,7 @@ bae18fd9 Healthbars
 32006fba HeightFog
 b0d4508d HeightFogColor
 2188a687 HeightFogEnd
+7a8d755d HeightFogMaxIntensity
 8e731442 HeightFogStart
 9e6ab7fa Helpers
 949cfb4a HighlightedTrait
@@ -468,6 +475,7 @@ e2622bf2 LockedColor
 ce96732e MagicalDamageEnhanced
 5a3d5de0 ManaRegenPercent
 16d6bc74 MapCue
+ce8f4190 MapSSAORenderer
 26045d85 Mapping
 10abaf49 MaterialBin
 e81d2ece MaterialMapping
@@ -555,6 +563,7 @@ f5674cd4 Owner
 f3158aa5 PageText
 dd2b5b5d PaginationButton
 07f9f769 ParameterOverrides
+1dc03d0d ParticleDefines
 b10e2d1e ParticleSystem
 faa24f5d PartnerSlot
 55c5da6b PassiveBuff
@@ -587,6 +596,7 @@ cda5dc7f PortraitMaterial
 ec843b0e PortraitTexturePath
 b2f876c7 PositionProvider
 5ed8887b Positions
+5b0d842a PostEffectDefines
 83f71517 Precision
 de7d679e PremiumTag
 97b20086 PressedFrame
@@ -799,6 +809,7 @@ a0f848d1 SubRequirements
 312f9dd7 SubteamBadge
 4c0c91fd SuccessesRequired
 9d8b5bd5 SummonerLevel
+4a6489aa SunLightColor
 602b4f3c SwapAnimation
 68305f93 SwapMaterial
 8963e73a SwapSounds
@@ -901,7 +912,9 @@ b24341c8 animationDimensions
 b7c14674 attractionAcceleration
 aeefa0e6 attractionRadius
 a75279fa beam
+82fbf5cd blue
 5b593ba8 colorOverLife
+9fb31fc2 defaultRenderData
 3498512b distribution
 acee2354 distributionMode
 88c7215d divisor
@@ -918,6 +931,7 @@ b8aa6948 facingMode
 a6c45d85 float
 8144ce88 floatProperty
 95cd8075 from
+011decbc green
 5e6ab845 heightOffset
 3dddb9fd high
 fb40f022 includeCaps
@@ -936,6 +950,7 @@ b4bc0449 keyedScale
 9dac718c laser
 124aec70 left
 986002d8 lifetimeBehavior
+f8242c07 lightChannels
 37885f1c localAcceleration
 bfc92e63 logicDriver
 b0585aea loopDelay
@@ -946,6 +961,8 @@ a100bebc mesh
 d6b1e82e noiseVector
 d69a87d8 outroDuration
 4e0e3632 param
+1a1e3919 priorityOverride
+40f480dc red
 7471eac6 remap
 46f9077c rgb
 42b4cb29 ribbon
@@ -957,6 +974,7 @@ d9ee6a8f shareRandom
 78c1a5ee skeletonData
 efd909e8 spawnDuration
 93e05f71 switch
+ece16964 textureRenderDataList
 5d3c9be4 time
 42454824 to
 4db211e5 true

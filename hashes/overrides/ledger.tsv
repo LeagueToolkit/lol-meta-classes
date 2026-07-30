@@ -3,12 +3,16 @@
 #: pre-ledger-backlog	Predates the ledger; dates from git blame, method not recoverable
 #: season16-modes-ui	16.9-16.14 exes + dumps: Monarch/Battlegrounds/TFT, ClientState, keybinds, Params*
 #: vfx-driver-graph	IVfxBaseDriver graph; 16.13 exe MetaClass_register table, FNV-1a exact, no attested strings
-#: gameplay-texture	A map-sized RGBA render target the game paints into during a match, one gameplay layer per texture channel. The engine spells the subsystem out: shader macros GAMEPLAY_TEXTURE / GAMEPLAY_TEXTURE_VS, a GameplayTextureDataStream, and ASSETS/Shaders/HLSL/GameplayTexture/PS_GAMEPLAY_TEXTURE.ps. Registration order pins each name to its slot, and the Sampler entries are handed straight to Material::AppendSamplerValue. Present in 16.15, no authored data yet.
-#: map-graphics-unproven	Two map graphics finds where the hash is the only real evidence. Registration order narrows MapAntiAliasing to a MapA* name and its two U8 fields fit, but nothing in the client ever reads the class, so there is no behaviour to check the string against. RenderTargetSize is a U32 defaulting to 4096 on a class that is itself still unnamed. Plausible, not established - do not send upstream.
-#: map-quality-lod	The per-map geometry LOD gate. EnvironmentAsset::BeginLoad tests this component's byte against the five EnvironmentQuality bits and uses the matching position to pick a mapgeo LOD, so LodQualities is the set of quality levels that get their own LOD. The class name also carries the ...Component suffix MapComponent subclasses use, and lands in its registration-order slot.
-#: meta-delta-16.14	16.14 dump (7949266) delta vs 16.13: family templates (VfxPhysics<X>Modifier, <X>RigPoseModifierData, VfxEmission<X>) plus a Start/End shared-prefix pairing proof on DynamicsChainProperties; every hash re-checked for a mov edx,<hash> registrar site in the installed 16.15 client.
-#: meta-delta-16.14-unproven	Same 16.14 sweep, names NOT established: WardSkin collides on 0x75895412 with HideRarity so the hash cannot choose between them; PropertyTraits names an empty interface with no structure to corroborate against; CollisionForce has no sibling or numeric support and is gone by 16.15. DO NOT submit upstream.
-#: propertyloadable-ui	PropertyLoadable's UI tree. Names pinned by their slot in the client's registration order; UiComponent also shows up in shipped paths.
+#: gameplay-texture	Map-sized RGBA render target painted during a match, one gameplay layer per channel. Engine names it: GAMEPLAY_TEXTURE macros, PS_GAMEPLAY_TEXTURE.ps. Registration order pins the slots.
+#: light-regions	Named from the shipped shader: LightRegions.ps reflection declares struct LightRegionRenderData and its members, matching the class field for field. red/green/blue complete the known alpha.
+#: light-regions-unproven	Same work. Behaviour is settled but no string attests these spellings, so they are convention over attested vocabulary. DO NOT submit.
+#: map-graphics-unproven	Hash-led map graphics names, none attested in any string. MapSSAORenderer and MapChunkVisibility are bracket-supported; MapAntiAliasing and RenderTargetSize are not. DO NOT submit.
+#: map-quality-lod	Per-map geometry LOD gate. EnvironmentAsset::BeginLoad tests the byte against the five EnvironmentQuality bits and picks a mapgeo LOD by bit position.
+#: map-shader-defines	Four List2<String> on one map feature, all landing on <Domain>Defines: Character, Environment, Particle, PostEffect. Defines means shader defines here (featureDefines, baseDefines). Owner unnamed.
+#: meta-delta-16.14	16.14 delta vs 16.13: family templates (VfxPhysics<X>Modifier, <X>RigPoseModifierData, VfxEmission<X>) plus a Start/End prefix-pairing proof. Every hash re-checked for a registrar site in 16.15.
+#: meta-delta-16.14-unproven	Same sweep, names not established: WardSkin collides with HideRarity, PropertyTraits is an empty interface, CollisionForce has no support and is gone by 16.15. DO NOT submit.
+#: ssao-casing	The registration inversion here is fixable by re-casing, which only 13-26% of inversions are; the method scores 92% on ground truth. Order forces MapSS, OMIT_SSAO gives SSAO. Both entries or neither.
+PropertyLoadable's UI tree. Names pinned by their slot in the client's registration order; UiComponent also shows up in shipped paths.
 
 hash	table	name	batch	cracked	status	pr
 
@@ -1313,13 +1317,42 @@ ff5060b7	bintypes	GameplayTextureChannel	gameplay-texture	2026-07-29	pending	-
 d59587e0	bintypes	MapGameplayTexture	gameplay-texture	2026-07-29	pending	-
 bc3b7fdc	binfields	ShaderParameterOverrides	gameplay-texture	2026-07-29	pending	-
 
+# light-regions
+580b328e	binfields	CharacterProbeIndex	light-regions	2026-07-29	pending	-
+98cc7895	binfields	CharacterSunLightColor	light-regions	2026-07-29	pending	-
+35a14c57	binfields	CharacterSunLightDirection	light-regions	2026-07-29	pending	-
+749b3695	binfields	DepthFogMaxIntensity	light-regions	2026-07-29	pending	-
+7a8d755d	binfields	HeightFogMaxIntensity	light-regions	2026-07-29	pending	-
+f15a89f3	bintypes	LightRegionRenderData	light-regions	2026-07-29	pending	-
+4a6489aa	binfields	SunLightColor	light-regions	2026-07-29	pending	-
+82fbf5cd	binfields	blue	light-regions	2026-07-29	pending	-
+011decbc	binfields	green	light-regions	2026-07-29	pending	-
+40f480dc	binfields	red	light-regions	2026-07-29	pending	-
+
+# light-regions-unproven
+fadcd386	bintypes	LightRegionTextureData	light-regions-unproven	2026-07-29	pending	-
+dd3213ec	bintypes	PostEffectOptions	light-regions-unproven	2026-07-29	pending	-
+9fb31fc2	binfields	defaultRenderData	light-regions-unproven	2026-07-29	pending	-
+f8242c07	binfields	lightChannels	light-regions-unproven	2026-07-29	pending	-
+1a1e3919	binfields	priorityOverride	light-regions-unproven	2026-07-29	pending	-
+ece16964	binfields	textureRenderDataList	light-regions-unproven	2026-07-29	pending	-
+
 # map-graphics-unproven
 a8efd56d	bintypes	MapAntiAliasing	map-graphics-unproven	2026-07-29	pending	-
+cdb1c8f6	bintypes	MapChunkVisibility	map-graphics-unproven	2026-07-29	pending	-
+ce8f4190	binfields	MapSSAORenderer	map-graphics-unproven	2026-07-29	pending	-
+ce8f4190	bintypes	MapSSAORenderer	map-graphics-unproven	2026-07-29	pending	-
 8536b021	binfields	RenderTargetSize	map-graphics-unproven	2026-07-29	pending	-
 
 # map-quality-lod
 6e4ce585	binfields	LodQualities	map-quality-lod	2026-07-29	pending	-
 71ddfd3c	bintypes	MapQualityLodComponent	map-quality-lod	2026-07-29	pending	-
+
+# map-shader-defines
+55c8f448	binfields	CharacterDefines	map-shader-defines	2026-07-29	pending	-
+58389612	binfields	EnvironmentDefines	map-shader-defines	2026-07-29	pending	-
+1dc03d0d	binfields	ParticleDefines	map-shader-defines	2026-07-29	pending	-
+5b0d842a	binfields	PostEffectDefines	map-shader-defines	2026-07-29	pending	-
 
 # meta-delta-16.14
 7be73b55	binfields	AbilityDescription	meta-delta-16.14	2026-07-29	pending	-
@@ -1367,6 +1400,9 @@ d4c2cd54	bintypes	VfxPhysicsWorldSpaceTranslationModifier	meta-delta-16.14	2026-
 2de6fb1a	binfields	CollisionForce	meta-delta-16.14-unproven	2026-07-29	pending	-
 2761403d	bintypes	PropertyTraits	meta-delta-16.14-unproven	2026-07-29	pending	-
 75895412	bintypes	WardSkin	meta-delta-16.14-unproven	2026-07-29	pending	-
+
+# ssao-casing
+1717869f	bintypes	MapSSAO	ssao-casing	2026-07-29	pending	-
 
 # propertyloadable-ui
 e75836d4	bintypes	GameEntityTemplateLocatorPreview	propertyloadable-ui	2026-07-29	submitted	https://github.com/CommunityDragon/Data/pull/36

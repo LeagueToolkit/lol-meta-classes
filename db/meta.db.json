@@ -3178,9 +3178,9 @@
 "0x170d99ee": {"revisions": [{"from":6774704,"to":7480682,"bases":["0x7992a72c"],"interface":false,"value":false}], "properties": {
  "0xa0f848d1": {"name":"SubRequirements","revisions":[{"from":6774704,"to":7480682,"type":["List2","0x0","Pointer","0x7992a72c"],"default":[]}]}
 }},
-"0x1717869f": {"name": "MapSsao", "revisions": [{"from":5379010,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
+"0x1717869f": {"name": "MapSSAO", "revisions": [{"from":5379010,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
  "0x68067b08": {"name":"settings","revisions":[{"from":5379010,"to":5479214,"type":["Embed","0x0","0x0","0x502b0c72"],"default":{"BlurQuality":0,"SampleQuality":0,"SampleRadius":25.0,"BufferScale":0.5,"power":1.0}}]},
- "0xce8f4190": {"revisions":[{"from":5639790,"type":["Embed","0x0","0x0","0xce8f4190"],"default":{"settings":{"SampleQuality":0,"0x6509d993":true,"SampleRadius":25.0,"BufferScale":0.5,"power":1.0}}}]}
+ "0xce8f4190": {"name":"MapSSAORenderer","revisions":[{"from":5639790,"type":["Embed","0x0","0x0","0xce8f4190"],"default":{"settings":{"SampleQuality":0,"0x6509d993":true,"SampleRadius":25.0,"BufferScale":0.5,"power":1.0}}}]}
 }},
 "0x17373233": {"name": "IGameCalculation", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
  "0x2c77adff": {"name":"mMultiplier","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xb60012ce"]}]},
@@ -4007,7 +4007,7 @@
  "0x746ce73e": {"name":"lightColor","revisions":[{"from":7794239,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,1.0,1.0,1.0]}]},
  "0x75708a14": {"revisions":[{"from":7794239,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xc7334a55": {"name":"HdrScale","revisions":[{"from":7794239,"type":["F32","0x0","0x0","0x0"],"default":5.0}]},
- "0xf8242c07": {"revisions":[{"from":7794239,"type":["U8","0x0","0x0","0x0"],"default":1}]}
+ "0xf8242c07": {"name":"lightChannels","revisions":[{"from":7794239,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
 "0x1ee9686c": {"revisions": [{"from":7584427,"bases":[],"interface":false,"value":false}], "properties": {
  "0x67cca4a": {"revisions":[{"from":7584427,"type":["Link","0x0","0x0","0xb4dee917"],"default":"0x0"}]},
@@ -9511,10 +9511,10 @@
  "0x89123f7e": {"name":"RegionName","revisions":[{"from":5579166,"to":5588314,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x48486635": {"revisions": [{"from":7231955,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
- "0x1dc03d0d": {"revisions":[{"from":7231955,"type":["List2","0x0","String","0x0"],"default":[]}]},
- "0x55c8f448": {"revisions":[{"from":7231955,"type":["List2","0x0","String","0x0"],"default":[]}]},
- "0x58389612": {"revisions":[{"from":7231955,"type":["List2","0x0","String","0x0"],"default":[]}]},
- "0x5b0d842a": {"revisions":[{"from":7231955,"type":["List2","0x0","String","0x0"],"default":[]}]}
+ "0x1dc03d0d": {"name":"ParticleDefines","revisions":[{"from":7231955,"type":["List2","0x0","String","0x0"],"default":[]}]},
+ "0x55c8f448": {"name":"CharacterDefines","revisions":[{"from":7231955,"type":["List2","0x0","String","0x0"],"default":[]}]},
+ "0x58389612": {"name":"EnvironmentDefines","revisions":[{"from":7231955,"type":["List2","0x0","String","0x0"],"default":[]}]},
+ "0x5b0d842a": {"name":"PostEffectDefines","revisions":[{"from":7231955,"type":["List2","0x0","String","0x0"],"default":[]}]}
 }},
 "0x48615587": {"revisions": [{"from":6359815,"to":7480682,"bases":["0x4cc1ed12"],"interface":false,"value":false}], "properties": {
  "0x8f80bc0f": {"name":"PropertyDef","revisions":[{"from":6359815,"to":7480682,"type":["Link","0x0","0x0","0xfc03844f"],"default":"0x0"}]}
@@ -10153,7 +10153,7 @@
  "0xbcf819ee": {"name":"far","revisions":[{"from":7794239,"type":["F32","0x0","0x0","0x0"],"default":500.0}]},
  "0xc7334a55": {"name":"HdrScale","revisions":[{"from":7794239,"type":["F32","0x0","0x0","0x0"],"default":5.0}]},
  "0xf6298343": {"revisions":[{"from":7794239,"type":["Link","0x0","0x0","0xff9d3409"],"default":"0x0"}]},
- "0xf8242c07": {"revisions":[{"from":7794239,"type":["U8","0x0","0x0","0x0"],"default":1}]}
+ "0xf8242c07": {"name":"lightChannels","revisions":[{"from":7794239,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
 "0x4e16b860": {"revisions": [{"from":5409873,"bases":[],"interface":false,"value":false}], "properties": {
  "0xaf1ce00": {"name":"CosmeticIcons","revisions":[{"from":5466062,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
@@ -10527,7 +10527,7 @@
  "0xe145ee5d": {"name":"Animation","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x50db156b": {"revisions": [{"from":5876777,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
- "0xef286ca5": {"name":"options","revisions":[{"from":5876777,"type":["Embed","0x0","0x0","0xdd3213ec"],"default":{"HeightFogEnd":-100.0,"HeightFog":false,"DepthFogEnd":8000.0,"DepthFogColor":[0.0,0.0,0.0,1.0],"0x749b3695":1.0,"0x7a8d755d":1.0,"0x81ed7bcd":false,"0x88ab79b5":2000.0,"0x8e1fed5e":800.0,"HeightFogStart":300.0,"DofDebug":false,"DepthFogStart":5000.0,"0xadee7179":1.0,"HeightFogColor":[0.0,0.0,0.0,1.0],"0xb4e1daa3":0.0,"0xcdbcbab6":false,"DepthFog":false,"0xdcc81602":5000.0,"Dof":false,"Coc":10.0}}]}
+ "0xef286ca5": {"name":"options","revisions":[{"from":5876777,"type":["Embed","0x0","0x0","0xdd3213ec"],"default":{"HeightFogEnd":-100.0,"HeightFog":false,"DepthFogEnd":8000.0,"DepthFogColor":[0.0,0.0,0.0,1.0],"DepthFogMaxIntensity":1.0,"HeightFogMaxIntensity":1.0,"0x81ed7bcd":false,"0x88ab79b5":2000.0,"0x8e1fed5e":800.0,"HeightFogStart":300.0,"DofDebug":false,"DepthFogStart":5000.0,"0xadee7179":1.0,"HeightFogColor":[0.0,0.0,0.0,1.0],"0xb4e1daa3":0.0,"0xcdbcbab6":false,"DepthFog":false,"0xdcc81602":5000.0,"Dof":false,"Coc":10.0}}]}
 }},
 "0x51150233": {"revisions": [{"from":6048769,"bases":["0x8214fbc2"],"interface":false,"value":false}], "properties": {
  "0xe3635366": {"revisions":[{"from":6048769,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -10700,7 +10700,7 @@
  "0x6ae12622": {"name":"UpdaterType","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xcfb97790"],"default":"0x0"}]},
  "0x746ce73e": {"name":"lightColor","revisions":[{"from":5229820,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,1.0,1.0,1.0]}]},
  "0xc7334a55": {"name":"HdrScale","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":5.0}]},
- "0xf8242c07": {"revisions":[{"from":7135912,"type":["U8","0x0","0x0","0x0"],"default":1}]}
+ "0xf8242c07": {"name":"lightChannels","revisions":[{"from":7135912,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
 "0x529533b3": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
@@ -14074,7 +14074,7 @@
  "0xe64015f0": {"name":"Icon","revisions":[{"from":7200925,"to":7218442,"type":["Link","0x0","0x0","0x64ee2fb1"],"default":"0x0"}]}
 }},
 "0x714fe7b7": {"revisions": [{"from":7794239,"bases":["0x40a9c74a"],"interface":false,"value":false}], "properties": {
- "0xe29d1e2f": {"name":"Light","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x4e0d6ae4"],"default":{"Impact":3,"Color":[1.0,1.0,1.0,1.0],"Near":10.0,"UpdaterType":"0x0","0x75708a14":false,"intensity":1.0,"ProjectedTexture":"","Aspect":1.0,"fov":60.0,"far":500.0,"HdrScale":5.0,"0xf6298343":"0x0","0xf8242c07":1}}]},
+ "0xe29d1e2f": {"name":"Light","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x4e0d6ae4"],"default":{"Impact":3,"Color":[1.0,1.0,1.0,1.0],"Near":10.0,"UpdaterType":"0x0","0x75708a14":false,"intensity":1.0,"ProjectedTexture":"","Aspect":1.0,"fov":60.0,"far":500.0,"HdrScale":5.0,"0xf6298343":"0x0","lightChannels":1}}]},
  "0xf8f165ee": {"revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x1eee9d10"],"default":{}}]}
 }},
 "0x7169f36b": {"revisions": [{"from":6161179,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
@@ -15901,7 +15901,7 @@
 "0x80ab8a15": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x80b13e71": {"name": "LightChannelsGeComponentDef", "revisions": [{"from":7135912,"to":7218442,"bases":["0x385c323f"],"interface":false,"value":false},{"from":7231955,"bases":["0x62a09c62"],"interface":false,"value":false}], "properties": {
- "0xf8242c07": {"revisions":[{"from":7135912,"type":["U8","0x0","0x0","0x0"],"default":1}]}
+ "0xf8242c07": {"name":"lightChannels","revisions":[{"from":7135912,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
 "0x80b33bc2": {"revisions": [{"from":7465697,"to":7765552,"bases":["0xe057ab66"],"interface":false,"value":false},{"from":7794239,"bases":["0xb5754dad"],"interface":false,"value":false}], "properties": {
 }},
@@ -16222,7 +16222,7 @@
  "0x746ce73e": {"name":"lightColor","revisions":[{"from":5964541,"to":5964541,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,1.0,1.0,1.0]},{"from":5967996,"to":5989749,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,1.0,1.0,1.0]},{"from":6012857,"type":["Embed","0x0","0x0","0x74f91dd"],"default":{"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}}]},
  "0xac3cf5bd": {"revisions":[{"from":5964541,"to":5964541,"type":["Vec3","0x0","0x0","0x0"],"default":[0.0,0.0,0.0]},{"from":5967996,"to":5989749,"type":["Vec3","0x0","0x0","0x0"],"default":[0.0,0.0,0.0]},{"from":6012857,"type":["Embed","0x0","0x0","0x68dc32b6"],"default":{"constantValue":[0.0,0.0,0.0],"dynamics":null}}]},
  "0xc7334a55": {"name":"HdrScale","revisions":[{"from":5964541,"to":5964541,"type":["F32","0x0","0x0","0x0"],"default":5.0},{"from":5967996,"type":["F32","0x0","0x0","0x0"],"default":5.0}]},
- "0xf8242c07": {"revisions":[{"from":7231955,"type":["U8","0x0","0x0","0x0"],"default":1}]}
+ "0xf8242c07": {"name":"lightChannels","revisions":[{"from":7231955,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
 "0x834e2e8d": {"revisions": [{"from":5756478,"bases":[],"interface":false,"value":false}], "properties": {
  "0x31afe7d": {"name":"Region","revisions":[{"from":5756478,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -17778,7 +17778,7 @@
  "0x6ae12622": {"name":"UpdaterType","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xcfb97790"],"default":"0x0"}]},
  "0xc7334a55": {"name":"HdrScale","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":5.0}]},
  "0xf6298343": {"revisions":[{"from":7102027,"type":["Link","0x0","0x0","0xff9d3409"],"default":"0x0"}]},
- "0xf8242c07": {"revisions":[{"from":7200925,"type":["U8","0x0","0x0","0x0"],"default":1}]}
+ "0xf8242c07": {"name":"lightChannels","revisions":[{"from":7200925,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
 "0x906a173a": {"revisions": [{"from":6877272,"bases":["0x5bc98d54"],"interface":false,"value":false}], "properties": {
 }},
@@ -18432,7 +18432,7 @@
 "0x972a7491": {"name": "LightRegionGeComponentDef", "revisions": [{"from":7231955,"bases":["0x62a09c62"],"interface":false,"value":false}], "properties": {
  "0x51cb889": {"name":"Polygon","revisions":[{"from":7345787,"to":7345787,"type":["List2","0x0","Vec3","0x0"],"default":[[-200.0,0.0,200.0],[200.0,0.0,200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]},{"from":7371049,"type":["List2","0x0","Vec3","0x0"],"default":[[-200.0,0.0,200.0],[200.0,0.0,200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}]},
  "0xdba4cb3": {"name":"radius","revisions":[{"from":7345787,"to":7345787,"type":["F32","0x0","0x0","0x0"],"default":0.0},{"from":7371049,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0x1a1e3919": {"revisions":[{"from":7584427,"type":["I8","0x0","0x0","0x0"],"default":-1}]},
+ "0x1a1e3919": {"name":"priorityOverride","revisions":[{"from":7584427,"type":["I8","0x0","0x0","0x0"],"default":-1}]},
  "0x1b41c046": {"name":"FalloffPower","revisions":[{"from":7345787,"to":7345787,"type":["F32","0x0","0x0","0x0"],"default":1.0},{"from":7371049,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0x48a52ed9": {"name":"parameters","revisions":[{"from":7345787,"to":7345787,"type":["Link","0x0","0x0","0x3069f601"],"default":"0x0"},{"from":7371049,"type":["Link","0x0","0x0","0x3069f601"],"default":"0x0"}]},
  "0xe07a18b0": {"name":"strength","revisions":[{"from":7345787,"to":7345787,"type":["F32","0x0","0x0","0x0"],"default":1.0},{"from":7371049,"type":["F32","0x0","0x0","0x0"],"default":1.0}]}
@@ -18812,7 +18812,7 @@
  "0xa2fd7d0c": {"name":"Team","revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x1b1b0d1a"],"default":{"TeamDefinition":"0x0","Team":100}},{"from":7371049,"type":["Embed","0x0","0x0","0x1b1b0d1a"],"default":{"TeamDefinition":"0x0","Team":100}}]},
  "0xe145ee5d": {"name":"Animation","revisions":[{"from":7200925,"to":7218442,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}},{"from":7231955,"type":["Embed","0x0","0x0","0xbdadb6f3"],"default":{}}]},
  "0xe64015f0": {"name":"Icon","revisions":[{"from":7747445,"type":["Pointer","0x0","0x0","0x5779866a"],"default":null}]},
- "0xf8242c07": {"revisions":[{"from":7200925,"type":["Embed","0x0","0x0","0x80b13e71"],"default":{"0xf8242c07":1}}]},
+ "0xf8242c07": {"name":"lightChannels","revisions":[{"from":7200925,"type":["Embed","0x0","0x0","0x80b13e71"],"default":{"lightChannels":1}}]},
  "0xf8f165ee": {"revisions":[{"from":7200925,"to":7218442,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}},{"from":7231955,"type":["Embed","0x0","0x0","0x1eee9d10"],"default":{}}]}
 }},
 "0x9aa7640e": {"revisions": [{"from":6421879,"to":7218442,"bases":["0xbd0a017e"],"interface":false,"value":false}], "properties": {
@@ -20177,7 +20177,7 @@
 "0xa5e0e842": {"name": "AvatarVars", "revisions": [{"from":5437084,"bases":["0x24f32dbe"],"interface":false,"value":false}], "properties": {
 }},
 "0xa5e2976a": {"revisions": [{"from":7200925,"bases":["0x40a9c74a"],"interface":false,"value":false}], "properties": {
- "0xfb30c27": {"name":"LightRegion","revisions":[{"from":7200925,"to":7218442,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}},{"from":7231955,"type":["Embed","0x0","0x0","0x972a7491"],"default":{"0x1a1e3919":-1,"FalloffPower":1.0,"parameters":"0x0","Polygon":[[-200.0,0.0,200.0],[200.0,0.0,200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]],"radius":0.0,"strength":1.0}}]},
+ "0xfb30c27": {"name":"LightRegion","revisions":[{"from":7200925,"to":7218442,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}},{"from":7231955,"type":["Embed","0x0","0x0","0x972a7491"],"default":{"priorityOverride":-1,"FalloffPower":1.0,"parameters":"0x0","Polygon":[[-200.0,0.0,200.0],[200.0,0.0,200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]],"radius":0.0,"strength":1.0}}]},
  "0x84145ca0": {"name":"definition","revisions":[{"from":7200925,"to":7336673,"type":["Embed","0x0","0x0","0x2104851a"],"default":{"FalloffPower":1.0,"parameters":"0x0","Polygon":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]],"inheritedTags":[],"radius":0.0,"strength":1.0,"tags":[]}},{"from":7347485,"to":7347485,"type":["Embed","0x0","0x0","0x2104851a"],"default":{"FalloffPower":1.0,"parameters":"0x0","Polygon":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]],"inheritedTags":[],"radius":0.0,"strength":1.0,"tags":[]}}]},
  "0xf8f165ee": {"revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x1eee9d10"],"default":{}},{"from":7371049,"type":["Embed","0x0","0x0","0x1eee9d10"],"default":{}}]}
 }},
@@ -21002,7 +21002,7 @@
  "0x3d7e6258": {"name":"Color","revisions":[{"from":5229820,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,1.0,1.0,1.0]}]},
  "0x8563e50a": {"name":"intensity","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xe281ed56": {"revisions":[{"from":5229820,"to":7190545,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xf8242c07": {"revisions":[{"from":7135912,"to":7190545,"type":["U8","0x0","0x0","0x0"],"default":1}]}
+ "0xf8242c07": {"name":"lightChannels","revisions":[{"from":7135912,"to":7190545,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
 "0xadfcc498": {"revisions": [{"from":7027993,"to":7765552,"bases":["0xbe07ec3f"],"interface":false,"value":false},{"from":7794239,"bases":["0x70cf2e7"],"interface":false,"value":false}], "properties": {
 }},
@@ -24949,7 +24949,7 @@
 "0xcdabb917": {"name": "ContextualConditionLastBoughtItem", "revisions": [{"from":5229820,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x4c614d07": {"name":"mItem","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xcdb1c8f6": {"revisions": [{"from":6124791,"bases":["0x44f9e6c"],"interface":false,"value":false}], "properties": {
+"0xcdb1c8f6": {"name": "MapChunkVisibility", "revisions": [{"from":6124791,"bases":["0x44f9e6c"],"interface":false,"value":false}], "properties": {
  "0x6355dd6f": {"revisions":[{"from":6124791,"type":["List2","0x0","Embed","0x6355dd6f"],"default":[]}]}
 }},
 "0xcdb319f6": {"name": "DrawablePositionLocator", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -25058,7 +25058,7 @@
 "0xce8769d7": {"name": "LuaObjectOverrides", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x20890fc4": {"name":"tables","revisions":[{"from":5229820,"type":["Map","String","Link","0xf261b123"],"default":{}}]}
 }},
-"0xce8f4190": {"revisions": [{"from":5516065,"bases":[],"interface":false,"value":false}], "properties": {
+"0xce8f4190": {"name": "MapSSAORenderer", "revisions": [{"from":5516065,"bases":[],"interface":false,"value":false}], "properties": {
  "0x68067b08": {"name":"settings","revisions":[{"from":5516065,"type":["Embed","0x0","0x0","0x502b0c72"],"default":{"SampleQuality":0,"0x6509d993":true,"SampleRadius":25.0,"BufferScale":0.5,"power":1.0}}]}
 }},
 "0xce9b917b": {"name": "ModifiableFloat", "revisions": [{"from":7465697,"bases":[],"interface":false,"value":true}], "properties": {
@@ -26031,7 +26031,7 @@
  "0xf9cb518f": {"revisions":[{"from":7170001,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xd5db92ad": {"revisions": [{"from":7794239,"bases":["0x40a9c74a"],"interface":false,"value":false}], "properties": {
- "0xe29d1e2f": {"name":"Light","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x1ed8dbf2"],"default":{"Impact":3,"intensityScale":1.0,"UpdaterType":"0x0","lightColor":[1.0,1.0,1.0,1.0],"0x75708a14":false,"HdrScale":5.0,"radius":500.0,"0xf8242c07":1}}]},
+ "0xe29d1e2f": {"name":"Light","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x1ed8dbf2"],"default":{"Impact":3,"intensityScale":1.0,"UpdaterType":"0x0","lightColor":[1.0,1.0,1.0,1.0],"0x75708a14":false,"HdrScale":5.0,"radius":500.0,"lightChannels":1}}]},
  "0xf8f165ee": {"revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x1eee9d10"],"default":{}}]}
 }},
 "0xd601c9f5": {"name": "EmoteLoadoutGridButtonData", "revisions": [{"from":5229820,"bases":["0x7517feef"],"interface":false,"value":false}], "properties": {
@@ -26909,13 +26909,13 @@
  "0xdd85c53b": {"name":"AliveMaterial","revisions":[{"from":6478644,"to":7218442,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf9e90ffe": {"name":"DeadMaterial","revisions":[{"from":6478644,"to":7218442,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xdd3213ec": {"revisions": [{"from":5876777,"bases":[],"interface":false,"value":false}], "properties": {
+"0xdd3213ec": {"name": "PostEffectOptions", "revisions": [{"from":5876777,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2188a687": {"name":"HeightFogEnd","revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":-100.0}]},
  "0x32006fba": {"name":"HeightFog","revisions":[{"from":5876777,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x456d362f": {"name":"DepthFogEnd","revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":8000.0}]},
  "0x4d87c515": {"name":"DepthFogColor","revisions":[{"from":5876777,"type":["Vec4","0x0","0x0","0x0"],"default":[0.0,0.0,0.0,1.0]}]},
- "0x749b3695": {"revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0x7a8d755d": {"revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0x749b3695": {"name":"DepthFogMaxIntensity","revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0x7a8d755d": {"name":"HeightFogMaxIntensity","revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0x81ed7bcd": {"revisions":[{"from":7794239,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x88ab79b5": {"revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":2000.0}]},
  "0x8e1fed5e": {"revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":800.0}]},
@@ -29673,19 +29673,19 @@
  "0xa12f6bee": {"revisions":[{"from":6359815,"to":7480682,"type":["List2","0x0","F32","0x0"],"default":[]}]},
  "0xbed32cdf": {"revisions":[{"from":6841658,"to":7480682,"type":["Embed","0x0","0x0","0xd1b2d11b"],"default":{"Requirements":[]}}]}
 }},
-"0xf15a89f3": {"revisions": [{"from":6738244,"bases":[],"interface":false,"value":false}], "properties": {
+"0xf15a89f3": {"name": "LightRegionRenderData", "revisions": [{"from":6738244,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2119af58": {"revisions":[{"from":7893741,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
  "0x2188a687": {"name":"HeightFogEnd","revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":-6500.0}]},
- "0x35a14c57": {"revisions":[{"from":6738244,"type":["Vec3","0x0","0x0","0x0"],"default":[0.0,0.0,0.0]}]},
+ "0x35a14c57": {"name":"CharacterSunLightDirection","revisions":[{"from":6738244,"type":["Vec3","0x0","0x0","0x0"],"default":[0.0,0.0,0.0]}]},
  "0x456d362f": {"name":"DepthFogEnd","revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":3300.0}]},
- "0x4a6489aa": {"revisions":[{"from":6738244,"to":6750010,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,1.0,1.0,1.0]},{"from":6774704,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
+ "0x4a6489aa": {"name":"SunLightColor","revisions":[{"from":6738244,"to":6750010,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,1.0,1.0,1.0]},{"from":6774704,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
  "0x4d87c515": {"name":"DepthFogColor","revisions":[{"from":6997589,"type":["Vec3","0x0","0x0","0x0"],"default":[0.03519999980926514,0.125,0.3050000071525574]}]},
- "0x580b328e": {"revisions":[{"from":6738244,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x749b3695": {"revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":0.25}]},
- "0x7a8d755d": {"revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":0.05000000074505806}]},
+ "0x580b328e": {"name":"CharacterProbeIndex","revisions":[{"from":6738244,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x749b3695": {"name":"DepthFogMaxIntensity","revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":0.25}]},
+ "0x7a8d755d": {"name":"HeightFogMaxIntensity","revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":0.05000000074505806}]},
  "0x8e731442": {"name":"HeightFogStart","revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":-400.0}]},
  "0x94e4e309": {"name":"priority","revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x98cc7895": {"revisions":[{"from":6738244,"to":6750010,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,1.0,1.0,1.0]},{"from":6774704,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
+ "0x98cc7895": {"name":"CharacterSunLightColor","revisions":[{"from":6738244,"to":6750010,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,1.0,1.0,1.0]},{"from":6774704,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
  "0xa6ce8c9a": {"name":"DepthFogStart","revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":2075.0}]},
  "0xb0d4508d": {"name":"HeightFogColor","revisions":[{"from":6997589,"type":["Vec3","0x0","0x0","0x0"],"default":[0.4050000011920929,0.843999981880188,0.9380000233650208]}]},
  "0xf1e32aa7": {"name":"ProbeIndex","revisions":[{"from":6738244,"type":["U32","0x0","0x0","0x0"],"default":0}]}
@@ -30809,9 +30809,9 @@
 }},
 "0xfa8824c0": {"name": "MapLightRegions", "revisions": [{"from":6738244,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
  "0x90df3f50": {"name":"TextureWidth","revisions":[{"from":6738244,"type":["U16","0x0","0x0","0x0"],"default":1024}]},
- "0x9fb31fc2": {"revisions":[{"from":6738244,"type":["Embed","0x0","0x0","0x3069f601"],"default":{"CharacterProbe":"0x0","0x2119af58":[1.0,1.0,1.0],"HeightFogEnd":-6500.0,"0x35a14c57":[0.0,0.0,0.0],"DepthFogEnd":3300.0,"0x4a6489aa":[1.0,1.0,1.0],"DepthFogColor":[0.03519999980926514,0.125,0.3050000071525574],"0x580b328e":0,"0x749b3695":0.25,"0x7a8d755d":0.05000000074505806,"Probe":"0x0","HeightFogStart":-400.0,"priority":0,"0x98cc7895":[1.0,1.0,1.0],"DepthFogStart":2075.0,"HeightFogColor":[0.4050000011920929,0.843999981880188,0.9380000233650208],"ProbeIndex":0}}]},
+ "0x9fb31fc2": {"name":"defaultRenderData","revisions":[{"from":6738244,"type":["Embed","0x0","0x0","0x3069f601"],"default":{"CharacterProbe":"0x0","0x2119af58":[1.0,1.0,1.0],"HeightFogEnd":-6500.0,"CharacterSunLightDirection":[0.0,0.0,0.0],"DepthFogEnd":3300.0,"SunLightColor":[1.0,1.0,1.0],"DepthFogColor":[0.03519999980926514,0.125,0.3050000071525574],"CharacterProbeIndex":0,"DepthFogMaxIntensity":0.25,"HeightFogMaxIntensity":0.05000000074505806,"Probe":"0x0","HeightFogStart":-400.0,"priority":0,"CharacterSunLightColor":[1.0,1.0,1.0],"DepthFogStart":2075.0,"HeightFogColor":[0.4050000011920929,0.843999981880188,0.9380000233650208],"ProbeIndex":0}}]},
  "0xdcf71c47": {"name":"TextureHeight","revisions":[{"from":6738244,"type":["U16","0x0","0x0","0x0"],"default":1024}]},
- "0xece16964": {"revisions":[{"from":7465697,"type":["List2","0x0","Embed","0xfadcd386"],"default":[]}]}
+ "0xece16964": {"name":"textureRenderDataList","revisions":[{"from":7465697,"type":["List2","0x0","Embed","0xfadcd386"],"default":[]}]}
 }},
 "0xfa8f1b00": {"name": "VfxAbsVector4Driver", "revisions": [{"from":7269074,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
  "0x4e0e3632": {"name":"param","revisions":[{"from":7269074,"type":["Pointer","0x0","0x0","0xc59dfcfb"],"default":null}]}
@@ -30820,11 +30820,11 @@
  "0x5c5d98c2": {"name":"ChampionNames","revisions":[{"from":5229820,"type":["List2","0x0","String","0x0"],"default":[]}]},
  "0x75fbcb48": {"name":"BoardPosition","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x40a87ffc"],"default":{"Row":1,"Col":1}}]}
 }},
-"0xfadcd386": {"revisions": [{"from":7465697,"bases":[],"interface":false,"value":false}], "properties": {
- "0x11decbc": {"revisions":[{"from":7465697,"type":["Link","0x0","0x0","0x3069f601"],"default":"0x0"}]},
- "0x40f480dc": {"revisions":[{"from":7465697,"type":["Link","0x0","0x0","0x3069f601"],"default":"0x0"}]},
+"0xfadcd386": {"name": "LightRegionTextureData", "revisions": [{"from":7465697,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x11decbc": {"name":"green","revisions":[{"from":7465697,"type":["Link","0x0","0x0","0x3069f601"],"default":"0x0"}]},
+ "0x40f480dc": {"name":"red","revisions":[{"from":7465697,"type":["Link","0x0","0x0","0x3069f601"],"default":"0x0"}]},
  "0x5d8b6dab": {"name":"alpha","revisions":[{"from":7465697,"type":["Link","0x0","0x0","0x3069f601"],"default":"0x0"}]},
- "0x82fbf5cd": {"revisions":[{"from":7465697,"type":["Link","0x0","0x0","0x3069f601"],"default":"0x0"}]},
+ "0x82fbf5cd": {"name":"blue","revisions":[{"from":7465697,"type":["Link","0x0","0x0","0x3069f601"],"default":"0x0"}]},
  "0x8a011aec": {"name":"SharedTextureName","revisions":[{"from":7465697,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x9deae566": {"revisions":[{"from":7584427,"type":["I8","0x0","0x0","0x0"],"default":-1}]},
  "0xcb7ca9af": {"revisions":[{"from":7584427,"type":["I8","0x0","0x0","0x0"],"default":-1}]},
@@ -31409,7 +31409,7 @@
  "0x84145ca0": {"name":"definition","revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0x7faa90a0"],"default":{"CharacterRecord":"","Skin":"","IconHelper":null,"TeamDefinition":"0x0","IdleAnimationName":"","IsReplicated":true,"PlayIdleAnimation":false,"inheritedTags":[],"Team":100,"0xb887f6e9":0.0,"OptionalConfigs":[],"tags":[]}}]},
  "0x86875ff3": {"name":"dynamicMaterial","revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}}]},
  "0xe145ee5d": {"name":"Animation","revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}}]},
- "0xf8242c07": {"revisions":[{"from":7135912,"to":7190545,"type":["Embed","0x0","0x0","0x80b13e71"],"default":{"0xf8242c07":1}}]},
+ "0xf8242c07": {"name":"lightChannels","revisions":[{"from":7135912,"to":7190545,"type":["Embed","0x0","0x0","0x80b13e71"],"default":{"lightChannels":1}}]},
  "0xf8f165ee": {"revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}}]}
 }},
 "0xff94b1c4": {"revisions": [{"from":6614445,"to":6781456,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {

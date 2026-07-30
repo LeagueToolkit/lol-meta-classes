@@ -12,7 +12,7 @@
 #: meta-delta-16.14	16.14 delta vs 16.13: family templates (VfxPhysics<X>Modifier, <X>RigPoseModifierData, VfxEmission<X>) plus a Start/End prefix-pairing proof. Every hash re-checked for a registrar site in 16.15.
 #: meta-delta-16.14-unproven	Same sweep, names not established: WardSkin collides with HideRarity, PropertyTraits is an empty interface, CollisionForce has no support and is gone by 16.15. DO NOT submit.
 #: ssao-casing	The registration inversion here is fixable by re-casing, which only 13-26% of inversions are; the method scores 92% on ground truth. Order forces MapSS, OMIT_SSAO gives SSAO. Both entries or neither.
-PropertyLoadable's UI tree. Names pinned by their slot in the client's registration order; UiComponent also shows up in shipped paths.
+#: propertyloadable-ui	PropertyLoadable's UI tree. Names pinned by their slot in the client's registration order; UiComponent also shows up in shipped paths.
 
 hash	table	name	batch	cracked	status	pr
 

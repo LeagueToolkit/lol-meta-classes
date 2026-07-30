@@ -1548,7 +1548,7 @@ class 0x304e703f():
     OwnerChampion: (Hash, 0x0, 0x0, 0x0)
     pass
 
-class 0x3069f601(0xf15a89f3):
+class 0x3069f601(LightRegionRenderData):
     CharacterProbe: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Probe: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -2706,10 +2706,10 @@ class 0x4805c972(ISequenceActionInstance):
     pass
 
 class 0x48486635(MapGraphicsFeature):
-    0x1dc03d0d: (List2, 0x0, String, 0x0) = []
-    0x55c8f448: (List2, 0x0, String, 0x0) = []
-    0x58389612: (List2, 0x0, String, 0x0) = []
-    0x5b0d842a: (List2, 0x0, String, 0x0) = []
+    ParticleDefines: (List2, 0x0, String, 0x0) = []
+    CharacterDefines: (List2, 0x0, String, 0x0) = []
+    EnvironmentDefines: (List2, 0x0, String, 0x0) = []
+    PostEffectDefines: (List2, 0x0, String, 0x0) = []
     pass
 
 class 0x4870b9d4(0x2e1cea4f):
@@ -3111,7 +3111,7 @@ class 0x50794e0e():
     pass
 
 class 0x50db156b(MapGraphicsFeature):
-    options: (Embed, 0x0, 0x0, 0xdd3213ec) = {"0x749b3695":1.0,"0x7a8d755d":1.0,"0x81ed7bcd":false,"0x88ab79b5":2000.0,"0x8e1fed5e":800.0,"0xadee7179":1.0,"0xb4e1daa3":0.0,"0xcdbcbab6":false,"0xdcc81602":5000.0,"Coc":10.0,"DepthFog":false,"DepthFogColor":[0.0,0.0,0.0,1.0],"DepthFogEnd":8000.0,"DepthFogStart":5000.0,"Dof":false,"DofDebug":false,"HeightFog":false,"HeightFogColor":[0.0,0.0,0.0,1.0],"HeightFogEnd":-100.0,"HeightFogStart":300.0}
+    options: (Embed, 0x0, 0x0, PostEffectOptions) = {"0x81ed7bcd":false,"0x88ab79b5":2000.0,"0x8e1fed5e":800.0,"0xadee7179":1.0,"0xb4e1daa3":0.0,"0xcdbcbab6":false,"0xdcc81602":5000.0,"Coc":10.0,"DepthFog":false,"DepthFogColor":[0.0,0.0,0.0,1.0],"DepthFogEnd":8000.0,"DepthFogMaxIntensity":1.0,"DepthFogStart":5000.0,"Dof":false,"DofDebug":false,"HeightFog":false,"HeightFogColor":[0.0,0.0,0.0,1.0],"HeightFogEnd":-100.0,"HeightFogMaxIntensity":1.0,"HeightFogStart":300.0}
     pass
 
 class 0x51150233(0x8214fbc2):
@@ -4561,7 +4561,7 @@ class 0x70f5ed1c(IContextualCondition):
     pass
 
 class 0x714fe7b7(GameEntityTemplate):
-    Light: (Embed, 0x0, 0x0, DynamicSpotlightGeComponentDef) = {"0x75708a14":false,"0xf6298343":"0x0","0xf8242c07":1,"Aspect":1.0,"Color":[1.0,1.0,1.0,1.0],"HdrScale":5.0,"Impact":3,"Near":10.0,"ProjectedTexture":"","UpdaterType":"0x0","far":500.0,"fov":60.0,"intensity":1.0}
+    Light: (Embed, 0x0, 0x0, DynamicSpotlightGeComponentDef) = {"0x75708a14":false,"0xf6298343":"0x0","Aspect":1.0,"Color":[1.0,1.0,1.0,1.0],"HdrScale":5.0,"Impact":3,"Near":10.0,"ProjectedTexture":"","UpdaterType":"0x0","far":500.0,"fov":60.0,"intensity":1.0,"lightChannels":1}
     0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
@@ -5463,7 +5463,7 @@ class 0x83456589():
     0xac3cf5bd: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
     HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
     radius: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":500.0,"dynamics":null}
-    0xf8242c07: (U8, 0x0, 0x0, 0x0) = 1
+    lightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class 0x834e2e8d():
@@ -6526,7 +6526,7 @@ class 0x9aa5b4bc(GameEntityTemplate):
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
     Animation: (Embed, 0x0, 0x0, AnimationGeComponentDef) = {}
     Icon: (Pointer, 0x0, 0x0, NewIconGeComponentDef) = null
-    0xf8242c07: (Embed, 0x0, 0x0, LightChannelsGeComponentDef) = {"0xf8242c07":1}
+    lightChannels: (Embed, 0x0, 0x0, LightChannelsGeComponentDef) = {"lightChannels":1}
     0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
@@ -7029,7 +7029,7 @@ class 0xa5ad6466(0xca17e84f):
 
 class 0xa5e2976a(GameEntityTemplate):
     0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
-    LightRegion: (Embed, 0x0, 0x0, LightRegionGeComponentDef) = {"0x1a1e3919":-1,"FalloffPower":1.0,"Polygon":[[-200.0,0.0,200.0],[200.0,0.0,200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]],"parameters":"0x0","radius":0.0,"strength":1.0}
+    LightRegion: (Embed, 0x0, 0x0, LightRegionGeComponentDef) = {"FalloffPower":1.0,"Polygon":[[-200.0,0.0,200.0],[200.0,0.0,200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]],"parameters":"0x0","priorityOverride":-1,"radius":0.0,"strength":1.0}
     pass
 
 class 0xa5f064ff():
@@ -8840,10 +8840,6 @@ class 0xcd54aabc():
     icons: (List2, 0x0, Embed, 0x69680d) = []
     pass
 
-class 0xcdb1c8f6(MapComponent):
-    0x6355dd6f: (List2, 0x0, Embed, 0x6355dd6f) = []
-    pass
-
 class 0xcdd217c1(IContextualCondition):
     EventName: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -8860,10 +8856,6 @@ class 0xce60a9a0(IGameModeConfigClient):
 class 0xce762bab():
     0x45258bde: (F32, 0x0, 0x0, 0x0) = 0.0
     0x96dab686: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0xce8f4190():
-    settings: (Embed, 0x0, 0x0, 0x502b0c72) = {"0x6509d993":true,"BufferScale":0.5,"SampleQuality":0,"SampleRadius":25.0,"power":1.0}
     pass
 
 class 0xceb08455():
@@ -9225,7 +9217,7 @@ class 0xd5d2b377():
     pass
 
 class 0xd5db92ad(GameEntityTemplate):
-    Light: (Embed, 0x0, 0x0, DynamicPointLightGeComponentDef) = {"0x75708a14":false,"0xf8242c07":1,"HdrScale":5.0,"Impact":3,"UpdaterType":"0x0","intensityScale":1.0,"lightColor":[1.0,1.0,1.0,1.0],"radius":500.0}
+    Light: (Embed, 0x0, 0x0, DynamicPointLightGeComponentDef) = {"0x75708a14":false,"HdrScale":5.0,"Impact":3,"UpdaterType":"0x0","intensityScale":1.0,"lightChannels":1,"lightColor":[1.0,1.0,1.0,1.0],"radius":500.0}
     0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
@@ -9579,29 +9571,6 @@ class 0xdca4615b(ViewController):
     0xfcab4bb3: (List2, 0x0, Hash, 0x0) = []
     0xfccc58c0: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ErrorGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xdd3213ec():
-    HeightFogEnd: (F32, 0x0, 0x0, 0x0) = -100.0
-    HeightFog: (Bool, 0x0, 0x0, 0x0) = false
-    DepthFogEnd: (F32, 0x0, 0x0, 0x0) = 8000.0
-    DepthFogColor: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,1.0]
-    0x749b3695: (F32, 0x0, 0x0, 0x0) = 1.0
-    0x7a8d755d: (F32, 0x0, 0x0, 0x0) = 1.0
-    0x81ed7bcd: (Bool, 0x0, 0x0, 0x0) = false
-    0x88ab79b5: (F32, 0x0, 0x0, 0x0) = 2000.0
-    0x8e1fed5e: (F32, 0x0, 0x0, 0x0) = 800.0
-    HeightFogStart: (F32, 0x0, 0x0, 0x0) = 300.0
-    DofDebug: (Bool, 0x0, 0x0, 0x0) = false
-    DepthFogStart: (F32, 0x0, 0x0, 0x0) = 5000.0
-    0xadee7179: (F32, 0x0, 0x0, 0x0) = 1.0
-    HeightFogColor: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,1.0]
-    0xb4e1daa3: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xcdbcbab6: (Bool, 0x0, 0x0, 0x0) = false
-    DepthFog: (Bool, 0x0, 0x0, 0x0) = false
-    0xdcc81602: (F32, 0x0, 0x0, 0x0) = 5000.0
-    Dof: (Bool, 0x0, 0x0, 0x0) = false
-    Coc: (F32, 0x0, 0x0, 0x0) = 10.0
     pass
 
 class 0xdd57ce5e():
@@ -10449,24 +10418,6 @@ class 0xf13cb410(GameEntityTemplate):
     0xedb15a2f: (Embed, 0x0, 0x0, ModesScenarioGeComponentDef) = {"0xacbf093d":"","0xd15f7f26":true,"Icon":{"texturePath":""}}
     pass
 
-class 0xf15a89f3():
-    0x2119af58: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
-    HeightFogEnd: (F32, 0x0, 0x0, 0x0) = -6500.0
-    0x35a14c57: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
-    DepthFogEnd: (F32, 0x0, 0x0, 0x0) = 3300.0
-    0x4a6489aa: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
-    DepthFogColor: (Vec3, 0x0, 0x0, 0x0) = [0.03519999980926514,0.125,0.3050000071525574]
-    0x580b328e: (U32, 0x0, 0x0, 0x0) = 0
-    0x749b3695: (F32, 0x0, 0x0, 0x0) = 0.25
-    0x7a8d755d: (F32, 0x0, 0x0, 0x0) = 0.05000000074505806
-    HeightFogStart: (F32, 0x0, 0x0, 0x0) = -400.0
-    priority: (U32, 0x0, 0x0, 0x0) = 0
-    0x98cc7895: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
-    DepthFogStart: (F32, 0x0, 0x0, 0x0) = 2075.0
-    HeightFogColor: (Vec3, 0x0, 0x0, 0x0) = [0.4050000011920929,0.843999981880188,0.9380000233650208]
-    ProbeIndex: (U32, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0xf15fa548():
     0x4930ecef: (Link, 0x0, 0x0, MissionAsset) = "0x0"
     0xb48ca88e: (String, 0x0, 0x0, 0x0) = ""
@@ -10956,18 +10907,6 @@ class 0xfa6a7623(0x7b440079):
 class 0xfacd8b68():
     ChampionNames: (List2, 0x0, String, 0x0) = []
     BoardPosition: (Embed, 0x0, 0x0, TftBoardPosition) = {"Col":1,"Row":1}
-    pass
-
-class 0xfadcd386():
-    0x11decbc: (Link, 0x0, 0x0, 0x3069f601) = "0x0"
-    0x40f480dc: (Link, 0x0, 0x0, 0x3069f601) = "0x0"
-    alpha: (Link, 0x0, 0x0, 0x3069f601) = "0x0"
-    0x82fbf5cd: (Link, 0x0, 0x0, 0x3069f601) = "0x0"
-    SharedTextureName: (String, 0x0, 0x0, 0x0) = ""
-    0x9deae566: (I8, 0x0, 0x0, 0x0) = -1
-    0xcb7ca9af: (I8, 0x0, 0x0, 0x0) = -1
-    0xf4b1ea31: (I8, 0x0, 0x0, 0x0) = -1
-    0xfc561106: (I8, 0x0, 0x0, 0x0) = -1
     pass
 
 class 0xfb16e4be(0xfd51006c):
@@ -14170,7 +14109,7 @@ class DynamicPointLightGeComponentDef(IGeComponentDef):
     0x75708a14: (Bool, 0x0, 0x0, 0x0) = false
     HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
     radius: (F32, 0x0, 0x0, 0x0) = 500.0
-    0xf8242c07: (U8, 0x0, 0x0, 0x0) = 1
+    lightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class DynamicSpotlightGeComponent(0x3497f0cf):
@@ -14189,7 +14128,7 @@ class DynamicSpotlightGeComponentDef(IGeComponentDef):
     far: (F32, 0x0, 0x0, 0x0) = 500.0
     HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
     0xf6298343: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
-    0xf8242c07: (U8, 0x0, 0x0, 0x0) = 1
+    lightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class DynamicsChainProperties():
@@ -17539,19 +17478,49 @@ class LightChannelsGeComponent(0x3497f0cf):
     pass
 
 class LightChannelsGeComponentDef(IGeComponentDef):
-    0xf8242c07: (U8, 0x0, 0x0, 0x0) = 1
+    lightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class LightRegionGeComponent(0x3497f0cf):
     pass
 
 class LightRegionGeComponentDef(IGeComponentDef):
-    0x1a1e3919: (I8, 0x0, 0x0, 0x0) = -1
+    priorityOverride: (I8, 0x0, 0x0, 0x0) = -1
     FalloffPower: (F32, 0x0, 0x0, 0x0) = 1.0
     parameters: (Link, 0x0, 0x0, 0x3069f601) = "0x0"
     Polygon: (List2, 0x0, Vec3, 0x0) = [[-200.0,0.0,200.0],[200.0,0.0,200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]
     radius: (F32, 0x0, 0x0, 0x0) = 0.0
     strength: (F32, 0x0, 0x0, 0x0) = 1.0
+    pass
+
+class LightRegionRenderData():
+    0x2119af58: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
+    HeightFogEnd: (F32, 0x0, 0x0, 0x0) = -6500.0
+    CharacterSunLightDirection: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
+    DepthFogEnd: (F32, 0x0, 0x0, 0x0) = 3300.0
+    SunLightColor: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
+    DepthFogColor: (Vec3, 0x0, 0x0, 0x0) = [0.03519999980926514,0.125,0.3050000071525574]
+    CharacterProbeIndex: (U32, 0x0, 0x0, 0x0) = 0
+    DepthFogMaxIntensity: (F32, 0x0, 0x0, 0x0) = 0.25
+    HeightFogMaxIntensity: (F32, 0x0, 0x0, 0x0) = 0.05000000074505806
+    HeightFogStart: (F32, 0x0, 0x0, 0x0) = -400.0
+    priority: (U32, 0x0, 0x0, 0x0) = 0
+    CharacterSunLightColor: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
+    DepthFogStart: (F32, 0x0, 0x0, 0x0) = 2075.0
+    HeightFogColor: (Vec3, 0x0, 0x0, 0x0) = [0.4050000011920929,0.843999981880188,0.9380000233650208]
+    ProbeIndex: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class LightRegionTextureData():
+    green: (Link, 0x0, 0x0, 0x3069f601) = "0x0"
+    red: (Link, 0x0, 0x0, 0x3069f601) = "0x0"
+    alpha: (Link, 0x0, 0x0, 0x3069f601) = "0x0"
+    blue: (Link, 0x0, 0x0, 0x3069f601) = "0x0"
+    SharedTextureName: (String, 0x0, 0x0, 0x0) = ""
+    0x9deae566: (I8, 0x0, 0x0, 0x0) = -1
+    0xcb7ca9af: (I8, 0x0, 0x0, 0x0) = -1
+    0xf4b1ea31: (I8, 0x0, 0x0, 0x0) = -1
+    0xfc561106: (I8, 0x0, 0x0, 0x0) = -1
     pass
 
 class LineTargetToCaster(TargetingTypeData):
@@ -18701,6 +18670,10 @@ class MapCharacterListContainer():
     characterLists: (List2, 0x0, Link, MapCharacterList) = []
     pass
 
+class MapChunkVisibility(MapComponent):
+    0x6355dd6f: (List2, 0x0, Embed, 0x6355dd6f) = []
+    pass
+
 class MapClouds(MapGraphicsFeature):
     IsEyeCandy: (Bool, 0x0, 0x0, 0x0) = false
     CloudsTexturePath: (String, 0x0, 0x0, 0x0) = ""
@@ -18765,7 +18738,7 @@ class MapDynamicPointLight(MapPointLightBase, 0xd738f7c9):
     lightColor: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
     HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
     radius: (F32, 0x0, 0x0, 0x0) = 500.0
-    0xf8242c07: (U8, 0x0, 0x0, 0x0) = 1
+    lightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class MapDynamicSpotlight(MapSpotlightBase, 0xd738f7c9):
@@ -18774,7 +18747,7 @@ class MapDynamicSpotlight(MapSpotlightBase, 0xd738f7c9):
     UpdaterType: (Link, 0x0, 0x0, MapLightUpdaterType) = "0x0"
     HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
     0xf6298343: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
-    0xf8242c07: (U8, 0x0, 0x0, 0x0) = 1
+    lightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class MapFrustum(MapPlaceable):
@@ -18810,9 +18783,9 @@ class MapLaneComponent(MapComponent):
 
 class MapLightRegions(MapGraphicsFeature):
     TextureWidth: (U16, 0x0, 0x0, 0x0) = 1024
-    0x9fb31fc2: (Embed, 0x0, 0x0, 0x3069f601) = {"0x2119af58":[1.0,1.0,1.0],"0x35a14c57":[0.0,0.0,0.0],"0x4a6489aa":[1.0,1.0,1.0],"0x580b328e":0,"0x749b3695":0.25,"0x7a8d755d":0.05000000074505806,"0x98cc7895":[1.0,1.0,1.0],"CharacterProbe":"0x0","DepthFogColor":[0.03519999980926514,0.125,0.3050000071525574],"DepthFogEnd":3300.0,"DepthFogStart":2075.0,"HeightFogColor":[0.4050000011920929,0.843999981880188,0.9380000233650208],"HeightFogEnd":-6500.0,"HeightFogStart":-400.0,"Probe":"0x0","ProbeIndex":0,"priority":0}
+    defaultRenderData: (Embed, 0x0, 0x0, 0x3069f601) = {"0x2119af58":[1.0,1.0,1.0],"CharacterProbe":"0x0","CharacterProbeIndex":0,"CharacterSunLightColor":[1.0,1.0,1.0],"CharacterSunLightDirection":[0.0,0.0,0.0],"DepthFogColor":[0.03519999980926514,0.125,0.3050000071525574],"DepthFogEnd":3300.0,"DepthFogMaxIntensity":0.25,"DepthFogStart":2075.0,"HeightFogColor":[0.4050000011920929,0.843999981880188,0.9380000233650208],"HeightFogEnd":-6500.0,"HeightFogMaxIntensity":0.05000000074505806,"HeightFogStart":-400.0,"Probe":"0x0","ProbeIndex":0,"SunLightColor":[1.0,1.0,1.0],"priority":0}
     TextureHeight: (U16, 0x0, 0x0, 0x0) = 1024
-    0xece16964: (List2, 0x0, Embed, 0xfadcd386) = []
+    textureRenderDataList: (List2, 0x0, Embed, LightRegionTextureData) = []
     pass
 
 class MapLightUpdaterType():
@@ -19003,6 +18976,14 @@ class MapQualityLodComponent(MapComponent):
     LodQualities: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
+class MapSSAO(MapGraphicsFeature):
+    MapSSAORenderer: (Embed, 0x0, 0x0, MapSSAORenderer) = {"settings":{"0x6509d993":true,"BufferScale":0.5,"SampleQuality":0,"SampleRadius":25.0,"power":1.0}}
+    pass
+
+class MapSSAORenderer():
+    settings: (Embed, 0x0, 0x0, 0x502b0c72) = {"0x6509d993":true,"BufferScale":0.5,"SampleQuality":0,"SampleRadius":25.0,"power":1.0}
+    pass
+
 class MapScriptLocator(MapLocator):
     LevelScriptFunctionLink: (Pointer, 0x0, 0x0, LevelScriptControllerFunctionLink) = null
     ScriptName: (String, 0x0, 0x0, 0x0) = ""
@@ -19045,10 +19026,6 @@ class MapSpotlightBase(MapProjectedTexture):
     Impact: (U8, 0x0, 0x0, 0x0) = 3
     Color: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
     intensity: (F32, 0x0, 0x0, 0x0) = 1.0
-    pass
-
-class MapSsao(MapGraphicsFeature):
-    0xce8f4190: (Embed, 0x0, 0x0, 0xce8f4190) = {"settings":{"0x6509d993":true,"BufferScale":0.5,"SampleQuality":0,"SampleRadius":25.0,"power":1.0}}
     pass
 
 class MapStaticPointLightBase(MapPointLightBase):
@@ -21148,6 +21125,29 @@ class PoiScalingData():
     minDistance: (U32, 0x0, 0x0, 0x0) = 0
     MaxDistanceScale: (F32, 0x0, 0x0, 0x0) = 1.0
     maxDistance: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class PostEffectOptions():
+    HeightFogEnd: (F32, 0x0, 0x0, 0x0) = -100.0
+    HeightFog: (Bool, 0x0, 0x0, 0x0) = false
+    DepthFogEnd: (F32, 0x0, 0x0, 0x0) = 8000.0
+    DepthFogColor: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,1.0]
+    DepthFogMaxIntensity: (F32, 0x0, 0x0, 0x0) = 1.0
+    HeightFogMaxIntensity: (F32, 0x0, 0x0, 0x0) = 1.0
+    0x81ed7bcd: (Bool, 0x0, 0x0, 0x0) = false
+    0x88ab79b5: (F32, 0x0, 0x0, 0x0) = 2000.0
+    0x8e1fed5e: (F32, 0x0, 0x0, 0x0) = 800.0
+    HeightFogStart: (F32, 0x0, 0x0, 0x0) = 300.0
+    DofDebug: (Bool, 0x0, 0x0, 0x0) = false
+    DepthFogStart: (F32, 0x0, 0x0, 0x0) = 5000.0
+    0xadee7179: (F32, 0x0, 0x0, 0x0) = 1.0
+    HeightFogColor: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,1.0]
+    0xb4e1daa3: (F32, 0x0, 0x0, 0x0) = 0.0
+    0xcdbcbab6: (Bool, 0x0, 0x0, 0x0) = false
+    DepthFog: (Bool, 0x0, 0x0, 0x0) = false
+    0xdcc81602: (F32, 0x0, 0x0, 0x0) = 5000.0
+    Dof: (Bool, 0x0, 0x0, 0x0) = false
+    Coc: (F32, 0x0, 0x0, 0x0) = 10.0
     pass
 
 class PostGameLabFields():

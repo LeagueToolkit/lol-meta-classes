@@ -110,6 +110,8 @@ fe87f21e LastHitData
 6b863734 LegacyVisFlagVisController
 496d22af LevelPurchaseViewController
 93f9cdb7 LevelUpSpellBlock
+f15a89f3 LightRegionRenderData
+fadcd386 LightRegionTextureData
 ea69d6f3 ListGet
 8069a433 LoLCastActionKeybind
 be07ec3f LoLCursorContextAwareKeybind
@@ -120,11 +122,14 @@ d8a0b4e6 LoLModesEventChoiceViewController
 1e90bc62 LocatorEntity
 9d021f61 LolGameEntity
 a8efd56d MapAntiAliasing
+cdb1c8f6 MapChunkVisibility
 d59587e0 MapGameplayTexture
 a9d20c63 MapGet
 fa8824c0 MapLightRegions
 b7fb3452 MapPlaceableTemplate
 71ddfd3c MapQualityLodComponent
+1717869f MapSSAO
+ce8f4190 MapSSAORenderer
 75c07b27 MeshEntity
 079b4930 ModesQuestTrackerViewController
 6a0a0a99 MonarchAnnouncementsTemplate
@@ -209,6 +214,7 @@ f24aeac2 ParamsUndoEnabledChange
 75d39a3b PlayAnimation
 b9542d9d PlayerFrameViewControllerBase
 a4892234 PlayerInventoryViewControllerBase
+dd3213ec PostEffectOptions
 2761403d PropertyTraits
 21570b18 RegionDefinition
 5c1a1dc2 RegionEntity

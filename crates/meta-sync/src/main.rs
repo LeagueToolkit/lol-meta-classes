@@ -65,7 +65,10 @@ async fn main() -> Result<()> {
     for game_version in versions {
         let version = &game_version.version;
 
-        // Check if we should process this version
+        // Check if we should process this version. Breaking rather than
+        // continuing is only sound because the list is ordered newest first by
+        // semantic version: everything after the first version below the cutoff
+        // is older still.
         if !github::should_process_version(version, LEGACY_CUTOFF)? {
             break;
         }

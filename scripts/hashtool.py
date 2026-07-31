@@ -29,10 +29,13 @@ Usage:
 `Classes:`/`Fields:` header routes following names to bintypes/binfields, and an
 unsectioned list is checked against both tables.
 
-Every `add` also writes a row to hashes/overrides/ledger.tsv, which is what
-records when a crack happened and whether it has been sent upstream yet - see
-ledger.py. Overrides alone can't answer "what still needs a CDragon PR?". The
-per-batch method and attestation go beside it in batches.tsv.
+Every `add` also writes a row to hashes/overrides/ledger.<table>.tsv - one ledger
+per override table - which is what records when a crack happened and whether it
+has been sent upstream yet; see ledger.py. Overrides alone can't answer "what
+still needs a CDragon PR?". The per-batch method and attestation go beside them
+in batches.tsv, which stays single because batches cross tables. The `ledger`
+subcommand reads and writes both tables at once, so its selectors are unaffected
+by the split.
 
 Cracks are grouped into batches (`-b` on `add`): the campaign a name came out of,
 and the unit an upstream PR is built from. `--batch` is the ledger's selector -
@@ -165,8 +168,8 @@ def cmd_add(args):
               f"- rebuild with `python3 scripts/db_build.py` (or update_hashes.py)")
         # A crack with no ledger row is a crack that gets forgotten, so this is
         # not optional and not a separate command.
-        led_path = ledger_mod.ledger_path(args.hashes)
-        led = ledger_mod.load(led_path)
+        led_path = ledger_mod.ledger_path(args.hashes, args.table)
+        led = ledger_mod.load(args.hashes)
         today = datetime.date.today().isoformat()
         status = ledger_mod.LOCAL if args.local else "pending"
         for h, name in added:
@@ -327,8 +330,10 @@ def print_batches(led):
 
 
 def cmd_ledger(args):
-    led_path = ledger_mod.ledger_path(args.hashes)
-    led = ledger_mod.load(led_path)
+    # One Ledger over both per-table files: every selector here (--batch,
+    # --match, the summary) cuts across tables, so they're loaded together and
+    # written back together.
+    led = ledger_mod.load(args.hashes)
     rows = led.rows
     overrides = {t: load(override_path(args.hashes, t)) for t in TABLES}
     mirrors = {t: load(merged_path(args.hashes, t)) for t in TABLES}
@@ -478,7 +483,8 @@ def cmd_ledger(args):
 
     if dirty:
         ledger_mod.save(args.hashes, led, write_if_changed)
-        print(f"[ok] {led_path}: {len(rows)} row(s) in {len(led.order())} batch(es)")
+        print(f"[ok] {ledger_mod.ledger_path(args.hashes, '*')}: {len(rows)} "
+              f"row(s) in {len(led.order())} batch(es)")
 
     print_batches(led)
     counts = led.counts()

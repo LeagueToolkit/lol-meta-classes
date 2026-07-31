@@ -15,11 +15,11 @@ pub struct GameVersion {
     pub download_url: String,
 }
 
-/// Fetches available League of Legends game versions from GitHub
+/// Fetches available League of Legends game versions from GitHub, newest first
 pub async fn fetch_game_versions(octocrab: &Octocrab) -> Result<Vec<GameVersion>> {
     println!("🔍 Fetching game versions from {}/{}...", GITHUB_OWNER, GITHUB_REPO);
-    
-    let mut contents = octocrab
+
+    let contents = octocrab
         .repos(GITHUB_OWNER, GITHUB_REPO)
         .get_content()
         .path(MANIFEST_PATH)
@@ -28,29 +28,54 @@ pub async fn fetch_game_versions(octocrab: &Octocrab) -> Result<Vec<GameVersion>
 
     println!("📦 Found {} version files", contents.items.len());
 
-    // Sort versions by semantic version
-    contents.items.sort_by(|a, b| {
-        let a_version = extract_version(&a.name).unwrap_or_default();
-        let b_version = extract_version(&b.name).unwrap_or_default();
-        a_version.cmp(&b_version)
-    });
+    Ok(order_newest_first(
+        contents
+            .items
+            .into_iter()
+            .map(|item| (item.name, item.download_url.map(|u| u.to_string()))),
+    ))
+}
 
-    // Convert to GameVersion and reverse (newest first)
-    let versions: Vec<GameVersion> = contents
-        .items
-        .into_iter()
-        .filter_map(|item| {
-            let version = extract_version(&item.name)?;
-            let download_url = item.download_url?.to_string();
-            Some(GameVersion {
+/// Orders manifest entries newest first, by *semantic* version.
+///
+/// The comparison has to be on parsed versions, not on the filename: as strings
+/// "16.9.7728292" sorts above "16.15.7996036", which put a whole patch in the
+/// wrong place in the list. That matters beyond cosmetics, because the caller
+/// stops at the first version below the legacy cutoff and so relies on this
+/// order being monotonic - lexicographically the first 13.x reached is 13.9,
+/// which is below the cutoff and ended the run with 13.14-13.24 never visited.
+///
+/// An entry that is not a version filename, or that GitHub gave no download URL
+/// for, is dropped here rather than carried: the caller would only fail on it
+/// later, and one stray file in the directory should not end a sync.
+fn order_newest_first(
+    entries: impl IntoIterator<Item = (String, Option<String>)>,
+) -> Vec<GameVersion> {
+    let mut versions: Vec<(Version, GameVersion)> = Vec::new();
+
+    for (name, download_url) in entries {
+        let Some(version) = extract_version(&name) else {
+            continue;
+        };
+        let Ok(parsed) = Version::parse(&version) else {
+            println!("⚠️  Ignoring {} - not a version filename", name);
+            continue;
+        };
+        let Some(download_url) = download_url else {
+            println!("⚠️  Ignoring {} - no download URL", name);
+            continue;
+        };
+        versions.push((
+            parsed,
+            GameVersion {
                 version,
                 download_url,
-            })
-        })
-        .rev() // Process newest first
-        .collect();
+            },
+        ));
+    }
 
-    Ok(versions)
+    versions.sort_by(|(a, _), (b, _)| b.cmp(a));
+    versions.into_iter().map(|(_, v)| v).collect()
 }
 
 /// Fetches the manifest URL from a GitHub file
@@ -100,6 +125,57 @@ mod tests {
             extract_version("14.23.987654.txt"),
             Some("14.23.987654".to_string())
         );
+    }
+
+    fn ordered(names: &[&str]) -> Vec<String> {
+        let entries = names
+            .iter()
+            .map(|n| (n.to_string(), Some(format!("https://example.invalid/{n}"))));
+        order_newest_first(entries)
+            .into_iter()
+            .map(|v| v.version)
+            .collect()
+    }
+
+    #[test]
+    fn test_order_newest_first_is_semver_not_lexicographic() {
+        // The regression: as strings, "16.9" sorts above both "16.15" and "16.10".
+        assert_eq!(
+            ordered(&["16.15.7996036.txt", "16.9.7728292.txt", "16.10.7747445.txt"]),
+            ["16.15.7996036", "16.10.7747445", "16.9.7728292"]
+        );
+    }
+
+    #[test]
+    fn test_order_newest_first_orders_across_majors_and_builds() {
+        assert_eq!(
+            ordered(&[
+                "13.9.4000000.txt",
+                "16.14.7949266.txt",
+                "9.24.3000000.txt",
+                "16.14.7945912.txt",
+                "13.24.5000000.txt",
+            ]),
+            [
+                "16.14.7949266",
+                "16.14.7945912",
+                "13.24.5000000",
+                "13.9.4000000",
+                "9.24.3000000",
+            ]
+        );
+    }
+
+    #[test]
+    fn test_order_newest_first_drops_unusable_entries() {
+        let entries = vec![
+            ("README.md".to_string(), Some("https://example.invalid/r".to_string())),
+            ("16.15.7996036.txt".to_string(), Some("https://example.invalid/m".to_string())),
+            ("16.14.7949266.txt".to_string(), None),
+        ];
+        let out = order_newest_first(entries);
+        assert_eq!(out.len(), 1);
+        assert_eq!(out[0].version, "16.15.7996036");
     }
 
     #[test]

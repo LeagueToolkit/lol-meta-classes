@@ -26,21 +26,30 @@ once upstream ships the identical name the entry is redundant, and
 [CommunityDragon/Data#35](https://github.com/CommunityDragon/Data/pull/35) - 136
 entries - merged upstream and was pruned on 2026-07-24.)
 
-## ledger.tsv
+## ledger.{table}.tsv
 
 `{table}.txt` says what a hash resolves to and nothing else - not when it was
 cracked, not what attests it, not whether it has been sent upstream. That gap is
 how a crack sits here for months and is quietly forgotten, so the history lives
-beside it in `ledger.tsv`: one row per crack, keyed by **(table, hash)** because
-six names are both a class and a field and so share a hash.
+beside it, one ledger per override table:
 
-    ledger.tsv    hash  table  name  batch  cracked  status  pr
-    batches.tsv   batch  note
+    ledger.bintypes.tsv    hash  name  batch  cracked  status  pr
+    ledger.binfields.tsv   hash  name  batch  cracked  status  pr
+    batches.tsv            batch  note
 
-Both are split-out tables with no comments, no blank lines, a header on line 1
+Each ledger shadows the override table it is named after, so the pair moves
+together and a diff stays in the table that changed. There is no `table` column -
+the filename is it, and that is also what keeps the six names that are *both* a
+class and a field apart: they share a hash, so a row is identified by file plus
+hash. `batches.tsv` stays single, because a campaign can span both tables.
+
+The tooling reads and writes all three as one set of rows, so nothing below is
+per-file: `--batch`, `--match` and the summary all cut across tables.
+
+Each is a rendered table with no comments, no blank lines, a header on line 1
 and a uniform column count, which is what GitHub's table viewer needs to render
-them - `load()` enforces it. That is why the batch notes are a second file
-rather than a comment block at the top of the first.
+them - `load()` enforces it. That is why the batch notes are their own file
+rather than a comment block at the top of a ledger.
 
 `status` is `pending` (cracked, not sent anywhere), `submitted` (in an open
 upstream PR - put the link in `pr`), `merged` (upstream has it; `prune` will drop

@@ -34,7 +34,13 @@ how a crack sits here for months and is quietly forgotten, so the history lives
 beside it in `ledger.tsv`: one row per crack, keyed by **(table, hash)** because
 six names are both a class and a field and so share a hash.
 
-    hash  table  name  batch  cracked  status  pr
+    ledger.tsv    hash  table  name  batch  cracked  status  pr
+    batches.tsv   batch  note
+
+Both are split-out tables with no comments, no blank lines, a header on line 1
+and a uniform column count, which is what GitHub's table viewer needs to render
+them - `load()` enforces it. That is why the batch notes are a second file
+rather than a comment block at the top of the first.
 
 `status` is `pending` (cracked, not sent anywhere), `submitted` (in an open
 upstream PR - put the link in `pr`), `merged` (upstream has it; `prune` will drop
@@ -42,12 +48,13 @@ the override, the row stays as history), or `local` (deliberately not going
 upstream - see below).
 
 `batch` is the campaign a crack came out of, and the unit an upstream PR is built
-from. Rows are written grouped by it, under a `# <slug>` heading, and the method
-and attestation live once per batch as a `#:` note in the header rather than
-repeated on every row - anything per-name belongs in the reversing doc that note
-points at. Today: `pre-ledger-backlog` (945, blame-dated, method not
-recoverable), `vfx-driver-graph` (190), `season16-modes-ui` (96),
-`game-entity-sweep` (55). A crack added without `-b` lands in `unsorted`.
+from. Rows are written grouped by it - as row order, not as a heading, since the
+`batch` column already carries it - and the method and attestation live once per
+batch in `batches.tsv` rather than repeated on every row; anything per-name
+belongs in the reversing doc that note points at. Today:
+`pre-ledger-backlog` (945, blame-dated, method not recoverable),
+`vfx-driver-graph` (190), `season16-modes-ui` (96), `game-entity-sweep` (55). A
+crack added without `-b` lands in `unsorted`.
 
     python3 scripts/hashtool.py add bintypes NewName -b my-campaign -e "method"
     python3 scripts/hashtool.py ledger                    # per-batch summary
@@ -84,8 +91,9 @@ permanent; flip it back to `pending` if that changes.
 
 The reason a name is held back is the part worth writing down - a bare `local`
 with no explanation reads as a forgotten crack a year later. When a whole batch
-is held back the reason goes in its `#:` note; when the hold-back cuts across
-batches, as a name family cracked over several sittings does, record it here:
+is held back the reason goes in its `batches.tsv` note; when the hold-back cuts
+across batches, as a name family cracked over several sittings does, record it
+here:
 
 - **`*Monarch*`** (58 rows, `pre-ledger-backlog` + `season16-modes-ui`) -
   the class vocabulary of an unshipped game mode. Nothing about it is public

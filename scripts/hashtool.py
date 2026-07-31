@@ -31,7 +31,8 @@ unsectioned list is checked against both tables.
 
 Every `add` also writes a row to hashes/overrides/ledger.tsv, which is what
 records when a crack happened and whether it has been sent upstream yet - see
-ledger.py. Overrides alone can't answer "what still needs a CDragon PR?".
+ledger.py. Overrides alone can't answer "what still needs a CDragon PR?". The
+per-batch method and attestation go beside it in batches.tsv.
 
 Cracks are grouped into batches (`-b` on `add`): the campaign a name came out of,
 and the unit an upstream PR is built from. `--batch` is the ledger's selector -
@@ -174,7 +175,7 @@ def cmd_add(args):
         if args.evidence:
             led.batches[batch] = args.evidence
         led.batches.setdefault(batch, "")
-        write_if_changed(led_path, ledger_mod.render(led))
+        ledger_mod.save(args.hashes, led, write_if_changed)
         print(f"[ok] {led_path}: {len(added)} row(s) {status} in batch {batch}")
         if args.local:
             print("[note] marked local-only: these resolve here but are held "
@@ -476,7 +477,7 @@ def cmd_ledger(args):
         dirty = dirty or bool(landed)
 
     if dirty:
-        write_if_changed(led_path, ledger_mod.render(led))
+        ledger_mod.save(args.hashes, led, write_if_changed)
         print(f"[ok] {led_path}: {len(rows)} row(s) in {len(led.order())} batch(es)")
 
     print_batches(led)
@@ -520,7 +521,8 @@ def main():
                         "(default: unsorted)")
     p.add_argument("-e", "--evidence", default="",
                    help="one line: the batch's method and what attests it "
-                        "(stored per batch, reused in the upstream PR)")
+                        "(stored per batch in batches.tsv, reused in the "
+                        "upstream PR)")
     p.add_argument("-l", "--local", action="store_true",
                    help="mark these local-only: resolved here, held back from "
                         "upstream (unreleased content, etc.)")

@@ -1,0 +1,15 @@
+batch                         	note
+game-entity-sweep             	GameEntity sweep leftovers; its class half merged as CommunityDragon/Data#35
+pre-ledger-backlog            	Predates the ledger; dates from git blame, method not recoverable
+season16-modes-ui             	16.9-16.14 exes + dumps: Monarch/Battlegrounds/TFT, ClientState, keybinds, Params*
+vfx-driver-graph              	IVfxBaseDriver graph; 16.13 exe MetaClass_register table, FNV-1a exact, no attested strings
+gameplay-texture              	Map-sized RGBA render target painted during a match, one gameplay layer per channel. Engine names it: GAMEPLAY_TEXTURE macros, PS_GAMEPLAY_TEXTURE.ps. Registration order pins the slots.
+light-regions                 	Named from the shipped shader: LightRegions.ps reflection declares struct LightRegionRenderData and its members, matching the class field for field. red/green/blue complete the known alpha.
+light-regions-unproven        	Same work. Behaviour is settled but no string attests these spellings, so they are convention over attested vocabulary. DO NOT submit.
+map-graphics-unproven         	Hash-led map graphics names, none attested in any string. MapSSAORenderer and MapChunkVisibility are bracket-supported; MapAntiAliasing and RenderTargetSize are not. DO NOT submit.
+map-quality-lod               	Per-map geometry LOD gate. EnvironmentAsset::BeginLoad tests the byte against the five EnvironmentQuality bits and picks a mapgeo LOD by bit position.
+map-shader-defines            	Four List2<String> on one map feature, all landing on <Domain>Defines: Character, Environment, Particle, PostEffect. Defines means shader defines here (featureDefines, baseDefines). Owner unnamed.
+meta-delta-16.14              	16.14 delta vs 16.13: family templates (VfxPhysics<X>Modifier, <X>RigPoseModifierData, VfxEmission<X>) plus a Start/End prefix-pairing proof. Every hash re-checked for a registrar site in 16.15.
+meta-delta-16.14-unproven     	Same sweep, names not established: WardSkin collides with HideRarity, PropertyTraits is an empty interface, CollisionForce has no support and is gone by 16.15. DO NOT submit.
+propertyloadable-ui           	PropertyLoadable's UI tree. Names pinned by their slot in the client's registration order; UiComponent also shows up in shipped paths.
+ssao-casing                   	The registration inversion here is fixable by re-casing, which only 13-26% of inversions are; the method scores 92% on ground truth. Order forces MapSS, OMIT_SSAO gives SSAO. Both entries or neither.

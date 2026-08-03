@@ -100,12 +100,16 @@ struct Dump {
     classes: HashMap<String, DumpClass>,
 }
 
+/// Both maps are `Option`, not `#[serde(default)]` alone: the dumper writes an
+/// explicit `null` for a class with no defaults rather than omitting the key
+/// (187 of 2222 classes in 13.19.5329749), and `default` only covers a *missing*
+/// field. Treating null as "no hashes here" is right either way.
 #[derive(Deserialize)]
 struct DumpClass {
     #[serde(default)]
-    properties: HashMap<String, serde::de::IgnoredAny>,
+    properties: Option<HashMap<String, serde::de::IgnoredAny>>,
     #[serde(default)]
-    defaults: HashMap<String, serde::de::IgnoredAny>,
+    defaults: Option<HashMap<String, serde::de::IgnoredAny>>,
 }
 
 /// Every class and property hash the game has actually used, across every
@@ -138,7 +142,12 @@ pub fn read_dump_hashes(dumps: &Path) -> Result<(HashSet<u32>, HashSet<u32>)> {
                 if let Some(h) = parse_hash(key) {
                     types.insert(h);
                 }
-                for key in class.properties.keys().chain(class.defaults.keys()) {
+                let keys = class
+                    .properties
+                    .iter()
+                    .flat_map(|m| m.keys())
+                    .chain(class.defaults.iter().flat_map(|m| m.keys()));
+                for key in keys {
                     if let Some(h) = parse_hash(key) {
                         fields.insert(h);
                     }

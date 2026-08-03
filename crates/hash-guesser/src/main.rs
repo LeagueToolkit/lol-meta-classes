@@ -267,8 +267,16 @@ fn main() -> Result<()> {
         Mode::Mutate => {
             // The identity pass is a rounding error next to the mutation pass
             // and hits a different kind of name, so it always runs first.
-            found.extend(guesser.identity(&sentences));
-            eprintln!("[..] identity pass: {} candidate(s)", found.len());
+            let ident = guesser.identity(&sentences);
+            // Counted after dedup, because the raw count is badly inflated: a
+            // name is probed once per sentence it prefixes, so `AbilityResource`
+            // is rediscovered from every `AbilityResource*` there is. Reporting
+            // the raw length made this pass look four times more productive
+            // than it is.
+            let distinct: BTreeSet<(u32, &str)> =
+                ident.iter().map(|f| (f.hash, f.name.as_str())).collect();
+            eprintln!("[..] identity pass: {} candidate(s)", distinct.len());
+            found.extend(ident);
             found.extend(guesser.mutate(&sentences, &wordlist));
         }
         Mode::Force => {

@@ -23,6 +23,10 @@
 //!   - An identity pass runs first, trying every known name against the other
 //!     table. Class and field vocabularies overlap heavily and these guesses
 //!     cost one probe each.
+//!   - The `I` prefix is held to classes the meta actually flags as interfaces.
+//!     This is the only check here that is evidence rather than arithmetic -
+//!     the flag comes out of the dump, not out of the hash - and it refutes
+//!     about half of all I-prefixed candidates at no cost in real ones.
 //!   - Parallel, and the hot path allocates nothing: a candidate's string is
 //!     built only once its hash has already matched.
 //!
@@ -133,6 +137,11 @@ struct Args {
     #[arg(long)]
     keep_prefix: bool,
 
+    /// Don't hold the "I" prefix to classes the meta flags as interfaces.
+    /// Only useful if you think the flag is unreliable for a given build.
+    #[arg(long)]
+    no_interface_filter: bool,
+
     /// Write results here instead of stdout.
     #[arg(short, long)]
     out: Option<PathBuf>,
@@ -152,13 +161,17 @@ fn main() -> Result<()> {
         .unwrap_or_default();
 
     // The target set: every hash the game uses, minus the ones already named.
+    // `interfaces` comes back only from a dump sweep - an explicit --all file
+    // carries hashes and nothing else, so the interface filter goes with it.
+    let mut interfaces: Option<HashSet<u32>> = None;
     let all: HashSet<u32> = match &args.all {
         Some(path) => input::read_table(path)?.into_keys().collect(),
         None => {
-            let (types, fields) = input::read_dump_hashes(&args.dumps)?;
+            let dumped = input::read_dump_hashes(&args.dumps)?;
+            interfaces = Some(dumped.interfaces);
             match args.table {
-                Table::Bintypes => types,
-                Table::Binfields => fields,
+                Table::Bintypes => dumped.types,
+                Table::Binfields => dumped.fields,
             }
         }
     };
@@ -181,7 +194,7 @@ fn main() -> Result<()> {
     };
     let bad = input::read_bad(&bad_paths)?;
 
-    let prefixes: Vec<Prefix> = if args.prefix.is_empty() {
+    let mut prefixes: Vec<Prefix> = if args.prefix.is_empty() {
         match args.table {
             // `I` is the interface convention, and common enough that leaving
             // it to the wordlist would waste a word slot on every candidate.
@@ -191,6 +204,34 @@ fn main() -> Result<()> {
     } else {
         args.prefix.iter().map(|p| Prefix::new(p)).collect()
     };
+
+    // Hold the `I` prefix to classes the meta actually flags as interfaces.
+    // Half of all I-prefixed candidates are refuted this way, and unlike
+    // anything else here it is evidence rather than arithmetic - the flag comes
+    // out of the dump, not out of the hash. The converse is deliberately not
+    // applied: 191 of the 316 interfaces we have names for are *not* I-named,
+    // so "class is an interface" says nothing about a non-I candidate.
+    if !args.no_interface_filter {
+        if let Some(ifaces) = &interfaces {
+            for p in &mut prefixes {
+                if p.text == "I" {
+                    let only: HashSet<u32> = ifaces.intersection(&all).copied().collect();
+                    eprintln!(
+                        "[..] prefix \"I\" restricted to {} class(es) the meta \
+                         marks as interfaces",
+                        only.len()
+                    );
+                    *p = Prefix::new("I").restricted_to(only);
+                }
+            }
+        } else if prefixes.iter().any(|p| p.text == "I") {
+            eprintln!(
+                "[warn] --all was given, so there is no interface flag to \
+                 check the \"I\" prefix against; expect roughly half of the \
+                 I-prefixed candidates to be wrong"
+            );
+        }
+    }
     for p in &prefixes {
         anyhow::ensure!(
             p.text.chars().all(|c| c.is_ascii_alphanumeric()),

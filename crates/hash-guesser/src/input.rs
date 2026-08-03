@@ -110,6 +110,27 @@ struct DumpClass {
     properties: Option<HashMap<String, serde::de::IgnoredAny>>,
     #[serde(default)]
     defaults: Option<HashMap<String, serde::de::IgnoredAny>>,
+    #[serde(default)]
+    is: Option<DumpFlags>,
+}
+
+#[derive(Deserialize)]
+struct DumpFlags {
+    #[serde(default)]
+    interface: bool,
+}
+
+/// What one sweep of `dumps/` yields.
+pub struct DumpHashes {
+    pub types: HashSet<u32>,
+    pub fields: HashSet<u32>,
+    /// Class hashes the meta marks as an interface, in any build. This is the
+    /// one piece of evidence about a name that does not come from the hash, so
+    /// it is the only thing here that can genuinely refute a candidate: a
+    /// guess of `IFoo` for a class the meta says is not an interface is wrong
+    /// almost every time. Measured against names already cracked, `I[A-Z]`
+    /// implies the interface flag in 125 of 127 cases.
+    pub interfaces: HashSet<u32>,
 }
 
 /// Every class and property hash the game has actually used, across every
@@ -120,7 +141,7 @@ struct DumpClass {
 /// history rather than one build, and a hash that no longer appears in any dump
 /// is still worth a name. `defaults` is read alongside `properties` because a
 /// property can appear there and nowhere else.
-pub fn read_dump_hashes(dumps: &Path) -> Result<(HashSet<u32>, HashSet<u32>)> {
+pub fn read_dump_hashes(dumps: &Path) -> Result<DumpHashes> {
     let mut files: Vec<PathBuf> = fs::read_dir(dumps)
         .with_context(|| format!("reading dumps dir {}", dumps.display()))?
         .filter_map(|e| e.ok().map(|e| e.path()))
@@ -129,18 +150,24 @@ pub fn read_dump_hashes(dumps: &Path) -> Result<(HashSet<u32>, HashSet<u32>)> {
     files.sort();
     anyhow::ensure!(!files.is_empty(), "no dumps in {}", dumps.display());
 
-    let per_file: Vec<(HashSet<u32>, HashSet<u32>)> = files
+    let per_file: Vec<DumpHashes> = files
         .par_iter()
-        .map(|path| -> Result<(HashSet<u32>, HashSet<u32>)> {
+        .map(|path| -> Result<DumpHashes> {
             let text = fs::read_to_string(path)
                 .with_context(|| format!("reading dump {}", path.display()))?;
             let dump: Dump = serde_json::from_str(&text)
                 .with_context(|| format!("parsing dump {}", path.display()))?;
-            let mut types = HashSet::new();
-            let mut fields = HashSet::new();
+            let mut out = DumpHashes {
+                types: HashSet::new(),
+                fields: HashSet::new(),
+                interfaces: HashSet::new(),
+            };
             for (key, class) in &dump.classes {
                 if let Some(h) = parse_hash(key) {
-                    types.insert(h);
+                    out.types.insert(h);
+                    if class.is.as_ref().is_some_and(|f| f.interface) {
+                        out.interfaces.insert(h);
+                    }
                 }
                 let keys = class
                     .properties
@@ -149,21 +176,28 @@ pub fn read_dump_hashes(dumps: &Path) -> Result<(HashSet<u32>, HashSet<u32>)> {
                     .chain(class.defaults.iter().flat_map(|m| m.keys()));
                 for key in keys {
                     if let Some(h) = parse_hash(key) {
-                        fields.insert(h);
+                        out.fields.insert(h);
                     }
                 }
             }
-            Ok((types, fields))
+            Ok(out)
         })
         .collect::<Result<Vec<_>>>()?;
 
-    let mut types = HashSet::new();
-    let mut fields = HashSet::new();
-    for (t, f) in per_file {
-        types.extend(t);
-        fields.extend(f);
+    // Union across builds, and `interfaces` unions too: a class flagged an
+    // interface in any build is one we should accept an I-name for, since the
+    // name has to be right for the build it was seen in.
+    let mut all = DumpHashes {
+        types: HashSet::new(),
+        fields: HashSet::new(),
+        interfaces: HashSet::new(),
+    };
+    for d in per_file {
+        all.types.extend(d.types);
+        all.fields.extend(d.fields);
+        all.interfaces.extend(d.interfaces);
     }
-    Ok((types, fields))
+    Ok(all)
 }
 
 /// A wordlist, as `split_words.py` writes it. `--count` output is accepted too,

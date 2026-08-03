@@ -162,6 +162,22 @@ names by chance, so nothing from here belongs in an override table until it has
 been confirmed against shipped data. Record what confirmed it in the batch note
 (`add -b <batch> -e "..."`).
 
+How much is chance is worth knowing: `p` probes against `t` unresolved hashes
+produce about `p·t/2³²` hits by luck alone. That is the binding constraint, not
+speed - the guesser does ~10⁹ probes/second, so a run big enough to be slow is
+already deep in the noise. Keeping expected noise near 100 means staying under
+roughly 10⁸ probes, which is what `--top` is for. A smaller, better wordlist
+beats a bigger machine.
+
+The one check that is evidence rather than arithmetic: guessing bintypes, the
+`I` prefix is held to classes the dump actually flags as an interface. Among
+names already cracked, `I[A-Z]` implies that flag in 125 of 127 cases, and the
+filter throws out about half of all I-prefixed candidates. It is not free -
+`IOptionTemplate` and `ISequenceActionInstance` are real names it would refuse -
+so `--no-interface-filter` turns it off. The converse is deliberately not
+applied: 191 of the 316 interfaces we have names for are not I-named, so the
+flag says nothing about a candidate that does not start with `I`.
+
 Both are rewrites of the tools in
 [LeagueToolkit/LeagueHashes](https://github.com/LeagueToolkit/LeagueHashes)
 (`split_words.py` and `xguesser.cpp`); `crates/hash-guesser/src/main.rs` lists

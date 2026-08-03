@@ -27,11 +27,28 @@ use crate::words;
 pub struct Prefix {
     pub text: String,
     pub hash: u32,
+    /// When set, a hit only counts if the hash is in here.
+    ///
+    /// This is the one filter in the tool that is not about the hash. `I` is
+    /// the interface convention, and the meta says which classes are actually
+    /// interfaces - so a guess of `IFoo` for a class the dump does not flag can
+    /// be thrown out on evidence rather than left for a human. It refutes about
+    /// half of all I-prefixed candidates.
+    pub only: Option<HashSet<u32>>,
 }
 
 impl Prefix {
     pub fn new(text: &str) -> Self {
-        Self { text: text.to_string(), hash: fnv1a_cont(text.as_bytes(), FNV_OFFSET) }
+        Self {
+            text: text.to_string(),
+            hash: fnv1a_cont(text.as_bytes(), FNV_OFFSET),
+            only: None,
+        }
+    }
+
+    pub fn restricted_to(mut self, only: HashSet<u32>) -> Self {
+        self.only = Some(only);
+        self
     }
 }
 
@@ -85,6 +102,13 @@ impl Guesser {
     fn check(&self, prefix: &Prefix, stack: &[&str], h: u32, out: &mut Vec<Found>) {
         if !self.targets.hit(h) {
             return;
+        }
+        // Checked after the bitmap, so it costs nothing on the hot path - by
+        // the time we get here the hash has already matched, which is rare.
+        if let Some(only) = &prefix.only {
+            if !only.contains(&h) {
+                return;
+            }
         }
         let mut name = String::with_capacity(prefix.text.len() + stack.len() * 8);
         name.push_str(&prefix.text);

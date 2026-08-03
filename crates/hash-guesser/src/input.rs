@@ -62,6 +62,30 @@ pub fn read_table(path: &Path) -> Result<HashMap<u32, String>> {
     Ok(out)
 }
 
+/// A bare list of hashes, one per line. A trailing name is ignored, so the
+/// output of a previous run - or a slice of an override table - can be fed
+/// straight back in as a target list.
+pub fn read_hash_list(path: &Path) -> Result<HashSet<u32>> {
+    let text = fs::read_to_string(path)
+        .with_context(|| format!("reading hash list {}", path.display()))?;
+    let mut out = HashSet::new();
+    for line in text.lines() {
+        let line = line.trim();
+        if line.is_empty() || line.starts_with('#') {
+            continue;
+        }
+        let first = line.split_whitespace().next().unwrap_or("");
+        match parse_hash(first) {
+            Some(h) => {
+                out.insert(h);
+            }
+            None => eprintln!("[warn] {}: not a hash: {line:?}", path.display()),
+        }
+    }
+    anyhow::ensure!(!out.is_empty(), "hash list {} is empty", path.display());
+    Ok(out)
+}
+
 /// Names already ruled out, from `{hash} {name}` files or directories of them.
 /// Held lowercased: a name rejected in one casing is rejected in every casing,
 /// since they are all the same hash.

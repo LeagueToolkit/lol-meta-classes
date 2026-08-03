@@ -123,6 +123,17 @@ struct Args {
     #[arg(long)]
     all: Option<PathBuf>,
 
+    /// Hunt only these hashes (a file of hex hashes, one per line; a trailing
+    /// name is ignored).
+    ///
+    /// This is the lever that makes an intensive search worth running. False
+    /// positives scale with `probes x targets / 2^32`, so the target count is
+    /// half the noise budget: chasing one family of 70 hashes instead of all
+    /// 2554 buys a 36x deeper search at the same noise. Pair it with --prefix
+    /// when the family's first word is known.
+    #[arg(long)]
+    only: Option<PathBuf>,
+
     /// Files or directories of names already tried and rejected. Defaults to
     /// hashes/bad/ when it exists.
     #[arg(long)]
@@ -176,7 +187,20 @@ fn main() -> Result<()> {
         }
     };
     let known: HashSet<u32> = mirror.keys().chain(overrides.keys()).copied().collect();
-    let targets: HashSet<u32> = all.difference(&known).copied().collect();
+    let mut targets: HashSet<u32> = all.difference(&known).copied().collect();
+    if let Some(path) = &args.only {
+        let wanted: HashSet<u32> = input::read_hash_list(path)?;
+        let before = targets.len();
+        targets.retain(|h| wanted.contains(h));
+        let already: Vec<u32> = wanted.iter().copied().filter(|h| known.contains(h)).collect();
+        eprintln!(
+            "[..] --only: {} of {} listed hash(es) are unresolved targets \
+             (was {before}); {} already have names",
+            targets.len(),
+            wanted.len(),
+            already.len()
+        );
+    }
     anyhow::ensure!(
         !targets.is_empty(),
         "nothing to crack: every {table} hash in the corpus already resolves"

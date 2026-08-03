@@ -169,6 +169,21 @@ already deep in the noise. Keeping expected noise near 100 means staying under
 roughly 10⁸ probes, which is what `--top` is for. A smaller, better wordlist
 beats a bigger machine.
 
+`t` is the other half of that product, and the one worth attacking. `--only`
+takes a file of hashes and hunts nothing else, so a family of 70 buys a 36x
+deeper search than the full 2554 at the same noise. Families come out of the
+meta: classes sharing a base overwhelmingly share a first word, so the base
+class picks the target list *and* supplies a `--prefix`. That combination is
+what makes an intensive run worth doing - against 73 children of one base,
+depth-3 over 1000 words returned 12 `Params*` names where chance predicts 0.017
+of them, alongside exactly the ~34 unrelated hits the noise model called for.
+The prior is doing the discriminating, not the probe count.
+
+```bash
+cargo run --release -p hash-guesser -- bintypes --words words.txt \
+    --only family.txt --mode force --depth 3 --top 1000
+```
+
 The one check that is evidence rather than arithmetic: guessing bintypes, the
 `I` prefix is held to classes the dump actually flags as an interface. Among
 names already cracked, `I[A-Z]` implies that flag in 125 of 127 cases, and the

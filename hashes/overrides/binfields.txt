@@ -2,6 +2,7 @@
 4680aae9 AbilityInfo
 25a09a75 AbilityResourceSlot
 b3ec72b9 AbilityResourceType
+54b38947 ActionOnEnd
 ee151102 ActionOnStart
 dad3f6bb ActivateActions
 888d3a04 ActivateButton
@@ -46,7 +47,9 @@ f359eded ArcElement
 d631c93e AtakhanIcon
 47dac7e3 AtakhanScore
 90fce2a4 AtakhanValue
+3d60c5b7 AttachTargetBone
 9ea6766d AttachTo
+344feb42 AttachToObject
 55001320 AudioBanks
 9bfe08c0 AugmentList
 cce2113c AugmentPillar
@@ -124,6 +127,8 @@ e7e90aee CastShadow
 1558b9d3 CenterText
 65b78965 CeremonyLink
 4f0e44f5 ChampionsLayout
+7e9f30bd ChannelHint
+fbe86875 Channels
 04681146 ChaosSequence
 55c8f448 CharacterDefines
 13a1bb9a CharacterProbe
@@ -186,6 +191,8 @@ a413accd CurrentGroup
 a09e1bbf CurrentPip
 e23ce27f CurrentSeason
 99380614 Curve
+cb1e8bfc CurveData
+1c99cc4d CurveValue
 69b0a839 CustomDropRate
 629094b5 CustomTooltip
 c70f6a1e DailyLoginViewController
@@ -228,6 +235,7 @@ bff2f361 DescriptionShort
 09cfdcf0 Difficulty
 4756c3d8 DifficultyData
 fdf1d536 DifficultyLevel
+51674b53 DisableAtEnd
 827aac32 DisableFogOfWar
 97812f3b DisableThrottle
 f688ec43 DisabledOverlay
@@ -264,6 +272,7 @@ bcd3fffb EmoteType
 74adca0b EmptyIcon
 29d7590a EmptyTexturePath
 2bb40018 EmptyTicks
+7688f709 EnableAtStart
 08dad7b8 EnableEncounters
 a0b12922 EncounterButton
 c67a7d17 EncounterIcon
@@ -283,6 +292,7 @@ a159f8ea EnemyMapSkin
 8a3fc6eb EntityDefinition
 4a22b647 EntityInputs
 989015d3 EntityRef
+44ee0c82 EntityTag
 58389612 EnvironmentDefines
 b3ddaeab EquipTrakey
 0329cc30 Equipped
@@ -303,6 +313,7 @@ c1be745d ExecuteBar
 0777a7af ExpBonus
 1dc91264 ExpUpgrade
 5c8ff3a6 Factor
+20407665 FadeOut
 aae9bc5e FailTra
 64c2cb47 FailureOverlay
 0f9ec900 FalloffEasingType
@@ -323,9 +334,11 @@ a9a04dd9 FillIcon
 815aaee7 FilterButton
 f2c9b3be FilterGroup
 d4e4979c FilternameTraKey
+c04df9d4 FloatCurve
 e3fdb170 FlowId
 f1a61846 FormIcon
 b99d8552 Format
+2642955f ForwardAxis
 146fb80f FrameButtons
 20607eb7 FromAnyone
 8c54e274 FunctionInputs
@@ -335,6 +348,7 @@ bfe15a6a GameModeTemplate
 b4873916 GameTime
 162f520d GameplayRegion
 ed892164 GameplayTexture
+1609b312 GearIndex
 19752079 GeometryType
 b9b4d8d7 GoldAmount
 db0e9d5b GoldMax
@@ -534,6 +548,7 @@ b1c14e0d Node
 514e905a Nodes
 70bb674e NotificationVfx
 342dcc43 NumPlayers
+182f3d26 ObjectCreator
 b4222185 ObjectiveVfxs
 a8c6206b Objects
 31c83d22 OffsetDown
@@ -546,6 +561,7 @@ dbde2288 OptionalConfigs
 e10174d4 OptionalIcon
 236c71e4 OptionalInputs
 b6639fce OrderSequence
+e92580fe OrientationMode
 d97f9a4f Origin
 3c4bd9e8 OriginLocation
 421aee08 OutEntity
@@ -579,10 +595,12 @@ faa24f5d PartnerSlot
 244362ff PipDefinition
 7cae3080 PipLayout
 e0bf6ea7 PipSequence
+fbf05517 Pivot
 8bbc0365 Pixelate
 ab2e032a PlaneConstraint
 75d39a3b PlayAnimation
 797fd50b PlayButton
+5e9b875d PlayEquipAnimation
 9c422946 PlayerLayout
 8a7ef9d0 PlayerNames
 cb3a3644 PlayerRow
@@ -650,6 +668,7 @@ f3c442af RequiredCount
 fc922909 RequiredTags
 f60220b1 RequiredValue
 01987941 Requirements
+266cb0e8 ResetWhenDone
 29df7ff5 Resource
 6ebb734e ResourceBin
 5c06309c ResourceKey
@@ -657,6 +676,7 @@ f60220b1 RequiredValue
 8b075f3e RespawnDelay
 ca411bdb RespawnDuration
 e343a0c6 RespawnSequence
+27c534f4 RestoreOnStop
 71e60c24 RestrictedType
 5b26202d Restriction
 3d7745f6 RestrictionText
@@ -708,6 +728,7 @@ c060792d SelfLayout
 319b722c SequenceParameters
 d8c398f2 SeriesBackgroundImageUrl
 9c50fe38 SeriesList
+a98993fb SetOnEnd
 dfe510ee SetOnStart
 a1d375b5 ShaderModel
 bc3b7fdc ShaderParameterOverrides
@@ -825,6 +846,8 @@ fe9065ba TargetGame
 66ab6b90 TargetRequirements
 13915870 TargetScene
 c8e7634b TargetSunDirection
+49a3f9ca TargetUIVfx
+88f674e1 Targets
 cdfd3bca TeamCodeText
 0f4ed7e6 TeamComposition
 341a92b5 TeamDefinition
@@ -850,6 +873,7 @@ d853c3f4 TimePercentage
 73e973f5 TimerGroup
 48b5af2f TimerId
 7c5314d3 TintColor
+970ed425 ToBeAttached
 01d6318d ToggleType
 4e534dcf TooltipKey
 9346bce8 TooltipPriority
@@ -879,6 +903,8 @@ d3231b43 UnselectedHover
 95a401c3 UpgradeSpell
 0c71253f UseCurve
 acc83ffa UseFistBump
+7bd430bd UseInitialEnd
+ee641224 UseInitialStart
 064440d6 UseSkinName
 7b66f15d UseTarget
 e1e591e3 UseText

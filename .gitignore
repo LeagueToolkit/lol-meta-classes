@@ -3,3 +3,9 @@ Logs/
 temp/
 strings.txt
 __pycache__/
+
+# hash-guesser output: candidate lists, wordlists, per-run hits.
+# Regenerated on demand and never an input to db/ - see README, "Cracking
+# unresolved hashes". Kept out of the repo so a candidate can never be
+# mistaken for a crack.
+hash-guesser-out/

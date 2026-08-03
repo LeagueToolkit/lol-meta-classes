@@ -93,7 +93,7 @@ python3 scripts/hashtool.py fnv GameEntityPrefab
 
 # Add names to an override table (the file is re-sorted for you)
 python3 scripts/hashtool.py add bintypes GameEntityPrefab
-python3 scripts/hashtool.py add binfields envMesh
+python3 scripts/hashtool.py add binfields EnvMesh
 
 # Resolve either direction, across the mirror and the overrides
 python3 scripts/hashtool.py lookup 2b949af2
@@ -101,7 +101,71 @@ python3 scripts/hashtool.py lookup GameEntityPrefab
 
 # Diff an external name list against what the repo already resolves
 python3 scripts/hashtool.py check names.txt
+
+# Check the naming rule across both override tables and both ledgers
+python3 scripts/hashtool.py lint
 ```
+
+### Names are PascalCase
+
+Every name this repo adds - to an override table or to a ledger row - is
+PascalCase: an uppercase first letter, then letters and digits. `hashtool add`
+rejects anything else outright, and `hashtool lint --fix` recases a table that
+has drifted.
+
+It is a rule rather than a preference because it feeds the cracking pipeline
+below. Guessing a hash means recombining words taken from names already known,
+so a name is worth precisely the words recoverable from it, and camelCase hides
+the first boundary: `abilityHaste` yields "Haste" and loses "Ability". Every
+future name built on the lost word is lost with it.
+
+Recasing is always safe - the bin-hash is FNV-1a over the *lowercased* name, so
+`abilityHaste` and `AbilityHaste` are one hash. Separators are not, since they
+are hashed like any other byte, so a name containing one cannot be normalized
+and is rejected instead of rewritten.
+
+The rule binds what we author. `hashes/hashes.*.txt` is upstream's file byte for
+byte and stays as served, so the two layers can disagree about spelling - and an
+override that differs from upstream only in casing is kept, not pruned: it is
+the only thing making the database say `MapSSAO` where upstream says `MapSsao`.
+
+### Cracking unresolved hashes
+
+A hash with no name is a raw `0x...` in the database. Two tools try to fix that,
+and they are one pipeline: split the names we know into words, then recombine
+those words against the hashes we are missing.
+
+```bash
+# 1. the vocabulary, frequency-ordered, from every name the repo knows
+python3 scripts/split_words.py hashes/hashes.*.txt hashes/overrides/*.txt > words.txt
+
+# 2. substitute and insert each word at each position of each known name
+cargo run --release -p hash-guesser -- binfields --words words.txt -o hits.txt
+
+# 3. exhaustive instead, and exponential: cost is len(wordlist)^depth
+cargo run --release -p hash-guesser -- bintypes --words words.txt \
+    --mode force --depth 2
+```
+
+(`.cargo/config.toml` pins the workspace to `x86_64-unknown-linux-gnu` for the
+dumper's C++ stubs, so on Windows add `--target x86_64-pc-windows-msvc` - the
+guesser is pure Rust and builds anywhere.)
+
+`hash-guesser` takes its target set straight from `dumps/` - every class and
+property hash the game has used across every committed build, minus everything
+already named - so there is no `all.*.txt` to keep up to date. Output is
+`{hash} {name}`, PascalCase by construction and checked before printing, which
+is what makes it feedable into `hashtool add`.
+
+**Output is candidates, not cracks.** A 32-bit hash collides with plausible
+names by chance, so nothing from here belongs in an override table until it has
+been confirmed against shipped data. Record what confirmed it in the batch note
+(`add -b <batch> -e "..."`).
+
+Both are rewrites of the tools in
+[LeagueToolkit/LeagueHashes](https://github.com/LeagueToolkit/LeagueHashes)
+(`split_words.py` and `xguesser.cpp`); `crates/hash-guesser/src/main.rs` lists
+what changed.
 
 ## Regenerating locally
 
@@ -170,6 +234,9 @@ The Rust workspace under `crates/`:
   over the Riot CDN, extracts the macOS binary, runs the dumper, writes `dumps/{version}.json`.
 - **rman** - RMAN (Riot manifest) parsing and chunk downloading.
 - **lol-meta-schema** - the shared serde types for a dump file.
+- **hash-guesser** - guesses names for unresolved hashes by recombining words
+  taken from names already known. Reads its targets from `dumps/`; see
+  [Cracking unresolved hashes](#cracking-unresolved-hashes).
 
 ```bash
 cargo build --release

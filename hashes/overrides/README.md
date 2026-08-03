@@ -117,6 +117,38 @@ means "not established enough to submit yet".
 
 Nothing is pruned for being unused. A name we cracked costs a line and may
 resolve something in a future dump, so entries stay even when no current dump
-references the hash. Names are recorded exactly as they were cracked - note this
-means the binfields entries keep the older PascalCase convention while upstream
-now serves camelCase.
+references the hash.
+
+## PascalCase, always
+
+Every name in these files - both tables, both ledgers - is PascalCase: an
+uppercase first letter, then letters and digits. `hashtool add` refuses anything
+else, `hashtool lint` checks the files as a whole, and `ledger.py` rechecks on
+every load, so a hand-edit cannot slip past.
+
+The rule is about the wordlist, not house style. Cracking a hash means
+recombining words from names we already know, so a name is worth exactly the
+words that can be recovered from it - and camelCase hides the first boundary.
+`abilityHaste` gives up "Ability", and a word missing from the wordlist is every
+future name built on that word missing too. The cost compounds, which is why
+there are no exceptions to argue about.
+
+Casing is ours to legislate because the bin-hash is FNV-1a over the *lowercased*
+name: recasing an entry cannot change what it resolves. Separators are a
+different matter - the underscore in `Obj_InfoPoint` is hashed like any other
+byte - so a name carrying one cannot be normalized into the rule, and `lint`
+reports it instead of rewriting it.
+
+This binds what we author. `../hashes.*.txt` is upstream's file copied as
+served, largely camelCase on the binfields side, and is never rewritten; that is
+what keeps its diff meaning "upstream drift".
+
+So the two layers can disagree about spelling, and one of them does: `MapSSAO`
+here against upstream's `MapSsao` (batch `ssao-casing`). An override like that
+is not redundant - restyling upstream is the entire reason it exists - so
+`prune` and the `update_hashes.py` warning both compare byte for byte and leave
+it alone. `--reconcile` reports the difference instead of flipping the row to
+`merged`, since `merged` is what schedules an override for deletion.
+
+(The 92 camelCase binfields entries that predated the rule were recased in one
+pass with `hashtool lint --fix`. No hash moved.)

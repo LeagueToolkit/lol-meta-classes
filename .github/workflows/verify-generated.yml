@@ -22,6 +22,9 @@ on:
       - 'scripts/db_build.py'
       - 'scripts/db_import.py'
       - 'scripts/dump_meta.py'
+      - 'scripts/hashtool.py'
+      - 'scripts/ledger.py'
+      - 'scripts/names.py'
       - '.github/workflows/verify-generated.yml'
 
   workflow_dispatch:
@@ -37,6 +40,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      # Names we author are PascalCase, always - see scripts/names.py. This runs
+      # before the rebuild because a name that breaks the rule is a bad input,
+      # and reporting it as "the database is stale" would send the author
+      # looking in the wrong place. `lint` also fails on a ledger row whose name
+      # disagrees with the rule, which is how a hand-edit gets caught.
+      - name: Check the naming rule on local overrides
+        run: python3 scripts/hashtool.py lint
 
       - name: Rebuild db/ from committed inputs
         run: python3 scripts/db_build.py

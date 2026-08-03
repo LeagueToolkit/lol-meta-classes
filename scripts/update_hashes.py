@@ -33,6 +33,8 @@ import urllib.request
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 
+import names
+
 USER_AGENT = "lol-meta-classes update_hashes.py (+https://github.com/Crauzer/lol-meta-classes)"
 RE_LINE = re.compile(r"^([0-9a-f]{1,16}) (\S+)$")
 TABLES = ("bintypes", "binfields")
@@ -155,10 +157,19 @@ def main():
         # entry that upstream now serves identically is dead weight - flag it for
         # deletion. (No `entries.update(overrides)`: the written table below is an
         # exact upstream mirror.)
+        # Byte-for-byte. An override that differs from upstream only in casing
+        # is not redundant - restyling upstream's spelling is a thing we do on
+        # purpose (MapSSAO over MapSsao), and the override is the only thing
+        # holding it. Those are reported separately and never as deletable.
         redundant = [h for h, name in overrides.items() if entries.get(h) == name]
         for h in redundant:
             print(f"[warn] {override_path}: {h} {overrides[h]} matches upstream "
                   f"exactly - the override can be deleted")
+        restyled = [h for h, name in overrides.items()
+                    if entries.get(h) != name and names.same_name(entries.get(h), name)]
+        for h in restyled:
+            print(f"[note] {override_path}: {h} {overrides[h]} restyles "
+                  f"upstream's {entries[h]} - keeping it")
 
         out_path = os.path.join(args.hashes, f"hashes.{table}.txt")
         if write_if_changed(out_path, render(entries)):

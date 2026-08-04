@@ -53,23 +53,33 @@ TABLES = ("bintypes", "binfields")
 #
 # `hi` runs are quiet enough to read line by line; `br` runs are broad and part
 # chance by construction. The split is a judgement about noise, not about mode:
-# what puts a run in `hi` is that its expected false positives stay in single
-# digits, which is why force2 (full wordlist, depth 2) qualifies and force3
-# (depth 3, top 400) does not.
+# what puts a run in `hi` is that its expected false positives stay around
+# single digits, which is why force2 (full wordlist, depth 2) qualifies and
+# mutate (top 500, ~150 fp) does not.
+#
+# `delete` is the third edit beside mutate's insert and substitute, priced
+# apart because it needs no wordlist: ~10^5 probes for the whole pass. `chain4`
+# replaced force3.400 outright - constraining force to word pairs attested in
+# known names cuts depth 3 from 128M probes to under 1M, which brings depth 4
+# in at 18M probes / ~11 fp where uniform depth 3 cost 128M / 73. Same prior,
+# spent on generation instead of filtering, so the noise falls with the probes.
 SUFFIXES = object()
 RUNS = [
     ("hi", "identity", ["--mode", "identity"]),
+    ("hi", "delete", ["--mode", "delete"]),
     ("hi", "force2", ["--mode", "force", "--depth", "2"]),
+    ("hi", "chain4", ["--mode", "chain", "--depth", "4"]),
     ("hi", "suffix2.800",
      ["--mode", "force", "--depth", "2", "--top", "800", SUFFIXES]),
     ("br", "mutate.500", ["--mode", "mutate", "--top", "500"]),
-    ("br", "force3.400", ["--mode", "force", "--depth", "3", "--top", "400"]),
     ("br", "suffix2.2000",
      ["--mode", "force", "--depth", "2", "--top", "2000", SUFFIXES]),
     ("br", "suffix3.150",
      ["--mode", "force", "--depth", "3", "--top", "150", SUFFIXES]),
 ]
 HI_RUNS = {name for tier, name, _ in RUNS if tier == "hi"}
+# Modes that take their guesses from the sentences alone.
+WORDLESS = {"identity", "delete"}
 
 RE_PROBES = re.compile(r"^\[ok\] (\d+) probe")
 RE_STATES = re.compile(r"^\[\.\.\] (\d+) target state")
@@ -202,6 +212,15 @@ def main():
     out = (ROOT / args.out_dir).resolve()
     raw = out / "raw"
     raw.mkdir(parents=True, exist_ok=True)
+    # A raw file from a run that no longer exists would still be unioned into
+    # candidates.*, so a retired run haunts every later sweep until its file
+    # goes. Delete them regardless of --tier/--table: stale is stale.
+    current = {name for _, name, _ in RUNS}
+    for f in raw.glob("*.txt"):
+        run, _, table = f.name[: -len(".txt")].rpartition(".")
+        if table in TABLES and run not in current:
+            print(f"[..] dropping stale raw run {f.name}")
+            f.unlink()
     work = out / ".corpus"
     tiers = set(args.tier) or {"hi", "br"}
     tables = args.table or list(TABLES)
@@ -233,7 +252,8 @@ def main():
             dest = raw / f"{name}.{table}.txt"
             cmd = [str(exe), table, "--hashes", str(corpus),
                    "--dumps", str(ROOT / args.dumps), "-o", str(dest)]
-            if any(a is SUFFIXES for a in extra) or "identity" not in extra:
+            mode = extra[extra.index("--mode") + 1]
+            if mode not in WORDLESS:
                 cmd += ["--words", str(wordlist)]
             for a in extra:
                 cmd += ["--suffix-list", str(suffixes)] if a is SUFFIXES else [a]

@@ -37,7 +37,7 @@ TEMPLATE = ROOT / "scripts" / "templates" / "candidates.html"
 TABLES = ("bintypes", "binfields")
 # Runs whose expected noise is low enough to read line by line. Kept in step
 # with guesser_sweep.RUNS; a run named here that did not run is simply absent.
-HI_RUNS = {"identity", "force2", "suffix2.800"}
+HI_RUNS = {"identity", "delete", "force2", "chain4", "suffix2.800"}
 # How many field names / owning classes to carry into the page before eliding.
 DETAIL_CAP = 6
 

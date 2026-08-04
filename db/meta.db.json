@@ -364,7 +364,7 @@
 "0xf2a39a": {"revisions": [{"from":6509216,"bases":[],"interface":false,"value":false}], "properties": {
  "0x3636114b": {"revisions":[{"from":6509216,"type":["List2","0x0","Embed","0xb34ac035"],"default":[]}]}
 }},
-"0xf3e59f": {"revisions": [{"from":7067412,"to":7067412,"bases":["0xed511190"],"interface":false,"value":false},{"from":7079808,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xf3e59f": {"name": "MonarchSpectateViewController", "revisions": [{"from":7067412,"to":7067412,"bases":["0xed511190"],"interface":false,"value":false},{"from":7079808,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x123272cf": {"revisions":[{"from":7067412,"to":7067412,"type":["Bool","0x0","0x0","0x0"],"default":true},{"from":7079808,"to":7480682,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x2063cb13": {"name":"Scene","revisions":[{"from":7067412,"to":7067412,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7079808,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x591e9231": {"revisions":[{"from":7067412,"to":7067412,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7079808,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -960,7 +960,7 @@
  "0x9865b509": {"name":"title","revisions":[{"from":6359815,"to":6442327,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xb6a49b7b": {"revisions":[{"from":6359815,"to":6442327,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x5e73536": {"revisions": [{"from":6236777,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x5e73536": {"name": "LoadoutViewControllerV2", "revisions": [{"from":6236777,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x3406fbb": {"name":"SoundOnDeActivate","revisions":[{"from":6236777,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xd47a855": {"name":"CompanionInfoPanel","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0xa42222f"],"default":{"Scene":"0x0","UpgradeEntitlementErrorTooltipText":"","JustObtainedIcon":["0x0","0x0","0x0"],"0x4b8c1a00":"0x0","GamePassIcon":"0x0","0x5683a573":"0x0","UnownedStarShardIcon":["0x0","0x0","0x0"],"UpgradeButtonDisabledFromEntitlementText":"","0x66b6aaa7":0.5,"Tier2ButtonFeedbackVfx":"0x0","UnownedTierButton":["0x0","0x0","0x0"],"upgradeTierButton":["0x0","0x0","0x0"],"0x8300af56":0,"Tier3ButtonFeedbackVfx":"0x0","0x96e6f1ba":"0x0","tierButton":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"upgradeErrorText":"0x0","0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","UpgradeEntitlementErrorButton":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","0xee425ddc":"0x0","0xf0ed80c8":"","upgradeInfoText":"0x0"}}]},
  "0x1aa55fe1": {"revisions":[{"from":6275678,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -2474,7 +2474,7 @@
  "0x48b5af2f": {"name":"TimerId","revisions":[{"from":6950646,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xb3c40830": {"revisions":[{"from":6950646,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0x112d0bd4": {"revisions": [{"from":7538272,"to":7829736,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x112d0bd4": {"name": "MinimapViewControllerBase", "revisions": [{"from":7538272,"to":7829736,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x261b251": {"name":"MinimapContent","revisions":[{"from":7538272,"to":7829736,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x3b1c66a": {"name":"DrawAreaList","revisions":[{"from":7538272,"to":7829736,"type":["Embed","0x0","0x0","0x3b1c66a"],"default":{"DrawRegions":[]}}]},
  "0x1cac9ad1": {"name":"VoiceChatButtonGlowFxTimeoutSecs","revisions":[{"from":7538272,"to":7829736,"type":["F32","0x0","0x0","0x0"],"default":20.0}]},
@@ -11910,7 +11910,7 @@
  "0xd32925ab": {"revisions":[{"from":7102027,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xdc12f8d2": {"revisions":[{"from":7102027,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x5d0f7d97": {"revisions": [{"from":6161179,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x5d0f7d97": {"name": "TFTItemTrackerViewController", "revisions": [{"from":6161179,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x54b1eab": {"revisions":[{"from":6318255,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x59fc480": {"revisions":[{"from":6236777,"type":["U32","0x0","0x0","0x0"],"default":10}]},
  "0x6c2b545": {"revisions":[{"from":6318255,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -16650,7 +16650,7 @@
 "0x856b3943": {"revisions": [{"from":7695709,"bases":["0x7f631ac9"],"interface":false,"value":false}], "properties": {
  "0x5ff6cd50": {"revisions":[{"from":7695709,"type":["List2","0x0","Pointer","0x7f631ac9"],"default":[]}]}
 }},
-"0x856ba9bc": {"revisions": [{"from":5516065,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x856ba9bc": {"name": "LoLModesRoundsViewController", "revisions": [{"from":5516065,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
 }},
 "0x8577a3ef": {"revisions": [{"from":6950646,"bases":["0x7fdaad8b","0xe1df3f2f"],"interface":false,"value":false}], "properties": {
  "0x8d39bde6": {"name":"name","revisions":[{"from":6950646,"type":["String","0x0","0x0","0x0"],"default":""}]}
@@ -24855,7 +24855,7 @@
 "0xcc57eaa7": {"name": "ContextualConditionCharacterHasCAC", "revisions": [{"from":5229820,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
  "0xbfd5c3e": {"name":"mCacs","revisions":[{"from":5229820,"type":["List","0x0","Hash","0x0"],"default":[]}]}
 }},
-"0xcc6491d4": {"revisions": [{"from":5876777,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xcc6491d4": {"name": "TFTTeamEditorViewController", "revisions": [{"from":5876777,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x718b900": {"name":"TeamNameText","revisions":[{"from":6236777,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x13a3c8aa": {"revisions":[{"from":7269074,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
  "0x1733060c": {"revisions":[{"from":6275678,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -29475,7 +29475,7 @@
  "0x3aefc768": {"revisions":[{"from":6738244,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0x74037860": {"name":"ActivationThreshold","revisions":[{"from":6738244,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0xee970124": {"revisions": [{"from":6540407,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xee970124": {"name": "MonarchDayNightViewController", "revisions": [{"from":6540407,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x940c40a": {"revisions":[{"from":6540407,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa93f677": {"name":"CurrentIcon","revisions":[{"from":6540407,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x11a5dbf3": {"name":"NotificationIcon","revisions":[{"from":6540407,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -30088,7 +30088,7 @@
 "0xf301caaa": {"revisions": [{"from":7200925,"to":7218442,"bases":[],"interface":false,"value":false}], "properties": {
  "0xd01c6167": {"revisions":[{"from":7200925,"to":7218442,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0xf302e0a5": {"revisions": [{"from":7584427,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xf302e0a5": {"name": "ModesSpectateViewController", "revisions": [{"from":7584427,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x2063cb13": {"name":"Scene","revisions":[{"from":7584427,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x591e9231": {"revisions":[{"from":7584427,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x660ca429": {"revisions":[{"from":7584427,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -31419,7 +31419,7 @@
  "0x4fbc08a8": {"name":"BarracksConfig","revisions":[{"from":6421879,"to":7307955,"type":["Link","0x0","0x0","0x4fbc08a8"],"default":"0x0"},{"from":7312566,"to":7336673,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7347485,"to":7347485,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xdb6ea1a7": {"name":"LinkedPath","revisions":[{"from":6421879,"to":7336673,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7347485,"to":7347485,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xfdf5991e": {"revisions": [{"from":6804378,"to":7151836,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xfdf5991e": {"name": "GameScreenViewController", "revisions": [{"from":6804378,"to":7151836,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x4d302530": {"name":"MainScene","revisions":[{"from":6804378,"to":7151836,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x6c8efc75": {"name":"ActivationType","revisions":[{"from":6804378,"to":7151836,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},

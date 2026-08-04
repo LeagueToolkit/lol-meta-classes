@@ -422,3 +422,12 @@ dea8da9f	RegionEntityBase                                            	semantic-p
 9bd3c53b	UiElementComponentInstanceData                              	semantic-pass-structural      	2026-08-04	pending  	-
 5bb26ea8	Vector3ConceptBase                                          	semantic-pass-structural      	2026-08-04	pending  	-
 077a77af	Vector4ConceptBase                                          	semantic-pass-structural      	2026-08-04	pending  	-
+fdf5991e	GameScreenViewController                                    	viewcontroller-family         	2026-08-04	pending  	-
+856ba9bc	LoLModesRoundsViewController                                	viewcontroller-family         	2026-08-04	pending  	-
+05e73536	LoadoutViewControllerV2                                     	viewcontroller-family         	2026-08-04	pending  	-
+112d0bd4	MinimapViewControllerBase                                   	viewcontroller-family         	2026-08-04	pending  	-
+f302e0a5	ModesSpectateViewController                                 	viewcontroller-family         	2026-08-04	pending  	-
+ee970124	MonarchDayNightViewController                               	viewcontroller-family         	2026-08-04	pending  	-
+00f3e59f	MonarchSpectateViewController                               	viewcontroller-family         	2026-08-04	pending  	-
+5d0f7d97	TFTItemTrackerViewController                                	viewcontroller-family         	2026-08-04	pending  	-
+cc6491d4	TFTTeamEditorViewController                                 	viewcontroller-family         	2026-08-04	pending  	-

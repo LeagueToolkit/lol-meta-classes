@@ -1,0 +1,10 @@
+# Names that hash to an unresolved hash but are refuted by structure.
+#
+# Fed back to the guesser with --bad so a later run cannot re-propose them.
+# Each line is a name a generator produced and a review rejected, with why.
+
+# viewcontroller-family: generated for the ViewController family, landed on a
+# hash outside it. These are the two false positives the noise model predicted
+# for that run (1.96 expected).
+2b8568f9 BattlegroundsSearchCompanionViewControllerEvents
+9ab63a0b PlayerLoadableSpellViewControllerData

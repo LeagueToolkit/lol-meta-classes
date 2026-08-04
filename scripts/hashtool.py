@@ -49,9 +49,11 @@ Not every crack should go upstream: `--status local` (or `add -l`) holds a name
 back permanently - it still resolves here, but drops out of `--list pending`,
 which is the "what still needs a CDragon PR" view.
 
-Every name added here is PascalCase - `add` rejects anything else outright, and
-`lint` checks the tables and ledgers as a whole. The rule pays for itself in the
-wordlist that the next crack is built from; scripts/names.py has the reasoning.
+Every name added here is PascalCase, bar a single leading lowercase letter
+(`mCoefficient`) - `add` rejects anything else outright, and `lint` checks the
+tables and ledgers as a whole. The rule pays for itself in the wordlist that the
+next crack is built from; scripts/names.py has the reasoning, including why that
+one prefix is exempt from it.
 
 Comparisons against the upstream mirror stay byte-exact, because an override
 that differs from upstream only in casing is not redundant - restyling is
@@ -155,14 +157,15 @@ def cmd_add(args):
     # rejected name doesn't leave half a campaign in the table. `to_pascal`
     # would make most of these right, but silently recasing someone's crack is
     # how a typo becomes a permanent name - the caller retypes it.
-    rejected = [(n, names_mod.why_not_pascal(n))
-                for n in args.names if not names_mod.is_pascal(n)]
+    rejected = [(n, names_mod.why_invalid(n))
+                for n in args.names if not names_mod.is_valid_name(n)]
     if rejected:
         for name, why in rejected:
             print(f"[error] {name}: {why}", file=sys.stderr)
-        print(f"[error] nothing added. Names in this repo are PascalCase "
-              f"without exception - it is what makes the wordlist usable for "
-              f"the next crack (scripts/names.py)", file=sys.stderr)
+        print(f"[error] nothing added. Names in this repo are PascalCase, bar a "
+              f"single leading lowercase letter (mCoefficient) - it is what "
+              f"makes the wordlist usable for the next crack "
+              f"(scripts/names.py)", file=sys.stderr)
         return 2
 
     over_path = override_path(args.hashes, args.table)
@@ -190,6 +193,19 @@ def cmd_add(args):
                 # ends up saying MapSSAO where upstream says MapSsao.
                 print(f"[note] {h} {name}: upstream spells this {merged[h]!r}; "
                       f"the override exists only to restyle it")
+                # One restyle is worth arguing with: flattening upstream's
+                # one-letter prefix into a capital. It is the shape the rule used
+                # to force and now permits, and it is the wrong direction - the
+                # capital becomes a word, and upstream's spelling is the attested
+                # one. Not an error, because a name can legitimately open with a
+                # single capital, but the operator should have to mean it.
+                if (names_mod.is_notation_prefixed(merged[h])
+                        and names_mod.to_pascal(merged[h]) == name):
+                    first = names_mod.split_words(name, prefix_max=0)[0]
+                    print(f"[warn] {h} {name}: that restyle only capitalizes "
+                          f"upstream's {merged[h][0]!r} prefix, which puts "
+                          f"{first!r} in the wordlist as a word. {merged[h]!r} is "
+                          f"a valid name here - prefer the attested spelling")
             elif h in merged:
                 print(f"[warn] {h} {name}: upstream resolves this hash to "
                       f"{merged[h]!r} - double-check the crack")
@@ -298,10 +314,10 @@ def cmd_lint(args):
     seen = {}
     for table in tables:
         for h, name in overrides[table].items():
-            if not names_mod.is_pascal(name):
+            if not names_mod.is_valid_name(name):
                 seen[(table, h)] = (name, names_mod.to_pascal(name))
     for (table, h), row in led.rows.items():
-        if table in tables and not names_mod.is_pascal(row["name"]):
+        if table in tables and not names_mod.is_valid_name(row["name"]):
             seen.setdefault((table, h), (row["name"],
                                          names_mod.to_pascal(row["name"])))
 
@@ -309,7 +325,7 @@ def cmd_lint(args):
     stuck = {k: v for k, v in seen.items() if not v[1]}
 
     for (table, h), (old, _) in sorted(stuck.items()):
-        print(f"[error] {table}: {h} {old} - {names_mod.why_not_pascal(old)}",
+        print(f"[error] {table}: {h} {old} - {names_mod.why_invalid(old)}",
               file=sys.stderr)
 
     # The other half of the rule's purpose: a name has to survive the word
@@ -317,24 +333,41 @@ def cmd_lint(args):
     # would notice. For a PascalCase name the round-trip is exact by
     # construction, so a failure here means a name shape the splitter does not
     # handle - cheap to check, and the only warning we would get.
+    #
+    # A notation-prefixed name cannot round-trip exactly, since the whole point
+    # is that the leading letter is dropped. What has to hold instead is that
+    # *only* the leading letter is dropped: split it with the prefix heuristic
+    # live and the words have to rebuild the name from its second character on.
+    # That is the claim the exception rests on, so it is the one worth checking.
     mangled = []
     for table in tables:
         for h, name in overrides[table].items():
             if names_mod.is_pascal(name):
-                rebuilt = "".join(names_mod.split_words(name, prefix_max=0))
-                if rebuilt != name:
-                    mangled.append((table, h, name, rebuilt))
-    for table, h, name, rebuilt in mangled:
+                expect, rebuilt = name, "".join(
+                    names_mod.split_words(name, prefix_max=0))
+            elif names_mod.is_notation_prefixed(name):
+                expect, rebuilt = name[1:], "".join(names_mod.split_words(name))
+            else:
+                continue
+            if rebuilt != expect:
+                mangled.append((table, h, name, expect, rebuilt))
+    for table, h, name, expect, rebuilt in mangled:
         print(f"[error] {table}: {h} {name} does not survive the word splitter "
-              f"({name} -> {rebuilt}); scripts/names.py needs the case adding",
+              f"({expect} -> {rebuilt}); scripts/names.py needs the case adding",
               file=sys.stderr)
 
     if not seen:
         total = sum(len(o) for o in overrides.values())
         if mangled:
             return 1
-        print(f"[ok] {total} override(s) and {len(led.rows)} ledger row(s) are "
-              f"PascalCase and split cleanly")
+        # Not "are PascalCase": a notation-prefixed name satisfies the rule
+        # without being PascalCase, and a success line that claims otherwise
+        # would be the thing someone reads before deciding to "fix" it.
+        prefixed = sum(1 for o in overrides.values() for n in o.values()
+                       if names_mod.is_notation_prefixed(n))
+        note = f", {prefixed} with a one-letter prefix" if prefixed else ""
+        print(f"[ok] {total} override(s) and {len(led.rows)} ledger row(s) "
+              f"satisfy the naming rule and split cleanly{note}")
         return 0
 
     if not args.fix:

@@ -105,6 +105,16 @@ pub fn capitalize(word: &str) -> String {
 /// letters and digits. Guessed names are checked against it before they are
 /// printed - a guesser that emitted anything else would be handing its operator
 /// names that `hashtool add` is going to refuse.
+///
+/// `hashtool add` does accept one shape this rejects: a single lowercase letter
+/// leading an otherwise PascalCase name, the `m` of `mCoefficient`
+/// (`names.RE_NOTATION`). That is not ported here and should not be, because the
+/// guesser cannot produce such a name - every word it assembles comes back
+/// capitalized from `split_words`, so the first letter of its output is always a
+/// capital. The looser check would be dead code, and the strict one is the
+/// correct guard on what this crate actually emits. Whether an attested field is
+/// spelled `mCoefficient` or `MCoefficient` is settled by the string that
+/// attests it, which is a step past anything the search can see.
 pub fn is_pascal(name: &str) -> bool {
     let mut chars = name.chars();
     match chars.next() {
@@ -196,5 +206,27 @@ mod tests {
         assert!(!is_pascal("Obj_InfoPoint"));
         assert!(!is_pascal("2Fast"));
         assert!(!is_pascal(""));
+        // The notation exception is a Python-side widening only, and this crate
+        // is the strict guard on its own output. See is_pascal's doc comment.
+        assert!(!is_pascal("mCoefficient"));
+    }
+
+    #[test]
+    fn interface_names_keep_their_i_as_a_word() {
+        // An `I` prefix is not a shape to reject and not an acronym to swallow:
+        // `IFoo` is PascalCase already, and the `I` has to come back as a word of
+        // its own or every interface name in the corpus contributes a mangled
+        // first token. It is one of the most productive words in the wordlist.
+        assert!(is_pascal("IFoo"));
+        assert_eq!(split("IFoo"), ["I", "Foo"]);
+        assert_eq!(split("IMonarchItemData"), ["I", "Monarch", "Item", "Data"]);
+        // Two capitals then a lowercase is the acronym branch, and it has to
+        // hand the last capital to the word it heads rather than keep it.
+        assert_eq!(split("IChromaData"), ["I", "Chroma", "Data"]);
+        // ...but a genuine run with no lowercase after it stays whole, so the
+        // `I` rule cannot be implemented by always splitting one leading letter.
+        assert_eq!(split("IK"), ["IK"]);
+        assert!(is_interface_named("IFoo"));
+        assert!(!is_interface_named("Instance"));
     }
 }

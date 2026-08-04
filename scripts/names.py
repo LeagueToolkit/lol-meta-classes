@@ -11,7 +11,23 @@ words taken from names we already know, so a name is only worth as much as the
 words that can be recovered from it. PascalCase marks every boundary with a
 capital; camelCase hides the first one. `abilityHaste` yields "Haste" and loses
 "Ability", and a word lost from the wordlist is every future name built from it
-lost too. The cost compounds, which is why the rule has no exceptions.
+lost too. The cost compounds, which is why the rule is narrow.
+
+It has exactly one exception, and the exception exists because the reasoning
+above inverts for it: a *single* lowercase letter may lead a name, as in
+`mCoefficient`. One letter is never a word worth having - it matches everything
+and means nothing, which is why `split_words` drops it (see PREFIX_MAX) - so the
+camelCase spelling costs the wordlist nothing at all. Capitalizing it does not
+recover a word, it invents one: `MCoefficient` splits as "M" + "Coefficient" and
+puts "M" in the vocabulary permanently, where it will pad every force run that
+reaches it. The rule would be doing the exact damage it was written to prevent.
+Attestation says the same thing from the other side - `m`-prefixed members are
+how the engine spells its own fields, 2001 of the 9439 names upstream serves for
+binfields, so recasing would replace an attested spelling with an invented one.
+
+Two or more leading lowercase letters stay banned, because there the original
+reasoning does hold: the `Uv` of `uvMode`, the `Hp` of `hpPerLevel`, the `Is` of
+`isClickable` are real words, and the capital is what recovers them.
 
 Casing is free to legislate because the bin-hash is FNV-1a over the *lowercased*
 name: `abilityHaste` and `AbilityHaste` are the same hash and resolve the same
@@ -30,6 +46,12 @@ import re
 
 # The rule. Anchored, ASCII-only: an uppercase letter, then letters and digits.
 RE_PASCAL = re.compile(r"^[A-Z][A-Za-z0-9]*$")
+
+# The one exception: a single lowercase letter, then an otherwise PascalCase
+# name. `mCoefficient`, `bHaveHitBone`. Requiring the capital immediately after
+# is what keeps this to Hungarian notation - `mfoo` has no boundary to preserve
+# and is a plain lowercase name, so it falls through to the rule and gets recased.
+RE_NOTATION = re.compile(r"^[a-z][A-Z][A-Za-z0-9]*$")
 
 # Case-only normalization is possible exactly when the name is already
 # alphanumeric - anything else would need a byte removed, which moves the hash.
@@ -57,10 +79,17 @@ RE_WORD = re.compile(
     r"[A-Z]+(?![a-z])(?:[0-9]+[a-z0-9]*)?|[A-Z][a-z0-9]*|[a-z][a-z0-9]*|[0-9]+")
 
 # A leading lowercase run this short is Hungarian notation, not a word: the `m`
-# of mCoefficient, the `b` of bIsVisible, the `ar` of arDamage - the same set
+# of mCoefficient, the `b` of bHaveHitBone, the `ar` of arBase - the same set
 # xguesser carried as its prefix list. Emitting them would put "M" and "B" in
 # the wordlist, where they match everything and mean nothing. Longer runs are
 # real words that camelCase merely hid, and those are the ones worth recovering.
+#
+# Two, not one, even though the rule only permits a one-letter prefix in a name
+# we author: this is the splitter, and it has to read upstream's table as served.
+# The 2-char runs there (`uv`, `hp`, `ar`, `is`, `on`) are the ones the rule
+# would have us recase, and dropping them here costs nothing measurable because
+# every one of them already reaches the wordlist capitalized from some other
+# name - Uv 15, Hp 4, Is 129, On 171 across the current tables.
 PREFIX_MAX = 2
 
 
@@ -68,12 +97,36 @@ def is_pascal(name):
     return bool(RE_PASCAL.match(name or ""))
 
 
-def why_not_pascal(name):
+def is_notation_prefixed(name):
+    """A single lowercase letter in front of a PascalCase name: `mCoefficient`.
+
+    Note that this is deliberately *not* a list of blessed letters. `m` and `b`
+    are the ones the corpus happens to use today and `r` is the one the engine
+    is known to use elsewhere, but the argument for the exception is about the
+    length of the prefix, not its spelling: no single letter is a word worth
+    putting in a wordlist, so no single letter is worth recasing a name to
+    recover. Enumerating letters would only mean revisiting this the next time
+    the engine picks a new one."""
+    return bool(RE_NOTATION.match(name or ""))
+
+
+def is_valid_name(name):
+    """Whether `name` may be added to an override table or a ledger row.
+
+    PascalCase, or the one-letter-prefix exception. Interface names need no
+    special case and never did: `IFoo` is already PascalCase, and `split_words`
+    hands back "I" + "Foo" rather than "IF" + "oo", so the `I` stays a word in
+    its own right - it is one of the most productive words in the wordlist, at
+    197 occurrences."""
+    return is_pascal(name) or is_notation_prefixed(name)
+
+
+def why_invalid(name):
     """The specific reason `name` fails, phrased for someone about to retype it.
 
     A bare "not PascalCase" leaves the caller guessing which part offends, and
-    the two failures have very different fixes: wrong case is a rename, a
-    separator means the name cannot be used at all."""
+    the failures have very different fixes: wrong case is a rename, a separator
+    means the name cannot be used at all."""
     if not name:
         return "empty name"
     bad = sorted({c for c in name if not (c.isascii() and c.isalnum())})
@@ -86,6 +139,14 @@ def why_not_pascal(name):
         return "starts with a digit; PascalCase starts with an uppercase letter"
     if name[0].islower():
         fixed = to_pascal(name)
+        run = re.match(r"^[a-z]+", name).group(0)
+        if len(run) > 1 and len(run) < len(name):
+            # Looks like a Hungarian prefix of the wrong length. Say so, because
+            # the operator has probably just seen a one-letter prefix accepted
+            # and needs to know what separates the two cases.
+            return (f"starts with the {len(run)}-letter lowercase run {run!r}; "
+                    f"only a single letter may lead a name, because a longer run "
+                    f"is a word the capital recovers - write it {fixed!r}")
         return f"starts lowercase; write it {fixed!r}"
     return "not PascalCase"
 
@@ -93,8 +154,8 @@ def why_not_pascal(name):
 def check_name(name):
     """Raise unless `name` satisfies the rule. Returns the name, so it can wrap
     a value in place."""
-    if not is_pascal(name):
-        raise ValueError(f"{name!r}: {why_not_pascal(name)}")
+    if not is_valid_name(name):
+        raise ValueError(f"{name!r}: {why_invalid(name)}")
     return name
 
 
@@ -107,7 +168,11 @@ def to_pascal(name):
 
     None means the name holds a separator or some other non-alphanumeric byte.
     That is a genuinely different name, not a differently-cased one, and the
-    caller has to decide about it rather than have it silently rewritten."""
+    caller has to decide about it rather than have it silently rewritten.
+
+    Only ever call this on a name `is_valid_name` has already rejected. On a
+    notation-prefixed name it is the wrong repair by construction - it produces
+    the `MCoefficient` the exception exists to avoid."""
     if not name or not RE_ALNUM.match(name):
         return None
     return name[0].upper() + name[1:]

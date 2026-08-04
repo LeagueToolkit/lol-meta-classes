@@ -100,3 +100,29 @@ fn pascal_names_round_trip_exactly() {
         assert_eq!(joined, name, "round-tripping {name:?}");
     }
 }
+
+/// A one-letter lowercase prefix costs the wordlist that letter and nothing else.
+///
+/// This is the claim `names.py` permits `mCoefficient` on, and it is worth
+/// pinning against the corpus rather than a literal because the corpus is where
+/// it has to hold: upstream spells 2000-odd of its fields this way, and if the
+/// splitter lost anything past the prefix then every one of those names would be
+/// contributing a truncated word and the exception would be costing us exactly
+/// what it claims to save.
+#[test]
+fn a_one_letter_prefix_is_all_that_the_splitter_drops() {
+    let mut checked = 0usize;
+    for name in corpus() {
+        let b = name.as_bytes();
+        if !(b.len() >= 2 && b[0].is_ascii_lowercase() && b[1].is_ascii_uppercase()) {
+            continue;
+        }
+        // The default prefix_max, so the heuristic is live and the prefix goes.
+        let joined: String = words::split_words(&name, 2).join("");
+        assert_eq!(joined, name[1..], "notation split of {name:?}");
+        checked += 1;
+    }
+    // Guard against the filter quietly matching nothing, which would leave this
+    // passing on an empty set and asserting nothing at all.
+    assert!(checked > 1000, "only {checked} notation-prefixed names in the corpus");
+}

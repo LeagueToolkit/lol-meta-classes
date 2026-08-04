@@ -32,9 +32,9 @@ first - enforced in load() rather than left as a convention to erode.
 `status` also carries the one thing the override tables cannot: that a name is
 resolved here on purpose and is *not* to be sent upstream (see LOCAL).
 
-Row names obey the repo naming rule (names.py): PascalCase, no exceptions,
-checked here on load rather than only at `add`, so a hand-edited row is caught
-by the next command that touches the file.
+Row names obey the repo naming rule (names.py): PascalCase, bar a single leading
+lowercase letter, checked here on load rather than only at `add`, so a
+hand-edited row is caught by the next command that touches the file.
 """
 
 import datetime

@@ -119,6 +119,20 @@ so a name is worth precisely the words recoverable from it, and camelCase hides
 the first boundary: `abilityHaste` yields "Haste" and loses "Ability". Every
 future name built on the lost word is lost with it.
 
+There is one exception, for a *single* lowercase letter in front of an otherwise
+PascalCase name - `mCoefficient`, `bHaveHitBone`. It exists because the argument
+above runs backwards there. A one-letter word is worthless in a wordlist, so the
+splitter drops it and the camelCase spelling costs nothing; capitalizing it does
+not recover a word but adds one, and `MCoefficient` would put "M" in the
+vocabulary permanently. Upstream spells 2001 of its 9439 field names this way, so
+the recased form is also the unattested one. Two or more leading lowercase
+letters are still rejected, because there the capital does recover a real word -
+the "Uv" of `uvMode`, the "Is" of `isClickable`.
+
+Interface names need no exception: `IFoo` is already PascalCase, and the splitter
+returns "I" + "Foo" rather than "IF" + "oo", which is what keeps `I` a word in
+its own right. It is one of the most productive words in the wordlist.
+
 Recasing is always safe - the bin-hash is FNV-1a over the *lowercased* name, so
 `abilityHaste` and `AbilityHaste` are one hash. Separators are not, since they
 are hashed like any other byte, so a name containing one cannot be normalized

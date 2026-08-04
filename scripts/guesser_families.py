@@ -293,8 +293,8 @@ def check(args):
         if name.lower() in seen:
             continue
         seen.add(name.lower())
-        if not names_mod.is_pascal(name):
-            print(f"REJECT   {name}  ({names_mod.why_not_pascal(name)})")
+        if not names_mod.is_valid_name(name):
+            print(f"REJECT   {name}  ({names_mod.why_invalid(name)})")
             counts["rejected"] += 1
             continue
         h = fnv1a_32(name)

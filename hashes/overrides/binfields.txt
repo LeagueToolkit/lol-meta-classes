@@ -900,7 +900,7 @@ c060792d SelfLayout
 890cc538 SequenceLink
 319b722c SequenceParameters
 f8f165ee Sequencer
-fa976a70 SequencerStatemachine
+fa976a70 SequencerStateMachine
 d8c398f2 SeriesBackgroundImageUrl
 9c50fe38 SeriesList
 81189bab SetData
@@ -1039,6 +1039,7 @@ fe9065ba TargetGame
 c8e7634b TargetSunDirection
 37af4aa7 TargetVector
 cdfd3bca TeamCodeText
+28d65053 TeamColor
 69602260 TeamColors
 0f4ed7e6 TeamComposition
 8cb9c019 TeamCondition
@@ -1048,7 +1049,6 @@ cf948d45 TeamEditorData
 848de224 TeamScene
 e71e9783 TeamSeparator
 5d473c96 TeamTemplate
-28d65053 Teamcolor
 cc6fee26 TeammateSpectator
 140c8eed Teams
 138a7d5f TeamsConfig
@@ -1062,7 +1062,7 @@ ece16964 TextureRenderDataList
 309878ad TextureSize
 1f49a52a TextureVictory
 90df3f50 TextureWidth
-783d09c9 TftpassID
+783d09c9 TftPassID
 a330d712 TierItemType
 f5092643 TierNames
 2414834f TierTemplate

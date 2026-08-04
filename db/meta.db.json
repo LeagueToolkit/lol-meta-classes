@@ -4516,7 +4516,7 @@
  "0xb311d4ef": {"name":"TextureName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xe55419df": {"name":"driver","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x7a851cd8"],"default":null}]}
 }},
-"0x21d40f1b": {"name": "Taglist", "revisions": [{"from":7996036,"bases":[],"interface":false,"value":false}], "properties": {
+"0x21d40f1b": {"name": "TagList", "revisions": [{"from":7996036,"bases":[],"interface":false,"value":false}], "properties": {
  "0xf416eba0": {"name":"tags","revisions":[{"from":7996036,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
 "0x21dad86e": {"revisions": [{"from":7231955,"bases":[],"interface":false,"value":true}], "properties": {
@@ -8462,7 +8462,7 @@
  "0x140c8eed": {"name":"Teams","revisions":[{"from":7200925,"type":["List2","0x0","Pointer","0x309738e5"],"default":[]}]},
  "0x3d7e6258": {"name":"Color","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x3b4c602e"],"default":{"DefaultColor":[0,0,0,255],"colorblindColor":null}}]},
  "0xa2fd7d0c": {"name":"Team","revisions":[{"from":7102027,"to":7190545,"type":["Pointer","0x0","0x0","0x309738e5"],"default":null}]},
- "0xf8f489b1": {"name":"colors","revisions":[{"from":7102027,"to":7668562,"type":["Embed","0x0","0x0","0xe2041f7a"],"default":{"Colorblind":{"Teamcolor":[0,0,0,255]},"Default":{"Teamcolor":[0,0,0,255]}}}]}
+ "0xf8f489b1": {"name":"colors","revisions":[{"from":7102027,"to":7668562,"type":["Embed","0x0","0x0","0xe2041f7a"],"default":{"Colorblind":{"TeamColor":[0,0,0,255]},"Default":{"TeamColor":[0,0,0,255]}}}]}
 }},
 "0x4057a24f": {"name": "ProgressBarDisplayData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x14f72c9": {"name":"TimerText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -12357,7 +12357,7 @@
  "0x73463200": {"name":"EasingType","revisions":[{"from":6841658,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x613376ad": {"revisions": [{"from":7102027,"to":7668562,"bases":[],"interface":false,"value":false}], "properties": {
- "0x28d65053": {"name":"Teamcolor","revisions":[{"from":7102027,"to":7668562,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]}
+ "0x28d65053": {"name":"TeamColor","revisions":[{"from":7102027,"to":7668562,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]}
 }},
 "0x6136d145": {"revisions": [{"from":5837922,"bases":["0x64c18f7d"],"interface":false,"value":false}], "properties": {
  "0x416010f5": {"name":"TargetSkinScale","revisions":[{"from":5837922,"type":["F32","0x0","0x0","0x0"],"default":1.0}]}
@@ -13975,7 +13975,7 @@
 "0x6f7bac4e": {"revisions": [{"from":7102027,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
  "0x12c1bc1": {"name":"DefaultColor","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x3b4c602e"],"default":{"DefaultColor":[0,0,0,255],"colorblindColor":null}}]},
  "0x69602260": {"name":"TeamColors","revisions":[{"from":7102027,"type":["List2","0x0","Embed","0x40405c82"],"default":[]}]},
- "0x8a6f9936": {"name":"DefaultColors","revisions":[{"from":7102027,"to":7668562,"type":["Embed","0x0","0x0","0xe2041f7a"],"default":{"Colorblind":{"Teamcolor":[0,0,0,255]},"Default":{"Teamcolor":[0,0,0,255]}}}]}
+ "0x8a6f9936": {"name":"DefaultColors","revisions":[{"from":7102027,"to":7668562,"type":["Embed","0x0","0x0","0xe2041f7a"],"default":{"Colorblind":{"TeamColor":[0,0,0,255]},"Default":{"TeamColor":[0,0,0,255]}}}]}
 }},
 "0x6f870247": {"name": "TftTraitData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x247448b": {"revisions":[{"from":6804378,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -19346,7 +19346,7 @@
  "0xcfa3e3c": {"name":"Ranks","revisions":[{"from":6048769,"type":["List2","0x0","Embed","0x69bdca6e"],"default":[]}]},
  "0x50af955e": {"name":"PointMilestones","revisions":[{"from":6048769,"to":6120449,"type":["List2","0x0","U16","0x0"],"default":[]}]},
  "0x6194e22e": {"name":"NameTraKey","revisions":[{"from":6048769,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x783d09c9": {"name":"TftpassID","revisions":[{"from":6048769,"to":6070022,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x783d09c9": {"name":"TftPassID","revisions":[{"from":6048769,"to":6070022,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x8d39bde6": {"name":"name","revisions":[{"from":6085125,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x964f732c": {"name":"leaderboard","revisions":[{"from":6359815,"type":["Link","0x0","0x0","0x4a7f3786"],"default":"0x0"}]},
  "0xd1a667ad": {"revisions":[{"from":6124791,"type":["List2","0x0","Embed","0x836a672c"],"default":[]}]},
@@ -23978,7 +23978,7 @@
 }},
 "0xc60aca93": {"revisions": [{"from":7345787,"to":7345787,"bases":["0x40a9c74a"],"interface":false,"value":false},{"from":7371049,"bases":["0x40a9c74a"],"interface":false,"value":false}], "properties": {
  "0x58a1d8fb": {"name":"Networking","revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x7a2bf6d5"],"default":{}},{"from":7371049,"type":["Embed","0x0","0x0","0x7a2bf6d5"],"default":{}}]},
- "0xfa976a70": {"name":"SequencerStatemachine","revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x13e5fb09"],"default":{"StateMachineDef":"0x0","states":{}}},{"from":7371049,"type":["Embed","0x0","0x0","0x13e5fb09"],"default":{"StateMachineDef":"0x0","states":{}}}]}
+ "0xfa976a70": {"name":"SequencerStateMachine","revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x13e5fb09"],"default":{"StateMachineDef":"0x0","states":{}}},{"from":7371049,"type":["Embed","0x0","0x0","0x13e5fb09"],"default":{"StateMachineDef":"0x0","states":{}}}]}
 }},
 "0xc61551f4": {"revisions": [{"from":7345787,"to":7345787,"bases":[],"interface":false,"value":false},{"from":7371049,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2f3b39e": {"name":"Enabled","revisions":[{"from":7345787,"to":7345787,"type":["Bool","0x0","0x0","0x0"],"default":true},{"from":7371049,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
@@ -27828,8 +27828,8 @@
  "0xf8d5ccda": {"revisions":[{"from":5229820,"to":7480682,"type":["Embed","0x0","0x0","0xfb1989a3"],"default":{"PickedVfxSystem":"0x0","0x34296273":"0x0","IdleVfxSystem":"0x0","RefreshVfxSystem":"0x0","NotPickedVfxSystem":"0x0","RefreshOverlayVfxSystem":"0x0","HoverVfxSystem":"0x0"}}]}
 }},
 "0xe2041f7a": {"revisions": [{"from":7102027,"to":7668562,"bases":[],"interface":false,"value":false}], "properties": {
- "0x419458b7": {"name":"Colorblind","revisions":[{"from":7102027,"to":7668562,"type":["Embed","0x0","0x0","0x613376ad"],"default":{"Teamcolor":[0,0,0,255]}}]},
- "0x933b5bde": {"name":"Default","revisions":[{"from":7102027,"to":7668562,"type":["Embed","0x0","0x0","0x613376ad"],"default":{"Teamcolor":[0,0,0,255]}}]}
+ "0x419458b7": {"name":"Colorblind","revisions":[{"from":7102027,"to":7668562,"type":["Embed","0x0","0x0","0x613376ad"],"default":{"TeamColor":[0,0,0,255]}}]},
+ "0x933b5bde": {"name":"Default","revisions":[{"from":7102027,"to":7668562,"type":["Embed","0x0","0x0","0x613376ad"],"default":{"TeamColor":[0,0,0,255]}}]}
 }},
 "0xe20be0be": {"name": "RichBackgroundViewController", "revisions": [{"from":5229820,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x3f19432c": {"name":"BaseLoadable","revisions":[{"from":5253974,"to":6781456,"type":["Link","0x0","0x0","0xe0d5fc7e"],"default":"0x0"}]},

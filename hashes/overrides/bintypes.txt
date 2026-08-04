@@ -289,7 +289,7 @@ a4eb8410 ShuffleCustomTableBlock
 decc6c99 StrawberryInputUpdater
 30f0ba27 StringCast
 8c31df6a TFTTrovesViewControllerEvents
-21d40f1b Taglist
+21d40f1b TagList
 341a92b5 TeamDefinition
 138a7d5f TeamsConfig
 df4d7688 Tft3dAnnouncementViewController

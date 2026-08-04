@@ -7406,7 +7406,7 @@ class 0xafd62a9e(UiMetricUnitTypeSimpleI):
     pass
 
 class 0xaff91324(0xc5a1ad34):
-    tags: (Embed, 0x0, 0x0, Taglist) = {"tags":[]}
+    tags: (Embed, 0x0, 0x0, TagList) = {"tags":[]}
     pass
 
 class 0xb011f563(0xbc413e21):
@@ -8392,7 +8392,7 @@ class 0xc6066f97():
 
 class 0xc60aca93(GameEntityTemplate):
     Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
-    SequencerStatemachine: (Embed, 0x0, 0x0, StateMachineGeComponentDef) = {"StateMachineDef":"0x0","states":{}}
+    SequencerStateMachine: (Embed, 0x0, 0x0, StateMachineGeComponentDef) = {"StateMachineDef":"0x0","states":{}}
     pass
 
 class 0xc61551f4():
@@ -10005,7 +10005,7 @@ class 0xea7bb717():
     pass
 
 class 0xea830028(0xc5a1ad34):
-    tags: (Link, 0x0, 0x0, Taglist) = "0x0"
+    tags: (Link, 0x0, 0x0, TagList) = "0x0"
     pass
 
 class 0xea9f3cff():
@@ -24698,7 +24698,7 @@ class TableValueExistsScriptCondition(IScriptCondition):
     TableValue: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
     pass
 
-class Taglist():
+class TagList():
     tags: (List2, 0x0, Hash, 0x0) = []
     pass
 

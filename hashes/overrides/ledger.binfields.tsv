@@ -1072,7 +1072,7 @@ e07619ca	ScreenName                                                  	semantic-p
 2d1c95ed	ScriptCallback                                              	semantic-pass-family          	2026-08-04	pending  	-
 d2d047f1	ScrollSettings                                              	semantic-pass-family          	2026-08-04	pending  	-
 a3a16c61	SelectionButton                                             	semantic-pass-family          	2026-08-04	pending  	-
-fa976a70	SequencerStatemachine                                       	semantic-pass-family          	2026-08-04	pending  	-
+fa976a70	SequencerStateMachine                                       	semantic-pass-family          	2026-08-04	pending  	-
 39781626	SliderTemplate                                              	semantic-pass-family          	2026-08-04	pending  	-
 4f286457	SourceVector                                                	semantic-pass-family          	2026-08-04	pending  	-
 423b6dcd	StageData                                                   	semantic-pass-family          	2026-08-04	pending  	-
@@ -1084,7 +1084,7 @@ dfadfc6b	StandardGroup                                               	semantic-p
 848de224	TeamScene                                                   	semantic-pass-family          	2026-08-04	pending  	-
 a0e9b9b4	TextBackdrop                                                	semantic-pass-family          	2026-08-04	pending  	-
 309878ad	TextureSize                                                 	semantic-pass-family          	2026-08-04	pending  	-
-783d09c9	TftpassID                                                   	semantic-pass-family          	2026-08-04	pending  	-
+783d09c9	TftPassID                                                   	semantic-pass-family          	2026-08-04	pending  	-
 536e2c9d	TitleButton                                                 	semantic-pass-family          	2026-08-04	pending  	-
 ebd43853	TooltipGroup                                                	semantic-pass-family          	2026-08-04	pending  	-
 5e671471	TooltipIcon                                                 	semantic-pass-family          	2026-08-04	pending  	-
@@ -1159,7 +1159,7 @@ f8f165ee	Sequencer                                                   	semantic-p
 d33b3297	Stat                                                        	semantic-pass-structural      	2026-08-04	pending  	-
 a62782e2	Transition                                                  	semantic-pass-structural      	2026-08-04	pending  	-
 8252a6f2	TagColor                                                    	semantic-pass-structural      	2026-08-04	pending  	-
-28d65053	Teamcolor                                                   	semantic-pass-structural      	2026-08-04	pending  	-
+28d65053	TeamColor                                                   	semantic-pass-structural      	2026-08-04	pending  	-
 140c8eed	Teams                                                       	semantic-pass-structural      	2026-08-04	pending  	-
 0264d70c	TitleColor                                                  	semantic-pass-structural      	2026-08-04	pending  	-
 55a243d9	TitleData                                                   	semantic-pass-structural      	2026-08-04	pending  	-

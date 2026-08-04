@@ -418,7 +418,7 @@ fd66e00f	MonarchPropertyGetEntity                                    	semantic-p
 449b05d1	ProgressTrackList                                           	semantic-pass-structural      	2026-08-04	pending  	-
 dea8da9f	RegionEntityBase                                            	semantic-pass-structural      	2026-08-04	pending  	-
 9b62c977	StoreFilterItem                                             	semantic-pass-structural      	2026-08-04	pending  	-
-21d40f1b	Taglist                                                     	semantic-pass-structural      	2026-08-04	pending  	-
+21d40f1b	TagList                                                     	semantic-pass-structural      	2026-08-04	pending  	-
 9bd3c53b	UiElementComponentInstanceData                              	semantic-pass-structural      	2026-08-04	pending  	-
 5bb26ea8	Vector3ConceptBase                                          	semantic-pass-structural      	2026-08-04	pending  	-
 077a77af	Vector4ConceptBase                                          	semantic-pass-structural      	2026-08-04	pending  	-

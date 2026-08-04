@@ -148,6 +148,10 @@ that way, so the recased form is the invented one too. A run of two or more stay
 banned - `uv`, `is`, `hp` are real words that the capital genuinely recovers. If
 you add the recased form of a name upstream spells with a prefix, `add` says so.
 
+No word is capitalized past its first letter either - `UiElement`, `TftPassId`,
+`LolSpellScriptSelfExecute`, `WasdInputUpdater` - for the same wordlist reason,
+with a short exempt list in `names.py` for names whose capitals are attested.
+
 Casing is ours to legislate because the bin-hash is FNV-1a over the *lowercased*
 name: recasing an entry cannot change what it resolves. Separators are a
 different matter - the underscore in `Obj_InfoPoint` is hashed like any other

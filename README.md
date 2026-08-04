@@ -131,96 +131,118 @@ the only thing making the database say `MapSSAO` where upstream says `MapSsao`.
 
 ### Cracking unresolved hashes
 
-A hash with no name is a raw `0x...` in the database. Two tools try to fix that,
-and they are one pipeline: split the names we know into words, then recombine
-those words against the hashes we are missing.
+A hash with no name is a raw `0x...` in the database. Names in this game are
+arrangements of a small vocabulary rather than arbitrary strings, so the attack
+is to split the names we know into words and recombine them against the hashes
+we are missing.
 
 ```bash
-# 1. the vocabulary, frequency-ordered, from every name the repo knows
+# the vocabulary, frequency-ordered, from every name the repo knows
 python3 scripts/split_words.py hashes/hashes.*.txt hashes/overrides/*.txt > words.txt
 
-# 2. substitute and insert each word at each position of each known name
 cargo run --release -p hash-guesser -- binfields --words words.txt -o hits.txt
-
-# 3. exhaustive instead, and exponential: cost is len(wordlist)^depth
-cargo run --release -p hash-guesser -- bintypes --words words.txt \
-    --mode force --depth 2
 ```
 
-(`.cargo/config.toml` pins the workspace to `x86_64-unknown-linux-gnu` for the
-dumper's C++ stubs, so on Windows add `--target x86_64-pc-windows-msvc` - the
-guesser is pure Rust and builds anywhere.)
-
-`hash-guesser` takes its target set straight from `dumps/` - every class and
-property hash the game has used across every committed build, minus everything
-already named - so there is no `all.*.txt` to keep up to date. Output is
-`{hash} {name}`, PascalCase by construction and checked before printing, which
-is what makes it feedable into `hashtool add`.
+`hash-guesser` takes its target set from `dumps/` - every class and property
+hash the game has used across every committed build, minus everything already
+named - so there is no `all.*.txt` to maintain. Output is `{hash} {name}`,
+PascalCase by construction and checked before printing, so it feeds straight
+into `hashtool add`. (`.cargo/config.toml` pins the workspace to
+`x86_64-unknown-linux-gnu` for the dumper's C++ stubs, so on Windows add
+`--target x86_64-pc-windows-msvc`; the guesser is pure Rust and builds
+anywhere.)
 
 **Output is candidates, not cracks.** A 32-bit hash collides with plausible
 names by chance, so nothing from here belongs in an override table until it has
 been confirmed against shipped data. Record what confirmed it in the batch note
 (`add -b <batch> -e "..."`).
 
-How much is chance is worth knowing: `p` probes against `t` unresolved hashes
-produce about `p·t/2³²` hits by luck alone. That is the binding constraint, not
-speed - the guesser does ~10⁹ probes/second, so a run big enough to be slow is
-already deep in the noise. Keeping expected noise near 100 means staying under
-roughly 10⁸ probes, which is what `--top` is for. A smaller, better wordlist
-beats a bigger machine.
+#### The noise budget
 
-`t` is the other half of that product, and the one worth attacking. `--only`
-takes a file of hashes and hunts nothing else, so a family of 70 buys a 36x
-deeper search than the full 2554 at the same noise. Families come out of the
-meta: classes sharing a base overwhelmingly share a first word, so the base
-class picks the target list *and* supplies a `--prefix`. That combination is
-what makes an intensive run worth doing - against 73 children of one base,
-depth-3 over 1000 words returned 12 `Params*` names where chance predicts 0.017
-of them, alongside exactly the ~34 unrelated hits the noise model called for.
-The prior is doing the discriminating, not the probe count.
+`p` probes against `t` target states produce about `p·t/2³²` hits by luck alone.
+Every run prints that number and warns when it approaches the hit count; read it
+before reading the hits. It, not speed, is the binding constraint - the guesser
+does ~10⁹ probes/second, so any run slow enough to notice is already deep in the
+noise, and a smaller wordlist beats a bigger machine.
+
+Both factors are levers. `--top N` cuts the wordlist to its first N entries,
+which is where `p` is decided. `--only <file>` restricts the hunt to listed
+hashes, which is where `t` is: one family of 70 buys a 36x deeper search than
+the full ~2500 at equal noise.
+
+#### Modes
+
+| mode | builds | cost |
+| --- | --- | --- |
+| `identity` | every known name, verbatim, against the other table | one probe per name |
+| `delete` | every known name minus one word | ~10⁵ probes total, no wordlist |
+| `mutate` | each wordlist word substituted and inserted at each position of each known name | wordlist x names x positions |
+| `force` | every arrangement of up to `--depth` words | `len(wordlist)^depth` |
+| `chain` | `force`, but each word must follow a word it has followed in a known name | see below |
+
+`identity` runs first and costs nothing: class and field vocabularies overlap
+heavily, so a name in one table is a live guess for the other.
+
+`delete` is the third edit beside `mutate`'s insert and substitute. It needs no
+wordlist, which is why it is priced apart - the whole pass fits in ~10⁵ probes
+at ~0.07 expected noise. The shape is common in the corpus itself: 5521 of
+13799 known names are another known name with one interior word removed.
+Deleting the *last* word is left to `identity`, which already probes every
+prefix.
+
+`chain` constrains generation to word pairs the corpus attests. Those pairs are
+0.16% of all possible pairs over 3113 words, so the collapse is large: depth 3
+falls from ~10⁸ probes to under 10⁶, and depth 4 costs ~18M probes at ~11
+expected noise - less than uniform depth 3 over the top 400 words, which cost
+128M and 73. The probe count is exact, computed by DP over the word graph and
+printed before the run spends it.
+
+Word *permutations* of known names were measured for the same slot and do not
+earn one.
+
+#### Anchoring the tail
+
+`--suffix` searches one word deeper for almost nothing. Class names are named by
+their tail far more often than their head - `Data` ends 702 known class names,
+`Instance` 691, `Controller` 211, `Driver` 144, then `Def`, `Block`,
+`Definition`, `Get`. Reaching those with an extra search word multiplies probes
+by the wordlist size; anchoring the tail multiplies `t` by the number of
+suffixes instead, which is a handful.
+
+FNV-1a folds left to right and its prime is invertible mod 2³², so each suffix
+is folded *backwards* out of every target once, before the search starts. The
+search then hunts the state a name would be in before that suffix was appended,
+and the hot loop never sees the suffix at all.
 
 ```bash
 cargo run --release -p hash-guesser -- bintypes --words words.txt \
-    --only family.txt --mode force --depth 3 --top 1000
+    --only family.txt --prefix Params \
+    --mode force --depth 2 --suffix Data --suffix Controller
 ```
 
-Every run prints its own expected false-positive count, and warns when that
-number approaches the hit count. Read it before reading the hits.
+`--prefix` is the same trick at the other end, hashed once instead of folded.
+Families come out of the meta: classes sharing a base overwhelmingly share a
+first word, so a base class supplies both the `--only` list and the `--prefix`.
 
-**`--suffix` buys a word for almost nothing.** Most families here are named by
-their tail, not their head - `Data` ends 529 known class names, `Controller` 201,
-`Driver` 138, then `Def`, `Component`, `Definition`, `Updater`, `Base`, `Block`,
-`List`, `Get`, `Config`. Reaching those by searching one word deeper multiplies
-probes by the wordlist size; anchoring the tail instead multiplies the *target*
-count by the number of suffixes, which is a few. FNV folds left to right, so the
-suffix is folded backwards out of each target once, before the search starts, and
-the hot loop never sees it. Against the 99 unresolved children of one base,
-`--depth 2` with four suffixes cost 5.8M probes and 0.52 expected noise where
-`--depth 3` would have cost 9.8G probes and 226 - and it returned four correct
-names plus exactly the one false positive predicted.
+#### What can actually refute a candidate
 
-```bash
-cargo run --release -p hash-guesser -- bintypes --words words.txt \
-    --mode force --depth 2 --suffix Data --suffix Controller --suffix Driver
-```
+One check in the tool is evidence rather than arithmetic. Guessing bintypes, a
+candidate *named* `I[A-Z]` is held to a class the dump flags as an interface -
+the flag comes from the dump, not the hash. Among names already cracked,
+`I[A-Z]` implies that flag in 125 of 127 cases, and the filter refuses about
+half of all I-named candidates. It is not free: `IOptionTemplate` and
+`ISequenceActionInstance` are real names it would reject, so
+`--no-interface-filter` exists. The converse is deliberately not applied - 191
+of the 316 named interfaces are not I-named, so the flag says nothing about a
+candidate that does not start with `I`.
 
-The one check that is evidence rather than arithmetic: guessing bintypes, any
-candidate *named* `I[A-Z]` is held to a class the dump actually flags as an
-interface. Among names already cracked, `I[A-Z]` implies that flag in 125 of 127
-cases, and the filter throws out about half of all I-named candidates. It is not
-free - `IOptionTemplate` and `ISequenceActionInstance` are real names it would
-refuse - so `--no-interface-filter` turns it off. The converse is deliberately
-not applied: 191 of the 316 interfaces we have names for are not I-named, so the
-flag says nothing about a candidate that does not start with `I`.
-
-The check is on the finished name rather than on the `I` prefix, and that matters:
+The check is on the finished name, not on the search prefix, and that matters:
 `I` is also a *word* in the wordlist, at rank 26, because it falls out of
 splitting every `IFoo` name. A prefix-scoped check lets `force` and `mutate`
-assemble `I`+`Model`+`Joint`+`Content` under the empty prefix and walk straight
-past it.
+assemble `I`+`Model`+`Joint`+`Content` under the empty prefix and walk past it.
 
-Filters that sound good and are not, each measured against names already cracked
-so the same ground is not covered twice:
+Filters that sound good and are not, each measured against names already
+cracked:
 
 | idea | signal | on candidates | verdict |
 | --- | --- | --- | --- |
@@ -230,14 +252,18 @@ so the same ground is not covered twice:
 | an I-name implies zero properties | 83.5% vs 17.3% | - | true, but the interface flag already says it |
 | register order is ascending | 66%, median run 2 | - | no (that 89% is Windows PE order, not the macOS dump) |
 
-The pattern: any prior built out of the *names* is already baked into the
-wordlist, so it cannot discriminate. Only facts from outside the hash - the meta
-flags, and ultimately attestation in shipped data - move the needle.
+The pattern, and the reason `chain` and `delete` are not on that list: a prior
+built out of the *names* is already baked into the wordlist, so as a **filter**
+it cannot discriminate. As a constraint on **generation** it can, because the
+wordlist is unigram - word order and co-occurrence are not in it, and a prior
+that stops sequences being probed at all lowers `p·t/2³²` directly instead of
+trying to sort hits afterwards. Discriminating between hits needs facts from
+outside the hash: the meta flags, and ultimately attestation in shipped data.
 
 #### Running a sweep
 
-One run answers very little. `scripts/guesser_sweep.py` runs a spread of them at
-different depths and wordlist sizes, and records what each cost in noise:
+One run answers very little. `scripts/guesser_sweep.py` runs a spread of them
+and records what each cost in noise:
 
 ```bash
 python3 scripts/guesser_sweep.py --merge-ref sequencer-actions
@@ -256,12 +282,14 @@ mistaken for a crack):
 | `candidates.json` | the above joined to `db/meta.db.json` |
 | `candidates.html` | a self-contained review page built from that JSON |
 
-Runs are split into two tiers by expected noise, not by mode: `hi` keeps expected
-false positives in single digits, `br` is broad and part chance by construction.
-Edit the `RUNS` table at the top of the script to change the spread.
+Runs are split into two tiers by expected noise, not by mode: `hi` stays near
+single-digit expected false positives, `br` is broad and part chance by
+construction. Edit the `RUNS` table at the top of the script to change the
+spread; a raw file whose run leaves that table is deleted rather than folded
+into the next union.
 
-`--merge-ref <ref>` folds another branch's override tables into a scratch copy of
-`hashes/` so its names count as known rather than being re-guessed, and its
+`--merge-ref <ref>` folds another branch's override tables into a scratch copy
+of `hashes/` so its names count as known rather than being re-guessed, and its
 vocabulary feeds the wordlist. The working tree wins on a hash both carry, which
 matters when the ref predates `hashtool lint --fix`: `uvAnimation` costs the
 wordlist a word that `UvAnimation` keeps, which is the whole reason for
@@ -270,15 +298,44 @@ wordlist a word that `UvAnimation` keeps, which is the whole reason for
 `scripts/guesser_report.py` joins the sweep to the meta so a candidate can be
 judged on something other than the hash that proposed it - base classes, the
 interface and value flags, field names, owning classes, declared type, and which
-runs found it. The page itself is `scripts/templates/candidates.html`, a plain
-HTML fragment with a `__PAYLOAD__` placeholder; restyle it there, since nothing
-in the Python generates markup. It has no external requests, so it works opened
-from disk or published as an artifact.
+runs found it. Class hashes and class names link to
+[meta-wiki.leaguetoolkit.dev](https://meta-wiki.leaguetoolkit.dev/), which
+serves unnamed classes at their hash slug, so a candidate's own page is one
+click away. The page is `scripts/templates/candidates.html`, an HTML fragment
+with a `__PAYLOAD__` placeholder; restyle it there, since nothing in the Python
+generates markup. It makes no external requests, so it works opened from disk or
+published as an artifact.
 
 Both are rewrites of the tools in
 [LeagueToolkit/LeagueHashes](https://github.com/LeagueToolkit/LeagueHashes)
 (`split_words.py` and `xguesser.cpp`); `crates/hash-guesser/src/main.rs` lists
 what changed.
+
+#### The semantic pass
+
+Recombination cannot reach a name containing a word the corpus has never used,
+however deep it searches. Judgement can: `UiMetricKills` beside an unnamed
+sibling invites `UiMetricDeaths`, but nothing in the hash encodes that Kills and
+Deaths belong together. `scripts/guesser_families.py` supplies the context for
+that call and then checks the answer.
+
+```bash
+# context packs: base class, named siblings, fields, types, lifespan, references
+python3 scripts/guesser_families.py emit
+
+# then propose names from a pack and verify what each one hits
+python3 scripts/guesser_families.py check proposals.txt --matches-out only.txt
+```
+
+`emit` writes one pack per class family under `hash-guesser-out/families/`, plus
+one per class holding unresolved fields - everything a name can be judged
+against except the hash itself. `check` reports whether a proposal hits an
+unresolved class, an unresolved field, a name the tables already carry, or
+nothing, and `--matches-out` writes the hits in a form `--only` accepts.
+
+A proposed list is a few hundred probes, so its noise is arithmetic zero. That
+does not lower the bar: a name this pass proposes is exactly the kind of
+plausible that collides, and it needs attestation like any other candidate.
 
 ## Regenerating locally
 

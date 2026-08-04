@@ -31,12 +31,18 @@ first - enforced in load() rather than left as a convention to erode.
 
 `status` also carries the one thing the override tables cannot: that a name is
 resolved here on purpose and is *not* to be sent upstream (see LOCAL).
+
+Row names obey the repo naming rule (names.py): PascalCase, bar a single leading
+lowercase letter, checked here on load rather than only at `add`, so a
+hand-edited row is caught by the next command that touches the file.
 """
 
 import datetime
 import os
 import re
 import subprocess
+
+import names as names_mod
 
 TABLES = ("bintypes", "binfields")
 COLUMNS = ("hash", "name", "batch", "cracked", "status", "pr")
@@ -188,12 +194,16 @@ def _rows_of(path, columns):
     return out
 
 
-def load(hashes_dir):
+def load(hashes_dir, strict=True):
     """hashes/ -> Ledger: both per-table ledgers plus the shared batch notes,
     merged into one keyed set of rows. Missing files are an empty ledger.
 
     `table` is reattached to each row from the file it came from, so everything
-    downstream sees the same row shape the single-file ledger had."""
+    downstream sees the same row shape the single-file ledger had.
+
+    strict=False skips the naming-rule check, and exists for exactly one caller:
+    `hashtool lint --fix`, which has to read a file full of offending names in
+    order to repair them. Everything else wants the check."""
     rows = {}
     for table in TABLES:
         path = ledger_path(hashes_dir, table)
@@ -203,6 +213,17 @@ def load(hashes_dir):
                 raise ValueError(f"{path}:{lineno}: bad hash {row['hash']!r}")
             if row["status"] not in STATUSES:
                 raise ValueError(f"{path}:{lineno}: bad status {row['status']!r}")
+            # The naming rule is checked on the way in, not only at `add`, so a
+            # hand-edited row cannot smuggle a camelCase name past it. See
+            # names.py: this is what keeps the wordlist worth building.
+            if strict:
+                try:
+                    names_mod.check_name(row["name"])
+                except ValueError as e:
+                    raise ValueError(
+                        f"{path}:{lineno}: {e}\n"
+                        f"  repair the file with `python3 scripts/hashtool.py "
+                        f"lint --fix`") from None
             row["batch"] = check_slug(row["batch"].strip() or UNSORTED)
             key = (table, row["hash"])
             if key in rows:

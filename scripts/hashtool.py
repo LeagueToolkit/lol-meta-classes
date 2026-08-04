@@ -12,8 +12,10 @@ The bin-hash algorithm is FNV-1a-32 of the lowercased name; the file format is
 Usage:
     python3 scripts/hashtool.py fnv GameEntityPrefab AnchorHierarchy
     python3 scripts/hashtool.py add bintypes GameEntityPrefab -b vfx-driver-graph
-    python3 scripts/hashtool.py add binfields envMesh -e "Map+80; attested Map12/22/33"
+    python3 scripts/hashtool.py add binfields EnvMesh -e "Map+80; attested Map12/22/33"
     python3 scripts/hashtool.py sort                 # renormalize both overrides
+    python3 scripts/hashtool.py lint                 # check the PascalCase rule
+    python3 scripts/hashtool.py lint --fix           # recase what breaks it
     python3 scripts/hashtool.py lookup 2b949af2      # hash -> name (any table)
     python3 scripts/hashtool.py lookup GameEntityPrefab
     python3 scripts/hashtool.py check names.txt      # what's missing from the repo
@@ -46,6 +48,19 @@ batches, for a family that was cracked over several sittings.
 Not every crack should go upstream: `--status local` (or `add -l`) holds a name
 back permanently - it still resolves here, but drops out of `--list pending`,
 which is the "what still needs a CDragon PR" view.
+
+Every name added here is PascalCase, bar a single leading lowercase letter
+(`mCoefficient`) - `add` rejects anything else outright, and `lint` checks the
+tables and ledgers as a whole. The rule pays for itself in the wordlist that the
+next crack is built from; scripts/names.py has the reasoning, including why that
+one prefix is exempt from it.
+
+Comparisons against the upstream mirror stay byte-exact, because an override
+that differs from upstream only in casing is not redundant - restyling is
+deliberate (`MapSSAO` over upstream's `MapSsao`) and the override is the only
+thing holding it. `prune` therefore drops exact duplicates only, and
+`--reconcile` reports a casing difference rather than calling the row merged and
+scheduling the override for deletion.
 """
 
 import argparse
@@ -55,6 +70,7 @@ import os
 import sys
 
 import ledger as ledger_mod
+import names as names_mod
 # Same directory on sys.path[0] when run as a script, so this import is the one
 # source of truth for line format, parsing, and canonical ordering.
 from update_hashes import RE_LINE, parse_table, render, write_if_changed
@@ -136,6 +152,22 @@ def cmd_add(args):
         print(f"[error] {e}", file=sys.stderr)
         return 2
 
+    # The naming rule, enforced before anything is written and across the whole
+    # argument list: a batch add either lands entirely or not at all, so a
+    # rejected name doesn't leave half a campaign in the table. `to_pascal`
+    # would make most of these right, but silently recasing someone's crack is
+    # how a typo becomes a permanent name - the caller retypes it.
+    rejected = [(n, names_mod.why_invalid(n))
+                for n in args.names if not names_mod.is_valid_name(n)]
+    if rejected:
+        for name, why in rejected:
+            print(f"[error] {name}: {why}", file=sys.stderr)
+        print(f"[error] nothing added. Names in this repo are PascalCase, bar a "
+              f"single leading lowercase letter (mCoefficient) - it is what "
+              f"makes the wordlist usable for the next crack "
+              f"(scripts/names.py)", file=sys.stderr)
+        return 2
+
     over_path = override_path(args.hashes, args.table)
     overrides, merged = load_tables(args.hashes, args.table)
 
@@ -145,7 +177,8 @@ def cmd_add(args):
         if overrides.get(h) == name:
             skipped.append((h, name, "already an override"))
         elif merged.get(h) == name:
-            # Upstream already resolves it; an override would be redundant.
+            # Upstream already resolves it, spelled the same way; an override
+            # would be redundant. Compared exactly on purpose - see cmd_prune.
             skipped.append((h, name, "already upstream"))
         elif h in overrides:
             print(f"[error] {h}: collision - override has {overrides[h]!r}, "
@@ -154,7 +187,26 @@ def cmd_add(args):
         else:
             overrides[h] = name
             added.append((h, name))
-            if h in merged and merged[h] != name:
+            if h in merged and names_mod.same_name(merged[h], name):
+                # Same name, different spelling: this is a restyle, not a
+                # crack, and a legitimate thing to want - it is how the wiki
+                # ends up saying MapSSAO where upstream says MapSsao.
+                print(f"[note] {h} {name}: upstream spells this {merged[h]!r}; "
+                      f"the override exists only to restyle it")
+                # One restyle is worth arguing with: flattening upstream's
+                # one-letter prefix into a capital. It is the shape the rule used
+                # to force and now permits, and it is the wrong direction - the
+                # capital becomes a word, and upstream's spelling is the attested
+                # one. Not an error, because a name can legitimately open with a
+                # single capital, but the operator should have to mean it.
+                if (names_mod.is_notation_prefixed(merged[h])
+                        and names_mod.to_pascal(merged[h]) == name):
+                    first = names_mod.split_words(name, prefix_max=0)[0]
+                    print(f"[warn] {h} {name}: that restyle only capitalizes "
+                          f"upstream's {merged[h][0]!r} prefix, which puts "
+                          f"{first!r} in the wordlist as a word. {merged[h]!r} is "
+                          f"a valid name here - prefer the attested spelling")
+            elif h in merged:
                 print(f"[warn] {h} {name}: upstream resolves this hash to "
                       f"{merged[h]!r} - double-check the crack")
 
@@ -218,6 +270,12 @@ def cmd_prune(args):
         overrides = load(over_path)
         # merged_path is the upstream mirror now (overrides aren't baked in), so
         # an entry the mirror already resolves to the same name is dead weight.
+        #
+        # Exactly the same name, byte for byte. An override that differs only in
+        # casing is not redundant - it is doing the one job it was added for,
+        # which is to make the database say MapSSAO where upstream says MapSsao.
+        # Dropping those as "already upstream" would silently undo every
+        # deliberate restyle.
         mirror = load(merged_path(args.hashes, table))
         redundant = {h: n for h, n in overrides.items() if mirror.get(h) == n}
         if not redundant:
@@ -232,6 +290,119 @@ def cmd_prune(args):
             for h, n in sorted(redundant.items(), key=lambda kv: (kv[1], kv[0])):
                 print(f"    - {h} {n}")
     print(f"[ok] pruned {total} redundant override(s)")
+    return 0
+
+
+def cmd_lint(args):
+    """Check every name this repo authors against the naming rule.
+
+    Scope is the local layer only: hashes/overrides/*.txt and the ledger rows
+    beside them. The vendored mirror is upstream's file, copied as served, and
+    rewriting it would make `git diff hashes/hashes.*.txt` stop meaning
+    "upstream drift" - which is the whole reason the two layers are separate.
+
+    A ledger row can outlive its override (a merged crack keeps its row as
+    history), so both are scanned and a fix is applied wherever the hash
+    appears."""
+    tables = [args.table] if args.table else TABLES
+    # strict=False: the rows this is here to repair are exactly the rows a
+    # strict load refuses to return.
+    led = ledger_mod.load(args.hashes, strict=False)
+    overrides = {t: load(override_path(args.hashes, t)) for t in tables}
+
+    # (table, hash) -> (old, new); new is None when case alone can't fix it.
+    seen = {}
+    for table in tables:
+        for h, name in overrides[table].items():
+            if not names_mod.is_valid_name(name):
+                seen[(table, h)] = (name, names_mod.to_pascal(name))
+    for (table, h), row in led.rows.items():
+        if table in tables and not names_mod.is_valid_name(row["name"]):
+            seen.setdefault((table, h), (row["name"],
+                                         names_mod.to_pascal(row["name"])))
+
+    fixable = {k: v for k, v in seen.items() if v[1]}
+    stuck = {k: v for k, v in seen.items() if not v[1]}
+
+    for (table, h), (old, _) in sorted(stuck.items()):
+        print(f"[error] {table}: {h} {old} - {names_mod.why_invalid(old)}",
+              file=sys.stderr)
+
+    # The other half of the rule's purpose: a name has to survive the word
+    # splitter intact, or the wordlist built from it is wrong in a way nobody
+    # would notice. For a PascalCase name the round-trip is exact by
+    # construction, so a failure here means a name shape the splitter does not
+    # handle - cheap to check, and the only warning we would get.
+    #
+    # A notation-prefixed name cannot round-trip exactly, since the whole point
+    # is that the leading letter is dropped. What has to hold instead is that
+    # *only* the leading letter is dropped: split it with the prefix heuristic
+    # live and the words have to rebuild the name from its second character on.
+    # That is the claim the exception rests on, so it is the one worth checking.
+    mangled = []
+    for table in tables:
+        for h, name in overrides[table].items():
+            if names_mod.is_pascal(name):
+                expect, rebuilt = name, "".join(
+                    names_mod.split_words(name, prefix_max=0))
+            elif names_mod.is_notation_prefixed(name):
+                expect, rebuilt = name[1:], "".join(names_mod.split_words(name))
+            else:
+                continue
+            if rebuilt != expect:
+                mangled.append((table, h, name, expect, rebuilt))
+    for table, h, name, expect, rebuilt in mangled:
+        print(f"[error] {table}: {h} {name} does not survive the word splitter "
+              f"({expect} -> {rebuilt}); scripts/names.py needs the case adding",
+              file=sys.stderr)
+
+    if not seen:
+        total = sum(len(o) for o in overrides.values())
+        if mangled:
+            return 1
+        # Not "are PascalCase": a notation-prefixed name satisfies the rule
+        # without being PascalCase, and a success line that claims otherwise
+        # would be the thing someone reads before deciding to "fix" it.
+        prefixed = sum(1 for o in overrides.values() for n in o.values()
+                       if names_mod.is_notation_prefixed(n))
+        note = f", {prefixed} with a one-letter prefix" if prefixed else ""
+        print(f"[ok] {total} override(s) and {len(led.rows)} ledger row(s) "
+              f"satisfy the naming rule and split cleanly{note}")
+        return 0
+
+    if not args.fix:
+        for (table, h), (old, new) in sorted(fixable.items()):
+            print(f"[warn] {table}: {h} {old} -> {new}")
+        print(f"[error] {len(seen)} name(s) break the rule "
+              f"({len(fixable)} fixable by case, {len(stuck)} not). "
+              f"Rewrite the fixable ones with `hashtool lint --fix`",
+              file=sys.stderr)
+        return 1
+
+    if stuck:
+        # Refuse the whole run rather than repair half of it: the names that
+        # can't be recased need a human decision (they carry a separator, so
+        # they are a different name and not a differently-spelled one), and a
+        # half-fixed tree hides that behind a green-looking result.
+        print(f"[error] {len(stuck)} name(s) cannot be fixed by recasing - "
+              f"a separator is part of the hash, so these are not ours to "
+              f"rewrite. Resolve them by hand first; nothing was changed",
+              file=sys.stderr)
+        return 1
+
+    for (table, h), (old, new) in sorted(fixable.items()):
+        if h in overrides[table]:
+            overrides[table][h] = new
+        if (table, h) in led.rows:
+            led.rows[(table, h)]["name"] = new
+        print(f"[fix] {table}: {h} {old} -> {new}")
+
+    for table in tables:
+        write_if_changed(override_path(args.hashes, table), render(overrides[table]))
+    ledger_mod.save(args.hashes, led, write_if_changed)
+    print(f"[ok] {len(fixable)} name(s) recased. The hash is unchanged - FNV "
+          f"runs over the lowercased name - so this only moves what the name "
+          f"displays as; rebuild with `python3 scripts/db_build.py`")
     return 0
 
 
@@ -304,8 +475,8 @@ def cmd_check(args):
 
 def select_rows(led, batch=None, match=None):
     """Rows in a batch, whose name matches a glob, or both. Glob is
-    case-sensitive: these names are recorded as they were cracked, and casing is
-    a claim about the name, not a formatting detail."""
+    case-sensitive, which is unambiguous now that every name here is PascalCase:
+    'Monarch*' matches, 'monarch*' matches nothing."""
     return [r for r in led.rows.values()
             if (batch is None or r["batch"] == batch)
             and (match is None or fnmatch.fnmatchcase(r["name"], match))]
@@ -455,6 +626,21 @@ def cmd_ledger(args):
         landed = [r for r in rows.values()
                   if mirrors[r["table"]].get(r["hash"]) == r["name"]
                   and r["status"] != "merged"]
+        # Upstream has the name but spells it differently. The crack itself is
+        # public, so there is nothing left to submit - but the override is still
+        # doing work (it restyles the display) and `prune` will rightly keep it,
+        # so calling the row `merged` would be a lie in the direction that gets
+        # the override deleted. Report it and let a human decide.
+        restyled = [r for r in rows.values()
+                    if r["status"] not in ("merged", ledger_mod.LOCAL)
+                    and names_mod.same_name(mirrors[r["table"]].get(r["hash"]),
+                                            r["name"])
+                    and mirrors[r["table"]].get(r["hash"]) != r["name"]]
+        for r in restyled:
+            print(f"[note] {r['hash']} {r['name']}: upstream serves this hash "
+                  f"as {mirrors[r['table']][r['hash']]!r}. The name is public, "
+                  f"so nothing is pending upstream unless the casing itself is "
+                  f"- the override stays either way")
         for r in landed:
             if r["status"] == ledger_mod.LOCAL:
                 # Held back here, public anyway. Worth saying out loud: it means
@@ -477,7 +663,7 @@ def cmd_ledger(args):
         for t, h, n in untracked:
             print(f"[warn] {h} {n} [{t}]: override with no ledger row - "
                   f"run `ledger --seed`")
-        if not (landed or orphan or untracked):
+        if not (landed or orphan or untracked or restyled):
             print("[ok] ledger and override tables agree")
         dirty = dirty or bool(landed)
 
@@ -542,6 +728,13 @@ def main():
     p.add_argument("table", nargs="?", help="bintypes | binfields (default both)")
     p.add_argument("-v", "--verbose", action="store_true", help="list what was removed")
     p.set_defaults(func=cmd_prune)
+
+    p = sub.add_parser("lint", help="check local names against the PascalCase rule")
+    p.add_argument("table", nargs="?", help="bintypes | binfields (default both)")
+    p.add_argument("--fix", action="store_true",
+                   help="recase the offenders in place, in both the override "
+                        "table and the ledger (the hash does not move)")
+    p.set_defaults(func=cmd_lint)
 
     p = sub.add_parser("lookup", help="resolve a hash or a name against the merged tables")
     p.add_argument("query")

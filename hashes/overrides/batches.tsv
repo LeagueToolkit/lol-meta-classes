@@ -1,8 +1,8 @@
 batch                         	note
 game-entity-sweep             	GameEntity sweep leftovers; its class half merged as CommunityDragon/Data#35
 pre-ledger-backlog            	Predates the ledger; dates from git blame, method not recoverable
-season16-modes-ui             	16.9-16.14 exes + dumps: Monarch/Battlegrounds/TFT, ClientState, keybinds, Params*
-vfx-driver-graph              	IVfxBaseDriver graph; 16.13 exe MetaClass_register table, FNV-1a exact, no attested strings
+season16-modes-ui             	16.9-16.14 shipped data + dumps: Monarch/Battlegrounds/TFT, ClientState, keybinds, Params*
+vfx-driver-graph              	IVfxBaseDriver graph; 16.13 MetaClass_register table, FNV-1a exact, no attested strings
 gameplay-texture              	Map-sized RGBA render target painted during a match, one gameplay layer per channel. Engine names it: GAMEPLAY_TEXTURE macros, PS_GAMEPLAY_TEXTURE.ps. Registration order pins the slots.
 light-regions                 	Named from the shipped shader: LightRegions.ps reflection declares struct LightRegionRenderData and its members, matching the class field for field. red/green/blue complete the known alpha.
 light-regions-unproven        	Same work. Behaviour is settled but no string attests these spellings, so they are convention over attested vocabulary. DO NOT submit.

@@ -114,6 +114,19 @@ pub fn is_pascal(name: &str) -> bool {
     chars.all(|c| c.is_ascii_alphanumeric())
 }
 
+/// Does this name claim to be an interface - `I` then another capital?
+///
+/// Checked on the finished name rather than on the search prefix, and that
+/// distinction is the whole point. `I` is a *word* in the wordlist (it falls out
+/// of splitting every `IFoo` name, and it lands at rank 26), so `force` and
+/// `mutate` can assemble `I` + `Model` + `Joint` + `Content` under the empty
+/// prefix and never touch the `I` prefix at all. A filter hung on the prefix
+/// misses every one of those; a filter on the name cannot be routed around.
+pub fn is_interface_named(name: &str) -> bool {
+    let b = name.as_bytes();
+    b.len() >= 2 && b[0] == b'I' && b[1].is_ascii_uppercase()
+}
+
 /// A wordlist entry usable as the *first* word of a name: it has to start with
 /// a letter, or the name it heads could not be PascalCase.
 pub fn is_usable_word(word: &str) -> bool {

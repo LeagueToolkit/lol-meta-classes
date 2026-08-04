@@ -11,28 +11,26 @@ use serde::Deserialize;
 
 use crate::words;
 
-pub const FNV_OFFSET: u32 = 0x811c_9dc5;
-const FNV_PRIME: u32 = 0x0100_0193;
+// The folds themselves live in `fold.rs`, dependency-free so the integration
+// tests can include them; re-exported here because this is where callers expect
+// to find the hashing.
+pub use crate::fold::{fnv1a, fnv1a_back, fnv1a_cont, FNV_OFFSET};
 
-/// FNV-1a over the lowercased bytes, continued from `h`.
-///
-/// Continuable because that is the whole performance story: a name is built one
-/// word at a time, and every prefix of it has already been hashed. Rehashing
-/// the full string at each step would make the force mode quadratic in name
-/// length for no reason.
-#[inline]
-pub fn fnv1a_cont(data: &[u8], mut h: u32) -> u32 {
-    for &c in data {
-        let c = if c.is_ascii_uppercase() { c + 32 } else { c };
-        h ^= c as u32;
-        h = h.wrapping_mul(FNV_PRIME);
+/// A list of suffixes, one per line, `#` comments allowed.
+pub fn read_suffix_list(path: &Path) -> Result<Vec<String>> {
+    let text = fs::read_to_string(path)
+        .with_context(|| format!("reading suffix list {}", path.display()))?;
+    let mut out = Vec::new();
+    for line in text.lines() {
+        let line = line.trim();
+        if line.is_empty() || line.starts_with('#') {
+            continue;
+        }
+        // Tolerates `--count` output from split_words.py, same as the wordlist.
+        out.push(line.rsplit(char::is_whitespace).next().unwrap_or(line).to_string());
     }
-    h
-}
-
-#[inline]
-pub fn fnv1a(name: &str) -> u32 {
-    fnv1a_cont(name.as_bytes(), FNV_OFFSET)
+    anyhow::ensure!(!out.is_empty(), "suffix list {} is empty", path.display());
+    Ok(out)
 }
 
 fn parse_hash(text: &str) -> Option<u32> {

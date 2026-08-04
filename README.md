@@ -184,14 +184,55 @@ cargo run --release -p hash-guesser -- bintypes --words words.txt \
     --only family.txt --mode force --depth 3 --top 1000
 ```
 
-The one check that is evidence rather than arithmetic: guessing bintypes, the
-`I` prefix is held to classes the dump actually flags as an interface. Among
-names already cracked, `I[A-Z]` implies that flag in 125 of 127 cases, and the
-filter throws out about half of all I-prefixed candidates. It is not free -
-`IOptionTemplate` and `ISequenceActionInstance` are real names it would refuse -
-so `--no-interface-filter` turns it off. The converse is deliberately not
-applied: 191 of the 316 interfaces we have names for are not I-named, so the
+Every run prints its own expected false-positive count, and warns when that
+number approaches the hit count. Read it before reading the hits.
+
+**`--suffix` buys a word for almost nothing.** Most families here are named by
+their tail, not their head - `Data` ends 529 known class names, `Controller` 201,
+`Driver` 138, then `Def`, `Component`, `Definition`, `Updater`, `Base`, `Block`,
+`List`, `Get`, `Config`. Reaching those by searching one word deeper multiplies
+probes by the wordlist size; anchoring the tail instead multiplies the *target*
+count by the number of suffixes, which is a few. FNV folds left to right, so the
+suffix is folded backwards out of each target once, before the search starts, and
+the hot loop never sees it. Against the 99 unresolved children of one base,
+`--depth 2` with four suffixes cost 5.8M probes and 0.52 expected noise where
+`--depth 3` would have cost 9.8G probes and 226 - and it returned four correct
+names plus exactly the one false positive predicted.
+
+```bash
+cargo run --release -p hash-guesser -- bintypes --words words.txt \
+    --mode force --depth 2 --suffix Data --suffix Controller --suffix Driver
+```
+
+The one check that is evidence rather than arithmetic: guessing bintypes, any
+candidate *named* `I[A-Z]` is held to a class the dump actually flags as an
+interface. Among names already cracked, `I[A-Z]` implies that flag in 125 of 127
+cases, and the filter throws out about half of all I-named candidates. It is not
+free - `IOptionTemplate` and `ISequenceActionInstance` are real names it would
+refuse - so `--no-interface-filter` turns it off. The converse is deliberately
+not applied: 191 of the 316 interfaces we have names for are not I-named, so the
 flag says nothing about a candidate that does not start with `I`.
+
+The check is on the finished name rather than on the `I` prefix, and that matters:
+`I` is also a *word* in the wordlist, at rank 26, because it falls out of
+splitting every `IFoo` name. A prefix-scoped check lets `force` and `mutate`
+assemble `I`+`Model`+`Joint`+`Content` under the empty prefix and walk straight
+past it.
+
+Filters that sound good and are not, each measured against names already cracked
+so the same ground is not covered twice:
+
+| idea | signal | on candidates | verdict |
+| --- | --- | --- | --- |
+| a name shares a word with its base class | 91.1% | 81.9% | 1.1x, useless - the wordlist already encodes it |
+| `is.value` implies a name suffix | `Data` tops it at 20% | - | no |
+| interfaces are never nested | 323 real interface-to-interface edges | - | false |
+| an I-name implies zero properties | 83.5% vs 17.3% | - | true, but the interface flag already says it |
+| register order is ascending | 66%, median run 2 | - | no (that 89% is Windows PE order, not the macOS dump) |
+
+The pattern: any prior built out of the *names* is already baked into the
+wordlist, so it cannot discriminate. Only facts from outside the hash - the meta
+flags, and ultimately attestation in shipped data - move the needle.
 
 Both are rewrites of the tools in
 [LeagueToolkit/LeagueHashes](https://github.com/LeagueToolkit/LeagueHashes)

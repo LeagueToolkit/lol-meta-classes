@@ -9,7 +9,7 @@
 //! name. And a candidate's *string* is never built unless its hash hits, which
 //! it almost never does; the hot path touches no allocator at all.
 
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 use std::sync::atomic::{AtomicU64, Ordering};
 
 use rayon::prelude::*;
@@ -27,14 +27,6 @@ use crate::words;
 pub struct Prefix {
     pub text: String,
     pub hash: u32,
-    /// When set, a hit only counts if the hash is in here.
-    ///
-    /// This is the one filter in the tool that is not about the hash. `I` is
-    /// the interface convention, and the meta says which classes are actually
-    /// interfaces - so a guess of `IFoo` for a class the dump does not flag can
-    /// be thrown out on evidence rather than left for a human. It refutes about
-    /// half of all I-prefixed candidates.
-    pub only: Option<HashSet<u32>>,
 }
 
 impl Prefix {
@@ -42,13 +34,7 @@ impl Prefix {
         Self {
             text: text.to_string(),
             hash: fnv1a_cont(text.as_bytes(), FNV_OFFSET),
-            only: None,
         }
-    }
-
-    pub fn restricted_to(mut self, only: HashSet<u32>) -> Self {
-        self.only = Some(only);
-        self
     }
 }
 
@@ -57,75 +43,111 @@ pub struct Found {
     pub name: String,
 }
 
-/// The hashes we want a name for, behind a bitmap prefilter.
+/// The states the search is hunting for, behind a bitmap prefilter.
 ///
-/// The set is checked billions of times and hit essentially never, so the cost
+/// A *state* is what the running hash has to equal for a candidate to land. With
+/// no suffix that is just the target hash. With a suffix it is the target folded
+/// backwards through the suffix - so the search looks for the state the name
+/// would be in *before* the suffix was appended, and the suffix costs the hot
+/// loop nothing at all. One target with k suffixes is k states, each remembering
+/// which target and which suffix it came from.
+///
+/// The map is consulted billions of times and hit essentially never, so the cost
 /// that matters is the cost of *missing*. A 26-bit bitmap (8 MiB, stays in L2/L3
-/// under the working set) answers that in one load and a test; the real hash
-/// set is consulted only for the ~0.05% of probes the bitmap lets through.
+/// under the working set) answers that in one load and a test; the map itself is
+/// touched only for the ~0.05% of probes the bitmap lets through.
 pub struct Targets {
     bits: Vec<u64>,
-    set: HashSet<u32>,
+    map: HashMap<u32, Vec<(u32, u16)>>,
 }
 
 const FILTER_BITS: u32 = 26;
 const FILTER_MASK: u32 = (1 << FILTER_BITS) - 1;
 
 impl Targets {
-    pub fn new(set: HashSet<u32>) -> Self {
+    /// From `(state, target hash, suffix index)` triples.
+    pub fn new(entries: impl IntoIterator<Item = (u32, u32, u16)>) -> Self {
         let mut bits = vec![0u64; (1usize << FILTER_BITS) / 64];
-        for &h in &set {
-            let i = (h & FILTER_MASK) as usize;
+        let mut map: HashMap<u32, Vec<(u32, u16)>> = HashMap::new();
+        for (state, hash, sidx) in entries {
+            let i = (state & FILTER_MASK) as usize;
             bits[i >> 6] |= 1u64 << (i & 63);
+            map.entry(state).or_default().push((hash, sidx));
         }
-        Self { bits, set }
+        Self { bits, map }
     }
 
     #[inline(always)]
-    fn hit(&self, h: u32) -> bool {
-        let i = (h & FILTER_MASK) as usize;
-        (self.bits[i >> 6] & (1u64 << (i & 63))) != 0 && self.set.contains(&h)
+    fn hit(&self, state: u32) -> Option<&[(u32, u16)]> {
+        let i = (state & FILTER_MASK) as usize;
+        if self.bits[i >> 6] & (1u64 << (i & 63)) == 0 {
+            return None;
+        }
+        self.map.get(&state).map(Vec::as_slice)
+    }
+
+    /// Distinct states, which is what the collision arithmetic actually runs on:
+    /// expected false positives are `probes x states / 2^32`, so k suffixes cost
+    /// k times the noise of none. Suffix anchoring buys coverage, not accuracy.
+    pub fn states(&self) -> usize {
+        self.map.len()
     }
 }
 
 pub struct Guesser {
     pub targets: Targets,
+    /// Indexed by the suffix index carried in `Targets`. Always non-empty; the
+    /// unanchored search is the single empty suffix.
+    pub suffixes: Vec<String>,
     /// Names already tried and rejected, lowercased.
     pub bad: HashSet<String>,
     pub prefixes: Vec<Prefix>,
+    /// Class hashes the meta flags as an interface. When set, a candidate whose
+    /// finished name matches `I[A-Z]` is dropped unless its hash is in here.
+    ///
+    /// The only check in this tool that is evidence rather than arithmetic: the
+    /// flag comes out of the dump, not out of the hash. Measured against names
+    /// already cracked, `I[A-Z]` implies the flag in 125 of 127 cases.
+    pub interfaces: Option<HashSet<u32>>,
     pub probes: AtomicU64,
 }
 
 impl Guesser {
-    /// Check one candidate, building its name only if the hash lands.
+    /// Check one candidate, building its name only if the state lands.
+    ///
+    /// Everything past the bitmap costs nothing in practice: by the time we get
+    /// here the state has already matched, which is rare.
     #[inline(always)]
-    fn check(&self, prefix: &Prefix, stack: &[&str], h: u32, out: &mut Vec<Found>) {
-        if !self.targets.hit(h) {
+    fn check(&self, prefix: &Prefix, stack: &[&str], state: u32, out: &mut Vec<Found>) {
+        let Some(hits) = self.targets.hit(state) else {
             return;
-        }
-        // Checked after the bitmap, so it costs nothing on the hot path - by
-        // the time we get here the hash has already matched, which is rare.
-        if let Some(only) = &prefix.only {
-            if !only.contains(&h) {
-                return;
+        };
+        for &(hash, sidx) in hits {
+            let suffix = self.suffixes[sidx as usize].as_str();
+            let mut name =
+                String::with_capacity(prefix.text.len() + stack.len() * 8 + suffix.len());
+            name.push_str(&prefix.text);
+            for w in stack {
+                name.push_str(w);
             }
+            name.push_str(suffix);
+            // Never emit a candidate the repo would refuse. With capitalized
+            // words and a letter-only prefix and suffix this cannot fail, which
+            // is exactly why it is worth asserting: it is the invariant that
+            // keeps the output feedable straight into `hashtool add`.
+            if !words::is_pascal(&name) {
+                continue;
+            }
+            if let Some(ifaces) = &self.interfaces {
+                if words::is_interface_named(&name) && !ifaces.contains(&hash) {
+                    continue;
+                }
+            }
+            if self.bad.contains(&name.to_lowercase()) {
+                continue;
+            }
+            out.push(Found { hash, name });
         }
-        let mut name = String::with_capacity(prefix.text.len() + stack.len() * 8);
-        name.push_str(&prefix.text);
-        for w in stack {
-            name.push_str(w);
-        }
-        if self.bad.contains(&name.to_lowercase()) {
-            return;
-        }
-        // Never emit a candidate the repo would refuse. With capitalized words
-        // and a letter-only prefix this cannot fail, which is exactly why it is
-        // worth asserting: it is the invariant that keeps the output feedable
-        // straight into `hashtool add`.
-        if !words::is_pascal(&name) {
-            return;
-        }
-        out.push(Found { hash: h, name });
     }
 
     /// Walk one word sequence, reporting from `report_from` onward.

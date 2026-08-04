@@ -23,10 +23,15 @@
 //!   - An identity pass runs first, trying every known name against the other
 //!     table. Class and field vocabularies overlap heavily and these guesses
 //!     cost one probe each.
-//!   - The `I` prefix is held to classes the meta actually flags as interfaces.
-//!     This is the only check here that is evidence rather than arithmetic -
-//!     the flag comes out of the dump, not out of the hash - and it refutes
-//!     about half of all I-prefixed candidates at no cost in real ones.
+//!   - Every I-named candidate is held to a class the meta actually flags as an
+//!     interface. This is the only check here that is evidence rather than
+//!     arithmetic - the flag comes out of the dump, not out of the hash - and it
+//!     refutes about half of all I-named candidates at no cost in real ones.
+//!   - `--suffix` anchors the tail of a name for free, by folding the suffix
+//!     backwards out of each target instead of hashing it on every probe. Most
+//!     of the big families here are suffix families (Data 529, Controller 201,
+//!     Driver 138), and reaching them by searching a word deeper costs hundreds
+//!     of times the noise.
 //!   - Parallel, and the hot path allocates nothing: a candidate's string is
 //!     built only once its hash has already matched.
 //!
@@ -42,11 +47,17 @@
 //!     cargo run --release -p hash-guesser -- bintypes --words words.txt \
 //!         --mode force --depth 2
 //!
+//!     # two words plus a known tail, for the price of two words
+//!     cargo run --release -p hash-guesser -- bintypes --words words.txt \
+//!         --mode force --depth 2 --suffix Data --suffix Controller
+//!
 //! Every line of output is a *candidate*. A hash colliding with a plausible
 //! name is not evidence the name is right - 32 bits is not many - so nothing
 //! here should reach an override table until it has been checked against
-//! shipped data.
+//! shipped data. The run prints its own expected false-positive count for
+//! exactly that reason: when it approaches the hit count, the output is chance.
 
+mod fold;
 mod guess;
 mod input;
 mod words;
@@ -144,6 +155,27 @@ struct Args {
     #[arg(long)]
     prefix: Vec<String>,
 
+    /// Trailing string to try on every candidate; repeatable. Replaces the
+    /// default of "" (no suffix), exactly as --prefix does.
+    ///
+    /// This is the cheap way to search one more word deep. `--suffix Data
+    /// --suffix Controller` covers every "<two words>Data" and
+    /// "<two words>Controller" at the cost of a two-word search, because the
+    /// suffix is folded backwards into the target set once rather than hashed on
+    /// every probe. It multiplies the noise by the number of suffixes, not by
+    /// the size of the wordlist: 12 suffixes at depth 2 is 260x quieter than
+    /// depth 3, for names in those 12 families.
+    ///
+    /// The big families, by count over named classes: Data 529, Controller 201,
+    /// Driver 138, Def 61, Component 48, Definition 47, Updater 43, Base 43,
+    /// Block 41, List 41, Get 37, Config 34.
+    #[arg(long)]
+    suffix: Vec<String>,
+
+    /// Read suffixes from a file, one per line. Merged with --suffix.
+    #[arg(long)]
+    suffix_list: Option<PathBuf>,
+
     /// Keep the leading Hungarian prefix when splitting known names into words.
     #[arg(long)]
     keep_prefix: bool,
@@ -218,7 +250,7 @@ fn main() -> Result<()> {
     };
     let bad = input::read_bad(&bad_paths)?;
 
-    let mut prefixes: Vec<Prefix> = if args.prefix.is_empty() {
+    let prefixes: Vec<Prefix> = if args.prefix.is_empty() {
         match args.table {
             // `I` is the interface convention, and common enough that leaving
             // it to the wordlist would waste a word slot on every candidate.
@@ -229,33 +261,41 @@ fn main() -> Result<()> {
         args.prefix.iter().map(|p| Prefix::new(p)).collect()
     };
 
-    // Hold the `I` prefix to classes the meta actually flags as interfaces.
-    // Half of all I-prefixed candidates are refuted this way, and unlike
-    // anything else here it is evidence rather than arithmetic - the flag comes
-    // out of the dump, not out of the hash. The converse is deliberately not
-    // applied: 191 of the 316 interfaces we have names for are *not* I-named,
-    // so "class is an interface" says nothing about a non-I candidate.
-    if !args.no_interface_filter {
-        if let Some(ifaces) = &interfaces {
-            for p in &mut prefixes {
-                if p.text == "I" {
-                    let only: HashSet<u32> = ifaces.intersection(&all).copied().collect();
-                    eprintln!(
-                        "[..] prefix \"I\" restricted to {} class(es) the meta \
-                         marks as interfaces",
-                        only.len()
-                    );
-                    *p = Prefix::new("I").restricted_to(only);
-                }
-            }
-        } else if prefixes.iter().any(|p| p.text == "I") {
+    // Hold every I-named candidate to a class the meta actually flags as an
+    // interface. Unlike anything else here this is evidence rather than
+    // arithmetic - the flag comes out of the dump, not out of the hash - and it
+    // refutes about half of all I-named candidates.
+    //
+    // Checked on the finished name, not on the search prefix. `I` is a word in
+    // the wordlist (rank 26, out of splitting every `IFoo` name), so `force` and
+    // `mutate` build `I`+`Model`+`Joint`+`Content` under the empty prefix and
+    // sail straight past a prefix-scoped check. That hole is how
+    // `f9cfefd4 IModelJointContent` reached a candidate file for a class whose
+    // meta says `interface: false`.
+    //
+    // The converse is deliberately not applied: 191 of the 316 interfaces we
+    // have names for are *not* I-named, so "class is an interface" says nothing
+    // about a non-I candidate.
+    let interface_filter: Option<HashSet<u32>> = match (&interfaces, args.no_interface_filter) {
+        (Some(ifaces), false) => {
+            let only: HashSet<u32> = ifaces.intersection(&all).copied().collect();
             eprintln!(
-                "[warn] --all was given, so there is no interface flag to \
-                 check the \"I\" prefix against; expect roughly half of the \
-                 I-prefixed candidates to be wrong"
+                "[..] I-named candidates held to the {} class(es) the meta \
+                 marks as interfaces",
+                only.len()
             );
+            Some(only)
         }
-    }
+        (None, false) => {
+            eprintln!(
+                "[warn] --all was given, so there is no interface flag to check \
+                 I-named candidates against; expect roughly half of them to be \
+                 wrong"
+            );
+            None
+        }
+        (_, true) => None,
+    };
     for p in &prefixes {
         anyhow::ensure!(
             p.text.chars().all(|c| c.is_ascii_alphanumeric()),
@@ -263,6 +303,32 @@ fn main() -> Result<()> {
             p.text
         );
     }
+
+    // Suffixes, folded backwards into the target set below. Capitalized because
+    // the hash lowercases anyway, so casing here is only about the name we
+    // print - and a lowercase suffix would print a name `is_pascal` rejects.
+    let mut suffixes: Vec<String> = Vec::new();
+    if let Some(path) = &args.suffix_list {
+        suffixes.extend(input::read_suffix_list(path)?);
+    }
+    suffixes.extend(args.suffix.iter().cloned());
+    if suffixes.is_empty() {
+        suffixes.push(String::new());
+    }
+    for s in &mut *suffixes {
+        anyhow::ensure!(
+            s.chars().all(|c| c.is_ascii_alphanumeric()),
+            "suffix {s:?} would produce a name that is not PascalCase"
+        );
+        *s = words::capitalize(s);
+    }
+    suffixes.sort();
+    suffixes.dedup();
+    anyhow::ensure!(
+        suffixes.len() <= u16::MAX as usize,
+        "at most {} suffixes",
+        u16::MAX
+    );
 
     // Vocabulary comes from both tables regardless of which one is being
     // cracked: a field name is built from the same words as a class name, and
@@ -312,17 +378,33 @@ fn main() -> Result<()> {
         known.len()
     );
     eprintln!(
-        "[..] {} sentence(s), {} word(s), {} prefix(es), {} name(s) ruled out",
+        "[..] {} sentence(s), {} word(s), {} prefix(es), {} suffix(es), \
+         {} name(s) ruled out",
         sentences.len(),
         wordlist.len(),
         prefixes.len(),
+        suffixes.len(),
         bad.len()
     );
 
+    // Fold each suffix backwards through each target. `fnv1a_back` on the empty
+    // suffix is the identity, so the unanchored search builds the same state set
+    // it always did.
+    let entries: Vec<(u32, u32, u16)> = targets
+        .iter()
+        .flat_map(|&t| {
+            suffixes.iter().enumerate().map(move |(i, s)| {
+                (input::fnv1a_back(s.as_bytes(), t), t, i as u16)
+            })
+        })
+        .collect();
+
     let guesser = Guesser {
-        targets: Targets::new(targets),
+        targets: Targets::new(entries),
+        suffixes,
         bad,
         prefixes,
+        interfaces: interface_filter,
         probes: AtomicU64::new(0),
     };
 
@@ -379,13 +461,33 @@ fn main() -> Result<()> {
     sink.flush()?;
 
     let hits: HashSet<u32> = unique.iter().map(|(h, _)| *h).collect();
+    let probes = guesser.probes.load(Ordering::Relaxed);
     eprintln!(
-        "[ok] {} probe(s) -> {} candidate(s) for {} distinct hash(es)",
-        guesser.probes.load(Ordering::Relaxed),
+        "[ok] {probes} probe(s) -> {} candidate(s) for {} distinct hash(es)",
         unique.len(),
         hits.len()
     );
+
+    // The number that decides whether any of this is worth reading. Each probe
+    // is one draw against `states` targets out of 2^32, so the run is expected
+    // to turn up this many names that hash correctly and mean nothing. When it
+    // is of the same order as the hit count, the output is noise: cut the
+    // wordlist, cut the targets with --only, or anchor with --prefix/--suffix.
+    let states = guesser.targets.states() as f64;
+    let noise = probes as f64 * states / 4_294_967_296.0;
+    eprintln!(
+        "[..] {states:.0} target state(s) x {probes} probe(s) / 2^32 = \
+         {noise:.3} expected false positive(s)"
+    );
     if !unique.is_empty() {
+        if noise >= unique.len() as f64 * 0.5 {
+            eprintln!(
+                "[warn] expected noise ({noise:.1}) is the same order as the \
+                 hit count ({}) - this output is not distinguishable from \
+                 chance",
+                unique.len()
+            );
+        }
         eprintln!(
             "[note] these are candidates, not cracks. A 32-bit hash collides \
              with plausible names by chance - confirm each against shipped data \

@@ -234,6 +234,47 @@ The pattern: any prior built out of the *names* is already baked into the
 wordlist, so it cannot discriminate. Only facts from outside the hash - the meta
 flags, and ultimately attestation in shipped data - move the needle.
 
+#### Running a sweep
+
+One run answers very little. `scripts/guesser_sweep.py` runs a spread of them at
+different depths and wordlist sizes, and records what each cost in noise:
+
+```bash
+python3 scripts/guesser_sweep.py --merge-ref sequencer-actions
+python3 scripts/guesser_report.py
+```
+
+Output lands in `hash-guesser-out/` (gitignored - a candidate must never be
+mistaken for a crack):
+
+| file | what it is |
+| --- | --- |
+| `MANIFEST.tsv` | per run: probes, target states, expected false positives, hits |
+| `raw/<run>.<table>.txt` | one file per run, unmerged |
+| `highconf.<table>.txt` | union of the quiet runs - the tier worth reading line by line |
+| `candidates.<table>.txt` | union of everything that ran |
+| `candidates.json` | the above joined to `db/meta.db.json` |
+| `candidates.html` | a self-contained review page built from that JSON |
+
+Runs are split into two tiers by expected noise, not by mode: `hi` keeps expected
+false positives in single digits, `br` is broad and part chance by construction.
+Edit the `RUNS` table at the top of the script to change the spread.
+
+`--merge-ref <ref>` folds another branch's override tables into a scratch copy of
+`hashes/` so its names count as known rather than being re-guessed, and its
+vocabulary feeds the wordlist. The working tree wins on a hash both carry, which
+matters when the ref predates `hashtool lint --fix`: `uvAnimation` costs the
+wordlist a word that `UvAnimation` keeps, which is the whole reason for
+[the naming rule](#names-are-pascalcase).
+
+`scripts/guesser_report.py` joins the sweep to the meta so a candidate can be
+judged on something other than the hash that proposed it - base classes, the
+interface and value flags, field names, owning classes, declared type, and which
+runs found it. The page itself is `scripts/templates/candidates.html`, a plain
+HTML fragment with a `__PAYLOAD__` placeholder; restyle it there, since nothing
+in the Python generates markup. It has no external requests, so it works opened
+from disk or published as an artifact.
+
 Both are rewrites of the tools in
 [LeagueToolkit/LeagueHashes](https://github.com/LeagueToolkit/LeagueHashes)
 (`split_words.py` and `xguesser.cpp`); `crates/hash-guesser/src/main.rs` lists

@@ -1,0 +1,333 @@
+<title>Bin hash candidates</title>
+<style>
+:root{
+  --bg:#eceef1; --surface:#f7f8fa; --sunk:#e3e6eb;
+  --line:#d3d8de; --line-soft:#e1e5ea;
+  --ink:#171c22; --dim:#5c6773; --faint:#8c96a2;
+  --accent:#17787f; --accent-soft:rgba(23,120,127,.13);
+  --flag:#a8721c; --flag-soft:rgba(168,114,28,.13);
+  --noise:#b8bfc8;
+  --mono:ui-monospace,"Cascadia Mono","SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0e1216; --surface:#161c22; --sunk:#11161b;
+  --line:#262e37; --line-soft:#1e252c;
+  --ink:#e3e8ee; --dim:#949fac; --faint:#6b7785;
+  --accent:#4bc5cc; --accent-soft:rgba(75,197,204,.14);
+  --flag:#d9a13f; --flag-soft:rgba(217,161,63,.14);
+  --noise:#3a444f;
+}}
+:root[data-theme="dark"]{
+  --bg:#0e1216; --surface:#161c22; --sunk:#11161b;
+  --line:#262e37; --line-soft:#1e252c;
+  --ink:#e3e8ee; --dim:#949fac; --faint:#6b7785;
+  --accent:#4bc5cc; --accent-soft:rgba(75,197,204,.14);
+  --flag:#d9a13f; --flag-soft:rgba(217,161,63,.14);
+  --noise:#3a444f;
+}
+:root[data-theme="light"]{
+  --bg:#eceef1; --surface:#f7f8fa; --sunk:#e3e6eb;
+  --line:#d3d8de; --line-soft:#e1e5ea;
+  --ink:#171c22; --dim:#5c6773; --faint:#8c96a2;
+  --accent:#17787f; --accent-soft:rgba(23,120,127,.13);
+  --flag:#a8721c; --flag-soft:rgba(168,114,28,.13);
+  --noise:#b8bfc8;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--mono);
+  font-size:14px;line-height:1.5;margin:0;padding:0 20px 80px;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto}
+.prose{font-family:var(--sans);max-width:68ch;color:var(--dim);line-height:1.65}
+.prose strong{color:var(--ink);font-weight:600}
+code{font-family:var(--mono);background:var(--sunk);padding:.1em .35em;
+  border-radius:3px;font-size:.92em}
+
+header{padding:52px 0 30px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 14px}
+h1{font-family:var(--mono);font-size:clamp(26px,4.2vw,38px);font-weight:600;
+  letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance}
+h2{font-family:var(--mono);font-size:15px;font-weight:600;letter-spacing:.02em;
+  margin:0}
+.sect{padding:38px 0 0}
+.sect-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  margin-bottom:6px}
+.sect-head .note{font-size:12px;color:var(--faint)}
+
+.tally{display:flex;flex-wrap:wrap;gap:28px;margin-top:26px}
+.tally div{display:flex;flex-direction:column;gap:3px}
+.tally .k{font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--faint)}
+.tally .v{font-size:23px;font-weight:600;font-variant-numeric:tabular-nums}
+
+.scroll{overflow-x:auto;margin-top:18px}
+table{border-collapse:collapse;width:100%;min-width:640px;
+  font-variant-numeric:tabular-nums}
+th{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--faint);font-weight:500;text-align:right;padding:0 0 9px;
+  border-bottom:1px solid var(--line)}
+th:first-child,th:nth-child(2){text-align:left}
+td{padding:7px 0;border-bottom:1px solid var(--line-soft);text-align:right;
+  font-size:13px}
+td:first-child,td:nth-child(2){text-align:left}
+td.run{color:var(--ink)}
+tbody tr:last-child td{border-bottom:none}
+.tier{display:inline-block;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;padding:1px 6px;border-radius:3px}
+.tier.hi{background:var(--accent-soft);color:var(--accent)}
+.tier.br{background:var(--sunk);color:var(--faint)}
+.bar{display:flex;height:7px;border-radius:2px;overflow:hidden;
+  background:var(--sunk);min-width:90px}
+.bar i{display:block;height:100%}
+.bar .s{background:var(--accent)}
+.bar .n{background:var(--noise)}
+td.barcell{width:120px;padding-left:20px}
+
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  margin:22px 0 6px}
+button{font-family:var(--mono);font-size:12px;color:var(--dim);
+  background:var(--surface);border:1px solid var(--line);border-radius:4px;
+  padding:6px 12px;cursor:pointer;transition:border-color .12s,color .12s}
+button:hover{color:var(--ink);border-color:var(--faint)}
+button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent);
+  border-color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);
+  outline-offset:2px}
+input[type="search"]{font-family:var(--mono);font-size:12px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:4px;
+  padding:6px 11px;min-width:220px;flex:1}
+input[type="search"]::placeholder{color:var(--faint)}
+.sep{width:1px;height:22px;background:var(--line);margin:0 4px}
+.count{font-size:12px;color:var(--faint);margin-left:auto;
+  font-variant-numeric:tabular-nums}
+
+.list{margin-top:14px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:3px 92px 1fr auto;gap:0 16px;
+  align-items:start;padding:9px 0;border-bottom:1px solid var(--line-soft);
+  cursor:pointer;background:none;border-left:none;border-right:none;
+  border-top:none;width:100%;text-align:left;font-family:var(--mono);
+  color:var(--ink);font-size:13px;border-radius:0}
+.row:hover{background:var(--surface)}
+.row:hover .stripe{opacity:1}
+.stripe{width:3px;align-self:stretch;border-radius:2px;background:var(--noise);
+  opacity:.55;transition:opacity .12s}
+.row.hi .stripe{background:var(--accent);opacity:.85}
+.hash{color:var(--faint);letter-spacing:.02em;padding-top:1px}
+.names{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nm{font-weight:500;word-break:break-word}
+.row.hi .nm{color:var(--ink)}
+.row:not(.hi) .nm{color:var(--dim)}
+.chips{display:flex;gap:6px;align-items:center;flex-wrap:wrap;
+  justify-content:flex-end;padding-top:1px}
+.chip{font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  padding:1px 6px;border-radius:3px;background:var(--sunk);color:var(--faint);
+  white-space:nowrap}
+.chip.clash{background:var(--flag-soft);color:var(--flag)}
+.chip.iface{background:var(--accent-soft);color:var(--accent)}
+.detail{grid-column:2/5;padding:8px 0 2px;font-size:12px;color:var(--dim);
+  display:flex;flex-direction:column;gap:3px}
+.detail b{color:var(--faint);font-weight:400;letter-spacing:.08em;
+  text-transform:uppercase;font-size:10px;margin-right:7px}
+.detail .fields{display:flex;flex-wrap:wrap;gap:4px 10px}
+.detail .fields span{white-space:nowrap}
+.empty{padding:34px 0;color:var(--faint);font-size:13px}
+
+footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--faint)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:640px){
+  .row{grid-template-columns:3px 1fr;gap:0 12px}
+  .hash{grid-column:2;font-size:12px}
+  .names{grid-column:2}
+  .chips{grid-column:2;justify-content:flex-start;padding-top:4px}
+  .detail{grid-column:2}
+}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">hash-guesser &middot; <span id="stamp"></span></p>
+  <h1><span id="h-total"></span> candidate names for unresolved bin hashes</h1>
+  <p class="prose"><span id="h-runs"></span> runs across both tables. Every
+  I-named candidate is held to a class the meta actually flags as an interface.
+  <strong>None of these are cracks.</strong> A 32-bit hash collides with
+  plausible names by chance, and each run below states how many of its own hits
+  it expects to be exactly that.</p>
+  <div class="tally">
+    <div><span class="k">bintypes</span><span class="v" id="t-bt"></span></div>
+    <div><span class="k">binfields</span><span class="v" id="t-bf"></span></div>
+    <div><span class="k">high confidence</span><span class="v" id="t-hi"></span></div>
+    <div><span class="k">name collisions</span><span class="v" id="t-cl"></span></div>
+  </div>
+</header>
+
+<section class="sect">
+  <div class="sect-head">
+    <h2>Noise ledger</h2>
+    <span class="note">expected false positives = probes &times; target states / 2&sup3;&sup2;</span>
+  </div>
+  <p class="prose">The bar is each run's hit count split into the part the noise
+  model accounts for and the part it doesn't. Read it before reading the hits: a
+  run whose bar is mostly grey found nothing you can trust.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr>
+        <th>run</th><th>table</th><th>probes</th><th>states</th>
+        <th>exp. false pos</th><th>hits</th><th class="barcell">signal / noise</th>
+      </tr></thead>
+      <tbody id="ledger"></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="sect-head">
+    <h2>Candidates</h2>
+    <span class="note">click a row for the meta context</span>
+  </div>
+  <div class="controls">
+    <button id="tb-bintypes" aria-pressed="true">bintypes</button>
+    <button id="tb-binfields" aria-pressed="false">binfields</button>
+    <span class="sep"></span>
+    <button id="f-hi" aria-pressed="false">high confidence only</button>
+    <button id="f-clash" aria-pressed="false">collisions</button>
+    <button id="f-iface" aria-pressed="false">interfaces</button>
+    <span class="sep"></span>
+    <input type="search" id="q" placeholder="filter by name or hash&hellip;"
+      aria-label="Filter candidates">
+    <span class="count" id="count"></span>
+  </div>
+  <div class="list" id="list"></div>
+</section>
+
+<footer>
+  Regenerate with <code>scripts/guesser_sweep.py</code> then
+  <code>scripts/guesser_report.py</code>. Lists live in
+  <code>hash-guesser-out/</code>, gitignored. Confirm a name against shipped data
+  before <code>hashtool add</code>.
+</footer>
+</div>
+
+<script id="payload" type="application/json">__PAYLOAD__</script>
+<script>
+const D = JSON.parse(document.getElementById('payload').textContent);
+const C = D.c, L = D.l;
+
+const nHi = t => C[t].filter(r => r.hi).length;
+const nCl = t => C[t].filter(r => r.clash).length;
+const total = C.bintypes.length + C.binfields.length;
+document.getElementById('stamp').textContent = D.stamp || 'sweep';
+document.getElementById('h-total').textContent = total.toLocaleString();
+document.getElementById('h-runs').textContent = L.length;
+document.getElementById('t-bt').textContent = C.bintypes.length.toLocaleString();
+document.getElementById('t-bf').textContent = C.binfields.length.toLocaleString();
+document.getElementById('t-hi').textContent =
+  (nHi('bintypes') + nHi('binfields')).toLocaleString();
+document.getElementById('t-cl').textContent =
+  (nCl('bintypes') + nCl('binfields')).toLocaleString();
+
+const fmt = n => n >= 1e6 ? (n / 1e6).toFixed(1) + 'M'
+              : n >= 1e3 ? (n / 1e3).toFixed(0) + 'K' : String(n);
+document.getElementById('ledger').innerHTML = L.map(r => {
+  const noise = Math.min(r.fp, r.hits), sig = r.hits - noise;
+  const pct = x => (r.hits ? 100 * x / r.hits : 0).toFixed(1) + '%';
+  return `<tr>
+    <td class="run"><span class="tier ${r.tier}">${r.tier}</span> ${r.run}</td>
+    <td>${r.table}</td><td>${fmt(r.probes)}</td><td>${fmt(r.states)}</td>
+    <td>${r.fp.toFixed(1)}</td><td>${r.hits}</td>
+    <td class="barcell"><span class="bar" role="img"
+      aria-label="${Math.round(sig)} beyond noise, ${Math.round(noise)} expected noise"
+      ><i class="s" style="width:${pct(sig)}"></i
+      ><i class="n" style="width:${pct(noise)}"></i></span></td></tr>`;
+}).join('');
+
+let table = 'bintypes', onlyHi = false, onlyClash = false, onlyIface = false,
+    q = '', open = new Set();
+
+const esc = s => String(s).replace(/[&<>"]/g, c =>
+  ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function detail(r) {
+  const bits = [];
+  if (r.b !== undefined)
+    bits.push(['base', r.b.length ? r.b.join(', ') : 'none']);
+  if (r.np !== undefined) {
+    const marks = [`${r.np} propert${r.np === 1 ? 'y' : 'ies'}`];
+    if (r.if) marks.push('interface');
+    if (r.val) marks.push('value');
+    if (r.from) marks.push(`since ${r.from}`);
+    if (r.live === false) marks.push('removed');
+    bits.push(['shape', marks.join(' · ')]);
+  }
+  // The field names, for bintypes. On a class with two or three properties this
+  // is the most informative thing on screen: a candidate that accounts for its
+  // own field names is a different proposition from one that ignores them.
+  if (r.p && r.p.length)
+    bits.push(['fields', r.p.join(', ') +
+      (r.np > r.p.length ? ` +${r.np - r.p.length} more` : '')]);
+  if (r.own !== undefined)
+    bits.push(['owned by', r.nown ? r.own.join(', ') +
+      (r.nown > r.own.length ? ` +${r.nown - r.own.length} more` : '')
+      : 'no class in the db']);
+  if (r.ty) bits.push(['type', r.ty]);
+  bits.push(['found by', r.r.join(', ')]);
+  return '<div class="detail">' + bits.map(([k, v]) =>
+    `<div><b>${k}</b>${esc(v)}</div>`).join('') + '</div>';
+}
+
+function render() {
+  const term = q.trim().toLowerCase();
+  const rows = C[table].filter(r =>
+    (!onlyHi || r.hi) && (!onlyClash || r.clash) && (!onlyIface || r.if) &&
+    (!term || r.h.includes(term) ||
+      r.n.some(n => n.toLowerCase().includes(term))));
+  document.getElementById('count').textContent =
+    `${rows.length.toLocaleString()} of ${C[table].length.toLocaleString()}`;
+  document.getElementById('list').innerHTML = rows.length ? rows.map(r => {
+    const id = table + r.h, isOpen = open.has(id);
+    const chips = [];
+    if (r.clash) chips.push('<span class="chip clash">collision</span>');
+    if (r.if) chips.push('<span class="chip iface">interface</span>');
+    chips.push(`<span class="chip">${r.hi ? 'hi' : 'broad'}</span>`);
+    return `<button class="row ${r.hi ? 'hi' : ''}" data-id="${id}"
+      aria-expanded="${isOpen}">
+      <span class="stripe"></span>
+      <span class="hash">${r.h}</span>
+      <span class="names">${r.n.map(n =>
+        `<span class="nm">${esc(n)}</span>`).join('')}</span>
+      <span class="chips">${chips.join('')}</span>
+      ${isOpen ? detail(r) : ''}</button>`;
+  }).join('') : '<p class="empty">Nothing matches that filter.</p>';
+}
+
+document.getElementById('list').addEventListener('click', e => {
+  const b = e.target.closest('.row');
+  if (!b) return;
+  const id = b.dataset.id;
+  open.has(id) ? open.delete(id) : open.add(id);
+  render();
+});
+const toggle = (el, get, set) => el.addEventListener('click', () => {
+  set(!get()); el.setAttribute('aria-pressed', String(get())); render();
+});
+toggle(document.getElementById('f-hi'), () => onlyHi, v => onlyHi = v);
+toggle(document.getElementById('f-clash'), () => onlyClash, v => onlyClash = v);
+toggle(document.getElementById('f-iface'), () => onlyIface, v => onlyIface = v);
+for (const t of ['bintypes', 'binfields']) {
+  document.getElementById('tb-' + t).addEventListener('click', () => {
+    table = t;
+    for (const u of ['bintypes', 'binfields'])
+      document.getElementById('tb-' + u)
+        .setAttribute('aria-pressed', String(u === t));
+    document.getElementById('f-iface').style.display =
+      t === 'bintypes' ? '' : 'none';
+    render();
+  });
+}
+document.getElementById('q').addEventListener('input', e => {
+  q = e.target.value; render();
+});
+render();
+</script>

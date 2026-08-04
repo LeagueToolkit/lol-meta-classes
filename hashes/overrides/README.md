@@ -60,7 +60,14 @@ upstream - see below).
 from. Rows are written grouped by it - as row order, not as a heading, since the
 `batch` column already carries it - and the method and attestation live once per
 batch in `batches.tsv` rather than repeated on every row; anything per-name
-belongs in the reversing doc that note points at. Today:
+belongs in the reversing doc that note points at.
+
+That note is an abstract, not the write-up, and `lint` caps it at 200 characters
+to keep it one. Say what the campaign was and what makes its names believable;
+put the derivation, the per-name evidence and any tables in a doc under `docs/`
+and point at it from the cell. `docs/semantic-pass.md` is the worked example.
+
+Today:
 `pre-ledger-backlog` (945, blame-dated, method not recoverable),
 `vfx-driver-graph` (190), `season16-modes-ui` (96), `game-entity-sweep` (55). A
 crack added without `-b` lands in `unsorted`.

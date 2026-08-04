@@ -10244,7 +10244,7 @@ class 0xef339ef9(0xf9e5b8b9):
     pass
 
 class 0xef35eacc():
-    0xcfb5881: (List, 0x4, Embed, SpellLevelUpInfo) = [{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]
+    List: (List, 0x4, Embed, SpellLevelUpInfo) = [{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]
     pass
 
 class 0xef7e7bb1():
@@ -10570,7 +10570,7 @@ class 0xf5022dc7():
     pass
 
 class 0xf569c583():
-    0xc3b38bef: (Embed, 0x0, 0x0, 0xef35eacc) = {"0xcfb5881":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}
+    0xc3b38bef: (Embed, 0x0, 0x0, 0xef35eacc) = {"List":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}
     0xe4f7105d: (Link, 0x0, 0x0, GameModeMapData) = "0x0"
     pass
 
@@ -12510,7 +12510,7 @@ class CharacterRecord():
     mAdaptiveForceToAbilityPowerWeight: (F32, 0x0, 0x0, 0x0) = 0.0
     areaIndicatorTextureSize: (F32, 0x0, 0x0, 0x0) = 50.0
     armorPerLevelModifiable: (Embed, 0x0, 0x0, ModifiableFloat) = {"Modifiers":[],"baseValue":0.0}
-    0x1abb82c0: (Embed, 0x0, 0x0, 0xef35eacc) = {"0xcfb5881":[{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]}]}
+    0x1abb82c0: (Embed, 0x0, 0x0, 0xef35eacc) = {"List":[{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]}]}
     components: (List2, 0x0, Pointer, IComponentData) = []
     charAudioNameOverride: (String, 0x0, 0x0, 0x0) = ""
     0x1faf6b9c: (Bool, 0x0, 0x0, 0x0) = false

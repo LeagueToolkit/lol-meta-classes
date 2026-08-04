@@ -8,10 +8,3 @@
 # for that run (1.96 expected).
 2b8568f9 BattlegroundsSearchCompanionViewControllerEvents
 9ab63a0b PlayerLoadableSpellViewControllerData
-
-# semantic-pass-structural: hashes to nothing. `check` matches a proposal
-# against the meta, and this one matched no class and no field - it occurs in
-# zero dumps and zero times in db/meta.db.json. It was added anyway, which is a
-# review failure rather than a generator one: a name that resolves nothing is
-# not a candidate at all.
-0cfb5881 LIST

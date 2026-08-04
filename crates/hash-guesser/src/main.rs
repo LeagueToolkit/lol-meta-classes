@@ -32,6 +32,14 @@
 //!     of the big families here are suffix families (Data 529, Controller 201,
 //!     Driver 138), and reaching them by searching a word deeper costs hundreds
 //!     of times the noise.
+//!   - Two modes the original did not have. `delete` drops one word from each
+//!     known name: ~10^5 probes for the whole pass, and a shape the corpus is
+//!     full of - 5521 of 13799 known names are another known name minus one
+//!     interior word. `chain` is `force` constrained to word pairs seen in
+//!     known names, which cuts depth 3 from 64M probes to ~400k and brings
+//!     depth 4 in cheaper than uniform depth 3 was. Priors on generation,
+//!     unlike priors on filtering, lower the noise instead of failing to
+//!     discriminate.
 //!   - Parallel, and the hot path allocates nothing: a candidate's string is
 //!     built only once its hash has already matched.
 //!
@@ -43,9 +51,16 @@
 //!     # substitute and insert around known names - the mode to run first
 //!     cargo run --release -p hash-guesser -- binfields --words words.txt
 //!
+//!     # one word deleted from each known name - the cheapest recall there is
+//!     cargo run --release -p hash-guesser -- binfields --mode delete
+//!
 //!     # exhaustive, and explosive: cost is len(wordlist)^depth
 //!     cargo run --release -p hash-guesser -- bintypes --words words.txt \
 //!         --mode force --depth 2
+//!
+//!     # depth 4, but only along word pairs attested in known names
+//!     cargo run --release -p hash-guesser -- bintypes --words words.txt \
+//!         --mode chain --depth 4
 //!
 //!     # two words plus a known tail, for the price of two words
 //!     cargo run --release -p hash-guesser -- bintypes --words words.txt \
@@ -81,8 +96,17 @@ enum Mode {
     /// Substitute and insert each wordlist word at each position of each known
     /// name. The default, and the one that finds things.
     Mutate,
+    /// Delete one word from each position of each known name. The third edit
+    /// beside mutate's two, split out because it needs no wordlist and costs
+    /// ~10^5 probes total - run it with identity, which covers the last-word
+    /// deletions (they are prefixes).
+    Delete,
     /// Every arrangement of up to --depth words. Exhaustive, and exponential.
     Force,
+    /// Force, but each word must follow a word it has followed in some known
+    /// name. Two orders of magnitude fewer probes per depth, so depth 4 is
+    /// cheaper than uniform depth 3 over the top 400 words.
+    Chain,
 }
 
 #[derive(Copy, Clone, PartialEq, Eq, ValueEnum)]
@@ -358,7 +382,7 @@ fn main() -> Result<()> {
             }
             w
         }
-        (None, Mode::Identity) => Vec::new(),
+        (None, Mode::Identity | Mode::Delete) => Vec::new(),
         (None, _) => anyhow::bail!(
             "--words is required for --mode {}; build one with \
              `python3 scripts/split_words.py hashes/hashes.*.txt \
@@ -366,7 +390,8 @@ fn main() -> Result<()> {
             match args.mode {
                 Mode::Mutate => "mutate",
                 Mode::Force => "force",
-                Mode::Identity => "identity",
+                Mode::Chain => "chain",
+                Mode::Identity | Mode::Delete => unreachable!(),
             }
         ),
     };
@@ -426,6 +451,15 @@ fn main() -> Result<()> {
             found.extend(ident);
             found.extend(guesser.mutate(&sentences, &wordlist));
         }
+        Mode::Delete => {
+            // Pure deletions only. The identity pass is not folded in the way
+            // mutate folds it in, because here it is not a rounding error -
+            // the two passes are the same order of magnitude - and keeping the
+            // modes separate keeps the sweep's per-run noise attribution
+            // honest. Identity covers the last-word deletions (prefixes), so
+            // run both.
+            found.extend(guesser.delete(&sentences));
+        }
         Mode::Force => {
             anyhow::ensure!(args.depth >= 1, "--depth must be at least 1");
             let combos = (wordlist.len() as f64).powi(args.depth as i32);
@@ -434,6 +468,19 @@ fn main() -> Result<()> {
                 args.depth, combos
             );
             found.extend(guesser.force(&wordlist, args.depth));
+        }
+        Mode::Chain => {
+            anyhow::ensure!(args.depth >= 1, "--depth must be at least 1");
+            let bigrams = guess::Bigrams::new(&sentences, &wordlist);
+            // Exact, not an estimate: the DP counts the walk the run is about
+            // to make, so the noise is known before it is spent.
+            eprintln!(
+                "[..] chain depth {}: {} attested bigram(s), exactly {} probe(s)",
+                args.depth,
+                bigrams.bigram_count(),
+                bigrams.probes(args.depth) * guesser.prefixes.len() as u64,
+            );
+            found.extend(guesser.chain(&bigrams, args.depth));
         }
     }
 

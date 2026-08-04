@@ -228,6 +228,39 @@ impl Guesser {
             .collect()
     }
 
+    /// Every known name with one word deleted.
+    ///
+    /// The third edit alongside `mutate`'s insert and substitute, split out as
+    /// its own mode because its noise profile is nothing like theirs: no
+    /// wordlist multiplies the sentence count, so the whole pass is ~10^5
+    /// probes - identity-cheap, mutate-shaped. The shape is common in the
+    /// corpus itself: 5521 of 13799 known names are another known name with one
+    /// interior word removed.
+    ///
+    /// Deleting the *last* word is deliberately not reported: the result is a
+    /// strict prefix of the sentence, and the identity pass - which checks
+    /// every prefix of every sentence it walks - has already probed it.
+    /// `report_from = i` makes that fall out on its own: the shortened
+    /// sequence has no position at or past `i` left to report.
+    pub fn delete(&self, sentences: &[Vec<String>]) -> Vec<Found> {
+        sentences
+            .par_iter()
+            .flat_map_iter(|sentence| {
+                let mut out = Vec::new();
+                let mut seq: Vec<&str> = Vec::with_capacity(16);
+                for i in 0..sentence.len() {
+                    seq.clear();
+                    seq.extend(sentence[..i].iter().map(String::as_str));
+                    seq.extend(sentence[i + 1..].iter().map(String::as_str));
+                    for prefix in &self.prefixes {
+                        self.walk(prefix, &seq, i, &mut out);
+                    }
+                }
+                out
+            })
+            .collect()
+    }
+
     /// Every arrangement of up to `depth` words from the wordlist.
     ///
     /// Exhaustive and therefore explosive: cost is `len(wordlist)^depth`. Depth
@@ -282,6 +315,130 @@ impl Guesser {
         }
         self.probes.fetch_add(probes, Ordering::Relaxed);
     }
+
+    /// `force`, constrained so a word may only follow a word it has been seen
+    /// to follow in a known name.
+    ///
+    /// The wordlist is unigram - order and co-occurrence are not in it - so
+    /// this is a prior `force` cannot express, and it is a prior on
+    /// *generation*, not a filter on hits: fewer sequences get probed at all,
+    /// and expected noise is `probes x states / 2^32`, so it falls with them.
+    /// Attested pairs are 0.16% of all pairs over this corpus' 3113 words, so
+    /// the collapse is large: depth 3 falls from 64M arrangements of the top 400
+    /// words to ~400k chains, and depth 4 costs less than uniform depth 3 did,
+    /// which is what buys the extra word.
+    pub fn chain(&self, bigrams: &Bigrams, depth: usize) -> Vec<Found> {
+        bigrams
+            .roots
+            .par_iter()
+            .flat_map_iter(|&root| {
+                let mut out = Vec::new();
+                for prefix in &self.prefixes {
+                    let word = bigrams.words[root as usize].as_str();
+                    let mut stack: Vec<&str> = Vec::with_capacity(depth);
+                    let h = fnv1a_cont(word.as_bytes(), prefix.hash);
+                    stack.push(word);
+                    self.probes.fetch_add(1, Ordering::Relaxed);
+                    self.check(prefix, &stack, h, &mut out);
+                    self.chain_rec(prefix, &mut stack, root, h, bigrams, depth - 1, &mut out);
+                }
+                out
+            })
+            .collect()
+    }
+
+    fn chain_rec<'a>(
+        &self,
+        prefix: &Prefix,
+        stack: &mut Vec<&'a str>,
+        last: u32,
+        h: u32,
+        bigrams: &'a Bigrams,
+        depth: usize,
+        out: &mut Vec<Found>,
+    ) {
+        if depth == 0 {
+            return;
+        }
+        let mut probes = 0u64;
+        for &next in &bigrams.succ[last as usize] {
+            let word = bigrams.words[next as usize].as_str();
+            let h = fnv1a_cont(word.as_bytes(), h);
+            stack.push(word);
+            probes += 1;
+            self.check(prefix, stack, h, out);
+            self.chain_rec(prefix, stack, next, h, bigrams, depth - 1, out);
+            stack.pop();
+        }
+        self.probes.fetch_add(probes, Ordering::Relaxed);
+    }
+}
+
+/// The word-adjacency graph of the known names, for `chain`.
+///
+/// Words are interned case-folded - the hash lowercases, so two spellings are
+/// the same guess - and `succ[w]` lists every word seen immediately after `w`
+/// in some known name. Roots are the wordlist, so `--top` truncates where the
+/// search *starts*; successors are whatever the corpus attests, kept even when
+/// `--top` dropped them, because the bigram is the evidence, not the word's
+/// frequency rank.
+pub struct Bigrams {
+    words: Vec<String>,
+    succ: Vec<Vec<u32>>,
+    roots: Vec<u32>,
+}
+
+impl Bigrams {
+    pub fn new(sentences: &[Vec<String>], wordlist: &[String]) -> Self {
+        let mut index: HashMap<String, u32> = HashMap::new();
+        let mut words: Vec<String> = Vec::new();
+        let mut intern = |w: &str, words: &mut Vec<String>| -> u32 {
+            let key = w.to_lowercase();
+            if let Some(&i) = index.get(&key) {
+                return i;
+            }
+            let i = words.len() as u32;
+            index.insert(key, i);
+            words.push(w.to_string());
+            i
+        };
+        let roots: Vec<u32> = wordlist.iter().map(|w| intern(w, &mut words)).collect();
+        let mut pairs: HashSet<(u32, u32)> = HashSet::new();
+        for s in sentences {
+            for w in s.windows(2) {
+                let a = intern(&w[0], &mut words);
+                let b = intern(&w[1], &mut words);
+                pairs.insert((a, b));
+            }
+        }
+        let mut succ = vec![Vec::new(); words.len()];
+        // Sorted so the walk order - and with it the output and the probe
+        // counter - is deterministic run to run.
+        let mut pairs: Vec<_> = pairs.into_iter().collect();
+        pairs.sort_unstable();
+        for (a, b) in pairs {
+            succ[a as usize].push(b);
+        }
+        Self { words, succ, roots }
+    }
+
+    /// Exactly how many probes one prefix's `chain` walk at this depth will
+    /// make, by DP over the graph. Printed before the run starts, because the
+    /// noise budget should be known before it is spent.
+    pub fn probes(&self, depth: usize) -> u64 {
+        // prev[w]: probes in the subtree rooted at w with d levels remaining.
+        let mut prev = vec![1u64; self.words.len()];
+        for _ in 2..=depth {
+            prev = (0..self.words.len())
+                .map(|w| 1 + self.succ[w].iter().map(|&v| prev[v as usize]).sum::<u64>())
+                .collect();
+        }
+        self.roots.iter().map(|&r| prev[r as usize]).sum()
+    }
+
+    pub fn bigram_count(&self) -> usize {
+        self.succ.iter().map(Vec::len).sum()
+    }
 }
 
 /// Known names -> the word sequences the mutation pass works from.
@@ -307,4 +464,94 @@ pub fn sentences(names: impl IntoIterator<Item = String>, prefix_max: usize) -> 
 /// hash to what we say it does?
 pub fn verify(found: &Found) -> bool {
     fnv1a(&found.name) == found.hash
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn guesser(target_names: &[&str]) -> Guesser {
+        let entries = target_names.iter().map(|n| (fnv1a(n), fnv1a(n), 0u16));
+        Guesser {
+            targets: Targets::new(entries),
+            suffixes: vec![String::new()],
+            bad: HashSet::new(),
+            prefixes: vec![Prefix::new("")],
+            interfaces: None,
+            probes: AtomicU64::new(0),
+        }
+    }
+
+    fn sents(names: &[&str]) -> Vec<Vec<String>> {
+        sentences(names.iter().map(|s| s.to_string()), 2)
+    }
+
+    fn names(found: &[Found]) -> Vec<&str> {
+        let mut v: Vec<&str> = found.iter().map(|f| f.name.as_str()).collect();
+        v.sort_unstable();
+        v.dedup();
+        v
+    }
+
+    #[test]
+    fn delete_removes_one_word_at_each_position() {
+        let g = guesser(&["ColorOverDriver", "OverLifeDriver"]);
+        let found = g.delete(&sents(&["ColorOverLifeDriver"]));
+        // Delete "Life" -> ColorOverDriver; delete "Color" -> OverLifeDriver.
+        assert_eq!(names(&found), ["ColorOverDriver", "OverLifeDriver"]);
+        for f in &found {
+            assert!(verify(f));
+        }
+    }
+
+    #[test]
+    fn delete_leaves_last_word_deletions_to_identity() {
+        // ColorOverLife is the sentence minus its last word - a prefix, which
+        // the identity pass already probes. Delete must not report it.
+        let g = guesser(&["ColorOverLife"]);
+        assert!(g.delete(&sents(&["ColorOverLifeDriver"])).is_empty());
+        assert_eq!(
+            names(&g.identity(&sents(&["ColorOverLifeDriver"]))),
+            ["ColorOverLife"]
+        );
+    }
+
+    #[test]
+    fn chain_follows_only_attested_bigrams() {
+        // Bigrams: Vfx->Color, Color->Driver (from the corpus). VfxColorDriver
+        // chains; VfxDriverColor would need Vfx->Driver, never attested.
+        let corpus = sents(&["VfxColor", "ColorDriver"]);
+        let words = vec!["Vfx".to_string(), "Color".to_string(), "Driver".to_string()];
+        let bigrams = Bigrams::new(&corpus, &words);
+        let g = guesser(&["VfxColorDriver", "VfxDriverColor"]);
+        let found = g.chain(&bigrams, 3);
+        assert_eq!(names(&found), ["VfxColorDriver"]);
+    }
+
+    #[test]
+    fn chain_probe_dp_matches_the_walk() {
+        let corpus = sents(&["VfxColorOverLife", "ColorDriver", "OverLifeDriver"]);
+        let words = vec!["Vfx".to_string(), "Color".to_string(), "Over".to_string()];
+        let bigrams = Bigrams::new(&corpus, &words);
+        for depth in 1..=5 {
+            let g = guesser(&["NoSuchName"]);
+            g.chain(&bigrams, depth);
+            assert_eq!(
+                g.probes.load(Ordering::Relaxed),
+                bigrams.probes(depth),
+                "depth {depth}"
+            );
+        }
+    }
+
+    #[test]
+    fn chain_successors_survive_top_truncation() {
+        // "Driver" is not a root (truncated wordlist), but the Color->Driver
+        // bigram still extends a chain through it.
+        let corpus = sents(&["VfxColor", "ColorDriver"]);
+        let words = vec!["Vfx".to_string()];
+        let bigrams = Bigrams::new(&corpus, &words);
+        let g = guesser(&["VfxColorDriver"]);
+        assert_eq!(names(&g.chain(&bigrams, 3)), ["VfxColorDriver"]);
+    }
 }

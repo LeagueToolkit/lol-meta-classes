@@ -25,7 +25,7 @@ db/             generated database - meta.db.json (versioned) + database.py (lat
 hashes/         type/field hash -> name tables, plus local overrides
 crates/         the Rust toolchain that produces dumps/
 scripts/        the Python that turns dumps/ into db/
-docs/           format specs for both database files
+docs/           format specs for both database files, plus per-campaign reversing write-ups
 ```
 
 `dumps/` is the source of truth. Everything under `db/` is generated from it and is rebuilt from

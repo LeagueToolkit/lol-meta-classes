@@ -25,6 +25,10 @@ proposal list is small enough that the number stays under one:
 | structural + family | 417k | ~7,300 | 0.71 | 254 |
 | viewcontroller | 1.18M | ~7,100 | 1.96 | 11 |
 
+"Landed" means hit an unresolved hash, which is not the same as shipped: 230 of
+the 254 are in this repo's tables and 24 were not taken in review. See
+"Proposed and not taken" below.
+
 The generator was calibrated against ground truth first: run over classes that
 are *already* named, it reproduced 2,080 of them at their exact spelling.
 
@@ -75,6 +79,33 @@ The weakest are the single-word ones with no named sibling and a primitive type:
 `Event` (String), `Killer` (U8), `Stat` (U8), `Quest` (Hash), `Provider` (Link),
 `Has` (U8). Each is individually about 1.7e-6 to collide, so the *hashes* are
 almost certainly real; that is not the same as the *names* being right.
+
+## Proposed and not taken
+
+24 of the 254 hits did not enter the tables: 16 classes and 8 fields. All 24
+still resolve nothing, here or upstream.
+
+    0x1e3c6622 EventPass                     0xc3a01413 AudioBank
+    0x27bc6378 AugmentSet                    0xe78d94fa PortraitSet
+    0x049233a8 GameEntityType                0xf301caaa RedGeComponentDef
+    0x4ca99280 AudioContextEventType         0xbd6e6d8a GreenGeComponentDef
+    0x5566d3a3 GameEntityGroup               0x712af79e IconGeComponentDef
+    0x5784d4c7 LolGameEntityTemplate         0x8b54c9a7 SeqInputObject
+    0x692bf354 ITimerControllerDefinition    0x94e82d1f SeqInputVector
+    0x880c52da RegionBoundaryInstanceParams  0xb87473b5 LolInputUpdater
+
+    0xfbe86875 Channels                      0xc04df9d4 FloatCurve
+    0xcb1e8bfc CurveData                     0x2642955f ForwardAxis
+    0x44ee0c82 EntityTag                     0xe92580fe OrientationMode
+    0x20407665 FadeOut                       0x9b15d5eb SSAO
+
+They are recorded here and **not** in `hashes/bad/semantic-pass.txt`, which is
+deliberate. That file is for names a review actively refuted, and `--bad` blocks
+them from ever being re-proposed; no per-name reason was recorded for these 24
+at the time, so there is nothing to distinguish a refutation from a proposal
+that merely was not confident enough. Blocking the second kind permanently on a
+reason nobody wrote down would lose real candidates. Anyone revisiting these
+should re-derive the call rather than trust the omission either way.
 
 ## The casing audit
 

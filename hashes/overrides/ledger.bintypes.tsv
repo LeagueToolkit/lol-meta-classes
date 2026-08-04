@@ -429,5 +429,5 @@ fdf5991e	GameScreenViewController                                    	viewcontro
 f302e0a5	ModesSpectateViewController                                 	viewcontroller-family         	2026-08-04	pending  	-
 ee970124	MonarchDayNightViewController                               	viewcontroller-family         	2026-08-04	pending  	-
 00f3e59f	MonarchSpectateViewController                               	viewcontroller-family         	2026-08-04	pending  	-
-5d0f7d97	TFTItemTrackerViewController                                	viewcontroller-family         	2026-08-04	pending  	-
-cc6491d4	TFTTeamEditorViewController                                 	viewcontroller-family         	2026-08-04	pending  	-
+5d0f7d97	TftItemTrackerViewController                                	viewcontroller-family         	2026-08-04	pending  	-
+cc6491d4	TftTeamEditorViewController                                 	viewcontroller-family         	2026-08-04	pending  	-

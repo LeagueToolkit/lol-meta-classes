@@ -266,11 +266,15 @@ def check(args):
     _, classes, nameof, patch = load_db(ROOT / args.db)
     fnames = field_name_map(classes)
     types, fields = unresolved_sets(classes, fnames)
+    # Overrides first: `hashes.<table>.txt` is only rebuilt by update_hashes.py,
+    # so between an `add` and that rebuild it is the override layer that knows a
+    # name. Reading only the merged file reports our own fresh cracks as misses.
     merged = {}
     for t in TABLES:
-        _, m = load_tables(str(ROOT / "hashes"), t)
-        for h, n in m.items():
-            merged.setdefault(int(h, 16), n)
+        ovr, m = load_tables(str(ROOT / "hashes"), t)
+        for src in (ovr, m):
+            for h, n in src.items():
+                merged.setdefault(int(h, 16), n)
 
     proposals = []
     files = args.files or ["-"]
@@ -288,11 +292,20 @@ def check(args):
 
     counts = collections.Counter()
     matches = []
+    # Spellings of the same name, keyed case-folded. The hash cannot separate
+    # them - it lowercases - so a generator that emits both `TFTFoo` and `TftFoo`
+    # gets one hit and the reported casing is decided by input order, which is
+    # no evidence at all. Collect them instead and say so: the choice belongs to
+    # whatever attests the name, or failing that to the house majority.
+    spellings = collections.defaultdict(list)
+    for name in proposals:
+        spellings[name.lower()].append(name)
     seen = set()
     for name in proposals:
         if name.lower() in seen:
             continue
         seen.add(name.lower())
+        alts = [s for s in dict.fromkeys(spellings[name.lower()]) if s != name]
         if not names_mod.is_valid_name(name):
             print(f"REJECT   {name}  ({names_mod.why_invalid(name)})")
             counts["rejected"] += 1
@@ -325,13 +338,23 @@ def check(args):
         else:
             print(f"miss     {h:08x} {name}")
             counts["no match"] += 1
+            continue
+        if alts:
+            counts["casing undecided"] += 1
+            print(f"         ^ casing NOT decided by this hit - also proposed "
+                  f"{', '.join(alts)}")
 
-    total = sum(counts.values())
+    total = sum(counts.values()) - counts["casing undecided"]
     print(f"[ok] {total} proposal(s): "
-          + ", ".join(f"{v} {k}" for k, v in counts.most_common()))
+          + ", ".join(f"{v} {k}" for k, v in counts.most_common()
+                      if k != "casing undecided"))
     if matches:
         print("[note] a hash match is a candidate, not a crack - attest each "
               "against shipped data before `hashtool add`")
+    if counts["casing undecided"]:
+        print(f"[warn] {counts['casing undecided']} hit(s) had more than one "
+              f"spelling proposed. The hash cannot choose between them; pick the "
+              f"one something attests, or the house majority.")
     if args.matches_out and matches:
         pathlib.Path(args.matches_out).write_text(
             "".join(f"{h:08x} {n}\n" for h, n in sorted(matches)),

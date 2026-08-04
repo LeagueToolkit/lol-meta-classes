@@ -11910,7 +11910,7 @@
  "0xd32925ab": {"revisions":[{"from":7102027,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xdc12f8d2": {"revisions":[{"from":7102027,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x5d0f7d97": {"name": "TFTItemTrackerViewController", "revisions": [{"from":6161179,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0x5d0f7d97": {"name": "TftItemTrackerViewController", "revisions": [{"from":6161179,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x54b1eab": {"revisions":[{"from":6318255,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x59fc480": {"revisions":[{"from":6236777,"type":["U32","0x0","0x0","0x0"],"default":10}]},
  "0x6c2b545": {"revisions":[{"from":6318255,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -24855,7 +24855,7 @@
 "0xcc57eaa7": {"name": "ContextualConditionCharacterHasCAC", "revisions": [{"from":5229820,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
  "0xbfd5c3e": {"name":"mCacs","revisions":[{"from":5229820,"type":["List","0x0","Hash","0x0"],"default":[]}]}
 }},
-"0xcc6491d4": {"name": "TFTTeamEditorViewController", "revisions": [{"from":5876777,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+"0xcc6491d4": {"name": "TftTeamEditorViewController", "revisions": [{"from":5876777,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x718b900": {"name":"TeamNameText","revisions":[{"from":6236777,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x13a3c8aa": {"revisions":[{"from":7269074,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
  "0x1733060c": {"revisions":[{"from":6275678,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},

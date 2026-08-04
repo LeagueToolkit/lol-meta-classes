@@ -288,8 +288,6 @@ a4eb8410 ShuffleCustomTableBlock
 9b62c977 StoreFilterItem
 decc6c99 StrawberryInputUpdater
 30f0ba27 StringCast
-5d0f7d97 TFTItemTrackerViewController
-cc6491d4 TFTTeamEditorViewController
 8c31df6a TFTTrovesViewControllerEvents
 21d40f1b Taglist
 341a92b5 TeamDefinition
@@ -298,12 +296,14 @@ df4d7688 Tft3dAnnouncementViewController
 d65315ee TftConstants
 27d533fe TftCraftingViewControllerV2
 025ad6e2 TftEventHubSkillTreeViewController
+5d0f7d97 TftItemTrackerViewController
 1c91dc02 TftMyTeamsViewController
 bf062603 TftPveBuffData
 faf3956e TftPveData
 ab66439a TftPveEogViewController
 253eba55 TftTeamCannonCooldownViewController
 9401f2e2 TftTeamCannonItemExchangeViewController
+cc6491d4 TftTeamEditorViewController
 d35c6ec8 TftTrovesViewControllerV3
 ba9ff884 ThirdPersonCameraUpdateStrategy
 143f10a8 TimerViews

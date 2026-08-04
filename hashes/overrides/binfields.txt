@@ -1062,7 +1062,7 @@ ece16964 TextureRenderDataList
 309878ad TextureSize
 1f49a52a TextureVictory
 90df3f50 TextureWidth
-783d09c9 TftPassID
+783d09c9 TftPassId
 a330d712 TierItemType
 f5092643 TierNames
 2414834f TierTemplate

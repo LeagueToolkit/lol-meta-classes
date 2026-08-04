@@ -1084,7 +1084,7 @@ dfadfc6b	StandardGroup                                               	semantic-p
 848de224	TeamScene                                                   	semantic-pass-family          	2026-08-04	pending  	-
 a0e9b9b4	TextBackdrop                                                	semantic-pass-family          	2026-08-04	pending  	-
 309878ad	TextureSize                                                 	semantic-pass-family          	2026-08-04	pending  	-
-783d09c9	TftPassID                                                   	semantic-pass-family          	2026-08-04	pending  	-
+783d09c9	TftPassId                                                   	semantic-pass-family          	2026-08-04	pending  	-
 536e2c9d	TitleButton                                                 	semantic-pass-family          	2026-08-04	pending  	-
 ebd43853	TooltipGroup                                                	semantic-pass-family          	2026-08-04	pending  	-
 5e671471	TooltipIcon                                                 	semantic-pass-family          	2026-08-04	pending  	-

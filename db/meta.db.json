@@ -2133,7 +2133,7 @@
  "0x86f3c70": {"name":"IsReplicated","revisions":[{"from":7465697,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x58a1d8fb": {"name":"Networking","revisions":[{"from":7465697,"type":["Embed","0x0","0x0","0x7a2bf6d5"],"default":{}}]},
  "0xa2fd7d0c": {"name":"Team","revisions":[{"from":7465697,"type":["Embed","0x0","0x0","0x1b1b0d1a"],"default":{"TeamDefinition":"0x0","Team":100}}]},
- "0xd01ec7fc": {"name":"SFX","revisions":[{"from":7465697,"type":["Embed","0x0","0x0","0xfe3fdc0c"],"default":{"SoundName":"","shapeData":null}}]}
+ "0xd01ec7fc": {"name":"Sfx","revisions":[{"from":7465697,"type":["Embed","0x0","0x0","0xfe3fdc0c"],"default":{"SoundName":"","shapeData":null}}]}
 }},
 "0xe56cd5e": {"name": "PerkStyle", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x81f96fc": {"name":"mScriptAsSubStyle","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x1ddec1f2"],"default":null}]},
@@ -3404,7 +3404,7 @@
 }},
 "0x190ed0b9": {"revisions": [{"from":6690024,"bases":[],"interface":false,"value":false}], "properties": {
  "0x43b27471": {"name":"Button","revisions":[{"from":6690024,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x499b7d73": {"name":"ButtonVFX","revisions":[{"from":7269074,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x499b7d73": {"name":"ButtonVfx","revisions":[{"from":7269074,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":6690024,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x6bc41154": {"name":"EventTimer","revisions":[{"from":6690024,"type":["Pointer","0x0","0x0","0xa48aca10"],"default":null}]},
  "0x8f86c4d2": {"name":"eventID","revisions":[{"from":6690024,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -4815,7 +4815,7 @@
  "0x17b55a20": {"name":"baseHP","revisions":[{"from":5229820,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":100.0}]},
  "0x17c5e625": {"name":"areaIndicatorTextureSize","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":50.0}]},
  "0x18956a21": {"name":"armorPerLevelModifiable","revisions":[{"from":7496037,"type":["Embed","0x0","0x0","0xce9b917b"],"default":{"Modifiers":[],"baseValue":0.0}}]},
- "0x1abb82c0": {"revisions":[{"from":7496037,"type":["Embed","0x0","0x0","0xef35eacc"],"default":{"LIST":[{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]}]}}]},
+ "0x1abb82c0": {"revisions":[{"from":7496037,"type":["Embed","0x0","0x0","0xef35eacc"],"default":{"0xcfb5881":[{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]}]}}]},
  "0x1bdbaedf": {"name":"attackSpeedPerLevel","revisions":[{"from":5229820,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x1bf51169": {"name":"components","revisions":[{"from":6206549,"type":["List2","0x0","Pointer","0x1375d0b"],"default":[]}]},
  "0x1cec9ef2": {"name":"charAudioNameOverride","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -6079,7 +6079,7 @@
  "0xb7c96973": {"name":"rewardStrategy","revisions":[{"from":7426169,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xd975992f": {"name":"Active","revisions":[{"from":7426169,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0xe3a1b4bf": {"revisions":[{"from":7893741,"type":["Hash","0x0","0x0","0x0"],"default":"0x8132b290"}]},
- "0xee192a3e": {"revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xd443ea96"],"default":{"intro":{"0x1327149b":"","0x66bde3f":"","LoopAnimation":"","0xe7214e2d":"","IntroAnimation":""},"Canvas":{"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""},"TRANSITION":{"0x99b0deea":"","TransitionAnimation":""}}}]},
+ "0xee192a3e": {"revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xd443ea96"],"default":{"intro":{"0x1327149b":"","0x66bde3f":"","LoopAnimation":"","0xe7214e2d":"","IntroAnimation":""},"Canvas":{"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""},"Transition":{"0x99b0deea":"","TransitionAnimation":""}}}]},
  "0xffe0c49a": {"name":"types","revisions":[{"from":7426169,"type":["List","0x0","String","0x0"],"default":[]}]}
 }},
 "0x2a4d735b": {"revisions": [{"from":7538272,"bases":[],"interface":true,"value":false}], "properties": {
@@ -8797,7 +8797,7 @@
  "0x4ee8676d": {"revisions":[{"from":7300505,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x57c7bea0": {"revisions":[{"from":7300505,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x5f7a16c3": {"revisions":[{"from":7300505,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x666a9553": {"name":"PIPIcon","revisions":[{"from":7300505,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x666a9553": {"name":"PipIcon","revisions":[{"from":7300505,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xad7d5fbf": {"revisions":[{"from":7345787,"to":7345787,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7371049,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe07bb3c7": {"revisions":[{"from":7300505,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
@@ -9451,7 +9451,7 @@
  "0xdd58f41d": {"revisions":[{"from":7135912,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x46b4ec0a": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
- "0x2370e859": {"name":"STARTING","revisions":[{"from":7584427,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x2370e859": {"name":"Starting","revisions":[{"from":7584427,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x4be35766": {"revisions":[{"from":7584427,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xa2fd7d0c": {"name":"Team","revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
@@ -9612,7 +9612,7 @@
  "0xb311d4ef": {"name":"TextureName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x48b525af": {"revisions": [{"from":7345787,"to":7345787,"bases":["0xb4745778"],"interface":false,"value":false},{"from":7371049,"bases":["0xb4745778"],"interface":false,"value":false}], "properties": {
- "0xaaea5743": {"name":"FILE","revisions":[{"from":7345787,"to":7345787,"type":["String","0x0","0x0","0x0"],"default":""},{"from":7371049,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0xaaea5743": {"name":"File","revisions":[{"from":7345787,"to":7345787,"type":["String","0x0","0x0","0x0"],"default":""},{"from":7371049,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xddef486b": {"name":"Loop","revisions":[{"from":7426169,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0x48b8590e": {"revisions": [{"from":7200925,"to":7374870,"bases":["0x7f631ac9"],"interface":false,"value":false}], "properties": {
@@ -13881,7 +13881,7 @@
  "0x89497caa": {"revisions":[{"from":7465697,"to":7620675,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x96483821": {"name":"productID","revisions":[{"from":7465697,"to":7620675,"type":["String","0x0","0x0","0x0"],"default":"d1c2664a-5938-4c41-8d1b-61fd51052c22"}]},
  "0xd975992f": {"name":"Active","revisions":[{"from":7465697,"to":7620675,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
- "0xee192a3e": {"revisions":[{"from":7465697,"to":7620675,"type":["Embed","0x0","0x0","0x6efc4aa7"],"default":{"intro":{"0x1327149b":"","0x66bde3f":"","LoopAnimation":"","0xe7214e2d":"","IntroAnimation":""},"Canvas":{"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""},"TRANSITION":{"0x99b0deea":"","TransitionAnimation":""}}}]},
+ "0xee192a3e": {"revisions":[{"from":7465697,"to":7620675,"type":["Embed","0x0","0x0","0x6efc4aa7"],"default":{"intro":{"0x1327149b":"","0x66bde3f":"","LoopAnimation":"","0xe7214e2d":"","IntroAnimation":""},"Canvas":{"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""},"Transition":{"0x99b0deea":"","TransitionAnimation":""}}}]},
  "0xffe0c49a": {"name":"types","revisions":[{"from":7465697,"to":7620675,"type":["List2","0x0","String","0x0"],"default":[]}]}
 }},
 "0x6ec744fb": {"revisions": [{"from":6421879,"to":7480682,"bases":["0x827227f3"],"interface":false,"value":false}], "properties": {
@@ -13922,7 +13922,7 @@
 "0x6efc4aa7": {"revisions": [{"from":7465697,"to":7620675,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2e3d90b1": {"name":"intro","revisions":[{"from":7465697,"to":7620675,"type":["Embed","0x0","0x0","0xe166c3e4"],"default":{"0x1327149b":"","0x66bde3f":"","LoopAnimation":"","0xe7214e2d":"","IntroAnimation":""}}]},
  "0x83172271": {"name":"Canvas","revisions":[{"from":7465697,"to":7620675,"type":["Embed","0x0","0x0","0x4a1e95de"],"default":{"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""}}]},
- "0xa62782e2": {"name":"TRANSITION","revisions":[{"from":7465697,"to":7620675,"type":["Embed","0x0","0x0","0x97234459"],"default":{"0x99b0deea":"","TransitionAnimation":""}}]}
+ "0xa62782e2": {"name":"Transition","revisions":[{"from":7465697,"to":7620675,"type":["Embed","0x0","0x0","0x97234459"],"default":{"0x99b0deea":"","TransitionAnimation":""}}]}
 }},
 "0x6f0236d1": {"name": "DragonCampGeComponentDef", "revisions": [{"from":7200925,"to":7218442,"bases":["0x385c323f"],"interface":false,"value":false},{"from":7231955,"bases":["0x62a09c62"],"interface":false,"value":false}], "properties": {
  "0x2e104d7": {"revisions":[{"from":7200925,"type":["Link","0x0","0x0","0x292991be"],"default":"0x0"}]}
@@ -15149,7 +15149,7 @@
 "0x7a2da7e3": {"name": "TftUnitAttachmentStandardSlotData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2065d503": {"name":"Overlay","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xbde64e3e": {"name":"Text","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xc8d3a9fe": {"name":"SPACING","revisions":[{"from":7200925,"to":7245161,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xc8d3a9fe": {"name":"Spacing","revisions":[{"from":7200925,"to":7245161,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd20a71a6": {"name":"Frame","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe64015f0": {"name":"Icon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
@@ -17539,7 +17539,7 @@
 "0x8c70eb51": {"revisions": [{"from":7027993,"to":7190545,"bases":["0x2b949af2"],"interface":false,"value":false}], "properties": {
  "0x58a1d8fb": {"name":"Networking","revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}}]},
  "0x84145ca0": {"name":"definition","revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0xb4f63f45"],"default":{"FillVolume":true,"TeamDefinition":"0x0","0x6a6c6fe":false,"SoundName":"","IsReplicated":true,"inheritedTags":[],"Team":100,"OptionalConfigs":[],"tags":[],"shapeData":null}}]},
- "0xd01ec7fc": {"name":"SFX","revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}}]},
+ "0xd01ec7fc": {"name":"Sfx","revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}}]},
  "0xf8f165ee": {"name":"Sequencer","revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}}]}
 }},
 "0x8c7277c0": {"revisions": [{"from":7496037,"bases":["0xb33b2406"],"interface":false,"value":false}], "properties": {
@@ -18013,7 +18013,7 @@
 }},
 "0x91d368ee": {"revisions": [{"from":7067412,"to":7067412,"bases":[],"interface":false,"value":true},{"from":7079808,"to":7884269,"bases":[],"interface":false,"value":true}], "properties": {
  "0x1b01e204": {"revisions":[{"from":7067412,"to":7067412,"type":["U32","0x0","0x0","0x0"],"default":1},{"from":7079808,"to":7884269,"type":["U32","0x0","0x0","0x0"],"default":1}]},
- "0x55f100ce": {"name":"VFXIcon","revisions":[{"from":7067412,"to":7067412,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7079808,"to":7884269,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0x55f100ce": {"name":"VfxIcon","revisions":[{"from":7067412,"to":7067412,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7079808,"to":7884269,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x91dcafba": {"revisions": [{"from":6919951,"to":7480682,"bases":["0xc142ff1e"],"interface":false,"value":false}], "properties": {
  "0x24256c10": {"revisions":[{"from":6919951,"to":7480682,"type":["String","0x0","0x0","0x0"],"default":""}]}
@@ -18354,7 +18354,7 @@
  "0x58a1d8fb": {"name":"Networking","revisions":[{"from":7200925,"to":7218442,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}},{"from":7231955,"type":["Embed","0x0","0x0","0x7a2bf6d5"],"default":{}}]},
  "0x84145ca0": {"name":"definition","revisions":[{"from":7200925,"to":7374870,"type":["Embed","0x0","0x0","0xb4f63f45"],"default":{"FillVolume":true,"0x6a6c6fe":false,"SoundName":"","shapeData":null}}]},
  "0xa2fd7d0c": {"name":"Team","revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x1b1b0d1a"],"default":{"TeamDefinition":"0x0","Team":100}},{"from":7371049,"type":["Embed","0x0","0x0","0x1b1b0d1a"],"default":{"TeamDefinition":"0x0","Team":100}}]},
- "0xd01ec7fc": {"name":"SFX","revisions":[{"from":7200925,"to":7218442,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}},{"from":7231955,"type":["Embed","0x0","0x0","0xde1e8cca"],"default":{"FillVolume":true,"0x6a6c6fe":false,"SoundName":"","shapeData":null}}]},
+ "0xd01ec7fc": {"name":"Sfx","revisions":[{"from":7200925,"to":7218442,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}},{"from":7231955,"type":["Embed","0x0","0x0","0xde1e8cca"],"default":{"FillVolume":true,"0x6a6c6fe":false,"SoundName":"","shapeData":null}}]},
  "0xf8f165ee": {"name":"Sequencer","revisions":[{"from":7200925,"to":7218442,"type":["Embed","0x0","0x0","0x385c323f"],"default":{}},{"from":7231955,"type":["Embed","0x0","0x0","0x1eee9d10"],"default":{}}]}
 }},
 "0x94acbb37": {"revisions": [{"from":6575386,"bases":["0x99320e3c"],"interface":false,"value":false}], "properties": {
@@ -25969,7 +25969,7 @@
 "0xd443ea96": {"revisions": [{"from":7426169,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2e3d90b1": {"name":"intro","revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0x31d66103"],"default":{"0x1327149b":"","0x66bde3f":"","LoopAnimation":"","0xe7214e2d":"","IntroAnimation":""}}]},
  "0x83172271": {"name":"Canvas","revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xe27f0273"],"default":{"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""}}]},
- "0xa62782e2": {"name":"TRANSITION","revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xcb6bad8"],"default":{"0x99b0deea":"","TransitionAnimation":""}}]}
+ "0xa62782e2": {"name":"Transition","revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xcb6bad8"],"default":{"0x99b0deea":"","TransitionAnimation":""}}]}
 }},
 "0xd4441c55": {"name": "IconElementGradientExtension", "revisions": [{"from":5229820,"bases":["0xdb6e9d8d"],"interface":false,"value":false}], "properties": {
  "0x4321a6b": {"name":"mStartColor","revisions":[{"from":5229820,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,0.0,0.0,1.0]}]},
@@ -26610,7 +26610,7 @@
  "0x14979116": {"name":"RankedType","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x196477b8": {"revisions":[{"from":7465697,"to":7480682,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x1fb3a2cb": {"revisions":[{"from":7465697,"to":7480682,"type":["U8","0x0","0x0","0x0"],"default":0}]},
- "0x2057306e": {"name":"CUSTOM","revisions":[{"from":7465697,"to":7480682,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x2057306e": {"name":"Custom","revisions":[{"from":7465697,"to":7480682,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x205aa195": {"revisions":[{"from":7465697,"to":7480682,"type":["I64","0x0","0x0","0x0"],"default":2}]},
  "0x24a0a506": {"revisions":[{"from":7465697,"to":7480682,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x25883c4e": {"name":"Mutators","revisions":[{"from":7465697,"to":7480682,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -29618,7 +29618,7 @@
  "0xf506c7e6": {"name":"multiplier","revisions":[{"from":5681102,"type":["Pointer","0x0","0x0","0xb33b2406"],"default":null}]}
 }},
 "0xef35eacc": {"revisions": [{"from":7496037,"bases":[],"interface":false,"value":false}], "properties": {
- "0xcfb5881": {"name":"LIST","revisions":[{"from":7496037,"type":["List","0x4","Embed","0x9b601778"],"default":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}]}
+ "0xcfb5881": {"revisions":[{"from":7496037,"type":["List","0x4","Embed","0x9b601778"],"default":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}]}
 }},
 "0xef39fa85": {"name": "DynamicMaterialStaticSwitch", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0x2f3b39e": {"name":"Enabled","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
@@ -30475,7 +30475,7 @@
 "0xf5676233": {"name": "TerminatePath", "revisions": [{"from":5229820,"bases":["0x8f3c54a6"],"interface":false,"value":false}], "properties": {
 }},
 "0xf569c583": {"revisions": [{"from":7496037,"bases":[],"interface":false,"value":false}], "properties": {
- "0xc3b38bef": {"revisions":[{"from":7496037,"type":["Embed","0x0","0x0","0xef35eacc"],"default":{"LIST":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}}]},
+ "0xc3b38bef": {"revisions":[{"from":7496037,"type":["Embed","0x0","0x0","0xef35eacc"],"default":{"0xcfb5881":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}}]},
  "0xe4f7105d": {"revisions":[{"from":7496037,"type":["Link","0x0","0x0","0x89ce9636"],"default":"0x0"}]}
 }},
 "0xf5821f8b": {"revisions": [{"from":5229820,"bases":["0x7a851cd8"],"interface":false,"value":false}], "properties": {

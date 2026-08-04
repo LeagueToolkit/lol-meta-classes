@@ -112,8 +112,7 @@ d21ec815 BuffTarget
 885aa2aa BuffVars
 801b0cad Buffs
 f61e9624 ButtonTarget
-499b7d73 ButtonVFX
-2057306e CUSTOM
+499b7d73 ButtonVfx
 6166b756 Calculation
 3de6ce2d CalculationKey
 dabb5d78 CameraDamping
@@ -227,6 +226,7 @@ a09e1bbf CurrentPip
 e23ce27f CurrentSeason
 89ad2288 CursorMode
 99380614 Curve
+2057306e Custom
 69b0a839 CustomDropRate
 629094b5 CustomTooltip
 c70f6a1e DailyLoginViewController
@@ -375,7 +375,6 @@ a01e3d98 Execute
 c1be745d ExecuteBar
 0777a7af ExpBonus
 1dc91264 ExpUpgrade
-aaea5743 FILE
 b8aa6948 FacingMode
 5c8ff3a6 Factor
 aae9bc5e FailTra
@@ -391,6 +390,7 @@ caa773b3 FalloffRadius
 99a12b95 FeatureType
 a02b6406 FeaturesList
 630b9e09 FightDuration
+aaea5743 File
 a9a04dd9 FillIcon
 0e80eddb FillMode
 2c24fe60 FillPriority
@@ -556,7 +556,6 @@ f1cea006 KillOffset
 2095e8b2 Killer
 0bc0f0c0 KillingSpree
 e90c310b L
-0cfb5881 LIST
 9dac718c Laser
 fe87f21e LastHitData
 cebfa3e8 LeaderboardButton
@@ -708,7 +707,6 @@ d69a87d8 OutroDuration
 82e3e93e OverrideName
 f715926c OverrideResult
 f5674cd4 Owner
-666a9553 PIPIcon
 f3158aa5 PageText
 dd2b5b5d PaginationButton
 4e0e3632 Param
@@ -731,6 +729,7 @@ d9ccf5cb PickMode
 165df089 Ping
 8ddcecfb PingSpatialAudio
 244362ff PipDefinition
+666a9553 PipIcon
 7cae3080 PipLayout
 e0bf6ea7 PipSequence
 8bbc0365 Pixelate
@@ -856,9 +855,6 @@ f22f9104 RosterTitle
 507c22b2 RowGroup
 f5a853e9 RowTemplate
 098f86e0 RowsList
-d01ec7fc SFX
-c8d3a9fe SPACING
-2370e859 STARTING
 1d59898a ScaleFactor
 edb15a2f Scenario
 6cfac45e ScenarioIcon
@@ -909,6 +905,7 @@ d8c398f2 SeriesBackgroundImageUrl
 81189bab SetData
 3a942548 SetName
 dfe510ee SetOnStart
+d01ec7fc Sfx
 a1d375b5 ShaderModel
 bc3b7fdc ShaderParameterOverrides
 5cc8d99c ShadowColor0
@@ -950,6 +947,7 @@ a78f532f SourceLocation
 59407c14 SourceVfx
 8c61159d SourcesList
 ea0e4ad5 Spacer
+c8d3a9fe Spacing
 efd909e8 SpawnDuration
 3378edaf SpawnGrubbies
 0d7e521d SpecName
@@ -982,6 +980,7 @@ d65a8b5c StartPosition
 e9103252 StartSoundEvent
 c04f610f StartValueOffset
 3798de1c StartVector
+2370e859 Starting
 d33b3297 Stat
 f5d0c797 StatLocalizations
 436cd370 StatTra
@@ -1026,7 +1025,6 @@ a0f848d1 SubRequirements
 7c626308 SwitchGroup
 ec134322 SwitchState
 c1b1aa2a SystemPrompt
-a62782e2 TRANSITION
 0ebfad7f TacticianScale
 8252a6f2 TagColor
 fbf302db TagData
@@ -1090,6 +1088,7 @@ e8de69a5 TraName
 36f6ab37 TrackName
 8283d47c TrackerText
 7bef87dc TraitText
+a62782e2 Transition
 ad22c790 TransitionAnimation
 8f6df5b2 TransitionData
 7e4fc21e TransitionDuration
@@ -1124,7 +1123,6 @@ acc83ffa UseFistBump
 7b66f15d UseTarget
 e1e591e3 UseText
 0b248040 UvAnimation
-55f100ce VFXIcon
 6a5b6251 ValueTooltip
 7d425097 VariableDefaults
 29ab62c2 Variables
@@ -1139,6 +1137,7 @@ c050e5f7 Vector4Property
 ad790f5d VelocityThreshold
 e2edf451 VerticalLayout
 57826247 VfxData
+55f100ce VfxIcon
 df782aae VfxProperty
 8ed2871b VfxResource
 40e19ec4 Vfxs

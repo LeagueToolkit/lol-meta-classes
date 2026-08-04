@@ -378,7 +378,7 @@ class 0x18df9350(0xa9e4d0f1):
 
 class 0x190ed0b9():
     Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ButtonVFX: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ButtonVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     EventTimer: (Pointer, 0x0, 0x0, TftEventTimer) = null
     eventID: (String, 0x0, 0x0, 0x0) = ""
@@ -2556,7 +2556,7 @@ class 0x42edcef3(OptionTemplateBase):
     0x4ee8676d: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x57c7bea0: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x5f7a16c3: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    PIPIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    PipIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xad7d5fbf: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xe07bb3c7: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -2678,7 +2678,7 @@ class 0x46a7786(0xece68ca6):
     pass
 
 class 0x46b4ec0a(BaseParams):
-    STARTING: (Bool, 0x0, 0x0, 0x0) = false
+    Starting: (Bool, 0x0, 0x0, 0x0) = false
     0x4be35766: (F32, 0x0, 0x0, 0x0) = 0.0
     Team: (U32, 0x0, 0x0, 0x0) = 0
     pass
@@ -2733,7 +2733,7 @@ class 0x487b1677():
     pass
 
 class 0x48b525af(IUiTextureDataProvider):
-    FILE: (String, 0x0, 0x0, 0x0) = ""
+    File: (String, 0x0, 0x0, 0x0) = ""
     Loop: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
@@ -6212,7 +6212,7 @@ class 0x94a73165(GameEntityTemplate):
     Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     IsReplicated: (Bool, 0x0, 0x0, 0x0) = true
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    SFX: (Embed, 0x0, 0x0, SfxGeComponentDef) = {"0x6a6c6fe":false,"FillVolume":true,"SoundName":"","shapeData":null}
+    Sfx: (Embed, 0x0, 0x0, SfxGeComponentDef) = {"0x6a6c6fe":false,"FillVolume":true,"SoundName":"","shapeData":null}
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
@@ -9022,7 +9022,7 @@ class 0xd42fa4dc(ISequenceAction):
 class 0xd443ea96():
     intro: (Embed, 0x0, 0x0, 0x31d66103) = {"0x1327149b":"","0x66bde3f":"","0xe7214e2d":"","IntroAnimation":"","LoopAnimation":""}
     Canvas: (Embed, 0x0, 0x0, 0xe27f0273) = {"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""}
-    TRANSITION: (Embed, 0x0, 0x0, 0xcb6bad8) = {"0x99b0deea":"","TransitionAnimation":""}
+    Transition: (Embed, 0x0, 0x0, 0xcb6bad8) = {"0x99b0deea":"","TransitionAnimation":""}
     pass
 
 class 0xd456bab6():
@@ -9742,7 +9742,7 @@ class 0xe4544df(GameEntityTemplate):
     Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     IsReplicated: (Bool, 0x0, 0x0, 0x0) = true
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    SFX: (Embed, 0x0, 0x0, 0xfe3fdc0c) = {"SoundName":"","shapeData":null}
+    Sfx: (Embed, 0x0, 0x0, 0xfe3fdc0c) = {"SoundName":"","shapeData":null}
     pass
 
 class 0xe46a1cdb():
@@ -10244,7 +10244,7 @@ class 0xef339ef9(0xf9e5b8b9):
     pass
 
 class 0xef35eacc():
-    LIST: (List, 0x4, Embed, SpellLevelUpInfo) = [{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]
+    0xcfb5881: (List, 0x4, Embed, SpellLevelUpInfo) = [{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]
     pass
 
 class 0xef7e7bb1():
@@ -10570,7 +10570,7 @@ class 0xf5022dc7():
     pass
 
 class 0xf569c583():
-    0xc3b38bef: (Embed, 0x0, 0x0, 0xef35eacc) = {"LIST":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}
+    0xc3b38bef: (Embed, 0x0, 0x0, 0xef35eacc) = {"0xcfb5881":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}
     0xe4f7105d: (Link, 0x0, 0x0, GameModeMapData) = "0x0"
     pass
 
@@ -12510,7 +12510,7 @@ class CharacterRecord():
     mAdaptiveForceToAbilityPowerWeight: (F32, 0x0, 0x0, 0x0) = 0.0
     areaIndicatorTextureSize: (F32, 0x0, 0x0, 0x0) = 50.0
     armorPerLevelModifiable: (Embed, 0x0, 0x0, ModifiableFloat) = {"Modifiers":[],"baseValue":0.0}
-    0x1abb82c0: (Embed, 0x0, 0x0, 0xef35eacc) = {"LIST":[{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]}]}
+    0x1abb82c0: (Embed, 0x0, 0x0, 0xef35eacc) = {"0xcfb5881":[{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]}]}
     components: (List2, 0x0, Pointer, IComponentData) = []
     charAudioNameOverride: (String, 0x0, 0x0, 0x0) = ""
     0x1faf6b9c: (Bool, 0x0, 0x0, 0x0) = false
@@ -21885,7 +21885,7 @@ class RewardGroup(IMilestoneProperty):
     rewardStrategy: (U8, 0x0, 0x0, 0x0) = 0
     Active: (Bool, 0x0, 0x0, 0x0) = true
     0xe3a1b4bf: (Hash, 0x0, 0x0, 0x0) = "0x8132b290"
-    0xee192a3e: (Embed, 0x0, 0x0, 0xd443ea96) = {"Canvas":{"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""},"TRANSITION":{"0x99b0deea":"","TransitionAnimation":""},"intro":{"0x1327149b":"","0x66bde3f":"","0xe7214e2d":"","IntroAnimation":"","LoopAnimation":""}}
+    0xee192a3e: (Embed, 0x0, 0x0, 0xd443ea96) = {"Canvas":{"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""},"Transition":{"0x99b0deea":"","TransitionAnimation":""},"intro":{"0x1327149b":"","0x66bde3f":"","0xe7214e2d":"","IntroAnimation":"","LoopAnimation":""}}
     types: (List, 0x0, String, 0x0) = []
     pass
 

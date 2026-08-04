@@ -58,6 +58,14 @@ BATCH_COLUMNS = ("batch", "note")
 WIDTHS = {"hash": 8, "name": 60, "batch": 30, "cracked": 10, "status": 9}
 BATCH_WIDTHS = {"batch": 30}
 
+# A batch note is an abstract, not the write-up. It says what the campaign was
+# and what makes its names believable, in one cell someone can read in a diff;
+# the derivation, the per-name evidence and the tables go in a doc under docs/
+# that the note points at. The limit is what keeps that split honest - without
+# it the note grows into the doc, one justified sentence at a time, and the
+# file stops being scannable as a table at all.
+NOTE_MAX = 200
+
 # pending   - cracked locally, not sent anywhere yet
 # submitted - in an open upstream PR (`pr` should carry the link)
 # merged    - upstream has it; `prune` will drop the override, the row stays

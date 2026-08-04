@@ -13,3 +13,6 @@ meta-delta-16.14              	16.14 delta vs 16.13: family templates (VfxPhysic
 meta-delta-16.14-unproven     	Same sweep, names not established: WardSkin collides with HideRarity, PropertyTraits is an empty interface, CollisionForce has no support and is gone by 16.15. DO NOT submit.
 propertyloadable-ui           	PropertyLoadable's UI tree. Names pinned by their slot in the client's registration order; UiComponent also shows up in shipped paths.
 ssao-casing                   	The registration inversion here is fixable by re-casing, which only 13-26% of inversions are; the method scores 92% on ground truth. Order forces MapSS, OMIT_SSAO gives SSAO. Both entries or neither.
+semantic-pass-family          	Same generator as semantic-pass-structural, but attestation is family consistency only and no second method confirms these individually. DO NOT submit as they stand. See docs/semantic-pass.md
+semantic-pass-structural      	Names proposed from each unnamed class's own neighbourhood in the meta, not wordlist recombination. 417k proposals, 0.71 expected chance hits, 254 landed. Method and limits: docs/semantic-pass.md
+viewcontroller-family         	67 unnamed children of ViewController named against 159 siblings fixing <Feature>ViewController. 1.96 expected chance hits; 11 landed, the 2 outside the family rejected. See docs/semantic-pass.md

@@ -4,7 +4,7 @@ class 0x1003c990():
     texturePath: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x1010e4d1(0xc03c9e4e):
+class 0x1010e4d1(BaseParams):
     pass
 
 class 0x1036ea1c(0xb0607142):
@@ -16,7 +16,7 @@ class 0x103b4f7d(0x65a1bb16):
     pass
 
 class 0x106b7389(0xd04cfb37):
-    0x11f48e4f: (Pointer, 0x0, 0x0, 0xd04cfb37) = null
+    FirstEntry: (Pointer, 0x0, 0x0, 0xd04cfb37) = null
     0x8879a872: (Pointer, 0x0, 0x0, 0xd04cfb37) = null
     0xc4434a62: (Pointer, 0x0, 0x0, 0xd04cfb37) = null
     0xf41f0380: (Pointer, 0x0, 0x0, 0xd04cfb37) = null
@@ -37,7 +37,7 @@ class 0x10725432():
 
 class 0x10757364(IUiBlock):
     element: (Pointer, 0x0, 0x0, IUiElementIGet) = null
-    0xaf8bb8ce: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    Enable: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
 class 0x1099c885(GameModeConstant):
@@ -89,7 +89,7 @@ class 0x1181085f():
     pass
 
 class 0x11a27f9e():
-    0x7f37f5e5: (U32, 0x0, 0x0, 0x0) = 0
+    Visibility: (U32, 0x0, 0x0, 0x0) = 0
     styles: (List2, 0x0, Embed, 0x3c52b66) = []
     pass
 
@@ -182,7 +182,7 @@ class 0x14da24c4(0xd04cfb37):
 class 0x14ee5073(0xda0d41ce):
     pass
 
-class 0x14ef8081(0x27d92a31):
+class 0x14ef8081(GameEntityBlock):
     tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
     Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
@@ -205,7 +205,7 @@ class 0x159bf4ba(0x7319918a):
     value: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0x15afeef9(0xc03c9e4e):
+class 0x15afeef9(BaseParams):
     pass
 
 class 0x15bd86f8(ISequenceActionInstance):
@@ -213,7 +213,7 @@ class 0x15bd86f8(ISequenceActionInstance):
 
 class 0x15c90f4f():
     objectPath: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x7632a5e7: (Pointer, 0x0, 0x0, 0xd04cfb37) = null
+    EventType: (Pointer, 0x0, 0x0, 0xd04cfb37) = null
     0xd3aa34a: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -291,7 +291,7 @@ class 0x17409c51():
     Mapping: (Map, U32, Embed, 0xd139de78) = {}
     pass
 
-class 0x17411ce(0x27d92a31):
+class 0x17411ce(GameEntityBlock):
     0x18c117f4: (Pointer, 0x0, 0x0, IFloatGet) = {}
     0x94018232: (Pointer, 0x0, 0x0, IBoolGet) = {}
     tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
@@ -307,7 +307,7 @@ class 0x17539cc2():
     0xecdf7afb: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x176774d0(0xc03c9e4e):
+class 0x176774d0(BaseParams):
     pass
 
 class 0x1778b398():
@@ -334,7 +334,7 @@ class 0x17d73579(BaseLoadoutData):
     PortraitTexturePath: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x17e5a8af(0xc03c9e4e):
+class 0x17e5a8af(BaseParams):
     pass
 
 class 0x17ed90bf(ISequenceAction):
@@ -350,10 +350,10 @@ class 0x180e553c(TftPassRewardBase):
 
 class 0x18278f59(ILogicBoolDriver):
     UnitTags: (Embed, 0x0, 0x0, ObjectTags) = {"mObjectTagList":[]}
-    0xedbf0fe3: (U8, 0x0, 0x0, 0x0) = 0
+    Has: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x18295ca2(0xc03c9e4e):
+class 0x18295ca2(BaseParams):
     pass
 
 class 0x182cf031():
@@ -378,7 +378,7 @@ class 0x18df9350(0xa9e4d0f1):
 
 class 0x190ed0b9():
     Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x499b7d73: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ButtonVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     EventTimer: (Pointer, 0x0, 0x0, TftEventTimer) = null
     eventID: (String, 0x0, 0x0, 0x0) = ""
@@ -409,7 +409,7 @@ class 0x19ff61ac():
     WEIGHT: (F32, 0x0, 0x0, 0x0) = 1.0
     0x572ee24e: (List2, 0x0, Link, 0x19ff61ac) = []
     IconPath: (String, 0x0, 0x0, 0x0) = ""
-    0x8557faf0: (I32, 0x0, 0x0, 0x0) = 0
+    GoldValue: (I32, 0x0, 0x0, 0x0) = 0
     name: (String, 0x0, 0x0, 0x0) = ""
     SubtitleTra: (String, 0x0, 0x0, 0x0) = ""
     constants: (Embed, 0x0, 0x0, TftConstants) = {"0xdf085b93":{}}
@@ -457,7 +457,7 @@ class 0x1a4d9bd(ICharacterSubcondition):
 class 0x1a6cd1f8(IScriptValueGet):
     pass
 
-class 0x1a8a31b8(0xc03c9e4e):
+class 0x1a8a31b8(BaseParams):
     pass
 
 class 0x1a9062ce(ScriptTableSet):
@@ -496,7 +496,7 @@ class 0x1b5a55fa(IUiBlock):
     element: (Pointer, 0x0, 0x0, IUiElementIGet) = null
     pass
 
-class 0x1b7c5512(0x27d92a31):
+class 0x1b7c5512(GameEntityBlock):
     Enabled: (Pointer, 0x0, 0x0, IBoolGet) = null
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
@@ -553,20 +553,20 @@ class 0x1ca3eb78(IGameModeConfig):
     pass
 
 class 0x1cda14e0(ViewController):
-    0x10152cc: (Embed, 0x0, 0x0, 0xf7d950e) = {"0x631a990f":"0x0","0x9094c397":"0x0","0xbc61fcb1":"0x0","0xdb9c67fe":"0x0","Group":"0x0","Icon":"0x0","Subtitle":"0x0","title":"0x0"}
+    0x10152cc: (Embed, 0x0, 0x0, 0xf7d950e) = {"0xbc61fcb1":"0x0","0xdb9c67fe":"0x0","CardAnimation":"0x0","CardButton":"0x0","Group":"0x0","Icon":"0x0","Subtitle":"0x0","title":"0x0"}
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x26c076a7: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x27c0783a: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x28c079cd: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x3f9ec5bf: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x4cbb5559: (Embed, 0x0, 0x0, 0xf7d950e) = {"0x631a990f":"0x0","0x9094c397":"0x0","0xbc61fcb1":"0x0","0xdb9c67fe":"0x0","Group":"0x0","Icon":"0x0","Subtitle":"0x0","title":"0x0"}
+    0x4cbb5559: (Embed, 0x0, 0x0, 0xf7d950e) = {"0xbc61fcb1":"0x0","0xdb9c67fe":"0x0","CardAnimation":"0x0","CardButton":"0x0","Group":"0x0","Icon":"0x0","Subtitle":"0x0","title":"0x0"}
     0x5190b8e2: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x54faf986: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MobileOverrideLoadable: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
     0x71ce90d7: (Map, U8, Link, Sequence) = {}
-    0x7c3bb37: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x8780886a: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x8fd0b34f: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SceneRight: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SceneLeft: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SceneBackground: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xb5d4b3cf: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xb6d4b562: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xb749bf1e: (Embed, 0x0, 0x0, 0x65d203f4) = {"GoldAmount":"0x0","GoldIcon":"0x0","Group":"0x0","Icon":"0x0"}
@@ -602,7 +602,7 @@ class 0x1d12c4da(0x3ff79219):
 
 class 0x1d1499b7(0xff4e30bb):
     0x1757fdc8: (Pointer, 0x0, 0x0, IBoolGet) = null
-    OutEntity: (Embed, 0x0, 0x0, 0x851d2116) = {"Table":{},"Var":""}
+    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
     0x7c891337: (Pointer, 0x0, 0x0, IIntGet) = null
     tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
     0x9c60d5ba: (List2, 0x0, Pointer, 0xb60096a7) = []
@@ -647,7 +647,7 @@ class 0x1e2d1428():
 class 0x1e3c6622():
     catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","contentId":"","itemID":0,"typeId":""}
     LocalizedName: (String, 0x0, 0x0, 0x0) = ""
-    0xa1fce550: (U32, 0x0, 0x0, 0x0) = 0
+    PassType: (U32, 0x0, 0x0, 0x0) = 0
     image: (String, 0x0, 0x0, 0x0) = ""
     LocalizedDescription: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -677,9 +677,9 @@ class 0x1ee9686c():
     0x70682a7: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0x73a7c872: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0x77b17247: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
-    0x792f614a: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
+    ChampionKill: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0x7a3e799b: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
-    0x7afcb694: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
+    GameEnd: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0x8281a415: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0x829dfd5f: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0x8b507734: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
@@ -688,19 +688,19 @@ class 0x1ee9686c():
     0x94311ea0: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0x98912876: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0x9bbb4468: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
-    0x9f77283f: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
+    Respawn: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xa8a230d9: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xa8d720d0: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xa9769d67: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
-    0xaf4d582d: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
+    GameStart: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xb4a64e19: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xba9bae76: (List2, 0x0, Embed, 0xd52eac74) = []
-    0xbc0f0c0: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
+    KillingSpree: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xc402fafa: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xd0cc4924: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xd5ed622: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xdc4cc17b: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
-    0xe1bc2b5b: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
+    FirstBlood: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xe1ea923b: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xf8965958: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     0xfa045deb: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
@@ -746,11 +746,11 @@ class 0x1f4ce347(0x8e134d2):
     pass
 
 class 0x1f5bef59():
-    0x7d661894: (Map, U8, Hash, 0x0) = {}
-    0xc895f7ad: (Map, U8, Hash, 0x0) = {}
+    InactiveVfx: (Map, U8, Hash, 0x0) = {}
+    ActiveVfx: (Map, U8, Hash, 0x0) = {}
     pass
 
-class 0x1f671180(0xc03c9e4e):
+class 0x1f671180(BaseParams):
     pass
 
 class 0x1f8480d8(IScriptBlock):
@@ -836,7 +836,7 @@ class 0x20ff220e():
     0xe5f3c5d4: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x210fea10(0x3497f0cf):
+class 0x210fea10(GameEntityComponent):
     pass
 
 class 0x2152c2a1(0xb5754dad):
@@ -846,9 +846,6 @@ class 0x2152c2a1(0xb5754dad):
 class 0x215f4776():
     0x1b2d687d: (List2, 0x0, Embed, 0xbb778e9b) = []
     displayName: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x21814e41(ViewController):
     pass
 
 class 0x21a128f8(IGameModeConfig):
@@ -866,10 +863,6 @@ class 0x21c3bf49(ScriptTable):
     CustomTable: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
     pass
 
-class 0x21d40f1b():
-    tags: (List2, 0x0, Hash, 0x0) = []
-    pass
-
 class 0x21dad86e():
     0x5753a320: (Pointer, 0x0, 0x0, 0xade7ce63) = null
     pass
@@ -879,7 +872,7 @@ class 0x21e68591():
 
 class 0x21fc73e7():
     0xd3aa34a: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xfe30d09f: (String, 0x0, 0x0, 0x0) = ""
+    Event: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x221f2907():
@@ -905,7 +898,7 @@ class 0x22d93e23(0x85ec5cc):
 
 class 0x22daa5b8(IAugment):
     RootSpell: (Link, 0x0, 0x0, SpellObject)
-    0x3696d198: (Pointer, 0x0, 0x0, 0x5b441d9b)
+    TooltipData: (Pointer, 0x0, 0x0, 0x5b441d9b)
     0x40c7b66f: (List2, 0x0, Link, SpellObject)
     AugmentSmallIconPath: (String, 0x0, 0x0, 0x0)
     mBuildTags: (U32, 0x0, 0x0, 0x0)
@@ -951,7 +944,7 @@ class 0x2394da22(0x29c76c1f):
     radius: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0x239d0a76(0xa4f28691):
+class 0x239d0a76(ILogicDriverSource):
     pass
 
 class 0x239ebd66():
@@ -1002,7 +995,7 @@ class 0x24e1cb45():
     pass
 
 class 0x2508c71e():
-    0x1ba79c9a: (U8, 0x0, 0x0, 0x0)
+    RewardType: (U8, 0x0, 0x0, 0x0)
     0x31c5f01c: (String, 0x0, 0x0, 0x0)
     ID: (String, 0x0, 0x0, 0x0)
     quantity: (I16, 0x0, 0x0, 0x0)
@@ -1018,9 +1011,9 @@ class 0x252c22fd():
 
 class 0x253e4e01(0xc8093bd):
     0x131ebad4: (String, 0x0, 0x0, 0x0) = ""
-    0x38f08bb4: (String, 0x0, 0x0, 0x0) = ""
+    ElementName: (String, 0x0, 0x0, 0x0) = ""
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
-    0xe07619ca: (String, 0x0, 0x0, 0x0) = ""
+    ScreenName: (String, 0x0, 0x0, 0x0) = ""
     0xef0f2ee8: (F32, 0x0, 0x0, 0x0) = 0.0
     0xf00f307b: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
@@ -1043,14 +1036,14 @@ class 0x25427320():
 
 class 0x256ae2c6(0xc8093bd):
     0x131ebad4: (String, 0x0, 0x0, 0x0) = ""
-    0x38f08bb4: (String, 0x0, 0x0, 0x0) = ""
+    ElementName: (String, 0x0, 0x0, 0x0) = ""
     0x57137ca3: (Option, 0x0, Bool, 0x0) = null
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
     offerId: (Option, 0x0, String, 0x0) = null
-    0x9c5ad4fd: (Option, 0x0, String, 0x0) = null
+    ModalName: (Option, 0x0, String, 0x0) = null
     0xb1761265: (Option, 0x0, String, 0x0) = null
     0xcad4a930: (Option, 0x0, String, 0x0) = null
-    0xe07619ca: (String, 0x0, 0x0, 0x0) = ""
+    ScreenName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x257477d2(ScriptTableGet, 0x8923a755, IFloatGet):
@@ -1059,21 +1052,18 @@ class 0x257477d2(ScriptTableGet, 0x8923a755, IFloatGet):
 class 0x2576b4fc():
     pass
 
-class 0x258e4761():
-    pass
-
 class 0x25bfa52(LevelScriptBlock):
     value: (Pointer, 0x0, 0x0, IFloatGet) = null
     BarracksProperty: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x25e3f5d0(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Character: (Embed, 0x0, 0x0, SkinCharacterGeComponentDef) = {"CharacterRecord":"","Skin":""}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
     Shop: (Embed, 0x0, 0x0, ShopGeComponentDef) = {"0x651de225":0.0,"0xcf0f5b55":false,"0xd1318f26":0.0,"0xf908963":[0.0,0.0,0.0],"0xfe060fba":false}
     Icon: (Embed, 0x0, 0x0, NewIconGeComponentDef) = {"Config":null}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class 0x26129005(0x8930818a):
@@ -1180,7 +1170,7 @@ class 0x2743f2b3(0x902e246e):
     Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x27470ba6(0xc03c9e4e):
+class 0x27470ba6(BaseParams):
     pass
 
 class 0x276246d8():
@@ -1191,16 +1181,13 @@ class 0x27bc6378():
     0x1d14504: (Link, 0x0, 0x0, ResourceResolver) = "0x0"
     augments: (List2, 0x0, Hash, 0x0) = []
     Enabled: (Bool, 0x0, 0x0, 0x0) = true
-    0x3a942548: (String, 0x0, 0x0, 0x0) = ""
+    SetName: (String, 0x0, 0x0, 0x0) = ""
     0x40c7b66f: (List2, 0x0, Link, SpellObject) = []
     0x4217d741: (String, 0x0, 0x0, 0x0) = ""
     TierData: (List, 0x3, Embed, 0xc61551f4) = [{"0x3de90045":"0x0","0xc151d137":"0x0","Enabled":true},{"0x3de90045":"0x0","0xc151d137":"0x0","Enabled":true},{"0x3de90045":"0x0","0xc151d137":"0x0","Enabled":true}]
     0x746ade9: (String, 0x0, 0x0, 0x0) = ""
     0x96b4b430: (Link, 0x0, 0x0, SpellObject) = "0x0"
     0x97e82990: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x27d92a31(IScriptBlock):
     pass
 
 class 0x27f036af(0x64c18f7d):
@@ -1215,7 +1202,7 @@ class 0x280745b1():
     0x50aad250: (List2, 0x0, Pointer, 0xdd661aab) = []
     pass
 
-class 0x28628b50(0x27d92a31):
+class 0x28628b50(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     Position: (Pointer, 0x0, 0x0, IVectorGet) = null
     pass
@@ -1224,7 +1211,7 @@ class 0x286deb81():
     pass
 
 class 0x28706210(LevelScriptBlock):
-    0x260c7a67: (Pointer, 0x0, 0x0, IEntityGet) = null
+    DragonCamp: (Pointer, 0x0, 0x0, IEntityGet) = null
     0x2e104d7: (Embed, 0x0, 0x0, StringArrayTableSet) = {"Table":{},"Var":""}
     pass
 
@@ -1263,11 +1250,11 @@ class 0x292991be():
     pass
 
 class 0x292fd63d(0xd04cfb37):
-    0x36f6ab37: (String, 0x0, 0x0, 0x0) = ""
+    TrackName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x294650d7():
-    0x49c5d8f9: (Bool, 0x0, 0x0, 0x0) = false
+    Optional: (Bool, 0x0, 0x0, 0x0) = false
     Output: (Pointer, 0x0, 0x0, ScriptTableGet) = null
     pass
 
@@ -1282,7 +1269,7 @@ class 0x296c4c00(0xa8a6ac21):
     value: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x2994bb4f(0x27d92a31):
+class 0x2994bb4f(GameEntityBlock):
     0xc7a370a7: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
     Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
@@ -1303,7 +1290,7 @@ class 0x2a2c82dc():
 class 0x2a31f122(ISequenceActionInstance):
     pass
 
-class 0x2a34c166(0xc03c9e4e):
+class 0x2a34c166(BaseParams):
     pass
 
 class 0x2a4d735b():
@@ -1340,7 +1327,7 @@ class 0x2a9f4223():
     pass
 
 class 0x2aa356bc():
-    0x5089a721: (List2, 0x0, Link, 0xee4ec7c) = []
+    GridData: (List2, 0x0, Link, 0xee4ec7c) = []
     pass
 
 class 0x2ae7663(0xb041c60a):
@@ -1360,7 +1347,7 @@ class 0x2b2278d6(ISequenceActionInstance):
 
 class 0x2b25a73a(IGameCalculationPart):
     DataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x1ba2bd1: (U8, 0x0, 0x0, 0x0) = 0
+    AbilityResource: (U8, 0x0, 0x0, 0x0) = 0
     0xd13afc27: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -1370,7 +1357,7 @@ class 0x2b365a82():
     0xfd6a4413: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x2b42f4b6(0xc03c9e4e):
+class 0x2b42f4b6(BaseParams):
     pass
 
 class 0x2b595e9a(0x8b54c9a7):
@@ -1416,7 +1403,7 @@ class 0x2bfb084c():
     tags: (List2, 0x0, Embed, 0xf6f4bb5f) = []
     pass
 
-class 0x2bfff098(0x27d92a31):
+class 0x2bfff098(GameEntityBlock):
     duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
@@ -1426,7 +1413,7 @@ class 0x2c17e4a1(IOptionItemFilter):
 
 class 0x2d00e4da():
     0x218a55e2: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x89ad2288: (U32, 0x0, 0x0, 0x0) = 0
+    CursorMode: (U32, 0x0, 0x0, 0x0) = 0
     0xc4454080: (F32, 0x0, 0x0, 0x0) = 0.0
     0xe8d9f82b: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
@@ -1481,8 +1468,8 @@ class 0x2d531ed():
     0xff86a45c: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x2d67b83f(0x27d92a31):
-    template: (Embed, 0x0, 0x0, 0x30b558d6) = {"Table":{},"Var":""}
+class 0x2d67b83f(GameEntityBlock):
+    template: (Embed, 0x0, 0x0, DataObjectTableSet) = {"Table":{},"Var":""}
     Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
@@ -1507,7 +1494,7 @@ class 0x2db7365f():
 class 0x2e1cea4f(0x4ca99280):
     pass
 
-class 0x2e69c9a2(0xc03c9e4e):
+class 0x2e69c9a2(BaseParams):
     pass
 
 class 0x2ea23974():
@@ -1566,7 +1553,7 @@ class 0x2ff0e152():
 
 class 0x3018b0da(BaseLoadoutData):
     Enabled: (Bool, 0x0, 0x0, 0x0) = true
-    0x55bb9b57: (I32, 0x0, 0x0, 0x0) = -1
+    PortraitId: (I32, 0x0, 0x0, 0x0) = -1
     0x5d20d3f5: (List2, 0x0, String, 0x0) = []
     image: (Embed, 0x0, 0x0, CensoredImage) = {"UncensoredImages":{},"image":""}
     PortraitMaterial: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
@@ -1607,9 +1594,6 @@ class 0x30b339fb():
     0xde47b40e: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x30b558d6(ScriptTableSet):
-    pass
-
 class 0x30c224ec():
     0x6438040c: (U32, 0x0, 0x0, 0x0) = 32
     0x6538059f: (U32, 0x0, 0x0, 0x0) = 2
@@ -1648,7 +1632,7 @@ class 0x313da04c():
     pass
 
 class 0x315aff8e():
-    0x58b46aae: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    ModifierDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     ModifierType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -1671,7 +1655,7 @@ class 0x31acb60e(0x608e61e9):
     Progression: (Link, 0x0, 0x0, 0xda370296) = "0x0"
     pass
 
-class 0x31aebe7d(0xc03c9e4e):
+class 0x31aebe7d(BaseParams):
     pass
 
 class 0x31beb841(VfxSpawnBehavior):
@@ -1679,7 +1663,7 @@ class 0x31beb841(VfxSpawnBehavior):
     EmissionRate: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     pass
 
-class 0x31bf21b0(0xa91b85e3):
+class 0x31bf21b0(OptionTemplateBase):
     0x25b31bc: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x2a781f11: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x2d1115b1: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -1691,7 +1675,7 @@ class 0x31bf21b0(0xa91b85e3):
 class 0x31d66103():
     0x1327149b: (String, 0x0, 0x0, 0x0) = ""
     0x66bde3f: (String, 0x0, 0x0, 0x0) = ""
-    0x6a8398d3: (String, 0x0, 0x0, 0x0) = ""
+    LoopAnimation: (String, 0x0, 0x0, 0x0) = ""
     0xe7214e2d: (String, 0x0, 0x0, 0x0) = ""
     IntroAnimation: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -1733,7 +1717,7 @@ class 0x32078b36(0x727d77b9):
     pass
 
 class 0x321b2b1c(ViewController):
-    0x491204c2: (Embed, 0x0, 0x0, 0xa9253585) = {"0x241c258b":[0,0,0,255],"0x3c4b5c83":"","0x3ddb00":1.0,"0x44f732bc":"","0x81d55cb7":"0x0","0x88ee5bd9":{"0x3845cab":[],"0x5bd8b396":"","0x829c2960":{},"0xcb084e46":"0x0","0xcd3fd8ac":"","0xee10ba86":"","Frame":"0x0","Icon":"0x0","RootGroup":"0x0","description":"0x0"},"0x8a73adc8":[0,0,0,255],"0x9d8818ba":[0,0,0,255],"0xb80d6251":[0,0,0,255],"0xbec348d3":"0x0","0xf3c1ea09":[0,0,0,255],"0xfbe13398":"","HeaderGroup":"0x0","LayoutGroup":"0x0"}
+    0x491204c2: (Embed, 0x0, 0x0, 0xa9253585) = {"0x241c258b":[0,0,0,255],"0x3c4b5c83":"","0x3ddb00":1.0,"0x44f732bc":"","0x81d55cb7":"0x0","0x88ee5bd9":{"0x3845cab":[],"0x5bd8b396":"","0x829c2960":{},"0xcd3fd8ac":"","0xee10ba86":"","Frame":"0x0","Icon":"0x0","Progress":"0x0","RootGroup":"0x0","description":"0x0"},"0x8a73adc8":[0,0,0,255],"0x9d8818ba":[0,0,0,255],"0xb80d6251":[0,0,0,255],"0xbec348d3":"0x0","0xf3c1ea09":[0,0,0,255],"0xfbe13398":"","HeaderGroup":"0x0","LayoutGroup":"0x0"}
     TabletOverrideLoadable: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
     0xbce152b: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xd7cb25a0: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -1744,7 +1728,7 @@ class 0x32233c05():
     0xd98213cf: (List, 0x5, String, 0x0) = ["","","","",""]
     pass
 
-class 0x32790cbf(0x27d92a31):
+class 0x32790cbf(GameEntityBlock):
     Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
@@ -1817,16 +1801,13 @@ class 0x34639b56(0xca17e84f):
     NewValue: (Pointer, 0x0, 0x0, IFloatGet) = null
     pass
 
-class 0x3497f0cf():
-    pass
-
 class 0x349845d9(ViewControllerFilterI):
     TFTSetData: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x349eb7c1():
     Entries: (List2, 0x0, Embed, 0x4ebb680d) = []
-    0xa42ce6b4: (F32, 0x0, 0x0, 0x0) = 10.0
+    MaxTimeout: (F32, 0x0, 0x0, 0x0) = 10.0
     pass
 
 class 0x34a5a0c9():
@@ -1859,7 +1840,7 @@ class 0x34d37457():
 class 0x34ecdf00():
     pass
 
-class 0x34f2d06e(0x3497f0cf):
+class 0x34f2d06e(GameEntityComponent):
     pass
 
 class 0x34f43159(0x6ca3cfd):
@@ -1946,9 +1927,6 @@ class 0x37755a8f():
     Overrides: (List2, 0x0, Embed, 0x958b66ff)
     pass
 
-class 0x377850f3(0x90b7110d):
-    pass
-
 class 0x37841b56(0xe561be2e):
     value: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -1989,7 +1967,7 @@ class 0x38246322():
 
 class 0x38488a13(IOptionItem):
     template: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xef3b793d: (U8, 0x0, 0x0, 0x0) = 1
+    DisplayType: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class 0x38638e52(IGameModeConfig):
@@ -2012,7 +1990,7 @@ class 0x38749c0a(TftCutsceneMissileClip):
     pass
 
 class 0x38a7923b():
-    0x29ab62c2: (List2, 0x0, Link, 0xb041c60a) = []
+    Variables: (List2, 0x0, Link, 0xb041c60a) = []
     name: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -2101,7 +2079,7 @@ class 0x3a0c947d():
     0x66cc5027: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x3a1a2ab8(0xc03c9e4e):
+class 0x3a1a2ab8(BaseParams):
     pass
 
 class 0x3a3de0cc(0xe2a48eac):
@@ -2114,7 +2092,7 @@ class 0x3a6d87a7():
     0xe0fac7b0: (Map, U32, Embed, 0xb51d7e6e) = {}
     pass
 
-class 0x3a8e6763(0xa91b85e3):
+class 0x3a8e6763(OptionTemplateBase):
     QuickCastButtonPos: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x4248aa99: (Hash, 0x0, 0x0, 0x0) = "0x0"
     hotkeyModifierText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2134,14 +2112,14 @@ class 0x3aa4575e():
     0x819816ff: (Map, Hash, Pointer, IScriptValueGet) = {}
     pass
 
-class 0x3aa63a24(0x27d92a31):
+class 0x3aa63a24(GameEntityBlock):
     0x18c117f4: (Pointer, 0x0, 0x0, IFloatGet) = {}
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     0x94018232: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
 class 0x3ab4ee7c():
-    0x4c7baf5e: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    DividerElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x86d04b5b: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xab220667: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2248,7 +2226,7 @@ class 0x3ca1fe0():
     0x4e1a2c8: (Bool, 0x0, 0x0, 0x0) = false
     0x56670932: (Bool, 0x0, 0x0, 0x0) = true
     0xb0f77798: (List2, 0x0, Embed, DynamicsJointTreeData) = []
-    0xbb2fa3e3: (Embed, 0x0, 0x0, DynamicsChainProperties) = {"0x583d67c2":{"Curve":null,"UseCurve":true,"value":1.0},"0x6e48edbe":false,"0x967e8270":{"Curve":null,"UseCurve":true,"value":1.0},"0xb055bd6a":{"Curve":null,"UseCurve":true,"value":1.0},"0xcb22ec08":{"Curve":null,"UseCurve":true,"value":0.5},"0xd30ce0f0":{"Curve":null,"UseCurve":true,"value":1.0},"0xfa10a755":{"Curve":null,"UseCurve":true,"value":1.0},"Damping":{"Curve":null,"UseCurve":true,"value":0.5},"JointRadius":{"Curve":null,"UseCurve":true,"value":5.0},"LimitAngle":{"Curve":null,"UseCurve":true,"value":180.0},"Stretch":{"Curve":null,"UseCurve":true,"value":0.0}}
+    ChainProperties: (Embed, 0x0, 0x0, DynamicsChainProperties) = {"0x583d67c2":{"Curve":null,"UseCurve":true,"value":1.0},"0x6e48edbe":false,"0x967e8270":{"Curve":null,"UseCurve":true,"value":1.0},"0xb055bd6a":{"Curve":null,"UseCurve":true,"value":1.0},"0xcb22ec08":{"Curve":null,"UseCurve":true,"value":0.5},"0xd30ce0f0":{"Curve":null,"UseCurve":true,"value":1.0},"0xfa10a755":{"Curve":null,"UseCurve":true,"value":1.0},"Damping":{"Curve":null,"UseCurve":true,"value":0.5},"JointRadius":{"Curve":null,"UseCurve":true,"value":5.0},"LimitAngle":{"Curve":null,"UseCurve":true,"value":180.0},"Stretch":{"Curve":null,"UseCurve":true,"value":0.0}}
     pass
 
 class 0x3ca2b710():
@@ -2393,7 +2371,7 @@ class 0x3f4b8c5(0xece68ca6):
 class 0x3f667d7e(InputEventBoolKeybind):
     pass
 
-class 0x3fa64abf(0x27d92a31):
+class 0x3fa64abf(GameEntityBlock):
     rotation: (Pointer, 0x0, 0x0, IVectorGet) = null
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
@@ -2451,11 +2429,11 @@ class 0x402c056e():
     pass
 
 class 0x4036941a(0xc9ed1a3e):
-    0x54ff80d3: (Pointer, 0x0, 0x0, 0x36255113) = null
+    PrimaryEvent: (Pointer, 0x0, 0x0, 0x36255113) = null
     pass
 
 class 0x40405c82():
-    0x140c8eed: (List2, 0x0, Pointer, ITeam) = []
+    Teams: (List2, 0x0, Pointer, ITeam) = []
     Color: (Embed, 0x0, 0x0, 0x3b4c602e) = {"DefaultColor":[0,0,0,255],"colorblindColor":null}
     pass
 
@@ -2490,7 +2468,7 @@ class 0x4138a897():
     Statemachine: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x4141c557(0xc03c9e4e):
+class 0x4141c557(BaseParams):
     pass
 
 class 0x4146f732(InputEventBoolKeybind):
@@ -2537,10 +2515,6 @@ class 0x426aa047(ViewController):
     TitleText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x426acfe3(IGameModeConfig):
-    0xac6b058c: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
 class 0x4283375a():
     InputParams: (List2, 0x0, String, 0x0) = []
     FunctionName: (String, 0x0, 0x0, 0x0) = ""
@@ -2575,14 +2549,14 @@ class 0x42dcedbc():
     TimerVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x42edcef3(0xa91b85e3):
+class 0x42edcef3(OptionTemplateBase):
     0x12c7e6ba: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x362361e8: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x48c5b21b: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x4ee8676d: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x57c7bea0: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x5f7a16c3: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x666a9553: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    PipIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xad7d5fbf: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xe07bb3c7: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -2618,7 +2592,7 @@ class 0x43b8e695(ICastRequirement):
     0xa117890c: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0x43e3a4d4(0xc03c9e4e):
+class 0x43e3a4d4(BaseParams):
     pass
 
 class 0x43e9418e(GameModeConstant):
@@ -2628,7 +2602,7 @@ class 0x43e9418e(GameModeConstant):
 class 0x43f3ebf6():
     pass
 
-class 0x442b234c(0xc03c9e4e):
+class 0x442b234c(BaseParams):
     pass
 
 class 0x44705030():
@@ -2641,10 +2615,6 @@ class 0x44852d75(IVfxVector3Driver):
     looping: (Bool, 0x0, 0x0, 0x0) = false
     ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
     colors: (Embed, 0x0, 0x0, 0xf7711a64) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
-    pass
-
-class 0x449b05d1():
-    0x18ba7a52: (List2, 0x0, Link, ProgressTrack) = []
     pass
 
 class 0x44ad5085(InputEventBoolKeybind):
@@ -2669,12 +2639,7 @@ class 0x45a556cd(0x26d26471):
     AndConditions: (List2, 0x0, Pointer, 0x26d26471) = []
     pass
 
-class 0x45b16d5b(0xc03c9e4e):
-    pass
-
-class 0x45d6060(InputEventBoolKeybind):
-    0x4d5476d2: (U32, 0x0, 0x0, 0x0) = 0
-    PingCategory: (U8, 0x0, 0x0, 0x0) = 0
+class 0x45b16d5b(BaseParams):
     pass
 
 class 0x45f140fc():
@@ -2712,8 +2677,8 @@ class 0x46a048a9(ITimerView):
 class 0x46a7786(0xece68ca6):
     pass
 
-class 0x46b4ec0a(0xc03c9e4e):
-    0x2370e859: (Bool, 0x0, 0x0, 0x0) = false
+class 0x46b4ec0a(BaseParams):
+    Starting: (Bool, 0x0, 0x0, 0x0) = false
     0x4be35766: (F32, 0x0, 0x0, 0x0) = 0.0
     Team: (U32, 0x0, 0x0, 0x0) = 0
     pass
@@ -2768,7 +2733,7 @@ class 0x487b1677():
     pass
 
 class 0x48b525af(IUiTextureDataProvider):
-    0xaaea5743: (String, 0x0, 0x0, 0x0) = ""
+    File: (String, 0x0, 0x0, 0x0) = ""
     Loop: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
@@ -2816,7 +2781,7 @@ class 0x4946e8cf():
     tags: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0x4957da2f(0x27d92a31):
+class 0x4957da2f(GameEntityBlock):
     Prefab: (Pointer, 0x0, 0x0, 0xceb08455) = {}
     0x7addff1c: (Embed, 0x0, 0x0, 0x9def8cb) = {"Table":{},"Var":""}
     Position: (Pointer, 0x0, 0x0, IVectorGet) = null
@@ -2855,13 +2820,13 @@ class 0x4a253f91(PropertyTraits):
 
 class 0x4a3629a2(0xc8093bd):
     0x131ebad4: (Option, 0x0, String, 0x0) = null
-    0x2a4a32b2: (Option, 0x0, String, 0x0) = null
+    Platform: (Option, 0x0, String, 0x0) = null
     0x87d000ca: (String, 0x0, 0x0, 0x0) = ""
     0x92cbcf2: (Option, 0x0, String, 0x0) = null
     queueId: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x4a5be08a(0xc03c9e4e):
+class 0x4a5be08a(BaseParams):
     pass
 
 class 0x4a70b12c():
@@ -2907,7 +2872,7 @@ class 0x4b24468b():
     Outline: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x70ed514c: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x8283d47c: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TrackerText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     HitArea: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xbdc1c254: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Meter: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2920,7 +2885,7 @@ class 0x4b26ffad(0x27071fbd):
     value: (Map, U32, Hash, 0x0) = {}
     pass
 
-class 0x4b30a085(0x27d92a31):
+class 0x4b30a085(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     0x47ac0d65: (Pointer, 0x0, 0x0, IFloatGet) = {}
     0x9e8fcd0c: (Pointer, 0x0, 0x0, IBoolGet) = {}
@@ -2938,10 +2903,10 @@ class 0x4bcf438a():
     pass
 
 class 0x4bd85f7d(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Vfx: (Embed, 0x0, 0x0, VfxGeComponentDef) = {"0x63176011":false,"0x658b896a":[],"0x9d9b6793":false,"0x9f499a15":false,"0xf718ab13":false,"AllDimensions":false,"TextureOverride":null,"colorModulate":[1.0,1.0,1.0,1.0],"eyeCandy":false,"system":"0x0"}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    0xe506fa64: (Embed, 0x0, 0x0, BillboardGeComponentDef) = {"0x3c871ab8":[0.0,0.0,0.0,0.0],"0x461a5f31":"0x0","0x584ffb14":false,"0x795c065":false}
+    Billboard: (Embed, 0x0, 0x0, BillboardGeComponentDef) = {"0x3c871ab8":[0.0,0.0,0.0,0.0],"0x461a5f31":"0x0","0x584ffb14":false,"0x795c065":false}
     pass
 
 class 0x4bf50f92(0x37755a8f):
@@ -2966,10 +2931,10 @@ class 0x4ce08984(IGameCalculationPartByCharLevel):
     pass
 
 class 0x4cf74021(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
     Icon: (Embed, 0x0, 0x0, NewIconGeComponentDef) = {"Config":null}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class 0x4d80ee3d():
@@ -2988,7 +2953,7 @@ class 0x4dd20b88(0xb041c60a):
 
 class 0x4e02c1f7(0x7b440079):
     OutputXyz: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
-    OutputColor: (Embed, 0x0, 0x0, 0xab78f6f4) = {"Table":{},"Var":""}
+    OutputColor: (Embed, 0x0, 0x0, ColorTableSet) = {"Table":{},"Var":""}
     Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
     OutputW: (Embed, 0x0, 0x0, FloatTableSet) = {"Table":{},"Var":""}
     pass
@@ -3016,7 +2981,7 @@ class 0x4e7f16fe():
     pass
 
 class 0x4e8d1d3e(IScriptEvent):
-    Owner: (Embed, 0x0, 0x0, 0x851d2116)
+    Owner: (Embed, 0x0, 0x0, EntityTableSet)
     pass
 
 class 0x4e9c58a0():
@@ -3055,7 +3020,7 @@ class 0x4f0aa8a0():
     0x36e9d151: (Bool, 0x0, 0x0, 0x0) = false
     element: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ElementAnchor: (U8, 0x0, 0x0, 0x0) = 4
-    0x5e671471: (Pointer, 0x0, 0x0, 0x7379bca6) = null
+    TooltipIcon: (Pointer, 0x0, 0x0, 0x7379bca6) = null
     0xa620b98f: (List2, 0x0, Embed, 0xd5c5318a) = []
     TooltipAnchor: (U8, 0x0, 0x0, 0x0) = 6
     pass
@@ -3138,14 +3103,6 @@ class 0x5014eb79(InputEventBoolKeybind):
     0x24344877: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x502b0c72():
-    SampleQuality: (U32, 0x0, 0x0, 0x0) = 0
-    0x6509d993: (Bool, 0x0, 0x0, 0x0) = true
-    SampleRadius: (F32, 0x0, 0x0, 0x0) = 25.0
-    BufferScale: (F32, 0x0, 0x0, 0x0) = 0.5
-    power: (F32, 0x0, 0x0, 0x0) = 1.0
-    pass
-
 class 0x50524adc(0xd456bab6):
     0x241519e9: (I32, 0x0, 0x0, 0x0) = 0
     TraitData: (Embed, 0x0, 0x0, TftMapTraitData) = {"ActiveIconColor":[0,0,0,255],"DecoratedName":"","IconPath":"","description":"","displayName":""}
@@ -3169,7 +3126,7 @@ class 0x51150233(0x8214fbc2):
     0xe3635366: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x51255963(0xc03c9e4e):
+class 0x51255963(BaseParams):
     pass
 
 class 0x5140c28(ISequenceActionInstance):
@@ -3224,7 +3181,7 @@ class 0x5206ee88(0x6653bfda):
 class 0x526478f0(0xf9dd7e92):
     pass
 
-class 0x529533b3(0xc03c9e4e):
+class 0x529533b3(BaseParams):
     pass
 
 class 0x537385f5(Cheat):
@@ -3263,7 +3220,7 @@ class 0x547679fe():
     0xffd61edb: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x547b9a32(0xc03c9e4e):
+class 0x547b9a32(BaseParams):
     pass
 
 class 0x5480000a(0xb0607142):
@@ -3272,7 +3229,7 @@ class 0x5480000a(0xb0607142):
     pass
 
 class 0x55047b08():
-    0x264d70c: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
+    TitleColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
     TitleTra: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -3284,7 +3241,7 @@ class 0x55a810cb(0xaf6bce07):
     tags: (List2, 0x0, Link, 0xbad70d09) = []
     pass
 
-class 0x55c61e96(0xc03c9e4e):
+class 0x55c61e96(BaseParams):
     pass
 
 class 0x55c9296f():
@@ -3300,7 +3257,7 @@ class 0x55f6bf86():
 
 class 0x567a9e1b():
     Sequence: (String, 0x0, 0x0, 0x0) = ""
-    0xfe30d09f: (String, 0x0, 0x0, 0x0) = ""
+    Event: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x56b6e09(IFloatParametricUpdater):
@@ -3316,11 +3273,11 @@ class 0x56ca5fcf(ISequenceActionInstance):
 
 class 0x56e39b84(0xc8093bd):
     0x131ebad4: (String, 0x0, 0x0, 0x0) = ""
-    0x38f08bb4: (Option, 0x0, String, 0x0) = null
+    ElementName: (Option, 0x0, String, 0x0) = null
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
     0x81d2abd8: (String, 0x0, 0x0, 0x0) = ""
-    0x9c5ad4fd: (Option, 0x0, String, 0x0) = null
-    0xe07619ca: (String, 0x0, 0x0, 0x0) = ""
+    ModalName: (Option, 0x0, String, 0x0) = null
+    ScreenName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x570328ce(0xb08ef62f):
@@ -3396,7 +3353,7 @@ class 0x5860a1dc(ModalDialogViewController):
     0xffcad394: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x58808e37(0xc03c9e4e):
+class 0x58808e37(BaseParams):
     pass
 
 class 0x589faf60():
@@ -3419,7 +3376,7 @@ class 0x595773f6(IGameModeConfigClient):
     0x160ab337: (F32, 0x0, 0x0, 0x0) = 2.3499999046325684
     0x1a5286ae: (F32, 0x0, 0x0, 0x0) = 1.0499999523162842
     0x1b319ff6: (F32, 0x0, 0x0, 0x0) = 40.0
-    0x309878ad: (U32, 0x0, 0x0, 0x0) = 512
+    TextureSize: (U32, 0x0, 0x0, 0x0) = 512
     0x311ee6fa: (F32, 0x0, 0x0, 0x0) = 0.75
     0x41607dcd: (F32, 0x0, 0x0, 0x0) = 1.850000023841858
     0x45d1ac73: (F32, 0x0, 0x0, 0x0) = 4.75
@@ -3461,7 +3418,7 @@ class 0x59ef46df(0xd0c7ee75):
     pass
 
 class 0x59f5f97e(GameEntityTemplate):
-    0x50a298b: (Embed, 0x0, 0x0, 0xd3dda5e5) = {"0x28e60732":true,"0x37ae4cad":false,"0x539ea54d":false,"0x7168974e":false,"0x9b15d5eb":false,"0xaecee07f":100,"0xc7543bfc":true,"0xfc90acf2":"","Polygon":{"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}}
+    0x50a298b: (Embed, 0x0, 0x0, 0xd3dda5e5) = {"0x28e60732":true,"0x37ae4cad":false,"0x539ea54d":false,"0x9b15d5eb":false,"0xaecee07f":100,"0xc7543bfc":true,"0xfc90acf2":"","DynamicLighting":false,"Polygon":{"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}}
     pass
 
 class 0x5a1f2aca(0xf71f4123):
@@ -3515,7 +3472,7 @@ class 0x5af2b668():
 class 0x5b02aed1(0x2a4d735b, UiElementGroup):
     pass
 
-class 0x5b1048d3(0x12b2d1cc, 0x3497f0cf, 0xc85b063):
+class 0x5b1048d3(0x12b2d1cc, GameEntityComponent, 0xc85b063):
     pass
 
 class 0x5b20a394(ISequenceActionInstance):
@@ -3528,10 +3485,6 @@ class 0x5b2fdd66(0xf9e5b8b9):
 class 0x5b441d9b():
     0x231af825: (String, 0x0, 0x0, 0x0) = ""
     0xc4182067: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x5b4f4df6(0xceb08455, IScriptValueGet):
-    PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x5b559303(IGameModeConfig):
@@ -3551,16 +3504,12 @@ class 0x5b6af6b7(ILogicVector3Driver):
     Concept: (Link, 0x0, 0x0, Vector3Concept) = "0x0"
     pass
 
-class 0x5b728a1e(0xc03c9e4e):
+class 0x5b728a1e(BaseParams):
     pass
 
 class 0x5ba2fb13():
     0xbc58e0e5: (F32, 0x0, 0x0, 0x0) = 1.0
     data: (Link, 0x0, 0x0, TftItemData) = "0x0"
-    pass
-
-class 0x5bb26ea8(ConceptBase):
-    DefaultValue: (Vec3, 0x0, 0x0, 0x0)
     pass
 
 class 0x5bc98d54(0x632fca3c):
@@ -3600,8 +3549,8 @@ class 0x5cafc4e3():
     0x4b8df5f4: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x9f4f0ed8: (Hash, 0x0, 0x0, 0x0) = "0x0"
     HoverRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    data: (List, 0x3, Embed, 0xad9f1783) = [{"0x13927cb2":"0x0","0x2fe884a1":"0x0","0x6a5b6251":"0x0"},{"0x13927cb2":"0x0","0x2fe884a1":"0x0","0x6a5b6251":"0x0"},{"0x13927cb2":"0x0","0x2fe884a1":"0x0","0x6a5b6251":"0x0"}]
-    0xebd43853: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    data: (List, 0x3, Embed, 0xad9f1783) = [{"0x13927cb2":"0x0","0x2fe884a1":"0x0","ValueTooltip":"0x0"},{"0x13927cb2":"0x0","0x2fe884a1":"0x0","ValueTooltip":"0x0"},{"0x13927cb2":"0x0","0x2fe884a1":"0x0","ValueTooltip":"0x0"}]
+    TooltipGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x5cb6b755():
@@ -3647,7 +3596,7 @@ class 0x5cb6b755():
     0xfbf4286e: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x5cccf687(0xc03c9e4e):
+class 0x5cccf687(BaseParams):
     pass
 
 class 0x5cfe6ce7(TftCutsceneArenaLocatorInitializer):
@@ -3660,42 +3609,13 @@ class 0x5cfe6ce7(TftCutsceneArenaLocatorInitializer):
     0xdc12f8d2: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x5d0f7d97(ViewController):
-    0x109da077: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x2ea23974: (Embed, 0x0, 0x0, 0x2ea23974) = {"Frame":"0x0","Group":"0x0","Icon":"0x0","ItemTransitionIn":{"EasingType":0,"TransitionStartDelaySecs":0.0,"TransitionTime":0.10000000149011612,"maxAlpha":255,"minAlpha":0},"Scene":"0x0","SpineStyles":{},"Vfx":"0x0"}
-    0x3db64b22: (String, 0x0, 0x0, 0x0) = ""
-    MainScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x4da6efff: (String, 0x0, 0x0, 0x0) = ""
-    0x54051c58: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x54b1eab: (String, 0x0, 0x0, 0x0) = ""
-    0x56f014d4: (String, 0x0, 0x0, 0x0) = ""
-    0x59fc480: (U32, 0x0, 0x0, 0x0) = 10
-    0x6c2b545: (String, 0x0, 0x0, 0x0) = ""
-    BackgroundIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ActiveFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x76d78bbe: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x83c4b267: (Embed, 0x0, 0x0, 0x2697432e) = {"0x12279fa7":2.0,"0x46e108ef":1.0,"0x552282e2":"0x0","0x909e7f19":"0x0","0xb4e6bd8d":"0x0","0xc5cbeaa4":"","0xdb58f09e":"","0xf681a485":""}
-    0x84907d75: (Pointer, 0x0, 0x0, 0x44705030) = null
-    0x9203914b: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x963ad310: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    PressedFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    PageButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb5a2f478: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    HoverFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    InactiveFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ColumnCount: (U32, 0x0, 0x0, 0x0) = 2
-    MaxPages: (U32, 0x0, 0x0, 0x0) = 1
-    0xdfb5ef06: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    SelectedFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x5d12ba1c(MapAction):
     duration: (F32, 0x0, 0x0, 0x0) = 0.0
     PropName: (String, 0x0, 0x0, 0x0) = ""
     0xa6309169: (U32, 0x0, 0x0, 0x0) = 1
     pass
 
-class 0x5d18fc10(0xc03c9e4e):
+class 0x5d18fc10(BaseParams):
     pass
 
 class 0x5d3f0253(MapGraphicsFeature):
@@ -3715,11 +3635,11 @@ class 0x5d9fffed(BaseEventData):
     pass
 
 class 0x5da4336c(0x8930818a):
-    0x55b10110: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
+    Parameter: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
     Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = {}
     pass
 
-class 0x5df3bc8d(0xc03c9e4e):
+class 0x5df3bc8d(BaseParams):
     pass
 
 class 0x5e1b3750():
@@ -3742,59 +3662,13 @@ class 0x5e518c82(ISequenceAction):
     direction: (Pointer, 0x0, 0x0, 0x94e82d1f) = {}
     pass
 
-class 0x5e73536(ViewController):
-    0x1aa55fe1: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    CompanionLoadoutItemListPanelData: (Embed, 0x0, 0x0, LoadoutItemListPanelData) = {"ButtonArea":"0x0","TitleArea":"0x0","TitleTemplate":"0x0","TitleTextTemplate":"0x0","ViewPanelScene":"0x0"}
-    0x1e8e7b49: (Embed, 0x0, 0x0, 0x1e8e7b49) = {"CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
-    0x2256cd1f: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x2eed7e1b: (Link, 0x0, 0x0, ViewController) = "0x0"
-    SearchbarText: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    SoundOnDeActivate: (String, 0x0, 0x0, 0x0) = ""
-    equipButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ArenaSkinLoadoutGridButtonData: (Embed, 0x0, 0x0, ArenaSkinLoadoutGridButtonData) = {"CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
-    SearchButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x4fc30b29: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    StarShardsStoreDialog: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x548fbc13: (Embed, 0x0, 0x0, LoadoutItemListPanelData) = {"ButtonArea":"0x0","TitleArea":"0x0","TitleTemplate":"0x0","TitleTextTemplate":"0x0","ViewPanelScene":"0x0"}
-    0x5f2cd4eb: (Embed, 0x0, 0x0, 0x420e433d) = {"0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","0xee425ddc":"0x0","GamePassIcon":"0x0","ItemIcon":"0x0","ItemIconText":"0x0","ItemLockIcon":"0x0","RarityGem":"0x0","Scene":"0x0","ViewPaneLink":"0x0"}
-    DamageSkinInfoPanel: (Embed, 0x0, 0x0, LoadoutDamageSkinInfoPanel) = {"0x5683a573":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","0xee425ddc":"0x0","GamePassIcon":"0x0","ItemIcon":"0x0","ItemIconText":"0x0","LockIcon":["0x0","0x0","0x0"],"RarityGem":"0x0","Scene":"0x0","UnownedTierButton":["0x0","0x0","0x0"],"ViewPaneLink":"0x0","tierButton":["0x0","0x0","0x0"]}
-    TabletOverrideLoadable: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
-    0x70e416ac: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x719d99ae: (Embed, 0x0, 0x0, 0xd25f84b0) = {"0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","0xee425ddc":"0x0","GamePassIcon":"0x0","ItemIcon":"0x0","ItemIconText":"0x0","ItemLockIcon":"0x0","RarityGem":"0x0","Scene":"0x0","ViewPaneLink":"0x0"}
-    LoadoutScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ArenaSkinLoadoutItemListPanelData: (Embed, 0x0, 0x0, LoadoutItemListPanelData) = {"ButtonArea":"0x0","TitleArea":"0x0","TitleTemplate":"0x0","TitleTextTemplate":"0x0","ViewPanelScene":"0x0"}
-    0x899e7ee7: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    StarShardCurrencyWidget: (Embed, 0x0, 0x0, TftCurrencyWidget) = {"0x3b061cb9":false,"CurrencyButton":"0x0","TooltipButton":"0x0","TooltipDescriptionTra":"","TooltipOffsetX":0.0,"TooltipOffsetY":0.0,"TooltipTitleTra":""}
-    StarShardCurrencyButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    SoundOnActivate: (String, 0x0, 0x0, 0x0) = ""
-    0xa1d79c7c: (Embed, 0x0, 0x0, LoadoutItemListPanelData) = {"ButtonArea":"0x0","TitleArea":"0x0","TitleTemplate":"0x0","TitleTextTemplate":"0x0","ViewPanelScene":"0x0"}
-    0xa95ede35: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    closeButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xbfd5b639: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
-    0xc7039388: (Embed, 0x0, 0x0, 0xc7039388) = {"CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
-    gridItemButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xcee40baf: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    StarShardDecreaseVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xd2bd41f4: (String, 0x0, 0x0, 0x0) = ""
-    CompanionInfoPanel: (Embed, 0x0, 0x0, LoadoutCompanionInfoPanel) = {"0x4b8c1a00":"0x0","0x5683a573":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0x96e6f1ba":"0x0","0xbd2f7d09":"","0xee425ddc":"0x0","0xf0ed80c8":"","GamePassIcon":"0x0","ItemIcon":"0x0","ItemIconText":"0x0","JustObtainedIcon":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"RarityGem":"0x0","Scene":"0x0","Tier2ButtonFeedbackVfx":"0x0","Tier3ButtonFeedbackVfx":"0x0","UnownedStarShardIcon":["0x0","0x0","0x0"],"UnownedTierButton":["0x0","0x0","0x0"],"UpgradeButtonDisabledFromEntitlementText":"","UpgradeEntitlementErrorButton":"0x0","UpgradeEntitlementErrorTooltipText":"","ViewPaneLink":"0x0","tierButton":["0x0","0x0","0x0"],"upgradeErrorText":"0x0","upgradeInfoText":"0x0","upgradeTierButton":["0x0","0x0","0x0"]}
-    upgradeButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xd5846a0a: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    SearchbarGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ArenaInfoPanel: (Embed, 0x0, 0x0, LoadoutArenaSkinInfoPanel) = {"0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","0xee425ddc":"0x0","GamePassIcon":"0x0","ItemIcon":"0x0","ItemIconText":"0x0","ItemLockIcon":"0x0","RarityGem":"0x0","Scene":"0x0","ViewPaneLink":"0x0"}
-    0xe9adf6a4: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    CompanionLoadoutGridButtonData: (Embed, 0x0, 0x0, CompanionLoadoutGridButtonData) = {"0x516737fb":"0x0","0x5267398e":"0x0","0x53673b21":"0x0","CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
-    DamageSkinLoadoutItemListPanelData: (Embed, 0x0, 0x0, LoadoutItemListPanelData) = {"ButtonArea":"0x0","TitleArea":"0x0","TitleTemplate":"0x0","TitleTextTemplate":"0x0","ViewPanelScene":"0x0"}
-    0xfaf537f0: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    DamageSkinLoadoutGridButtonData: (Embed, 0x0, 0x0, DamageSkinLoadoutGridButtonData) = {"0x516737fb":"0x0","0x5267398e":"0x0","0x53673b21":"0x0","CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
-    pass
-
 class 0x5e7413cb():
     0x2c36fecc: (Option, 0x0, String, 0x0) = null
     0x3e6bd56c: (Option, 0x0, String, 0x0) = null
     0x527d0336: (String, 0x0, 0x0, 0x0) = ""
     timestamp: (String, 0x0, 0x0, 0x0) = "1970-01-01T00:00:00.000Z"
-    0xb86d992: (Option, 0x0, String, 0x0) = null
-    Scope: (Embed, 0x0, 0x0, 0xdc20573a) = {"0x251b4cfe":"","0x3fee2bfa":"","0xabb44364":"","Component":"","Product":""}
+    Instance: (Option, 0x0, String, 0x0) = null
+    Scope: (Embed, 0x0, 0x0, 0xdc20573a) = {"0x251b4cfe":"","0xabb44364":"","Component":"","Environment":"","Product":""}
     pass
 
 class 0x5e9d9da3(ISequenceActionInstance):
@@ -3824,7 +3698,7 @@ class 0x5f33c34():
     pass
 
 class 0x5f38de60(0x859c9c2f):
-    0xbaee8b38: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
+    OnEvent: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     pass
 
 class 0x5f457b8b(ISequenceAction):
@@ -3846,7 +3720,7 @@ class 0x5f945dcb(IContextualCondition):
 class 0x5fa82956(0xff4e30bb):
     0x1757fdc8: (Pointer, 0x0, 0x0, IBoolGet) = null
     Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    OutEntity: (Embed, 0x0, 0x0, 0x851d2116) = {"Table":{},"Var":""}
+    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
     0x7c891337: (Pointer, 0x0, 0x0, IIntGet) = null
     pass
 
@@ -3862,9 +3736,6 @@ class 0x6055e037(0xd866344b):
 class 0x605a9a2f(0x41bb3fd7):
     TargetElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SourceVariable: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x606b91a(ScriptTableSet):
     pass
 
 class 0x607ade7e(TftCutsceneMissileClip):
@@ -3925,7 +3796,7 @@ class 0x61516a3e(ItemSlotDetailedUiData):
     0xfd3c6ba4: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x61891811(0xc03c9e4e):
+class 0x61891811(BaseParams):
     pass
 
 class 0x61902388():
@@ -3941,9 +3812,6 @@ class 0x61b427f(IContextualCondition):
     pass
 
 class 0x62113c15(ITimerController):
-    pass
-
-class 0x622705af(ScriptTableSet):
     pass
 
 class 0x6241da2():
@@ -4033,14 +3901,14 @@ class 0x63fbd3de():
     0x5bd8b396: (String, 0x0, 0x0, 0x0) = ""
     0x829c2960: (Map, I32, String, 0x0) = {}
     RootGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xcb084e46: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Progress: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xcd3fd8ac: (String, 0x0, 0x0, 0x0) = ""
     Frame: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xee10ba86: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x64179f13(0xc03c9e4e):
+class 0x64179f13(BaseParams):
     pass
 
 class 0x641e4225():
@@ -4101,8 +3969,8 @@ class 0x65606039():
     pass
 
 class 0x65720c6a():
-    0x3d4f04d8: (String, 0x0, 0x0, 0x0) = ""
-    0x8252a6f2: (Color, 0x0, 0x0, 0x0) = [140,155,160,255]
+    TagName: (String, 0x0, 0x0, 0x0) = ""
+    TagColor: (Color, 0x0, 0x0, 0x0) = [140,155,160,255]
     pass
 
 class 0x6587b424(IBehaviorScriptBlock):
@@ -4158,7 +4026,7 @@ class 0x6623db8d(0x87e73e28):
 class 0x662c1ec3():
     pass
 
-class 0x663ead72(0xc03c9e4e):
+class 0x663ead72(BaseParams):
     pass
 
 class 0x6653bfda(0x304e703f):
@@ -4174,7 +4042,7 @@ class 0x665c9fe7():
     0xf3ca8ece: (U16, 0x0, 0x0, 0x0) = 1
     pass
 
-class 0x667eafac(0x27d92a31):
+class 0x667eafac(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     Dest: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
     pass
@@ -4197,7 +4065,7 @@ class 0x6693bb9(0x2b00c366):
 class 0x66969f1a(Cheat):
     pass
 
-class 0x66b91c41(0xc03c9e4e):
+class 0x66b91c41(BaseParams):
     pass
 
 class 0x66dc7e9b(IContextualAction):
@@ -4239,7 +4107,7 @@ class 0x68067fa5(0xb5754dad):
     0x5ff6cd50: (List2, 0x0, Pointer, 0xb5754dad) = []
     pass
 
-class 0x680cfd91(0xc03c9e4e):
+class 0x680cfd91(BaseParams):
     pass
 
 class 0x6837de51(0x6dfe8e70):
@@ -4353,7 +4221,7 @@ class 0x6a215e04():
     0x385606a7: (String, 0x0, 0x0, 0x0) = ""
     WEIGHT: (F32, 0x0, 0x0, 0x0) = 0.0
     0x582d31f5: (String, 0x0, 0x0, 0x0) = ""
-    0x66bcd454: (U8, 0x0, 0x0, 0x0) = 2
+    ProviderType: (U8, 0x0, 0x0, 0x0) = 2
     IconPath: (String, 0x0, 0x0, 0x0) = ""
     0x7b846fc3: (String, 0x0, 0x0, 0x0) = ""
     0x7cf93087: (String, 0x0, 0x0, 0x0) = ""
@@ -4455,7 +4323,7 @@ class 0x6b91544a(IGameModeConfig):
     UpscaleTextures: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
-class 0x6ba221d7(0x27d92a31):
+class 0x6ba221d7(GameEntityBlock):
     duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
@@ -4476,7 +4344,7 @@ class 0x6c050131(Cheat):
     pass
 
 class 0x6c455dac(0x333759dd):
-    0x23908b24: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ParentGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x3323ae7f: (Embed, 0x0, 0x0, UnitShopItemData) = {"0xa6d1796b":null,"0xb11cb7d":null,"ClickRejectedVFX":"0x0","GoldCostIcon":"0x0","GoldCostIconDisabled":"0x0","HealthCostIcon":"0x0","HealthCostIconDisabled":"0x0","HighlightOnestar":"0x0","HighlightThreestar":"0x0","HighlightTwostar":"0x0","HitTarget":"0x0","Rarity6CostHealthVfx":"0x0","Scene":"0x0","TeamPlanReminder":"0x0","UnitCostText":"0x0","UnitNameText":"0x0","UnitPortrait":"0x0","description":"0x0","frames":{},"styles":{},"traits":[]}
     pass
 
@@ -4493,7 +4361,7 @@ class 0x6c84152e():
     AgainstVote: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x6c93a1b4(0x27d92a31):
+class 0x6c93a1b4(GameEntityBlock):
     PassThroughParameters: (Map, Hash, Pointer, IScriptValueGet) = {}
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     Sequence: (Embed, 0x0, 0x0, ScriptSequence) = {"blocks":[]}
@@ -4542,8 +4410,8 @@ class 0x6d7df79c(Cheat):
 
 class 0x6db33e0c():
     0x12cef16b: (Pointer, 0x0, 0x0, 0x2b365a82) = null
-    0x491204c2: (Embed, 0x0, 0x0, 0xa9253585) = {"0x241c258b":[0,0,0,255],"0x3c4b5c83":"","0x3ddb00":1.0,"0x44f732bc":"","0x81d55cb7":"0x0","0x88ee5bd9":{"0x3845cab":[],"0x5bd8b396":"","0x829c2960":{},"0xcb084e46":"0x0","0xcd3fd8ac":"","0xee10ba86":"","Frame":"0x0","Icon":"0x0","RootGroup":"0x0","description":"0x0"},"0x8a73adc8":[0,0,0,255],"0x9d8818ba":[0,0,0,255],"0xb80d6251":[0,0,0,255],"0xbec348d3":"0x0","0xf3c1ea09":[0,0,0,255],"0xfbe13398":"","HeaderGroup":"0x0","LayoutGroup":"0x0"}
-    0x507c22b2: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x491204c2: (Embed, 0x0, 0x0, 0xa9253585) = {"0x241c258b":[0,0,0,255],"0x3c4b5c83":"","0x3ddb00":1.0,"0x44f732bc":"","0x81d55cb7":"0x0","0x88ee5bd9":{"0x3845cab":[],"0x5bd8b396":"","0x829c2960":{},"0xcd3fd8ac":"","0xee10ba86":"","Frame":"0x0","Icon":"0x0","Progress":"0x0","RootGroup":"0x0","description":"0x0"},"0x8a73adc8":[0,0,0,255],"0x9d8818ba":[0,0,0,255],"0xb80d6251":[0,0,0,255],"0xbec348d3":"0x0","0xf3c1ea09":[0,0,0,255],"0xfbe13398":"","HeaderGroup":"0x0","LayoutGroup":"0x0"}
+    RowGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x829c2960: (Map, I32, String, 0x0) = {}
     name: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TooltipRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -4554,7 +4422,7 @@ class 0x6db33e0c():
 
 class 0x6db59116(0x333759dd):
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xa3a16c61: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SelectionButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     HighlightIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -4602,7 +4470,7 @@ class 0x6f505a2(ILogicDriver):
 
 class 0x6f7bac4e(IGameModeConfigClient):
     DefaultColor: (Embed, 0x0, 0x0, 0x3b4c602e) = {"DefaultColor":[0,0,0,255],"colorblindColor":null}
-    0x69602260: (List2, 0x0, Embed, 0x40405c82) = []
+    TeamColors: (List2, 0x0, Embed, 0x40405c82) = []
     pass
 
 class 0x7015f762(0x709be6c3):
@@ -4616,7 +4484,7 @@ class 0x7015f762(0x709be6c3):
 class 0x702b5022():
     pass
 
-class 0x702e9809(0x3497f0cf):
+class 0x702e9809(GameEntityComponent):
     pass
 
 class 0x7040ad29(0x692bf354):
@@ -4658,14 +4526,14 @@ class 0x70cdee97(IOptionItem):
     pass
 
 class 0x70f5ed1c(IContextualCondition):
-    0x49e47ecd: (Embed, 0x0, 0x0, 0xe46a1cdb) = {"0x1ccf05c7":0,"0x6b5e21ef":0,"SourceId":0,"objectives":0}
+    BaseSource: (Embed, 0x0, 0x0, 0xe46a1cdb) = {"0x6b5e21ef":0,"CountThreshold":0,"SourceId":0,"objectives":0}
     CompareOp: (U8, 0x0, 0x0, 0x0) = 3
-    0xb95ee9e0: (Embed, 0x0, 0x0, 0xe46a1cdb) = {"0x1ccf05c7":0,"0x6b5e21ef":0,"SourceId":0,"objectives":0}
+    0xb95ee9e0: (Embed, 0x0, 0x0, 0xe46a1cdb) = {"0x6b5e21ef":0,"CountThreshold":0,"SourceId":0,"objectives":0}
     pass
 
 class 0x714fe7b7(GameEntityTemplate):
     Light: (Embed, 0x0, 0x0, DynamicSpotlightGeComponentDef) = {"0x75708a14":false,"0xf6298343":"0x0","Aspect":1.0,"Color":[1.0,1.0,1.0,1.0],"HdrScale":5.0,"Impact":3,"LightChannels":1,"Near":10.0,"ProjectedTexture":"","UpdaterType":"0x0","far":500.0,"fov":60.0,"intensity":1.0}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class 0x7169f36b(IGameModeConfigClient):
@@ -4698,7 +4566,7 @@ class 0x71fdeba8():
     Node: (Link, 0x0, 0x0, 0xa4613655) = "0x0"
     pass
 
-class 0x720982c5(0xc03c9e4e):
+class 0x720982c5(BaseParams):
     pass
 
 class 0x72553f91():
@@ -4787,7 +4655,7 @@ class 0x754c268(ICharacterSubcondition):
     0xcd2c8b8f: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x75582751(0xc03c9e4e):
+class 0x75582751(BaseParams):
     pass
 
 class 0x755a19ce():
@@ -4927,15 +4795,11 @@ class 0x773b9e77():
 class 0x777dfe18():
     pass
 
-class 0x77a77af(ConceptBase):
-    DefaultValue: (Vec4, 0x0, 0x0, 0x0)
-    pass
-
 class 0x77aa8711(0x43f3ebf6):
     NextState: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x77aafba(0xc03c9e4e):
+class 0x77aafba(BaseParams):
     pass
 
 class 0x77b42f3f(ILogicBoolDriver):
@@ -4990,10 +4854,6 @@ class 0x791eb92e():
     0xffb178fe: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x79292790(InputEventBoolKeybind):
-    EmoteType: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0x7945f8bd(ISequenceActionInstance):
     pass
 
@@ -5038,17 +4898,13 @@ class 0x7a1a2d27():
     DefaultPhysicalDamageFormat: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
     pass
 
-class 0x7a1b11f3(0x27d92a31):
+class 0x7a1b11f3(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     Dest: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
     pass
 
 class 0x7a1cab0d():
     texturePath: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x7a28c026(ConceptBase):
-    DefaultValue: (Bool, 0x0, 0x0, 0x0)
     pass
 
 class 0x7a2b62e():
@@ -5107,7 +4963,7 @@ class 0x7acf50f9(0x9cce6baf):
     pass
 
 class 0x7aed9622():
-    0x129ae887: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    InventoryType: (Hash, 0x0, 0x0, 0x0) = "0x0"
     itemID: (U32, 0x0, 0x0, 0x0) = 1
     description: (String, 0x0, 0x0, 0x0) = ""
     0x536c1dd1: (String, 0x0, 0x0, 0x0) = ""
@@ -5160,7 +5016,7 @@ class 0x7c809adf():
     0xf5a8c9b7: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
-class 0x7c85ea46(0x27d92a31):
+class 0x7c85ea46(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     Dest: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
     pass
@@ -5215,17 +5071,17 @@ class 0x7d564f9a():
     pass
 
 class 0x7d98777d():
-    0x1ee9686c: (Embed, 0x0, 0x0, 0x1ee9686c) = {"0x1775abaf":"0x0","0x19cc6053":"0x0","0x2dbcf122":"0x0","0x3510dea4":"0x0","0x3a738c83":"0x0","0x3ae31586":"0x0","0x3e5bf916":"0x0","0x5f832b26":"0x0","0x67cca4a":"0x0","0x6a4fa98c":"0x0","0x6ac4e44f":"0x0","0x70682a7":"0x0","0x73a7c872":"0x0","0x77b17247":"0x0","0x792f614a":"0x0","0x7a3e799b":"0x0","0x7afcb694":"0x0","0x8281a415":"0x0","0x829dfd5f":"0x0","0x8b507734":"0x0","0x8b5831bd":"0x0","0x90214be4":"0x0","0x94311ea0":"0x0","0x98912876":"0x0","0x9bbb4468":"0x0","0x9f77283f":"0x0","0xa8a230d9":"0x0","0xa8d720d0":"0x0","0xa9769d67":"0x0","0xaf4d582d":"0x0","0xb4a64e19":"0x0","0xba9bae76":[],"0xbc0f0c0":"0x0","0xc402fafa":"0x0","0xd0cc4924":"0x0","0xd5ed622":"0x0","0xdc4cc17b":"0x0","0xe1bc2b5b":"0x0","0xe1ea923b":"0x0","0xf8965958":"0x0","0xfa045deb":"0x0"}
+    0x1ee9686c: (Embed, 0x0, 0x0, 0x1ee9686c) = {"0x1775abaf":"0x0","0x19cc6053":"0x0","0x2dbcf122":"0x0","0x3510dea4":"0x0","0x3a738c83":"0x0","0x3ae31586":"0x0","0x3e5bf916":"0x0","0x5f832b26":"0x0","0x67cca4a":"0x0","0x6a4fa98c":"0x0","0x6ac4e44f":"0x0","0x70682a7":"0x0","0x73a7c872":"0x0","0x77b17247":"0x0","0x7a3e799b":"0x0","0x8281a415":"0x0","0x829dfd5f":"0x0","0x8b507734":"0x0","0x8b5831bd":"0x0","0x90214be4":"0x0","0x94311ea0":"0x0","0x98912876":"0x0","0x9bbb4468":"0x0","0xa8a230d9":"0x0","0xa8d720d0":"0x0","0xa9769d67":"0x0","0xb4a64e19":"0x0","0xba9bae76":[],"0xc402fafa":"0x0","0xd0cc4924":"0x0","0xd5ed622":"0x0","0xdc4cc17b":"0x0","0xe1ea923b":"0x0","0xf8965958":"0x0","0xfa045deb":"0x0","ChampionKill":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","KillingSpree":"0x0","Respawn":"0x0"}
     0x4249f0a2: (Embed, 0x0, 0x0, 0x7a55218f) = {"0xc8b6a592":null,"0xef5104c7":"0x0","disabled":false,"priority":0.5}
     0x64e312ae: (Embed, 0x0, 0x0, 0x33d1cb2e) = {"queues":[]}
     0x6e654622: (Embed, 0x0, 0x0, 0x33d1cb2e) = {"queues":[]}
     0x93c1d30: (String, 0x0, 0x0, 0x0) = ""
-    0x9963c03a: (Embed, 0x0, 0x0, 0x9963c03a) = {"0x1775abaf":"0x0","0x19cc6053":"0x0","0x2dbcf122":"0x0","0x3510dea4":"0x0","0x3a738c83":"0x0","0x3ae31586":"0x0","0x3e5bf916":"0x0","0x5f832b26":"0x0","0x67cca4a":"0x0","0x6a4fa98c":"0x0","0x6ac4e44f":"0x0","0x70682a7":"0x0","0x73a7c872":"0x0","0x77b17247":"0x0","0x792f614a":"0x0","0x7a3e799b":"0x0","0x7afcb694":"0x0","0x8281a415":"0x0","0x829dfd5f":"0x0","0x8b507734":"0x0","0x8b5831bd":"0x0","0x90214be4":"0x0","0x94311ea0":"0x0","0x98912876":"0x0","0x9bbb4468":"0x0","0x9f77283f":"0x0","0xa8a230d9":"0x0","0xa8d720d0":"0x0","0xa9769d67":"0x0","0xaf4d582d":"0x0","0xb4a64e19":"0x0","0xba9bae76":[],"0xbc0f0c0":"0x0","0xc402fafa":"0x0","0xd0cc4924":"0x0","0xd5ed622":"0x0","0xdc4cc17b":"0x0","0xe1bc2b5b":"0x0","0xe1ea923b":"0x0","0xf8965958":"0x0","0xfa045deb":"0x0"}
+    0x9963c03a: (Embed, 0x0, 0x0, 0x9963c03a) = {"0x1775abaf":"0x0","0x19cc6053":"0x0","0x2dbcf122":"0x0","0x3510dea4":"0x0","0x3a738c83":"0x0","0x3ae31586":"0x0","0x3e5bf916":"0x0","0x5f832b26":"0x0","0x67cca4a":"0x0","0x6a4fa98c":"0x0","0x6ac4e44f":"0x0","0x70682a7":"0x0","0x73a7c872":"0x0","0x77b17247":"0x0","0x7a3e799b":"0x0","0x8281a415":"0x0","0x829dfd5f":"0x0","0x8b507734":"0x0","0x8b5831bd":"0x0","0x90214be4":"0x0","0x94311ea0":"0x0","0x98912876":"0x0","0x9bbb4468":"0x0","0xa8a230d9":"0x0","0xa8d720d0":"0x0","0xa9769d67":"0x0","0xb4a64e19":"0x0","0xba9bae76":[],"0xc402fafa":"0x0","0xd0cc4924":"0x0","0xd5ed622":"0x0","0xdc4cc17b":"0x0","0xe1ea923b":"0x0","0xf8965958":"0x0","0xfa045deb":"0x0","ChampionKill":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","KillingSpree":"0x0","Respawn":"0x0"}
     0xb01bdea6: (F32, 0x0, 0x0, 0x0) = 0.0
     0xb2246553: (List2, 0x0, Link, 0xb2246553) = []
     pass
 
-class 0x7da835ce(0xc03c9e4e):
+class 0x7da835ce(BaseParams):
     0x79ef5f32: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -5317,7 +5173,7 @@ class 0x7ebc692d(0x26c7d48a):
     0xcb49a225: (F32, 0x0, 0x0, 0x0) = 10.0
     pass
 
-class 0x7ecb2959(0x129e311, 0x2576b4fc, 0x3497f0cf, 0x4feb7d99):
+class 0x7ecb2959(0x129e311, 0x2576b4fc, GameEntityComponent, 0x4feb7d99):
     pass
 
 class 0x7ee2ba62():
@@ -5369,7 +5225,7 @@ class 0x7fb92f53():
     0xc865acd9: (F32, 0x0, 0x0, 0x0) = 3.4028234663852886e+38
     pass
 
-class 0x7fd71604(0xc03c9e4e):
+class 0x7fd71604(BaseParams):
     pass
 
 class 0x7ff30cbd():
@@ -5404,7 +5260,7 @@ class 0x804056d8():
     pass
 
 class 0x80503cf9():
-    0x6b017c21: (I32, 0x0, 0x0, 0x0) = 0
+    Delta: (I32, 0x0, 0x0, 0x0) = 0
     Counter: (Link, 0x0, 0x0, CounterDefinition) = "0x0"
     pass
 
@@ -5426,13 +5282,13 @@ class 0x80996016(GameModeConstant):
     items: (List2, 0x0, Link, TftItemData) = []
     pass
 
-class 0x80ab8a15(0xc03c9e4e):
+class 0x80ab8a15(BaseParams):
     pass
 
 class 0x80b33bc2(0xb5754dad):
     pass
 
-class 0x80c4552b(0x27d92a31):
+class 0x80c4552b(GameEntityBlock):
     Enabled: (Pointer, 0x0, 0x0, IBoolGet) = null
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     Icon: (Link, 0x0, 0x0, 0x64ee2fb1) = "0x0"
@@ -5465,7 +5321,7 @@ class 0x81169a8b():
     0x7b6954ef: (Link, 0x0, 0x0, Sequence) = "0x0"
     pass
 
-class 0x81199b5b(0xc03c9e4e):
+class 0x81199b5b(BaseParams):
     pass
 
 class 0x811d959e():
@@ -5490,7 +5346,7 @@ class 0x81580a34(0x116f5c56):
 class 0x81665919(ItemShopViewController):
     pass
 
-class 0x817d288c(0xc03c9e4e):
+class 0x817d288c(BaseParams):
     pass
 
 class 0x8190bc9f():
@@ -5503,8 +5359,8 @@ class 0x8190bc9f():
     pass
 
 class 0x81a1e232(0xff4e30bb):
-    OutEntity: (Embed, 0x0, 0x0, 0x851d2116) = {"Table":{},"Var":"IterEntity"}
-    0x58c4484: (Pointer, 0x0, 0x0, IVectorGet) = null
+    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":"IterEntity"}
+    Center: (Pointer, 0x0, 0x0, IVectorGet) = null
     0x90f1641f: (F32, 0x0, 0x0, 0x0) = 0.0
     radius: (Pointer, 0x0, 0x0, IFloatGet) = null
     pass
@@ -5634,7 +5490,7 @@ class 0x83efb6f9():
 class 0x841c6df2(0x7f631ac9):
     pass
 
-class 0x84392d1(0xc03c9e4e):
+class 0x84392d1(BaseParams):
     pass
 
 class 0x843e3fe2():
@@ -5652,10 +5508,6 @@ class 0x8444401a():
 
 class 0x8482aa12(IContextualAction):
     0x57edc39: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
-    pass
-
-class 0x84b9422f(MapPlaceable):
-    items: (List2, 0x0, Pointer, MapPlaceableBase) = []
     pass
 
 class 0x84c56837():
@@ -5677,14 +5529,8 @@ class 0x85026d0(0x87e73e28):
     AnimationOverrides: (Map, String, String, 0x0) = {}
     pass
 
-class 0x851d2116(ScriptTableSet):
-    pass
-
 class 0x856b3943(0x7f631ac9):
     0x5ff6cd50: (List2, 0x0, Pointer, 0x7f631ac9) = []
-    pass
-
-class 0x856ba9bc(ViewController):
     pass
 
 class 0x8577a3ef(ICharacter, BinFileContainer):
@@ -5699,7 +5545,7 @@ class 0x858de500(ViewController):
     pass
 
 class 0x859c9c2f():
-    0x7632a5e7: (U32, 0x0, 0x0, 0x0) = 0
+    EventType: (U32, 0x0, 0x0, 0x0) = 0
     0xe7623bb7: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
@@ -5771,7 +5617,7 @@ class 0x86bb77c9(ViewController):
     0xdfa4dd93: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x86bd206d(0xc03c9e4e):
+class 0x86bd206d(BaseParams):
     pass
 
 class 0x86e510f8():
@@ -5814,7 +5660,7 @@ class 0x8819bac7():
 class 0x884d167f(0xc8829f15):
     pass
 
-class 0x88679cf5(0xc03c9e4e):
+class 0x88679cf5(BaseParams):
     pass
 
 class 0x886b77ed():
@@ -5841,7 +5687,7 @@ class 0x892dcebb(0xae95bf93):
 class 0x8930818a():
     pass
 
-class 0x89339882(0xc03c9e4e):
+class 0x89339882(BaseParams):
     pass
 
 class 0x8948ed01():
@@ -5871,7 +5717,7 @@ class 0x895afb93():
 class 0x8969bfa(0x3ab4ee7c):
     AugmentGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x3588bd39: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x5e940ec: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    AugmentRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AugmentIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x8493cde2: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AugmentButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -5932,10 +5778,6 @@ class 0x8a46e486(ISequenceAction):
     AnimationName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Object: (Pointer, 0x0, 0x0, 0x8b54c9a7) = {}
     0xcd97640d: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0x8a533844(GameEntityTemplate):
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class 0x8a96ea3c(IGameCalculationPart):
@@ -6013,7 +5855,7 @@ class 0x8cc8ea8a():
 class 0x8d31b69b():
     0x4796bf5f: (String, 0x0, 0x0, 0x0) = ""
     Milestones: (List2, 0x0, Embed, 0x898bb7cb) = []
-    0x6b06978: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":""}
+    QuestIcon: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":""}
     0x9d67381: (List2, 0x0, Pointer, 0x8685eb51) = []
     QuestName: (String, 0x0, 0x0, 0x0) = ""
     0xbc1b3d88: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6121,7 +5963,7 @@ class 0x8ffd7c61(UiElementGroupData):
     Alpha: (F32, 0x0, 0x0, 0x0) = 1.0
     Position: (Pointer, 0x0, 0x0, UiPositionBase) = {}
     0xb700ae39: (Pointer, 0x0, 0x0, 0x4e9c58a0) = null
-    0xd2d047f1: (Pointer, 0x0, 0x0, 0x55c9296f) = null
+    ScrollSettings: (Pointer, 0x0, 0x0, 0x55c9296f) = null
     Material: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
     pass
 
@@ -6210,8 +6052,8 @@ class 0x91b37a79(IScriptBlock):
     ConceptObject: (Pointer, 0x0, 0x0, 0x662c1ec3)
     pass
 
-class 0x91ccdfbc(0x27d92a31):
-    OutEntity: (Embed, 0x0, 0x0, 0x851d2116) = {"Table":{},"Var":""}
+class 0x91ccdfbc(GameEntityBlock):
+    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
     0x7190b62d: (Pointer, 0x0, 0x0, 0xceb08455) = {}
     Position: (Pointer, 0x0, 0x0, IVectorGet) = null
     pass
@@ -6279,7 +6121,7 @@ class 0x927b13d0(0xca17e84f):
     NewValue: (Pointer, 0x0, 0x0, IVectorGet) = null
     pass
 
-class 0x92a4d6f9(0x27d92a31):
+class 0x92a4d6f9(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     ScriptDef: (Embed, 0x0, 0x0, 0x3aa4575e) = {"0x819816ff":{},"Script":"0x0"}
     pass
@@ -6367,11 +6209,11 @@ class 0x948c3e89():
     pass
 
 class 0x94a73165(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     IsReplicated: (Bool, 0x0, 0x0, 0x0) = true
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    0xd01ec7fc: (Embed, 0x0, 0x0, SfxGeComponentDef) = {"0x6a6c6fe":false,"FillVolume":true,"SoundName":"","shapeData":null}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sfx: (Embed, 0x0, 0x0, SfxGeComponentDef) = {"0x6a6c6fe":false,"FillVolume":true,"SoundName":"","shapeData":null}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class 0x94acbb37(0x99320e3c):
@@ -6552,9 +6394,9 @@ class 0x9963c03a():
     0x70682a7: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0x73a7c872: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0x77b17247: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
-    0x792f614a: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
+    ChampionKill: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0x7a3e799b: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
-    0x7afcb694: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
+    GameEnd: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0x8281a415: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0x829dfd5f: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0x8b507734: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
@@ -6563,19 +6405,19 @@ class 0x9963c03a():
     0x94311ea0: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0x98912876: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0x9bbb4468: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
-    0x9f77283f: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
+    Respawn: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xa8a230d9: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xa8d720d0: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xa9769d67: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
-    0xaf4d582d: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
+    GameStart: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xb4a64e19: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xba9bae76: (List2, 0x0, Embed, 0x5f38de60) = []
-    0xbc0f0c0: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
+    KillingSpree: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xc402fafa: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xd0cc4924: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xd5ed622: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xdc4cc17b: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
-    0xe1bc2b5b: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
+    FirstBlood: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xe1ea923b: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xf8965958: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
     0xfa045deb: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
@@ -6586,7 +6428,7 @@ class 0x997d54ab(IVfxVector2Driver):
     Divisor: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     pass
 
-class 0x9984b4a(0xa91b85e3):
+class 0x9984b4a(OptionTemplateBase):
     0x40e1645d: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x55868758: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x60858432: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6602,7 +6444,7 @@ class 0x9999dd64():
     InitialParameters: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
     pass
 
-class 0x99bb100(0xa91b85e3):
+class 0x99bb100(OptionTemplateBase):
     0x56e40e61: (Hash, 0x0, 0x0, 0x0) = "0x0"
     StatusText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Frame: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6651,21 +6493,6 @@ class 0x9a7de981(0x49832ca7):
     value: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x9aa5b4bc(GameEntityTemplate):
-    Script: (Embed, 0x0, 0x0, ScriptGeComponentDef) = {"ScriptDef":{"Scripts":[]}}
-    CharacterMesh: (Embed, 0x0, 0x0, CharacterMeshGeComponentDef) = {"0xb887f6e9":0.0,"IdleAnimationName":"","PlayIdleAnimation":false}
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
-    Statemachine: (Pointer, 0x0, 0x0, StateMachineGeComponentDef) = null
-    dynamicMaterial: (Embed, 0x0, 0x0, DynamicMaterialGeComponentDef) = {}
-    IsReplicated: (Bool, 0x0, 0x0, 0x0) = true
-    Character: (Pointer, 0x0, 0x0, SkinCharacterGeComponentDef) = null
-    Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    Animation: (Embed, 0x0, 0x0, AnimationGeComponentDef) = {}
-    Icon: (Pointer, 0x0, 0x0, NewIconGeComponentDef) = null
-    LightChannels: (Embed, 0x0, 0x0, LightChannelsGeComponentDef) = {"LightChannels":1}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
-    pass
-
 class 0x9ab8b8e6():
     description: (String, 0x0, 0x0, 0x0) = ""
     Vfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6692,12 +6519,6 @@ class 0x9b321633(GameEntityTemplate):
     0xd6ebb885: (Pointer, 0x0, 0x0, 0xfdb6b027) = {}
     pass
 
-class 0x9b62c977():
-    0x865f0649: (String, 0x0, 0x0, 0x0) = ""
-    FilternameTraKey: (String, 0x0, 0x0, 0x0) = ""
-    Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x9bc366ca(ILogicBoolDriver):
     0x267c4080: (Bool, 0x0, 0x0, 0x0) = false
     0x3b0a7a6a: (Bool, 0x0, 0x0, 0x0) = true
@@ -6712,11 +6533,6 @@ class 0x9bc919f2():
     0xc8d0888c: (F32, 0x0, 0x0, 0x0) = 0.0
     0xcd02e270: (F32, 0x0, 0x0, 0x0) = 50.0
     0xe168a4d7: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
-class 0x9bd3c53b(0x857c08ad):
-    0x2cc0bcea: (Link, 0x0, 0x0, UiComponent) = "0x0"
-    0xa9f110a: (Map, Hash, Pointer, 0xb041c60a) = {}
     pass
 
 class 0x9be3a010():
@@ -6735,7 +6551,7 @@ class 0x9c33070d(ILoopScriptBlock):
     Condition: (Pointer, 0x0, 0x0, IScriptCondition) = {}
     pass
 
-class 0x9c545130(0xc03c9e4e):
+class 0x9c545130(BaseParams):
     pass
 
 class 0x9c5b78dd(0xda11137d):
@@ -6753,9 +6569,9 @@ class 0x9c8a0477(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x3c0154a1: (List2, 0x0, Embed, 0x8b232009) = []
     0x66fb858d: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x8daff178: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Container: (Hash, 0x0, 0x0, 0x0) = "0x0"
     title: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb7be8b79: (Embed, 0x0, 0x0, 0x6db33e0c) = {"0x12cef16b":null,"0x491204c2":{"0x241c258b":[0,0,0,255],"0x3c4b5c83":"","0x3ddb00":1.0,"0x44f732bc":"","0x81d55cb7":"0x0","0x88ee5bd9":{"0x3845cab":[],"0x5bd8b396":"","0x829c2960":{},"0xcb084e46":"0x0","0xcd3fd8ac":"","0xee10ba86":"","Frame":"0x0","Icon":"0x0","RootGroup":"0x0","description":"0x0"},"0x8a73adc8":[0,0,0,255],"0x9d8818ba":[0,0,0,255],"0xb80d6251":[0,0,0,255],"0xbec348d3":"0x0","0xf3c1ea09":[0,0,0,255],"0xfbe13398":"","HeaderGroup":"0x0","LayoutGroup":"0x0"},"0x507c22b2":"0x0","0x829c2960":{},"Frame":"0x0","PortraitIcon":"0x0","RootGroup":"0x0","TooltipRegion":"0x0","name":"0x0"}
+    0xb7be8b79: (Embed, 0x0, 0x0, 0x6db33e0c) = {"0x12cef16b":null,"0x491204c2":{"0x241c258b":[0,0,0,255],"0x3c4b5c83":"","0x3ddb00":1.0,"0x44f732bc":"","0x81d55cb7":"0x0","0x88ee5bd9":{"0x3845cab":[],"0x5bd8b396":"","0x829c2960":{},"0xcd3fd8ac":"","0xee10ba86":"","Frame":"0x0","Icon":"0x0","Progress":"0x0","RootGroup":"0x0","description":"0x0"},"0x8a73adc8":[0,0,0,255],"0x9d8818ba":[0,0,0,255],"0xb80d6251":[0,0,0,255],"0xbec348d3":"0x0","0xf3c1ea09":[0,0,0,255],"0xfbe13398":"","HeaderGroup":"0x0","LayoutGroup":"0x0"},"0x829c2960":{},"Frame":"0x0","PortraitIcon":"0x0","RootGroup":"0x0","RowGroup":"0x0","TooltipRegion":"0x0","name":"0x0"}
     0xbc2ce5f6: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Frame: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -6772,9 +6588,9 @@ class 0x9cd4ec31():
     pass
 
 class 0x9d00ccbe():
-    0x5ed62070: (Link, 0x0, 0x0, 0x3443461e)
+    GroupInfo: (Link, 0x0, 0x0, 0x3443461e)
     LogicalName: (String, 0x0, 0x0, 0x0)
-    0x8c87107c: (String, 0x0, 0x0, 0x0)
+    Context: (String, 0x0, 0x0, 0x0)
     0xb825b79c: (Bool, 0x0, 0x0, 0x0)
     pass
 
@@ -6791,10 +6607,6 @@ class 0x9d79fb9f():
 
 class 0x9ddc7667(ILogicVector3Driver):
     Concept: (Link, 0x0, 0x0, Vector3Concept) = "0x0"
-    pass
-
-class 0x9dec456b(ConceptBase):
-    DefaultValue: (I32, 0x0, 0x0, 0x0)
     pass
 
 class 0x9def8cb(ScriptTableSet):
@@ -6852,7 +6664,7 @@ class 0x9e9e1f6d(IContextualCondition):
     Count: (U32, 0x0, 0x0, 0x0) = 1
     0x615964d8: (F32, 0x0, 0x0, 0x0) = 8.0
     CompareOp: (U8, 0x0, 0x0, 0x0) = 0
-    0x8ef4ba18: (Option, 0x0, U8, 0x0) = null
+    CharacterType: (Option, 0x0, U8, 0x0) = null
     0xeb60b2e8: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -6933,7 +6745,7 @@ class 0x9f9ec6c2(GameModeConstant):
     characters: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0xa004a785(0x27d92a31):
+class 0xa004a785(GameEntityBlock):
     RemoveAll: (Pointer, 0x0, 0x0, IBoolGet) = null
     Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
@@ -6993,7 +6805,7 @@ class 0xa0eddc9():
     pass
 
 class 0xa0ffdf09():
-    0xd0271699: (List2, 0x0, Link, 0x8d31b69b) = []
+    QuestList: (List2, 0x0, Link, 0x8d31b69b) = []
     pass
 
 class 0xa138eeb3():
@@ -7129,9 +6941,6 @@ class 0xa4a0d032(IGameModeConfig):
 class 0xa4b9367d():
     pass
 
-class 0xa4f28691():
-    pass
-
 class 0xa4fcf99f(0x2508c71e):
     itemID: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -7150,8 +6959,8 @@ class 0xa534365c():
     TimerVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xa55c9d58(0x27d92a31):
-    OutEntity: (Embed, 0x0, 0x0, 0x851d2116) = {"Table":{},"Var":""}
+class 0xa55c9d58(GameEntityBlock):
+    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
     Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
@@ -7164,7 +6973,7 @@ class 0xa5ad6466(0xca17e84f):
     pass
 
 class 0xa5e2976a(GameEntityTemplate):
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     LightRegion: (Embed, 0x0, 0x0, LightRegionGeComponentDef) = {"FalloffPower":1.0,"Polygon":[[-200.0,0.0,200.0],[200.0,0.0,200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]],"PriorityOverride":-1,"parameters":"0x0","radius":0.0,"strength":1.0}
     pass
 
@@ -7189,7 +6998,7 @@ class 0xa64f90fb():
 class 0xa65588fc():
     pass
 
-class 0xa66992af(0x27d92a31):
+class 0xa66992af(GameEntityBlock):
     duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
     tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
     pass
@@ -7224,10 +7033,6 @@ class 0xa6cd46b0():
 class 0xa78cfe16():
     Scene: (U8, 0x0, 0x0, 0x0) = 80
     tags: (List2, 0x0, Embed, 0x43548f46) = []
-    pass
-
-class 0xa82b69c9(GameModeConstant):
-    Item: (Link, 0x0, 0x0, TftItemData) = "0x0"
     pass
 
 class 0xa837225(0x8e134d2):
@@ -7273,9 +7078,6 @@ class 0xa8fef3df():
     0xe8b9cb1a: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xa91b85e3(IOptionTemplate):
-    pass
-
 class 0xa9253585():
     0x241c258b: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     HeaderGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -7283,7 +7085,7 @@ class 0xa9253585():
     0x3ddb00: (F32, 0x0, 0x0, 0x0) = 1.0
     0x44f732bc: (String, 0x0, 0x0, 0x0) = ""
     0x81d55cb7: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x88ee5bd9: (Embed, 0x0, 0x0, 0x63fbd3de) = {"0x3845cab":[],"0x5bd8b396":"","0x829c2960":{},"0xcb084e46":"0x0","0xcd3fd8ac":"","0xee10ba86":"","Frame":"0x0","Icon":"0x0","RootGroup":"0x0","description":"0x0"}
+    0x88ee5bd9: (Embed, 0x0, 0x0, 0x63fbd3de) = {"0x3845cab":[],"0x5bd8b396":"","0x829c2960":{},"0xcd3fd8ac":"","0xee10ba86":"","Frame":"0x0","Icon":"0x0","Progress":"0x0","RootGroup":"0x0","description":"0x0"}
     0x8a73adc8: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     0x9d8818ba: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     0xb80d6251: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
@@ -7314,7 +7116,7 @@ class 0xa9593c80():
 class 0xa975a9cf(0xb08ef62f):
     pass
 
-class 0xa98b5b03(0x129e311, 0x3497f0cf):
+class 0xa98b5b03(0x129e311, GameEntityComponent):
     pass
 
 class 0xa995ecc5(IVfxVector4Driver):
@@ -7323,14 +7125,14 @@ class 0xa995ecc5(IVfxVector4Driver):
     pass
 
 class 0xa9e4d0f1():
-    0x1ba79c9a: (U8, 0x0, 0x0, 0x0)
+    RewardType: (U8, 0x0, 0x0, 0x0)
     pass
 
 class 0xaa0bf832():
     pass
 
 class 0xaa2fcea9(0x221f2907):
-    0x55b10110: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
+    Parameter: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
     Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = {}
     pass
 
@@ -7345,7 +7147,7 @@ class 0xaab3465e(0xb98830a1):
     option: (Link, 0x0, 0x0, 0x808c79e4) = "0x0"
     pass
 
-class 0xaadc6ca8(0x12b2d1cc, 0x3497f0cf, 0xa4795108):
+class 0xaadc6ca8(0x12b2d1cc, GameEntityComponent, 0xa4795108):
     pass
 
 class 0xab02008c(0xa8a6ac21):
@@ -7401,9 +7203,6 @@ class 0xab5db4f2(0xbc413e21):
     colors: (List2, 0x0, Pointer, 0xd1b1f16)
     pass
 
-class 0xab78f6f4(ScriptTableSet):
-    pass
-
 class 0xabc3f62a(UIElement):
     pass
 
@@ -7452,14 +7251,14 @@ class 0xad4d38bb():
 
 class 0xad65d8c4(GameEntityTemplate):
     0x2092043f: (Embed, 0x0, 0x0, AttackableUnitGeComponentDef) = {"0x397fe037":false,"0x4b31cd83":false,"0x6b2bc713":0,"0xaa0ee4f5":false,"0xafc7dac6":true,"0xcf9b9ca4":{},"0xde46f1d8":"","0xf1d3a034":false,"LaneDefinition":null,"type":3}
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Statemachine: (Pointer, 0x0, 0x0, StateMachineGeComponentDef) = null
     dynamicMaterial: (Embed, 0x0, 0x0, DynamicMaterialGeComponentDef) = {}
     Character: (Embed, 0x0, 0x0, SkinCharacterGeComponentDef) = {"CharacterRecord":"","Skin":""}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
     Animation: (Embed, 0x0, 0x0, AnimationGeComponentDef) = {}
     Icon: (Embed, 0x0, 0x0, NewIconGeComponentDef) = {"Config":null}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class 0xad84e5d(0x27071fbd):
@@ -7469,7 +7268,7 @@ class 0xad84e5d(0x27071fbd):
 class 0xad9f1783():
     0x13927cb2: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x2fe884a1: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x6a5b6251: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ValueTooltip: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xadab0173():
@@ -7546,7 +7345,7 @@ class 0xadfcc498(InputEventBoolKeybind):
     pass
 
 class 0xae005c94(IGameModeConfig):
-    0x5ac52af3: (Map, String, Embed, 0x449b05d1) = {}
+    0x5ac52af3: (Map, String, Embed, ProgressTrackList) = {}
     name: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -7599,7 +7398,7 @@ class 0xaf6acce9():
 class 0xaf6bce07():
     pass
 
-class 0xaf70ceb7(0xc03c9e4e):
+class 0xaf70ceb7(BaseParams):
     pass
 
 class 0xafd62a9e(UiMetricUnitTypeSimpleI):
@@ -7607,7 +7406,7 @@ class 0xafd62a9e(UiMetricUnitTypeSimpleI):
     pass
 
 class 0xaff91324(0xc5a1ad34):
-    tags: (Embed, 0x0, 0x0, 0x21d40f1b) = {"tags":[]}
+    tags: (Embed, 0x0, 0x0, TagList) = {"tags":[]}
     pass
 
 class 0xb011f563(0xbc413e21):
@@ -7638,7 +7437,7 @@ class 0xb0afae41(ViewControllerFilterI):
     TftGameType: (U32, 0x0, 0x0, 0x0) = 5
     pass
 
-class 0xb0afb2dd(0x27d92a31):
+class 0xb0afb2dd(GameEntityBlock):
     0x47ac0d65: (Pointer, 0x0, 0x0, IFloatGet) = {}
     tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
     0x9e8fcd0c: (Pointer, 0x0, 0x0, IBoolGet) = {}
@@ -7647,16 +7446,16 @@ class 0xb0afb2dd(0x27d92a31):
 class 0xb0be1066(ILogicDriver):
     0x1cb00d6f: (Pointer, 0x0, 0x0, 0x315aff8e) = null
     0x20ca280d: (Pointer, 0x0, 0x0, 0x315aff8e) = null
-    0x527728d: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    0x83b2728a: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    XDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    YDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     0x8729115e: (Pointer, 0x0, 0x0, 0x315aff8e) = null
     0x8f60db30: (U8, 0x0, 0x0, 0x0) = 0
     0x9060dcc3: (U8, 0x0, 0x0, 0x0) = 0
     0x9160de56: (U8, 0x0, 0x0, 0x0) = 0
     0x9e60f2cd: (U8, 0x0, 0x0, 0x0) = 0
-    0xada68537: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    ZDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     0xb40a58b8: (Pointer, 0x0, 0x0, 0x315aff8e) = null
-    0xdeb1ff88: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    WDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
 
 class 0xb107dfe4():
@@ -7683,7 +7482,7 @@ class 0xb18ced60(ISequenceAction):
     pass
 
 class 0xb1c6075e(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
     0xbbf9e56b: (Embed, 0x0, 0x0, TeamSpawnPointGeComponentDef) = {"0x18a801e":0.25,"0x3520349d":800.0,"0x3694b10d":0.019999999552965164,"0x46551578":false,"0x6723b8f8":0.07999999821186066,"ManaRegenPercent":0.019999999552965164}
     pass
@@ -7777,7 +7576,7 @@ class 0xb37ab600(0xbc413e21):
     pass
 
 class 0xb3d0d405():
-    0x7fad8491: (Link, 0x0, 0x0, 0xcf642c04) = "0x0"
+    Collection: (Link, 0x0, 0x0, 0xcf642c04) = "0x0"
     Mission: (Link, 0x0, 0x0, 0xe3ce28e9) = "0x0"
     0x90e39fce: (List2, 0x0, Pointer, 0x4a8a5a5d) = []
     rewards: (Link, 0x0, 0x0, 0x585477b2) = "0x0"
@@ -7786,10 +7585,10 @@ class 0xb3d0d405():
 
 class 0xb3d7a02f():
     SlotArea: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x87d3fa93: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xa0e9b9b4: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    IconGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TextBackdrop: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xa5987244: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xa60fc46e: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    IconBorder: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Text: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -7854,7 +7653,7 @@ class 0xb4fff93c(GameEntityTemplate):
     pass
 
 class 0xb51d7e6e():
-    0x1b577ba5: (Map, U32, F32, 0x0) = {}
+    ChampionScores: (Map, U32, F32, 0x0) = {}
     pass
 
 class 0xb5215699(0xab5db4f2):
@@ -7947,7 +7746,7 @@ class 0xb6639ef2():
 
 class 0xb6a24478():
     0x1808ff4c: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x3a942548: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SetName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x5b59a959: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     0x5b6629fc: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x5c2597cc: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -7974,7 +7773,7 @@ class 0xb72a7d67():
     0x397fe037: (Bool, 0x0, 0x0, 0x0)
     LuaScript: (String, 0x0, 0x0, 0x0)
     skins: (Map, U32, Embed, 0xb979c2f)
-    0xbd69e44b: (U32, 0x0, 0x0, 0x0)
+    UnitLogic: (U32, 0x0, 0x0, 0x0)
     CharacterNameOverride: (String, 0x0, 0x0, 0x0)
     pass
 
@@ -8024,9 +7823,9 @@ class 0xb84d0322():
     element: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xb87473b5(0x258e4761):
-    0x478794d6: (List2, 0x0, Link, 0xc8400f38) = []
-    0x5f90a439: (String, 0x0, 0x0, 0x0) = ""
+class 0xb87473b5(IInputUpdater):
+    0x478794d6: (List2, 0x0, Link, LoLKeybindSet) = []
+    UpdaterName: (String, 0x0, 0x0, 0x0) = ""
     0x72fce42a: (List2, 0x0, Pointer, 0x811d959e) = []
     0x9a0da8b2: (List2, 0x0, Pointer, 0x811d959e) = []
     pass
@@ -8041,7 +7840,7 @@ class 0xb905f14(0xb0607142):
     tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
     pass
 
-class 0xb9225383(0xc03c9e4e):
+class 0xb9225383(BaseParams):
     pass
 
 class 0xb92b9eee(InputEventBoolKeybind):
@@ -8059,20 +7858,20 @@ class 0xb98830a1():
     WEIGHT: (U32, 0x0, 0x0, 0x0)
     pass
 
-class 0xb9e570ee(0xc03c9e4e):
+class 0xb9e570ee(BaseParams):
     pass
 
 class 0xba007871(IGameCalculationPart):
     SourceObject: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x3de6ce2d: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CalculationKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xba138ae3(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
     0xd1ed70fe: (Embed, 0x0, 0x0, BarracksGeComponentDef) = {"0x45403ae3":{},"BarracksConfig":"0x0","LinkedPath":"0x0","lane":3}
     Icon: (Embed, 0x0, 0x0, NewIconGeComponentDef) = {"Config":null}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class 0xba3c423b(ISequenceActionInstance):
@@ -8098,7 +7897,7 @@ class 0xba9f6aca():
     TroveButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xbabe88f(0x27d92a31):
+class 0xbabe88f(GameEntityBlock):
     tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
     Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
@@ -8296,7 +8095,7 @@ class 0xbe081d2c():
     pass
 
 class 0xbe4626e1(0x2508c71e):
-    0x55a243d9: (Link, 0x0, 0x0, ChallengeTitleData) = "0x0"
+    TitleData: (Link, 0x0, 0x0, ChallengeTitleData) = "0x0"
     pass
 
 class 0xbe750fe6():
@@ -8308,7 +8107,7 @@ class 0xbe793e5f(0x7379bca6):
     Condition: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
     pass
 
-class 0xbeb63ce3(0xc03c9e4e):
+class 0xbeb63ce3(BaseParams):
     pass
 
 class 0xbec5ee23(0x41bb3fd7):
@@ -8330,7 +8129,7 @@ class 0xbef9baa7(0x6c7a6a03):
     value: (Map, U8, Hash, 0x0) = {}
     pass
 
-class 0xbf0715e0(0xc03c9e4e):
+class 0xbf0715e0(BaseParams):
     pass
 
 class 0xbf431a5a(0x5bf8f70a):
@@ -8364,11 +8163,6 @@ class 0xbfd585a7(ISequenceAction):
 
 class 0xbfe8a95c(Cheat):
     TimerId: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xc03c9e4e():
-    0x4c819a10: (U32, 0x0, 0x0, 0x0) = 0
-    0xfe30d09f: (U32, 0x0, 0x0, 0x0) = 466
     pass
 
 class 0xc057ee47(TftCutsceneClip):
@@ -8436,7 +8230,7 @@ class 0xc24051e7(MapAction):
     LerpTime: (F32, 0x0, 0x0, 0x0) = 5.0
     pass
 
-class 0xc267bb20(0xc03c9e4e):
+class 0xc267bb20(BaseParams):
     pass
 
 class 0xc2838bde():
@@ -8502,15 +8296,11 @@ class 0xc3a44766(IGameModeConfigClient):
     0xed23ad91: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
 
-class 0xc3c3d2bb(0xc03c9e4e):
+class 0xc3c3d2bb(BaseParams):
     pass
 
 class 0xc3df8115(IGameModeConfig):
     0x9c697a76: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
-class 0xc3eea75e(IGameModeConfig):
-    0x1b73ed09: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0xc3f95838():
@@ -8601,8 +8391,8 @@ class 0xc6066f97():
     pass
 
 class 0xc60aca93(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
-    0xfa976a70: (Embed, 0x0, 0x0, StateMachineGeComponentDef) = {"StateMachineDef":"0x0","states":{}}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    SequencerStateMachine: (Embed, 0x0, 0x0, StateMachineGeComponentDef) = {"StateMachineDef":"0x0","states":{}}
     pass
 
 class 0xc61551f4():
@@ -8626,8 +8416,8 @@ class 0xc68ea9ca(0xf71f4123):
     pass
 
 class 0xc6b9bf2a(0x7ffa2e6f):
-    0x4d2485d3: (String, 0x0, 0x0, 0x0) = ""
-    0xf835b5a4: (Link, 0x0, 0x0, 0x92e523d9) = "0x0"
+    ModifierName: (String, 0x0, 0x0, 0x0) = ""
+    ModifiersSource: (Link, 0x0, 0x0, 0x92e523d9) = "0x0"
     pass
 
 class 0xc6de5b9c():
@@ -8643,13 +8433,13 @@ class 0xc7039388(LoadoutGridButtonData):
 class 0xc725aa42(0xc8093bd):
     0x131ebad4: (String, 0x0, 0x0, 0x0) = ""
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
-    0x9c5ad4fd: (String, 0x0, 0x0, 0x0) = ""
-    0xe07619ca: (String, 0x0, 0x0, 0x0) = ""
+    ModalName: (String, 0x0, 0x0, 0x0) = ""
+    ScreenName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xc73631da():
     0x127c55f0: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x23908b24: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ParentGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x41752f5a: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x583f66ba: (String, 0x0, 0x0, 0x0) = ""
     0xa51a4d37: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -8733,16 +8523,7 @@ class 0xc83d315a():
 class 0xc83eb239(ILogicBoolDriver):
     pass
 
-class 0xc8400f38(KeybindSet):
-    events: (List2, 0x0, Link, InputEventBase) = []
-    0x5ff6cd50: (List2, 0x0, Pointer, 0x7f631ac9) = []
-    0x72fce42a: (List2, 0x0, Pointer, 0x811d959e) = []
-    0x815ebffc: (List2, 0x0, Pointer, 0x811d959e) = []
-    Keybinds: (List2, 0x0, Pointer, IKeyBind) = []
-    name: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xc841f949(0xc03c9e4e):
+class 0xc841f949(BaseParams):
     pass
 
 class 0xc85b063():
@@ -8818,7 +8599,7 @@ class 0xc96d9140(IChromaData):
     DescriptionOverrides: (Map, String, String, 0x0) = {}
     pass
 
-class 0xc9a3f55b(0xc03c9e4e):
+class 0xc9a3f55b(BaseParams):
     pass
 
 class 0xc9ed1a3e(0xab30ed5e):
@@ -8895,7 +8676,7 @@ class 0xcae029f6():
 class 0xcae2695f(IContextualCondition):
     0x24392a01: (List2, 0x0, Hash, 0x0) = []
     0x615964d8: (F32, 0x0, 0x0, 0x0) = 8.0
-    0x8ef4ba18: (Option, 0x0, U8, 0x0) = null
+    CharacterType: (Option, 0x0, U8, 0x0) = null
     0xb293a6a9: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
@@ -8918,22 +8699,18 @@ class 0xcb6a541(ILogicBoolDriver):
 
 class 0xcb6bad8():
     0x99b0deea: (String, 0x0, 0x0, 0x0) = ""
-    0xad22c790: (String, 0x0, 0x0, 0x0) = ""
+    TransitionAnimation: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xcbb4598a(0xc03c9e4e):
+class 0xcbb4598a(BaseParams):
     pass
 
 class 0xcbc0ee84(0xc8093bd):
     0x131ebad4: (String, 0x0, 0x0, 0x0) = ""
-    0x38f08bb4: (Option, 0x0, String, 0x0) = null
+    ElementName: (Option, 0x0, String, 0x0) = null
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
-    0x9c5ad4fd: (Option, 0x0, String, 0x0) = null
-    0xe07619ca: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xcbdd4dde(ConceptBase):
-    DefaultValue: (F32, 0x0, 0x0, 0x0)
+    ModalName: (Option, 0x0, String, 0x0) = null
+    ScreenName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xcc2c0827():
@@ -8946,44 +8723,6 @@ class 0xcc35f742(0xf9e5b8b9):
     pass
 
 class 0xcc52ed40():
-    pass
-
-class 0xcc6491d4(ViewController):
-    0x13a3c8aa: (F32, 0x0, 0x0, 0x0) = 0.5
-    0x1733060c: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x18a6e0b1: (String, 0x0, 0x0, 0x0) = ""
-    Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x299d1eee: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x2eed7e1b: (Link, 0x0, 0x0, ViewController) = "0x0"
-    0x2f144da6: (String, 0x0, 0x0, 0x0) = ""
-    0x36155e8c: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ClearAllButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x38a49e67: (String, 0x0, 0x0, 0x0) = ""
-    TiersLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x4d5e815f: (String, 0x0, 0x0, 0x0) = ""
-    0x546f17ba: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x5a208fd1: (U32, 0x0, 0x0, 0x0) = 9
-    0x63356fc5: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    TabletOverrideLoadable: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
-    SnapshotButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    TeamNameText: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x7788d034: (String, 0x0, 0x0, 0x0) = ""
-    0x7993a621: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xa579b2bc: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb172e3c7: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    closeButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xc096e7d3: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    UndoButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xc973af15: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xcc043494: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    TeamEditorData: (Embed, 0x0, 0x0, 0xd88ce199) = {"0x7bf984ca":{"0x12cef16b":null,"0x233b0b50":{},"0x8f8b64b6":{},"0xe58d38df":["0x0","0x0","0x0"],"Button":"0x0","FrameIcon":"0x0","RootGroup":"0x0","SplashIcon":"0x0","TraitIcons":["0x0","0x0","0x0"]},"0xece283b":{"0xbf8afda0":{},"0xf7674ec0":{},"BackgroundIcon":"0x0","Button":"0x0","OutlineIcon":"0x0","RootGroup":"0x0","TraitIcon":"0x0"},"ChampionTemplate":{"0x12cef16b":null,"0x233b0b50":{},"Button":"0x0","FrameIcon":"0x0","PortraitIcon":"0x0","RootGroup":"0x0","TraitIcons":["0x0","0x0","0x0"]},"TierTemplate":{"ChampionsLayout":"0x0","CostIcon":"0x0","CostText":"0x0","RootGroup":"0x0","TraitIcon":"0x0","TraitText":"0x0"}}
-    backButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xd74082e9: (F32, 0x0, 0x0, 0x0) = 10.0
-    0xe588b2b2: (String, 0x0, 0x0, 0x0) = ""
-    0xe9d16d12: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    RosterTitle: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xf2ecc55a: (U32, 0x0, 0x0, 0x0) = 10
-    0xf9d5a86b: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xccb921b(0x9a573886):
@@ -9037,16 +8776,12 @@ class 0xcf47a9a3():
     pass
 
 class 0xcf642c04():
-    0x8d7928e4: (String, 0x0, 0x0, 0x0) = ""
+    CollectionId: (String, 0x0, 0x0, 0x0) = ""
     0xe3a1b4bf: (Hash, 0x0, 0x0, 0x0) = "0x8132b290"
     pass
 
 class 0xcfb52801(ILogicFloatDriver):
     Concept: (Link, 0x0, 0x0, FloatConcept) = "0x0"
-    pass
-
-class 0xd002d925(GameEntityTemplate):
-    0x941786d4: (Embed, 0x0, 0x0, 0x912bf9eb) = {"0x4bcc2801":true,"0x7114af11":false,"MaterialMapping":{},"MeshPath":"","RenderPass":0,"eyeCandy":0,"quality":31}
     pass
 
 class 0xd027765c():
@@ -9062,7 +8797,7 @@ class 0xd04cfb37():
 class 0xd0713947(0xece68ca6):
     pass
 
-class 0xd07d9155(0xc03c9e4e):
+class 0xd07d9155(BaseParams):
     pass
 
 class 0xd07fc429():
@@ -9071,7 +8806,7 @@ class 0xd07fc429():
     0x37c0686c: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xd0b5e9b(0xc03c9e4e):
+class 0xd0b5e9b(BaseParams):
     pass
 
 class 0xd0c7bd6e(ISequenceActionInstance):
@@ -9102,8 +8837,8 @@ class 0xd0da4932(TftCutsceneClip):
 class 0xd0f7cc87(0xc8093bd):
     0x131ebad4: (String, 0x0, 0x0, 0x0) = ""
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
-    0x9c5ad4fd: (String, 0x0, 0x0, 0x0) = ""
-    0xe07619ca: (String, 0x0, 0x0, 0x0) = ""
+    ModalName: (String, 0x0, 0x0, 0x0) = ""
+    ScreenName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xd139de78():
@@ -9120,12 +8855,12 @@ class 0xd13da199(ISequenceAction):
     pass
 
 class 0xd178749c(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Statemachine: (Pointer, 0x0, 0x0, StateMachineGeComponentDef) = null
     NeutralCamp: (Embed, 0x0, 0x0, NeutralCampGeComponentDef) = {"0x1f2e5fd0":null,"0x3011fe7":0.0,"0x5a4ef4e7":"0x0","0x7d27af7f":false,"0x7fd43d60":false,"0xb8252467":null,"0xf224db3e":false,"CampLevel":1,"IconHelper":null,"LeashShape":null,"MinimapIcon":"","MinimapIconOffset":[0.0,0.0,0.0],"RevealEvent":0,"ScoreboardTimer":0,"StopSpawnTimeSecs":25000.0}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
     Icon: (Embed, 0x0, 0x0, NewIconGeComponentDef) = {"Config":null}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class 0xd19d72ee():
@@ -9248,7 +8983,7 @@ class 0xd3dda5e5(IGeComponentDef):
     0x37ae4cad: (Bool, 0x0, 0x0, 0x0) = false
     Polygon: (Embed, 0x0, 0x0, EntityPolygonData) = {"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}
     0x539ea54d: (Bool, 0x0, 0x0, 0x0) = false
-    0x7168974e: (Bool, 0x0, 0x0, 0x0) = false
+    DynamicLighting: (Bool, 0x0, 0x0, 0x0) = false
     0x9b15d5eb: (Bool, 0x0, 0x0, 0x0) = false
     0xaecee07f: (U8, 0x0, 0x0, 0x0) = 100
     0xc7543bfc: (Bool, 0x0, 0x0, 0x0) = true
@@ -9266,7 +9001,7 @@ class 0xd3f07247():
 
 class 0xd41a611d():
     Item: (Link, 0x0, 0x0, TftItemData) = "0x0"
-    0xd3c84ef7: (List2, 0x0, Embed, 0xa6a9829a) = []
+    ItemConstants: (List2, 0x0, Embed, 0xa6a9829a) = []
     pass
 
 class 0xd428e2c8(IGameModeConfigClient):
@@ -9285,9 +9020,9 @@ class 0xd42fa4dc(ISequenceAction):
     pass
 
 class 0xd443ea96():
-    intro: (Embed, 0x0, 0x0, 0x31d66103) = {"0x1327149b":"","0x66bde3f":"","0x6a8398d3":"","0xe7214e2d":"","IntroAnimation":""}
+    intro: (Embed, 0x0, 0x0, 0x31d66103) = {"0x1327149b":"","0x66bde3f":"","0xe7214e2d":"","IntroAnimation":"","LoopAnimation":""}
     Canvas: (Embed, 0x0, 0x0, 0xe27f0273) = {"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""}
-    0xa62782e2: (Embed, 0x0, 0x0, 0xcb6bad8) = {"0x99b0deea":"","0xad22c790":""}
+    Transition: (Embed, 0x0, 0x0, 0xcb6bad8) = {"0x99b0deea":"","TransitionAnimation":""}
     pass
 
 class 0xd456bab6():
@@ -9311,7 +9046,7 @@ class 0xd4ac6ed4(0xab5db4f2):
     pass
 
 class 0xd52eac74(0x859c9c2f):
-    0xbaee8b38: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
+    OnEvent: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     pass
 
 class 0xd545dcdd():
@@ -9355,7 +9090,7 @@ class 0xd5a52c2b(ViewController):
 class 0xd5b0f96f():
     pass
 
-class 0xd5b5e3b9(0xc03c9e4e):
+class 0xd5b5e3b9(BaseParams):
     pass
 
 class 0xd5c5318a():
@@ -9380,7 +9115,7 @@ class 0xd5d2b377():
 
 class 0xd5db92ad(GameEntityTemplate):
     Light: (Embed, 0x0, 0x0, DynamicPointLightGeComponentDef) = {"0x75708a14":false,"HdrScale":5.0,"Impact":3,"LightChannels":1,"UpdaterType":"0x0","intensityScale":1.0,"lightColor":[1.0,1.0,1.0,1.0],"radius":500.0}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class 0xd61afa3(0x610a14d0):
@@ -9432,13 +9167,13 @@ class 0xd6bdec78(ISequenceAction):
     0xe92580fe: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0xd6d3da87(0x27d92a31):
+class 0xd6d3da87(GameEntityBlock):
     0x98840e54: (List2, 0x0, Pointer, 0xb60096a7) = []
     0xe2226a17: (List2, 0x0, Pointer, 0xb60096a7) = []
     pass
 
 class 0xd6edc2f4(ViewController):
-    MessageTemplate: (Embed, 0x0, 0x0, 0xb3d7a02f) = {"0x87d3fa93":"0x0","0xa0e9b9b4":"0x0","0xa5987244":"0x0","0xa60fc46e":"0x0","Icon":"0x0","SlotArea":"0x0","Text":"0x0"}
+    MessageTemplate: (Embed, 0x0, 0x0, 0xb3d7a02f) = {"0xa5987244":"0x0","Icon":"0x0","IconBorder":"0x0","IconGroup":"0x0","SlotArea":"0x0","Text":"0x0","TextBackdrop":"0x0"}
     MessageDisplayData: (Embed, 0x0, 0x0, HudMessageDisplayData) = {"0xf13367cf":false,"MessageDurationSecs":5.0,"TransitionIn":{"EasingType":0,"TransitionStartDelaySecs":0.0,"TransitionTime":0.10000000149011612,"maxAlpha":255,"minAlpha":0},"messageCount":4}
     0x99c3584f: (Map, Hash, Embed, 0x3b4c602e) = {}
     ItemSceneTemplate: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -9493,7 +9228,7 @@ class 0xd83b3308():
     0xb7571618: (Color, 0x0, 0x0, 0x0) = [0,215,255,255]
     pass
 
-class 0xd859356a(0x27d92a31):
+class 0xd859356a(GameEntityBlock):
     duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
     tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
     pass
@@ -9521,10 +9256,10 @@ class 0xd8a0e424():
     title: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xd8abae0(0xc03c9e4e):
+class 0xd8abae0(BaseParams):
     pass
 
-class 0xd8ba9b38(0xc03c9e4e):
+class 0xd8ba9b38(BaseParams):
     pass
 
 class 0xd8c76385(InputEvent2AxisKeybind):
@@ -9594,7 +9329,7 @@ class 0xdb03f8f4():
     pass
 
 class 0xdb26669a():
-    0x19a9984e: (String, 0x0, 0x0, 0x0) = ""
+    TypeName: (String, 0x0, 0x0, 0x0) = ""
     0x2d63dca5: (List2, 0x0, Pointer, 0x10a4976a) = []
     0x90373b91: (List2, 0x0, Pointer, 0xaa0bf832) = []
     pass
@@ -9645,7 +9380,7 @@ class 0xdc0a353(IContextualCondition):
 
 class 0xdc20573a():
     0x251b4cfe: (String, 0x0, 0x0, 0x0) = ""
-    0x3fee2bfa: (String, 0x0, 0x0, 0x0) = ""
+    Environment: (String, 0x0, 0x0, 0x0) = ""
     Component: (String, 0x0, 0x0, 0x0) = ""
     0xabb44364: (String, 0x0, 0x0, 0x0) = ""
     Product: (String, 0x0, 0x0, 0x0) = ""
@@ -9664,7 +9399,7 @@ class 0xdc53945d(ViewController):
     0x1ea15738: (List, 0x6, Hash, 0x0) = ["0x0","0x0","0x0","0x0","0x0","0x0"]
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x2eed7e1b: (Link, 0x0, 0x0, ViewController) = "0x0"
-    0x3d6d8631: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ErrorBackground: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x4e976ea0: (Map, String, Hash, 0x0) = {}
     RetryButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     closeButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -9768,7 +9503,7 @@ class 0xdd8ea5ae():
     0xe2f95b32: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xdd914022(0xc03c9e4e):
+class 0xdd914022(BaseParams):
     pass
 
 class 0xdddf166a(IPictureInPictureSource):
@@ -9781,7 +9516,7 @@ class 0xdde919c(InputEventBoolKeybind):
 class 0xddf17bcb(0x8fe295c8):
     0xb8af4624: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     0xbcb901b4: (Bool, 0x0, 0x0, 0x0) = false
-    0xdf99dc9d: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
+    PositionOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     0xff22989f: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -9812,7 +9547,7 @@ class 0xde75be67(0xb0607142):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
-class 0xde847095(0xc03c9e4e):
+class 0xde847095(BaseParams):
     pass
 
 class 0xde93beb7(ViewController):
@@ -9826,9 +9561,6 @@ class 0xde93beb7(ViewController):
     TitleText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xdea8da9f(GameEntity):
-    pass
-
 class 0xdec5122e():
     comp: (Embed, 0x0, 0x0, 0xc90736f4) = {"Rows":[],"name":""}
     pass
@@ -9837,14 +9569,10 @@ class 0xdef9bfd5(IVfxVector3Driver):
     Float: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
     pass
 
-class 0xdf08b80b(0xc03c9e4e):
+class 0xdf08b80b(BaseParams):
     pass
 
-class 0xdf0c644f(0xc03c9e4e):
-    pass
-
-class 0xdf639629(IKeyBind):
-    0x5ff6cd50: (List2, 0x0, Pointer, 0xb5754dad)
+class 0xdf0c644f(BaseParams):
     pass
 
 class 0xdf6e7fa5(IGameModeConfig):
@@ -9991,7 +9719,7 @@ class 0xe3ce28e9():
     properties: (Map, String, String, 0x0) = {}
     objectives: (List2, 0x0, Embed, 0xad4d38bb) = []
     Enabled: (Bool, 0x0, 0x0, 0x0) = true
-    0x7fad8491: (Link, 0x0, 0x0, 0xcf642c04) = "0x0"
+    Collection: (Link, 0x0, 0x0, 0xcf642c04) = "0x0"
     TitleTrakey: (String, 0x0, 0x0, 0x0) = ""
     DescriptionTraKey: (String, 0x0, 0x0, 0x0) = ""
     0xbcdf811c: (Link, 0x0, 0x0, MissionAsset) = "0x0"
@@ -10004,22 +9732,22 @@ class 0xe405ebc2():
     0xaa74f19a: (Embed, 0x0, 0x0, 0x406b6b5f) = {"0xf7bb662b":"","VideoPath":""}
     pass
 
-class 0xe4130eb0(0xc03c9e4e):
+class 0xe4130eb0(BaseParams):
     pass
 
 class 0xe4420d48(UiMetricTypeSimpleI):
     pass
 
 class 0xe4544df(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     IsReplicated: (Bool, 0x0, 0x0, 0x0) = true
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    0xd01ec7fc: (Embed, 0x0, 0x0, 0xfe3fdc0c) = {"SoundName":"","shapeData":null}
+    Sfx: (Embed, 0x0, 0x0, 0xfe3fdc0c) = {"SoundName":"","shapeData":null}
     pass
 
 class 0xe46a1cdb():
     objectives: (U32, 0x0, 0x0, 0x0) = 0
-    0x1ccf05c7: (U32, 0x0, 0x0, 0x0) = 0
+    CountThreshold: (U32, 0x0, 0x0, 0x0) = 0
     0x6b5e21ef: (U32, 0x0, 0x0, 0x0) = 0
     SourceId: (U8, 0x0, 0x0, 0x0) = 0
     pass
@@ -10052,14 +9780,14 @@ class 0xe561be2e():
     pass
 
 class 0xe56d44c1():
-    0x129ae887: (String, 0x0, 0x0, 0x0) = ""
+    InventoryType: (String, 0x0, 0x0, 0x0) = ""
     itemID: (U32, 0x0, 0x0, 0x0) = 0
     contentId: (String, 0x0, 0x0, 0x0) = ""
     name: (String, 0x0, 0x0, 0x0) = ""
     0xbe672e4a: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xe573347a(0xc03c9e4e):
+class 0xe573347a(BaseParams):
     pass
 
 class 0xe59d98ad():
@@ -10109,15 +9837,15 @@ class 0xe622d482(ILogicFloatDriver):
 
 class 0xe64ff723(GameEntityTemplate):
     0x2092043f: (Embed, 0x0, 0x0, AttackableUnitGeComponentDef) = {"0x397fe037":false,"0x4b31cd83":false,"0x6b2bc713":0,"0xaa0ee4f5":false,"0xafc7dac6":true,"0xcf9b9ca4":{},"0xde46f1d8":"","0xf1d3a034":false,"LaneDefinition":null,"type":3}
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     0x8a3d83e: (Embed, 0x0, 0x0, 0x630a0360) = {"0x724108b0":0.0,"0xe8f75502":"0x0","VfxSystem":"0x0","visionRegion":"0x0"}
     Character: (Embed, 0x0, 0x0, SkinCharacterGeComponentDef) = {"CharacterRecord":"","Skin":""}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class 0xe66ed8ff():
-    0x516fe283: (Embed, 0x0, 0x0, 0xb36c777a) = {"0x6975adea":"0x0","0xb2d11fb5":"0x0","0xba6de6d3":"0x0","0xd736c5a4":"0x0","DeviceUx":0}
+    DragonKills: (Embed, 0x0, 0x0, 0xb36c777a) = {"0x6975adea":"0x0","0xb2d11fb5":"0x0","0xba6de6d3":"0x0","0xd736c5a4":"0x0","DeviceUx":0}
     DragonTracker: (Embed, 0x0, 0x0, UiMetricMultiDragonKillsSrX) = {"0x2e1de71a":null,"0x766be793":"0x0","0xa9c04665":null,"DeviceUx":0,"DragonTypeIcons":{},"SoulSlot":null,"Team1IconSlots":[],"Team2IconSlots":[],"TeamSlotDisabledIcon":"0x0"}
     TowerKills: (Embed, 0x0, 0x0, UiMetricTeamTowerKills) = {"DeviceUx":0,"Team1TowerKillsIcon":"0x0","Team1TowerKillsText":"0x0","Team2TowerKillsIcon":"0x0","Team2TowerKillsText":"0x0"}
     0xbcbb5260: (Embed, 0x0, 0x0, 0x6734c597) = {"0x3594d7df":"0x0","0xd43baf7a":"0x0","0xe47ec0fc":"0x0","0xe7bfbb59":"0x0","DeviceUx":0}
@@ -10186,7 +9914,7 @@ class 0xe7ee4f28(IChromaData):
     DescriptionOverrides: (Map, String, String, 0x0) = {}
     pass
 
-class 0xe8189eeb(0xc03c9e4e):
+class 0xe8189eeb(BaseParams):
     pass
 
 class 0xe84acac7(0x7f631ac9):
@@ -10198,7 +9926,7 @@ class 0xe8c34b52(IGameModeConfig):
     0x7d555132: (Pointer, 0x0, 0x0, 0x62abd8e) = null
     AugmentColors: (Map, U8, Color, 0x0) = {}
     0x96c6750b: (Map, U32, Embed, 0x65720c6a) = {}
-    0xad84baec: (Embed, 0x0, 0x0, 0x65720c6a) = {"0x3d4f04d8":"","0x8252a6f2":[140,155,160,255]}
+    0xad84baec: (Embed, 0x0, 0x0, 0x65720c6a) = {"TagColor":[140,155,160,255],"TagName":""}
     0xf021feb3: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -10241,7 +9969,7 @@ class 0xe92f8b6c(ViewController):
     pass
 
 class 0xe93de85a():
-    0x9d0cf3d: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Quest: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xe945834a(IGameCalculationPart):
@@ -10267,7 +9995,7 @@ class 0xea1f541a(ICastRequirement):
     PARType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0xea56d41b(0xc03c9e4e):
+class 0xea56d41b(BaseParams):
     pass
 
 class 0xea7bb717():
@@ -10277,7 +10005,7 @@ class 0xea7bb717():
     pass
 
 class 0xea830028(0xc5a1ad34):
-    tags: (Link, 0x0, 0x0, 0x21d40f1b) = "0x0"
+    tags: (Link, 0x0, 0x0, TagList) = "0x0"
     pass
 
 class 0xea9f3cff():
@@ -10433,7 +10161,7 @@ class 0xed5506a6(ILogicDriver):
     INACTIVE: (Pointer, 0x0, 0x0, ILogicDriver) = null
     pass
 
-class 0xed565a57(0xc03c9e4e):
+class 0xed565a57(BaseParams):
     pass
 
 class 0xed874b78(IGameModeConfig):
@@ -10502,10 +10230,10 @@ class 0xeea0bf1(ISkinAugmentModifier):
     pass
 
 class 0xeee5fffe():
-    0x7fad8491: (List2, 0x0, Pointer, 0x8cc8ea8a) = []
+    Collection: (List2, 0x0, Pointer, 0x8cc8ea8a) = []
     pass
 
-class 0xef17c645(0x129e311, 0x3497f0cf, 0x3b49ffb9):
+class 0xef17c645(0x129e311, GameEntityComponent, 0x3b49ffb9):
     pass
 
 class 0xef2cc9a6(IOptionItemFilter):
@@ -10516,7 +10244,7 @@ class 0xef339ef9(0xf9e5b8b9):
     pass
 
 class 0xef35eacc():
-    0xcfb5881: (List, 0x4, Embed, SpellLevelUpInfo) = [{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]
+    List: (List, 0x4, Embed, SpellLevelUpInfo) = [{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]
     pass
 
 class 0xef7e7bb1():
@@ -10542,7 +10270,7 @@ class 0xf008d4c9(0xd97f9bd3):
 class 0xf00f3333(0x288b8edc):
     pass
 
-class 0xf01e379a(0xc03c9e4e):
+class 0xf01e379a(BaseParams):
     pass
 
 class 0xf0321762(MissileTriggerSpec):
@@ -10560,7 +10288,7 @@ class 0xf051c127(ISequenceActionInstance):
 
 class 0xf05bb9a0(0xc8093bd):
     0x131ebad4: (Option, 0x0, String, 0x0) = null
-    0x2a4a32b2: (Option, 0x0, String, 0x0) = null
+    Platform: (Option, 0x0, String, 0x0) = null
     0x87d000ca: (String, 0x0, 0x0, 0x0) = ""
     0x92cbcf2: (Option, 0x0, String, 0x0) = null
     queueId: (U32, 0x0, 0x0, 0x0) = 0
@@ -10602,8 +10330,8 @@ class 0xf0eaab4d(0xfb918915):
     pass
 
 class 0xf13cb410(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
-    0xedb15a2f: (Embed, 0x0, 0x0, ModesScenarioGeComponentDef) = {"0xacbf093d":"","0xd15f7f26":true,"Icon":{"texturePath":""}}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Scenario: (Embed, 0x0, 0x0, ModesScenarioGeComponentDef) = {"0xacbf093d":"","0xd15f7f26":true,"Icon":{"texturePath":""}}
     pass
 
 class 0xf15fa548():
@@ -10656,7 +10384,7 @@ class 0xf2c8525d(0x114828a9):
     SideLength: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0xf2d443d1(0xc03c9e4e):
+class 0xf2d443d1(BaseParams):
     pass
 
 class 0xf2dd2d14():
@@ -10672,16 +10400,6 @@ class 0xf2dd2d14():
     ByeLabels: (Embed, 0x0, 0x0, 0xf3c319e2) = {"0x3f8acbfd":"","0x3fca802":"","0x6c52029a":"","0xbb21a9ed":"","TitleTra":""}
     0xd0133f4a: (String, 0x0, 0x0, 0x0) = ""
     0xe130f1de: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xf302e0a5(ViewController):
-    Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x591e9231: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x660ca429: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x8be50688: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x8d7e680d: (String, 0x0, 0x0, 0x0) = ""
-    0xab5f419f: (String, 0x0, 0x0, 0x0) = ""
-    0xb2f6687e: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xf307502b(ILogicFloatDriver):
@@ -10727,7 +10445,7 @@ class 0xf370b8bb(ViewController):
     0xc95ffd29: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xda3ef735: (Embed, 0x0, 0x0, 0xda3ef735) = {"0x74e35b36":"0x0","0xb2d9b64b":"0x0","Group":"0x0","PortraitIcon":"0x0"}
     0xecc8235f: (String, 0x0, 0x0, 0x0) = ""
-    0xf5a853e9: (Embed, 0x0, 0x0, 0x83d442cc) = {"0x68af9261":[0,0,255,255],"0xb7571618":[0,215,255,255],"Group":"0x0","ScoreText":"0x0","TeamNameText":"0x0"}
+    RowTemplate: (Embed, 0x0, 0x0, 0x83d442cc) = {"0x68af9261":[0,0,255,255],"0xb7571618":[0,215,255,255],"Group":"0x0","ScoreText":"0x0","TeamNameText":"0x0"}
     0xfd24fad2: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -10779,7 +10497,7 @@ class 0xf3cf86a3():
 
 class 0xf3ddd31e(ILogicFloatDriver):
     0x4ee81483: (Bool, 0x0, 0x0, 0x0) = false
-    0xd33b3297: (U8, 0x0, 0x0, 0x0) = 10
+    Stat: (U8, 0x0, 0x0, 0x0) = 10
     pass
 
 class 0xf3f357f(Cheat):
@@ -10796,10 +10514,10 @@ class 0xf3fca686():
 
 class 0xf408251d(0xc8093bd):
     0x131ebad4: (String, 0x0, 0x0, 0x0) = ""
-    0x38f08bb4: (Option, 0x0, String, 0x0) = null
+    ElementName: (Option, 0x0, String, 0x0) = null
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
-    0x9c5ad4fd: (Option, 0x0, String, 0x0) = null
-    0xe07619ca: (String, 0x0, 0x0, 0x0) = ""
+    ModalName: (Option, 0x0, String, 0x0) = null
+    ScreenName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xf42cd443():
@@ -10852,7 +10570,7 @@ class 0xf5022dc7():
     pass
 
 class 0xf569c583():
-    0xc3b38bef: (Embed, 0x0, 0x0, 0xef35eacc) = {"0xcfb5881":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}
+    0xc3b38bef: (Embed, 0x0, 0x0, 0xef35eacc) = {"List":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}
     0xe4f7105d: (Link, 0x0, 0x0, GameModeMapData) = "0x0"
     pass
 
@@ -10927,8 +10645,8 @@ class 0xf7c4193e():
 class 0xf7d950e():
     Subtitle: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x631a990f: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x9094c397: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CardButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CardAnimation: (Hash, 0x0, 0x0, 0x0) = "0x0"
     title: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xbc61fcb1: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xdb9c67fe: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -10987,7 +10705,7 @@ class 0xf8828af9():
 class 0xf890629e(0x7f631ac9):
     pass
 
-class 0xf8ae8458(0x27d92a31):
+class 0xf8ae8458(GameEntityBlock):
     Enabled: (Pointer, 0x0, 0x0, IBoolGet) = null
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
@@ -10996,7 +10714,7 @@ class 0xf8c18a6e():
     NameTraKey: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xf92c7eae(0xc03c9e4e):
+class 0xf92c7eae(BaseParams):
     pass
 
 class 0xf94a1dbb(0x2a99a254):
@@ -11004,7 +10722,7 @@ class 0xf94a1dbb(0x2a99a254):
 
 class 0xf96d9400():
     Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xa85a5746: (U8, 0x0, 0x0, 0x0) = 4
+    CurrencyType: (U8, 0x0, 0x0, 0x0) = 4
     TooltipRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Text: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xeb7c1529: (String, 0x0, 0x0, 0x0) = ""
@@ -11052,7 +10770,7 @@ class 0xf9c9333b():
 
 class 0xf9cfefd4(IMapVisibilityController):
     0x16d7ad2b: (Bool, 0x0, 0x0, 0x0) = false
-    0xb7c0bbbc: (Link, 0x0, 0x0, 0x6a215e04) = "0x0"
+    Provider: (Link, 0x0, 0x0, 0x6a215e04) = "0x0"
     pass
 
 class 0xf9dd7e92():
@@ -11091,12 +10809,6 @@ class 0xfa33a427():
     DescriptionShort: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xfa42cdaf(GameEntityTemplate, IMapGroup):
-    envMesh: (Embed, 0x0, 0x0, EnvMeshGeComponentDef) = {}
-    dynamicMaterial: (Embed, 0x0, 0x0, DynamicMaterialGeComponentDef) = {}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
-    pass
-
 class 0xfa6a7623(0x7b440079):
     Output: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
     Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -11118,9 +10830,9 @@ class 0xfb66c6d7(0x53de4f74):
 
 class 0xfb6952d6():
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x38fec106: (Embed, 0x0, 0x0, 0x8969bfa) = {"0x3588bd39":"0x0","0x4c7baf5e":"0x0","0x5e940ec":"0x0","0x8493cde2":"0x0","0x86d04b5b":"0x0","0xab220667":"0x0","0xfb8c0e70":"0x0","AugmentButton":"0x0","AugmentGroup":"0x0","AugmentIcon":"0x0","Group":"0x0","IconBackground":"0x0","IconElement":"0x0"}
+    0x38fec106: (Embed, 0x0, 0x0, 0x8969bfa) = {"0x3588bd39":"0x0","0x8493cde2":"0x0","0x86d04b5b":"0x0","0xab220667":"0x0","0xfb8c0e70":"0x0","AugmentButton":"0x0","AugmentGroup":"0x0","AugmentIcon":"0x0","AugmentRegion":"0x0","DividerElement":"0x0","Group":"0x0","IconBackground":"0x0","IconElement":"0x0"}
     0x6215b888: (U8, 0x0, 0x0, 0x0) = 5
-    0x82846dfe: (Embed, 0x0, 0x0, 0x3ab4ee7c) = {"0x4c7baf5e":"0x0","0x86d04b5b":"0x0","0xab220667":"0x0","0xfb8c0e70":"0x0","Group":"0x0","IconBackground":"0x0","IconElement":"0x0"}
+    0x82846dfe: (Embed, 0x0, 0x0, 0x3ab4ee7c) = {"0x86d04b5b":"0x0","0xab220667":"0x0","0xfb8c0e70":"0x0","DividerElement":"0x0","Group":"0x0","IconBackground":"0x0","IconElement":"0x0"}
     Backdrop: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ClickAbsorbingRegionElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -11183,15 +10895,6 @@ class 0xfcb22c81():
     0x9fa8e559: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xfcf30f98(MapAction):
-    ForceRestart: (Bool, 0x0, 0x0, 0x0) = false
-    SkipIfModelInvisible: (Bool, 0x0, 0x0, 0x0) = false
-    Group: (Link, 0x0, 0x0, 0xb5d9d3a0) = "0x0"
-    looping: (Bool, 0x0, 0x0, 0x0) = false
-    AnimationName: (String, 0x0, 0x0, 0x0) = ""
-    0xa4404f0c: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0xfd51006c(ILogicBoolDriver):
     IsExclusive: (Bool, 0x0, 0x0, 0x0)
     pass
@@ -11237,13 +10940,13 @@ class 0xfe26e32b(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x43e94d92: (Color, 0x0, 0x0, 0x0) = [0,0,255,255]
     0x5d5a5fd7: (Color, 0x0, 0x0, 0x0) = [255,0,0,255]
-    0x6cfac45e: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ScenarioIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x727449e1: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x86c7642c: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x9d12fe2e: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TeamIcons: (Map, Hash, Embed, 0x2630bcc1) = {}
     0xecc8235f: (String, 0x0, 0x0, 0x0) = ""
-    0xf5a853e9: (Embed, 0x0, 0x0, 0x3ca2b710) = {"0x1979cb95":"0x0","0x2c47bec4":"0x0","0x46b22715":"0x0","0x927dd668":"0x0","0x95bc6b1b":"0x0","0x9ef4e5fa":"0x0","0xa2db2598":"0x0","0xc7304ce9":"0x0","Group":"0x0","TeamIcon":"0x0","TeamNameText":"0x0"}
+    RowTemplate: (Embed, 0x0, 0x0, 0x3ca2b710) = {"0x1979cb95":"0x0","0x2c47bec4":"0x0","0x46b22715":"0x0","0x927dd668":"0x0","0x95bc6b1b":"0x0","0x9ef4e5fa":"0x0","0xa2db2598":"0x0","0xc7304ce9":"0x0","Group":"0x0","TeamIcon":"0x0","TeamNameText":"0x0"}
     pass
 
 class 0xfe31ac4d(0xc06f5f6a):
@@ -11377,7 +11080,7 @@ class AbilityObject():
     pass
 
 class AbilityPreviewViewController(ViewController):
-    0x152930ca: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    HotkeyGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x40aa9d58: (U8, 0x0, 0x0, 0x0) = 0
     AbilityInfo: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -11388,8 +11091,8 @@ class AbilityPreviewViewController(ViewController):
     0x8c4ccae8: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AbilityName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xb7c5930f: (Map, Hash, Embed, 0xe405ebc2) = {}
-    0xcef90b6c: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xfb17eff: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Video: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    VideoGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class AbilityPrompt():
@@ -11642,7 +11345,7 @@ class AnimationFractionDynamicMaterialFloatDriver(ILogicFloatDriver):
     mAnimationName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class AnimationGeComponent(0x3497f0cf, 0x4feb7d99):
+class AnimationGeComponent(GameEntityComponent, 0x4feb7d99):
     pass
 
 class AnimationGeComponentDef(IGeComponentDef):
@@ -11821,7 +11524,7 @@ class AttackableEntity(LolGameEntity):
 class AttackableUnit(GameObject):
     pass
 
-class AttackableUnitGeComponent(0x129e311, 0x2576b4fc, 0x3497f0cf):
+class AttackableUnitGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent):
     pass
 
 class AttackableUnitGeComponentDef(IGeComponentDef):
@@ -11858,7 +11561,7 @@ class AudioTagListProperties():
     pass
 
 class AugmentData(0x22daa5b8):
-    0x3ed971bd: (Pointer, 0x0, 0x0, 0xe93de85a) = null
+    QuestData: (Pointer, 0x0, 0x0, 0xe93de85a) = null
     rarity: (U8, 0x0, 0x0, 0x0) = 0
     AugmentPlatformId: (I32, 0x0, 0x0, 0x0) = -1
     0xe3a02eac: (Bool, 0x0, 0x0, 0x0) = false
@@ -11918,7 +11621,7 @@ class AugmentSetTooltipViewController(ViewController):
     TooltipPopupTimeout: (F32, 0x0, 0x0, 0x0) = 0.0
     0x9d4faf57: (String, 0x0, 0x0, 0x0) = ""
     TooltipPopupDelayTime: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xf0ae6ff1: (Embed, 0x0, 0x0, 0xfb6952d6) = {"0x38fec106":{"0x3588bd39":"0x0","0x4c7baf5e":"0x0","0x5e940ec":"0x0","0x8493cde2":"0x0","0x86d04b5b":"0x0","0xab220667":"0x0","0xfb8c0e70":"0x0","AugmentButton":"0x0","AugmentGroup":"0x0","AugmentIcon":"0x0","Group":"0x0","IconBackground":"0x0","IconElement":"0x0"},"0x6215b888":5,"0x82846dfe":{"0x4c7baf5e":"0x0","0x86d04b5b":"0x0","0xab220667":"0x0","0xfb8c0e70":"0x0","Group":"0x0","IconBackground":"0x0","IconElement":"0x0"},"Backdrop":"0x0","ClickAbsorbingRegionElement":"0x0","Scene":"0x0"}
+    0xf0ae6ff1: (Embed, 0x0, 0x0, 0xfb6952d6) = {"0x38fec106":{"0x3588bd39":"0x0","0x8493cde2":"0x0","0x86d04b5b":"0x0","0xab220667":"0x0","0xfb8c0e70":"0x0","AugmentButton":"0x0","AugmentGroup":"0x0","AugmentIcon":"0x0","AugmentRegion":"0x0","DividerElement":"0x0","Group":"0x0","IconBackground":"0x0","IconElement":"0x0"},"0x6215b888":5,"0x82846dfe":{"0x86d04b5b":"0x0","0xab220667":"0x0","0xfb8c0e70":"0x0","DividerElement":"0x0","Group":"0x0","IconBackground":"0x0","IconElement":"0x0"},"Backdrop":"0x0","ClickAbsorbingRegionElement":"0x0","Scene":"0x0"}
     PerLocaleAdjustments: (Map, String, Embed, PerLocaleTooltipAdjustments) = {}
     pass
 
@@ -11927,7 +11630,7 @@ class AugmentSetTraitTrackerViewController(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x40aec206: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
     0x475d7c62: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x81189bab: (Embed, 0x0, 0x0, 0xb6a24478) = {"0x1808ff4c":"0x0","0x3a942548":"0x0","0x5b59a959":[0,0,0,255],"0x5b6629fc":"0x0","0x5c2597cc":"0x0","0x65be0b73":"0x0","0x75c22795":"0x0","0x836821d0":["0x0","0x0"],"0x89eaabcb":[0,0,0,255],"0x92d60862":"0x0","0x93f0384f":"0x0","0xb047093f":"0x0","0xb4261937":[0,0,0,255],"0xd206cacf":["0x0","0x0","0x0"],"0xd507d032":"0x0","0xdd60295b":"0x0"}
+    SetData: (Embed, 0x0, 0x0, 0xb6a24478) = {"0x1808ff4c":"0x0","0x5b59a959":[0,0,0,255],"0x5b6629fc":"0x0","0x5c2597cc":"0x0","0x65be0b73":"0x0","0x75c22795":"0x0","0x836821d0":["0x0","0x0"],"0x89eaabcb":[0,0,0,255],"0x92d60862":"0x0","0x93f0384f":"0x0","0xb047093f":"0x0","0xb4261937":[0,0,0,255],"0xd206cacf":["0x0","0x0","0x0"],"0xd507d032":"0x0","0xdd60295b":"0x0","SetName":"0x0"}
     0x9e387c23: (F32, 0x0, 0x0, 0x0) = 0.0
     0xc703461f: (Embed, 0x0, 0x0, 0xb40ad8e6) = {"0x6e4c79b0":"0x0","0x75be0a61":"","0x789ca916":"0x0","0x8832effe":"0x0","0xa1cb9154":"0x0","0xc58a96d0":"0x0"}
     pass
@@ -12051,7 +11754,7 @@ class BarracksDampenerCommon(AnimatedBuilding):
 class BarracksEntity(LolGameEntity):
     pass
 
-class BarracksGeComponent(0x129e311, 0x2576b4fc, 0x3497f0cf):
+class BarracksGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent):
     pass
 
 class BarracksGeComponentDef(IGeComponentDef):
@@ -12076,7 +11779,7 @@ class BarracksMinionConfig():
     MinionType: (U8, 0x0, 0x0, 0x0) = 0
     WaveBehavior: (Pointer, 0x0, 0x0, IMinionWaveBehavior) = null
     MinionUpgradeStats: (Embed, 0x0, 0x0, MinionUpgradeConfig) = {"ArmorMax":0.0,"ArmorUpgrade":0.0,"ArmorUpgradeGrowth":0.0,"DamageInhibitor":0.0,"DamageMax":0.0,"DamageUpgrade":0.0,"DamageUpgradeLate":0.0,"ExpBonus":0.0,"ExpUpgrade":0.0,"GoldMax":0.0,"GoldUpgrade":0.0,"HPInhibitor":0.0,"HPUpgrade":0.0,"HPUpgradeGrowth":0.0,"HPUpgradeGrowthLate":0.0,"HPUpgradeLate":0.0,"HpMaxBonus":0.0,"LocalGoldGiven":0.0,"LocalGoldGivenOnLastHit":0.0,"MagicResistance":0.0,"MagicResistanceUpgrade":0.0}
-    0xfee040bc: (Link, 0x0, 0x0, 0xad65d8c4) = "0x0"
+    EntityTemplate: (Link, 0x0, 0x0, 0xad65d8c4) = "0x0"
     pass
 
 class BaseBlendData():
@@ -12102,6 +11805,11 @@ class BaseLoadoutData(ICatalogEntryOwner):
     catalogEntry: (Embed, 0x0, 0x0, CatalogEntry)
     mDescriptionTraKey: (String, 0x0, 0x0, 0x0)
     mNameTraKey: (String, 0x0, 0x0, 0x0)
+    pass
+
+class BaseParams():
+    0x4c819a10: (U32, 0x0, 0x0, 0x0) = 0
+    Event: (U32, 0x0, 0x0, 0x0) = 466
     pass
 
 class BasePerk():
@@ -12159,7 +11867,7 @@ class BattlegroundsTeamHealthViewController(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x9d12fe2e: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xecc8235f: (String, 0x0, 0x0, 0x0) = ""
-    0xf5a853e9: (Embed, 0x0, 0x0, 0xd83b3308) = {"0x68af9261":[0,0,255,255],"0x95bc6b1b":"0x0","0xa2db2598":"0x0","0xb7571618":[0,215,255,255],"Group":"0x0","HealthText":"0x0","TeamNameText":"0x0"}
+    RowTemplate: (Embed, 0x0, 0x0, 0xd83b3308) = {"0x68af9261":[0,0,255,255],"0x95bc6b1b":"0x0","0xa2db2598":"0x0","0xb7571618":[0,215,255,255],"Group":"0x0","HealthText":"0x0","TeamNameText":"0x0"}
     pass
 
 class BeforeTimeConstraintInfo(ListenerConstraintInfo):
@@ -12219,8 +11927,12 @@ class BlendingSwitchMaterialDriver(SwitchMaterialDriver):
     mBlendTime: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
 
-class BoolConcept(0x7a28c026):
+class BoolConcept(BoolConceptBase):
     EasingData: (Pointer, 0x0, 0x0, 0x612b4ce2) = null
+    pass
+
+class BoolConceptBase(ConceptBase):
+    DefaultValue: (Bool, 0x0, 0x0, 0x0)
     pass
 
 class BoolGet(IBoolGet, IScriptValueGet):
@@ -12444,7 +12156,7 @@ class CameraConfig():
     GetPocLockAcceleration: (F32, 0x0, 0x0, 0x0) = 0.0
     mLockedCameraEasingDistance: (F32, 0x0, 0x0, 0x0) = 1000.0
     GetPocClampTrapezoid: (Embed, 0x0, 0x0, CameraTrapezoid) = {"mMaxXBottom":0.0,"mMaxXTop":0.0,"mMaxZDown":0.0,"mMaxZUp":0.0}
-    0x83fa5f0d: (F32, 0x0, 0x0, 0x0) = 40.0
+    ZoomFov: (F32, 0x0, 0x0, 0x0) = 40.0
     mZoomMinSpeed: (F32, 0x0, 0x0, 0x0) = 3.0
     mTransitionDurationIntoCinematicMode: (F32, 0x0, 0x0, 0x0) = 1.0
     mZoomEaseTime: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
@@ -12650,6 +12362,10 @@ class ChampionSelectionViewController(ViewController):
     ChampionSlotUiData: (List, 0x0, Embed, UiChampionSelectionSlotData) = []
     pass
 
+class ChampionSpecConfig(IGameModeConfig):
+    0xac6b058c: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
 class ChampionTransformSelectionViewController(ViewController):
     MeterVanishAnim: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MeterInnerRing: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -12727,7 +12443,22 @@ class CharacterLevelRequirement(ISpellRankUpRequirement):
 class CharacterMeshEntity(LolGameEntity):
     pass
 
-class CharacterMeshGeComponent(0x129e311, 0x12b2d1cc, 0x2576b4fc, 0x3497f0cf, 0xa4795108, 0xc85b063):
+class CharacterMeshEntityTemplate(GameEntityTemplate):
+    Script: (Embed, 0x0, 0x0, ScriptGeComponentDef) = {"ScriptDef":{"Scripts":[]}}
+    CharacterMesh: (Embed, 0x0, 0x0, CharacterMeshGeComponentDef) = {"0xb887f6e9":0.0,"IdleAnimationName":"","PlayIdleAnimation":false}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Statemachine: (Pointer, 0x0, 0x0, StateMachineGeComponentDef) = null
+    dynamicMaterial: (Embed, 0x0, 0x0, DynamicMaterialGeComponentDef) = {}
+    IsReplicated: (Bool, 0x0, 0x0, 0x0) = true
+    Character: (Pointer, 0x0, 0x0, SkinCharacterGeComponentDef) = null
+    Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
+    Animation: (Embed, 0x0, 0x0, AnimationGeComponentDef) = {}
+    Icon: (Pointer, 0x0, 0x0, NewIconGeComponentDef) = null
+    LightChannels: (Embed, 0x0, 0x0, LightChannelsGeComponentDef) = {"LightChannels":1}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    pass
+
+class CharacterMeshGeComponent(0x129e311, 0x12b2d1cc, 0x2576b4fc, GameEntityComponent, 0xa4795108, 0xc85b063):
     pass
 
 class CharacterMeshGeComponentDef(IGeComponentDef):
@@ -12779,7 +12510,7 @@ class CharacterRecord():
     mAdaptiveForceToAbilityPowerWeight: (F32, 0x0, 0x0, 0x0) = 0.0
     areaIndicatorTextureSize: (F32, 0x0, 0x0, 0x0) = 50.0
     armorPerLevelModifiable: (Embed, 0x0, 0x0, ModifiableFloat) = {"Modifiers":[],"baseValue":0.0}
-    0x1abb82c0: (Embed, 0x0, 0x0, 0xef35eacc) = {"0xcfb5881":[{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]}]}
+    0x1abb82c0: (Embed, 0x0, 0x0, 0xef35eacc) = {"List":[{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]}]}
     components: (List2, 0x0, Pointer, IComponentData) = []
     charAudioNameOverride: (String, 0x0, 0x0, 0x0) = ""
     0x1faf6b9c: (Bool, 0x0, 0x0, 0x0) = false
@@ -13037,7 +12768,7 @@ class CherryCombatInfoDisplayTeam():
     Background: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ChampionLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TeamIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x848de224: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TeamScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     FillMeter: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xc7b47c84: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TeamHitRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -13048,9 +12779,9 @@ class CherryCombatInfoDisplayTeam():
 class CherryCombatInfoDisplayViewController(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x28c91c47: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    TeamRightDisplay: (Embed, 0x0, 0x0, CherryCombatInfoDisplayTeam) = {"0x848de224":"0x0","0xc7b47c84":"0x0","0xe51c9c6c":"0x0","Background":"0x0","ChampionLayout":"0x0","FillMeter":"0x0","TeamHitRegion":"0x0","TeamIcon":"0x0","TeamTooltipAnchor":"0x0"}
+    TeamRightDisplay: (Embed, 0x0, 0x0, CherryCombatInfoDisplayTeam) = {"0xc7b47c84":"0x0","0xe51c9c6c":"0x0","Background":"0x0","ChampionLayout":"0x0","FillMeter":"0x0","TeamHitRegion":"0x0","TeamIcon":"0x0","TeamScene":"0x0","TeamTooltipAnchor":"0x0"}
     0x493e057d: (String, 0x0, 0x0, 0x0) = ""
-    TeamLeftDisplay: (Embed, 0x0, 0x0, CherryCombatInfoDisplayTeam) = {"0x848de224":"0x0","0xc7b47c84":"0x0","0xe51c9c6c":"0x0","Background":"0x0","ChampionLayout":"0x0","FillMeter":"0x0","TeamHitRegion":"0x0","TeamIcon":"0x0","TeamTooltipAnchor":"0x0"}
+    TeamLeftDisplay: (Embed, 0x0, 0x0, CherryCombatInfoDisplayTeam) = {"0xc7b47c84":"0x0","0xe51c9c6c":"0x0","Background":"0x0","ChampionLayout":"0x0","FillMeter":"0x0","TeamHitRegion":"0x0","TeamIcon":"0x0","TeamScene":"0x0","TeamTooltipAnchor":"0x0"}
     ChampionTemplate: (Embed, 0x0, 0x0, 0x10df77cc) = {"0x3d671f4c":"0x0","0x74fb3eb0":"0x0"}
     SelfLifeHealthTextColor: (Color, 0x0, 0x0, 0x0) = [0,215,255,255]
     EnemyLifeHealthTextColor: (Color, 0x0, 0x0, 0x0) = [0,0,255,255]
@@ -13082,7 +12813,7 @@ class CherryEliminationViewController(ViewController):
     TitleText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class CherryRoundsViewController(0x856ba9bc):
+class CherryRoundsViewController(LoLModesRoundsViewController):
     TimerText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     LeftPhaseIcons: (List, 0x3, Embed, 0x9784901f) = [{"0x2ea2ef00":"0x0","0x39b2057a":"0x0","PhaseHitRegion":"0x0","PhaseIcon":"0x0"},{"0x2ea2ef00":"0x0","0x39b2057a":"0x0","PhaseHitRegion":"0x0","PhaseIcon":"0x0"},{"0x2ea2ef00":"0x0","0x39b2057a":"0x0","PhaseHitRegion":"0x0","PhaseIcon":"0x0"}]
@@ -13208,7 +12939,7 @@ class CinematicBarsViewController(ViewController):
     LeftScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class CinematicCameraGeComponent(0x3497f0cf):
+class CinematicCameraGeComponent(GameEntityComponent):
     pass
 
 class CinematicCameraGeComponentDef(IGeComponentDef):
@@ -13308,6 +13039,9 @@ class ColorLogicDriverLightUpdater(IMapLightUpdater):
     driver: (Pointer, 0x0, 0x0, ILogicDriver) = {}
     pass
 
+class ColorTableSet(ScriptTableSet):
+    pass
+
 class CombatOverviewViewController(ViewController):
     0x11b79106: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x126c76f5: (String, 0x0, 0x0, 0x0) = ""
@@ -13325,7 +13059,7 @@ class CombatOverviewViewController(ViewController):
     MainScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ShopButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     FightDuration: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    TotalDamageRadialChart: (Embed, 0x0, 0x0, 0x5cafc4e3) = {"0x4b8df5f4":"0x0","0x9f4f0ed8":"0x0","0xebd43853":"0x0","HoverRegion":"0x0","data":[{"0x13927cb2":"0x0","0x2fe884a1":"0x0","0x6a5b6251":"0x0"},{"0x13927cb2":"0x0","0x2fe884a1":"0x0","0x6a5b6251":"0x0"},{"0x13927cb2":"0x0","0x2fe884a1":"0x0","0x6a5b6251":"0x0"}]}
+    TotalDamageRadialChart: (Embed, 0x0, 0x0, 0x5cafc4e3) = {"0x4b8df5f4":"0x0","0x9f4f0ed8":"0x0","HoverRegion":"0x0","TooltipGroup":"0x0","data":[{"0x13927cb2":"0x0","0x2fe884a1":"0x0","ValueTooltip":"0x0"},{"0x13927cb2":"0x0","0x2fe884a1":"0x0","ValueTooltip":"0x0"},{"0x13927cb2":"0x0","0x2fe884a1":"0x0","ValueTooltip":"0x0"}]}
     0x8c804934: (Bool, 0x0, 0x0, 0x0) = false
     0x9c56227: (Hash, 0x0, 0x0, 0x0) = "0x0"
     BountyGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -13438,6 +13172,10 @@ class ConditionFloatPairData():
     mHoldAnimationToLower: (F32, 0x0, 0x0, 0x0) = 0.0
     mHoldAnimationToHigher: (F32, 0x0, 0x0, 0x0) = 0.0
     mClipName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ConditionalKeybind(IKeyBind):
+    0x5ff6cd50: (List2, 0x0, Pointer, 0xb5754dad)
     pass
 
 class Cone(TargetingTypeData):
@@ -14002,7 +13740,7 @@ class DamageShieldedLogic(IStatStoneLogicDriver):
     DamageSourceCanBeTurret: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
-class DamageShieldedParams(0xc03c9e4e):
+class DamageShieldedParams(BaseParams):
     pass
 
 class DamageSkinLoadoutGridButtonData(LoadoutGridButtonData):
@@ -14057,7 +13795,14 @@ class DamageUnitCheat(Cheat):
     mHitResult: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
-class DeathGeComponent(0x2576b4fc, 0x3497f0cf):
+class DataObjectGet(0xceb08455, IScriptValueGet):
+    PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class DataObjectTableSet(ScriptTableSet):
+    pass
+
+class DeathGeComponent(0x2576b4fc, GameEntityComponent):
     pass
 
 class DeathGeComponentDef(IGeComponentDef):
@@ -14236,7 +13981,7 @@ class DisplayStatsUiData():
 
 class DistanceToPlayerMaterialFloatDriver(ILogicFloatDriver):
     0x8370ee35: (Bool, 0x0, 0x0, 0x0) = false
-    0x8cb9c019: (U8, 0x0, 0x0, 0x0) = 2
+    TeamCondition: (U8, 0x0, 0x0, 0x0) = 2
     minDistance: (F32, 0x0, 0x0, 0x0) = 100.0
     maxDistance: (F32, 0x0, 0x0, 0x0) = 1000.0
     0xf9c21175: (Bool, 0x0, 0x0, 0x0) = false
@@ -14250,7 +13995,7 @@ class DoubleSidedTipStyle(TipStyleBase):
 class DragDirection(TargetingTypeData):
     pass
 
-class DragonCampGeComponent(0x3497f0cf):
+class DragonCampGeComponent(GameEntityComponent):
     pass
 
 class DragonCampGeComponentDef(IGeComponentDef):
@@ -14275,7 +14020,7 @@ class DynamicMaterialDef():
     textures: (List, 0x0, Embed, DynamicMaterialTextureSwapDef) = []
     pass
 
-class DynamicMaterialGeComponent(0x3497f0cf):
+class DynamicMaterialGeComponent(GameEntityComponent):
     pass
 
 class DynamicMaterialGeComponentDef(IGeComponentDef):
@@ -14304,7 +14049,7 @@ class DynamicMaterialTextureSwapOption():
     driver: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
     pass
 
-class DynamicPointLightGeComponent(0x3497f0cf):
+class DynamicPointLightGeComponent(GameEntityComponent):
     pass
 
 class DynamicPointLightGeComponentDef(IGeComponentDef):
@@ -14318,7 +14063,7 @@ class DynamicPointLightGeComponentDef(IGeComponentDef):
     LightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
-class DynamicSpotlightGeComponent(0x3497f0cf):
+class DynamicSpotlightGeComponent(GameEntityComponent):
     pass
 
 class DynamicSpotlightGeComponentDef(IGeComponentDef):
@@ -14551,6 +14296,9 @@ class EntityStateMachine():
     DefaultState: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class EntityTableSet(ScriptTableSet):
+    pass
+
 class EnvMeshGeComponentDef(IGeComponentDef):
     pass
 
@@ -14558,6 +14306,12 @@ class EnvironmentBakedLightingShadingModel(IEnvironmentShadingModel):
     pass
 
 class EnvironmentEntity(GameEntity):
+    pass
+
+class EnvironmentEntityTemplate(GameEntityTemplate, IMapGroup):
+    envMesh: (Embed, 0x0, 0x0, EnvMeshGeComponentDef) = {}
+    dynamicMaterial: (Embed, 0x0, 0x0, DynamicMaterialGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class EnvironmentPbrShadingModel(IEnvironmentShadingModel):
@@ -14817,8 +14571,12 @@ class FloatComparisonMaterialDriver(ILogicBoolDriver):
     mOperator: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
-class FloatConcept(0xcbdd4dde):
+class FloatConcept(FloatConceptBase):
     EasingData: (Pointer, 0x0, 0x0, 0x612b4ce2) = null
+    pass
+
+class FloatConceptBase(ConceptBase):
+    DefaultValue: (F32, 0x0, 0x0, 0x0)
     pass
 
 class FloatGet(IFloatGet, IIntGet, IScriptValueGet):
@@ -15020,7 +14778,7 @@ class FloatingTextDamageDisplayTypeList():
 class FloatingTextGlobalConfig():
     mDamageDisplayTypes: (Embed, 0x0, 0x0, FloatingTextDamageDisplayTypeList) = {"BarrackMinion":"0x0","Default":"0x0","Dot":"0x0","DotNoCombine":"0x0","DotParentMissile":"0x0","DotSlow":"0x0","Impact":"0x0","Mini":"0x0","Multistrike":"0x0","MultistrikeFast":"0x0","MultistrikeSlow":"0x0","PlayerMinion":"0x0","SelfMagicalDamageCounter":"0x0","SelfPhysicalDamageCounter":"0x0","SelfTrueDamageCounter":"0x0","Ult":"0x0","Zone":"0x0"}
     mTunables: (Embed, 0x0, 0x0, FloatingTextTunables) = {"CameraMask":1,"mAnimatedTextQueueDelay":0.10000000149011612,"mComparisonByLevel":[],"mExpirationPriorityThreshold":-1.0,"mExpirationTimeThreshold":1000000.0,"mIntervalInPix":-1.0,"mLocalPlayerHealthComparison":12.5,"mMaxFloatingTextItems":25,"mMaximumDynamicScale":1.75,"mMinimumDynamicScale":1.0,"mMinionComparisonMultiplier":1.25,"mScrollSpeed":45.0,"mYResolutionBaseline":1200.0}
-    mFloatingTextTypes: (Embed, 0x0, 0x0, FloatingTextTypeList) = {"0x32383120":"0x0","0x3388fb50":"0x0","0x81f43042":"0x0","0x833573ac":"0x0","0x8457d57":"0x0","0x9591979a":"0x0","0x9642fc50":"0x0","0xa82223b3":"0x0","0xa9222546":"0x0","0xcf504aff":"0x0","0xee6adc8c":"0x0","0xf816d439":"0x0","Absorbed":"0x0","Armor":"0x0","Countdown":"0x0","Debug":"0x0","Disable":"0x0","Dodge":"0x0","EnemyMagicalDamage":"0x0","EnemyMagicalDamageCritical":"0x0","EnemyPhysicalDamage":"0x0","EnemyPhysicalDamageCritical":"0x0","EnemyTrueDamage":"0x0","EnemyTrueDamageCritical":"0x0","Experience":"0x0","Gold":"0x0","Heal":"0x0","Invulnerable":"0x0","MagicResist":"0x0","MagicalDamage":"0x0","MagicalDamageCritical":"0x0","MagicalDamageEnhanced":"0x0","ManaDamage":"0x0","ManaHeal":"0x0","OMW":"0x0","PhysicalDamage":"0x0","PhysicalDamageCritical":"0x0","PhysicalDamageEnhanced":"0x0","PracticeToolDPS":"0x0","PracticeToolLastHit":"0x0","PracticeToolTotal":"0x0","QuestComplete":"0x0","QuestReceived":"0x0","Score":"0x0","ScoreDarkStar":"0x0","ScoreProject0":"0x0","ScoreProject1":"0x0","ShieldBonusDamage":"0x0","Special":"0x0","TFTUnitLabel":"0x0","TrueDamage":"0x0","TrueDamageCritical":"0x0","TrueDamageEnhanced":"0x0","level":"0x0"}
+    mFloatingTextTypes: (Embed, 0x0, 0x0, FloatingTextTypeList) = {"0x32383120":"0x0","0x3388fb50":"0x0","0x833573ac":"0x0","0x8457d57":"0x0","0x9591979a":"0x0","0x9642fc50":"0x0","0xa82223b3":"0x0","0xa9222546":"0x0","0xcf504aff":"0x0","0xee6adc8c":"0x0","0xf816d439":"0x0","Absorbed":"0x0","Armor":"0x0","AugmentReroll":"0x0","Countdown":"0x0","Debug":"0x0","Disable":"0x0","Dodge":"0x0","EnemyMagicalDamage":"0x0","EnemyMagicalDamageCritical":"0x0","EnemyPhysicalDamage":"0x0","EnemyPhysicalDamageCritical":"0x0","EnemyTrueDamage":"0x0","EnemyTrueDamageCritical":"0x0","Experience":"0x0","Gold":"0x0","Heal":"0x0","Invulnerable":"0x0","MagicResist":"0x0","MagicalDamage":"0x0","MagicalDamageCritical":"0x0","MagicalDamageEnhanced":"0x0","ManaDamage":"0x0","ManaHeal":"0x0","OMW":"0x0","PhysicalDamage":"0x0","PhysicalDamageCritical":"0x0","PhysicalDamageEnhanced":"0x0","PracticeToolDPS":"0x0","PracticeToolLastHit":"0x0","PracticeToolTotal":"0x0","QuestComplete":"0x0","QuestReceived":"0x0","Score":"0x0","ScoreDarkStar":"0x0","ScoreProject0":"0x0","ScoreProject1":"0x0","ShieldBonusDamage":"0x0","Special":"0x0","TFTUnitLabel":"0x0","TrueDamage":"0x0","TrueDamageCritical":"0x0","TrueDamageEnhanced":"0x0","level":"0x0"}
     pass
 
 class FloatingTextOverride():
@@ -15063,7 +14821,7 @@ class FloatingTextTypeList():
     Invulnerable: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
     PhysicalDamageEnhanced: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
     ScoreDarkStar: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
-    0x81f43042: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
+    AugmentReroll: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
     0x833573ac: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
     0x8457d57: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
     Absorbed: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
@@ -15205,7 +14963,13 @@ class GameCalculationModified(IGameCalculation):
     mOverrideSpellLevel: (Option, 0x0, I32, 0x0) = null
     pass
 
-class GameEntity(0xa4f28691, 0xd738f7c9):
+class GameEntity(ILogicDriverSource, 0xd738f7c9):
+    pass
+
+class GameEntityBlock(IScriptBlock):
+    pass
+
+class GameEntityComponent():
     pass
 
 class GameEntityOnActivate(0x4e8d1d3e):
@@ -15291,6 +15055,10 @@ class GameModeConstantStringVector(GameModeConstant):
 
 class GameModeConstantTRAKey(GameModeConstant):
     mValue: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class GameModeConstantTftItem(GameModeConstant):
+    Item: (Link, 0x0, 0x0, TftItemData) = "0x0"
     pass
 
 class GameModeConstantVector3f(GameModeConstant):
@@ -16465,7 +16233,7 @@ class IFunctionGet():
 class IGameCalculation():
     mMultiplier: (Pointer, 0x0, 0x0, IGameCalculationPart)
     mExpandedTooltipCalculationDisplay: (U8, 0x0, 0x0, 0x0)
-    0x72c5c2a8: (U32, 0x0, 0x0, 0x0)
+    DamageType: (U32, 0x0, 0x0, 0x0)
     ResultModifier: (U8, 0x0, 0x0, 0x0)
     mSimpleTooltipCalculationDisplay: (U8, 0x0, 0x0, 0x0)
     tooltipOnly: (Bool, 0x0, 0x0, 0x0)
@@ -16513,6 +16281,9 @@ class IInputSourceBool():
 class IInputSourceFloat():
     pass
 
+class IInputUpdater():
+    pass
+
 class IIntGet():
     pass
 
@@ -16545,6 +16316,9 @@ class ILogicBoolDriver(ILogicIntDriver):
     pass
 
 class ILogicDriver():
+    pass
+
+class ILogicDriverSource():
     pass
 
 class ILogicFloatDriver(ILogicDriver):
@@ -16931,8 +16705,12 @@ class InstanceVars(ScriptTable):
 class IntArrayTableSet(ScriptTableSet):
     pass
 
-class IntConcept(0x9dec456b):
+class IntConcept(IntConceptBase):
     EasingData: (Pointer, 0x0, 0x0, 0x612b4ce2) = null
+    pass
+
+class IntConceptBase(ConceptBase):
+    DefaultValue: (I32, 0x0, 0x0, 0x0)
     pass
 
 class IntGet(IFloatGet, IIntGet, IScriptValueGet):
@@ -17642,7 +17420,7 @@ class LevelPurchaseViewController(ViewController):
     HeaderImage: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xc3c5d21: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xd5d75a69: (I32, 0x0, 0x0, 0x0) = 10
-    0xddf728ec: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CheckboxButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xe2c11a81: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xebf79b40: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xed599fd8: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -17682,14 +17460,14 @@ class LevelScriptOnReset(ILevelScriptEvent):
 class LevelScriptOnUpdate(ILevelScriptEvent):
     pass
 
-class LightChannelsGeComponent(0x3497f0cf):
+class LightChannelsGeComponent(GameEntityComponent):
     pass
 
 class LightChannelsGeComponentDef(IGeComponentDef):
     LightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
-class LightRegionGeComponent(0x3497f0cf):
+class LightRegionGeComponent(GameEntityComponent):
     pass
 
 class LightRegionGeComponentDef(IGeComponentDef):
@@ -17759,7 +17537,11 @@ class LoLCastActionKeybind(InputEventBoolKeybind):
     CastAction: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class LoLCursorContextAwareKeybind(0xdf639629):
+class LoLCursorContextAwareKeybind(ConditionalKeybind):
+    pass
+
+class LoLEmoteKeybind(InputEventBoolKeybind):
+    EmoteType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class LoLFeatureToggles():
@@ -17851,6 +17633,15 @@ class LoLFeatureToggles():
     0xfb9572d0: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
+class LoLKeybindSet(KeybindSet):
+    events: (List2, 0x0, Link, InputEventBase) = []
+    0x5ff6cd50: (List2, 0x0, Pointer, 0x7f631ac9) = []
+    0x72fce42a: (List2, 0x0, Pointer, 0x811d959e) = []
+    0x815ebffc: (List2, 0x0, Pointer, 0x811d959e) = []
+    Keybinds: (List2, 0x0, Pointer, IKeyBind) = []
+    name: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class LoLModesEventChoiceViewController(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     OptionDisplayData: (Embed, 0x0, 0x0, 0xd8a0e424) = {"Button":"0x0","ButtonIcon":"0x0","Group":"0x0","Subtitle":"0x0","title":"0x0"}
@@ -17876,6 +17667,14 @@ class LoLModesRoundData():
 class LoLModesRoundsListData(IGameModeConfig):
     0x37e6e53a: (U32, 0x0, 0x0, 0x0) = 0
     Rounds: (List2, 0x0, Link, LoLModesRoundData) = []
+    pass
+
+class LoLModesRoundsViewController(ViewController):
+    pass
+
+class LoLPingKeybind(InputEventBoolKeybind):
+    0x4d5476d2: (U32, 0x0, 0x0, 0x0) = 0
+    PingCategory: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class LoLSpellPreloadData():
@@ -18285,6 +18084,52 @@ class LoadoutViewController(ViewController):
     DamageSkinLoadoutGridButtonData: (Embed, 0x0, 0x0, DamageSkinLoadoutGridButtonData) = {"0x516737fb":"0x0","0x5267398e":"0x0","0x53673b21":"0x0","CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
     pass
 
+class LoadoutViewControllerV2(ViewController):
+    0x1aa55fe1: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CompanionLoadoutItemListPanelData: (Embed, 0x0, 0x0, LoadoutItemListPanelData) = {"ButtonArea":"0x0","TitleArea":"0x0","TitleTemplate":"0x0","TitleTextTemplate":"0x0","ViewPanelScene":"0x0"}
+    0x1e8e7b49: (Embed, 0x0, 0x0, 0x1e8e7b49) = {"CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
+    0x2256cd1f: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x2eed7e1b: (Link, 0x0, 0x0, ViewController) = "0x0"
+    SearchbarText: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SoundOnDeActivate: (String, 0x0, 0x0, 0x0) = ""
+    equipButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ArenaSkinLoadoutGridButtonData: (Embed, 0x0, 0x0, ArenaSkinLoadoutGridButtonData) = {"CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
+    SearchButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x4fc30b29: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    StarShardsStoreDialog: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x548fbc13: (Embed, 0x0, 0x0, LoadoutItemListPanelData) = {"ButtonArea":"0x0","TitleArea":"0x0","TitleTemplate":"0x0","TitleTextTemplate":"0x0","ViewPanelScene":"0x0"}
+    0x5f2cd4eb: (Embed, 0x0, 0x0, 0x420e433d) = {"0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","0xee425ddc":"0x0","GamePassIcon":"0x0","ItemIcon":"0x0","ItemIconText":"0x0","ItemLockIcon":"0x0","RarityGem":"0x0","Scene":"0x0","ViewPaneLink":"0x0"}
+    DamageSkinInfoPanel: (Embed, 0x0, 0x0, LoadoutDamageSkinInfoPanel) = {"0x5683a573":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","0xee425ddc":"0x0","GamePassIcon":"0x0","ItemIcon":"0x0","ItemIconText":"0x0","LockIcon":["0x0","0x0","0x0"],"RarityGem":"0x0","Scene":"0x0","UnownedTierButton":["0x0","0x0","0x0"],"ViewPaneLink":"0x0","tierButton":["0x0","0x0","0x0"]}
+    TabletOverrideLoadable: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
+    0x70e416ac: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x719d99ae: (Embed, 0x0, 0x0, 0xd25f84b0) = {"0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","0xee425ddc":"0x0","GamePassIcon":"0x0","ItemIcon":"0x0","ItemIconText":"0x0","ItemLockIcon":"0x0","RarityGem":"0x0","Scene":"0x0","ViewPaneLink":"0x0"}
+    LoadoutScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ArenaSkinLoadoutItemListPanelData: (Embed, 0x0, 0x0, LoadoutItemListPanelData) = {"ButtonArea":"0x0","TitleArea":"0x0","TitleTemplate":"0x0","TitleTextTemplate":"0x0","ViewPanelScene":"0x0"}
+    0x899e7ee7: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    StarShardCurrencyWidget: (Embed, 0x0, 0x0, TftCurrencyWidget) = {"0x3b061cb9":false,"CurrencyButton":"0x0","TooltipButton":"0x0","TooltipDescriptionTra":"","TooltipOffsetX":0.0,"TooltipOffsetY":0.0,"TooltipTitleTra":""}
+    StarShardCurrencyButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SoundOnActivate: (String, 0x0, 0x0, 0x0) = ""
+    0xa1d79c7c: (Embed, 0x0, 0x0, LoadoutItemListPanelData) = {"ButtonArea":"0x0","TitleArea":"0x0","TitleTemplate":"0x0","TitleTextTemplate":"0x0","ViewPanelScene":"0x0"}
+    0xa95ede35: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    closeButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xbfd5b639: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
+    0xc7039388: (Embed, 0x0, 0x0, 0xc7039388) = {"CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
+    gridItemButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xcee40baf: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    StarShardDecreaseVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xd2bd41f4: (String, 0x0, 0x0, 0x0) = ""
+    CompanionInfoPanel: (Embed, 0x0, 0x0, LoadoutCompanionInfoPanel) = {"0x4b8c1a00":"0x0","0x5683a573":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0x96e6f1ba":"0x0","0xbd2f7d09":"","0xee425ddc":"0x0","0xf0ed80c8":"","GamePassIcon":"0x0","ItemIcon":"0x0","ItemIconText":"0x0","JustObtainedIcon":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"RarityGem":"0x0","Scene":"0x0","Tier2ButtonFeedbackVfx":"0x0","Tier3ButtonFeedbackVfx":"0x0","UnownedStarShardIcon":["0x0","0x0","0x0"],"UnownedTierButton":["0x0","0x0","0x0"],"UpgradeButtonDisabledFromEntitlementText":"","UpgradeEntitlementErrorButton":"0x0","UpgradeEntitlementErrorTooltipText":"","ViewPaneLink":"0x0","tierButton":["0x0","0x0","0x0"],"upgradeErrorText":"0x0","upgradeInfoText":"0x0","upgradeTierButton":["0x0","0x0","0x0"]}
+    upgradeButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xd5846a0a: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SearchbarGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ArenaInfoPanel: (Embed, 0x0, 0x0, LoadoutArenaSkinInfoPanel) = {"0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","0xee425ddc":"0x0","GamePassIcon":"0x0","ItemIcon":"0x0","ItemIconText":"0x0","ItemLockIcon":"0x0","RarityGem":"0x0","Scene":"0x0","ViewPaneLink":"0x0"}
+    0xe9adf6a4: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CompanionLoadoutGridButtonData: (Embed, 0x0, 0x0, CompanionLoadoutGridButtonData) = {"0x516737fb":"0x0","0x5267398e":"0x0","0x53673b21":"0x0","CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
+    DamageSkinLoadoutItemListPanelData: (Embed, 0x0, 0x0, LoadoutItemListPanelData) = {"ButtonArea":"0x0","TitleArea":"0x0","TitleTemplate":"0x0","TitleTextTemplate":"0x0","ViewPanelScene":"0x0"}
+    0xfaf537f0: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    DamageSkinLoadoutGridButtonData: (Embed, 0x0, 0x0, DamageSkinLoadoutGridButtonData) = {"0x516737fb":"0x0","0x5267398e":"0x0","0x53673b21":"0x0","CHECK":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","Group":"0x0","Icon":"0x0","Lock":"0x0","RarityGem":"0x0"}
+    pass
+
 class LoadoutsButtonData():
     Region: (Hash, 0x0, 0x0, 0x0) = "0x0"
     IllustrationIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -18391,6 +18236,10 @@ class Location(TargetingTypeData):
 class LocationClamped(TargetingTypeData):
     pass
 
+class LocatorEntityTemplate(GameEntityTemplate):
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    pass
+
 class LockRootOrientationEventData(BaseEventData):
     JointName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     BlendOutTime: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
@@ -18439,7 +18288,7 @@ class LogicDriverVisibilityController(IMapVisibilityController):
 
 class LoginViewController(ViewController):
     0x15c50ee9: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x1a0d8988: (Link, 0x0, 0x0, ViewController) = "0x0"
+    BackgroundViewController: (Link, 0x0, 0x0, ViewController) = "0x0"
     0x1da6fca1: (Hash, 0x0, 0x0, 0x0) = "0x0"
     LoginProviderButtonMapping: (List2, 0x0, Embed, TftMobileLoginButtonData) = []
     0x45891350: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -18739,6 +18588,15 @@ class MapActionFollowPath(MapAction):
     UseVelocityOverDuration: (Bool, 0x0, 0x0, 0x0) = false
     targetName: (String, 0x0, 0x0, 0x0) = ""
     RotateWithSpline: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class MapActionGroupAnimation(MapAction):
+    ForceRestart: (Bool, 0x0, 0x0, 0x0) = false
+    SkipIfModelInvisible: (Bool, 0x0, 0x0, 0x0) = false
+    Group: (Link, 0x0, 0x0, 0xb5d9d3a0) = "0x0"
+    looping: (Bool, 0x0, 0x0, 0x0) = false
+    AnimationName: (String, 0x0, 0x0, 0x0) = ""
+    0xa4404f0c: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class MapActionPlayAnimation(MapAction):
@@ -19172,6 +19030,10 @@ class MapPointLightType():
     radius: (F32, 0x0, 0x0, 0x0) = 500.0
     pass
 
+class MapPrefab(MapPlaceable):
+    items: (List2, 0x0, Pointer, MapPlaceableBase) = []
+    pass
+
 class MapProjectedTexture(MapFrustum):
     ProjectedTexture: (String, 0x0, 0x0, 0x0) = ""
     falloffTexture: (String, 0x0, 0x0, 0x0) = ""
@@ -19192,7 +19054,15 @@ class MapSSAO(MapGraphicsFeature):
     pass
 
 class MapSSAORenderer():
-    settings: (Embed, 0x0, 0x0, 0x502b0c72) = {"0x6509d993":true,"BufferScale":0.5,"SampleQuality":0,"SampleRadius":25.0,"power":1.0}
+    settings: (Embed, 0x0, 0x0, MapSSAOSettings) = {"0x6509d993":true,"BufferScale":0.5,"SampleQuality":0,"SampleRadius":25.0,"power":1.0}
+    pass
+
+class MapSSAOSettings():
+    SampleQuality: (U32, 0x0, 0x0, 0x0) = 0
+    0x6509d993: (Bool, 0x0, 0x0, 0x0) = true
+    SampleRadius: (F32, 0x0, 0x0, 0x0) = 25.0
+    BufferScale: (F32, 0x0, 0x0, 0x0) = 0.5
+    power: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
 
 class MapScriptLocator(MapLocator):
@@ -19386,7 +19256,7 @@ class MatchmakingQueue():
     IllustrationIconPath: (String, 0x0, 0x0, 0x0) = ""
     description: (String, 0x0, 0x0, 0x0) = ""
     0x4953a4fd: (Bool, 0x0, 0x0, 0x0) = false
-    0x5e0b3bdf: (U8, 0x0, 0x0, 0x0) = 0
+    GameType: (U8, 0x0, 0x0, 0x0) = 0
     SmallIconPath: (String, 0x0, 0x0, 0x0) = ""
     MaxPartySize: (U8, 0x0, 0x0, 0x0) = 0
     shortName: (String, 0x0, 0x0, 0x0) = ""
@@ -19398,7 +19268,7 @@ class MatchmakingQueue():
     0x99c2bfa6: (Bool, 0x0, 0x0, 0x0) = false
     MapId: (U32, 0x0, 0x0, 0x0) = 0
     DetailedDescription: (String, 0x0, 0x0, 0x0) = ""
-    0xd9ccf5cb: (String, 0x0, 0x0, 0x0) = ""
+    PickMode: (String, 0x0, 0x0, 0x0) = ""
     Product: (String, 0x0, 0x0, 0x0) = ""
     queueId: (I64, 0x0, 0x0, 0x0) = 0
     Mode: (String, 0x0, 0x0, 0x0) = ""
@@ -19419,6 +19289,10 @@ class MaxMaterialDriver(ILogicDriver):
     pass
 
 class MeshEntity(GameEntity):
+    pass
+
+class MeshEntityTemplate(GameEntityTemplate):
+    MeshHelper: (Embed, 0x0, 0x0, 0x912bf9eb) = {"0x4bcc2801":true,"0x7114af11":false,"MaterialMapping":{},"MeshPath":"","RenderPass":0,"eyeCandy":0,"quality":31}
     pass
 
 class MessageBoxDialog(ModalDialogViewController):
@@ -19783,18 +19657,28 @@ class ModesQuestTrackerViewController(ViewController):
     0x386e926b: (U32, 0x0, 0x0, 0x0) = 2
     0x3bd9d6f4: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     MainScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xa7f23864: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xae6404bb: (Embed, 0x0, 0x0, 0x4b24468b) = {"0x23d6693e":"0x0","0x2c2fd8fd":"0x0","0x70ed514c":"0x0","0x8283d47c":"0x0","0xbdc1c254":"0x0","0xc9bf974a":"0x0","0xd8b39f8c":"0x0","Group":"0x0","HitArea":"0x0","Icon":"0x0","Meter":"0x0","Outline":"0x0"}
+    QuestGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    DisplayTemplate: (Embed, 0x0, 0x0, 0x4b24468b) = {"0x23d6693e":"0x0","0x2c2fd8fd":"0x0","0x70ed514c":"0x0","0xbdc1c254":"0x0","0xc9bf974a":"0x0","0xd8b39f8c":"0x0","Group":"0x0","HitArea":"0x0","Icon":"0x0","Meter":"0x0","Outline":"0x0","TrackerText":"0x0"}
     0xee5536e5: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     pass
 
-class ModesScenarioGeComponent(0x3497f0cf, 0x4feb7d99):
+class ModesScenarioGeComponent(GameEntityComponent, 0x4feb7d99):
     pass
 
 class ModesScenarioGeComponentDef(IGeComponentDef):
     0xacbf093d: (String, 0x0, 0x0, 0x0) = ""
     0xd15f7f26: (Bool, 0x0, 0x0, 0x0) = true
     Icon: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":""}
+    pass
+
+class ModesSpectateViewController(ViewController):
+    Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x591e9231: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x660ca429: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x8be50688: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x8d7e680d: (String, 0x0, 0x0, 0x0) = ""
+    0xab5f419f: (String, 0x0, 0x0, 0x0) = ""
+    0xb2f6687e: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class ModifiableFloat():
@@ -19975,7 +19859,7 @@ class NavRegionDef():
     tags: (Map, U32, U32, 0x0) = {}
     pass
 
-class NavRegionGeComponent(0x3497f0cf):
+class NavRegionGeComponent(GameEntityComponent):
     pass
 
 class NavRegionGeComponentDef(IGeComponentDef):
@@ -19986,7 +19870,7 @@ class NavigationGroup():
     Hash: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class NetworkingGeComponent(0x3497f0cf):
+class NetworkingGeComponent(GameEntityComponent):
     pass
 
 class NetworkingGeComponentDef(IGeComponentDef):
@@ -19995,7 +19879,7 @@ class NetworkingGeComponentDef(IGeComponentDef):
 class NeutralCampEntity(LolGameEntity):
     pass
 
-class NeutralCampGeComponent(0x129e311, 0x2576b4fc, 0x3497f0cf, 0x49b45024):
+class NeutralCampGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent, 0x49b45024):
     pass
 
 class NeutralCampGeComponentDef(IGeComponentDef):
@@ -20035,7 +19919,7 @@ class NeutralTimerData():
     SourceIcons: (List, 0x0, Embed, NeutralTimerSourceIconData) = []
     0x3995c23b: (Bool, 0x0, 0x0, 0x0) = true
     0x5a4ef4e7: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x82e3e93e: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    OverrideName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TimerName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TooltipRespawn: (String, 0x0, 0x0, 0x0) = ""
     TooltipChatNameChaos: (String, 0x0, 0x0, 0x0) = ""
@@ -20086,7 +19970,7 @@ class NeutralTimers():
     Timers: (List, 0x0, Embed, NeutralTimerData) = []
     pass
 
-class NewIconGeComponent(0x3497f0cf):
+class NewIconGeComponent(GameEntityComponent):
     pass
 
 class NewIconGeComponentDef(IGeComponentDef):
@@ -20114,6 +19998,9 @@ class NexusFinisher(BaseLoadoutData):
     OrderSequence: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SplashPath: (String, 0x0, 0x0, 0x0) = ""
     VideoPath: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class NexusFinisherViewController(ViewController):
     pass
 
 class NotInputSourceBool(IInputSourceBool):
@@ -20545,7 +20432,7 @@ class OptionItemResolutionDropdown(OptionItemDropdown):
 class OptionItemSecondaryHotkeys1Column(0x116f5c56):
     0x349ad6a6: (Bool, 0x0, 0x0, 0x0) = false
     template: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x98f86e0: (List2, 0x0, Embed, OptionItemSecondaryHotkeys1Column_Row) = []
+    RowsList: (List2, 0x0, Embed, OptionItemSecondaryHotkeys1Column_Row) = []
     Header: (Embed, 0x0, 0x0, OptionItemSecondaryHotkeys1Column_Header) = {"Column0LabelTraKey":"","Column1LabelTraKey":""}
     pass
 
@@ -20562,7 +20449,7 @@ class OptionItemSecondaryHotkeys1Column_Row():
 class OptionItemSecondaryHotkeys2Column(0x116f5c56):
     0x349ad6a6: (Bool, 0x0, 0x0, 0x0) = false
     template: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x98f86e0: (List2, 0x0, Embed, OptionItemSecondaryHotkeys2Column_Row) = []
+    RowsList: (List2, 0x0, Embed, OptionItemSecondaryHotkeys2Column_Row) = []
     Header: (Embed, 0x0, 0x0, OptionItemSecondaryHotkeys2Column_Header) = {"Column0LabelTraKey":"","Column1LabelTraKey":"","Column2LabelTraKey":""}
     pass
 
@@ -20608,6 +20495,9 @@ class OptionItemSliderVolume(OptionItemSliderFloat):
 class OptionItemVoiceInputDeviceDropdown(OptionItemDropdown):
     pass
 
+class OptionTemplateBase(IOptionTemplate):
+    pass
+
 class OptionTemplateBorder(IOptionTemplate):
     border: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -20637,7 +20527,7 @@ class OptionTemplateGroup(IOptionTemplate):
     labelElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class OptionTemplateHotkeys(0xa91b85e3):
+class OptionTemplateHotkeys(OptionTemplateBase):
     0x2518bff6: (Hash, 0x0, 0x0, 0x0) = "0x0"
     QuickCastButtonPos: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x4248aa99: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -20740,13 +20630,13 @@ class OutnumberedConstraintInfo(ListenerConstraintInfo):
     pass
 
 class OverrideAttackTimeData():
-    mTotalAttackTimeSecs: (Pointer, 0x0, 0x0, IGameCalculation) = {"0x72c5c2a8":4,"ResultModifier":0,"mExpandedTooltipCalculationDisplay":8,"mMultiplier":null,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}
+    mTotalAttackTimeSecs: (Pointer, 0x0, 0x0, IGameCalculation) = {"DamageType":4,"ResultModifier":0,"mExpandedTooltipCalculationDisplay":8,"mMultiplier":null,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}
     SetOverrideAttackDelay: (Bool, 0x0, 0x0, 0x0) = true
     mCastTimePercent: (F32, 0x0, 0x0, 0x0) = 0.6000000238418579
     pass
 
 class OverrideAutoAttackCastTimeData():
-    mOverrideAutoattackCastTimeCalculation: (Pointer, 0x0, 0x0, IGameCalculation) = {"0x72c5c2a8":4,"ResultModifier":0,"mExpandedTooltipCalculationDisplay":8,"mMultiplier":null,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}
+    mOverrideAutoattackCastTimeCalculation: (Pointer, 0x0, 0x0, IGameCalculation) = {"DamageType":4,"ResultModifier":0,"mExpandedTooltipCalculationDisplay":8,"mMultiplier":null,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}
     pass
 
 class OverridePerkSelectionSet():
@@ -20808,13 +20698,13 @@ class ParametricPairData():
     mClipName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class ParamsAssist(0xc03c9e4e):
+class ParamsAssist(BaseParams):
     pass
 
-class ParamsCC(0xc03c9e4e):
+class ParamsCC(BaseParams):
     pass
 
-class ParamsChampionKill(0xc03c9e4e):
+class ParamsChampionKill(BaseParams):
     0x1b8094ed: (I32, 0x0, 0x0, 0x0) = -1
     0x62ab3bf: (U32, 0x0, 0x0, 0x0) = 0
     0x8bffd7b6: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -20825,16 +20715,16 @@ class ParamsChampionKill(0xc03c9e4e):
 class ParamsChampionKillPre(ParamsChampionKill):
     pass
 
-class ParamsDamage(0xc03c9e4e):
+class ParamsDamage(BaseParams):
     pass
 
-class ParamsDamageAttempt(0xc03c9e4e):
+class ParamsDamageAttempt(BaseParams):
     pass
 
-class ParamsDamageCriticalStrike(0xc03c9e4e):
+class ParamsDamageCriticalStrike(BaseParams):
     pass
 
-class ParamsDie(0xc03c9e4e):
+class ParamsDie(BaseParams):
     0x1b8094ed: (I32, 0x0, 0x0, 0x0) = -1
     0x53858b44: (U32, 0x0, 0x0, 0x0) = 0
     0x8bffd7b6: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -20845,28 +20735,28 @@ class ParamsDie(0xc03c9e4e):
     0xee979cdc: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class ParamsExpEarned(0xc03c9e4e):
+class ParamsExpEarned(BaseParams):
     pass
 
-class ParamsGoldEarned(0xc03c9e4e):
+class ParamsGoldEarned(BaseParams):
     pass
 
-class ParamsGoldSpent(0xc03c9e4e):
+class ParamsGoldSpent(BaseParams):
     pass
 
-class ParamsHeal(0xc03c9e4e):
+class ParamsHeal(BaseParams):
     pass
 
-class ParamsItemChange(0xc03c9e4e):
+class ParamsItemChange(BaseParams):
     pass
 
-class ParamsItemConsumedPurchased(0xc03c9e4e):
+class ParamsItemConsumedPurchased(BaseParams):
     pass
 
-class ParamsItemUndo(0xc03c9e4e):
+class ParamsItemUndo(BaseParams):
     pass
 
-class ParamsKillingSpree(0xc03c9e4e):
+class ParamsKillingSpree(BaseParams):
     assistCount: (U32, 0x0, 0x0, 0x0) = 0
     0xcaccb87: (List, 0x10, U32, 0x0) = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     Amount: (I32, 0x0, 0x0, 0x0) = 0
@@ -20879,7 +20769,7 @@ class ParamsMinionKill(ParamsDie):
     0xe86ba2bf: (I32, 0x0, 0x0, 0x0) = 0
     pass
 
-class ParamsUndoEnabledChange(0xc03c9e4e):
+class ParamsUndoEnabledChange(BaseParams):
     pass
 
 class ParticleEventData(BaseEventData):
@@ -21520,6 +21410,10 @@ class ProgressTrack():
     0xe3a1b4bf: (Hash, 0x0, 0x0, 0x0) = "0x8132b290"
     pass
 
+class ProgressTrackList():
+    ProgressTracks: (List2, 0x0, Link, ProgressTrack) = []
+    pass
+
 class PropertyLoadable():
     FilepathHash: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -21776,14 +21670,17 @@ class RegionDataBase():
     Regions: (List2, 0x0, String, 0x0)
     pass
 
-class RegionEntity(0xdea8da9f):
+class RegionEntity(RegionEntityBase):
+    pass
+
+class RegionEntityBase(GameEntity):
     pass
 
 class RegionEntityTemplate(0x7d52573d):
     envMesh: (Embed, 0x0, 0x0, EnvMeshGeComponentDef) = {}
     pass
 
-class RegionGeComponent(0x3497f0cf):
+class RegionGeComponent(GameEntityComponent):
     pass
 
 class RegionGeComponentDef(IGeComponentDef):
@@ -21875,7 +21772,7 @@ class ReplayTeamFramesViewController(ViewController):
 
 class ReplayVisibilityMenuViewController(ViewController):
     KillCalloutsVisibilityKey: (String, 0x0, 0x0, 0x0) = ""
-    0x39781626: (Embed, 0x0, 0x0, 0x2db7365f) = {"Group":"0x0","Label":"0x0","Slider":"0x0","value":"0x0"}
+    SliderTemplate: (Embed, 0x0, 0x0, 0x2db7365f) = {"Group":"0x0","Label":"0x0","Slider":"0x0","value":"0x0"}
     ObjectiveTimersVisibilityKey: (String, 0x0, 0x0, 0x0) = ""
     TeamFramesBlueVisibilityKey: (String, 0x0, 0x0, 0x0) = ""
     0x5c32c63c: (String, 0x0, 0x0, 0x0) = ""
@@ -21988,7 +21885,7 @@ class RewardGroup(IMilestoneProperty):
     rewardStrategy: (U8, 0x0, 0x0, 0x0) = 0
     Active: (Bool, 0x0, 0x0, 0x0) = true
     0xe3a1b4bf: (Hash, 0x0, 0x0, 0x0) = "0x8132b290"
-    0xee192a3e: (Embed, 0x0, 0x0, 0xd443ea96) = {"0xa62782e2":{"0x99b0deea":"","0xad22c790":""},"Canvas":{"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""},"intro":{"0x1327149b":"","0x66bde3f":"","0x6a8398d3":"","0xe7214e2d":"","IntroAnimation":""}}
+    0xee192a3e: (Embed, 0x0, 0x0, 0xd443ea96) = {"Canvas":{"0x5c77e8b":0,"0x87ac0600":0,"0xc12d04c6":""},"Transition":{"0x99b0deea":"","TransitionAnimation":""},"intro":{"0x1327149b":"","0x66bde3f":"","0xe7214e2d":"","IntroAnimation":"","LoopAnimation":""}}
     types: (List, 0x0, String, 0x0) = []
     pass
 
@@ -22173,7 +22070,7 @@ class ScoreboardGameModeConfig(IGameModeConfigClient):
     pass
 
 class ScoreboardTeamScoresDefinitions():
-    0x516fe283: (Embed, 0x0, 0x0, 0xb36c777a) = {"0x6975adea":"0x0","0xb2d11fb5":"0x0","0xba6de6d3":"0x0","0xd736c5a4":"0x0","DeviceUx":0}
+    DragonKills: (Embed, 0x0, 0x0, 0xb36c777a) = {"0x6975adea":"0x0","0xb2d11fb5":"0x0","0xba6de6d3":"0x0","0xd736c5a4":"0x0","DeviceUx":0}
     DragonTracker: (Embed, 0x0, 0x0, UiMetricMultiDragonKillsSrX) = {"0x2e1de71a":null,"0x766be793":"0x0","0xa9c04665":null,"DeviceUx":0,"DragonTypeIcons":{},"SoulSlot":null,"Team1IconSlots":[],"Team2IconSlots":[],"TeamSlotDisabledIcon":"0x0"}
     TowerKills: (Embed, 0x0, 0x0, UiMetricTeamTowerKills) = {"DeviceUx":0,"Team1TowerKillsIcon":"0x0","Team1TowerKillsText":"0x0","Team2TowerKillsIcon":"0x0","Team2TowerKillsText":"0x0"}
     0xbcbb5260: (Embed, 0x0, 0x0, 0x6734c597) = {"0x3594d7df":"0x0","0xd43baf7a":"0x0","0xe47ec0fc":"0x0","0xe7bfbb59":"0x0","DeviceUx":0}
@@ -22263,7 +22160,7 @@ class ScriptFunction(RootScriptSequence):
     StaticFunction: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class ScriptGeComponent(0x3497f0cf, 0x4feb7d99):
+class ScriptGeComponent(GameEntityComponent, 0x4feb7d99):
     pass
 
 class ScriptGeComponentDef(IGeComponentDef):
@@ -22351,6 +22248,9 @@ class SecondaryResourceDisplayFractional(ISecondaryResourceDisplayData):
 
 class SegmentGet(ISegmentGet, IScriptValueGet):
     value: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class SegmentTableSet(ScriptTableSet):
     pass
 
 class SelectorClipData(ClipBaseData):
@@ -22455,7 +22355,7 @@ class SequencerClipData(ClipBaseData):
     mEventDataMap: (Map, Hash, Pointer, BaseEventData) = {}
     pass
 
-class SequencerGeComponent(0x3497f0cf):
+class SequencerGeComponent(GameEntityComponent):
     pass
 
 class SequencerGeComponentDef(IGeComponentDef):
@@ -22495,7 +22395,7 @@ class SetVarInTableBlock(IBehaviorScriptBlock):
     Src: (Pointer, 0x0, 0x0, IScriptValueGet) = null
     pass
 
-class SfxGeComponent(0x129e311, 0x3497f0cf):
+class SfxGeComponent(0x129e311, GameEntityComponent):
     pass
 
 class SfxGeComponentDef(IGeComponentDef):
@@ -22539,7 +22439,7 @@ class ShadowOverrideSettings():
     0xf4737280: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class ShieldingParams(0xc03c9e4e):
+class ShieldingParams(BaseParams):
     pass
 
 class ShimmerEmitterDefinitionData():
@@ -22555,7 +22455,7 @@ class ShopCommon(BuildingClient):
 class ShopEntity(LolGameEntity):
     pass
 
-class ShopGeComponent(0x129e311, 0x2576b4fc, 0x3497f0cf):
+class ShopGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent):
     pass
 
 class ShopGeComponentDef(IGeComponentDef):
@@ -22700,7 +22600,7 @@ class SkinCharacterDataProperties_CharacterIdleEffect():
     targetBoneName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class SkinCharacterGeComponent(0x3497f0cf):
+class SkinCharacterGeComponent(GameEntityComponent):
     pass
 
 class SkinCharacterGeComponentDef(IGeComponentDef):
@@ -23153,7 +23053,7 @@ class SpellLevelUpUiData():
     pass
 
 class SpellLockDeltaTimeData():
-    mSpellLockDeltaTimeCalculation: (Pointer, 0x0, 0x0, IGameCalculation) = {"0x72c5c2a8":4,"ResultModifier":0,"mExpandedTooltipCalculationDisplay":8,"mMultiplier":null,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}
+    mSpellLockDeltaTimeCalculation: (Pointer, 0x0, 0x0, IGameCalculation) = {"DamageType":4,"ResultModifier":0,"mExpandedTooltipCalculationDisplay":8,"mMultiplier":null,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}
     pass
 
 class SpellModifier():
@@ -23467,7 +23367,7 @@ class StateLogicEventData(BaseEventData):
     StateLogicEventSignalId: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class StateMachineGeComponent(0x3497f0cf, 0x4feb7d99):
+class StateMachineGeComponent(GameEntityComponent, 0x4feb7d99):
     pass
 
 class StateMachineGeComponentDef(IGeComponentDef):
@@ -23678,7 +23578,13 @@ class StoreElementData(ElementDataBase):
 
 class StoreFilter():
     StoreId: (String, 0x0, 0x0, 0x0) = ""
-    Filters: (List2, 0x0, Embed, 0x9b62c977) = []
+    Filters: (List2, 0x0, Embed, StoreFilterItem) = []
+    pass
+
+class StoreFilterItem():
+    0x865f0649: (String, 0x0, 0x0, 0x0) = ""
+    FilternameTraKey: (String, 0x0, 0x0, 0x0) = ""
+    Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class StoreInstanceData(InstanceDataBase):
@@ -23697,7 +23603,7 @@ class StoreViewController(ViewController):
     CatalogBackground: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x1d9b78e8: (Pointer, 0x0, 0x0, 0xb2430347) = null
     0x20f2a4c4: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x26546c1d: (Pointer, 0x0, 0x0, 0x7296321a) = null
+    EventsView: (Pointer, 0x0, 0x0, 0x7296321a) = null
     0x2d63ee49: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x2eed7e1b: (Link, 0x0, 0x0, ViewController) = "0x0"
     SearchbarText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -23824,7 +23730,7 @@ class StrawberryMapData(MapComponent):
     0x7cf5e3eb: (Link, 0x0, 0x0, 0x276246d8) = "0x0"
     pass
 
-class StrawberryRoundsViewController(0x856ba9bc):
+class StrawberryRoundsViewController(LoLModesRoundsViewController):
     TimerText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     LeftPhaseIcons: (List, 0x3, Embed, 0x43aaf187) = [{"0x39b2057a":"0x0","PhaseHitRegion":"0x0","PhaseIcon":"0x0"},{"0x39b2057a":"0x0","PhaseHitRegion":"0x0","PhaseIcon":"0x0"},{"0x39b2057a":"0x0","PhaseHitRegion":"0x0","PhaseIcon":"0x0"}]
@@ -23971,7 +23877,7 @@ class SurrenderViewController(VotePanelViewController):
     0x804f19ee: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DefaultText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xcb6f219c: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xdfadfc6b: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    StandardGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class SwapChampionCheat(Cheat):
@@ -24664,7 +24570,7 @@ class TFTTraitInfoCard():
     TraitFooterPadding: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TraitFooter: (Hash, 0x0, 0x0, 0x0) = "0x0"
     HudTraitUnitSlotBorders: (Embed, 0x0, 0x0, TftHudTraitUnitSlotBorders) = {"ItemSlotBorder":"0x0","UnitSlotBorders":{}}
-    0xfffd8771: (Embed, 0x0, 0x0, 0x1f5bef59) = {"0x7d661894":{},"0xc895f7ad":{}}
+    0xfffd8771: (Embed, 0x0, 0x0, 0x1f5bef59) = {"ActiveVfx":{},"InactiveVfx":{}}
     pass
 
 class TFTTraitInfoCardViewController(ViewController):
@@ -24790,6 +24696,10 @@ class TFTTrovesViewControllerEvents(ViewController):
 
 class TableValueExistsScriptCondition(IScriptCondition):
     TableValue: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
+    pass
+
+class TagList():
+    tags: (List2, 0x0, Hash, 0x0) = []
     pass
 
 class TakeCamp(JungleAction):
@@ -25073,7 +24983,7 @@ class TeamFramesViewController(0xc85e6a02):
     0xfd9ba272: (Pointer, 0x0, 0x0, HudReciprocityButton) = null
     pass
 
-class TeamGeComponent(0x3497f0cf):
+class TeamGeComponent(GameEntityComponent):
     pass
 
 class TeamGeComponentDef(IGeComponentDef):
@@ -25081,7 +24991,7 @@ class TeamGeComponentDef(IGeComponentDef):
     Team: (U32, 0x0, 0x0, 0x0) = 100
     pass
 
-class TeamSpawnPointGeComponent(0x129e311, 0x2576b4fc, 0x3497f0cf):
+class TeamSpawnPointGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent):
     pass
 
 class TeamSpawnPointGeComponentDef(IGeComponentDef):
@@ -26185,6 +26095,35 @@ class TftItemSlotDisplayTemplate():
     SelectedFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class TftItemTrackerViewController(ViewController):
+    0x109da077: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x2ea23974: (Embed, 0x0, 0x0, 0x2ea23974) = {"Frame":"0x0","Group":"0x0","Icon":"0x0","ItemTransitionIn":{"EasingType":0,"TransitionStartDelaySecs":0.0,"TransitionTime":0.10000000149011612,"maxAlpha":255,"minAlpha":0},"Scene":"0x0","SpineStyles":{},"Vfx":"0x0"}
+    0x3db64b22: (String, 0x0, 0x0, 0x0) = ""
+    MainScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x4da6efff: (String, 0x0, 0x0, 0x0) = ""
+    0x54051c58: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x54b1eab: (String, 0x0, 0x0, 0x0) = ""
+    0x56f014d4: (String, 0x0, 0x0, 0x0) = ""
+    0x59fc480: (U32, 0x0, 0x0, 0x0) = 10
+    0x6c2b545: (String, 0x0, 0x0, 0x0) = ""
+    BackgroundIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ActiveFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x76d78bbe: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x83c4b267: (Embed, 0x0, 0x0, 0x2697432e) = {"0x12279fa7":2.0,"0x46e108ef":1.0,"0x552282e2":"0x0","0x909e7f19":"0x0","0xb4e6bd8d":"0x0","0xc5cbeaa4":"","0xdb58f09e":"","0xf681a485":""}
+    0x84907d75: (Pointer, 0x0, 0x0, 0x44705030) = null
+    0x9203914b: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x963ad310: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    PressedFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    PageButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xb5a2f478: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    HoverFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    InactiveFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ColumnCount: (U32, 0x0, 0x0, 0x0) = 2
+    MaxPages: (U32, 0x0, 0x0, 0x0) = 1
+    0xdfb5ef06: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SelectedFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class TftLobbyCustomAssets():
     0x19e7962f: (String, 0x0, 0x0, 0x0) = ""
     0x6349b77b: (String, 0x0, 0x0, 0x0) = ""
@@ -26679,6 +26618,44 @@ class TftTeamCannonCooldownViewController(ViewController):
 class TftTeamCannonItemExchangeViewController(ViewController):
     PlayerTemplate: (Embed, 0x0, 0x0, 0xa9593c80) = {"0x19d88086":"","0x4cd9da85":"","0x77b8f948":0.20000000298023224,"0x8aea4585":"","0x90599dbe":"0x0","0x94a951ce":"0x0","0xa7eb3089":0.5,"0xa806eda2":"0x0","0xab0328f6":"","0xc598d1cd":{"ItemIcon":"0x0"},"0xf2f97ffc":"0x0","0xfbb04bd5":"","0xfc4f6c98":{"ItemIcon":"0x0"},"ExchangeIcon":"0x0","PlayerScene":"0x0"}
     MobileOverrideLoadable: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
+    pass
+
+class TftTeamEditorViewController(ViewController):
+    0x13a3c8aa: (F32, 0x0, 0x0, 0x0) = 0.5
+    0x1733060c: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x18a6e0b1: (String, 0x0, 0x0, 0x0) = ""
+    Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x299d1eee: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x2eed7e1b: (Link, 0x0, 0x0, ViewController) = "0x0"
+    0x2f144da6: (String, 0x0, 0x0, 0x0) = ""
+    0x36155e8c: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ClearAllButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x38a49e67: (String, 0x0, 0x0, 0x0) = ""
+    TiersLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x4d5e815f: (String, 0x0, 0x0, 0x0) = ""
+    0x546f17ba: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x5a208fd1: (U32, 0x0, 0x0, 0x0) = 9
+    0x63356fc5: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TabletOverrideLoadable: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
+    SnapshotButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TeamNameText: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x7788d034: (String, 0x0, 0x0, 0x0) = ""
+    0x7993a621: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xa579b2bc: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xb172e3c7: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    closeButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xc096e7d3: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    UndoButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xc973af15: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xcc043494: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TeamEditorData: (Embed, 0x0, 0x0, 0xd88ce199) = {"0x7bf984ca":{"0x12cef16b":null,"0x233b0b50":{},"0x8f8b64b6":{},"0xe58d38df":["0x0","0x0","0x0"],"Button":"0x0","FrameIcon":"0x0","RootGroup":"0x0","SplashIcon":"0x0","TraitIcons":["0x0","0x0","0x0"]},"0xece283b":{"0xbf8afda0":{},"0xf7674ec0":{},"BackgroundIcon":"0x0","Button":"0x0","OutlineIcon":"0x0","RootGroup":"0x0","TraitIcon":"0x0"},"ChampionTemplate":{"0x12cef16b":null,"0x233b0b50":{},"Button":"0x0","FrameIcon":"0x0","PortraitIcon":"0x0","RootGroup":"0x0","TraitIcons":["0x0","0x0","0x0"]},"TierTemplate":{"ChampionsLayout":"0x0","CostIcon":"0x0","CostText":"0x0","RootGroup":"0x0","TraitIcon":"0x0","TraitText":"0x0"}}
+    backButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xd74082e9: (F32, 0x0, 0x0, 0x0) = 10.0
+    0xe588b2b2: (String, 0x0, 0x0, 0x0) = ""
+    0xe9d16d12: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    RosterTitle: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xf2ecc55a: (U32, 0x0, 0x0, 0x0) = 10
+    0xf9d5a86b: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class TftTextInfoNubData(TftInfoNubData):
@@ -27372,6 +27349,10 @@ class ToolEducationData():
     skillOrder: (I32, 0x0, 0x0, 0x0) = 0
     pass
 
+class TooltipConfig(IGameModeConfig):
+    0x1b73ed09: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
 class TooltipFormat():
     mOutputStrings: (Map, String, String, 0x0) = {}
     mListNames: (List, 0x0, String, 0x0) = []
@@ -27586,7 +27567,7 @@ class UISceneData():
 class UISceneViewPane(UIScene):
     pass
 
-class UObject(0xa4f28691):
+class UObject(ILogicDriverSource):
     pass
 
 class UVScaleBiasFromAnimationDynamicMaterialDriver(ILogicDriver):
@@ -27666,6 +27647,14 @@ class UiElementAsset(UIElement):
     pass
 
 class UiElementAssetData(UiElementData):
+    pass
+
+class UiElementComponentInstance(0x90b7110d):
+    pass
+
+class UiElementComponentInstanceData(0x857c08ad):
+    ComponentTemplate: (Link, 0x0, 0x0, UiComponent) = "0x0"
+    0xa9f110a: (Map, Hash, Pointer, 0xb041c60a) = {}
     pass
 
 class UiElementData(UiElementIData):
@@ -28311,7 +28300,7 @@ class UiPositionRect(UiPositionBase):
     DisablePixelSnappingY: (Bool, 0x0, 0x0, 0x0) = false
     DisablePixelSnappingX: (Bool, 0x0, 0x0, 0x0) = false
     DisableResolutionDownscale: (Bool, 0x0, 0x0, 0x0) = false
-    0xeaebcf6e: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
+    MinSize: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
     pass
 
 class UiPropertyLoadable(PropertyLoadable):
@@ -28623,6 +28612,9 @@ class UnitStatusPriorityList():
     TextureName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class UnitTableSet(ScriptTableSet):
+    pass
+
 class UnrevealedTarget(GameObject):
     pass
 
@@ -28640,7 +28632,7 @@ class UpgradeItemSelectionViewController(ItemSelectionBaseViewController):
     pass
 
 class UseAutoattackCastTimeData():
-    mAutoattackCastTimeCalculation: (Pointer, 0x0, 0x0, IGameCalculation) = {"0x72c5c2a8":4,"ResultModifier":0,"mExpandedTooltipCalculationDisplay":8,"mMultiplier":null,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}
+    mAutoattackCastTimeCalculation: (Pointer, 0x0, 0x0, IGameCalculation) = {"DamageType":4,"ResultModifier":0,"mExpandedTooltipCalculationDisplay":8,"mMultiplier":null,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}
     mUseCastTimeAsTotalTime: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
@@ -28675,12 +28667,20 @@ class ValueVector3():
     dynamics: (Pointer, 0x0, 0x0, VfxVector3fBase) = null
     pass
 
-class Vector3Concept(0x5bb26ea8):
+class Vector3Concept(Vector3ConceptBase):
     EasingData: (Pointer, 0x0, 0x0, 0x612b4ce2) = null
     pass
 
-class Vector4Concept(0x77a77af):
+class Vector3ConceptBase(ConceptBase):
+    DefaultValue: (Vec3, 0x0, 0x0, 0x0)
+    pass
+
+class Vector4Concept(Vector4ConceptBase):
     EasingData: (Pointer, 0x0, 0x0, 0x612b4ce2) = null
+    pass
+
+class Vector4ConceptBase(ConceptBase):
+    DefaultValue: (Vec4, 0x0, 0x0, 0x0)
     pass
 
 class VectorArrayTableSet(ScriptTableSet):
@@ -28984,7 +28984,7 @@ class VfxEmissionSphere(IVfxEmissionSource):
     pass
 
 class VfxEmissionSurfaceData():
-    0x2808fffd: (Pointer, 0x0, 0x0, 0xf9dd7e92) = null
+    EmissionSurface: (Pointer, 0x0, 0x0, 0xf9dd7e92) = null
     0xf8b81c77: (Pointer, 0x0, 0x0, 0x1519e8d2) = null
     pass
 
@@ -29162,12 +29162,12 @@ class VfxEntity(LolGameEntity):
     pass
 
 class VfxEntityTemplate(GameEntityTemplate):
-    0x58a1d8fb: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
+    Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Statemachine: (Pointer, 0x0, 0x0, StateMachineGeComponentDef) = null
     IsReplicated: (Bool, 0x0, 0x0, 0x0) = true
     Vfx: (Embed, 0x0, 0x0, VfxGeComponentDef) = {"0x63176011":false,"0x658b896a":[],"0x9d9b6793":false,"0x9f499a15":false,"0xf718ab13":false,"AllDimensions":false,"TextureOverride":null,"colorModulate":[1.0,1.0,1.0,1.0],"eyeCandy":false,"system":"0x0"}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    0xf8f165ee: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
+    Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
 class VfxFacingModeCameraAligned(VfxShimmerFacingMode):
@@ -29279,7 +29279,7 @@ class VfxFloatTimeDriver(IVfxFloatDriver):
     Time: (U8, 0x0, 0x0, 0x0) = 7
     pass
 
-class VfxGeComponent(0x129e311, 0x2576b4fc, 0x3497f0cf):
+class VfxGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent):
     pass
 
 class VfxGeComponentDef(IGeComponentDef):
@@ -29720,7 +29720,7 @@ class VfxPrimitiveCameraSegmentSeriesBeam():
     VfxSystem: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
     name: (String, 0x0, 0x0, 0x0) = ""
     VfxMask: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
-    0xf11dede3: (Pointer, 0x0, 0x0, 0x2d00e4da) = null
+    InputData: (Pointer, 0x0, 0x0, 0x2d00e4da) = null
     pass
 
 class VfxPrimitiveCameraTrail(VfxPrimitiveTrailBase):
@@ -30075,7 +30075,7 @@ class VoiceChatViewController(ViewController):
     0x3290d463: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TeamButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x4cb83f07: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x536e2c9d: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TitleButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x6852c74b: (Map, U32, Embed, 0x9e5f5386) = {}
     0x70f56833: (Option, 0x0, Color, 0x0) = null
     ConnectedBgRegionHandle: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -30089,7 +30089,7 @@ class VoiceChatViewController(ViewController):
     0xb2d986fc: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xb3773b0e: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xb5112919: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    SelfSlot: (Embed, 0x0, 0x0, VoiceChatViewSelfSlot) = {"0x331ba69a":"0x0","0x401f7351":"0x0","ConnectionButton":"0x0","Halo":"0x0","MicVolumeSliderBar":"0x0","MicVolumeText":"0x0","MuteButton":"0x0","NameText":"0x0","Portrait":"0x0"}
+    SelfSlot: (Embed, 0x0, 0x0, VoiceChatViewSelfSlot) = {"0x331ba69a":"0x0","ConnectionButton":"0x0","Halo":"0x0","MicVolumeSliderBar":"0x0","MicVolumeText":"0x0","MuteButton":"0x0","NameText":"0x0","OptionsButton":"0x0","Portrait":"0x0"}
     0xc6cfd728: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xc9e03822: (U32, 0x0, 0x0, 0x0) = 1033
     0xd8e6c5c7: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -30118,7 +30118,7 @@ class VoiceChatViewSelfSlot():
     MicVolumeText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Portrait: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x331ba69a: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x401f7351: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    OptionsButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Halo: (Hash, 0x0, 0x0, 0x0) = "0x0"
     NameText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MuteButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -30167,7 +30167,7 @@ class WidthPerSecond(MissileBehaviorSpec):
     mWidthPerSecond: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class WorldSpaceUiGeComponent(0x3497f0cf):
+class WorldSpaceUiGeComponent(GameEntityComponent):
     pass
 
 class WorldSpaceUiGeComponentDef(IGeComponentDef):

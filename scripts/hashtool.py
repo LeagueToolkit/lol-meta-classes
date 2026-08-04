@@ -356,9 +356,21 @@ def cmd_lint(args):
               f"({expect} -> {rebuilt}); scripts/names.py needs the case adding",
               file=sys.stderr)
 
+    # Batch notes are abstracts, and an abstract that outgrows its cell has
+    # stopped being one. Checked here rather than at write time because it is
+    # the whole file that has to stay scannable: a single long note is only
+    # visible as a problem next to the fifteen that kept to the limit.
+    long_notes = {s: n for s, n in led.batches.items()
+                  if len(n) > ledger_mod.NOTE_MAX}
+    for slug, note in sorted(long_notes.items()):
+        print(f"[error] batches.tsv: {slug} note is {len(note)} chars, over "
+              f"{ledger_mod.NOTE_MAX}. Move the derivation and the per-name "
+              f"evidence into a doc under docs/ and point the note at it",
+              file=sys.stderr)
+
     if not seen:
         total = sum(len(o) for o in overrides.values())
-        if mangled:
+        if mangled or long_notes:
             return 1
         # Not "are PascalCase": a notation-prefixed name satisfies the rule
         # without being PascalCase, and a success line that claims otherwise
@@ -367,7 +379,9 @@ def cmd_lint(args):
                        if names_mod.is_notation_prefixed(n))
         note = f", {prefixed} with a one-letter prefix" if prefixed else ""
         print(f"[ok] {total} override(s) and {len(led.rows)} ledger row(s) "
-              f"satisfy the naming rule and split cleanly{note}")
+              f"satisfy the naming rule and split cleanly{note}; "
+              f"{len(led.batches)} batch note(s) within {ledger_mod.NOTE_MAX} "
+              f"chars")
         return 0
 
     if not args.fix:

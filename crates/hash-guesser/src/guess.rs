@@ -131,11 +131,12 @@ impl Guesser {
                 name.push_str(w);
             }
             name.push_str(suffix);
-            // Never emit a candidate the repo would refuse. With capitalized
-            // words and a letter-only prefix and suffix this cannot fail, which
-            // is exactly why it is worth asserting: it is the invariant that
-            // keeps the output feedable straight into `hashtool add`.
-            if !words::is_pascal(&name) {
+            // Never emit a candidate the repo would refuse. Words are
+            // capitalized and suffixes are letters only, so the only way this
+            // fires is a `--prefix` that opens lowercase: one letter is the
+            // notation exception and passes, more is a name `hashtool add`
+            // would reject and is dropped here rather than printed.
+            if !words::is_valid_name(&name) {
                 continue;
             }
             if let Some(ifaces) = &self.interfaces {

@@ -238,6 +238,22 @@ cargo run --release -p hash-guesser -- bintypes --words words.txt \
 Families come out of the meta: classes sharing a base overwhelmingly share a
 first word, so a base class supplies both the `--only` list and the `--prefix`.
 
+A single lowercase letter is a legal prefix, and on the field table it is the
+only way to reach a whole naming convention. The engine spells member fields
+`mCoefficient`, 2001 of the 9439 upstream serves, but "M" occurs zero times in
+the wordlist - the splitter drops a one-letter prefix rather than emit it - so no
+recombination can assemble that name at any depth. `--prefix m` supplies the
+letter the wordlist cannot:
+
+```bash
+cargo run --release -p hash-guesser -- binfields --mode identity --prefix m
+```
+
+Paired with `identity` or `delete` this costs ~5x10^4 probes, under 0.07 expected
+false positives. `force` and `chain` under the same prefix are dominated by noise
+well before they add anything: at depth 2 over the full wordlist, 15 candidates
+against 10.5 expected chance hits.
+
 #### What can actually refute a candidate
 
 One check in the tool is evidence rather than arithmetic. Guessing bintypes, a

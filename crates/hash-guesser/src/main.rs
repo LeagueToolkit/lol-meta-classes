@@ -12,11 +12,14 @@
 //!   - The target set comes from `dumps/`, not a checked-in `all.*.txt`. Every
 //!     hash the game has used across 245 builds, current the moment a dump
 //!     lands, with no second file to maintain.
-//!   - Output is PascalCase, always, and is checked before it is printed. That
-//!     is the repo rule (see `scripts/names.py`), and it means results can be
-//!     piped straight into `hashtool add`. The Hungarian prefixes the original
-//!     carried (`m`, `b`, `ar`) are gone with it - each produced a camelCase
-//!     name we would now reject.
+//!   - Output is checked against the repo naming rule before it is printed (see
+//!     `scripts/names.py`), so results can be piped straight into `hashtool
+//!     add`. That is PascalCase plus the one-letter-prefix exception: of the
+//!     Hungarian prefixes the original carried automatically (`m`, `b`, `ar`),
+//!     `ar` is gone for good - it is a camelCase name we reject - while `m` and
+//!     `b` are reachable through `--prefix`, deliberately rather than by
+//!     default. That is the only route to them, since "M" is not a word the
+//!     wordlist contains and no amount of recombination can assemble one.
 //!   - The mutation pass is a plain "substitute or insert at each position",
 //!     rather than four interleaved stacks with mutation flags whose reporting
 //!     conditions did not line up. Same intent, minus the double-counting.
@@ -320,10 +323,22 @@ fn main() -> Result<()> {
         }
         (_, true) => None,
     };
+    // A prefix has to be able to *head* an acceptable name, not merely be
+    // alphanumeric. Words arrive capitalized, so the prefix decides the first
+    // character: uppercase or empty gives PascalCase, and a single lowercase
+    // letter is the notation exception (`--prefix m` for the engine's member
+    // fields, which is the only way to reach them - "M" is not in the wordlist).
+    // Two lowercase letters would emit names `hashtool add` refuses, and the
+    // emit filter would drop every hit, so fail here instead of running a search
+    // that cannot report anything.
     for p in &prefixes {
+        let ok = p.text.chars().all(|c| c.is_ascii_alphanumeric())
+            && (p.text.is_empty()
+                || words::is_valid_name(&format!("{}Word", p.text)));
         anyhow::ensure!(
-            p.text.chars().all(|c| c.is_ascii_alphanumeric()),
-            "prefix {:?} would produce a name that is not PascalCase",
+            ok,
+            "prefix {:?} cannot head a name this repo would accept - it has to \
+             be empty, start uppercase, or be a single lowercase letter",
             p.text
         );
     }

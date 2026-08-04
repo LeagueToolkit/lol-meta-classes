@@ -102,19 +102,10 @@ pub fn capitalize(word: &str) -> String {
 }
 
 /// The naming rule, matching `names.RE_PASCAL`: an uppercase letter, then ASCII
-/// letters and digits. Guessed names are checked against it before they are
-/// printed - a guesser that emitted anything else would be handing its operator
-/// names that `hashtool add` is going to refuse.
+/// letters and digits.
 ///
-/// `hashtool add` does accept one shape this rejects: a single lowercase letter
-/// leading an otherwise PascalCase name, the `m` of `mCoefficient`
-/// (`names.RE_NOTATION`). That is not ported here and should not be, because the
-/// guesser cannot produce such a name - every word it assembles comes back
-/// capitalized from `split_words`, so the first letter of its output is always a
-/// capital. The looser check would be dead code, and the strict one is the
-/// correct guard on what this crate actually emits. Whether an attested field is
-/// spelled `mCoefficient` or `MCoefficient` is settled by the string that
-/// attests it, which is a step past anything the search can see.
+/// Use `is_valid_name` to decide whether to *emit* something. This one is the
+/// narrow shape; a name can satisfy the repo's rule without being PascalCase.
 pub fn is_pascal(name: &str) -> bool {
     let mut chars = name.chars();
     match chars.next() {
@@ -122,6 +113,30 @@ pub fn is_pascal(name: &str) -> bool {
         _ => return false,
     }
     chars.all(|c| c.is_ascii_alphanumeric())
+}
+
+/// A single lowercase letter, then an otherwise PascalCase name: `mCoefficient`.
+/// Matches `names.RE_NOTATION`.
+pub fn is_notation_prefixed(name: &str) -> bool {
+    let b = name.as_bytes();
+    b.len() >= 2
+        && b[0].is_ascii_lowercase()
+        && b[1].is_ascii_uppercase()
+        && b[2..].iter().all(|c| c.is_ascii_alphanumeric())
+}
+
+/// Whether the repo would accept this name, matching `names.is_valid_name`.
+///
+/// The widening is not cosmetic here, and it is not reachable from the wordlist
+/// either: every word `split_words` returns is capitalized, so a name assembled
+/// purely out of words always opens with a capital. A `--prefix` does not come
+/// from the wordlist - it is raw text from the operator - which is the one route
+/// by which this search can emit `mCoefficient`, and it matters because `M` is
+/// not a word the wordlist contains (0 occurrences across the current tables).
+/// Without a lowercase prefix, the whole `m`-prefixed half of the field table is
+/// unreachable by recombination rather than merely unlikely.
+pub fn is_valid_name(name: &str) -> bool {
+    is_pascal(name) || is_notation_prefixed(name)
 }
 
 /// Does this name claim to be an interface - `I` then another capital?
@@ -206,9 +221,27 @@ mod tests {
         assert!(!is_pascal("Obj_InfoPoint"));
         assert!(!is_pascal("2Fast"));
         assert!(!is_pascal(""));
-        // The notation exception is a Python-side widening only, and this crate
-        // is the strict guard on its own output. See is_pascal's doc comment.
-        assert!(!is_pascal("mCoefficient"));
+    }
+
+    #[test]
+    fn the_notation_exception_matches_names_py() {
+        assert!(is_notation_prefixed("mCoefficient"));
+        assert!(is_notation_prefixed("bHaveHitBone"));
+        // A capital has to follow immediately, or there is no boundary being
+        // preserved and the name is just lowercase.
+        assert!(!is_notation_prefixed("mfoo"));
+        assert!(!is_notation_prefixed("uvMode"));
+        assert!(!is_notation_prefixed("m"));
+        assert!(!is_notation_prefixed("MCoefficient"));
+        // What the emit filter actually asks. `mCoefficient` is reachable only
+        // through `--prefix m`, since "M" is not a word in the wordlist.
+        assert!(is_valid_name("mCoefficient"));
+        assert!(is_valid_name("IFoo"));
+        assert!(!is_valid_name("uvMode"));
+        assert!(!is_valid_name("Obj_InfoPoint"));
+        // The prefix check in main.rs is spelled as this question.
+        assert!(is_valid_name("mWord"));
+        assert!(!is_valid_name("uvWord"));
     }
 
     #[test]

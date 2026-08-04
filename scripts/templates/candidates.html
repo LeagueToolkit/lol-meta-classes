@@ -115,6 +115,12 @@ input[type="search"]::placeholder{color:var(--faint)}
   opacity:.55;transition:opacity .12s}
 .row.hi .stripe{background:var(--accent);opacity:.85}
 .hash{color:var(--faint);letter-spacing:.02em;padding-top:1px}
+a.hash{text-decoration:none}
+a.hash:hover{color:var(--accent);text-decoration:underline;
+  text-underline-offset:2px}
+.detail a{color:var(--dim);text-decoration:underline dotted;
+  text-underline-offset:2px}
+.detail a:hover{color:var(--accent)}
 .names{display:flex;flex-direction:column;gap:2px;min-width:0}
 .nm{font-weight:500;word-break:break-word}
 .row.hi .nm{color:var(--ink)}
@@ -185,7 +191,8 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 <section class="sect">
   <div class="sect-head">
     <h2>Candidates</h2>
-    <span class="note">click a row for the meta context</span>
+    <span class="note">click a row for the meta context; hashes and classes
+      link to meta-wiki.leaguetoolkit.dev</span>
   </div>
   <div class="controls">
     <button id="tb-bintypes" aria-pressed="true">bintypes</button>
@@ -249,15 +256,25 @@ let table = 'bintypes', onlyHi = false, onlyClash = false, onlyIface = false,
 const esc = s => String(s).replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
+// The wiki serves every class the db knows: named ones at their lowercased
+// name, unnamed ones at their 0x hash - which is exactly what a candidate is,
+// so its wiki page is the hash page until the day the name lands.
+const WIKI = 'https://meta-wiki.leaguetoolkit.dev/classes/';
+const wiki = x => WIKI +
+  (String(x).startsWith('0x') ? x : String(x).toLowerCase()) + '/';
+const wl = n => `<a href="${wiki(n)}" target="_blank" rel="noopener">` +
+  `${esc(n)}</a>`;
+
 function detail(r) {
+  // Values here are HTML: escape at the leaf, never after the anchors go in.
   const bits = [];
   if (r.b !== undefined)
-    bits.push(['base', r.b.length ? r.b.join(', ') : 'none']);
+    bits.push(['base', r.b.length ? r.b.map(wl).join(', ') : 'none']);
   if (r.np !== undefined) {
     const marks = [`${r.np} propert${r.np === 1 ? 'y' : 'ies'}`];
     if (r.if) marks.push('interface');
     if (r.val) marks.push('value');
-    if (r.from) marks.push(`since ${r.from}`);
+    if (r.from) marks.push(`since ${esc(r.from)}`);
     if (r.live === false) marks.push('removed');
     bits.push(['shape', marks.join(' · ')]);
   }
@@ -265,16 +282,16 @@ function detail(r) {
   // is the most informative thing on screen: a candidate that accounts for its
   // own field names is a different proposition from one that ignores them.
   if (r.p && r.p.length)
-    bits.push(['fields', r.p.join(', ') +
+    bits.push(['fields', esc(r.p.join(', ')) +
       (r.np > r.p.length ? ` +${r.np - r.p.length} more` : '')]);
   if (r.own !== undefined)
-    bits.push(['owned by', r.nown ? r.own.join(', ') +
+    bits.push(['owned by', r.nown ? r.own.map(wl).join(', ') +
       (r.nown > r.own.length ? ` +${r.nown - r.own.length} more` : '')
       : 'no class in the db']);
-  if (r.ty) bits.push(['type', r.ty]);
-  bits.push(['found by', r.r.join(', ')]);
+  if (r.ty) bits.push(['type', esc(r.ty)]);
+  bits.push(['found by', esc(r.r.join(', '))]);
   return '<div class="detail">' + bits.map(([k, v]) =>
-    `<div><b>${k}</b>${esc(v)}</div>`).join('') + '</div>';
+    `<div><b>${k}</b>${v}</div>`).join('') + '</div>';
 }
 
 function render() {
@@ -291,23 +308,41 @@ function render() {
     if (r.clash) chips.push('<span class="chip clash">collision</span>');
     if (r.if) chips.push('<span class="chip iface">interface</span>');
     chips.push(`<span class="chip">${r.hi ? 'hi' : 'broad'}</span>`);
-    return `<button class="row ${r.hi ? 'hi' : ''}" data-id="${id}"
-      aria-expanded="${isOpen}">
+    // Only a class hash has a wiki page of its own; a field hash lives on its
+    // owners' pages, which the detail links instead.
+    const hash = table === 'bintypes'
+      ? `<a class="hash" href="${wiki('0x' + r.h)}" target="_blank"
+          rel="noopener" title="open on meta-wiki">${r.h}</a>`
+      : `<span class="hash">${r.h}</span>`;
+    // A div, not a button: the hash and the detail carry real links, and
+    // anchors inside a button are both invalid and unclickable.
+    return `<div class="row ${r.hi ? 'hi' : ''}" data-id="${id}" role="button"
+      tabindex="0" aria-expanded="${isOpen}">
       <span class="stripe"></span>
-      <span class="hash">${r.h}</span>
+      ${hash}
       <span class="names">${r.n.map(n =>
         `<span class="nm">${esc(n)}</span>`).join('')}</span>
       <span class="chips">${chips.join('')}</span>
-      ${isOpen ? detail(r) : ''}</button>`;
+      ${isOpen ? detail(r) : ''}</div>`;
   }).join('') : '<p class="empty">Nothing matches that filter.</p>';
 }
 
-document.getElementById('list').addEventListener('click', e => {
-  const b = e.target.closest('.row');
-  if (!b) return;
-  const id = b.dataset.id;
+function toggleRow(el) {
+  const id = el.dataset.id;
   open.has(id) ? open.delete(id) : open.add(id);
   render();
+}
+document.getElementById('list').addEventListener('click', e => {
+  if (e.target.closest('a')) return;   // links navigate, they don't toggle
+  const b = e.target.closest('.row');
+  if (b) toggleRow(b);
+});
+document.getElementById('list').addEventListener('keydown', e => {
+  if ((e.key === 'Enter' || e.key === ' ') &&
+      e.target.classList.contains('row')) {
+    e.preventDefault();
+    toggleRow(e.target);
+  }
 });
 const toggle = (el, get, set) => el.addEventListener('click', () => {
   set(!get()); el.setAttribute('aria-pressed', String(get())); render();

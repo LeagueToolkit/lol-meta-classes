@@ -16,3 +16,5 @@ ssao-casing                   	The registration inversion here is fixable by re-
 semantic-pass-family          	Same generator as semantic-pass-structural, but attestation is family consistency only and no second method confirms these individually. DO NOT submit as they stand. See docs/semantic-pass.md
 semantic-pass-structural      	Names proposed from each unnamed class's own neighbourhood in the meta, not wordlist recombination. 417k proposals, 0.71 expected chance hits, 254 landed. Method and limits: docs/semantic-pass.md
 viewcontroller-family         	67 unnamed children of ViewController named against 159 siblings fixing <Feature>ViewController. 1.96 expected chance hits; 11 landed, the 2 outside the family rejected. See docs/semantic-pass.md
+data-section-strings          	Whole NUL-terminated data-section strings hashed against dumps/ unresolved hashes. Whole-string matches only, never a fragment or a prose token. See docs/string-attestation.md
+exe-strings                   	Every string the shipped Windows exe has carried, per build, hashed against dumps/ unresolved hashes. ~25k probes, 0.03 expected chance hits. See docs/string-attestation.md

@@ -129,6 +129,13 @@ the recased form is also the unattested one. Two or more leading lowercase
 letters are still rejected, because there the capital does recover a real word -
 the "Uv" of `uvMode`, the "Is" of `isClickable`.
 
+Acronyms fall to the same argument and are title-cased: `Ui` not `UI`, `Tft` not
+`TFT`, `Lol` not `LoL`, `Wasd` not `WASD`. The splitter reads a capital run as
+one word, so `UIElement` spends a token nothing else can reuse where
+`UiElement` yields two that recur everywhere. A few names are exempt because
+attestation, not convention, put the capitals there - `MapSSAO` from the
+shader's `OMIT_SSAO`, `GroupID` from upstream's `productID` on its own class.
+
 Interface names need no exception: `IFoo` is already PascalCase, and the splitter
 returns "I" + "Foo" rather than "IF" + "oo", which is what keeps `I` a word in
 its own right. It is one of the most productive words in the wordlist.

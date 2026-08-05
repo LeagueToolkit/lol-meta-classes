@@ -29,6 +29,12 @@ Two or more leading lowercase letters stay banned, because there the original
 reasoning does hold: the `Uv` of `uvMode`, the `Hp` of `hpPerLevel`, the `Is` of
 `isClickable` are real words, and the capital is what recovers them.
 
+The same argument bans an acronym in capitals - `Ui` not `UI`, `Tft` not `TFT`,
+`Lol` not `LoL`, `Wasd` not `WASD`. A capital run is one word to the splitter,
+so `UIElement` spends a token nothing else can reuse where `UiElement` yields
+two that recur everywhere. See `acronym_runs`, and `ACRONYM_EXEMPT` for the
+handful of names where attestation puts the capitals there.
+
 Casing is free to legislate because the bin-hash is FNV-1a over the *lowercased*
 name: `abilityHaste` and `AbilityHaste` are the same hash and resolve the same
 thing. Separators are not - the underscore in `Obj_InfoPoint` is hashed like any
@@ -118,7 +124,79 @@ def is_valid_name(name):
     hands back "I" + "Foo" rather than "IF" + "oo", so the `I` stays a word in
     its own right - it is one of the most productive words in the wordlist, at
     197 occurrences."""
-    return is_pascal(name) or is_notation_prefixed(name)
+    return (is_pascal(name) or is_notation_prefixed(name)) and not acronym_runs(name)
+
+
+# No word is spelled in capitals past its first letter: `Ui`, not `UI`; `Tft`,
+# not `TFT`; `Lol`, not `LoL`; `Wasd`, not `WASD`. Same argument as the rest of
+# the rule, one level down. The splitter has to treat a capital run as a single
+# word, so `UIElement` yields "UI" where `UiElement` yields "Ui" + "Element" -
+# and "UI" is a token no other name can reuse, while "Ui" and "Element" both
+# recur everywhere. An acronym spelled in caps is a word removed from the
+# vocabulary and a junk token added in its place.
+#
+# A run is an acronym only after two adjustments. A leading `I` on an interface
+# is not part of one (`IX3dShadingModel` opens with I + X3d), and the last
+# capital of a run belongs to the next word when a lowercase letter follows it
+# (`UIElement` is UI + Element, so the run to judge is "UI"). What is left has
+# to be a single capital, or it is an acronym.
+RE_CAPS = re.compile(r"[A-Z]{2,}")
+
+# An acronym the house spells with interior lowercase is still an acronym, and
+# `LoL` is the one that occurs. It is not a capital run, so RE_CAPS cannot see
+# it: `LoLSpellScript` splits as "Lo" + "L" + "Spell", spending two junk tokens
+# to say what "Lol" says in one.
+BRANDS = {"LoL": "Lol"}
+
+# Names carrying a capital run that attestation, not convention, put there.
+# `SSAO` is the shader's own OMIT_SSAO define and the `ssao-casing` batch turns
+# on that spelling; `GroupID` follows the upstream `productID` on its own class;
+# `CC` is crowd control. Each is documented where it was cracked. They are
+# exempt because the evidence outranks the rule, not because the rule is soft.
+ACRONYM_EXEMPT = frozenset({
+    "MapSSAO", "MapSSAORenderer", "MapSSAOSettings", "GroupID", "ParamsCC",
+})
+
+
+def acronym_runs(name):
+    """The capital runs in `name` that are acronyms, in order. Empty if none."""
+    if name in ACRONYM_EXEMPT:
+        return []
+    body = name[1:] if re.match(r"^I[A-Z]", name) else name
+    out = [b for b in BRANDS if b in body]
+    for m in RE_CAPS.finditer(body):
+        run, end = m.group(0), m.end()
+        if end < len(body) and body[end].islower():
+            run = run[:-1]      # that last capital opens the following word
+        if len(run) > 1:
+            out.append(run)
+    return out
+
+
+def fold_acronyms(name):
+    """`name` with every acronym run title-cased: `UIElement` -> `UiElement`.
+
+    Case-only, so the hash is untouched, and idempotent. Best effort, not an
+    oracle: two acronyms with no lowercase between them read as one run, so
+    `EventBusAPRFC0190Scope` folds to `EventBusAprfc0190Scope` where the name
+    wanted `EventBusApRfc0190Scope`. `why_invalid` prints what this would write,
+    so a wrong fold is visible before it is accepted."""
+    if not acronym_runs(name):
+        return name
+    for brand, folded in BRANDS.items():
+        name = name.replace(brand, folded)
+    lead, body = ("", name)
+    if re.match(r"^I[A-Z]", name):
+        lead, body = name[0], name[1:]
+
+    def fold(m):
+        run, end = m.group(0), m.end()
+        tail = ""
+        if end < len(body) and body[end].islower():
+            run, tail = run[:-1], run[-1]
+        return (run[0] + run[1:].lower() if len(run) > 1 else run) + tail
+
+    return lead + RE_CAPS.sub(fold, body)
 
 
 def why_invalid(name):
@@ -137,6 +215,12 @@ def why_invalid(name):
                 f"dropped - if the name really carries one, it is not ours to add")
     if name[0].isdigit():
         return "starts with a digit; PascalCase starts with an uppercase letter"
+    runs = acronym_runs(name)
+    if runs and (is_pascal(name) or is_notation_prefixed(name)):
+        caps = ", ".join(repr(r) for r in runs)
+        return (f"spells {caps} in capitals; no word is capitalized past its "
+                f"first letter, because the splitter reads a capital run as a "
+                f"single junk word - write it {fold_acronyms(name)!r}")
     if name[0].islower():
         fixed = to_pascal(name)
         run = re.match(r"^[a-z]+", name).group(0)
@@ -162,9 +246,10 @@ def check_name(name):
 def to_pascal(name):
     """`name` in PascalCase, or None if case alone cannot get there.
 
-    Only the first letter is touched. That keeps the hash fixed - FNV runs over
-    the lowercased name - so a normalized table resolves exactly what it did
-    before, and the change is confined to what the name displays as.
+    Only letter case is touched, including any capital run. That keeps the hash
+    fixed - FNV runs over the lowercased name - so a normalized table resolves
+    exactly what it did before, and the change is confined to what the name
+    displays as.
 
     None means the name holds a separator or some other non-alphanumeric byte.
     That is a genuinely different name, not a differently-cased one, and the
@@ -175,7 +260,7 @@ def to_pascal(name):
     the `MCoefficient` the exception exists to avoid."""
     if not name or not RE_ALNUM.match(name):
         return None
-    return name[0].upper() + name[1:]
+    return fold_acronyms(name[0].upper() + name[1:])
 
 
 def split_words(name, prefix_max=PREFIX_MAX):

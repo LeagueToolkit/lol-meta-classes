@@ -140,6 +140,11 @@ ordinary graphics vocabulary, so a common word landing on a plausible field is
 the coincidence it produces most, and a hit is attestation only when the block
 the name lives in corresponds to the class that owns the field.
 
+`data/shaders/shaders.bin` confirms it independently: `Bounce` is a parameter of
+exactly one `CustomShaderDef`, `Shaders/UI/UI_RGBShift`, and `Pivot` of two,
+`Shaders/StaticMesh/DefaultEnv_Rotate` and `Shaders/SkinnedMesh/GalaxyScreen_Flipbook`.
+Both reproduce the DXBC finding from a separate file in a separate wad.
+
 Unproven, not refuted, so they are **not** in `hashes/bad/`.
 
 ## Corroboration
@@ -185,8 +190,22 @@ exist, and neither attests `LightRegionTextureData` or `TextureRenderDataList`.
 
 `ISGN`/`OSGN` vertex semantics were parsed and ignored - they are `POSITION0`
 and `TEXCOORD6`, useful for vertex-format work and not for meta names.
-`shaders.bin` in `Shaders/Shaders.wad.client` holds only data-driven
-`CustomShaderDef`s and no compiled shaders.
+
+`data/shaders/shaders.bin` was run as a second probe set and is a **measured**
+dead end, not an assumed one. Dump it with `league_structs/tools/bin-dump`; a
+parser written against the modern contiguous type enum dies on it, because
+container tags are the legacy `0x80`+ numbering. It holds 351 `CustomShaderDef`
+entries and **zero unresolved field hashes**, so there is nothing in it to crack.
+Its 3,912 strings - `ShaderPhysicalParameter`/`ShaderTexture` names, sampler
+names, `featureDefines`, entry paths - are the artist-facing CPU-side names, so
+they looked like a better probe set than the HLSL internals. They are not: 3,884
+literal probes returned 50 already-known names and **no new hits**, and the
+deunderscored tier returned none at all. The two fields it does hit are `Bounce`
+and `Pivot`, the pair already held back above.
+
+It is still worth keeping for casing and for `ModelHeight`, which it carries as
+`modelHeight` on a `ShaderPhysicalParameter` beside `rimOffset` - a second
+shipped source for that name, in a different file and a different wad.
 
 Naming the water class itself needs its shader path, and both water shader paths
 are among the 22 CDragon does not resolve.

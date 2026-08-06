@@ -18,3 +18,5 @@ semantic-pass-structural      	Names proposed from each unnamed class's own neig
 viewcontroller-family         	67 unnamed children of ViewController named against 159 siblings fixing <Feature>ViewController. 1.96 expected chance hits; 11 landed, the 2 outside the family rejected. See docs/semantic-pass.md
 data-section-strings          	Whole NUL-terminated data-section strings hashed against dumps/ unresolved hashes. Whole-string matches only, never a fragment or a prose token. See docs/string-attestation.md
 exe-strings                   	Every string the shipped Windows exe has carried, per build, hashed against dumps/ unresolved hashes. ~25k probes, 0.03 expected chance hits. See docs/string-attestation.md
+gamemode-configs              	IGameModeConfigBase family and its inner classes, named by per-target search over each class's recursive structure vocabulary; 0.001-0.007 expected chance hits per target. See docs/gamemode-configs.md
+gamemode-configs-unproven     	Same pass: the per-tier vfx block AugmentClientConfig maps. Augment and Tier attested, Display is convention. DO NOT submit as it stands. See docs/gamemode-configs.md

@@ -6,10 +6,13 @@ f090d2e7 AnchorHierarchy
 9d9f60d2 AttackableUnitDefinition
 f37213a8 AudioContextEvent
 684b0875 AudioManagerWwise
+54091cd5 AugmentClientConfig
 23433cc1 AugmentModifier
 bb109c9b AugmentSelectionViewController
+27bc6378 AugmentSet
 e24d73c6 AugmentSetTooltipViewController
 e8402935 AugmentSetTraitTrackerViewController
+2f798a22 AugmentTierDisplayData
 fde6a2d7 BarracksDefinition
 71d0eabd BarracksEntity
 c03c9e4e BaseParams
@@ -44,6 +47,8 @@ ab78f6f4 ColorTableSet
 8d51331e ConceptBase
 df639629 ConditionalKeybind
 cc2dcb80 ControlSchemeSelectionViewController
+62113c15 CountdownTimerController
+610a14d0 CountdownTimerControllerDefinition
 ae9e3c26 CurveFloat
 311ef6d4 CurveScaledFloat
 ec8e071a CustomGet
@@ -53,10 +58,14 @@ ec8e071a CustomGet
 03c4be95 DeathHelper
 b1edf879 DeathRecapTeammateSpectator
 a6e992c8 DirectionReleases
+85bf79cf DynamicCameraConfig
+c565e640 DynamicCameraSettings
 408a4521 DynamicsChainProperties
 09188776 DynamicsChainRigPoseModifierData
 339ecf91 DynamicsJointTreeData
 f6fd1c96 EffectCustomMaterialData
+289b31c8 ElapsedTimerController
+7040ad29 ElapsedTimerControllerDefinition
 51ada002 EmoteModifier
 c4936408 EnableNever
 4142edcd EnableWhenAll
@@ -138,6 +147,7 @@ f3818a3f ISegmentGet
 309738e5 ITeam
 702ab00b ITftItemFilter
 acc5c631 ITimerController
+692bf354 ITimerControllerDefinition
 c6674208 ITimerView
 49e845fb IUiBlock
 b3499e6f IUiElementIGet

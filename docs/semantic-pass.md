@@ -107,6 +107,10 @@ that merely was not confident enough. Blocking the second kind permanently on a
 reason nobody wrote down would lose real candidates. Anyone revisiting these
 should re-derive the call rather than trust the omission either way.
 
+Two have since been re-derived and taken: `0x27bc6378 AugmentSet` and
+`0x692bf354 ITimerControllerDefinition`, batch `gamemode-configs`, on evidence
+this pass did not have (docs/gamemode-configs.md).
+
 ## The casing audit
 
 FNV-1a lowercases, so casing is invisible to the hash: `LIST` and `List` are one

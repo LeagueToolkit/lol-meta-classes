@@ -503,3 +503,13 @@ fd983fde	UiElementHoverIn                                            	exe-string
 f3641a9f	UiElementHoverOut                                           	exe-strings                   	2026-08-05	pending  	-
 84f5f0ef	UiElementPrimarySingleClick                                 	exe-strings                   	2026-08-05	pending  	-
 97e7c784	UiElementShow                                               	exe-strings                   	2026-08-05	pending  	-
+54091cd5	AugmentClientConfig                                         	gamemode-configs              	2026-08-06	pending  	-
+27bc6378	AugmentSet                                                  	gamemode-configs              	2026-08-06	pending  	-
+62113c15	CountdownTimerController                                    	gamemode-configs              	2026-08-06	pending  	-
+610a14d0	CountdownTimerControllerDefinition                          	gamemode-configs              	2026-08-06	pending  	-
+85bf79cf	DynamicCameraConfig                                         	gamemode-configs              	2026-08-06	pending  	-
+c565e640	DynamicCameraSettings                                       	gamemode-configs              	2026-08-06	pending  	-
+289b31c8	ElapsedTimerController                                      	gamemode-configs              	2026-08-06	pending  	-
+7040ad29	ElapsedTimerControllerDefinition                            	gamemode-configs              	2026-08-06	pending  	-
+692bf354	ITimerControllerDefinition                                  	gamemode-configs              	2026-08-06	pending  	-
+2f798a22	AugmentTierDisplayData                                      	gamemode-configs-unproven     	2026-08-06	pending  	-

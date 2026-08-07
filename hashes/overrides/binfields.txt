@@ -504,6 +504,7 @@ fc51c324 GroupHelper
 5ed62070 GroupInfo
 03e58e16 GroupTemplate
 5ad3db8d Groupings
+0886394e GuestOfHonorList
 ed0c3757 H
 edbf0fe3 Has
 707c2c57 HasLevelPurchasing

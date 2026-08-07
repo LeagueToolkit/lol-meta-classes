@@ -12490,7 +12490,7 @@
 "0x62a09c62": {"name": "IGeComponentDef", "revisions": [{"from":7231955,"to":7374870,"bases":[],"interface":false,"value":false},{"from":7389684,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x62ba66ab": {"revisions": [{"from":6540407,"to":7884269,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
- "0x886394e": {"revisions":[{"from":6540407,"to":7884269,"type":["List2","0x0","Link","0xfe44baa3"],"default":[]}]}
+ "0x886394e": {"name":"GuestOfHonorList","revisions":[{"from":6540407,"to":7884269,"type":["List2","0x0","Link","0xfe44baa3"],"default":[]}]}
 }},
 "0x62bb343b": {"name": "AutoSpellCastInfo", "revisions": [{"from":5606808,"bases":[],"interface":false,"value":false}], "properties": {
  "0xf91faa4f": {"name":"AutoSpellCast","revisions":[{"from":5606808,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
@@ -17323,7 +17323,7 @@
 "0x8b2a166d": {"revisions": [{"from":6950646,"bases":["0x1375d0b"],"interface":false,"value":false}], "properties": {
  "0x2aea83ef": {"revisions":[{"from":6950646,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0x8b331b12": {"revisions": [{"from":7893741,"bases":[],"interface":false,"value":false}], "properties": {
+"0x8b331b12": {"name": "GuestOfHonor", "revisions": [{"from":7893741,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2f3b39e": {"name":"Enabled","revisions":[{"from":7893741,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x7b34fa25": {"name":"SkinID","revisions":[{"from":7893741,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x8b3aa710": {"name":"Character","revisions":[{"from":7893741,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -24124,8 +24124,8 @@
  "0x418e3f54": {"name":"FrameAlly","revisions":[{"from":5756478,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa0c89a30": {"name":"FrameSelf","revisions":[{"from":5756478,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xc7ccb2ce": {"revisions": [{"from":7893741,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
- "0x886394e": {"revisions":[{"from":7893741,"type":["List2","0x0","Link","0x8b331b12"],"default":[]}]},
+"0xc7ccb2ce": {"name": "GuestOfHonorListData", "revisions": [{"from":7893741,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
+ "0x886394e": {"name":"GuestOfHonorList","revisions":[{"from":7893741,"type":["List2","0x0","Link","0x8b331b12"],"default":[]}]},
  "0x937ed2a5": {"revisions":[{"from":7893741,"type":["U8","0x0","0x0","0x0"],"default":3}]}
 }},
 "0xc7d8a802": {"name": "TipStyleBase", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {

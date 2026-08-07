@@ -1322,3 +1322,4 @@ c29a644e	StartTriggerValue                                           	exe-string
 8ecb12a5	TacticalDifficulty                                          	exe-strings                   	2026-08-05	pending  	-
 638cead9	TacticalStyle                                               	exe-strings                   	2026-08-05	pending  	-
 fb9572d0	TftEventPve                                                 	exe-strings                   	2026-08-05	pending  	-
+0886394e	GuestOfHonorList                                            	guest-of-honor                	2026-08-07	pending  	-

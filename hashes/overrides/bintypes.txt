@@ -122,6 +122,8 @@ fdf5991e GameScreenViewController
 ff5060b7 GameplayTextureChannel
 8d65d994 GameplayTextureSampler
 67c6fe50 GearGeComponentDef
+8b331b12 GuestOfHonor
+c7ccb2ce GuestOfHonorListData
 2f910682 IChromaData
 6630fcec IClientBlock
 ea87b2b3 IClockDefinition

@@ -5714,7 +5714,7 @@
  "0x8e346fe4": {"name":"mAmount","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x9957a441": {"name":"mTarget","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":1}]}
 }},
-"0x27bc6378": {"revisions": [{"from":7345787,"to":7345787,"bases":[],"interface":false,"value":false},{"from":7371049,"bases":[],"interface":false,"value":false}], "properties": {
+"0x27bc6378": {"name": "AugmentSet", "revisions": [{"from":7345787,"to":7345787,"bases":[],"interface":false,"value":false},{"from":7371049,"bases":[],"interface":false,"value":false}], "properties": {
  "0x1d14504": {"revisions":[{"from":7345787,"to":7345787,"type":["Link","0x0","0x0","0xef3a0f33"],"default":"0x0"},{"from":7371049,"type":["Link","0x0","0x0","0xef3a0f33"],"default":"0x0"}]},
  "0x2f3b39e": {"name":"Enabled","revisions":[{"from":7345787,"to":7345787,"type":["Bool","0x0","0x0","0x0"],"default":true},{"from":7371049,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x746ade9": {"revisions":[{"from":7345787,"to":7345787,"type":["String","0x0","0x0","0x0"],"default":""},{"from":7371049,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -5859,7 +5859,7 @@
  "0x125e95b4": {"revisions":[{"from":7170001,"to":7829736,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xd13d7e9f": {"revisions":[{"from":7170001,"to":7829736,"type":["F32","0x0","0x0","0x0"],"default":1.5}]}
 }},
-"0x289b31c8": {"revisions": [{"from":6950646,"bases":["0xacc5c631"],"interface":false,"value":false}], "properties": {
+"0x289b31c8": {"name": "ElapsedTimerController", "revisions": [{"from":6950646,"bases":["0xacc5c631"],"interface":false,"value":false}], "properties": {
 }},
 "0x28b2b2ea": {"name": "TftCurrency", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x1f40f3cb": {"name":"currencyId","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -6589,7 +6589,7 @@
 "0x2f787f62": {"name": "ScriptPreloadCharacter", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x6faefc1d": {"name":"PreloadResourceName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x2f798a22": {"revisions": [{"from":7695709,"bases":[],"interface":false,"value":false}], "properties": {
+"0x2f798a22": {"name": "AugmentTierDisplayData", "revisions": [{"from":7695709,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2c4a7c82": {"name":"PickedVfxSystem","revisions":[{"from":7695709,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
  "0x34296273": {"revisions":[{"from":7695709,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
  "0x5f2af0b8": {"name":"IdleVfxSystem","revisions":[{"from":7695709,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
@@ -10897,7 +10897,7 @@
  "0x3cedacb1": {"name":"ReverseScale","revisions":[{"from":5715678,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x89eccefc": {"name":"MaxAddedSpeed","revisions":[{"from":5715678,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0x54091cd5": {"revisions": [{"from":7893741,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
+"0x54091cd5": {"name": "AugmentClientConfig", "revisions": [{"from":7893741,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
  "0xb25b0bc0": {"revisions":[{"from":7893741,"type":["Map","Hash","Embed","0x2f798a22"],"default":{}}]},
  "0xbb82c01e": {"revisions":[{"from":7893741,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
@@ -12301,7 +12301,7 @@
 }},
 "0x60fea92f": {"revisions": [{"from":5229820,"to":5588314,"bases":["0xfb677f88"],"interface":false,"value":false}], "properties": {
 }},
-"0x610a14d0": {"revisions": [{"from":6950646,"bases":["0x692bf354"],"interface":false,"value":false}], "properties": {
+"0x610a14d0": {"name": "CountdownTimerControllerDefinition", "revisions": [{"from":6950646,"bases":["0x692bf354"],"interface":false,"value":false}], "properties": {
 }},
 "0x6110d4c1": {"revisions": [{"from":6649480,"bases":["0x8930818a"],"interface":false,"value":false}], "properties": {
  "0x1bcac48f": {"name":"SourceObject","revisions":[{"from":6649480,"to":7829736,"type":["Link","0x0","0x0","0x7a5e5ed6"],"default":"0x0"}]},
@@ -12427,7 +12427,7 @@
 "0x61f8c41c": {"name": "ItemDataValues", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x6afef1b": {"name":"DataValues","revisions":[{"from":5229820,"type":["List","0x0","Embed","0xb2c62c87"],"default":[]}]}
 }},
-"0x62113c15": {"revisions": [{"from":6950646,"bases":["0xacc5c631"],"interface":false,"value":false}], "properties": {
+"0x62113c15": {"name": "CountdownTimerController", "revisions": [{"from":6950646,"bases":["0xacc5c631"],"interface":false,"value":false}], "properties": {
 }},
 "0x6217fc5b": {"name": "VisionConfig", "revisions": [{"from":5606808,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
  "0x667106f9": {"revisions":[{"from":5606808,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
@@ -12490,7 +12490,7 @@
 "0x62a09c62": {"name": "IGeComponentDef", "revisions": [{"from":7231955,"to":7374870,"bases":[],"interface":false,"value":false},{"from":7389684,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x62ba66ab": {"revisions": [{"from":6540407,"to":7884269,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
- "0x886394e": {"revisions":[{"from":6540407,"to":7884269,"type":["List2","0x0","Link","0xfe44baa3"],"default":[]}]}
+ "0x886394e": {"name":"GuestOfHonorList","revisions":[{"from":6540407,"to":7884269,"type":["List2","0x0","Link","0xfe44baa3"],"default":[]}]}
 }},
 "0x62bb343b": {"name": "AutoSpellCastInfo", "revisions": [{"from":5606808,"bases":[],"interface":false,"value":false}], "properties": {
  "0xf91faa4f": {"name":"AutoSpellCast","revisions":[{"from":5606808,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
@@ -13145,7 +13145,7 @@
  "0xd58eab1d": {"name":"CrestUp","revisions":[{"from":6161179,"type":["List2","0x0","Embed","0xd31bbf89"],"default":[]}]},
  "0xf8ee7183": {"name":"ElementEnter","revisions":[{"from":6161179,"type":["List2","0x0","Embed","0xd31bbf89"],"default":[]}]}
 }},
-"0x692bf354": {"revisions": [{"from":6950646,"bases":[],"interface":true,"value":false}], "properties": {
+"0x692bf354": {"name": "ITimerControllerDefinition", "revisions": [{"from":6950646,"bases":[],"interface":true,"value":false}], "properties": {
  "0x604bf65": {"revisions":[{"from":6950646,"type":["F32","0x0","0x0","0x0"]}]},
  "0x37386ae0": {"name":"ID","revisions":[{"from":6950646,"type":["String","0x0","0x0","0x0"]}]},
  "0x72729cf8": {"name":"ClockDefinition","revisions":[{"from":6950646,"type":["Pointer","0x0","0x0","0xea87b2b3"]}]},
@@ -14061,7 +14061,7 @@
 }},
 "0x703acc15": {"name": "IsTurningParametricUpdater", "revisions": [{"from":5229820,"bases":["0x1650a0ab"],"interface":false,"value":false}], "properties": {
 }},
-"0x7040ad29": {"revisions": [{"from":6950646,"bases":["0x692bf354"],"interface":false,"value":false}], "properties": {
+"0x7040ad29": {"name": "ElapsedTimerControllerDefinition", "revisions": [{"from":6950646,"bases":["0x692bf354"],"interface":false,"value":false}], "properties": {
 }},
 "0x7041ed03": {"name": "TftUnitPropertyDefinition", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x617e21f": {"name":"DefaultValue","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xcd02833b"],"default":null}]},
@@ -16694,7 +16694,7 @@
 }},
 "0x85bb4e73": {"name": "TFTItemMaterialController", "revisions": [{"from":5229820,"bases":["0xce3b9427"],"interface":false,"value":false}], "properties": {
 }},
-"0x85bf79cf": {"revisions": [{"from":7170001,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
+"0x85bf79cf": {"name": "DynamicCameraConfig", "revisions": [{"from":7170001,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
  "0x7aa36d0": {"revisions":[{"from":7170001,"type":["Link","0x0","0x0","0xc565e640"],"default":"0x0"}]},
  "0x1c008b79": {"revisions":[{"from":7170001,"type":["U8","0x0","0x0","0x0"],"default":7}]},
  "0x4be54abc": {"revisions":[{"from":7170001,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -17323,7 +17323,7 @@
 "0x8b2a166d": {"revisions": [{"from":6950646,"bases":["0x1375d0b"],"interface":false,"value":false}], "properties": {
  "0x2aea83ef": {"revisions":[{"from":6950646,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0x8b331b12": {"revisions": [{"from":7893741,"bases":[],"interface":false,"value":false}], "properties": {
+"0x8b331b12": {"name": "GuestOfHonor", "revisions": [{"from":7893741,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2f3b39e": {"name":"Enabled","revisions":[{"from":7893741,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x7b34fa25": {"name":"SkinID","revisions":[{"from":7893741,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x8b3aa710": {"name":"Character","revisions":[{"from":7893741,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -23909,7 +23909,7 @@
 }},
 "0xc5044df5": {"name": "UiElementHide", "revisions": [{"from":7345787,"to":7345787,"bases":["0x10fa8e8f"],"interface":false,"value":false},{"from":7371049,"bases":["0x10fa8e8f"],"interface":false,"value":false}], "properties": {
 }},
-"0xc565e640": {"revisions": [{"from":7170001,"bases":[],"interface":false,"value":false}], "properties": {
+"0xc565e640": {"name": "DynamicCameraSettings", "revisions": [{"from":7170001,"bases":[],"interface":false,"value":false}], "properties": {
  "0x207e8859": {"revisions":[{"from":7170001,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x2399f883": {"revisions":[{"from":7170001,"type":["Pointer","0x0","0x0","0x777dfe18"],"default":null}]},
  "0x2446f2d0": {"revisions":[{"from":7170001,"to":7283286,"type":["F32","0x0","0x0","0x0"],"default":56.0}]},
@@ -24124,8 +24124,8 @@
  "0x418e3f54": {"name":"FrameAlly","revisions":[{"from":5756478,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa0c89a30": {"name":"FrameSelf","revisions":[{"from":5756478,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xc7ccb2ce": {"revisions": [{"from":7893741,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
- "0x886394e": {"revisions":[{"from":7893741,"type":["List2","0x0","Link","0x8b331b12"],"default":[]}]},
+"0xc7ccb2ce": {"name": "GuestOfHonorListData", "revisions": [{"from":7893741,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
+ "0x886394e": {"name":"GuestOfHonorList","revisions":[{"from":7893741,"type":["List2","0x0","Link","0x8b331b12"],"default":[]}]},
  "0x937ed2a5": {"revisions":[{"from":7893741,"type":["U8","0x0","0x0","0x0"],"default":3}]}
 }},
 "0xc7d8a802": {"name": "TipStyleBase", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {

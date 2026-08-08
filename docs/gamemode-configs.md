@@ -1,7 +1,7 @@
 # The game mode config pass
 
-Reversing doc for `gamemode-configs` and `gamemode-configs-unproven`. Their
-`batches.tsv` notes point here.
+Reversing doc for `gamemode-configs`, `gamemode-configs-unproven` and
+`guest-of-honor`. Their `batches.tsv` notes point here.
 
 ## Method
 
@@ -59,6 +59,45 @@ AugmentSet and ITimerControllerDefinition are two of the 24 the semantic pass
 recorded as proposed and not taken. That list was explicitly not a refutation
 record, and the call was re-derived here as its doc asks: both now carry
 evidence the semantic pass did not have.
+
+## The guest-of-honor batch
+
+**GuestOfHonor** (8b331b12), **GuestOfHonorListData** (c7ccb2ce) and its field
+**GuestOfHonorList** (0886394e). Arena's Guest of Honor system, 16.13+. The
+list config is one of the 17 `Maps/Shipping/Map30/Modes/CHERRY` configs; its
+GuestOfHonorList links all 43 GuestOfHonor entries in `map30.bin`, the only
+instances in the game. Vocabulary attested by the `Characters/Cherry_GoH_*`
+rigs, the `GuestHonor{Upcoming,Current,Past}.tex` stage icons, the
+`cherry_goh_name_*` / `cherry_goh_title_*` stringtable keys and the literal
+"Guest of Honor Fiddlesticks" tooltip text. CherryCameo is the direct
+predecessor: it carries the same Enabled (02f3b39e) and SkinID (7b34fa25)
+field hashes.
+
+Field semantics read off the 16.15 instances:
+
+- `name` doubles as the loc-key suffix (`cherry_goh_name_<name>`); the roster
+  includes lore guests ("Locke", "Atakhan", "SahnUzal" on the Mordekaiser rig
+  with SkinID 54). Guests with `Enabled = false` have bespoke
+  `Cherry_GoH_<self>` rigs; most enabled ones still point at placeholder rigs.
+- b0f32561, `List<U8>`: only ever {2}, {8} or {2,8} - the two vote-phase
+  rounds of LoLModesRoundsListData.
+- e7879fb5, `List<Link self>`: flat mutual groups ({Fiddlesticks, Locke},
+  {Darius, Briar, Evelynn}, {Vayne, Vladimir, Ambessa}, Kindred -> Yone
+  one-way), not a containment tree.
+- 937ed2a5, U8 default 3 on the list data: never serialized in shipped data.
+
+The three field hashes stay unnamed. Ruled out at ~0.6 summed expected chance
+hits, so do not re-run: depth-3 compositions over a 205-atom pool (db
+structural neighbourhood plus vote/showbiz vocabulary), depth 4 over the
+strongest 44 atoms, and the guesser's identity, delete, mutate (full wordlist)
+and chain-4 modes aimed at only these three hashes. The unlock is new attested
+vocabulary, not more probes.
+
+Two Character field values, verified, for the same CDragon binhashes PR as the
+map keys below:
+
+    e13cb23b Characters/Cherry_GoH_Locke
+    6264bcd6 Characters/Cherry_GoH_Yone
 
 ## gamemode-configs-unproven
 

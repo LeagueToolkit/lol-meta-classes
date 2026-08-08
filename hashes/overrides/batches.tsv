@@ -20,4 +20,4 @@ data-section-strings          	Whole NUL-terminated data-section strings hashed 
 exe-strings                   	Every string the shipped Windows exe has carried, per build, hashed against dumps/ unresolved hashes. ~25k probes, 0.03 expected chance hits. See docs/string-attestation.md
 gamemode-configs              	IGameModeConfigBase family and its inner classes, named by per-target search over each class's recursive structure vocabulary; 0.001-0.007 expected chance hits per target. See docs/gamemode-configs.md
 gamemode-configs-unproven     	Same pass: the per-tier vfx block AugmentClientConfig maps. Augment and Tier attested, Display is convention. DO NOT submit as it stands. See docs/gamemode-configs.md
-guest-of-honor                	Arena Guest of Honor mode config (16.13+), instances only in map30.bin; FNV reproduced, attested by Cherry_GoH_* character paths, GuestHonor*.tex icons and 'Guest of Honor' stringtable text
+guest-of-honor                	Arena Guest of Honor mode config (16.13+), instances only in map30.bin; FNV reproduced, attested by shipped Cherry_GoH_* paths and strings. See docs/gamemode-configs.md

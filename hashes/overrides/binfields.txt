@@ -293,6 +293,7 @@ d23c9e02 DepthFog
 456d362f DepthFogEnd
 749b3695 DepthFogMaxIntensity
 a6ce8c9a DepthFogStart
+cb13aff1 DepthPushPull
 2afda2ce DescriptionFooter
 3b7aa707 DescriptionLong
 c19c58be DescriptionOverrides
@@ -303,6 +304,7 @@ bff2f361 DescriptionShort
 09cfdcf0 Difficulty
 4756c3d8 DifficultyData
 fdf1d536 DifficultyLevel
+670b6ae3 Dimension
 827aac32 DisableFogOfWar
 97812f3b DisableThrottle
 f688ec43 DisabledOverlay
@@ -508,9 +510,11 @@ fc51c324 GroupHelper
 ed0c3757 H
 edbf0fe3 Has
 707c2c57 HasLevelPurchasing
+c6d048fc HdrEnvDiffuseScale
 c2aa4bfd HeaderImage
 91cef9f4 HealthBarBackground
 bae18fd9 HealthBars
+3694b10d HealthRegenPercent
 32006fba HeightFog
 b0d4508d HeightFogColor
 2188a687 HeightFogEnd
@@ -526,6 +530,7 @@ d5411c8f Holder
 3e6bd56c HostName
 152930ca HotkeyGroup
 ba92cb0e HoverFrame
+6723b8f8 HpMaxPenaltyRegenPercent
 49246df0 HubTexturePath
 633137b6 HubTimerText
 cd27a573 HudIcon
@@ -799,6 +804,7 @@ f715926c OverrideResult
 f5674cd4 Owner
 f3158aa5 PageText
 dd2b5b5d PaginationButton
+af34dd8e PaintedRegion
 4e0e3632 Param
 55b10110 Parameter
 07f9f769 ParameterOverrides
@@ -937,6 +943,7 @@ cb1bebae RecipeDef
 1a35cd0d RecipeTemplate
 40f480dc Red
 5a81f39a Reference
+018a801e RegenTickInterval
 2340a395 RegionLocator
 e2ba931c RegionLocatorGroup
 bed02ff8 RegionTags
@@ -944,6 +951,7 @@ bed02ff8 RegionTags
 20079c4c RemoveAll
 3b5dbe09 RemoveButton
 ebb5881f RenderOrder
+c7543bfc RenderParticles
 8bfaa580 RenderPass
 62c9f9c0 RenderPhase
 8536b021 RenderTargetSize
@@ -989,6 +997,7 @@ b8af4624 RotationOffset
 507c22b2 RowGroup
 f5a853e9 RowTemplate
 098f86e0 RowsList
+9b15d5eb SSAO
 1d59898a ScaleFactor
 9ce1222b ScaleX
 edb15a2f Scenario
@@ -1163,6 +1172,7 @@ a0f848d1 SubRequirements
 4c0c91fd SuccessesRequired
 9d8b5bd5 SummonerLevel
 4a6489aa SunLightColor
+08a3d83e Superward
 602b4f3c SwapAnimation
 68305f93 SwapMaterial
 8963e73a SwapSounds
@@ -1177,6 +1187,7 @@ c1b1aa2a SystemPrompt
 fbf302db TagData
 3d4f04d8 TagName
 37c3a421 TagQuery
+0a9e6b95 Taper
 fe9065ba TargetGame
 5dc08bbe TargetLevel
 1970b93f TargetLocation

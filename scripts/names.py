@@ -154,7 +154,8 @@ BRANDS = {"LoL": "Lol"}
 # `CC` is crowd control. Each is documented where it was cracked. They are
 # exempt because the evidence outranks the rule, not because the rule is soft.
 ACRONYM_EXEMPT = frozenset({
-    "MapSSAO", "MapSSAORenderer", "MapSSAOSettings", "GroupID", "ParamsCC",
+    "MapSSAO", "MapSSAORenderer", "MapSSAOSettings", "SSAO", "GroupID",
+    "ParamsCC",
 })
 
 

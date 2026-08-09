@@ -1323,3 +1323,14 @@ c29a644e	StartTriggerValue                                           	exe-string
 638cead9	TacticalStyle                                               	exe-strings                   	2026-08-05	pending  	-
 fb9572d0	TftEventPve                                                 	exe-strings                   	2026-08-05	pending  	-
 0886394e	GuestOfHonorList                                            	guest-of-honor                	2026-08-07	pending  	-
+cb13aff1	DepthPushPull                                               	map-entity-templates          	2026-08-09	pending  	-
+670b6ae3	Dimension                                                   	map-entity-templates          	2026-08-09	pending  	-
+c6d048fc	HdrEnvDiffuseScale                                          	map-entity-templates          	2026-08-09	pending  	-
+3694b10d	HealthRegenPercent                                          	map-entity-templates          	2026-08-09	pending  	-
+6723b8f8	HpMaxPenaltyRegenPercent                                    	map-entity-templates          	2026-08-09	pending  	-
+af34dd8e	PaintedRegion                                               	map-entity-templates          	2026-08-09	pending  	-
+018a801e	RegenTickInterval                                           	map-entity-templates          	2026-08-09	pending  	-
+c7543bfc	RenderParticles                                             	map-entity-templates          	2026-08-09	pending  	-
+9b15d5eb	SSAO                                                        	map-entity-templates          	2026-08-09	pending  	-
+08a3d83e	Superward                                                   	map-entity-templates          	2026-08-09	pending  	-
+0a9e6b95	Taper                                                       	map-entity-templates          	2026-08-09	pending  	-

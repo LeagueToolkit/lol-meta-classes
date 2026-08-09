@@ -5,13 +5,16 @@ which parts of it are worth spending a campaign on. Companion to
 [docs/plans/vocabulary-expansion.md](plans/vocabulary-expansion.md), which asks
 what words a search needs; this asks where to point it.
 
-Scope is build 8013452 (patch 16.15): 5,340 classes have existed, 4,533 are in
-the latest dump, and **1,873 of those still resolve to nothing**. Grouping them
-by base class splits that three ways: 732 sit in a family of 8 or more unnamed
-members, 734 have no base at all, and 407 are in families too small to be worth
-aiming a run at. So the families below cover 39% of the live unnamed surface,
-and the single largest remaining block is the baseless 734, which no family
-argument reaches.
+Scope is patch 16.15: 5,340 classes have existed, 4,533 are in the latest dump,
+and **1,824 of those still resolve to nothing**. Grouping them by base class
+splits that three ways: 696 sit in a family of 8 or more unnamed members, 719
+have no base at all, and 409 are in families too small to be worth aiming a run
+at. So the families below cover 38% of the live unnamed surface, and the single
+largest remaining block is the baseless 719, which no family argument reaches.
+
+Counts are as of the `map-entity-templates` campaign, which took
+`MapPlaceableBase` out of this table - see
+[docs/map-entity-templates.md](map-entity-templates.md).
 
 ## Reading the census
 
@@ -56,7 +59,7 @@ separately are listed in the write-ups below.
 
 | unnamed | named | handle | res% | defs | +clo | span | family |
 |---|---|---|---|---|---|---|---|
-| 85 | 44 | 65 | 78 | 49 | 13 | 13.20..16.15 | `IScriptBlock` (3c2ab5b0) |
+| 85 | 44 | 65 | 78 | 49 | 11 | 13.20..16.15 | `IScriptBlock` (3c2ab5b0) |
 | 74 | 20 | 1 | 50 | 0 | 0 | 16.7..16.11 | `BaseParams` (c03c9e4e) |
 | 66 | 68 | 40 | 67 | 9 | 3 | 13.15..16.15 | `ILogicDriver` (995ca734) |
 | 65 | 0 | 55 | 63 | 42 | 31 | 13.15..16.13 | `ISequenceAction` (eb31be9b) |
@@ -64,7 +67,6 @@ separately are listed in the write-ups below.
 | 47 | 19 | 24 | 21 | 125 | 49 | 13.18..16.15 | `IGameModeConfigBase` (3e5051fa) |
 | 37 | 9 | 4 | 18 | 7 | 1 | 15.4..16.11 | `IKeyBind` (5ba190cc) |
 | 34 | 0 | 0 | 0 | 0 | 0 | 13.15..16.13 | `ISequenceActionInstance` (fb677f88) |
-| 28 | 48 | 22 | 90 | 62 | 35 | 14.6..16.15 | `MapPlaceableBase` (9ef09bad) |
 | 28 | 23 | 15 | 100 | 1 | 2 | 14.9..16.6 | `IScriptValueGet` (f6e711b0) |
 | 27 | 0 | 1 | 14 | 1 | 0 | 15.20..16.11 | `0x2a9f4223` |
 | 22 | 56 | 22 | 100 | 8 | 2 | 15.22..16.8 | `IVfxBaseDriver` (cbd100e7) |
@@ -76,13 +78,19 @@ separately are listed in the write-ups below.
 Prior campaigns, from `hashes/overrides/ledger.bintypes.tsv`, so nobody
 re-treads: `IVfxBaseDriver` is 56/56 ours (`vfx-driver-graph`), `BaseParams`
 20/20 and `ViewController` 31/189 (`season16-modes-ui`, `viewcontroller-family`),
-`MapPlaceableBase` 18/48, `IGameModeConfigBase` 5/19 (`gamemode-configs`).
+`IGameModeConfigBase` 5/19 (`gamemode-configs`). `MapPlaceableBase` is finished
+and off the table: `map-entity-templates` took it from 28 unnamed to 5.
 **`ILogicDriver`, `ISequenceAction` and `GameEntityBlock` have never been
 touched by a campaign here** - every name beside them came from upstream.
 
-## The ten worth following up
+## The nine worth following up
 
-Ordered by expected yield, not by size.
+Ordered by expected yield, not by size. `MapPlaceableBase` was number 5 on this
+list and has been worked; what it taught is in
+[docs/map-entity-templates.md](map-entity-templates.md), and the one method
+there that generalises is worth reading before starting any of these - folding a
+family's suffix backwards out of its unresolved hashes proves which of them
+share a stem, which turns a per-hash search into a per-concept one.
 
 ### 1. `IScriptBlock` (3c2ab5b0) - 85 unnamed, 44 named
 
@@ -181,22 +189,7 @@ refutation that makes this one cheap to check: a real hit has to land on a class
 whose base actually is `ViewController`. The 237-class closure is the
 unexplored half, not the 52.
 
-### 5. `MapPlaceableBase` (9ef09bad) - 28 unnamed, 48 named
-
-Map entities and their templates. Highest field-resolution of any large family
-at 90%, with 62 non-zero defaults. Sub-roots `0xd738f7c9` (26 unnamed) and
-`GameEntityTemplate` (23 unnamed, 3.6 resolved fields each).
-
-A template is named by the components it composes, and the components are
-already named: `0xad65d8c4` embeds `AttackableUnitGeComponentDef`,
-`SkinCharacterGeComponentDef`, `StateMachineGeComponentDef` and
-`AnimationGeComponentDef`, and is held by `BarracksMinionConfig.EntityTemplate`.
-`0xb4fff93c` carries `{MinArmLength: 1800.0, MaxArmLength: 3600.0,
-FieldOfView: 29.25, pitch: 46.0, yaw, Roll}`, which is Summoner's Rift's camera.
-Several of these are one hop from a shipped `.bin` instance, so attestation is
-unusually cheap here.
-
-### 6. `IGameModeConfigBase` (3e5051fa) - 47 unnamed, 19 named
+### 5. `IGameModeConfigBase` (3e5051fa) - 47 unnamed, 19 named
 
 The `gamemode-configs` campaign named 7 and stopped; 47 remain, with 125
 non-zero defaults and 49 more unnamed classes in the closure - the most default
@@ -205,7 +198,7 @@ already records the method (per-target search over each class's recursive
 structure vocabulary, 0.001-0.007 expected chance hits per target) and its own
 dead ends, so this is resumable rather than new work.
 
-### 7. `IScriptValueGet` (f6e711b0) - 28 unnamed, 23 named
+### 6. `IScriptValueGet` (f6e711b0) - 28 unnamed, 23 named
 
 Small but the highest-confidence family in the survey: **100% of its members'
 field hashes are resolved**, and the base tuple is a near-unique fingerprint,
@@ -222,7 +215,7 @@ Three classes differing only in return type, over an identical `PropPath` +
 `VectorTableGet`, `FloatOffsetTableGet`) fix `<Type>[Table]Get` exactly, so the
 name is a function of the base tuple plus the field pair.
 
-### 8. `BaseParams` (c03c9e4e) - 74 unnamed, 20 named
+### 7. `BaseParams` (c03c9e4e) - 74 unnamed, 20 named
 
 The second largest family and the one that suits a **guesser sweep rather than a
 semantic pass**, which is why it is listed this low despite the size. 72 of the
@@ -238,7 +231,7 @@ constraints are otherwise ideal:
 `--prefix Params --only` over an event wordlist is the shape. `Params<Event>`
 and `<Event>Params` both occur among the named 20, so run both.
 
-### 9. `IKeyBind` (5ba190cc) - 37 unnamed, 9 named
+### 8. `IKeyBind` (5ba190cc) - 37 unnamed, 9 named
 
 Structurally the thinnest large family, at 18% resolved and 4 members with any
 handle at all, so it is listed for a different reason: **the target list is
@@ -253,7 +246,7 @@ hit is a name Riot wrote. The named siblings (`LolPingKeybind`,
 (`.PingCategory`, `.EmoteDirection`, `.HoldType`, `.ToggleType`) show the
 vocabulary the strings should be filtered for.
 
-### 10. `0x4ca99280` - 15 unnamed, 0 named
+### 9. `0x4ca99280` - 15 unnamed, 0 named
 
 Small, but wholly unexplored, entirely 16.7 or newer, and the only family in the
 survey whose **root and every member are unnamed**. 15 non-zero defaults across
@@ -337,5 +330,8 @@ that step has not been run.
 
 ## Status
 
-Nothing here entered a table and no batch was opened. The only repo change is
-the `rank` subcommand this survey is built on.
+One of the ten has been worked: `map-entity-templates` landed 109 names out of
+`MapPlaceableBase`, and is written up in
+[docs/map-entity-templates.md](map-entity-templates.md). Nothing else here has
+entered a table, and the `GameEntityBlock` candidates above are still
+candidates.

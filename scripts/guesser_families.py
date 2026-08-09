@@ -121,6 +121,128 @@ def flag_text(revisions):
     return "  ".join(out)
 
 
+def is_live(cls_entry):
+    """Present in the newest dump. The open revision is the one with no `to`."""
+    return "to" not in cls_entry["revisions"][-1]
+
+
+def descendants(root, children, classes, live_only):
+    """Every class transitively derived from root. A family is the whole
+    subtree, not the direct children: the naming pattern is set at the top and
+    the unnamed members hang off intermediate bases that are unnamed too."""
+    out, stack = set(), [root]
+    while stack:
+        for k in children.get(stack.pop(), []):
+            if k not in out and not (live_only and not is_live(classes[k])):
+                out.add(k)
+                stack.append(k)
+    return out
+
+
+def type_closure(seeds, classes, depth=3):
+    """Classes reachable from seeds through property types. A family's own
+    fields are only half its context; the rest is in the classes they point at,
+    which is where the named fields and the non-default defaults live."""
+    seen, frontier = set(seeds), set(seeds)
+    for _ in range(depth):
+        nxt = set()
+        for h in frontier:
+            for p in classes.get(h, {}).get("properties", {}).values():
+                for x in (p.get("revisions") or [{}])[-1].get("type") or ():
+                    if str(x).startswith("0x") and x != "0x0" and x in classes:
+                        if x not in seen:
+                            nxt.add(x)
+        seen |= nxt
+        frontier = nxt
+        if not nxt:
+            break
+    return seen
+
+
+def has_default(prop):
+    """A default the constructor set, as opposed to the type's zero. Those are
+    evidence - `Magnitude = 20.0` beside `ShakesPerSecond = 6.0` names a camera
+    shake - where a zero says only that the field exists."""
+    d = (prop.get("revisions") or [{}])[-1].get("default")
+    if isinstance(d, bool):
+        return d
+    if isinstance(d, (int, float)):
+        return bool(d)
+    if isinstance(d, str):
+        return bool(d) and d != "0x0"
+    if isinstance(d, (list, dict)):
+        return bool(d)
+    return False
+
+
+def rank(args):
+    """Census of unnamed class families, ordered by size.
+
+    Size alone does not say a family is workable. A family of 74 with no fields
+    on any member (BaseParams) offers a name generator nothing to aim at, while
+    28 members whose fields are 80% resolved (GameEntityBlock) each carry their
+    own description. The columns separate the two.
+    """
+    _, classes, nameof, patch = load_db(ROOT / args.db)
+    fnames = field_name_map(classes)
+    children, _ = build_indexes(classes)
+
+    live = {h for h, c in classes.items() if is_live(c)}
+    pool = live if not args.all_builds else set(classes)
+    unnamed = {h for h in pool if not classes[h].get("name")}
+
+    rows = []
+    for root in set(children):
+        fam = descendants(root, children, classes, not args.all_builds)
+        un = sorted(h for h in fam if h in unnamed)
+        if len(un) < args.min_unnamed:
+            continue
+        named = [h for h in fam if h not in unnamed]
+        props = [(h, classes[h].get("properties", {})) for h in un]
+        nfields = sum(sum(1 for f in p if f in fnames) for _, p in props)
+        tfields = sum(len(p) for _, p in props)
+        rows.append(dict(
+            root=root,
+            name=nameof(root),
+            unnamed=len(un),
+            named=len(named),
+            # members carrying at least one resolved field: the ones a
+            # structure-derived proposal has something to be derived from.
+            handles=sum(1 for _, p in props if any(f in fnames for f in p)),
+            namedfields=nfields,
+            resolved=(100 * nfields // tfields) if tfields else 0,
+            defaults=sum(sum(1 for p_ in p.values() if has_default(p_))
+                         for _, p in props),
+            extra=sum(1 for h in type_closure(fam, classes)
+                      if h in unnamed and h not in fam),
+            first=patch.get(min(classes[h]["revisions"][0]["from"] for h in un), "?"),
+            last=patch.get(max(classes[h]["revisions"][0]["from"] for h in un), "?"),
+        ))
+    rows.sort(key=lambda r: (-r["unnamed"], r["name"]))
+    rows = rows[: args.limit]
+
+    if args.json:
+        print(json.dumps(rows, indent=1))
+        return
+    hdr = ("unnamed", "named", "handle", "nf", "res%", "defs", "+clo", "span")
+    print(f"{hdr[0]:>7} {hdr[1]:>5} {hdr[2]:>6} {hdr[3]:>4} {hdr[4]:>4} "
+          f"{hdr[5]:>4} {hdr[6]:>4}  {hdr[7]:<14} family")
+    for r in rows:
+        print(f"{r['unnamed']:7} {r['named']:5} {r['handles']:6} "
+              f"{r['namedfields']:4} {r['resolved']:4} {r['defaults']:4} "
+              f"{r['extra']:4}  {r['first'] + '..' + r['last']:<14} "
+              f"{r['name']} ({r['root']})")
+    print(f"[ok] {len(rows)} famil(ies); handle = members with >=1 resolved "
+          f"field, res% = resolved share of the family's own fields, "
+          f"+clo = further unnamed classes their field types reach")
+
+
+def default_text(prop):
+    """The constructor's value for a field, when it is not the type's zero."""
+    return repr((prop.get("revisions") or [{}])[-1].get("default")) \
+        if has_default(prop) else ""
+
+
 def describe_class(ch, classes, nameof, patch, fnames, children, refs, lines):
     """One unnamed class, with everything a name for it can be judged by."""
     c = classes[ch]
@@ -134,7 +256,9 @@ def describe_class(ch, classes, nameof, patch, fnames, children, refs, lines):
         )[:FIELD_CAP]
         for fh, p in shown:
             ty = render_type((p.get("revisions") or [{}])[-1].get("type") or (), nameof)
-            lines.append(f"- .{fnames.get(fh, fh)}: {ty or '?'}")
+            d = default_text(p)
+            lines.append(f"- .{fnames.get(fh, fh)}: {ty or '?'}"
+                         + (f" = {d}" if d else ""))
         if len(props) > FIELD_CAP:
             lines.append(f"- ... {len(props) - FIELD_CAP} more field(s)")
     kids = [nameof(k) for k in children.get(ch, []) if classes[k].get("name")]
@@ -160,8 +284,15 @@ def emit(args):
 
     # Class families: unnamed classes grouped under their base. The base picks
     # the naming pattern and usually the first word; the siblings show both.
+    # --subtree takes the whole inheritance subtree instead of the direct
+    # children, which is what `rank` counts: a family's unnamed members often
+    # hang off an intermediate base that is unnamed too, and grouping by direct
+    # children splits one family into several roots that share a pattern.
     fams = []
-    for base, kids in children.items():
+    for base in (set(children) if args.subtree else children):
+        kids = (descendants(base, children, classes, args.live)
+                if args.subtree else
+                [k for k in children[base] if not args.live or is_live(classes[k])])
         unnamed = [k for k in kids if not classes[k].get("name")]
         named = [k for k in kids if classes[k].get("name")]
         if len(unnamed) >= args.min_unnamed:
@@ -191,6 +322,21 @@ def emit(args):
         lines.append("")
         for ch in sorted(unnamed):
             describe_class(ch, classes, nameof, patch, fnames, children, refs, lines)
+        # The recursive half: classes the family's own field types reach but
+        # that no inheritance edge would have collected. The inner classes of a
+        # family are named from the family, so they belong in its pack.
+        reached = sorted(
+            h for h in type_closure(set(unnamed) | set(named), classes, args.depth)
+            if not classes[h].get("name")
+            and h not in unnamed
+            and (not args.live or is_live(classes[h]))
+        )
+        if reached:
+            lines.append(f"## Reached through field types ({len(reached)})")
+            lines.append("")
+            for ch in reached:
+                describe_class(ch, classes, nameof, patch, fnames, children,
+                               refs, lines)
         path.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
         index.append(
             f"- [{bname}](types/{path.name}): {len(unnamed)} unnamed, "
@@ -375,7 +521,26 @@ def main():
                    help="most packs per section (default 80)")
     e.add_argument("--min-unnamed", type=int, default=1,
                    help="skip families with fewer unnamed members")
+    e.add_argument("--subtree", action="store_true",
+                   help="group by the whole inheritance subtree, as `rank` "
+                        "counts it, not by direct children")
+    e.add_argument("--live", action="store_true",
+                   help="only classes present in the latest build")
+    e.add_argument("--depth", type=int, default=3,
+                   help="how far to follow field types for the reached "
+                        "section (default 3)")
     e.set_defaults(fn=emit)
+
+    r = sub.add_parser("rank", help="census of unnamed class families by size")
+    r.add_argument("--db", default="db/meta.db.json", type=pathlib.Path)
+    r.add_argument("--limit", type=int, default=50,
+                   help="most families to list (default 50)")
+    r.add_argument("--min-unnamed", type=int, default=8,
+                   help="skip families with fewer unnamed members (default 8)")
+    r.add_argument("--all-builds", action="store_true",
+                   help="include classes gone from the latest build")
+    r.add_argument("--json", action="store_true", help="emit rows as JSON")
+    r.set_defaults(fn=rank)
 
     c = sub.add_parser("check", help="verify proposed names against the meta")
     c.add_argument("files", nargs="*",

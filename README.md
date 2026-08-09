@@ -357,6 +357,9 @@ Deaths belong together. `scripts/guesser_families.py` supplies the context for
 that call and then checks the answer.
 
 ```bash
+# which families are worth the effort, biggest first
+python3 scripts/guesser_families.py rank
+
 # context packs: base class, named siblings, fields, types, lifespan, references
 python3 scripts/guesser_families.py emit
 
@@ -364,11 +367,22 @@ python3 scripts/guesser_families.py emit
 python3 scripts/guesser_families.py check proposals.txt --matches-out only.txt
 ```
 
+`rank` is the census of unnamed families in the build the game currently ships,
+scored by how much context each one carries as well as by size - the two are
+close to independent, and a family of 74 with no fields on any member is a
+worse target than one of 28 that describes itself. The survey built on it,
+including the ten families worth taking next, is
+[docs/unnamed-families.md](docs/unnamed-families.md).
+
 `emit` writes one pack per class family under `hash-guesser-out/families/`, plus
 one per class holding unresolved fields - everything a name can be judged
-against except the hash itself. `check` reports whether a proposal hits an
-unresolved class, an unresolved field, a name the tables already carry, or
-nothing, and `--matches-out` writes the hits in a form `--only` accepts.
+against except the hash itself, including the inner classes the family's field
+types reach and any default the constructor set. `--subtree` groups by the whole
+inheritance subtree the way `rank` counts it rather than by direct children, and
+`--live` drops classes the latest build no longer has. `check` reports whether a
+proposal hits an unresolved class, an unresolved field, a name the tables
+already carry, or nothing, and `--matches-out` writes the hits in a form
+`--only` accepts.
 
 A proposed list is a few hundred probes, so its noise is arithmetic zero. That
 does not lower the bar: a name this pass proposes is exactly the kind of

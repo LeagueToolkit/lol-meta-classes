@@ -50,6 +50,8 @@ e3c2c81a BundleReward
 ff6e8118 CharacterMeshEntityPrefab
 9aa5b4bc CharacterMeshEntityTemplate
 b3b78034 CharacterMeshGeComponent
+5d7c19de CharacterOutlineCategory
+993f8595 CharacterOutlineSubmeshes
 671bdc8d ClientScript
 2610a4a3 ClientState
 440078ff ClientStateBootstrap

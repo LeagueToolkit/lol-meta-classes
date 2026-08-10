@@ -635,14 +635,6 @@ class 0x1e2d1428():
     0x5b5f63b5: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x1e3c6622():
-    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","contentId":"","itemID":0,"typeId":""}
-    LocalizedName: (String, 0x0, 0x0, 0x0) = ""
-    PassType: (U32, 0x0, 0x0, 0x0) = 0
-    image: (String, 0x0, 0x0, 0x0) = ""
-    LocalizedDescription: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x1e3ddf38():
     0x82aeb8a7: (U8, 0x0, 0x0, 0x0) = 1
     0xcc9ed5ef: (Embed, 0x0, 0x0, 0x5c5e2d13) = {"Rows":[{"Columns":[0,0,0,0,0,0,0]},{"Columns":[0,0,0,0,0,0,0]},{"Columns":[0,0,0,0,0,0,0]},{"Columns":[0,0,0,0,0,0,0]}]}
@@ -12011,7 +12003,7 @@ class CharacterQuestReward(ICharacterQuestReward):
 
 class CharacterRecord():
     DisguiseMinimapIconOverride: (String, 0x0, 0x0, 0x0) = ""
-    0x1262a25: (Embed, 0x0, 0x0, ModifiableFloat) = {"Modifiers":[],"baseValue":0.0}
+    mrPerLevel: (Embed, 0x0, 0x0, ModifiableFloat) = {"Modifiers":[],"baseValue":0.0}
     mEducationToolData: (Embed, 0x0, 0x0, ToolEducationData) = {"firstItem":0,"skillOrder":0}
     mAdaptiveForceToAbilityPowerWeight: (F32, 0x0, 0x0, 0x0) = 0.0
     areaIndicatorTextureSize: (F32, 0x0, 0x0, 0x0) = 50.0
@@ -12123,7 +12115,7 @@ class CharacterRecord():
     friendlyUxOverrideExcludeTagsString: (String, 0x0, 0x0, 0x0) = ""
     spellNames: (List, 0x4, String, 0x0) = ["","","",""]
     occludedUnitSelectableDistance: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xc1984296: (List, 0x10, Link, SpellObject) = ["0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0"]
+    extraSpellsList: (List, 0x10, Link, SpellObject) = ["0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0"]
     selfCBChampSpecificHealthSuffix: (String, 0x0, 0x0, 0x0) = ""
     baseCritChance: (F32, 0x0, 0x0, 0x0) = 0.0
     0xc5c48b41: (U8, 0x0, 0x0, 0x0) = 0
@@ -20434,7 +20426,7 @@ class OptionsViewController(ViewController):
     DefaultMenuButtonTraKeys: (List, 0x6, String, 0x0) = ["","","","","",""]
     ExitHitRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Button1Definition: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb06a22db: (Pointer, 0x0, 0x0, UiControlScheme) = null
+    UIControlScheme: (Pointer, 0x0, 0x0, UiControlScheme) = null
     Tabs: (List, 0x0, Link, OptionsTab) = []
     CancelHitRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
     OkayHitRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -21268,7 +21260,7 @@ class ProgressTrack():
     SeasonId: (U32, 0x0, 0x0, 0x0) = 0
     Version: (U8, 0x0, 0x0, 0x0) = 2
     CounterDefinitions: (List, 0x0, Link, CounterDefinition) = []
-    0x66cea379: (Link, 0x0, 0x0, 0x1e3c6622) = "0x0"
+    0x66cea379: (Link, 0x0, 0x0, eventpass) = "0x0"
     name: (String, 0x0, 0x0, 0x0) = ""
     MilestoneDefinitions: (List, 0x0, Link, MilestoneDefinition) = []
     Repeat: (Embed, 0x0, 0x0, GroupRepeat) = {"Count":0,"Scope":0,"multiplier":1.0}
@@ -22767,7 +22759,7 @@ class SpellChoiceTemplate():
 
 class SpellDataResource():
     mDoesntBreakChannels: (Bool, 0x0, 0x0, 0x0) = false
-    0x11704a2b: (F32, 0x0, 0x0, 0x0) = 0.5
+    spellCastTime: (F32, 0x0, 0x0, 0x0) = 0.5
     mCursorChangesInTerrain: (Bool, 0x0, 0x0, 0x0) = false
     mSpellPassives: (List, 0x0, Pointer, SpellPassiveData) = []
     missileSpeed: (F32, 0x0, 0x0, 0x0) = 500.0
@@ -22778,7 +22770,7 @@ class SpellDataResource():
     mFloatVarsDecimals: (List, 0x10, I32, 0x0) = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
     castRange: (List, 0x7, F32, 0x0) = [400.0,400.0,400.0,400.0,400.0,400.0,400.0]
     canCastOrQueueWhileCasting: (Bool, 0x0, 0x0, 0x0) = false
-    0x210f9ec0: (Embed, 0x0, 0x0, 0x630af303) = {"values":[0.0,0.0,0.0,0.0,0.0,0.0]}
+    manaValues: (Embed, 0x0, 0x0, 0x630af303) = {"values":[0.0,0.0,0.0,0.0,0.0,0.0]}
     ImgIconPath: (String, 0x0, 0x0, 0x0) = ""
     mIsDelayedByCastLocked: (Bool, 0x0, 0x0, 0x0) = false
     mHitEffectOrientType: (U32, 0x0, 0x0, 0x0) = 1
@@ -22918,7 +22910,7 @@ class SpellDataResource():
     alwaysSnapFacing: (Bool, 0x0, 0x0, 0x0) = false
     mMissileSpec: (Pointer, 0x0, 0x0, MissileSpecification) = null
     mHitEffectPlayerName: (String, 0x0, 0x0, 0x0) = ""
-    0xe1136d1: (Embed, 0x0, 0x0, 0xa0eddc9) = {"values":[400.0,400.0,400.0,400.0,400.0,400.0,400.0]}
+    castRangeValues: (Embed, 0x0, 0x0, 0xa0eddc9) = {"values":[400.0,400.0,400.0,400.0,400.0,400.0,400.0]}
     mCantCancelWhileWindingUp: (Bool, 0x0, 0x0, 0x0) = false
     mAIData: (Embed, 0x0, 0x0, AISpellData) = {"mBlockLevel":0,"mEndOnly":false,"mLifetime":-1.0,"mRadius":-1.0,"mRange":-1.0,"mSendAIEvent":false,"mSpeed":-1.0}
     mAffectsTypeFlags: (U32, 0x0, 0x0, 0x0) = 0
@@ -22926,7 +22918,7 @@ class SpellDataResource():
     mAnimationWinddownName: (String, 0x0, 0x0, 0x0) = ""
     mLockedSpellOriginationCastID: (Bool, 0x0, 0x0, 0x0) = false
     mPreCastLockoutDeltaTime: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xf26881a0: (F32, 0x0, 0x0, 0x0) = 2.0
+    spellTotalTime: (F32, 0x0, 0x0, 0x0) = 2.0
     mPingableWhileDisabled: (Bool, 0x0, 0x0, 0x0) = false
     mMissileEffectName: (String, 0x0, 0x0, 0x0) = ""
     bHaveHitEffect: (Bool, 0x0, 0x0, 0x0) = false
@@ -30242,6 +30234,14 @@ class X3DSharedTextureDef():
 
 class XpReward(IRewardBase):
     itemID: (String, 0x0, 0x0, 0x0) = "XP"
+    pass
+
+class eventpass():
+    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","contentId":"","itemID":0,"typeId":""}
+    LocalizedName: (String, 0x0, 0x0, 0x0) = ""
+    PassType: (U32, 0x0, 0x0, 0x0) = 0
+    image: (String, 0x0, 0x0, 0x0) = ""
+    LocalizedDescription: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class iconUrl(0x4aa1b945):

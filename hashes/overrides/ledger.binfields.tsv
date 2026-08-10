@@ -1335,3 +1335,6 @@ c7543bfc	RenderParticles                                             	map-entity
 08a3d83e	Superward                                                   	map-entity-templates          	2026-08-09	pending  	-
 0a9e6b95	Taper                                                       	map-entity-templates          	2026-08-09	pending  	-
 9a817954	OutlineCategorySubmeshes                                    	character-outline             	2026-08-10	pending  	-
+18291220	ComponentWeight                                             	logic-drivers                 	2026-08-10	pending  	-
+f9c21175	IgnoreDead                                                  	logic-drivers                 	2026-08-10	pending  	-
+44146c9d	MissileSpellObjects                                         	logic-drivers                 	2026-08-10	pending  	-

@@ -14,7 +14,10 @@ largest remaining block is the baseless 719, which no family argument reaches.
 
 Counts are as of the `map-entity-templates` campaign, which took
 `MapPlaceableBase` out of this table - see
-[docs/map-entity-templates.md](map-entity-templates.md).
+[docs/map-entity-templates.md](map-entity-templates.md). `ILogicDriver` has
+since been worked as well and is down from 66 unnamed to 23; its row below is
+left at the pre-campaign count so the census stays one snapshot, and the
+write-up is [docs/logic-drivers.md](logic-drivers.md).
 
 ## Reading the census
 
@@ -79,9 +82,10 @@ Prior campaigns, from `hashes/overrides/ledger.bintypes.tsv`, so nobody
 re-treads: `IVfxBaseDriver` is 56/56 ours (`vfx-driver-graph`), `BaseParams`
 20/20 and `ViewController` 31/189 (`season16-modes-ui`, `viewcontroller-family`),
 `IGameModeConfigBase` 5/19 (`gamemode-configs`). `MapPlaceableBase` is finished
-and off the table: `map-entity-templates` took it from 28 unnamed to 5.
-**`ILogicDriver`, `ISequenceAction` and `GameEntityBlock` have never been
-touched by a campaign here** - every name beside them came from upstream.
+and off the table: `map-entity-templates` took it from 28 unnamed to 5, and
+`logic-drivers` took `ILogicDriver` from 66 to 23. **`ISequenceAction` and
+`GameEntityBlock` have never been touched by a campaign here** - every name
+beside them came from upstream.
 
 ## The nine worth following up
 
@@ -136,6 +140,11 @@ the 65 carry resolved fields, and the defaults are unusually loud.
 
 ### 3. `ILogicDriver` (995ca734) - 66 unnamed, 68 named
 
+**Worked: `logic-drivers` landed 46 names and left 23. See
+[docs/logic-drivers.md](logic-drivers.md); the arithmetic quartet below is
+cracked, and so is the Concept cluster.** The rest of this section is the
+pre-campaign reading, kept because it is what the campaign was aimed with.
+
 Material and gameplay logic drivers. Untouched by any campaign here, and the 68
 named siblings are all upstream, so the convention is externally attested:
 `<Predicate><Type>Driver` with `Bool`, `Float`, `Int`, `Vector3` and `Material`
@@ -156,6 +165,10 @@ names the operation. `Add`/`Subtract`/`Multiply`/`Divide` crossed with the
 family's two suffixes did not hit, so the stem differs from the operand word;
 that is a bounded search over one interface's four children, not a fishing trip.
 
+It was the interface's own word that was missing: the base is `MathFloatDriver`
+and the children are `Math<Op>FloatDriver`. The word came out of the retail
+client binary, not out of recombination.
+
 A second cluster: 10 classes introduced together in 15.11, each declaring a
 single `.Concept: Link <T>Concept` field and nothing else. They factor exactly
 5 concept types by 2, and the pair is the *output* type, which the base already
@@ -171,6 +184,10 @@ names:
 
 Input type in the link, output type in the base, and the two cross-typed rows
 say the pattern is "read concept X as Y" rather than one class per concept.
+
+They are `Raw<T>ConceptLogicDriver` and `Eased<T>ConceptLogicDriver`. The two
+cross-typed rows are the tell: easing a bool or an int yields a float, which is
+why exactly those two `Eased` classes derive from `ILogicFloatDriver`.
 
 ### 4. `ViewController` (ed511190) - 52 unnamed, 189 named
 
@@ -330,8 +347,15 @@ that step has not been run.
 
 ## Status
 
-One of the ten has been worked: `map-entity-templates` landed 109 names out of
-`MapPlaceableBase`, and is written up in
-[docs/map-entity-templates.md](map-entity-templates.md). Nothing else here has
-entered a table, and the `GameEntityBlock` candidates above are still
-candidates.
+Two of the ten have been worked. `map-entity-templates` landed 109 names out of
+`MapPlaceableBase` ([docs/map-entity-templates.md](map-entity-templates.md));
+`logic-drivers` landed 46 out of `ILogicDriver`
+([docs/logic-drivers.md](logic-drivers.md)). Nothing else here has entered a
+table, and the `GameEntityBlock` candidates above are still candidates.
+
+What `logic-drivers` adds to the method, beyond what `map-entity-templates`
+records: when a family's base classes are typed, the base fixes the last word,
+so `--suffix` is anchored for free and the search collapses to one word. And the
+retail client binary is worth probing even when the CommunityDragon corpus is
+empty - 2.8M asset-path forms returned nothing, while 469k binary strings
+returned the five stems that unlocked half the campaign.

@@ -23,3 +23,4 @@ gamemode-configs-unproven     	Same pass: the per-tier vfx block AugmentClientCo
 guest-of-honor                	Arena Guest of Honor mode config (16.13+), instances only in map30.bin; FNV reproduced, attested by shipped Cherry_GoH_* paths and strings. See docs/gamemode-configs.md
 map-entity-templates          	MapPlaceableBase's Entity/EntityTemplate/EntityPrefab/Definition/GeComponent lattice, plus the shipped strings that name three of its stems. See docs/map-entity-templates.md
 character-outline             	Jade's toon outline on SkinMeshDataProperties. Recombination at 0.007 expected chance hits over the Outline-naming slice, attested by 21 shipped *_CharacterOutline_inst. See docs/character-outline.md
+logic-drivers                 	ILogicDriver family: suffix folding + lattice completion, corroborated by shipped .bin driver graphs and client-binary strings. docs/logic-drivers.md

@@ -315,11 +315,6 @@ class 0x1778b398():
     name: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x1792fdb5(ILogicFloatDriver):
-    0x3a302e74: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    ValueArray: (List2, 0x0, Pointer, ILogicFloatDriver) = []
-    pass
-
 class 0x17d73579(BaseLoadoutData):
     0x22881500: (Link, 0x0, 0x0, 0x2f24b82d) = "0x0"
     IconTexturePath: (String, 0x0, 0x0, 0x0) = ""
@@ -346,11 +341,6 @@ class 0x17ed90bf(ISequenceAction):
 class 0x180e553c(TftPassRewardBase):
     type: (String, 0x0, 0x0, 0x0) = "progression"
     counterID: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x18278f59(ILogicBoolDriver):
-    UnitTags: (Embed, 0x0, 0x0, ObjectTags) = {"mObjectTagList":[]}
-    Has: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x18295ca2(BaseParams):
@@ -396,7 +386,7 @@ class 0x19af3490(IVfxVector4Driver):
     pass
 
 class 0x19da44b2(ILogicVector3Driver):
-    0x44146c9d: (List2, 0x0, Hash, 0x0) = []
+    MissileSpellObjects: (List2, 0x0, Hash, 0x0) = []
     pass
 
 class 0x19ff61ac():
@@ -616,10 +606,6 @@ class 0x1d9354fe(MapAction):
     flags: (U8, 0x0, 0x0, 0x0) = 0
     0xadf041ff: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     TargetLightingVolume: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x1db6d987(ILogicBoolDriver):
-    VisibilityController: (Link, 0x0, 0x0, IMapVisibilityController) = "0x0"
     pass
 
 class 0x1ddfbeeb(0x377491e8):
@@ -933,10 +919,6 @@ class 0x23b32b94(IFloatGet, IIntGet, IScriptValueGet):
     pass
 
 class 0x23d6622f(ISequenceActionInstance):
-    pass
-
-class 0x246724da(ILogicDriver):
-    Concept: (Link, 0x0, 0x0, Vector4Concept) = "0x0"
     pass
 
 class 0x2483c715():
@@ -1431,9 +1413,6 @@ class 0x2f24b82d():
     DescriptionTraKey: (String, 0x0, 0x0, 0x0) = ""
     0xbcdf811c: (Link, 0x0, 0x0, MissionAsset) = "0x0"
     missionId: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x2fe549a9(ILogicFloatDriver):
     pass
 
 class 0x2ff0e152():
@@ -1990,10 +1969,6 @@ class 0x3ab4ee7c():
     0xfb8c0e70: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x3acde15e(ILogicFloatDriver):
-    Concept: (Link, 0x0, 0x0, IntConcept) = "0x0"
-    pass
-
 class 0x3ad02cfc(ISequenceAction):
     0x94018232: (Bool, 0x0, 0x0, 0x0) = true
     Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2188,7 +2163,7 @@ class 0x3ea620c5():
     pass
 
 class 0x3eac408c(ILogicFloatDriver):
-    0x18291220: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
+    ComponentWeight: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
     0xb91d14d4: (String, 0x0, 0x0, 0x0) = ""
     0xee255a71: (String, 0x0, 0x0, 0x0) = ""
     0xef335b4: (String, 0x0, 0x0, 0x0) = ""
@@ -2969,10 +2944,6 @@ class 0x51445de9(0xa4b9367d):
 class 0x5169059b(ISequenceActionInstance):
     pass
 
-class 0x5169d349(ILogicFloatDriver):
-    Concept: (Link, 0x0, 0x0, BoolConcept) = "0x0"
-    pass
-
 class 0x5184e3a5():
     DescriptionFooter: (String, 0x0, 0x0, 0x0) = ""
     DisplayNameOverride: (String, 0x0, 0x0, 0x0) = ""
@@ -3018,10 +2989,6 @@ class 0x537385f5(Cheat):
     pass
 
 class 0x53de4f74():
-    pass
-
-class 0x53dfc5b5(0xf9e5b8b9):
-    Subtract: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
 
 class 0x54019489(0x38749c0a):
@@ -3086,7 +3053,7 @@ class 0x567a9e1b():
     pass
 
 class 0x56b6e09(IFloatParametricUpdater):
-    0x44146c9d: (List2, 0x0, Hash, 0x0)
+    MissileSpellObjects: (List2, 0x0, Hash, 0x0)
     pass
 
 class 0x56bb851():
@@ -3221,10 +3188,6 @@ class 0x598e72f6(0x99320e3c):
     SourceLocation: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
     pass
 
-class 0x59c32303(ILogicBoolDriver):
-    Key: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
-    pass
-
 class 0x59ef46df(0xd0c7ee75):
     ResourceBin: (Link, 0x0, 0x0, BinFileContainer) = "0x0"
     pass
@@ -3287,10 +3250,6 @@ class 0x5b02aed1(0x2a4d735b, UiElementGroup):
 class 0x5b20a394(ISequenceActionInstance):
     pass
 
-class 0x5b2fdd66(0xf9e5b8b9):
-    add: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    pass
-
 class 0x5b441d9b():
     0x231af825: (String, 0x0, 0x0, 0x0) = ""
     0xc4182067: (String, 0x0, 0x0, 0x0) = ""
@@ -3307,10 +3266,6 @@ class 0x5b5e6994():
     0x81cbec5f: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x9ba9ed34: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xbcde5149: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x5b6af6b7(ILogicVector3Driver):
-    Concept: (Link, 0x0, 0x0, Vector3Concept) = "0x0"
     pass
 
 class 0x5b728a1e(BaseParams):
@@ -3669,10 +3624,6 @@ class 0x6355dd6f():
     NavigationGroup: (Link, 0x0, 0x0, NavigationGroup) = "0x0"
     pass
 
-class 0x635d04b7(ILogicBoolDriver):
-    championName: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x63981b65(0x4ca99280):
     0x1ad40789: (String, 0x0, 0x0, 0x0)
     0x64132003: (Embed, 0x0, 0x0, 0x7a55218f)
@@ -3870,10 +3821,6 @@ class 0x67bfa45e():
     0x241124fd: (F32, 0x0, 0x0, 0x0) = 0.0
     0xaf1ce7ab: (Bool, 0x0, 0x0, 0x0) = false
     0xec06ab24: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0x67c526d3(ILogicFloatDriver):
-    Spell: (Hash, 0x0, 0x0, 0x0)
     pass
 
 class 0x68067fa5(0xb5754dad):
@@ -4226,9 +4173,6 @@ class 0x6f44928c():
     GroupLink: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x6f505a2(ILogicDriver):
-    pass
-
 class 0x6f7bac4e(IGameModeConfigClient):
     DefaultColor: (Embed, 0x0, 0x0, 0x3b4c602e) = {"DefaultColor":[0,0,0,255],"colorblindColor":null}
     TeamColors: (List2, 0x0, Embed, 0x40405c82) = []
@@ -4360,9 +4304,6 @@ class 0x72f61cad(0xece68ca6):
 class 0x7319918a():
     pass
 
-class 0x73425974(ILogicFloatDriver):
-    pass
-
 class 0x7379bca6():
     pass
 
@@ -4456,10 +4397,6 @@ class 0x7638f87c():
     Parent: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x764bdc8a(ILogicDriver):
-    Concept: (Link, 0x0, 0x0, Vector4Concept) = "0x0"
-    pass
-
 class 0x76621fa6():
     targetStrategy: (U8, 0x0, 0x0, 0x0) = 0
     TeamToBuff: (U8, 0x0, 0x0, 0x0) = 0
@@ -4536,9 +4473,6 @@ class 0x77aa8711(0x43f3ebf6):
     pass
 
 class 0x77aafba(BaseParams):
-    pass
-
-class 0x77b42f3f(ILogicBoolDriver):
     pass
 
 class 0x77f812a6():
@@ -4938,10 +4872,6 @@ class 0x7fd71604(BaseParams):
 class 0x7ff30cbd():
     pass
 
-class 0x7ffa190e(ILogicIntDriver):
-    Concept: (Link, 0x0, 0x0, IntConcept) = "0x0"
-    pass
-
 class 0x7ffa2e6f():
     pass
 
@@ -5074,10 +5004,6 @@ class 0x81a1e232(0xff4e30bb):
 
 class 0x81befb2():
     MessageTra: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x820c053(ILogicBoolDriver):
-    SkinAugment: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x8214fbc2():
@@ -5446,10 +5372,6 @@ class 0x89a52204(ViewController):
 class 0x89c633f3(ElapsedTimerController):
     pass
 
-class 0x89e28df1(ILogicFloatDriver):
-    Concept: (Link, 0x0, 0x0, FloatConcept) = "0x0"
-    pass
-
 class 0x89ea8a95(ICastRequirement):
     pass
 
@@ -5511,9 +5433,6 @@ class 0x8bf8bef7(0x6dfe8e70):
     value: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x8c7277c0(ILogicFloatDriver):
-    pass
-
 class 0x8cb3b5c4(0x4f038b33):
     0xcae95eff: (Pointer, 0x0, 0x0, 0x6dfe8e70) = {}
     Zoom: (Pointer, 0x0, 0x0, 0x8930818a) = {}
@@ -5552,9 +5471,6 @@ class 0x8db28f0c():
 class 0x8dc06cbc():
     EventName: (String, 0x0, 0x0, 0x0) = ""
     0x80c98e31: (Pointer, 0x0, 0x0, 0x8b54c9a7) = null
-    pass
-
-class 0x8dda74d7(ILogicVector3Driver):
     pass
 
 class 0x8df505ab():
@@ -6232,10 +6148,6 @@ class 0x9d79fb9f():
     champion: (Link, 0x0, 0x0, Champion) = "0x0"
     pass
 
-class 0x9ddc7667(ILogicVector3Driver):
-    Concept: (Link, 0x0, 0x0, Vector3Concept) = "0x0"
-    pass
-
 class 0x9def8cb(ScriptTableSet):
     pass
 
@@ -6743,9 +6655,6 @@ class 0xaa3a17e9(MapAction):
     CutsceneKey: (Hash, 0x0, 0x0, 0x0) = "0x3cea8114"
     pass
 
-class 0xaa410cdf(ILogicIntDriver):
-    pass
-
 class 0xaab3465e(0xb98830a1):
     option: (Link, 0x0, 0x0, 0x808c79e4) = "0x0"
     pass
@@ -6790,9 +6699,6 @@ class 0xab31041e(IGameModeConfig):
     0x4eb2605b: (List2, 0x0, F32, 0x0) = [2.0,2.5,3.0,3.5]
     0xbdb42c55: (U32, 0x0, 0x0, 0x0) = 45
     GlobalBehaviors: (List2, 0x0, Pointer, 0x64c18f7d) = []
-    pass
-
-class 0xab5826f6(ILogicVector3Driver):
     pass
 
 class 0xab5da609(IClockDefinition):
@@ -6935,9 +6841,6 @@ class 0xadfcc498(InputEventBoolKeybind):
 class 0xae005c94(IGameModeConfig):
     0x5ac52af3: (Map, String, Embed, ProgressTrackList) = {}
     name: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xae4d057b(ILogicVector3Driver):
     pass
 
 class 0xae56d8c4(InputEventBoolKeybind):
@@ -7197,10 +7100,6 @@ class 0xb40ad8e6():
     0x8832effe: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xa1cb9154: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xc58a96d0: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xb42ce350(ILogicDriver):
-    Key: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
     pass
 
 class 0xb44501f7(PropertyTraits):
@@ -7470,11 +7369,6 @@ class 0xbaf9ac75():
     0xb490894c: (List2, 0x0, U32, 0x0) = []
     0xf128c9be: (Map, U32, Embed, 0x3b2ba6c0) = {}
     0xfab10bb2: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xbafc3e15(0x67c526d3):
-    ValueName: (String, 0x0, 0x0, 0x0) = ""
-    SpellLevel: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
 
 class 0xbb04e22d(0xee35f912):
@@ -8147,10 +8041,6 @@ class 0xca34b179(0xa2913bfb):
     SourcePosition: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
     pass
 
-class 0xca458424(ILogicFloatDriver):
-    VisibilityController: (Link, 0x0, 0x0, IMapVisibilityController) = "0x0"
-    pass
-
 class 0xca4d32d1():
     pass
 
@@ -8200,10 +8090,6 @@ class 0xcbb4598a(BaseParams):
 class 0xcc2c0827():
     BaseHoverGlow: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xd3467f57: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xcc35f742(0xf9e5b8b9):
-    Denominator: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
 
 class 0xcc52ed40():
@@ -8262,10 +8148,6 @@ class 0xcf47a9a3():
 class 0xcf642c04():
     CollectionId: (String, 0x0, 0x0, 0x0) = ""
     0xe3a1b4bf: (Hash, 0x0, 0x0, 0x0) = "0x8132b290"
-    pass
-
-class 0xcfb52801(ILogicFloatDriver):
-    Concept: (Link, 0x0, 0x0, FloatConcept) = "0x0"
     pass
 
 class 0xd03de37f():
@@ -8489,9 +8371,6 @@ class 0xd4737a04(IOptionItemFilter):
 class 0xd47fd63b(ISequenceActionInstance):
     pass
 
-class 0xd4933ea0(ILogicBoolDriver):
-    pass
-
 class 0xd4ac6ed4(0xab5db4f2):
     EndDegrees: (U16, 0x0, 0x0, 0x0) = 360
     StartDegrees: (U16, 0x0, 0x0, 0x0) = 0
@@ -8598,10 +8477,6 @@ class 0xd6738324(IVfxFloatDriver):
     pass
 
 class 0xd68073ec(ISequenceActionInstance):
-    pass
-
-class 0xd686c7f9(ILogicBoolDriver):
-    Concept: (Link, 0x0, 0x0, BoolConcept) = "0x0"
     pass
 
 class 0xd6bc5e0c():
@@ -9260,9 +9135,6 @@ class 0xe61d489c(ViewController):
     ErrorGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xe622d482(ILogicFloatDriver):
-    pass
-
 class 0xe66ed8ff():
     DragonKills: (Embed, 0x0, 0x0, 0xb36c777a) = {"0x6975adea":"0x0","0xb2d11fb5":"0x0","0xba6de6d3":"0x0","0xd736c5a4":"0x0","DeviceUx":0}
     DragonTracker: (Embed, 0x0, 0x0, UiMetricMultiDragonKillsSrX) = {"0x2e1de71a":null,"0x766be793":"0x0","0xa9c04665":null,"DeviceUx":0,"DragonTypeIcons":{},"SoulSlot":null,"Team1IconSlots":[],"Team2IconSlots":[],"TeamSlotDisabledIcon":"0x0"}
@@ -9347,9 +9219,6 @@ class 0xe8c34b52(IGameModeConfig):
 class 0xe8f20237():
     0xe59ce2fa: (F32, 0x0, 0x0, 0x0) = 0.0
     Icon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
-    pass
-
-class 0xe90ab695(ILogicFloatDriver):
     pass
 
 class 0xe90af953():
@@ -9560,13 +9429,6 @@ class 0xed293bf2(ModalDialogViewController):
 class 0xed4b858b():
     pass
 
-class 0xed5506a6(ILogicDriver):
-    success: (Pointer, 0x0, 0x0, ILogicDriver) = null
-    Failure: (Pointer, 0x0, 0x0, ILogicDriver) = null
-    Idle: (Pointer, 0x0, 0x0, ILogicDriver) = null
-    INACTIVE: (Pointer, 0x0, 0x0, ILogicDriver) = null
-    pass
-
 class 0xed565a57(BaseParams):
     pass
 
@@ -9643,10 +9505,6 @@ class 0xef17c645(0x129e311, GameEntityComponent, 0x3b49ffb9):
     pass
 
 class 0xef2cc9a6(IOptionItemFilter):
-    pass
-
-class 0xef339ef9(0xf9e5b8b9):
-    multiplier: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
 
 class 0xef35eacc():
@@ -9795,10 +9653,6 @@ class 0xf2dd2d14():
     0xe130f1de: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xf307502b(ILogicFloatDriver):
-    Key: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
-    pass
-
 class 0xf307d6c9(0x114828a9):
     SpawnDirection: (Vec2, 0x0, 0x0, 0x0) = [-1.0,-1.0]
     SpawnerCharacter: (Pointer, 0x0, 0x0, 0x4f4c4ffc) = null
@@ -9881,11 +9735,6 @@ class 0xf3cf86a3():
     Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xf3ddd31e(ILogicFloatDriver):
-    0x4ee81483: (Bool, 0x0, 0x0, 0x0) = false
-    Stat: (U8, 0x0, 0x0, 0x0) = 10
-    pass
-
 class 0xf3f357f(Cheat):
     TimerId: (String, 0x0, 0x0, 0x0) = ""
     0xb3c40830: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -9950,9 +9799,6 @@ class 0xf5022dc7():
 class 0xf569c583():
     0xc3b38bef: (Embed, 0x0, 0x0, 0xef35eacc) = {"List":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}
     0xe4f7105d: (Link, 0x0, 0x0, GameModeMapData) = "0x0"
-    pass
-
-class 0xf5821f8b(ILogicBoolDriver):
     pass
 
 class 0xf5e4e61d(0x7f631ac9):
@@ -10159,10 +10005,6 @@ class 0xf9e46502():
     0xbefd6d18: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0xf9e5b8b9(ILogicFloatDriver):
-    value: (Pointer, 0x0, 0x0, ILogicFloatDriver)
-    pass
-
 class 0xfa040e57(0xbc280d0a):
     Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
@@ -10294,9 +10136,6 @@ class 0xfd7ee1ad():
     LowerBound: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0xfd935b1a(ILogicBoolDriver):
-    pass
-
 class 0xfdb6b027(IGeComponentDef):
     pass
 
@@ -10336,11 +10175,6 @@ class 0xfe46a0():
     pass
 
 class 0xfe61bbe(0xe1a09f45):
-    pass
-
-class 0xfe70e9c4(ILogicBoolDriver):
-    0x3ef62dce: (U8, 0x0, 0x0, 0x0) = 0
-    CombatGroup: (U8, 0x0, 0x0, 0x0) = 2
     pass
 
 class 0xfe897399():
@@ -11441,6 +11275,12 @@ class BotsSpellData():
     0xec17e271: (List2, 0x0, Embed, 0xb09016f6) = []
     pass
 
+class BoundingBoxSizeVector3Driver(ILogicVector3Driver):
+    pass
+
+class BoundingRadiusFloatDriver(ILogicFloatDriver):
+    pass
+
 class BreakBlock(IScriptBlock):
     pass
 
@@ -12161,6 +12001,11 @@ class CharacterRecord():
     hitFxScale: (F32, 0x0, 0x0, 0x0) = 1.0
     minionScoreValue: (F32, 0x0, 0x0, 0x0) = 1.0
     mCharacterName: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class CharacterStatFloatDriver(ILogicFloatDriver):
+    0x4ee81483: (Bool, 0x0, 0x0, 0x0) = false
+    Stat: (U8, 0x0, 0x0, 0x0) = 10
     pass
 
 class CharacterStealthData():
@@ -13488,7 +13333,7 @@ class DistanceToPlayerMaterialFloatDriver(ILogicFloatDriver):
     TeamCondition: (U8, 0x0, 0x0, 0x0) = 2
     minDistance: (F32, 0x0, 0x0, 0x0) = 100.0
     maxDistance: (F32, 0x0, 0x0, 0x0) = 1000.0
-    0xf9c21175: (Bool, 0x0, 0x0, 0x0) = false
+    IgnoreDead: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class DoubleSidedTipStyle(TipStyleBase):
@@ -13682,6 +13527,26 @@ class EVOSettings():
     mChatVOThrottleCounterDecayTime: (F32, 0x0, 0x0, 0x0) = 3.0
     pass
 
+class EasedBoolConceptLogicDriver(ILogicFloatDriver):
+    Concept: (Link, 0x0, 0x0, BoolConcept) = "0x0"
+    pass
+
+class EasedFloatConceptLogicDriver(ILogicFloatDriver):
+    Concept: (Link, 0x0, 0x0, FloatConcept) = "0x0"
+    pass
+
+class EasedIntConceptLogicDriver(ILogicFloatDriver):
+    Concept: (Link, 0x0, 0x0, IntConcept) = "0x0"
+    pass
+
+class EasedVector3ConceptLogicDriver(ILogicVector3Driver):
+    Concept: (Link, 0x0, 0x0, Vector3Concept) = "0x0"
+    pass
+
+class EasedVector4ConceptLogicDriver(ILogicDriver):
+    Concept: (Link, 0x0, 0x0, Vector4Concept) = "0x0"
+    pass
+
 class EffectValueCalculationPart(IGameCalculationPart):
     mEffectIndex: (I32, 0x0, 0x0, 0x0) = 0
     pass
@@ -13782,6 +13647,21 @@ class EmotesViewController(ViewController):
     EmoteData: (Embed, 0x0, 0x0, EmoteItemData) = {"Frame":"0x0","Group":"0x0","Icon":"0x0","Portrait":"0x0","PortraitFrame":"0x0","intro":"0x0"}
     TopRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
     EmoteSettings: (Embed, 0x0, 0x0, EmoteConfigData) = {"FadeTransisionTime":1.0,"FloatingDistancePerSecond":0.0,"HeightMultiplier":1.5,"InitialAlpha":255.0,"MaxDisplayedEmotes":5,"RespoitionMovementTime":1.0,"TotalDisplayTime":3.0,"UiSound":""}
+    pass
+
+class EmptyLogicBoolDriver(ILogicBoolDriver):
+    pass
+
+class EmptyLogicDriver(ILogicDriver):
+    pass
+
+class EmptyLogicFloatDriver(ILogicFloatDriver):
+    pass
+
+class EmptyLogicIntDriver(ILogicIntDriver):
+    pass
+
+class EmptyLogicVector3Driver(ILogicVector3Driver):
     pass
 
 class EnableLookAtEventData(BaseEventData):
@@ -14152,6 +14032,9 @@ class FaceTargetEventData(BaseEventData):
     FaceTarget: (U8, 0x0, 0x0, 0x0) = 0
     BlendInTime: (F32, 0x0, 0x0, 0x0) = 0.0
     YRotationDegrees: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class FacingAndMovementAngleFloatDriver(ILogicFloatDriver):
     pass
 
 class FacingAndMovementAngleParametricUpdater(IFloatParametricUpdater):
@@ -15203,9 +15086,18 @@ class HasReceivedAnimationEventBoolDriver(ILogicBoolDriver):
 class HasSkillPointRequirement(ISpellRankUpRequirement):
     pass
 
+class HasSkinAugmentBoolDriver(ILogicBoolDriver):
+    SkinAugment: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class HasTypeAndStatusFlags(ICastRequirement):
     mAffectsStatusFlags: (U32, 0x0, 0x0, 0x0) = 0
     mAffectsTypeFlags: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class HasUnitTagBoolDriver(ILogicBoolDriver):
+    UnitTags: (Embed, 0x0, 0x0, ObjectTags) = {"mObjectTagList":[]}
+    Has: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class HasUnitTagsCastRequirement(ICastRequirement):
@@ -16533,6 +16425,13 @@ class IsCastingBoolDriver(ILogicBoolDriver):
     SpellSlot: (U32, 0x0, 0x0, 0x0) = 4294967295
     pass
 
+class IsChampionNameBoolDriver(ILogicBoolDriver):
+    championName: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class IsCloneBoolDriver(ILogicBoolDriver):
+    pass
+
 class IsDeadDynamicMaterialBoolDriver(ILogicBoolDriver):
     pass
 
@@ -16542,10 +16441,18 @@ class IsEnemyDynamicMaterialBoolDriver(ILogicBoolDriver):
 class IsHomeguardParametricUpdater(IBooleanParametricUpdater):
     pass
 
+class IsInCombatDynamicMaterialBoolDriver(ILogicBoolDriver):
+    0x3ef62dce: (U8, 0x0, 0x0, 0x0) = 0
+    CombatGroup: (U8, 0x0, 0x0, 0x0) = 2
+    pass
+
 class IsInGrassDynamicMaterialBoolDriver(ILogicBoolDriver):
     pass
 
 class IsInTerrainParametricUpdater(IBooleanParametricUpdater):
+    pass
+
+class IsInWaterBoolDriver(ILogicBoolDriver):
     pass
 
 class IsLocalPlayerBoolDriver(ILogicBoolDriver):
@@ -16575,6 +16482,9 @@ class IsRangedParametricUpdater(IBooleanParametricUpdater):
 
 class IsSpecifiedUnitCastRequirement(ICastRequirement):
     mUnit: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class IsStealthedBoolDriver(ILogicBoolDriver):
     pass
 
 class IsTurningParametricUpdater(IBooleanParametricUpdater):
@@ -18962,6 +18872,14 @@ class MapVisibilityFlagRange():
     maxIndex: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
+class MapVisibilityLogicBoolDriver(ILogicBoolDriver):
+    VisibilityController: (Link, 0x0, 0x0, IMapVisibilityController) = "0x0"
+    pass
+
+class MapVisibilityTransitionLengthDriver(ILogicFloatDriver):
+    VisibilityController: (Link, 0x0, 0x0, IMapVisibilityController) = "0x0"
+    pass
+
 class MapWorldParticle():
     State: (U8, 0x0, 0x0, 0x0) = 0
     Particle: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
@@ -19056,6 +18974,26 @@ class MatchmakingQueue():
     pass
 
 class MaterialOverrideCallbackDynamicMaterial():
+    pass
+
+class MathAddFloatDriver(MathFloatDriver):
+    add: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    pass
+
+class MathDivideFloatDriver(MathFloatDriver):
+    Denominator: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    pass
+
+class MathFloatDriver(ILogicFloatDriver):
+    value: (Pointer, 0x0, 0x0, ILogicFloatDriver)
+    pass
+
+class MathMultiplyFloatDriver(MathFloatDriver):
+    multiplier: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    pass
+
+class MathSubtractFloatDriver(MathFloatDriver):
+    Subtract: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
 
 class MaxAllSkillsCheat(Cheat):
@@ -19523,7 +19461,13 @@ class MouseOverEffectData():
     mNeutralColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
     pass
 
+class MoveSpeedFloatDriver(ILogicFloatDriver):
+    pass
+
 class MoveSpeedParametricUpdater(IFloatParametricUpdater):
+    pass
+
+class MoveVelocityVector3Driver(ILogicVector3Driver):
     pass
 
 class MovementDirectionParametricUpdater(IFloatParametricUpdater):
@@ -20952,6 +20896,9 @@ class PlayerFrameViewControllerBase(ViewController):
     HudCenterFrameGlowData: (Embed, 0x0, 0x0, HudCenterFrameGlowData)
     pass
 
+class PlayerGoldFloatDriver(ILogicFloatDriver):
+    pass
+
 class PlayerHeroStatsViewController(PlayerStatsPanelViewController):
     BasicStats: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Background: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -21401,6 +21348,26 @@ class RatioConversion():
     mSourceStatType: (U8, 0x0, 0x0, 0x0) = 0
     mSourceStatOutput: (U8, 0x0, 0x0, 0x0) = 0
     mResultingStatOutput: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class RawBoolConceptLogicDriver(ILogicBoolDriver):
+    Concept: (Link, 0x0, 0x0, BoolConcept) = "0x0"
+    pass
+
+class RawFloatConceptLogicDriver(ILogicFloatDriver):
+    Concept: (Link, 0x0, 0x0, FloatConcept) = "0x0"
+    pass
+
+class RawIntConceptLogicDriver(ILogicIntDriver):
+    Concept: (Link, 0x0, 0x0, IntConcept) = "0x0"
+    pass
+
+class RawVector3ConceptLogicDriver(ILogicVector3Driver):
+    Concept: (Link, 0x0, 0x0, Vector3Concept) = "0x0"
+    pass
+
+class RawVector4ConceptLogicDriver(ILogicDriver):
+    Concept: (Link, 0x0, 0x0, Vector4Concept) = "0x0"
     pass
 
 class RecSpellRankUpInfo():
@@ -22217,6 +22184,18 @@ class SequenceLocationObject(ISequenceLocation):
     Object: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
+class SequenceMaterialBoolDriver(ILogicBoolDriver):
+    Key: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
+    pass
+
+class SequenceMaterialFloatDriver(ILogicFloatDriver):
+    Key: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
+    pass
+
+class SequenceMaterialVectorDriver(ILogicDriver):
+    Key: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
+    pass
+
 class SequenceObjectSelector():
     name: (String, 0x0, 0x0, 0x0) = ""
     Hash: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -22755,6 +22734,15 @@ class SpellChoiceTemplate():
     title: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TopLevelGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class SpellDataFloatDriver(ILogicFloatDriver):
+    Spell: (Hash, 0x0, 0x0, 0x0)
+    pass
+
+class SpellDataNamedValueFloatDriver(SpellDataFloatDriver):
+    ValueName: (String, 0x0, 0x0, 0x0) = ""
+    SpellLevel: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
 
 class SpellDataResource():
@@ -26489,6 +26477,13 @@ class TftTeamCannonItemExchangeViewController(ViewController):
     MobileOverrideLoadable: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
     pass
 
+class TftTeamCannonMaterialDriver(ILogicDriver):
+    success: (Pointer, 0x0, 0x0, ILogicDriver) = null
+    Failure: (Pointer, 0x0, 0x0, ILogicDriver) = null
+    Idle: (Pointer, 0x0, 0x0, ILogicDriver) = null
+    INACTIVE: (Pointer, 0x0, 0x0, ILogicDriver) = null
+    pass
+
 class TftTeamEditorViewController(ViewController):
     0x13a3c8aa: (F32, 0x0, 0x0, 0x0) = 0.5
     0x1733060c: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -28626,6 +28621,11 @@ class UseableData():
     useCooldownSpellSlot: (I32, 0x0, 0x0, 0x0) = 62
     flags: (U32, 0x0, 0x0, 0x0) = 8
     CastRequirements: (List2, 0x0, Pointer, ICastRequirement) = []
+    pass
+
+class ValueArrayFloatDriver(ILogicFloatDriver):
+    0x3a302e74: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    ValueArray: (List2, 0x0, Pointer, ILogicFloatDriver) = []
     pass
 
 class ValueColor():

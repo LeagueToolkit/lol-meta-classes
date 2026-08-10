@@ -212,6 +212,7 @@ d77ad395 CompleteColor
 5efd6ee0 Component
 49412a59 ComponentOverrides
 2cc0bcea ComponentTemplate
+18291220 ComponentWeight
 d1edd5db Comps
 a3383d13 Concept
 7c8a1308 ConceptObject
@@ -547,6 +548,7 @@ af0087eb IconLibrary
 c301cf93 Idle
 f1a8065e IdleBuff
 059e86a1 IdleUi
+f9c21175 IgnoreDead
 6ff00c07 IgnoreSnapCameraOnRespawn
 d1d746ab Images
 4191b710 ImportButton
@@ -724,6 +726,7 @@ c5ea66ab MinimapColor
 adbcc5ee Minutes
 60be11d7 MiscScene
 30f0104e MissileForce
+44146c9d MissileSpellObjects
 8ff60339 Mission
 c495a1c4 MissionDesc
 996d7b9e MissionImage

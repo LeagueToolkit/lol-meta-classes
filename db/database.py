@@ -3430,10 +3430,6 @@ class 0x5d18fc10(BaseParams):
 class 0x5d3f0253(MapGraphicsFeature):
     pass
 
-class 0x5d7c19de():
-    Material: (Link, 0x0, 0x0, IMaterialDef) = "0x0"
-    pass
-
 class 0x5d85166e(0xb60096a7, IScriptValueGet):
     value: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -6005,12 +6001,6 @@ class 0x9925c3c2():
 class 0x99320e3c(ISequenceAction):
     EventName: (String, 0x0, 0x0, 0x0)
     0x80c98e31: (Pointer, 0x0, 0x0, 0x8b54c9a7)
-    pass
-
-class 0x993f8595():
-    materialOverride: (Link, 0x0, 0x0, IMaterialDef) = "0x0"
-    category: (Link, 0x0, 0x0, 0x5d7c19de) = "0x0"
-    Submeshes: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x994ae080(IFloatParametricUpdater):
@@ -11164,12 +11154,12 @@ class BankUnitList():
     pass
 
 class BannerFlagData():
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"0x9a817954":[],"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
     pass
 
 class BannerFrameData():
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"0x9a817954":[],"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
     pass
 
@@ -11963,6 +11953,16 @@ class CharacterMeshGeComponentDef(IGeComponentDef):
     IdleAnimationName: (String, 0x0, 0x0, 0x0) = ""
     PlayIdleAnimation: (Bool, 0x0, 0x0, 0x0) = false
     0xb887f6e9: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class CharacterOutlineCategory():
+    Material: (Link, 0x0, 0x0, IMaterialDef) = "0x0"
+    pass
+
+class CharacterOutlineSubmeshes():
+    materialOverride: (Link, 0x0, 0x0, IMaterialDef) = "0x0"
+    category: (Link, 0x0, 0x0, CharacterOutlineCategory) = "0x0"
+    Submeshes: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class CharacterPassiveData():
@@ -14958,7 +14958,7 @@ class GdsMapObject(GenericMapPlaceable):
 
 class GearData():
     mCharacterSubmeshesToShow: (List, 0x0, Hash, 0x0) = []
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"0x9a817954":[],"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     mVFXResourceResolver: (Pointer, 0x0, 0x0, ResourceResolver) = null
     mSelfOnlyPortraitIcon: (String, 0x0, 0x0, 0x0) = ""
     EnableOverrideIdleEffects: (Bool, 0x0, 0x0, 0x0) = false
@@ -22474,7 +22474,7 @@ class SkinCharacterDataProperties():
     alternateIconsCircle: (List, 0x0, String, 0x0) = []
     HudUnmuteEvent: (String, 0x0, 0x0, 0x0) = ""
     skinAnimationProperties: (Embed, 0x0, 0x0, SkinAnimationProperties) = {"animationGraphData":"0x0"}
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"0x9a817954":[],"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     0x46558f0e: (U8, 0x0, 0x0, 0x0) = 0
     OverrideOnScreenName: (String, 0x0, 0x0, 0x0) = ""
     attributeFlags: (U32, 0x0, 0x0, 0x0) = 0
@@ -22584,7 +22584,7 @@ class SkinMeshDataProperties():
     0x8881ee77: (Pointer, 0x0, 0x0, 0x80f31f46) = null
     fresnel: (F32, 0x0, 0x0, 0x0) = 0.0
     boundingSphereRadius: (Option, 0x0, F32, 0x0) = null
-    0x9a817954: (List2, 0x0, Embed, 0x993f8595) = []
+    OutlineCategorySubmeshes: (List2, 0x0, Embed, CharacterOutlineSubmeshes) = []
     emissiveTexture: (String, 0x0, 0x0, 0x0) = ""
     skinScale: (F32, 0x0, 0x0, 0x0) = 1.0
     castShadows: (Bool, 0x0, 0x0, 0x0) = true
@@ -27438,7 +27438,7 @@ class TriggerOnStart(MissileTriggerSpec):
 
 class TrophyData(BaseLoadoutData):
     mPerceptionBubbleRadius: (F32, 0x0, 0x0, 0x0) = 250.0
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"0x9a817954":[],"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     mBracketTRAKey: (String, 0x0, 0x0, 0x0) = ""
     mVFXResourceResolver: (Pointer, 0x0, 0x0, ResourceResolver) = null
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
@@ -27446,7 +27446,7 @@ class TrophyData(BaseLoadoutData):
 
 class TrophyPedestalData(BaseLoadoutData):
     mTierTRAKey: (String, 0x0, 0x0, 0x0) = ""
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"0x9a817954":[],"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     mJointName: (String, 0x0, 0x0, 0x0) = ""
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
     pass

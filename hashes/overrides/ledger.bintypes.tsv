@@ -613,3 +613,5 @@ e64ff723	SuperwardEntityTemplate                                     	map-entity
 b1c6075e	TeamSpawnPointEntityTemplate                                	map-entity-templates          	2026-08-09	pending  	-
 07ad3dda	VfxEntityPrefab                                             	map-entity-templates          	2026-08-09	pending  	-
 ead9c70c	WorldSpaceUiEntityTemplate                                  	map-entity-templates          	2026-08-09	pending  	-
+5d7c19de	CharacterOutlineCategory                                    	character-outline             	2026-08-10	pending  	-
+993f8595	CharacterOutlineSubmeshes                                   	character-outline             	2026-08-10	pending  	-

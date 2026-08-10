@@ -1,6 +1,6 @@
 {
 "formatVersion": 1,
-"hashSource": {"fetchedAt":"2026-07-24T15:04:02Z","bintypes":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt","entries":3683},"binfields":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt","entries":9439}},
+"hashSource": {"fetchedAt":"2026-08-10T04:39:45Z","bintypes":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt","entries":3709},"binfields":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt","entries":9447}},
 "latest": 8024387,
 "versions": [
 {"patch":"13.15","build":5229820},
@@ -3970,7 +3970,7 @@
  "0x43b27471": {"name":"Button","revisions":[{"from":6950646,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x5b5f63b5": {"revisions":[{"from":7067412,"to":7067412,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":7079808,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
-"0x1e3c6622": {"revisions": [{"from":7426169,"bases":[],"interface":false,"value":false}], "properties": {
+"0x1e3c6622": {"name": "eventpass", "revisions": [{"from":7426169,"bases":[],"interface":false,"value":false}], "properties": {
  "0x81f82f1": {"name":"LocalizedName","revisions":[{"from":7426169,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x242ed7dc": {"name":"catalogEntry","revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0x242ed7dc"],"default":{"itemID":0,"0x4d8c98dd":"","contentId":"","typeId":""}}]},
  "0xa1fce550": {"name":"PassType","revisions":[{"from":7426169,"type":["U32","0x0","0x0","0x0"],"default":0}]},
@@ -4800,7 +4800,7 @@
 }},
 "0x23ea1915": {"name": "CharacterRecord", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x297212": {"name":"mFallbackCharacterName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x1262a25": {"revisions":[{"from":7496037,"type":["Embed","0x0","0x0","0xce9b917b"],"default":{"Modifiers":[],"baseValue":0.0}}]},
+ "0x1262a25": {"name":"mrPerLevel","revisions":[{"from":7496037,"type":["Embed","0x0","0x0","0xce9b917b"],"default":{"Modifiers":[],"baseValue":0.0}}]},
  "0x2b730f7": {"name":"baseSpellBlock","revisions":[{"from":5229820,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x3da00f9": {"name":"baseDamage","revisions":[{"from":5229820,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":10.0}]},
  "0x57dc136": {"name":"mPreferredPerkStyle","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xe56cd5e"],"default":"0x0"}]},
@@ -4930,7 +4930,7 @@
  "0xbe710a63": {"name":"friendlyUxOverrideExcludeTagsString","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xbfc37103": {"name":"spellNames","revisions":[{"from":5229820,"type":["List","0x4","String","0x0"],"default":["","","",""]}]},
  "0xc0f12fa9": {"name":"occludedUnitSelectableDistance","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xc1984296": {"revisions":[{"from":7135912,"type":["List","0x10","Link","0x5e7e5a06"],"default":["0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0"]}]},
+ "0xc1984296": {"name":"extraSpellsList","revisions":[{"from":7135912,"type":["List","0x10","Link","0x5e7e5a06"],"default":["0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0","0x0"]}]},
  "0xc270990a": {"name":"attackRange","revisions":[{"from":5229820,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":100.0}]},
  "0xc36777a6": {"name":"selfCBChampSpecificHealthSuffix","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xc4441218": {"name":"baseCritChance","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -8830,9 +8830,9 @@
  "0xce7b561": {"name":"cannotBeSuppressed","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xdd57127": {"name":"mAnimationLoopName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xdf767db": {"name":"mMissileSpec","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xbffcb1fc"],"default":null}]},
- "0xe1136d1": {"revisions":[{"from":7851316,"type":["Embed","0x0","0x0","0xa0eddc9"],"default":{"values":[400.0,400.0,400.0,400.0,400.0,400.0,400.0]}}]},
+ "0xe1136d1": {"name":"castRangeValues","revisions":[{"from":7851316,"type":["Embed","0x0","0x0","0xa0eddc9"],"default":{"values":[400.0,400.0,400.0,400.0,400.0,400.0,400.0]}}]},
  "0x10fc84aa": {"name":"mDoesntBreakChannels","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x11704a2b": {"revisions":[{"from":7584427,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
+ "0x11704a2b": {"name":"spellCastTime","revisions":[{"from":7584427,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
  "0x1565f5bd": {"name":"mCursorChangesInTerrain","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x1632f6fc": {"name":"mSpellPassives","revisions":[{"from":5229820,"type":["List","0x0","Pointer","0xd45ebe4a"],"default":[]}]},
  "0x165e061e": {"name":"missileSpeed","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":500.0}]},
@@ -8844,7 +8844,7 @@
  "0x1b9cbd9b": {"name":"castRange","revisions":[{"from":5229820,"type":["List","0x7","F32","0x0"],"default":[400.0,400.0,400.0,400.0,400.0,400.0,400.0]}]},
  "0x1e4e8270": {"name":"canCastOrQueueWhileCasting","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x1f4d20a6": {"name":"mDataValues","revisions":[{"from":5229820,"to":7046097,"type":["List","0x0","Embed","0x5008a6"],"default":[]},{"from":7067476,"to":7067476,"type":["List","0x0","Embed","0x5008a6"],"default":[]}]},
- "0x210f9ec0": {"revisions":[{"from":7851316,"type":["Embed","0x0","0x0","0x630af303"],"default":{"values":[0.0,0.0,0.0,0.0,0.0,0.0]}}]},
+ "0x210f9ec0": {"name":"manaValues","revisions":[{"from":7851316,"type":["Embed","0x0","0x0","0x630af303"],"default":{"values":[0.0,0.0,0.0,0.0,0.0,0.0]}}]},
  "0x21753196": {"name":"ImgIconPath","revisions":[{"from":5229820,"to":5651230,"type":["String","0x0","0x0","0x0"],"default":""},{"from":6085125,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x22921e6e": {"name":"mIsDelayedByCastLocked","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x239f6855": {"name":"mHitEffectOrientType","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":1}]},
@@ -8985,7 +8985,7 @@
  "0xeefcf01b": {"name":"mAnimationWinddownName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xef392699": {"name":"mLockedSpellOriginationCastID","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf14bcafe": {"name":"mPreCastLockoutDeltaTime","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xf26881a0": {"revisions":[{"from":7584427,"type":["F32","0x0","0x0","0x0"],"default":2.0}]},
+ "0xf26881a0": {"name":"spellTotalTime","revisions":[{"from":7584427,"type":["F32","0x0","0x0","0x0"],"default":2.0}]},
  "0xf2e0c42d": {"name":"mPingableWhileDisabled","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf453a80a": {"name":"mMissileEffectName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xf47a22e5": {"name":"bHaveHitEffect","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
@@ -22925,7 +22925,7 @@
  "0x806148ea": {"name":"DefaultMenuButtonTraKeys","revisions":[{"from":5229820,"type":["List","0x6","String","0x0"],"default":["","","","","",""]}]},
  "0x991fa1d6": {"name":"ExitHitRegion","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa4eddce1": {"name":"Button1Definition","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xb06a22db": {"revisions":[{"from":7345787,"to":7345787,"type":["Pointer","0x0","0x0","0xb06a22db"],"default":null},{"from":7371049,"type":["Pointer","0x0","0x0","0xb06a22db"],"default":null}]},
+ "0xb06a22db": {"name":"UIControlScheme","revisions":[{"from":7345787,"to":7345787,"type":["Pointer","0x0","0x0","0xb06a22db"],"default":null},{"from":7371049,"type":["Pointer","0x0","0x0","0xb06a22db"],"default":null}]},
  "0xca71e7ba": {"name":"OkayHitRegion","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe744afb6": {"name":"ViewPaneLink","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xee4fc60b": {"name":"LastItemPadding","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},

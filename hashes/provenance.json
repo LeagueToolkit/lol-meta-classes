@@ -1,17 +1,17 @@
 {
-  "fetchedAt": "2026-07-24T15:04:02Z",
+  "fetchedAt": "2026-08-10T04:39:45Z",
   "tables": {
     "bintypes": {
       "url": "https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt",
-      "lastModified": "2026-07-24T03:44:21Z",
-      "entries": 3683,
-      "overrides": 329
+      "lastModified": "2026-08-07T20:53:58Z",
+      "entries": 3709,
+      "overrides": 614
     },
     "binfields": {
       "url": "https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt",
-      "lastModified": "2026-07-24T03:44:21Z",
-      "entries": 9439,
-      "overrides": 903
+      "lastModified": "2026-08-07T20:53:57Z",
+      "entries": 9447,
+      "overrides": 1335
     }
   }
 }

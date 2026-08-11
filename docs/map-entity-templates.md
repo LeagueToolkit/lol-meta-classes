@@ -1,89 +1,35 @@
-# The map entity template pass
+# map-entity-templates - campaign record
 
-Reversing doc for `map-entity-templates`. Its `batches.tsv` note points here.
-
+Record for `map-entity-templates`; its `batches.tsv` note points here. Method:
+the `crack-family` skill (`.claude/skills/crack-family/SKILL.md`).
 `MapPlaceableBase` went from 28 live unnamed members to 5. 109 names landed:
 98 classes and 11 fields.
 
-## What the family is
+The family keeps parallel expressions of one concept set, and each is a naming
+family: `<X>Entity`, `<X>EntityTemplate`, `<X>EntityPrefab` (15.16-15.20),
+`Map<X>`, `<X>Definition`, `<X>GeComponent`, `<X>GeComponentDef` (15.22+),
+`<X>GeComponentDefinition` (15.16-15.21). A template composes components that
+were already named upstream, so most names are a function of the composed side
+before any hash is computed.
 
-Everything a map places is a `MapPlaceableBase`. Under it the engine keeps five
-parallel expressions of the same set of concepts, and each one is a naming
-family in its own right:
+## Runs
 
-```
-    MapPlaceableBase
-      GameEntity          I  the runtime entity          <X>Entity
-      GameEntityTemplate  I  the authoring template      <X>EntityTemplate
-      GameEntityPrefab    I  its 15.16-15.20 predecessor <X>EntityPrefab
-      MapPlaceable           the pre-entity map objects  Map<X>
+| run | probes | states | expected noise | yield |
+|---|---|---|---|---|
+| slot filling, `guesser_families.py check` over 13 proposal files | 465 | ~6,900 | <0.001 | 68 names |
+| `force` depth 2 top 900, 9 suffix anchors | 1,621,800 | 731 | 0.276 | 14, all in predicted slots; two 4-slot lattices |
+| `force` depth 3 over a 195-word family vocabulary | - | - | 2.49 | 5, each corroborated by an established name |
+| shipped strings: CommunityDragon (3.6M forms) + both clients (248k) against stem states and field hashes | - | - | 0.006-0.10 | 11 classes, all 11 fields |
 
-    GameEntityDefinition  I  the serialized definition   <X>Definition
-    GameEntityComponent   I  the runtime component       <X>GeComponent
-    IGeComponentDef       I  its definition, 15.22+      <X>GeComponentDef
-    0x385c323f               its definition, 15.16-15.21 <X>GeComponentDefinition
-```
+Suffix folding supplied the anchors and three derivations: `0x76bc0857`
+unfolds under `Base` to `0x880c52da`; the `Superward` and `PaintedRegion`
+stems equal unresolved field hashes on their own templates; the shared-stem
+groups are in "What is left".
 
-Upstream had named one side of most rows and not the other, which is what makes
-the family workable: a template composes components that are *already named*, so
-the template's own name is a function of them. `0xad65d8c4` embeds
-`AttackableUnitGeComponentDef`, `SkinCharacterGeComponentDef`,
-`AnimationGeComponentDef` and `StateMachineGeComponentDef`, and `AttackableEntity`
-is a named interface with no template beside it. That is
-`AttackableEntityTemplate` before any hash is computed.
-
-## Method
-
-Three passes, in the order they were run.
-
-**1. Slot filling.** For each unnamed class, read which component or definition
-it composes, name it after that, and require the hash to land in the slot the
-inheritance graph predicts. `guesser_families.py check`, 465 proposals over 13
-files, ~6,900 unresolved target states: **under 0.001 expected chance hits** for
-the whole pass. 68 of the 109 names came from it.
-
-The predicted slot is the evidence, not the hash. `TeamSpawnPointEntity` had to
-be a `LolGameEntity` child whose `.definition` points at the class
-`TeamSpawnPointDefinition` names, and it is. `RegionEntityBaseTemplate` had to be
-the base of `RegionEntityTemplate`, mirroring `RegionEntityBase` under
-`RegionEntity`, and it is.
-
-**2. Suffix folding.** FNV-1a's prime is invertible mod 2³², so `unfold(h, "EntityTemplate")`
-is the state a name was in before `EntityTemplate` was appended. Three things
-fall out of comparing those states:
-
-- the state equals a **known name's hash** - the name is derived, not guessed.
-  `unfold(0x76bc0857, "Base") = 0x880c52da`, so once that class is
-  `RegionBoundaryInstanceParams` its base is `RegionBoundaryInstanceParamsBase`.
-- the state equals an **unresolved field hash** on the class itself - the field
-  that holds a component is named after the component, so the field name *is*
-  the stem. This is what cracked `Superward` and `PaintedRegion`; a third such
-  field, `050a298b`, is still open.
-- two unresolved classes unfold to the **same state** - they share a stem, and
-  a stem that fills two slots at once is `(p/2³²)²`-competitive rather than
-  `p/2³²`. That is what makes a search over the remainder worth running at all.
-
-`hash-guesser bintypes --mode force --depth 2 --top 900` with nine `--suffix`
-anchors over the family's 84 unresolved hashes: 1,621,800 probes, 731 target
-states, **0.276 expected chance hits**, 14 candidates, all 14 in a predicted
-slot. Two complete four-slot lattices came out of that single run:
-`AreaTrigger{Entity,EntityTemplate,EntityPrefab,Definition}` and
-`MonarchLocator{Entity,EntityTemplate,EntityPrefab,Definition}`. A depth-3 run
-over a 195-word family vocabulary added five more at 2.49 expected noise, each
-corroborated by a name already established.
-
-**3. Shipped strings.** Every identifier-shaped token in CommunityDragon's
-`hashes.bin{hashes,entries}.txt` and `hashes.game.txt.*` (3.6M distinct probe
-forms) and in the shipped Windows and macOS clients (248k), hashed against the
-stem states and the family's unresolved field hashes. 0.006-0.10 expected chance
-hits. A hit here is a name Riot wrote. 11 classes and all 11 fields came from it;
-the guesser supplied 19 more (14 from the run below, 5 from the depth-3 run).
-
-Runs that produced nothing usable, so nobody re-treads them: `chain` depth 4 and
-5, `mutate` over the full wordlist, `delete`, and `force` depth 3 over the top
-1400 aimed at the seven open stem states (3.7, 33.3, 0.0 and 9.0 expected noise
-respectively - the last two are indistinguishable from chance and were read as
-such).
+Ruled out, so nobody re-treads: `chain` depth 4 and 5, `mutate` over the full
+wordlist, `delete`, and `force` depth 3 over the top 1400 aimed at the seven
+open stem states (3.7, 33.3, 0.0 and 9.0 expected noise respectively - the
+last two are indistinguishable from chance and were read as such).
 
 ## Attested by a shipped string
 
@@ -113,12 +59,11 @@ The `sp_` block is the spawn-point half of the map config, in the order
 `TeamSpawnPointGeComponentDef` declares its fields, which is independent
 confirmation of `TeamSpawnPointDefinition` and its template.
 
-Casing: `SSAO` keeps its capitals and is added to `names.py`'s `ACRONYM_EXEMPT`,
-because it is the shader's own `OMIT_SSAO` and the three `MapSSAO*` entries
-already in the tables spell it that way. `HpMaxPenaltyRegenPercent`,
-`HdrEnvDiffuseScale` and `DepthPushPull` are recased under the repo rule - the
-shipped spellings are `HP`, `HDRENVDIFFUSESCALE` and `DEPTHPUSHPULL`, and our own
-tables already carry `FlatHpPoolMod` and `HdrScale`.
+Casing: `SSAO` keeps its capitals and is in `names.py`'s `ACRONYM_EXEMPT` -
+the shader's own `OMIT_SSAO`, and the three `MapSSAO*` entries already spell
+it that way. `HpMaxPenaltyRegenPercent`, `HdrEnvDiffuseScale` and
+`DepthPushPull` are recased under the repo rule; the tables already carry
+`FlatHpPoolMod` and `HdrScale`.
 
 ## The lattices
 
@@ -158,22 +103,20 @@ Each row is one concept; a filled cell is a name this batch added, a cell in
 | proxy link | - | *GameEntityTemplateProxyLink* | `GameEntityPrefabProxyLink` | - | - |
 
 `Red` and `Green` are the engine's own test components - `RedGeComponent` and
-`GreenGeComponent` are upstream names - and `GreenEntityTemplate` /
-`RedGreenEntityTemplate` are the templates that compose one and both of them.
-`GreenGeComponentDef` and `RedGeComponentDef` are two of the 24 the semantic pass
-recorded as proposed and not taken; they are re-derived here from the holders'
-names, which is what that doc asks for.
+`GreenGeComponent` are upstream names. `GreenGeComponentDef` and
+`RedGeComponentDef` are two of the 24 the semantic pass recorded as proposed
+and not taken; re-derived here from the holders' names, as that doc asks.
 
 **The component-definition rename.** In 15.21 the definition classes were
-`<X>GeComponentDefinition`; from 15.22 they are `<X>GeComponentDef`. Five of the
-old spellings landed together, each on a class whose successor upstream already
-names: `EnvMesh`, `DragonCamp`, `Billboard`, `Red`, `Green`. Five hashes, one
-rename, no way for chance to line them up.
+`<X>GeComponentDefinition`; from 15.22 they are `<X>GeComponentDef`. Five of
+the old spellings landed together, each on a class whose successor upstream
+already names: `EnvMesh`, `DragonCamp`, `Billboard`, `Red`, `Green`. Five
+hashes, one rename, no way for chance to line them up.
 
-**Runtime components.** `EnvMeshGeComponent` and `BillboardGeComponent` complete
-the `<X>GeComponent` / `<X>GeComponentDef` pairing under `GameEntityComponent`,
-and `MonarchRegionLocatorGeComponentDef` completes it from the other side of the
-upstream-named `MonarchRegionLocatorGeComponent`.
+**Runtime components.** `EnvMeshGeComponent` and `BillboardGeComponent`
+complete the `<X>GeComponent` / `<X>GeComponentDef` pairing under
+`GameEntityComponent`, and `MonarchRegionLocatorGeComponentDef` completes it
+from the other side of the upstream-named `MonarchRegionLocatorGeComponent`.
 
 ## Everything else the pass named
 
@@ -196,11 +139,11 @@ upstream-named `MonarchRegionLocatorGeComponent`.
 | `64ee2fb1` | `GameEntityIconData` | the class eight `.Icon` links point at |
 | `c60aca93` | `SequencerEntityTemplate` | template whose only content is `.SequencerStateMachine` |
 
-**The two weakest.** `SequencerEntityTemplate` and `GameEntityIconData` are the
-only names in the batch resting on a single hash match with no second slot to
-check them against, and `GameEntityIconData`'s run carried 2.49 expected noise.
-Both are coherent and in-family; neither is proved the way the rest are. Anyone
-submitting this upstream should split them off or say so.
+**The two weakest.** `SequencerEntityTemplate` and `GameEntityIconData` rest
+on a single hash match with no second slot to check against, and
+`GameEntityIconData`'s run carried 2.49 expected noise. Both are coherent and
+in-family; neither is proved the way the rest are. Anyone submitting this
+upstream should split them off or say so.
 
 ## Shipped-data cross-checks
 
@@ -220,9 +163,9 @@ instance names CommunityDragon resolves agree with the names:
 ## What is left
 
 Five live members of `MapPlaceableBase`, and 41 unresolved hashes across the
-family and its closure. The structure of the remainder is settled even where the
-names are not: suffix folding proves which hashes share a stem, so each group
-below needs **one** string and the rest follow.
+family and its closure. The structure of the remainder is settled even where
+the names are not: suffix folding proves which hashes share a stem, so each
+group below needs **one** string and the rest follow.
 
 | stem state | slots waiting on it |
 |---|---|
@@ -234,11 +177,12 @@ below needs **one** string and the rest follow.
 | `c7aa7d2a` | `<X>Entity` 49c3a539, `<X>EntityTemplate` 671ededf, `<X>Definition` 854a4f5b - all three live one patch only, 15.22 |
 | `835c065b` | `<X>EntityTemplate` b43f710e, `<X>EntityPrefab` 1a299086 - the Red/Green test pair held by pointer rather than embedded |
 
-Ruled out for these seven, so do not re-run them: `identity`, `delete`, `mutate`
-over the full wordlist, `chain` depth 4 and 5, `force` depth 3 over the top 1400,
-and the whole shipped-string corpus (3.6M forms) and both client binaries (248k)
-probed against the stem states directly. Summed expected noise ~13, zero coherent
-hits. The unlock is new attested vocabulary, not more probes.
+Ruled out for these seven, so do not re-run them: `identity`, `delete`,
+`mutate` over the full wordlist, `chain` depth 4 and 5, `force` depth 3 over
+the top 1400, and the whole shipped-string corpus (3.6M forms) and both client
+binaries (248k) probed against the stem states directly. Summed expected noise
+~13, zero coherent hits. The unlock is new attested vocabulary, not more
+probes.
 
 Singletons still open, with what is known about each:
 
@@ -263,7 +207,7 @@ All 109 rows `status=pending`, `pr=-`. Nothing submitted upstream.
 
 Fit to submit as it stands: the two shipped-string stems and the nine fields
 above carry a string Riot wrote, which is the standard `light-regions` and
-`exe-strings` met. The lattice names carry a slot argument rather than a string,
-which is the standard `gamemode-configs` and `viewcontroller-family` met; they
-are as solid as those and should be described the same way. `SequencerEntityTemplate`
-and `GameEntityIconData` are neither and are flagged above.
+`exe-strings` met. The lattice names carry a slot argument, the standard
+`gamemode-configs` and `viewcontroller-family` met; they should be described
+the same way. `SequencerEntityTemplate` and `GameEntityIconData` are neither
+and are flagged above.

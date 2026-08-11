@@ -23,18 +23,8 @@ via its `GameEntityBlock` sub-root
 
 ## Reading the census
 
-```bash
-python3 scripts/guesser_families.py rank            # live families, biggest first
-python3 scripts/guesser_families.py rank --json     # same, machine-readable
-
-# the context behind a row: every member's fields, defaults, holders, plus the
-# inner classes its field types reach
-python3 scripts/guesser_families.py emit --subtree --live --min-unnamed 8
-```
-
-`emit --subtree --live` is what the write-ups below are read off. Without those
-two flags `emit` keeps its older behaviour, grouping by direct children over all
-builds, which splits a family across every intermediate base it has.
+Rows come from `guesser_families.py rank`; the write-ups below are read off
+`emit --subtree --live` packs.
 
 | column | what it measures |
 |---|---|
@@ -45,17 +35,9 @@ builds, which splits a family across every intermediate base it has.
 | `defs` | fields whose default is not the type's zero |
 | `+clo` | further unnamed classes reached by following the family's field types |
 
-`unnamed` alone ranks the families; the rest decide whether one is workable.
-The two are close to independent, and that is the whole point of the table:
-
-```
-    74 unnamed,  1 handle,   0 defs   BaseParams          nothing to aim at
-    28 unnamed, 27 handles, 12 defs   GameEntityBlock     every member self-describing
-```
-
-A member with no resolved field offers a structure-derived proposal nothing to
-derive from, so it can only be reached by recombination against its hash. A
-member whose fields are 80% named is close to described in words already.
+`unnamed` alone ranks the families; the rest decide whether one is workable,
+and the two are close to independent (74 unnamed with 1 handle is nothing to
+aim at; 28 unnamed with 27 handles is self-describing).
 
 ## Census
 
@@ -93,11 +75,9 @@ name beside it came from upstream.
 ## The nine worth following up
 
 Ordered by expected yield, not by size. `MapPlaceableBase` was number 5 on this
-list and has been worked; what it taught is in
-[docs/map-entity-templates.md](map-entity-templates.md), and the one method
-there that generalises is worth reading before starting any of these - folding a
-family's suffix backwards out of its unresolved hashes proves which of them
-share a stem, which turns a per-hash search into a per-concept one.
+list and has been worked - see
+[docs/map-entity-templates.md](map-entity-templates.md). The method for all of
+these is the `crack-family` skill (`.claude/skills/crack-family/SKILL.md`).
 
 ### 1. `IScriptBlock` (3c2ab5b0) - 85 unnamed, 44 named
 
@@ -118,11 +98,9 @@ the block's signature directly.
 - Its own base `0x38a7f9b3` is unnamed and has exactly two children,
   `IScriptBlock` and `SwitchCase`.
 
-The `GameEntityBlock` run is the worked example below, and
-[docs/game-entity-blocks.md](game-entity-blocks.md) is what it turned into. The
-one method there that generalises to the remaining sub-roots: a block's inputs
-and outputs name it, and a verb pair that fills a 2x2 at once is proved by the
-lattice rather than by any single hash.
+The `GameEntityBlock` record is
+[docs/game-entity-blocks.md](game-entity-blocks.md); its read - a block's
+inputs and outputs name it - carries to the remaining sub-roots.
 
 ### 2. `ISequenceAction` (eb31be9b) - 65 unnamed, 0 named
 
@@ -326,36 +304,6 @@ Nothing structural can be derived here and recombination has no anchor. These
 need an attested string or a registration-order argument, and until one exists
 they are correctly left alone.
 
-## Worked example: `GameEntityBlock`
-
-44 proposals, derived by reading the input/output field shape of each member and
-nothing else, checked with `guesser_families.py check`. Expected chance hits at
-that probe count against ~2,400 unresolved class states is 2.5e-5.
-
-| hash | proposal | the structure that predicted it |
-|---|---|---|
-| `28628b50` | `SetEntityPositionBlock` | `.Target: Pointer IEntityGet`, `.Position: Pointer IVectorGet` |
-| `667eafac` | `GetEntityPositionBlock` | same, but `.Dest: Embed VectorTableSet` |
-| `3fa64abf` | `SetEntityRotationBlock` | `.Target`, `.rotation: Pointer IVectorGet` |
-| `7a1b11f3` | `GetEntityRotationBlock` | `.Target`, `.Dest: Embed VectorTableSet` |
-| `7c85ea46` | `GetEntityDirectionBlock` | same shape, sibling slot |
-| `32790cbf` | `DestroyEntityBlock` | `.Entity` and nothing else |
-| `91ccdfbc` | `SpawnEntityBlock` | `.Position`, `.OutEntity`, a prefab pointer |
-| `4957da2f` | `SpawnPrefabBlock` | `.Position`, `.Prefab`, an out table |
-| `d1dec547` | `CreateEntityBlock` | not live: last seen 16.7, one patch before `SpawnEntityBlock` appears |
-
-The Set/Get split falls out of the input/output convention rather than out of
-the hash, and `CreateEntityBlock` dying in 16.7 exactly as `SpawnEntityBlock`
-arrives in 16.8 is a rename the hashes cannot have coordinated.
-
-All nine held up and are now in the tables, along with 44 more names the
-`game-entity-blocks` campaign built on them - see
-[docs/game-entity-blocks.md](game-entity-blocks.md). What this example did not
-have, and the campaign did: suffix folding proves `Destroy` and `Show` out of
-two of these hashes directly, 39 shipped instances of `GetEntityPositionBlock`
-write to 31 distinct position variables, and the six-hash `EntityGroup` to
-`EntityTag` rename at 15.17 lines every span up on one patch boundary.
-
 ## Status
 
 Three of the ten have been worked. `map-entity-templates` landed 109 names out
@@ -365,18 +313,3 @@ of `MapPlaceableBase` ([docs/map-entity-templates.md](map-entity-templates.md));
 of `IScriptBlock`'s `GameEntityBlock` sub-root
 ([docs/game-entity-blocks.md](game-entity-blocks.md)). Nothing else here has
 entered a table.
-
-What `logic-drivers` adds to the method, beyond what `map-entity-templates`
-records: when a family's base classes are typed, the base fixes the last word,
-so `--suffix` is anchored for free and the search collapses to one word. And the
-retail client binary is worth probing even when the CommunityDragon corpus is
-empty - 2.8M asset-path forms returned nothing, while 469k binary strings
-returned the five stems that unlocked half the campaign.
-
-`game-entity-blocks` repeats that negative exactly - 4.0M CommunityDragon forms,
-zero hits; 144k retail client forms, two - and adds two things. A rename dated to
-one patch is worth more than any single hash, because the spans of the classes
-either side have to meet at the boundary and chance cannot arrange six of them.
-And a family's own field hashes are targets in their own right: `ShowDuration`
-and `HideDuration` came out of a 0.051-noise field run and retro-confirmed the
-verbs already proposed for the four classes that declare them.

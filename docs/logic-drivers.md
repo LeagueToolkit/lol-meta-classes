@@ -1,63 +1,30 @@
-# The logic driver pass
+# logic-drivers - campaign record
 
-Reversing doc for `logic-drivers`. Its `batches.tsv` note points here.
+Record for `logic-drivers`; its `batches.tsv` note points here. Method: the
+`crack-family` skill (`.claude/skills/crack-family/SKILL.md`). `ILogicDriver`
+went from 66 live unnamed members to 23. 46 names landed: 43 classes and 3
+fields.
 
-`ILogicDriver` went from 66 live unnamed members to 23. 46 names landed: 43
-classes and 3 fields.
+The base fixes the return type and so the last word: `<X>Driver` /
+`<X>MaterialDriver` (Vec4), `<X>FloatDriver`, `<X>IntDriver`, `<X>BoolDriver`,
+`<X>Vector3Driver`, with Bool under Int under Float a widening chain. The 68
+named siblings are all upstream, so the convention is externally attested.
+`bin-grep --class ILogicDriver --subclasses` returns 154,958 shipped objects;
+29 of the 66 unnamed had at least one instance, and reading the graphs they
+sit in named a third of the batch.
 
-## What the family is
+## Runs
 
-A driver graph. `ILogicDriver` is the root of a small expression language the
-engine evaluates every frame, and the base a class derives from *is* its return
-type:
+Suffix folding: 13 suffixes over 66 targets, 858 unfolds against ~13k states,
+0.003 expected noise. Five classes unfold to one shared stem equal to the
+known name `empty`; further stems equal `Sequence`, `ValueArray`, `MoveSpeed`
+and `spellData`; two classes share a second stem under `MaterialBoolDriver` /
+`MaterialFloatDriver`.
 
-```
-    ILogicDriver           I  Vec4 / colour        <X>Driver, <X>MaterialDriver
-      ILogicFloatDriver    I  F32                  <X>FloatDriver
-        ILogicIntDriver    I  I32                  <X>IntDriver
-          ILogicBoolDriver I  bool                 <X>BoolDriver
-      ILogicVector3Driver  I  Vec3                 <X>Vector3Driver
-```
-
-`ILogicIntDriver` under `ILogicFloatDriver` and `ILogicBoolDriver` under
-`ILogicIntDriver` is a widening chain, so a bool driver is usable anywhere a
-float is wanted. That is the single most useful fact in the family: **the base
-class fixes the last word of the name**, which turns most of the search into a
-one-word problem under an anchored suffix.
-
-Shipped instances are everywhere: `bin-grep --class ILogicDriver --subclasses`
-over the 455 installed WADs returns 154,958 objects, mostly
-`StaticMaterialDef.dynamicMaterial.parameters[N].driver`,
-`SkinCharacterDataProperties.PersistentEffectConditions[N].OwnerCondition`,
-`AnimationGraphData.mClipDataMap{...}.Updater.driver` and
-`LogicDriverViewController.Views[N]`. 29 of the 66 unnamed classes have at least
-one instance, and reading the graph they sit in is what named a third of them.
-
-## Method
-
-Five passes, in the order they were run.
-
-**1. Suffix folding.** FNV-1a's prime is invertible mod 2^32, so `unfold(h, s)`
-is the state a name was in before suffix `s` was appended. Folding 13 driver
-suffixes out of the 66 targets and comparing the states costs 858 unfolds
-against ~13k known-name states, **0.003 expected chance hits**. Three things
-fell out:
-
-- five classes unfold to **one shared stem** under five different suffixes;
-- that stem equals the known name `empty`, and three more stems equal
-  `Sequence`, `ValueArray`, `MoveSpeed` and `spellData`;
-- two classes share a second stem under `MaterialBoolDriver` /
-  `MaterialFloatDriver`.
-
-**2. Shipped strings.** Every identifier-shaped token in CommunityDragon's
-`hashes.bin{hashes,entries}.txt` and `hashes.game.txt.*` (2,820,530 distinct
-probe forms) against 723 target states: **0.475 expected chance hits, zero
-actual**. A clean negative, and worth recording: driver class names do not
-appear in shipped asset paths or bin strings.
-
-The retail client binaries are a different story. 468,639 distinct forms at
-**0.079 expected chance hits** returned six, five of which the structure already
-implied:
+Shipped strings: the CommunityDragon corpora (2,820,530 forms, 723 states,
+0.475 expected noise) returned **zero** - a clean negative, driver class names
+do not appear in shipped asset paths or bin strings. The client binaries
+(468,639 forms, 0.079) returned six, five already implied by structure:
 
 | stem | shipped string | what it names |
 |---|---|---|
@@ -67,14 +34,15 @@ implied:
 | `IsClone` | `IsClone` | `IsCloneBoolDriver` |
 | `math` | `... freeform math block` | `MathFloatDriver` and its four children |
 
-**3. Lattice completion.** A stem that fills several slots at once is
-`(p/2^32)^n`-competitive rather than `p/2^32`, so once a stem is known the rest
-of its row is nearly free. `Math` from pass 2 crossed with 40 operator words and
-15 suffixes is 1,230 probes, **0.0007 expected chance hits**, and returned all
-four arithmetic children at once. `Raw` crossed with the five concept types the
-same way, then `Eased` by hand, closed a 5x2 block in 2,320 probes.
+Lattice completion: `Math` crossed with 40 operator words and 15 suffixes,
+1,230 probes at 0.0007, returned all four arithmetic children at once. `Raw`
+crossed with the five concept types, then `Eased` by hand, closed a 5x2 block
+in 2,320 probes.
 
-**4. `hash-guesser`, anchored.** Recorded per run, quietest first:
+Guesser runs, quietest first; the prefixes came out of the passes above - a
+stem proved on one slot anchored the next run (`--prefix Bounding` and
+`--prefix Move` are why the depth-1 run at 0.008 noise reached
+`BoundingRadiusFloatDriver` and `MoveVelocityVector3Driver`):
 
 | run | probes | states | expected noise | candidates |
 |---|---|---|---|---|
@@ -87,14 +55,9 @@ same way, then `Eased` by hand, closed a 5x2 block in 2,320 probes.
 | `force` depth 2, full wordlist | 19,990,164 | 800 | 3.723 | 13 |
 | `chain` depth 4 | 19,673,274 | 800 | 3.664 | 9 |
 
-The prefixes came out of passes 1-3: a stem proved on one slot is the anchor for
-the next run. `--prefix Bounding` and `--prefix Move` are the reason the
-depth-1 run at 0.008 noise reached `BoundingRadiusFloatDriver` and
-`MoveVelocityVector3Driver` at all.
-
-**5. Reading the shipped graph.** The remaining names came from what the driver
-is wired to. This is the pass that produced `IsInWaterBoolDriver` and
-`IsStealthedBoolDriver`, neither of which any search reached.
+The remaining names came from reading the shipped graph - the pass that
+produced `IsInWaterBoolDriver` and `IsStealthedBoolDriver`, neither of which
+any search reached.
 
 ## The lattices
 
@@ -108,16 +71,19 @@ Each row is one stem; every cell is a name this batch added.
 | `SequenceMaterial` | `SequenceMaterialVectorDriver` | `SequenceMaterialFloatDriver` | - | `SequenceMaterialBoolDriver` | - |
 
 \* the two starred classes derive from `ILogicFloatDriver`, not from the base
-their concept type would predict, and that is the argument for `Eased`: easing a
-bool or an int produces a float, easing a float, Vec3 or Vec4 does not change the
-type. All ten carry exactly one field, `.Concept: Link <T>Concept`, all ten were
-introduced in 15.11, and `<T>Concept` carries `.EasingData`.
+their concept type would predict, and that is the argument for `Eased`: easing
+a bool or an int produces a float, easing a float, Vec3 or Vec4 does not
+change the type. All ten carry exactly one field, `.Concept: Link <T>Concept`,
+all ten were introduced in 15.11, and `<T>Concept` carries `.EasingData`.
 
 The `EmptyLogic` row is a whole patch cohort: 16.5 introduced exactly eight
 drivers, five of them these, and all five are field-free.
 
 The arithmetic block, whose interface is `MathFloatDriver` and whose children
-each add one operand field naming the operation:
+each add one operand field naming the operation. An earlier attempt crossed
+the four operator words with the family's two suffixes and missed - the stem
+carries the interface's own word in front of the operator, which `--prefix
+Math` supplied:
 
 | hash | name | the field that names it |
 |---|---|---|
@@ -126,11 +92,6 @@ each add one operand field naming the operation:
 | `53dfc5b5` | `MathSubtractFloatDriver` | `.Subtract` |
 | `ef339ef9` | `MathMultiplyFloatDriver` | `.multiplier` |
 | `cc35f742` | `MathDivideFloatDriver` | `.Denominator` |
-
-[docs/unnamed-families.md](unnamed-families.md) records an earlier attempt that
-crossed the four operator words with the family's two suffixes and missed. The
-stem carries the interface's own word in front of the operator, which is what
-`--prefix Math` supplies and plain recombination at that depth does not.
 
 ## Attested by the shipped graph
 
@@ -150,9 +111,9 @@ The strongest single piece of evidence in the batch is one expression out of
     }
 ```
 
-A field-free float driver divided by a spell value Riot named `GoldToNextForm`,
-feeding a progress meter on a skin that upgrades with gold. That fixes
-`PlayerGoldFloatDriver` and `MathDivideFloatDriver` together, and
+A field-free float driver divided by a spell value Riot named
+`GoldToNextForm`, feeding a progress meter on a skin that upgrades with gold.
+That fixes `PlayerGoldFloatDriver` and `MathDivideFloatDriver` together, and
 `SpellDataNamedValueFloatDriver` is the `.ValueName`-carrying child of the
 `.Spell` + `.ScriptName` interface `SpellDataFloatDriver`.
 
@@ -186,13 +147,14 @@ The rest, one row per name:
 | `18291220` | `ComponentWeight` | `Vec3 = [1,1,1]` on a float driver reading three named strings |
 | `44146c9d` | `MissileSpellObjects` | `List2 Hash` on a `JointOrientationRigPoseModifierData.OrientationSource` for Viktor's backarm, and on an `IFloatParametricUpdater` with the same shape |
 
-**The weakest.** `MapVisibilityTransitionLengthDriver` spells "Length" where the
-rest of that subsystem spells `TransitionTime` and `TransitionTimeDriver`. Its
-run carried 0.098 expected noise and returned two hits, the other being
-incoherent, so chance is a 0.45% explanation for the pair, but the name rests on
-the hash alone and no shipped instance exists. Anyone submitting this upstream
-should split it off or say so. `ComponentWeight` and `MissileSpellObjects` are
-the same shape one tier better: quiet runs, coherent structure, no string.
+**The weakest.** `MapVisibilityTransitionLengthDriver` spells "Length" where
+the rest of that subsystem spells `TransitionTime` and `TransitionTimeDriver`.
+Its run carried 0.098 expected noise and returned two hits, the other being
+incoherent, so chance is a 0.45% explanation for the pair, but the name rests
+on the hash alone and no shipped instance exists. Anyone submitting this
+upstream should split it off or say so. `ComponentWeight` and
+`MissileSpellObjects` are the same shape one tier better: quiet runs, coherent
+structure, no string.
 
 ## What is left
 
@@ -200,8 +162,8 @@ the same shape one tier better: quiet runs, coherent structure, no string.
 23, so nobody re-treads: `identity`, `delete`, `chain` depth 3 and 4, `force`
 depth 2 over the full wordlist, `force` depth 3 over the top 300, the whole
 CommunityDragon string corpus (2.8M forms) and both client binaries (469k),
-each split by return type so the suffix set stayed tight. Summed expected noise
-about 12, zero coherent hits beyond what is listed above.
+each split by return type so the suffix set stayed tight. Summed expected
+noise about 12, zero coherent hits beyond what is listed above.
 
 The three with the most context, and the most likely to fall next:
 
@@ -258,9 +220,9 @@ Singletons, with what is known about each:
 
 All 46 rows `status=pending`, `pr=-`. Nothing submitted upstream.
 
-Fit to submit as it stands: the four lattices, which are proved by filling every
-slot of a row at once rather than by any single hash, and the nine rows attested
-by a shipped string or a shipped driver graph. The remainder carry a slot
-argument, which is the standard `map-entity-templates` and `viewcontroller-family`
-met; `MapVisibilityTransitionLengthDriver` is flagged above and is the one name
-in the batch that carries neither.
+Fit to submit as it stands: the four lattices, which are proved by filling
+every slot of a row at once rather than by any single hash, and the nine rows
+attested by a shipped string or a shipped driver graph. The remainder carry a
+slot argument, which is the standard `map-entity-templates` and
+`viewcontroller-family` met; `MapVisibilityTransitionLengthDriver` is flagged
+above and is the one name in the batch that carries neither.

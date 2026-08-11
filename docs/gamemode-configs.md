@@ -1,38 +1,31 @@
-# The game mode config pass
+# gamemode-configs - campaign record
 
-Reversing doc for `gamemode-configs`, `gamemode-configs-unproven` and
-`guest-of-honor`. Their `batches.tsv` notes point here.
-
-## Method
-
-The IGameModeConfigBase family (77 classes, 54 unnamed at the start) was worked
-per class: each unnamed class gets its own search, aimed at its one hash, over a
-vocabulary drawn from its recursive structural neighbourhood - its own field
-names, the classes its fields reach (walked to depth 3), the fields that hold
-it, the entry paths and modes of its shipped instances, and the named half of
-the family. Aiming every probe at one hash keeps the noise per target at
-`probes / 2^32`; the runs here sat at 0.001-0.007 expected chance hits per
-target, ~0.16 summed over every run of the campaign.
-
-As with the semantic pass, the hash match is the filter, not the evidence.
+Record for `gamemode-configs`, `gamemode-configs-unproven` and
+`guest-of-honor`; their `batches.tsv` notes point here. Method: the
+`crack-family` skill (`.claude/skills/crack-family/SKILL.md`), worked per
+class - each unnamed class got its own search over its recursive structural
+neighbourhood, so noise stayed at 0.001-0.007 expected chance hits per target,
+~0.16 summed over the campaign. The `IGameModeConfigBase` family was 77
+classes, 54 of them unnamed at the start.
 
 ## The names
 
-**AugmentClientConfig** (54091cd5). Base is IGameModeConfigClient; the class is
-a `Map[Hash -> Embed 2f798a22]` of per-tier augment button vfx plus a string.
-Instances link `ClientStates/Gameplay/UX/LoL/Cherry/AugmentSelection/Particles/
-Augment_Remove_Silver_IdleVFX` and siblings - the in-engine client UI. Client is
-the base, Augment is the content, Config is the family suffix.
+**AugmentClientConfig** (54091cd5). Base is IGameModeConfigClient; the class
+is a `Map[Hash -> Embed 2f798a22]` of per-tier augment button vfx plus a
+string. Instances link `ClientStates/Gameplay/UX/LoL/Cherry/AugmentSelection/
+Particles/Augment_Remove_Silver_IdleVFX` and siblings - the in-engine client
+UI. Client is the base, Augment is the content, Config is the family suffix.
 
 **DynamicCameraConfig** (85bf79cf) and **DynamicCameraSettings** (c565e640).
 The config holds `AdditionalSettings: Map[Hash[Link]]` into the settings class
 (fields CameraOffsetScale, CameraUpdater, OffsetEdgePanSpeed) plus a default
 link to it, so Settings is attested by the field that holds the class. The
-DynamicCamera stem is attested by shipped data twice over: every map WAD carries
-`InputEventBool` binds with `LogicalName = "FreeDynamicCameraToggle"` /
-`"evtFreeDynamicCameraToggle"`, and the retail game writes `DynamicCameraSpeed`
-and `DynamicCameraLockMode` into PersistedSettings.json. The two names also
-landed in independent runs, parent and inner class agreeing on the stem.
+DynamicCamera stem is attested by shipped data twice over: every map WAD
+carries `InputEventBool` binds with `LogicalName = "FreeDynamicCameraToggle"`
+/ `"evtFreeDynamicCameraToggle"`, and the retail game writes
+`DynamicCameraSpeed` and `DynamicCameraLockMode` into PersistedSettings.json.
+The two names also landed in independent runs, parent and inner class agreeing
+on the stem.
 
 **The timer lattice** - five names that corroborate each other structurally.
 ITimerController (acc5c631) was already in the tables; IClockDefinition and
@@ -52,8 +45,9 @@ levels.
 
 **AugmentSet** (27bc6378). Own fields SetName, augments, TierData; held in the
 AugmentDataListConfig candidate's set list. Shipped scene paths spell the
-compound exactly (`.../AugmentSetGroup/AugmentSet/...`), and the tables already
-carry AugmentSetTooltipViewController and AugmentSetTraitTrackerViewController.
+compound exactly (`.../AugmentSetGroup/AugmentSet/...`), and the tables
+already carry AugmentSetTooltipViewController and
+AugmentSetTraitTrackerViewController.
 
 AugmentSet and ITimerControllerDefinition are two of the 24 the semantic pass
 recorded as proposed and not taken. That list was explicitly not a refutation
@@ -129,3 +123,6 @@ attested by the hash; the lowercase is convention, since FNV-1a lowercases.
 ## Status
 
 All rows are `status=pending`, `pr=-`. Nothing has been submitted upstream.
+The family itself is resumable: 47 unnamed members remain, with the most
+default evidence per class of any family in the census
+(docs/unnamed-families.md).

@@ -118,9 +118,6 @@ class 0x131f5725(0x911f126a):
     StaticTexture: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x132b63da(ScriptTableGet, IEntityGet, 0x662c1ec3):
-    pass
-
 class 0x134d9e65(0xfa04801e):
     pass
 
@@ -180,11 +177,6 @@ class 0x14da24c4(0xd04cfb37):
     pass
 
 class 0x14ee5073(0xda0d41ce):
-    pass
-
-class 0x14ef8081(GameEntityBlock):
-    tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
-    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class 0x150d1b92():
@@ -289,12 +281,6 @@ class 0x1739a4e6():
 
 class 0x17409c51():
     Mapping: (Map, U32, Embed, 0xd139de78) = {}
-    pass
-
-class 0x17411ce(GameEntityBlock):
-    0x18c117f4: (Pointer, 0x0, 0x0, IFloatGet) = {}
-    0x94018232: (Pointer, 0x0, 0x0, IBoolGet) = {}
-    tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
     pass
 
 class 0x1742fda9(0xb87473b5):
@@ -498,7 +484,7 @@ class 0x1b85de12(ViewController):
 
 class 0x1bb49ec5(0x8b54c9a7):
     Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    0x44ee0c82: (Link, 0x0, 0x0, 0xb5d9d3a0) = "0x0"
+    EntityTag: (Link, 0x0, 0x0, 0xb5d9d3a0) = "0x0"
     pass
 
 class 0x1bbd2264(0x7a3483c4):
@@ -585,10 +571,10 @@ class 0x1d1499b7(0xff4e30bb):
     0x1757fdc8: (Pointer, 0x0, 0x0, IBoolGet) = null
     OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
     0x7c891337: (Pointer, 0x0, 0x0, IIntGet) = null
-    tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
-    0x9c60d5ba: (List2, 0x0, Pointer, 0xb60096a7) = []
-    0xa1162603: (List2, 0x0, Pointer, 0xb60096a7) = []
-    0xbec77248: (List2, 0x0, Pointer, 0xb60096a7) = []
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
+    0x9c60d5ba: (List2, 0x0, Pointer, IEntityTagGet) = []
+    0xa1162603: (List2, 0x0, Pointer, IEntityTagGet) = []
+    0xbec77248: (List2, 0x0, Pointer, IEntityTagGet) = []
     pass
 
 class 0x1d452085(IGameCalculationPartWithStats):
@@ -675,7 +661,7 @@ class 0x1ee9686c():
     0xfa045deb: (Link, 0x0, 0x0, 0xb4dee917) = "0x0"
     pass
 
-class 0x1ef0f01e(0x540d65a6, 0x662c1ec3, IScriptValueGet):
+class 0x1ef0f01e(IUnitGet, 0x662c1ec3, IScriptValueGet):
     pass
 
 class 0x1f0bbd6():
@@ -1100,11 +1086,6 @@ class 0x280745b1():
     0x50aad250: (List2, 0x0, Pointer, 0xdd661aab) = []
     pass
 
-class 0x28628b50(GameEntityBlock):
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    Position: (Pointer, 0x0, 0x0, IVectorGet) = null
-    pass
-
 class 0x286deb81():
     pass
 
@@ -1159,11 +1140,6 @@ class 0x29619231():
 
 class 0x296c4c00(0xa8a6ac21):
     value: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x2994bb4f(GameEntityBlock):
-    0xc7a370a7: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
-    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class 0x29fa6215():
@@ -1292,11 +1268,6 @@ class 0x2bfb084c():
     tags: (List2, 0x0, Embed, 0xf6f4bb5f) = []
     pass
 
-class 0x2bfff098(GameEntityBlock):
-    duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    pass
-
 class 0x2c17e4a1(IOptionItemFilter):
     pass
 
@@ -1355,11 +1326,6 @@ class 0x2d531ed():
     0xf04526e: (I32, 0x0, 0x0, 0x0) = 1
     0xf18a45bd: (Embed, 0x0, 0x0, 0xa3faa7f5) = {"MessageTra":""}
     0xff86a45c: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x2d67b83f(GameEntityBlock):
-    template: (Embed, 0x0, 0x0, DataObjectTableSet) = {"Table":{},"Var":""}
-    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class 0x2d965f1c():
@@ -1577,10 +1543,6 @@ class 0x321b2b1c(ViewController):
 class 0x32233c05():
     Providers: (List2, 0x0, Link, 0x6a215e04) = []
     0xd98213cf: (List, 0x5, String, 0x0) = ["","","","",""]
-    pass
-
-class 0x32790cbf(GameEntityBlock):
-    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class 0x3283e2d6(0x88b37dd7):
@@ -1953,12 +1915,6 @@ class 0x3a8e6763(OptionTemplateBase):
     KeysList: (List2, 0x0, Embed, 0x30ed049a) = []
     pass
 
-class 0x3aa63a24(GameEntityBlock):
-    0x18c117f4: (Pointer, 0x0, 0x0, IFloatGet) = {}
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    0x94018232: (Pointer, 0x0, 0x0, IBoolGet) = {}
-    pass
-
 class 0x3ab4ee7c():
     DividerElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2206,11 +2162,6 @@ class 0x3f4b8c5(0xece68ca6):
     pass
 
 class 0x3f667d7e(InputEventBoolKeybind):
-    pass
-
-class 0x3fa64abf(GameEntityBlock):
-    rotation: (Pointer, 0x0, 0x0, IVectorGet) = null
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class 0x3fd44d66(VfxSpawnBehavior):
@@ -2505,9 +2456,6 @@ class 0x46a048a9(ITimerView):
     0xdd58f41d: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x46a7786(0xece68ca6):
-    pass
-
 class 0x46b4ec0a(BaseParams):
     Starting: (Bool, 0x0, 0x0, 0x0) = false
     0x4be35766: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -2612,12 +2560,6 @@ class 0x4946e8cf():
     tags: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0x4957da2f(GameEntityBlock):
-    Prefab: (Pointer, 0x0, 0x0, 0xceb08455) = {}
-    0x7addff1c: (Embed, 0x0, 0x0, 0x9def8cb) = {"Table":{},"Var":""}
-    Position: (Pointer, 0x0, 0x0, IVectorGet) = null
-    pass
-
 class 0x4979fb5d(0x2b00c366):
     Zoom: (Link, 0x0, 0x0, TftZoomSkin) = "0x0"
     itemTypeId: (String, 0x0, 0x0, 0x0) = "5c964e25-76f1-4485-9bfd-08001b923447"
@@ -2706,12 +2648,6 @@ class 0x4b24468b():
 
 class 0x4b26ffad(0x27071fbd):
     value: (Map, U32, Hash, 0x0) = {}
-    pass
-
-class 0x4b30a085(GameEntityBlock):
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    0x47ac0d65: (Pointer, 0x0, 0x0, IFloatGet) = {}
-    0x9e8fcd0c: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
 class 0x4bcf438a():
@@ -2996,9 +2932,6 @@ class 0x54019489(0x38749c0a):
     MaxAddedSpeed: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0x540d65a6():
-    pass
-
 class 0x546d62d1(ISequenceActionInstance):
     pass
 
@@ -3016,7 +2949,7 @@ class 0x547b9a32(BaseParams):
     pass
 
 class 0x5480000a(0xb0607142):
-    tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
     Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
@@ -3383,10 +3316,6 @@ class 0x5d18fc10(BaseParams):
     pass
 
 class 0x5d3f0253(MapGraphicsFeature):
-    pass
-
-class 0x5d85166e(0xb60096a7, IScriptValueGet):
-    value: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x5d9fffed(BaseEventData):
@@ -3766,11 +3695,6 @@ class 0x665c9fe7():
     0xf3ca8ece: (U16, 0x0, 0x0, 0x0) = 1
     pass
 
-class 0x667eafac(GameEntityBlock):
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    Dest: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
-    pass
-
 class 0x6685fe5a():
     0x16118b27: (String, 0x0, 0x0, 0x0) = ""
     0x756be398: (String, 0x0, 0x0, 0x0) = ""
@@ -4035,11 +3959,6 @@ class 0x6b91544a(IGameModeConfig):
     UpscaleTextures: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
-class 0x6ba221d7(GameEntityBlock):
-    duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    pass
-
 class 0x6bbc3db6(0x288b8edc):
     SpellObjects: (List, 0x4, Link, SpellObject) = ["0x0","0x0","0x0","0x0"]
     0xda28e4c: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
@@ -4071,15 +3990,6 @@ class 0x6c7a6a03():
 class 0x6c84152e():
     ForVote: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AgainstVote: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x6c93a1b4(GameEntityBlock):
-    PassThroughParameters: (Map, Hash, Pointer, IScriptValueGet) = {}
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    Sequence: (Embed, 0x0, 0x0, ScriptSequence) = {"blocks":[]}
-    AllowInactive: (Bool, 0x0, 0x0, 0x0) = false
-    callback: (Embed, 0x0, 0x0, 0xf6e1bec7) = {"FunctionName":"0x0","Script":"0x0"}
-    FunctionDefinition: (Embed, 0x0, 0x0, 0x2a2c82dc) = {"0xc7adc150":{},"FunctionInputs":{},"FunctionOutputs":{}}
     pass
 
 class 0x6ca3cfd():
@@ -4244,13 +4154,7 @@ class 0x71ae72e5(GameModeConstant):
     traits: (List2, 0x0, Link, TftTraitData) = []
     pass
 
-class 0x71bb3057(ScriptTableGet, 0xceb08455):
-    pass
-
-class 0x71cab931(IRunFunctionBlock):
-    Script: (Link, 0x0, 0x0, FunctionModule) = "0x0"
-    0x4283375a: (Embed, 0x0, 0x0, 0x4283375a) = {"0x5eccb5e4":false,"0xd682dbd0":false,"FunctionName":"","InputParams":[],"ModuleName":"","OutputParams":[],"ScriptName":"","StaticFunction":false}
-    Function: (Hash, 0x0, 0x0, 0x0) = "0x0"
+class 0x71bb3057(ScriptTableGet, IDataObjectGet):
     pass
 
 class 0x71fdeba8():
@@ -4295,12 +4199,6 @@ class 0x7296321a():
     BackgroundTexture: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x72e9216e(ScriptTableSet):
-    pass
-
-class 0x72f61cad(0xece68ca6):
-    pass
-
 class 0x7319918a():
     pass
 
@@ -4327,7 +4225,7 @@ class 0x7463e786():
     pass
 
 class 0x7496f1e(LevelScriptBlock):
-    0x5a4ef4e7: (Pointer, 0x0, 0x0, 0xceb08455) = null
+    0x5a4ef4e7: (Pointer, 0x0, 0x0, IDataObjectGet) = null
     0x7511a599: (Embed, 0x0, 0x0, StringArrayTableSet) = {"Table":{},"Var":""}
     pass
 
@@ -4479,9 +4377,6 @@ class 0x77f812a6():
     TooltipTraKey: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x77f87656(ScriptTableGet, ISegmentGet):
-    pass
-
 class 0x77fb37dd():
     Divider: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -4562,11 +4457,6 @@ class 0x7a1a2d27():
     DefaultMagicalDamageFormat: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
     CriticalTrueDamageFormat: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
     DefaultPhysicalDamageFormat: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
-    pass
-
-class 0x7a1b11f3(GameEntityBlock):
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    Dest: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
     pass
 
 class 0x7a1cab0d():
@@ -4678,11 +4568,6 @@ class 0x7c809adf():
     0xf5a8c9b7: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
-class 0x7c85ea46(GameEntityBlock):
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    Dest: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
-    pass
-
 class 0x7c8b2cd8(0x26d26471):
     pass
 
@@ -4779,9 +4664,6 @@ class 0x7dc4f3ec():
     SubteamColumn: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SubTeamLogo: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SubTeamNameInactive: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x7dcd3672(ScriptTableGet, 0xb60096a7):
     pass
 
 class 0x7de1323f():
@@ -5629,12 +5511,6 @@ class 0x91b37a79(IScriptBlock):
     ConceptObject: (Pointer, 0x0, 0x0, 0x662c1ec3)
     pass
 
-class 0x91ccdfbc(GameEntityBlock):
-    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
-    0x7190b62d: (Pointer, 0x0, 0x0, 0xceb08455) = {}
-    Position: (Pointer, 0x0, 0x0, IVectorGet) = null
-    pass
-
 class 0x91fd0920(MissileBehaviorSpec):
     pass
 
@@ -5691,11 +5567,6 @@ class 0x92309121(IGameModeConfig):
 class 0x927b13d0(0xca17e84f):
     Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
     NewValue: (Pointer, 0x0, 0x0, IVectorGet) = null
-    pass
-
-class 0x92a4d6f9(GameEntityBlock):
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    ScriptDef: (Embed, 0x0, 0x0, GameEntityScriptDefinition) = {"0x819816ff":{},"Script":"0x0"}
     pass
 
 class 0x92b6b7fa(IScriptBlock):
@@ -6090,10 +5961,6 @@ class 0x9c1d99c0():
     0x80cf3335: (Embed, 0x0, 0x0, 0x7a1a2d27) = {"AbsorbedDamageFormat":"0x0","CombinableDamageFormat":"0x0","CriticalMagicalDamageFormat":"0x0","CriticalPhysicalDamageFormat":"0x0","CriticalTrueDamageFormat":"0x0","DefaultMagicalDamageFormat":"0x0","DefaultPhysicalDamageFormat":"0x0","DefaultTrueDamageFormat":"0x0"}
     pass
 
-class 0x9c33070d(ILoopScriptBlock):
-    Condition: (Pointer, 0x0, 0x0, IScriptCondition) = {}
-    pass
-
 class 0x9c545130(BaseParams):
     pass
 
@@ -6146,9 +6013,6 @@ class 0x9d62f7e(ITargetingRangeValue):
 class 0x9d79fb9f():
     skins: (List2, 0x0, U32, 0x0) = []
     champion: (Link, 0x0, 0x0, Champion) = "0x0"
-    pass
-
-class 0x9def8cb(ScriptTableSet):
     pass
 
 class 0x9e008898():
@@ -6277,12 +6141,6 @@ class 0x9f40fcd2():
 
 class 0x9f9ec6c2(GameModeConstant):
     characters: (List2, 0x0, Hash, 0x0) = []
-    pass
-
-class 0xa004a785(GameEntityBlock):
-    RemoveAll: (Pointer, 0x0, 0x0, IBoolGet) = null
-    Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class 0xa01bb4c2(0x8930818a):
@@ -6479,11 +6337,6 @@ class 0xa534365c():
     TimerVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xa55c9d58(GameEntityBlock):
-    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
-    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
-    pass
-
 class 0xa56f7c7a(0xece68ca6):
     pass
 
@@ -6511,11 +6364,6 @@ class 0xa64f90fb():
     pass
 
 class 0xa65588fc():
-    pass
-
-class 0xa66992af(GameEntityBlock):
-    duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
-    tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
     pass
 
 class 0xa67da76a(Cheat):
@@ -6928,12 +6776,6 @@ class 0xb0afae41(ViewControllerFilterI):
     TftGameType: (U32, 0x0, 0x0, 0x0) = 5
     pass
 
-class 0xb0afb2dd(GameEntityBlock):
-    0x47ac0d65: (Pointer, 0x0, 0x0, IFloatGet) = {}
-    tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
-    0x9e8fcd0c: (Pointer, 0x0, 0x0, IBoolGet) = {}
-    pass
-
 class 0xb0be1066(ILogicDriver):
     0x1cb00d6f: (Pointer, 0x0, 0x0, 0x315aff8e) = null
     0x20ca280d: (Pointer, 0x0, 0x0, 0x315aff8e) = null
@@ -7171,9 +7013,6 @@ class 0xb5f666f3():
     UnitProperty: (Link, 0x0, 0x0, TftUnitPropertyDefinition) = "0x0"
     pass
 
-class 0xb60096a7():
-    pass
-
 class 0xb602063b(IOptionItem):
     Url: (String, 0x0, 0x0, 0x0) = ""
     template: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -7300,7 +7139,7 @@ class 0xb8a49c96():
     pass
 
 class 0xb905f14(0xb0607142):
-    tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
     pass
 
 class 0xb9225383(BaseParams):
@@ -7350,11 +7189,6 @@ class 0xba9f6aca():
     0xabd0de07: (String, 0x0, 0x0, 0x0) = ""
     FailureTexturePath: (String, 0x0, 0x0, 0x0) = ""
     TroveButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xbabe88f(GameEntityBlock):
-    tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
-    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class 0xbad70d09():
@@ -7636,7 +7470,7 @@ class 0xc124ec81():
 
 class 0xc126997e(ISequenceAction):
     Color: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
-    0x44ee0c82: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    EntityTag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x7e9f30bd: (I32, 0x0, 0x0, 0x0) = -1
     pass
 
@@ -7813,9 +7647,6 @@ class 0xc61551f4():
 class 0xc62b91e4():
     0x3aaecc43: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x896acc29: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xc65d2528(ScriptTableGet, IColorGet):
     pass
 
 class 0xc66dcba5(UiMetricTypeSimpleI):
@@ -8123,9 +7954,6 @@ class 0xce60a9a0(IGameModeConfigClient):
 class 0xce762bab():
     0x45258bde: (F32, 0x0, 0x0, 0x0) = 0.0
     0x96dab686: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0xceb08455():
     pass
 
 class 0xcecd632c(0x7b440079):
@@ -8493,8 +8321,8 @@ class 0xd6bdec78(ISequenceAction):
     pass
 
 class 0xd6d3da87(GameEntityBlock):
-    0x98840e54: (List2, 0x0, Pointer, 0xb60096a7) = []
-    0xe2226a17: (List2, 0x0, Pointer, 0xb60096a7) = []
+    0x98840e54: (List2, 0x0, Pointer, IEntityTagGet) = []
+    0xe2226a17: (List2, 0x0, Pointer, IEntityTagGet) = []
     pass
 
 class 0xd6edc2f4(ViewController):
@@ -8551,11 +8379,6 @@ class 0xd83b3308():
     0x95bc6b1b: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xa2db2598: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xb7571618: (Color, 0x0, 0x0, 0x0) = [0,215,255,255]
-    pass
-
-class 0xd859356a(GameEntityBlock):
-    duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
-    tag: (Pointer, 0x0, 0x0, 0xb60096a7) = null
     pass
 
 class 0xd866344b():
@@ -9076,7 +8899,7 @@ class 0xe524b2fc(IScriptBlock):
     pass
 
 class 0xe53e4779(0xd8d462e4):
-    0x44ee0c82: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    EntityTag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xe561be2e():
@@ -9271,9 +9094,6 @@ class 0xe9b3cb22(InputEventBoolKeybind):
     HoldType: (U32, 0x0, 0x0, 0x0) = 3
     pass
 
-class 0xe9e530a6(ScriptTableGet, IPathGet):
-    pass
-
 class 0xea1f541a(ICastRequirement):
     PARType: (U8, 0x0, 0x0, 0x0) = 0
     pass
@@ -9308,10 +9128,6 @@ class 0xeacb459e(ViewController):
     0xae5a3d9b: (U32, 0x0, 0x0, 0x0) = 0
     0xe97a2996: (Hash, 0x0, 0x0, 0x0) = "0x0"
     StatusData: (Embed, 0x0, 0x0, UiUnitStatusData) = {"CenterJustifyStatusIconAndText":false,"NameText":"0x0","StatusDurationBarData":null,"StatusIcon":"0x0","StatusText":"0x0"}
-    pass
-
-class 0xeacbd3e9(IScriptBlock):
-    Sequence: (Embed, 0x0, 0x0, ScriptSequence)
     pass
 
 class 0xeaef4fc9(0xca4d32d1):
@@ -9759,9 +9575,6 @@ class 0xf43ad1ce():
     Team1Meter: (Embed, 0x0, 0x0, 0xb8a49c96) = {"BlueSkin":"0x0","Meter":"0x0","RedSkin":"0x0"}
     Frame: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Team2Meter: (Embed, 0x0, 0x0, 0xb8a49c96) = {"BlueSkin":"0x0","Meter":"0x0","RedSkin":"0x0"}
-    pass
-
-class 0xf44004bb(ScriptTableGet, 0x540d65a6, 0x662c1ec3):
     pass
 
 class 0xf45e04e1():
@@ -10437,6 +10250,18 @@ class AchievementTitleReward(IRewardBase):
     TitleData: (Link, 0x0, 0x0, ChallengeTitleData) = "0x0"
     pass
 
+class ActivateEntityBlock(GameEntityBlock):
+    ShowDuration: (Pointer, 0x0, 0x0, IFloatGet) = {}
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    0x94018232: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    pass
+
+class ActivateEntityTagBlock(GameEntityBlock):
+    ShowDuration: (Pointer, 0x0, 0x0, IFloatGet) = {}
+    0x94018232: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
+    pass
+
 class ActiveItemTelemetryData():
     ActiveItemTelemetryEventOptions: (List, 0x0, String, 0x0) = []
     pass
@@ -10465,6 +10290,16 @@ class AddLevelTimer(LevelScriptBlock):
 class AddPARCheat(Cheat):
     mAmount: (F32, 0x0, 0x0, 0x0) = 0.0
     mTarget: (U32, 0x0, 0x0, 0x0) = 1
+    pass
+
+class AddScriptToEntity(GameEntityBlock):
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    ScriptDef: (Embed, 0x0, 0x0, GameEntityScriptDefinition) = {"0x819816ff":{},"Script":"0x0"}
+    pass
+
+class AddTagToEntityBlock(GameEntityBlock):
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
+    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class AdditionalMapContainersConfig(IGameModeConfig):
@@ -12382,6 +12217,9 @@ class ColorLogicDriverLightUpdater(IMapLightUpdater):
     driver: (Pointer, 0x0, 0x0, ILogicDriver) = {}
     pass
 
+class ColorTableGet(ScriptTableGet, IColorGet):
+    pass
+
 class ColorTableSet(ScriptTableSet):
     pass
 
@@ -12981,7 +12819,7 @@ class CreateNeutralCamp(LevelScriptBlock):
     SpawnDurationSecs: (Pointer, 0x0, 0x0, IFloatGet) = null
     MinimapIconOffset: (Pointer, 0x0, 0x0, IVectorGet) = null
     StopSpawnTimeSecs: (Pointer, 0x0, 0x0, IFloatGet) = null
-    0x5a4ef4e7: (Pointer, 0x0, 0x0, 0xceb08455) = null
+    0x5a4ef4e7: (Pointer, 0x0, 0x0, IDataObjectGet) = null
     RespawnDelaySecs: (Pointer, 0x0, 0x0, IFloatGet) = null
     0x7633e7cf: (Pointer, 0x0, 0x0, IVectorGet) = null
     0x7d27af7f: (Bool, 0x0, 0x0, 0x0) = false
@@ -13144,11 +12982,23 @@ class DamageUnitCheat(Cheat):
     mHitResult: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
-class DataObjectGet(0xceb08455, IScriptValueGet):
+class DataObjectGet(IDataObjectGet, IScriptValueGet):
     PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class DataObjectTableSet(ScriptTableSet):
+    pass
+
+class DeactivateEntityBlock(GameEntityBlock):
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    HideDuration: (Pointer, 0x0, 0x0, IFloatGet) = {}
+    0x9e8fcd0c: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    pass
+
+class DeactivateEntityTagBlock(GameEntityBlock):
+    HideDuration: (Pointer, 0x0, 0x0, IFloatGet) = {}
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
+    0x9e8fcd0c: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
 class DeathGeComponent(0x2576b4fc, GameEntityComponent):
@@ -13262,6 +13112,10 @@ class Destroy(MissileTriggeredActionSpec):
 
 class DestroyCustomTableBlock(IScriptBlock):
     TableName: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
+    pass
+
+class DestroyEntityBlock(GameEntityBlock):
+    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class DestroyOnExitMap(MissileBehaviorSpec):
@@ -13722,6 +13576,9 @@ class EnterFOWVisibility(MissileVisibilitySpec):
     mMissileClientExitFOWPrediction: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
+class EntityArrayTableSet(ScriptTableSet):
+    pass
+
 class EntityCircleData(EntityShapeData):
     radius: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
@@ -13743,7 +13600,20 @@ class EntityStateMachine():
     DefaultState: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class EntityTableGet(ScriptTableGet, IEntityGet, 0x662c1ec3):
+    pass
+
 class EntityTableSet(ScriptTableSet):
+    pass
+
+class EntityTagGet(IEntityTagGet, IScriptValueGet):
+    value: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class EntityTagTableGet(ScriptTableGet, IEntityTagGet):
+    pass
+
+class EntityTagTableSet(ScriptTableSet):
     pass
 
 class EnvMeshGeComponent(0x12b2d1cc, GameEntityComponent, 0xa4795108):
@@ -13996,6 +13866,21 @@ class EvolutionDescription():
     mFlags: (U32, 0x0, 0x0, 0x0) = 0
     mIconNames: (List, 0x4, String, 0x0) = ["","","",""]
     mTooltips: (List, 0x4, String, 0x0) = ["","","",""]
+    pass
+
+class ExecuteFunctionBlock(IRunFunctionBlock):
+    Script: (Link, 0x0, 0x0, FunctionModule) = "0x0"
+    0x4283375a: (Embed, 0x0, 0x0, 0x4283375a) = {"0x5eccb5e4":false,"0xd682dbd0":false,"FunctionName":"","InputParams":[],"ModuleName":"","OutputParams":[],"ScriptName":"","StaticFunction":false}
+    Function: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ExecuteFunctionEntityBlock(GameEntityBlock):
+    PassThroughParameters: (Map, Hash, Pointer, IScriptValueGet) = {}
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    Sequence: (Embed, 0x0, 0x0, ScriptSequence) = {"blocks":[]}
+    AllowInactive: (Bool, 0x0, 0x0, 0x0) = false
+    callback: (Embed, 0x0, 0x0, 0xf6e1bec7) = {"FunctionName":"0x0","Script":"0x0"}
+    FunctionDefinition: (Embed, 0x0, 0x0, 0x2a2c82dc) = {"0xc7adc150":{},"FunctionInputs":{},"FunctionOutputs":{}}
     pass
 
 class ExperienceCurveData():
@@ -14878,6 +14763,26 @@ class GenericSplineMovementSpec(MissileMovementSpec):
     0xff738f10: (U8, 0x0, 0x0, 0x0)
     pass
 
+class GetEntityDirectionBlock(GameEntityBlock):
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    Dest: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
+    pass
+
+class GetEntityMapIndexBlock(GameEntityBlock):
+    MapIndex: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
+    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
+class GetEntityPositionBlock(GameEntityBlock):
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    Dest: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
+    pass
+
+class GetEntityRotationBlock(GameEntityBlock):
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    Dest: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
+    pass
+
 class GetFloatOptionFloatDriver(ILogicFloatDriver):
     option: (U16, 0x0, 0x0, 0x0) = 65535
     pass
@@ -14911,6 +14816,11 @@ class GetNextBuildingInLaneBlock(LevelScriptBlock):
 class GetSizeOfCustomTableBlock(IScriptBlock):
     Size: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
     Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
+    pass
+
+class GetTemplateFromEntityBlock(GameEntityBlock):
+    template: (Embed, 0x0, 0x0, DataObjectTableSet) = {"Table":{},"Var":""}
+    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class GetTurretBlock(LevelScriptBlock):
@@ -15257,6 +15167,16 @@ class HeroFloatingInfoIconsData():
     0x67c8a360: (Map, Hash, Embed, HeroFloatingInfoIconData) = {}
     0xa4d4ccd6: (List2, 0x0, Pointer, 0x50794e0e) = []
     icons: (List, 0x0, Embed, HeroFloatingInfoIconData) = []
+    pass
+
+class HideEntityBlock(GameEntityBlock):
+    duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
+class HideEntityTagBlock(GameEntityBlock):
+    duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
     pass
 
 class HighlighterViewController(0x990de67e):
@@ -15760,6 +15680,10 @@ class HudTipTrackerMessageTemplate():
     BackgroundHover: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class IAsyncBlock(IScriptBlock):
+    Sequence: (Embed, 0x0, 0x0, ScriptSequence)
+    pass
+
 class IAugment(0x808c79e4):
     AugmentNameId: (String, 0x0, 0x0, 0x0)
     NameTra: (String, 0x0, 0x0, 0x0)
@@ -15833,6 +15757,9 @@ class IContextualConditionSpell(IContextualCondition):
 class ICustomGet():
     pass
 
+class IDataObjectGet():
+    pass
+
 class IDeathGeComponentDef():
     pass
 
@@ -15840,6 +15767,9 @@ class IDialogPickChoice():
     pass
 
 class IEntityGet():
+    pass
+
+class IEntityTagGet():
     pass
 
 class IEnvironmentShadingModel(IX3dShadingModel):
@@ -16010,6 +15940,9 @@ class IPictureInPictureSource():
 class IRegionBoundaryRenderInfo():
     pass
 
+class IRenderingBlock(0xece68ca6):
+    pass
+
 class IResource():
     pass
 
@@ -16074,6 +16007,9 @@ class ISequenceActionInstance():
 
 class ISequenceLocation():
     transform: (Mtx44, 0x0, 0x0, 0x0)
+    pass
+
+class ISequencerBlock(0xece68ca6):
     pass
 
 class IShaderDef():
@@ -16157,6 +16093,9 @@ class IUiElementIGet():
     pass
 
 class IUiTextureDataProvider():
+    pass
+
+class IUnitGet():
     pass
 
 class IVectorGet():
@@ -20613,6 +20552,9 @@ class PatchingViewController(ViewController):
     0xb96dbb63: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class PathTableGet(ScriptTableGet, IPathGet):
+    pass
+
 class PathingAngleParametricUpdater(IFloatParametricUpdater):
     pass
 
@@ -20787,6 +20729,11 @@ class PingRadialViewController(PingRadialBaseViewController):
     pass
 
 class PingSecondaryRadialViewController(PingRadialBaseViewController):
+    pass
+
+class PlaceEntityBlock(GameEntityBlock):
+    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
+    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class PlatformSpellInfo():
@@ -21555,6 +21502,17 @@ class RemoveFromCustomTableBlock(IScriptBlock):
     Index: (Pointer, 0x0, 0x0, IIntGet) = null
     pass
 
+class RemoveScriptFromEntity(GameEntityBlock):
+    RemoveAll: (Pointer, 0x0, 0x0, IBoolGet) = null
+    Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
+class RemoveTagFromEntityBlock(GameEntityBlock):
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
+    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
 class ReplayCameraControlsViewController(ViewController):
     TeamFowComboBoxDefinition: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DirectedCameraToggleButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -22115,6 +22073,9 @@ class SegmentGet(ISegmentGet, IScriptValueGet):
     value: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
+class SegmentTableGet(ScriptTableGet, ISegmentGet):
+    pass
+
 class SegmentTableSet(ScriptTableSet):
     pass
 
@@ -22256,6 +22217,16 @@ class SetBit(IScriptBlock):
     BitField: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
     pass
 
+class SetEntityPositionBlock(GameEntityBlock):
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    Position: (Pointer, 0x0, 0x0, IVectorGet) = null
+    pass
+
+class SetEntityRotationBlock(GameEntityBlock):
+    rotation: (Pointer, 0x0, 0x0, IVectorGet) = null
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
 class SetInvulnerableBlock(LevelScriptBlock):
     value: (Pointer, 0x0, 0x0, IBoolGet) = null
     pass
@@ -22371,6 +22342,16 @@ class ShopGeComponentDef(IGeComponentDef):
     0xd1318f26: (F32, 0x0, 0x0, 0x0) = 0.0
     0xf908963: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     0xfe060fba: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class ShowEntityBlock(GameEntityBlock):
+    duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
+class ShowEntityTagBlock(GameEntityBlock):
+    duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
     pass
 
 class ShuffleCustomTableBlock(IScriptBlock):
@@ -22711,6 +22692,18 @@ class SpawnAiTurret(LevelScriptBlock):
     0x96cbc77d: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Team: (U32, 0x0, 0x0, 0x0) = 100
     MapObjectName: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class SpawnEntityBlock(GameEntityBlock):
+    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
+    EntityTemplateVar: (Pointer, 0x0, 0x0, IDataObjectGet) = {}
+    Position: (Pointer, 0x0, 0x0, IVectorGet) = null
+    pass
+
+class SpawnPrefabBlock(GameEntityBlock):
+    Prefab: (Pointer, 0x0, 0x0, IDataObjectGet) = {}
+    0x7addff1c: (Embed, 0x0, 0x0, EntityArrayTableSet) = {"Table":{},"Var":""}
+    Position: (Pointer, 0x0, 0x0, IVectorGet) = null
     pass
 
 class SpawningUIDefinition():
@@ -28591,6 +28584,9 @@ class UnitStatusPriorityList():
     TextureName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class UnitTableGet(ScriptTableGet, IUnitGet, 0x662c1ec3):
+    pass
+
 class UnitTableSet(ScriptTableSet):
     pass
 
@@ -30145,6 +30141,10 @@ class WardSkin():
 class WardSkinDisabler():
     DisableAllSkins: (Bool, 0x0, 0x0, 0x0) = false
     DisabledIds: (List, 0x0, U32, 0x0) = []
+    pass
+
+class WhileLoopBlock(ILoopScriptBlock):
+    Condition: (Pointer, 0x0, 0x0, IScriptCondition) = {}
     pass
 
 class WidthPerSecond(MissileBehaviorSpec):

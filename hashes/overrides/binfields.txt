@@ -385,7 +385,9 @@ a159f8ea EnemyMapSkin
 8a3fc6eb EntityDefinition
 4a22b647 EntityInputs
 989015d3 EntityRef
+44ee0c82 EntityTag
 fee040bc EntityTemplate
+7190b62d EntityTemplateVar
 c7104241 EntryTemplate
 fa10a755 Envelope
 3fee2bfa Environment
@@ -523,6 +525,7 @@ b0d4508d HeightFogColor
 8e731442 HeightFogStart
 5e6ab845 HeightOffset
 9e6ab7fa Helpers
+47ac0d65 HideDuration
 3dddb9fd High
 949cfb4a HighlightedTrait
 eb6c72dd HitTexture
@@ -689,6 +692,7 @@ ce96732e MagicalDamageEnhanced
 a3eee9db MainScript
 5a3d5de0 ManaRegenPercent
 16d6bc74 MapCue
+c7a370a7 MapIndex
 ce8f4190 MapSSAORenderer
 26045d85 Mapping
 cf7f6e66 Maps
@@ -1074,6 +1078,7 @@ b3b79b71 ShortDescriptionTraKey
 b872990e ShouldRemove
 a947e23c Show
 58226563 ShowCharacter
+18c117f4 ShowDuration
 30f8b0dd ShowOnCreate
 d8c81e10 ShowVfx
 efe39691 ShuffleStages

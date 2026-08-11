@@ -51,6 +51,8 @@ h1{font-family:var(--mono);font-size:clamp(26px,4.2vw,38px);font-weight:600;
   letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance}
 h2{font-family:var(--mono);font-size:15px;font-weight:600;letter-spacing:.02em;
   margin:0}
+h2.sub{font-size:13px;font-weight:500;color:var(--dim)}
+[hidden]{display:none!important}
 .sect{padding:38px 0 0}
 .sect-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
   margin-bottom:6px}
@@ -83,7 +85,10 @@ tbody tr:last-child td{border-bottom:none}
 .bar i{display:block;height:100%}
 .bar .s{background:var(--accent)}
 .bar .n{background:var(--noise)}
+.bar .bad{background:var(--flag)}
 td.barcell{width:120px;padding-left:20px}
+td.fam-name{color:var(--ink)}
+td .rate{color:var(--faint)}
 
 .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;
   margin:22px 0 6px}
@@ -132,6 +137,15 @@ a.hash:hover{color:var(--accent);text-decoration:underline;
   white-space:nowrap}
 .chip.clash{background:var(--flag-soft);color:var(--flag)}
 .chip.iface{background:var(--accent-soft);color:var(--accent)}
+.chip.new{background:var(--accent-soft);color:var(--accent)}
+/* A scored row records an outcome; there is nothing to expand. */
+.row.static{cursor:default}
+.row.static:hover{background:none}
+.row.static .stripe{background:var(--accent);opacity:.85}
+.row.miss .stripe{background:var(--flag);opacity:.9}
+.landed{color:var(--ink);font-weight:500}
+.landed s{color:var(--faint);font-weight:400;text-decoration-thickness:1px}
+.arrow{color:var(--faint);padding:0 5px}
 .detail{grid-column:2/5;padding:8px 0 2px;font-size:12px;color:var(--dim);
   display:flex;flex-direction:column;gap:3px}
 .detail b{color:var(--faint);font-weight:400;letter-spacing:.08em;
@@ -160,14 +174,58 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
   I-named candidate is held to a class the meta actually flags as an interface.
   <strong>None of these are cracks.</strong> A 32-bit hash collides with
   plausible names by chance, and each run below states how many of its own hits
-  it expects to be exactly that.</p>
+  it expects to be exactly that. What is new in this sweep is that the last one
+  can now be <a href="#calibration">scored</a>: the names that landed in between
+  turned some of its guesses into settled questions.</p>
   <div class="tally">
     <div><span class="k">bintypes</span><span class="v" id="t-bt"></span></div>
     <div><span class="k">binfields</span><span class="v" id="t-bf"></span></div>
     <div><span class="k">high confidence</span><span class="v" id="t-hi"></span></div>
     <div><span class="k">name collisions</span><span class="v" id="t-cl"></span></div>
+    <div id="t-new-w"><span class="k">new since baseline</span
+      ><span class="v" id="t-new"></span></div>
   </div>
 </header>
+
+<section class="sect" id="calibration" hidden>
+  <div class="sect-head">
+    <h2>Calibration</h2>
+    <span class="note" id="cal-note"></span>
+  </div>
+  <p class="prose">Every hash in <span id="cal-stamp">the baseline</span> was
+  unresolved when its name was proposed. The ones carrying a name today are the
+  only scored predictions this exercise gets, so they are worth reading run by
+  run beside the modelled noise.
+  <strong>This is not a blind test.</strong> Those campaigns read the sweep, so
+  a hash enters the denominator because someone chose to work it; what the
+  number measures is how often a worked proposal was the spelling that survived
+  attestation, not how often a candidate picked at random is right.</p>
+  <div class="tally">
+    <div><span class="k">scored</span><span class="v" id="c-n"></span></div>
+    <div><span class="k">correct</span><span class="v" id="c-ok"></span></div>
+    <div><span class="k">high-confidence tier</span
+      ><span class="v" id="c-hi"></span></div>
+    <div><span class="k">wrong</span><span class="v" id="c-bad"></span></div>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr>
+        <th>run</th><th>scored</th><th>correct</th><th>rate</th>
+        <th class="barcell">hit / miss</th>
+      </tr></thead>
+      <tbody id="cal-runs"></tbody>
+    </table>
+  </div>
+  <div class="sect-head" style="margin-top:30px">
+    <h2 class="sub">What the guesser got wrong</h2>
+    <span class="note">proposal against the name the campaign landed</span>
+  </div>
+  <div class="list" id="cal-miss"></div>
+  <div class="controls" style="margin-top:14px">
+    <button id="cal-all" aria-pressed="false">show all scored rows</button>
+  </div>
+  <div class="list" id="cal-list" hidden></div>
+</section>
 
 <section class="sect">
   <div class="sect-head">
@@ -188,6 +246,31 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
   </div>
 </section>
 
+<section class="sect" id="families" hidden>
+  <div class="sect-head">
+    <h2>Where the unnamed classes are</h2>
+    <span class="note">live subtrees with <span id="fam-min">8</span>+ unnamed
+      members, and this sweep's share of each</span>
+  </div>
+  <p class="prose">The census says where the unnamed surface is; the candidate
+  column says whether a generator has anything to say about it. A family of 74
+  with two candidates and one of 23 with twenty are different propositions for a
+  campaign - and the named members beside them are what fixes the pattern a
+  proposal has to fit.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr>
+        <th>family</th><th>unnamed</th><th>named</th><th>candidates</th>
+        <th class="barcell">covered</th>
+      </tr></thead>
+      <tbody id="fam"></tbody>
+    </table>
+  </div>
+  <div class="controls" style="margin-top:6px">
+    <button id="fam-more" aria-pressed="false">show all families</button>
+  </div>
+</section>
+
 <section class="sect">
   <div class="sect-head">
     <h2>Candidates</h2>
@@ -201,8 +284,10 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
     <button id="f-hi" aria-pressed="false">high confidence only</button>
     <button id="f-clash" aria-pressed="false">collisions</button>
     <button id="f-iface" aria-pressed="false">interfaces</button>
+    <button id="f-new" aria-pressed="false" hidden>new</button>
     <span class="sep"></span>
-    <input type="search" id="q" placeholder="filter by name or hash&hellip;"
+    <input type="search" id="q"
+      placeholder="filter by name, hash or family&hellip;"
       aria-label="Filter candidates">
     <span class="count" id="count"></span>
   </div>
@@ -211,29 +296,37 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
 
 <footer>
   Regenerate with <code>scripts/guesser_sweep.py</code> then
-  <code>scripts/guesser_report.py</code>. Lists live in
-  <code>hash-guesser-out/</code>, gitignored. Confirm a name against shipped data
-  before <code>hashtool add</code>.
+  <code>scripts/guesser_report.py</code>; keep the previous
+  <code>candidates.json</code> as <code>baseline.json</code> and the next sweep
+  scores itself against it. Lists live in <code>hash-guesser-out/</code>,
+  gitignored. Confirm a name against shipped data before
+  <code>hashtool add</code>.
 </footer>
 </div>
 
 <script id="payload" type="application/json">__PAYLOAD__</script>
 <script>
 const D = JSON.parse(document.getElementById('payload').textContent);
-const C = D.c, L = D.l;
+const C = D.c, L = D.l, CAL = D.cal, FAM = D.fam || [];
+const $ = id => document.getElementById(id);
 
-const nHi = t => C[t].filter(r => r.hi).length;
-const nCl = t => C[t].filter(r => r.clash).length;
+const count = (t, k) => C[t].filter(r => r[k]).length;
+const both = k => count('bintypes', k) + count('binfields', k);
 const total = C.bintypes.length + C.binfields.length;
-document.getElementById('stamp').textContent = D.stamp || 'sweep';
-document.getElementById('h-total').textContent = total.toLocaleString();
-document.getElementById('h-runs').textContent = L.length;
-document.getElementById('t-bt').textContent = C.bintypes.length.toLocaleString();
-document.getElementById('t-bf').textContent = C.binfields.length.toLocaleString();
-document.getElementById('t-hi').textContent =
-  (nHi('bintypes') + nHi('binfields')).toLocaleString();
-document.getElementById('t-cl').textContent =
-  (nCl('bintypes') + nCl('binfields')).toLocaleString();
+$('stamp').textContent = D.stamp || 'sweep';
+$('h-total').textContent = total.toLocaleString();
+$('h-runs').textContent = L.length;
+$('t-bt').textContent = C.bintypes.length.toLocaleString();
+$('t-bf').textContent = C.binfields.length.toLocaleString();
+$('t-hi').textContent = both('hi').toLocaleString();
+$('t-cl').textContent = both('clash').toLocaleString();
+const nNew = both('new');
+if (nNew) {
+  $('t-new').textContent = nNew.toLocaleString();
+  $('f-new').hidden = false;
+} else {
+  $('t-new-w').hidden = true;
+}
 
 const fmt = n => n >= 1e6 ? (n / 1e6).toFixed(1) + 'M'
               : n >= 1e3 ? (n / 1e3).toFixed(0) + 'K' : String(n);
@@ -251,7 +344,7 @@ document.getElementById('ledger').innerHTML = L.map(r => {
 }).join('');
 
 let table = 'bintypes', onlyHi = false, onlyClash = false, onlyIface = false,
-    q = '', open = new Set();
+    onlyNew = false, q = '', open = new Set();
 
 const esc = s => String(s).replace(/[&<>"]/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -264,6 +357,89 @@ const wiki = x => WIKI +
   (String(x).startsWith('0x') ? x : String(x).toLowerCase()) + '/';
 const wl = n => `<a href="${wiki(n)}" target="_blank" rel="noopener">` +
   `${esc(n)}</a>`;
+
+// A scored row: the hash, what the baseline proposed, what actually landed.
+// Proposals that missed keep both spellings on screen - the pair is the whole
+// point, since it shows what kind of wrong the generator is.
+const calRow = (r, table) => `<div class="row static ${r.ok ? '' : 'miss'}">
+  <span class="stripe"></span>
+  ${table === 'bintypes'
+    ? `<a class="hash" href="${wiki('0x' + r.h)}" target="_blank"
+        rel="noopener">${r.h}</a>`
+    : `<span class="hash">${r.h}</span>`}
+  <span class="names"><span class="nm landed">${r.ok
+    ? esc(r.a)
+    : `<s>${esc(r.n.join(' / '))}</s><span class="arrow">&rarr;</span>` +
+      esc(r.a)}</span></span>
+  <span class="chips">${r.hi
+    ? '<span class="chip iface">hi</span>'
+    : '<span class="chip">broad</span>'}<span class="chip"
+    >${esc(r.r.join(', '))}</span></span></div>`;
+
+if (CAL) {
+  const rows = ['bintypes', 'binfields'].flatMap(
+    t => CAL.rows[t].map(r => [r, t]));
+  const bad = rows.filter(([r]) => !r.ok);
+  $('calibration').hidden = false;
+  $('cal-stamp').textContent = CAL.stamp;
+  $('cal-note').textContent =
+    `${CAL.scored} of the baseline's proposals have been resolved since`;
+  $('c-n').textContent = CAL.scored;
+  $('c-ok').textContent = CAL.correct;
+  $('c-hi').textContent = `${CAL.hiok}/${CAL.hi}`;
+  $('c-bad').textContent = bad.length;
+  $('cal-runs').innerHTML = CAL.runs.map(r => {
+    const pct = x => (r.n ? 100 * x / r.n : 0).toFixed(1) + '%';
+    const miss = r.n - r.ok;
+    return `<tr>
+      <td class="run"><span class="tier ${r.tier}">${r.tier}</span>
+        ${esc(r.run)}</td>
+      <td>${r.n}</td><td>${r.ok}</td>
+      <td class="rate">${(100 * r.ok / r.n).toFixed(0)}%</td>
+      <td class="barcell"><span class="bar" role="img"
+        aria-label="${r.ok} correct, ${miss} wrong"
+        ><i class="s" style="width:${pct(r.ok)}"></i
+        ><i class="bad" style="width:${pct(miss)}"></i></span></td></tr>`;
+  }).join('');
+  const draw = rs => rs.map(([r, t]) => calRow(r, t)).join('');
+  $('cal-miss').innerHTML = bad.length ? draw(bad)
+    : '<p class="empty">Nothing the baseline proposed and got wrong has been '
+      + 'resolved yet.</p>';
+  $('cal-list').innerHTML = draw(rows);
+  $('cal-all').addEventListener('click', () => {
+    const on = $('cal-list').hidden;
+    $('cal-list').hidden = !on;
+    $('cal-all').setAttribute('aria-pressed', String(on));
+    $('cal-all').textContent = on ? 'hide scored rows' : 'show all scored rows';
+  });
+}
+
+// Families are bintypes-only: a field hash has owners, not a base chain.
+if (FAM.length) {
+  const CUT = 15;
+  $('families').hidden = false;
+  $('fam-min').textContent = Math.min(...FAM.map(f => f.un));
+  const draw = all => {
+    const rows = all ? FAM : FAM.slice(0, CUT);
+    $('fam').innerHTML = rows.map(f => {
+      const pct = (100 * f.cand / f.un).toFixed(1) + '%';
+      return `<tr>
+        <td class="fam-name">${wl(f.name.startsWith('0x') ? f.root : f.name)}</td>
+        <td>${f.un}</td><td>${f.named}</td><td>${f.cand}</td>
+        <td class="barcell"><span class="bar" role="img"
+          aria-label="${f.cand} of ${f.un} unnamed members have a candidate"
+          ><i class="s" style="width:${pct}"></i></span></td></tr>`;
+    }).join('');
+  };
+  draw(false);
+  $('fam-more').addEventListener('click', () => {
+    const on = $('fam-more').getAttribute('aria-pressed') !== 'true';
+    $('fam-more').setAttribute('aria-pressed', String(on));
+    $('fam-more').textContent = on
+      ? `show the top ${CUT}` : 'show all families';
+    draw(on);
+  });
+}
 
 function detail(r) {
   // Values here are HTML: escape at the leaf, never after the anchors go in.
@@ -289,6 +465,9 @@ function detail(r) {
       (r.nown > r.own.length ? ` +${r.nown - r.own.length} more` : '')
       : 'no class in the db']);
   if (r.ty) bits.push(['type', esc(r.ty)]);
+  // Which unnamed subtrees the class sits in, most specific first. A candidate
+  // that reads as a member of its family is worth more than one that does not.
+  if (r.f) bits.push(['family', r.f.map(wl).join(' &lt; ')]);
   bits.push(['found by', esc(r.r.join(', '))]);
   return '<div class="detail">' + bits.map(([k, v]) =>
     `<div><b>${k}</b>${v}</div>`).join('') + '</div>';
@@ -298,13 +477,16 @@ function render() {
   const term = q.trim().toLowerCase();
   const rows = C[table].filter(r =>
     (!onlyHi || r.hi) && (!onlyClash || r.clash) && (!onlyIface || r.if) &&
+    (!onlyNew || r.new) &&
     (!term || r.h.includes(term) ||
-      r.n.some(n => n.toLowerCase().includes(term))));
-  document.getElementById('count').textContent =
+      r.n.some(n => n.toLowerCase().includes(term)) ||
+      (r.f || []).some(f => f.toLowerCase().includes(term))));
+  $('count').textContent =
     `${rows.length.toLocaleString()} of ${C[table].length.toLocaleString()}`;
-  document.getElementById('list').innerHTML = rows.length ? rows.map(r => {
+  $('list').innerHTML = rows.length ? rows.map(r => {
     const id = table + r.h, isOpen = open.has(id);
     const chips = [];
+    if (r.new) chips.push('<span class="chip new">new</span>');
     if (r.clash) chips.push('<span class="chip clash">collision</span>');
     if (r.if) chips.push('<span class="chip iface">interface</span>');
     chips.push(`<span class="chip">${r.hi ? 'hi' : 'broad'}</span>`);
@@ -347,9 +529,10 @@ document.getElementById('list').addEventListener('keydown', e => {
 const toggle = (el, get, set) => el.addEventListener('click', () => {
   set(!get()); el.setAttribute('aria-pressed', String(get())); render();
 });
-toggle(document.getElementById('f-hi'), () => onlyHi, v => onlyHi = v);
-toggle(document.getElementById('f-clash'), () => onlyClash, v => onlyClash = v);
-toggle(document.getElementById('f-iface'), () => onlyIface, v => onlyIface = v);
+toggle($('f-hi'), () => onlyHi, v => onlyHi = v);
+toggle($('f-clash'), () => onlyClash, v => onlyClash = v);
+toggle($('f-iface'), () => onlyIface, v => onlyIface = v);
+toggle($('f-new'), () => onlyNew, v => onlyNew = v);
 for (const t of ['bintypes', 'binfields']) {
   document.getElementById('tb-' + t).addEventListener('click', () => {
     table = t;

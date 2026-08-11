@@ -416,8 +416,8 @@
 }},
 "0x1375d0b": {"name": "IComponentData", "revisions": [{"from":6206549,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0x17411ce": {"revisions": [{"from":7067412,"to":7067412,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7079808,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
- "0x18c117f4": {"revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
+"0x17411ce": {"name": "ActivateEntityTagBlock", "revisions": [{"from":7067412,"to":7067412,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7079808,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+ "0x18c117f4": {"name":"ShowDuration","revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":7067412,"to":7067412,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null},{"from":7079808,"to":7457600,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null}]},
  "0x94018232": {"revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xae321e88"],"default":{}}]},
  "0x95f72993": {"name":"tag","revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null}]}
@@ -825,7 +825,7 @@
  "0x4d5476d2": {"revisions":[{"from":6804378,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x59e0ab85": {"name":"PingCategory","revisions":[{"from":6804378,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x46a7786": {"revisions": [{"from":7027993,"bases":["0xece68ca6"],"interface":true,"value":false}], "properties": {
+"0x46a7786": {"name": "ISequencerBlock", "revisions": [{"from":7027993,"bases":["0xece68ca6"],"interface":true,"value":false}], "properties": {
 }},
 "0x47acadf": {"name": "TargeterDefinitionRange", "revisions": [{"from":5229820,"bases":["0x4c35e652"],"interface":false,"value":false}], "properties": {
  "0x16c24bfe": {"name":"textureOrientation","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
@@ -1635,7 +1635,7 @@
  "0xb54b7b8": {"name":"IconElement","revisions":[{"from":6919951,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x625013d9": {"name":"IconProperty","revisions":[{"from":6919951,"to":7480682,"type":["Pointer","0x0","0x0","0xba2ea874"],"default":null}]}
 }},
-"0x9def8cb": {"revisions": [{"from":6421879,"bases":["0xf6b622c6"],"interface":false,"value":false}], "properties": {
+"0x9def8cb": {"name": "EntityArrayTableSet", "revisions": [{"from":6421879,"bases":["0xf6b622c6"],"interface":false,"value":false}], "properties": {
 }},
 "0xa0eddc9": {"revisions": [{"from":7584427,"bases":[],"interface":false,"value":false}], "properties": {
  "0x34474c3b": {"name":"values","revisions":[{"from":7584427,"type":["List","0x7","F32","0x0"],"default":[0.0,0.0,0.0,0.0,0.0,0.0,0.0]}]}
@@ -1841,7 +1841,7 @@
  "0xd36d5f6e": {"revisions":[{"from":6124791,"type":["Map","U32","String","0x0"],"default":{}}]},
  "0xfde8ebb2": {"revisions":[{"from":6124791,"type":["Map","U32","String","0x0"],"default":{}}]}
 }},
-"0xbabe88f": {"revisions": [{"from":7102027,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0xbabe88f": {"name": "AddTagToEntityBlock", "revisions": [{"from":7102027,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x95f72993": {"name":"tag","revisions":[{"from":7102027,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null}]},
  "0xd33ff5da": {"name":"Entity","revisions":[{"from":7102027,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
@@ -2710,7 +2710,7 @@
 "0x131f5725": {"revisions": [{"from":5329749,"bases":["0x911f126a"],"interface":false,"value":false}], "properties": {
  "0xd50c7c8a": {"name":"StaticTexture","revisions":[{"from":5329749,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x132b63da": {"revisions": [{"from":6421879,"to":6855259,"bases":["0x22383aea","0x3ff050d9"],"interface":false,"value":false},{"from":6877272,"bases":["0x22383aea","0x3ff050d9","0x662c1ec3"],"interface":false,"value":false}], "properties": {
+"0x132b63da": {"name": "EntityTableGet", "revisions": [{"from":6421879,"to":6855259,"bases":["0x22383aea","0x3ff050d9"],"interface":false,"value":false},{"from":6877272,"bases":["0x22383aea","0x3ff050d9","0x662c1ec3"],"interface":false,"value":false}], "properties": {
 }},
 "0x13314f94": {"name": "TargetingParameters", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x24a4d9aa": {"name":"TargetingParamName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -2785,7 +2785,7 @@
 }},
 "0x13a67d09": {"name": "EnvMeshGeComponentDefinition", "revisions": [{"from":7027993,"to":7190545,"bases":["0x385c323f"],"interface":false,"value":false}], "properties": {
 }},
-"0x13d71082": {"revisions": [{"from":6421879,"to":7046097,"bases":[],"interface":true,"value":false},{"from":7067476,"to":7067476,"bases":[],"interface":true,"value":false}], "properties": {
+"0x13d71082": {"name": "IEntityGroupGet", "revisions": [{"from":6421879,"to":7046097,"bases":[],"interface":true,"value":false},{"from":7067476,"to":7067476,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x13dcbd26": {"name": "UiPropertyOverrideLoadable", "revisions": [{"from":5229820,"bases":["0x1d27312c"],"interface":false,"value":false}], "properties": {
 }},
@@ -2921,7 +2921,7 @@
 }},
 "0x14ee5073": {"revisions": [{"from":7465697,"bases":["0xda0d41ce"],"interface":false,"value":false}], "properties": {
 }},
-"0x14ef8081": {"revisions": [{"from":7102027,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x14ef8081": {"name": "RemoveTagFromEntityBlock", "revisions": [{"from":7102027,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x95f72993": {"name":"tag","revisions":[{"from":7102027,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null}]},
  "0xd33ff5da": {"name":"Entity","revisions":[{"from":7102027,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
@@ -3618,7 +3618,7 @@
 }},
 "0x1bb49ec5": {"revisions": [{"from":7231955,"bases":["0x8b54c9a7"],"interface":false,"value":false}], "properties": {
  "0x33fae3fc": {"name":"Selector","revisions":[{"from":7231955,"type":["Link","0x0","0x0","0x7a5e5ed6"],"default":"0x0"}]},
- "0x44ee0c82": {"revisions":[{"from":7231955,"type":["Link","0x0","0x0","0xb5d9d3a0"],"default":"0x0"}]}
+ "0x44ee0c82": {"name":"EntityTag","revisions":[{"from":7231955,"type":["Link","0x0","0x0","0xb5d9d3a0"],"default":"0x0"}]}
 }},
 "0x1bbd2264": {"revisions": [{"from":7426169,"bases":["0x7a3483c4"],"interface":false,"value":false}], "properties": {
  "0xa3383d13": {"name":"Concept","revisions":[{"from":7426169,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -5829,7 +5829,7 @@
  "0x5933da7e": {"name":"RecSpellRankUpInfolist","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xda585234": {"name":"DesignerRecSpellOverride","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x28628b50": {"revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x28628b50": {"name": "SetEntityPositionBlock", "revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x32608848": {"name":"Target","revisions":[{"from":6421879,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]},
  "0x934f4e0a": {"name":"Position","revisions":[{"from":6421879,"type":["Pointer","0x0","0x0","0xdb7bbc6d"],"default":null}]}
 }},
@@ -5977,8 +5977,8 @@
 "0x2980c70d": {"name": "ContextualActionPlayVO", "revisions": [{"from":5229820,"bases":["0x6376b900"],"interface":false,"value":false}], "properties": {
  "0x9449aa71": {"revisions":[{"from":7643737,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
-"0x2994bb4f": {"revisions": [{"from":7496037,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
- "0xc7a370a7": {"revisions":[{"from":7496037,"type":["Embed","0x0","0x0","0x278cc982"],"default":{"Table":{},"Var":""}}]},
+"0x2994bb4f": {"name": "GetEntityMapIndexBlock", "revisions": [{"from":7496037,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+ "0xc7a370a7": {"name":"MapIndex","revisions":[{"from":7496037,"type":["Embed","0x0","0x0","0x278cc982"],"default":{"Table":{},"Var":""}}]},
  "0xd33ff5da": {"name":"Entity","revisions":[{"from":7496037,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
 "0x29b498b2": {"name": "ItemSlotSimpleUiData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -6275,7 +6275,7 @@
  "0xec01928c": {"revisions":[{"from":6919951,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf416eba0": {"name":"tags","revisions":[{"from":5466062,"type":["List2","0x0","Embed","0xf6f4bb5f"],"default":[]}]}
 }},
-"0x2bfff098": {"revisions": [{"from":7426169,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x2bfff098": {"name": "ShowEntityBlock", "revisions": [{"from":7426169,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x2fa0fd0d": {"name":"duration","revisions":[{"from":7426169,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
  "0x32608848": {"name":"Target","revisions":[{"from":7426169,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
@@ -6423,7 +6423,7 @@
 "0x2d60d1db": {"name": "RegaliaRankedBannerMap", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0xc5b8b568": {"name":"RankingToBannerMap","revisions":[{"from":5229820,"type":["Map","String","Link","0x8842b9ae"],"default":{}}]}
 }},
-"0x2d67b83f": {"revisions": [{"from":7496037,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x2d67b83f": {"name": "GetTemplateFromEntityBlock", "revisions": [{"from":7496037,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x694aaa0b": {"name":"template","revisions":[{"from":7496037,"type":["Embed","0x0","0x0","0x30b558d6"],"default":{"Table":{},"Var":""}}]},
  "0xd33ff5da": {"name":"Entity","revisions":[{"from":7496037,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
@@ -6607,7 +6607,7 @@
  "0x24f2ec89": {"name":"mValue","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x46bcba8a": {"name":"mFlexID","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x2f87c01d": {"revisions": [{"from":7027993,"to":7046097,"bases":["0xf6b622c6"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0xf6b622c6"],"interface":false,"value":false}], "properties": {
+"0x2f87c01d": {"name": "EntityGroupTableSet", "revisions": [{"from":7027993,"to":7046097,"bases":["0xf6b622c6"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0xf6b622c6"],"interface":false,"value":false}], "properties": {
 }},
 "0x2f910682": {"name": "IChromaData", "revisions": [{"from":6841658,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -7066,7 +7066,7 @@
  "0xad85ab0f": {"revisions":[{"from":6048769,"to":7480682,"type":["List2","0x0","Embed","0xb8326dde"],"default":[]}]},
  "0xaeed83e4": {"revisions":[{"from":6048769,"to":7480682,"type":["Link","0x0","0x0","0xf21128e4"],"default":"0x0"}]}
 }},
-"0x32790cbf": {"revisions": [{"from":7584427,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x32790cbf": {"name": "DestroyEntityBlock", "revisions": [{"from":7584427,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0xd33ff5da": {"name":"Entity","revisions":[{"from":7584427,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
 "0x327b06c3": {"name": "MapActionAnimationData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -7944,8 +7944,8 @@
  "0x203e6faa": {"name":"Script","revisions":[{"from":6421879,"to":7728292,"type":["Link","0x0","0x0","0xe2b34203"],"default":"0x0"},{"from":7747445,"type":["Link","0x0","0x0","0xd79c24ee"],"default":"0x0"}]},
  "0x819816ff": {"revisions":[{"from":6421879,"type":["Map","Hash","Pointer","0xf6e711b0"],"default":{}}]}
 }},
-"0x3aa63a24": {"revisions": [{"from":6421879,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
- "0x18c117f4": {"revisions":[{"from":7426169,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
+"0x3aa63a24": {"name": "ActivateEntityBlock", "revisions": [{"from":6421879,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+ "0x18c117f4": {"name":"ShowDuration","revisions":[{"from":7426169,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
  "0x32608848": {"name":"Target","revisions":[{"from":6421879,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]},
  "0x5d1f23f0": {"revisions":[{"from":7426169,"to":7457600,"type":["Pointer","0x0","0x0","0xae321e88"],"default":{}}]},
  "0x94018232": {"revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xae321e88"],"default":{}}]}
@@ -8375,7 +8375,7 @@
  "0x9ce1222b": {"name":"ScaleX","revisions":[{"from":7269074,"type":["F32","0x0","0x0","0x0"],"default":1000.0}]},
  "0xed511190": {"name":"ViewController","revisions":[{"from":7269074,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x3fa64abf": {"revisions": [{"from":7695709,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x3fa64abf": {"name": "SetEntityRotationBlock", "revisions": [{"from":7695709,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x21ac415f": {"name":"rotation","revisions":[{"from":7695709,"type":["Pointer","0x0","0x0","0xdb7bbc6d"],"default":null}]},
  "0x32608848": {"name":"Target","revisions":[{"from":7695709,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
@@ -9734,7 +9734,7 @@
  "0xdc0cc6a6": {"revisions":[{"from":6012857,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf416eba0": {"name":"tags","revisions":[{"from":6012857,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
-"0x4957da2f": {"revisions": [{"from":7851316,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x4957da2f": {"name": "SpawnPrefabBlock", "revisions": [{"from":7851316,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x232d383": {"name":"Prefab","revisions":[{"from":7851316,"type":["Pointer","0x0","0x0","0xceb08455"],"default":{}}]},
  "0x7addff1c": {"revisions":[{"from":7851316,"type":["Embed","0x0","0x0","0x9def8cb"],"default":{"Table":{},"Var":""}}]},
  "0x934f4e0a": {"name":"Position","revisions":[{"from":7851316,"type":["Pointer","0x0","0x0","0xdb7bbc6d"],"default":null}]}
@@ -10004,9 +10004,9 @@
 "0x4b26ffad": {"revisions": [{"from":5579166,"bases":["0x27071fbd"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":5579166,"type":["Map","U32","Hash","0x0"],"default":{}}]}
 }},
-"0x4b30a085": {"revisions": [{"from":6421879,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x4b30a085": {"name": "DeactivateEntityBlock", "revisions": [{"from":6421879,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x32608848": {"name":"Target","revisions":[{"from":6421879,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]},
- "0x47ac0d65": {"revisions":[{"from":7426169,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
+ "0x47ac0d65": {"name":"HideDuration","revisions":[{"from":7426169,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
  "0x9e8fcd0c": {"revisions":[{"from":7426169,"type":["Pointer","0x0","0x0","0xae321e88"],"default":{}}]}
 }},
 "0x4b3bfec1": {"name": "FunctionTableSet", "revisions": [{"from":5229820,"bases":["0xf6b622c6"],"interface":false,"value":false}], "properties": {
@@ -10172,7 +10172,7 @@
  "0x8d39bde6": {"name":"name","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xef286ca5": {"name":"options","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x21d0c864"],"default":[]}]}
 }},
-"0x4dc8b7cf": {"revisions": [{"from":6421879,"to":7046097,"bases":["0x13d71082","0xf6e711b0"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0x13d71082","0xf6e711b0"],"interface":false,"value":false}], "properties": {
+"0x4dc8b7cf": {"name": "EntityGroupGet", "revisions": [{"from":6421879,"to":7046097,"bases":["0x13d71082","0xf6e711b0"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0x13d71082","0xf6e711b0"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":6421879,"to":7016241,"type":["Link","0x0","0x0","0x5566d3a3"],"default":"0x0"},{"from":7027993,"to":7046097,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7067476,"to":7067476,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x4dd20b88": {"revisions": [{"from":7996036,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
@@ -10902,7 +10902,7 @@
  "0xb25b0bc0": {"revisions":[{"from":7893741,"type":["Map","Hash","Embed","0x2f798a22"],"default":{}}]},
  "0xbb82c01e": {"revisions":[{"from":7893741,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x540d65a6": {"revisions": [{"from":7538272,"bases":[],"interface":true,"value":false}], "properties": {
+"0x540d65a6": {"name": "IUnitGet", "revisions": [{"from":7538272,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x54206ba9": {"name": "PassThroughParamsTable", "revisions": [{"from":5229820,"bases":["0x24f32dbe"],"interface":false,"value":false}], "properties": {
 }},
@@ -11975,7 +11975,7 @@
 "0x5d7e30f9": {"name": "CustomNeutralCampSpawnBehavior", "revisions": [{"from":5229820,"bases":["0x411f92df"],"interface":false,"value":false}], "properties": {
  "0x87f03406": {"name":"callback","revisions":[{"from":5229820,"to":5304653,"type":["Link","0x0","0x0","0x13e3455e"],"default":"0x0"},{"from":5329749,"type":["Embed","0x0","0x0","0x106bef1e"],"default":{"FunctionName":"0x0","LevelScriptLink":"0x0"}}]}
 }},
-"0x5d85166e": {"revisions": [{"from":7067412,"to":7067412,"bases":["0xb60096a7","0xf6e711b0"],"interface":false,"value":false},{"from":7079808,"bases":["0xb60096a7","0xf6e711b0"],"interface":false,"value":false}], "properties": {
+"0x5d85166e": {"name": "EntityTagGet", "revisions": [{"from":7067412,"to":7067412,"bases":["0xb60096a7","0xf6e711b0"],"interface":false,"value":false},{"from":7079808,"bases":["0xb60096a7","0xf6e711b0"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":7067412,"to":7067412,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7079808,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x5d885176": {"name": "GetKeyValueInCustomTableBlock", "revisions": [{"from":5229820,"bases":["0x3c2ab5b0"],"interface":false,"value":false}], "properties": {
@@ -12639,7 +12639,7 @@
  "0xe64015f0": {"name":"Icon","revisions":[{"from":7102027,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xee10ba86": {"revisions":[{"from":7200925,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x6408e602": {"revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"to":7046097,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x6408e602": {"name": "ActivateEntityGroup", "revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"to":7046097,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":6421879,"to":7046097,"type":["Pointer","0x0","0x0","0x13d71082"],"default":null},{"from":7067476,"to":7067476,"type":["Pointer","0x0","0x0","0x13d71082"],"default":null}]}
 }},
 "0x64179f13": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
@@ -12889,7 +12889,7 @@
  "0x5e6b3b22": {"name":"BerserkTargetingParametersMap","revisions":[{"from":5229820,"type":["Map","Hash","Embed","0xe885e978"],"default":{}}]},
  "0x8b22a93a": {"name":"TargetingParametersMap","revisions":[{"from":5229820,"type":["Map","Hash","Embed","0xdb6be360"],"default":{}}]}
 }},
-"0x667eafac": {"revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x667eafac": {"name": "GetEntityPositionBlock", "revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x32608848": {"name":"Target","revisions":[{"from":6421879,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]},
  "0x9a032455": {"name":"Dest","revisions":[{"from":6421879,"type":["Embed","0x0","0x0","0x92f4ecee"],"default":{"Table":{},"Var":""}}]}
 }},
@@ -13560,7 +13560,7 @@
  "0xcd986599": {"revisions":[{"from":6048769,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf7aea3b2": {"name":"UpscaleTextures","revisions":[{"from":5579166,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
-"0x6ba221d7": {"revisions": [{"from":7426169,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x6ba221d7": {"name": "HideEntityBlock", "revisions": [{"from":7426169,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x2fa0fd0d": {"name":"duration","revisions":[{"from":7426169,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
  "0x32608848": {"name":"Target","revisions":[{"from":7426169,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
@@ -13636,7 +13636,7 @@
  "0x2a648ec4": {"name":"ForVote","revisions":[{"from":5329749,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x9e6a7234": {"name":"AgainstVote","revisions":[{"from":5329749,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x6c93a1b4": {"revisions": [{"from":6421879,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x6c93a1b4": {"name": "ExecuteFunctionEntityBlock", "revisions": [{"from":6421879,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x12ccc735": {"name":"PassThroughParameters","revisions":[{"from":6421879,"type":["Map","Hash","Pointer","0xf6e711b0"],"default":{}}]},
  "0x32608848": {"name":"Target","revisions":[{"from":6421879,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]},
  "0x3c43ef68": {"name":"Sequence","revisions":[{"from":7584427,"type":["Embed","0x0","0x0","0xa687a6a3"],"default":{"blocks":[]}}]},
@@ -14215,7 +14215,7 @@
 }},
 "0x71bb3057": {"revisions": [{"from":6738244,"bases":["0x22383aea","0xceb08455"],"interface":false,"value":false}], "properties": {
 }},
-"0x71cab931": {"revisions": [{"from":7893741,"bases":["0x2435bbc2"],"interface":false,"value":false}], "properties": {
+"0x71cab931": {"name": "ExecuteFunctionBlock", "revisions": [{"from":7893741,"bases":["0x2435bbc2"],"interface":false,"value":false}], "properties": {
  "0x203e6faa": {"name":"Script","revisions":[{"from":7893741,"type":["Link","0x0","0x0","0xee045a71"],"default":"0x0"}]},
  "0x4283375a": {"revisions":[{"from":7893741,"type":["Embed","0x0","0x0","0x4283375a"],"default":{"InputParams":[],"FunctionName":"","0x5eccb5e4":false,"StaticFunction":false,"OutputParams":[],"0xd682dbd0":false,"ScriptName":"","ModuleName":""}}]},
  "0x9ed64249": {"name":"Function","revisions":[{"from":7893741,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -14322,9 +14322,9 @@
 "0x72d98de2": {"name": "ContextualConditionShopOpenCount", "revisions": [{"from":5229820,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0xc97373fb": {"name":"mShopOpenCount","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x72e9216e": {"revisions": [{"from":7067412,"to":7067412,"bases":["0xf6b622c6"],"interface":false,"value":false},{"from":7079808,"bases":["0xf6b622c6"],"interface":false,"value":false}], "properties": {
+"0x72e9216e": {"name": "EntityTagTableSet", "revisions": [{"from":7067412,"to":7067412,"bases":["0xf6b622c6"],"interface":false,"value":false},{"from":7079808,"bases":["0xf6b622c6"],"interface":false,"value":false}], "properties": {
 }},
-"0x72f61cad": {"revisions": [{"from":7643737,"bases":["0xece68ca6"],"interface":true,"value":false}], "properties": {
+"0x72f61cad": {"name": "IRenderingBlock", "revisions": [{"from":7643737,"bases":["0xece68ca6"],"interface":true,"value":false}], "properties": {
 }},
 "0x72fd14ad": {"name": "PaintedRegionEntity", "revisions": [{"from":7996036,"bases":["0x760ad40"],"interface":true,"value":false}], "properties": {
 }},
@@ -14865,7 +14865,7 @@
 "0x77f812a6": {"revisions": [{"from":7067412,"to":7067412,"bases":[],"interface":false,"value":false},{"from":7079808,"bases":[],"interface":false,"value":false}], "properties": {
  "0x5ff07ba8": {"name":"TooltipTraKey","revisions":[{"from":7067412,"to":7067412,"type":["String","0x0","0x0","0x0"],"default":""},{"from":7079808,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x77f87656": {"revisions": [{"from":6997589,"bases":["0x22383aea","0xf3818a3f"],"interface":false,"value":false}], "properties": {
+"0x77f87656": {"name": "SegmentTableGet", "revisions": [{"from":6997589,"bases":["0x22383aea","0xf3818a3f"],"interface":false,"value":false}], "properties": {
 }},
 "0x77fb37dd": {"revisions": [{"from":5579166,"bases":[],"interface":false,"value":false}], "properties": {
  "0x36b04926": {"name":"Divider","revisions":[{"from":5715678,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -15124,7 +15124,7 @@
  "0xbf42490e": {"name":"CriticalTrueDamageFormat","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0x22e0db7d"],"default":"0x0"}]},
  "0xdc42d221": {"name":"DefaultPhysicalDamageFormat","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0x22e0db7d"],"default":"0x0"}]}
 }},
-"0x7a1b11f3": {"revisions": [{"from":7345787,"to":7345787,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7371049,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x7a1b11f3": {"name": "GetEntityRotationBlock", "revisions": [{"from":7345787,"to":7345787,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7371049,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x32608848": {"name":"Target","revisions":[{"from":7345787,"to":7345787,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null},{"from":7371049,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]},
  "0x9a032455": {"name":"Dest","revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x92f4ecee"],"default":{"Table":{},"Var":""}},{"from":7371049,"type":["Embed","0x0","0x0","0x92f4ecee"],"default":{"Table":{},"Var":""}}]}
 }},
@@ -15399,7 +15399,7 @@
  "0xf31c8cd4": {"name":"BossData","revisions":[{"from":6690024,"type":["List2","0x0","Link","0xe4b58196"],"default":[]}]},
  "0xf5a8c9b7": {"revisions":[{"from":6804378,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
-"0x7c85ea46": {"revisions": [{"from":7426169,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x7c85ea46": {"name": "GetEntityDirectionBlock", "revisions": [{"from":7426169,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x32608848": {"name":"Target","revisions":[{"from":7426169,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]},
  "0x9a032455": {"name":"Dest","revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0x92f4ecee"],"default":{"Table":{},"Var":""}}]}
 }},
@@ -15631,7 +15631,7 @@
  "0xef7a5e37": {"name":"SubTeamName","revisions":[{"from":5681102,"to":5706276,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xfe152a6e": {"name":"SubTeamNameInactive","revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x7dcd3672": {"revisions": [{"from":7067412,"to":7067412,"bases":["0x22383aea","0xb60096a7"],"interface":false,"value":false},{"from":7079808,"bases":["0x22383aea","0xb60096a7"],"interface":false,"value":false}], "properties": {
+"0x7dcd3672": {"name": "EntityTagTableGet", "revisions": [{"from":7067412,"to":7067412,"bases":["0x22383aea","0xb60096a7"],"interface":false,"value":false},{"from":7079808,"bases":["0x22383aea","0xb60096a7"],"interface":false,"value":false}], "properties": {
 }},
 "0x7dd1a902": {"name": "SpellDataResourceClient", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x263ba968": {"name":"mTargeterDefinitions","revisions":[{"from":5229820,"type":["List","0x0","Pointer","0x4c35e652"],"default":[]}]},
@@ -18007,9 +18007,9 @@
 "0x91c2a2c7": {"name": "MinimapIconBehavior", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
  "0x2fa0fd0d": {"name":"duration","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"]}]}
 }},
-"0x91ccdfbc": {"revisions": [{"from":7643737,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x91ccdfbc": {"name": "SpawnEntityBlock", "revisions": [{"from":7643737,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x421aee08": {"name":"OutEntity","revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0x851d2116"],"default":{"Table":{},"Var":""}}]},
- "0x7190b62d": {"revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0xceb08455"],"default":{}}]},
+ "0x7190b62d": {"name":"EntityTemplateVar","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0xceb08455"],"default":{}}]},
  "0x934f4e0a": {"name":"Position","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0xdb7bbc6d"],"default":null}]}
 }},
 "0x91d368ee": {"revisions": [{"from":7067412,"to":7067412,"bases":[],"interface":false,"value":true},{"from":7079808,"to":7884269,"bases":[],"interface":false,"value":true}], "properties": {
@@ -18144,7 +18144,7 @@
 "0x92853489": {"revisions": [{"from":6877272,"to":7829736,"bases":["0xb432effc"],"interface":false,"value":false}], "properties": {
  "0xb5a4f01e": {"name":"GoldThreshold","revisions":[{"from":6877272,"to":7829736,"type":["U32","0x0","0x0","0x0"],"default":500}]}
 }},
-"0x92a4d6f9": {"revisions": [{"from":6690024,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0x92a4d6f9": {"name": "AddScriptToEntity", "revisions": [{"from":6690024,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0xd484801": {"name":"ScriptDef","revisions":[{"from":6690024,"type":["Embed","0x0","0x0","0x3aa4575e"],"default":{"Script":"0x0","0x819816ff":{}}}]},
  "0x32608848": {"name":"Target","revisions":[{"from":6690024,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
@@ -19194,7 +19194,7 @@
 "0x9c2f9660": {"name": "IsCastingBoolDriver", "revisions": [{"from":5229820,"bases":["0x7a851cd8"],"interface":false,"value":false}], "properties": {
  "0xe19a6b2d": {"name":"SpellSlot","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":4294967295}]}
 }},
-"0x9c33070d": {"revisions": [{"from":6048769,"bases":["0x4359be6"],"interface":false,"value":false}], "properties": {
+"0x9c33070d": {"name": "WhileLoopBlock", "revisions": [{"from":6048769,"bases":["0x4359be6"],"interface":false,"value":false}], "properties": {
  "0xd212fabe": {"name":"Condition","revisions":[{"from":6048769,"type":["Pointer","0x0","0x0","0xc621aa68"],"default":{}}]}
 }},
 "0x9c472cf3": {"name": "AbilityResourcePipsData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
@@ -19654,7 +19654,7 @@
  "0x79347a3f": {"name":"AdditiveVfx","revisions":[{"from":6690024,"to":7218442,"type":["Pointer","0x0","0x0","0x2c549a4e"]}]},
  "0xef3a0f33": {"name":"ResourceResolver","revisions":[{"from":6540407,"to":7218442,"type":["Pointer","0x0","0x0","0x20194a16"]}]}
 }},
-"0xa004a785": {"revisions": [{"from":6690024,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0xa004a785": {"name": "RemoveScriptFromEntity", "revisions": [{"from":6690024,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x20079c4c": {"name":"RemoveAll","revisions":[{"from":6690024,"type":["Pointer","0x0","0x0","0xae321e88"],"default":null}]},
  "0x203e6faa": {"name":"Script","revisions":[{"from":6690024,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x32608848": {"name":"Target","revisions":[{"from":6690024,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
@@ -20253,7 +20253,7 @@
 "0xa55a663e": {"name": "MapLaneComponent", "revisions": [{"from":5229820,"bases":["0x44f9e6c"],"interface":false,"value":false}], "properties": {
  "0x8ab5077b": {"name":"mLanes","revisions":[{"from":5229820,"type":["List","0x0","Embed","0xe7be4b7"],"default":[]}]}
 }},
-"0xa55c9d58": {"revisions": [{"from":7695709,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0xa55c9d58": {"name": "PlaceEntityBlock", "revisions": [{"from":7695709,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x421aee08": {"name":"OutEntity","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x851d2116"],"default":{"Table":{},"Var":""}}]},
  "0xd33ff5da": {"name":"Entity","revisions":[{"from":7695709,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
@@ -20364,7 +20364,7 @@
 "0xa658f586": {"name": "StoreElementData", "revisions": [{"from":5379010,"bases":["0xa3271e82"],"interface":false,"value":false}], "properties": {
  "0x83c10d42": {"name":"InstanceData","revisions":[{"from":5379010,"type":["List2","0x0","Embed","0x71195869"],"default":[]}]}
 }},
-"0xa66992af": {"revisions": [{"from":7465697,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0xa66992af": {"name": "HideEntityTagBlock", "revisions": [{"from":7465697,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x2fa0fd0d": {"name":"duration","revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
  "0x95f72993": {"name":"tag","revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null}]}
 }},
@@ -20961,7 +20961,7 @@
  "0x5d68eeb5": {"name":"times","revisions":[{"from":5229820,"type":["List","0x0","F32","0x0"],"default":[]}]},
  "0xa7084719": {"name":"probabilityTables","revisions":[{"from":5229820,"type":["List","0x3","Pointer","0x53a6c97e"],"default":[null,null,null]}]}
 }},
-"0xacf818f1": {"revisions": [{"from":6421879,"to":7046097,"bases":["0x13d71082","0x22383aea"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0x13d71082","0x22383aea"],"interface":false,"value":false}], "properties": {
+"0xacf818f1": {"name": "EntityGroupTableGet", "revisions": [{"from":6421879,"to":7046097,"bases":["0x13d71082","0x22383aea"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0x13d71082","0x22383aea"],"interface":false,"value":false}], "properties": {
 }},
 "0xacf95576": {"revisions": [{"from":7996036,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -21493,8 +21493,8 @@
 "0xb0afae41": {"revisions": [{"from":6478644,"bases":["0xa4913311"],"interface":false,"value":false}], "properties": {
  "0xa8dc4ac3": {"name":"TftGameType","revisions":[{"from":6478644,"type":["U32","0x0","0x0","0x0"],"default":5}]}
 }},
-"0xb0afb2dd": {"revisions": [{"from":7067412,"to":7067412,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7079808,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
- "0x47ac0d65": {"revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
+"0xb0afb2dd": {"name": "DeactivateEntityTagBlock", "revisions": [{"from":7067412,"to":7067412,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7079808,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+ "0x47ac0d65": {"name":"HideDuration","revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":7067412,"to":7067412,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null},{"from":7079808,"to":7457600,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null}]},
  "0x95f72993": {"name":"tag","revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null}]},
  "0x9e8fcd0c": {"revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xae321e88"],"default":{}}]}
@@ -22278,7 +22278,7 @@
 }},
 "0xb60012ce": {"name": "IGameCalculationPart", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0xb60096a7": {"revisions": [{"from":7067412,"to":7067412,"bases":[],"interface":true,"value":false},{"from":7079808,"bases":[],"interface":true,"value":false}], "properties": {
+"0xb60096a7": {"name": "IEntityTagGet", "revisions": [{"from":7067412,"to":7067412,"bases":[],"interface":true,"value":false},{"from":7079808,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0xb602063b": {"revisions": [{"from":6048769,"bases":["0x7971fbee"],"interface":false,"value":false}], "properties": {
  "0x328f4c1e": {"name":"Url","revisions":[{"from":6048769,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -23552,7 +23552,7 @@
  "0x4c819a10": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xfe30d09f": {"name":"Event","revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":466}]}
 }},
-"0xc03dda3f": {"revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"to":7046097,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0xc03dda3f": {"name": "DeactivateEntityGroup", "revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"to":7046097,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":6421879,"to":7046097,"type":["Pointer","0x0","0x0","0x13d71082"],"default":null},{"from":7067476,"to":7067476,"type":["Pointer","0x0","0x0","0x13d71082"],"default":null}]}
 }},
 "0xc057ee47": {"revisions": [{"from":5437084,"bases":["0xa403698b"],"interface":false,"value":false}], "properties": {
@@ -23621,7 +23621,7 @@
 }},
 "0xc126997e": {"revisions": [{"from":7643737,"bases":["0xeb31be9b"],"interface":false,"value":false}], "properties": {
  "0x3d7e6258": {"name":"Color","revisions":[{"from":7643737,"type":["Color","0x0","0x0","0x0"],"default":[255,255,255,255]}]},
- "0x44ee0c82": {"revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x44ee0c82": {"name":"EntityTag","revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x7e9f30bd": {"revisions":[{"from":7643737,"type":["I32","0x0","0x0","0x0"],"default":-1}]}
 }},
 "0xc12f716a": {"name": "TFTEmotePanelViewController", "revisions": [{"from":5229820,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
@@ -24007,7 +24007,7 @@
 }},
 "0xc657a95d": {"name": "IMonarchItemData", "revisions": [{"from":6359815,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0xc65d2528": {"revisions": [{"from":5964541,"to":5964541,"bases":["0x22383aea","0xee2395e5"],"interface":false,"value":false},{"from":5967996,"bases":["0x22383aea","0xee2395e5"],"interface":false,"value":false}], "properties": {
+"0xc65d2528": {"name": "ColorTableGet", "revisions": [{"from":5964541,"to":5964541,"bases":["0x22383aea","0xee2395e5"],"interface":false,"value":false},{"from":5967996,"bases":["0x22383aea","0xee2395e5"],"interface":false,"value":false}], "properties": {
 }},
 "0xc6623d61": {"name": "ContextualConditionIsAlly", "revisions": [{"from":5229820,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
  "0x805ea36e": {"name":"mIsAlly","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
@@ -25230,7 +25230,7 @@
  "0x790c294e": {"name":"Shuffle","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xc5bb71b9": {"name":"AnimationList","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x327b06c3"],"default":[]}]}
 }},
-"0xceb08455": {"revisions": [{"from":6738244,"bases":[],"interface":true,"value":false}], "properties": {
+"0xceb08455": {"name": "IDataObjectGet", "revisions": [{"from":6738244,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0xceb70e5a": {"name": "OptionTemplateSecondaryHotkeys_Label", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x4bd96f8f": {"name":"backgroundElement","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -25637,11 +25637,11 @@
 "0xd1dab00e": {"name": "UiElementEffectCustomMaterialData", "revisions": [{"from":5229820,"bases":["0x7d8e7504"],"interface":false,"value":false}], "properties": {
  "0x85ece221": {"name":"mMaterial","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xff9d3409"],"default":"0x0"}]}
 }},
-"0xd1dec547": {"revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"to":7620675,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0xd1dec547": {"name": "CreateEntityBlock", "revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"to":7620675,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x232d383": {"name":"Prefab","revisions":[{"from":7027993,"to":7190545,"type":["Link","0x0","0x0","0x2b949af2"],"default":"0x0"},{"from":7200925,"to":7336673,"type":["Link","0x0","0x0","0x40a9c74a"],"default":"0x0"},{"from":7347485,"to":7347485,"type":["Link","0x0","0x0","0x40a9c74a"],"default":"0x0"}]},
  "0x421aee08": {"name":"OutEntity","revisions":[{"from":6421879,"to":7620675,"type":["Embed","0x0","0x0","0x851d2116"],"default":{"Table":{},"Var":""}}]},
  "0x694aaa0b": {"name":"template","revisions":[{"from":6421879,"to":7016241,"type":["Link","0x0","0x0","0x5784d4c7"],"default":"0x0"}]},
- "0x7190b62d": {"revisions":[{"from":7496037,"to":7620675,"type":["Pointer","0x0","0x0","0xceb08455"],"default":{}}]},
+ "0x7190b62d": {"name":"EntityTemplateVar","revisions":[{"from":7496037,"to":7620675,"type":["Pointer","0x0","0x0","0xceb08455"],"default":{}}]},
  "0x890d1ad6": {"revisions":[{"from":6421879,"to":7336673,"type":["Pointer","0x0","0x0","0xae321e88"],"default":null},{"from":7347485,"to":7347485,"type":["Pointer","0x0","0x0","0xae321e88"],"default":null}]},
  "0x934f4e0a": {"name":"Position","revisions":[{"from":6421879,"to":7620675,"type":["Pointer","0x0","0x0","0xdb7bbc6d"],"default":null}]},
  "0xfee040bc": {"name":"EntityTemplate","revisions":[{"from":7345787,"to":7345787,"type":["Link","0x0","0x0","0x40a9c74a"],"default":"0x0"},{"from":7371049,"to":7480682,"type":["Link","0x0","0x0","0x40a9c74a"],"default":"0x0"}]}
@@ -26481,7 +26481,7 @@
  "0xbb14a627": {"name":"RatedTierVfx","revisions":[{"from":5229820,"type":["Map","U32","Hash","0x0"],"default":{}}]},
  "0xc4ecb642": {"name":"RatedTierTraKeys","revisions":[{"from":5229820,"type":["Map","U32","String","0x0"],"default":{}}]}
 }},
-"0xd859356a": {"revisions": [{"from":7465697,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
+"0xd859356a": {"name": "ShowEntityTagBlock", "revisions": [{"from":7465697,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x2fa0fd0d": {"name":"duration","revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xa6d3b432"],"default":{}}]},
  "0x95f72993": {"name":"tag","revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null}]}
 }},
@@ -28150,7 +28150,7 @@
  "0xdd72c771": {"name":"PartyChatChannelTra","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0xe53e4779": {"revisions": [{"from":7231955,"bases":["0xd8d462e4"],"interface":false,"value":false}], "properties": {
- "0x44ee0c82": {"revisions":[{"from":7231955,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0x44ee0c82": {"name":"EntityTag","revisions":[{"from":7231955,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xe54c014f": {"name": "MapAlternateAsset", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0x189600ee": {"name":"AudioBankUnits","revisions":[{"from":5229820,"type":["List2","0x0","Embed","0xa4416515"],"default":[]}]},
@@ -28760,7 +28760,7 @@
  "0x8c501cce": {"revisions":[{"from":7200925,"to":7218442,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xc7104241": {"name":"EntryTemplate","revisions":[{"from":7200925,"to":7218442,"type":["Embed","0x0","0x0","0x6d22dc6b"],"default":{"Subtitle":"0x0","Background":"0x0","Group":"0x0","0x67e9a071":"0x0","0x9042fa06":"0x0","title":"0x0","0xa195dc78":"0x0","HoverRegion":"0x0","CurrencyText":"0x0","BackgroundHover":"0x0","Icon":"0x0","0xf7371e5a":"0x0"}}]}
 }},
-"0xe9e530a6": {"revisions": [{"from":7135912,"bases":["0x22383aea","0xc56dc33d"],"interface":false,"value":false}], "properties": {
+"0xe9e530a6": {"name": "PathTableGet", "revisions": [{"from":7135912,"bases":["0x22383aea","0xc56dc33d"],"interface":false,"value":false}], "properties": {
 }},
 "0xe9e64c32": {"name": "RedGreenEntityPrefab", "revisions": [{"from":7027993,"to":7190545,"bases":["0x2b949af2"],"interface":false,"value":false}], "properties": {
  "0x188f3e1": {"revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0xd53a02a6"],"default":{"0xd4444147":0}}]},
@@ -28913,7 +28913,7 @@
  "0xe97a2996": {"revisions":[{"from":5276396,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xeb649d77": {"name":"StatusData","revisions":[{"from":5276396,"type":["Embed","0x0","0x0","0x696a421b"],"default":{"StatusIcon":"0x0","StatusDurationBarData":null,"StatusText":"0x0","NameText":"0x0","CenterJustifyStatusIconAndText":false}}]}
 }},
-"0xeacbd3e9": {"revisions": [{"from":7067412,"to":7067412,"bases":["0x3c2ab5b0"],"interface":true,"value":false},{"from":7079808,"bases":["0x3c2ab5b0"],"interface":true,"value":false}], "properties": {
+"0xeacbd3e9": {"name": "IAsyncBlock", "revisions": [{"from":7067412,"to":7067412,"bases":["0x3c2ab5b0"],"interface":true,"value":false},{"from":7079808,"bases":["0x3c2ab5b0"],"interface":true,"value":false}], "properties": {
  "0x3c43ef68": {"name":"Sequence","revisions":[{"from":7067412,"to":7067412,"type":["Embed","0x0","0x0","0xa687a6a3"]},{"from":7079808,"type":["Embed","0x0","0x0","0xa687a6a3"]}]}
 }},
 "0xead1b379": {"name": "StatStoneMasteryEffects", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -30333,7 +30333,7 @@
  "0xe19a6b2d": {"name":"SpellSlot","revisions":[{"from":6649480,"to":7480682,"type":["Embed","0x0","0x0","0x5f011348"],"default":{"SlotType":0,"Index":0,"SpellBook":0}}]},
  "0xf248d989": {"name":"InputEvent","revisions":[{"from":6649480,"to":7480682,"type":["Link","0x0","0x0","0x5a51d019"],"default":"0x0"}]}
 }},
-"0xf44004bb": {"revisions": [{"from":7538272,"bases":["0x22383aea","0x540d65a6","0x662c1ec3"],"interface":false,"value":false}], "properties": {
+"0xf44004bb": {"name": "UnitTableGet", "revisions": [{"from":7538272,"bases":["0x22383aea","0x540d65a6","0x662c1ec3"],"interface":false,"value":false}], "properties": {
 }},
 "0xf45e04e1": {"revisions": [{"from":6738244,"bases":[],"interface":false,"value":false}], "properties": {
  "0x4b7f058a": {"name":"rarity","revisions":[{"from":6738244,"type":["U8","0x0","0x0","0x0"],"default":20}]},

@@ -14,10 +14,12 @@ largest remaining block is the baseless 719, which no family argument reaches.
 
 Counts are as of the `map-entity-templates` campaign, which took
 `MapPlaceableBase` out of this table - see
-[docs/map-entity-templates.md](map-entity-templates.md). `ILogicDriver` has
-since been worked as well and is down from 66 unnamed to 23; its row below is
-left at the pre-campaign count so the census stays one snapshot, and the
-write-up is [docs/logic-drivers.md](logic-drivers.md).
+[docs/map-entity-templates.md](map-entity-templates.md). Two more have been
+worked since, and their rows below are left at the pre-campaign count so the
+census stays one snapshot: `ILogicDriver` is down from 66 unnamed to 23
+([docs/logic-drivers.md](logic-drivers.md)), and `IScriptBlock` from 85 to 56
+via its `GameEntityBlock` sub-root
+([docs/game-entity-blocks.md](game-entity-blocks.md)).
 
 ## Reading the census
 
@@ -82,10 +84,11 @@ Prior campaigns, from `hashes/overrides/ledger.bintypes.tsv`, so nobody
 re-treads: `IVfxBaseDriver` is 56/56 ours (`vfx-driver-graph`), `BaseParams`
 20/20 and `ViewController` 31/189 (`season16-modes-ui`, `viewcontroller-family`),
 `IGameModeConfigBase` 5/19 (`gamemode-configs`). `MapPlaceableBase` is finished
-and off the table: `map-entity-templates` took it from 28 unnamed to 5, and
-`logic-drivers` took `ILogicDriver` from 66 to 23. **`ISequenceAction` and
-`GameEntityBlock` have never been touched by a campaign here** - every name
-beside them came from upstream.
+and off the table: `map-entity-templates` took it from 28 unnamed to 5,
+`logic-drivers` took `ILogicDriver` from 66 to 23, and `game-entity-blocks` took
+`GameEntityBlock` from 28 to 4, which is most of `IScriptBlock`'s drop from 85
+to 56. **`ISequenceAction` has never been touched by a campaign here** - every
+name beside it came from upstream.
 
 ## The nine worth following up
 
@@ -108,14 +111,18 @@ the block's signature directly.
 - 44 named siblings fix the pattern to `<Verb><Noun>Block`, with a large
   attested verb vocabulary already: `Get`, `Set`, `Create`, `Destroy`, `Insert`,
   `Remove`, `Copy`, `Shuffle`, `Sort`, `Concatenate`, `Preload`, `ForEach`.
-- Sub-roots worth their own `--only` run: `GameEntityBlock` (28 unnamed, 0
-  named, 80% resolved), `IUiBlock`, `LevelScriptBlock`, `ILoopScriptBlock`,
-  `IBehaviorScriptBlock`, `IRunFunctionBlock`.
+- Sub-roots worth their own `--only` run: `IUiBlock`, `LevelScriptBlock`,
+  `ILoopScriptBlock`, `IBehaviorScriptBlock`, `IRunFunctionBlock`. The sixth,
+  `GameEntityBlock`, has been worked - 28 unnamed to 4, and the family is down
+  to 56 because of it.
 - Its own base `0x38a7f9b3` is unnamed and has exactly two children,
   `IScriptBlock` and `SwitchCase`.
 
-See the worked example below: 9 candidates from 44 probes, every one in the
-structural slot its fields predict.
+The `GameEntityBlock` run is the worked example below, and
+[docs/game-entity-blocks.md](game-entity-blocks.md) is what it turned into. The
+one method there that generalises to the remaining sub-roots: a block's inputs
+and outputs name it, and a verb pair that fills a 2x2 at once is proved by the
+lattice rather than by any single hash.
 
 ### 2. `ISequenceAction` (eb31be9b) - 65 unnamed, 0 named
 
@@ -341,17 +348,23 @@ The Set/Get split falls out of the input/output convention rather than out of
 the hash, and `CreateEntityBlock` dying in 16.7 exactly as `SpawnEntityBlock`
 arrives in 16.8 is a rename the hashes cannot have coordinated.
 
-**These are candidates, not cracks.** None is in an override table. By the rule
-in the README they need attestation in shipped data before `hashtool add`, and
-that step has not been run.
+All nine held up and are now in the tables, along with 44 more names the
+`game-entity-blocks` campaign built on them - see
+[docs/game-entity-blocks.md](game-entity-blocks.md). What this example did not
+have, and the campaign did: suffix folding proves `Destroy` and `Show` out of
+two of these hashes directly, 39 shipped instances of `GetEntityPositionBlock`
+write to 31 distinct position variables, and the six-hash `EntityGroup` to
+`EntityTag` rename at 15.17 lines every span up on one patch boundary.
 
 ## Status
 
-Two of the ten have been worked. `map-entity-templates` landed 109 names out of
-`MapPlaceableBase` ([docs/map-entity-templates.md](map-entity-templates.md));
+Three of the ten have been worked. `map-entity-templates` landed 109 names out
+of `MapPlaceableBase` ([docs/map-entity-templates.md](map-entity-templates.md));
 `logic-drivers` landed 46 out of `ILogicDriver`
-([docs/logic-drivers.md](logic-drivers.md)). Nothing else here has entered a
-table, and the `GameEntityBlock` candidates above are still candidates.
+([docs/logic-drivers.md](logic-drivers.md)); `game-entity-blocks` landed 53 out
+of `IScriptBlock`'s `GameEntityBlock` sub-root
+([docs/game-entity-blocks.md](game-entity-blocks.md)). Nothing else here has
+entered a table.
 
 What `logic-drivers` adds to the method, beyond what `map-entity-templates`
 records: when a family's base classes are typed, the base fixes the last word,
@@ -359,3 +372,11 @@ so `--suffix` is anchored for free and the search collapses to one word. And the
 retail client binary is worth probing even when the CommunityDragon corpus is
 empty - 2.8M asset-path forms returned nothing, while 469k binary strings
 returned the five stems that unlocked half the campaign.
+
+`game-entity-blocks` repeats that negative exactly - 4.0M CommunityDragon forms,
+zero hits; 144k retail client forms, two - and adds two things. A rename dated to
+one patch is worth more than any single hash, because the spans of the classes
+either side have to meet at the boundary and chance cannot arrange six of them.
+And a family's own field hashes are targets in their own right: `ShowDuration`
+and `HideDuration` came out of a 0.051-noise field run and retro-confirmed the
+verbs already proposed for the four classes that declare them.

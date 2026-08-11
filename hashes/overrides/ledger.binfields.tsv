@@ -1338,3 +1338,8 @@ c7543bfc	RenderParticles                                             	map-entity
 18291220	ComponentWeight                                             	logic-drivers                 	2026-08-10	pending  	-
 f9c21175	IgnoreDead                                                  	logic-drivers                 	2026-08-10	pending  	-
 44146c9d	MissileSpellObjects                                         	logic-drivers                 	2026-08-10	pending  	-
+44ee0c82	EntityTag                                                   	game-entity-blocks            	2026-08-11	pending  	-
+7190b62d	EntityTemplateVar                                           	game-entity-blocks            	2026-08-11	pending  	-
+47ac0d65	HideDuration                                                	game-entity-blocks            	2026-08-11	pending  	-
+c7a370a7	MapIndex                                                    	game-entity-blocks            	2026-08-11	pending  	-
+18c117f4	ShowDuration                                                	game-entity-blocks            	2026-08-11	pending  	-

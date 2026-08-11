@@ -6824,11 +6824,11 @@
 }},
 "0x30b558d6": {"name": "DataObjectTableSet", "revisions": [{"from":6919951,"bases":["0xf6b622c6"],"interface":false,"value":false}], "properties": {
 }},
-"0x30c224ec": {"revisions": [{"from":7200925,"bases":[],"interface":false,"value":true}], "properties": {
- "0x6438040c": {"revisions":[{"from":7200925,"type":["U32","0x0","0x0","0x0"],"default":32}]},
- "0x6538059f": {"revisions":[{"from":7200925,"type":["U32","0x0","0x0","0x0"],"default":2}]},
- "0x66380732": {"revisions":[{"from":7200925,"type":["U32","0x0","0x0","0x0"],"default":32}]},
- "0x86bf2c9e": {"revisions":[{"from":7200925,"type":["Vec3","0x0","0x0","0x0"],"default":[100.0,100.0,100.0]}]},
+"0x30c224ec": {"name": "ClusteredLightingInfo", "revisions": [{"from":7200925,"bases":[],"interface":false,"value":true}], "properties": {
+ "0x6438040c": {"name":"MaxNumClustersX","revisions":[{"from":7200925,"type":["U32","0x0","0x0","0x0"],"default":32}]},
+ "0x6538059f": {"name":"MaxNumClustersY","revisions":[{"from":7200925,"type":["U32","0x0","0x0","0x0"],"default":2}]},
+ "0x66380732": {"name":"MaxNumClustersZ","revisions":[{"from":7200925,"type":["U32","0x0","0x0","0x0"],"default":32}]},
+ "0x86bf2c9e": {"name":"MinClusterSize","revisions":[{"from":7200925,"type":["Vec3","0x0","0x0","0x0"],"default":[100.0,100.0,100.0]}]},
  "0x8a0d61c2": {"revisions":[{"from":7200925,"type":["U32","0x0","0x0","0x0"],"default":8192}]}
 }},
 "0x30e9338e": {"revisions": [{"from":7231955,"bases":[],"interface":true,"value":false}], "properties": {
@@ -29534,9 +29534,9 @@
 }},
 "0xef02c9a2": {"name": "MapDynamicLighting", "revisions": [{"from":5229820,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
  "0x2451a0b": {"revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xbe053e8": {"revisions":[{"from":7200925,"type":["Embed","0x0","0x0","0x30c224ec"],"default":{"0x6438040c":32,"0x6538059f":2,"0x66380732":32,"0x86bf2c9e":[100.0,100.0,100.0],"0x8a0d61c2":8192}}]},
+ "0xbe053e8": {"revisions":[{"from":7200925,"type":["Embed","0x0","0x0","0x30c224ec"],"default":{"MaxNumClustersX":32,"MaxNumClustersY":2,"MaxNumClustersZ":32,"MinClusterSize":[100.0,100.0,100.0],"0x8a0d61c2":8192}}]},
  "0xb41ddb79": {"revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xed17c5c8": {"revisions":[{"from":5409873,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
+ "0xed17c5c8": {"name":"DynamicLightsEnabled","revisions":[{"from":5409873,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
 "0xef039d8b": {"name": "TFTCompanionBucket", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x56ecde12": {"name":"Companions","revisions":[{"from":5229820,"type":["List","0x0","Hash","0x0"],"default":[]}]}

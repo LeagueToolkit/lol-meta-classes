@@ -24,4 +24,5 @@ guest-of-honor                	Arena Guest of Honor mode config (16.13+), instan
 map-entity-templates          	MapPlaceableBase's Entity/EntityTemplate/EntityPrefab/Definition/GeComponent lattice, plus the shipped strings that name three of its stems. See docs/map-entity-templates.md
 character-outline             	Jade's toon outline on SkinMeshDataProperties. Recombination at 0.007 expected chance hits over the Outline-naming slice, attested by 21 shipped *_CharacterOutline_inst. See docs/character-outline.md
 logic-drivers                 	ILogicDriver family: suffix folding + lattice completion, corroborated by shipped .bin driver graphs and client-binary strings. docs/logic-drivers.md
+clustered-lighting            	MapDynamicLighting's cluster grid: x/y/z fold to one stem, anchored search returns exactly MaxNumClusters; the rest single-hash with matching defaults. See docs/clustered-lighting.md
 game-entity-blocks            	GameEntityBlock's script-block set. Suffix folding, two 2x2 lattices, the 15.17 EntityGroup->EntityTag rename; shipped position vars and client strings attest. docs/game-entity-blocks.md

@@ -67,6 +67,7 @@ f3ddd31e CharacterStatFloatDriver
 93f16627 ClientStateGameplay
 1b2711f4 ClientStateTftPreGameUi
 5b49a915 ClosestTarget
+30c224ec ClusteredLightingInfo
 bf957944 ColorGet
 c65d2528 ColorTableGet
 ab78f6f4 ColorTableSet

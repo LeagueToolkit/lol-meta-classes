@@ -658,6 +658,7 @@ b42ce350	SequenceMaterialVectorDriver                                	logic-driv
 bafc3e15	SpellDataNamedValueFloatDriver                              	logic-drivers                 	2026-08-10	pending  	-
 ed5506a6	TftTeamCannonMaterialDriver                                 	logic-drivers                 	2026-08-10	pending  	-
 1792fdb5	ValueArrayFloatDriver                                       	logic-drivers                 	2026-08-10	pending  	-
+30c224ec	ClusteredLightingInfo                                       	clustered-lighting            	2026-08-11	pending  	-
 3aa63a24	ActivateEntityBlock                                         	game-entity-blocks            	2026-08-11	pending  	-
 6408e602	ActivateEntityGroup                                         	game-entity-blocks            	2026-08-11	pending  	-
 017411ce	ActivateEntityTagBlock                                      	game-entity-blocks            	2026-08-11	pending  	-

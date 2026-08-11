@@ -337,6 +337,7 @@ af6469c4 Drivers
 ea4b69c5 DuplicateText
 af128762 DurationSeconds
 7168974e DynamicLighting
+ed17c5c8 DynamicLightsEnabled
 9561c6b3 EarlyComp
 8e97ff30 EasingData
 ff0af490 EasingFunction
@@ -700,6 +701,9 @@ cf7f6e66 Maps
 1f14dbe7 MaterialContainer
 e81d2ece MaterialMapping
 2a96dc56 MaxGameEvents
+6438040c MaxNumClustersX
+6538059f MaxNumClustersY
+66380732 MaxNumClustersZ
 c40b91eb MaxPages
 9240af8c MaxQuantity
 df4673e5 MaxScaleChange
@@ -721,6 +725,7 @@ af3fe1c9 MiddleElements
 588f9aa5 MiddleFrame
 1de82be3 MilestoneAsset
 297c5518 MilestoneDefinition
+86bf2c9e MinClusterSize
 fd301d67 MinLevel
 377d1a73 MinScaleChange
 eaebcf6e MinSize

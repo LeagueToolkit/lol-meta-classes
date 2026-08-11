@@ -43,10 +43,6 @@ class 0x114828a9():
     0xf77f0044: (F32, 0x0, 0x0, 0x0)
     pass
 
-class 0x11599ec6(0x86687e99):
-    value: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x115b5460(0x3e265091):
     TextureToOverride: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TacticianIndex: (U32, 0x0, 0x0, 0x0) = 0
@@ -128,7 +124,7 @@ class 0x1493959a():
     pass
 
 class 0x1499e53b(ISequenceAction):
-    0x54b38947: (U8, 0x0, 0x0, 0x0) = 0
+    ActionOnEnd: (U8, 0x0, 0x0, 0x0) = 0
     0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ActionOnStart: (U8, 0x0, 0x0, 0x0) = 0
     pass
@@ -238,7 +234,7 @@ class 0x1739a4e6():
     pass
 
 class 0x17409c51():
-    Mapping: (Map, U32, Embed, 0xd139de78) = {}
+    Mapping: (Map, U32, Embed, CustomChromaData) = {}
     pass
 
 class 0x1742fda9(0xb87473b5):
@@ -271,12 +267,6 @@ class 0x17d73579(BaseLoadoutData):
     pass
 
 class 0x17e5a8af(BaseParams):
-    pass
-
-class 0x17ed90bf(ISequenceAction):
-    0xa98993fb: (Pointer, 0x0, 0x0, 0x6dfe8e70) = {}
-    Object: (Pointer, 0x0, 0x0, 0x6837de51) = null
-    SetOnStart: (Pointer, 0x0, 0x0, 0x6dfe8e70) = {}
     pass
 
 class 0x180e553c(TftPassRewardBase):
@@ -355,22 +345,6 @@ class 0x1a261378(0xe2a48eac):
     Item: (Embed, 0x0, 0x0, TftMapItemData) = {"ArmoryIconPath":"","IconPath":"","NameId":"","description":"","effectAmounts":[],"itemID":0,"name":""}
     pass
 
-class 0x1a46b794(ISequenceAction):
-    EndValue: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    EasingType: (U8, 0x0, 0x0, 0x0) = 0
-    0x7bd430bd: (Bool, 0x0, 0x0, 0x0) = true
-    0xacddc1f1: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    StartValue: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    0xee641224: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
-class 0x1a4d18fe(ISequenceAction):
-    EnableOnEnd: (Bool, 0x0, 0x0, 0x0) = true
-    element: (Pointer, 0x0, 0x0, 0xe561be2e) = null
-    DisableOnStart: (Bool, 0x0, 0x0, 0x0) = true
-    0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    pass
-
 class 0x1a4d9bd(ICharacterSubcondition):
     SpellBuff: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -419,7 +393,7 @@ class 0x1b7c5512(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
-class 0x1bb49ec5(0x8b54c9a7):
+class 0x1bb49ec5(SeqInputObject):
     Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     EntityTag: (Link, 0x0, 0x0, 0xb5d9d3a0) = "0x0"
     pass
@@ -479,12 +453,6 @@ class 0x1cda14e0(ViewController):
     0xd100188a: (Map, U8, Link, Sequence) = {}
     0xd2b48173: (Embed, 0x0, 0x0, 0x65d203f4) = {"GoldAmount":"0x0","GoldIcon":"0x0","Group":"0x0","Icon":"0x0"}
     0xf5b9a93e: (F32, 0x0, 0x0, 0x0) = 1.0
-    pass
-
-class 0x1cf9835(ISequenceAction):
-    0x1695a8: (Pointer, 0x0, 0x0, 0x90e924a6) = {"FalloffEasingType":0,"FalloffRadius":0.0}
-    TargetLocation: (Pointer, 0x0, 0x0, 0x94e82d1f) = {}
-    0xf92ca41e: (Embed, 0x0, 0x0, 0x641e4225) = {"FalloffRate":2.0,"Magnitude":20.0,"ShakesPerSecond":6.0}
     pass
 
 class 0x1d04cfa7(IVfxFloatDriver):
@@ -626,9 +594,6 @@ class 0x1f3ce132(0x26d26471):
     duration: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0x1f4ce347(0x8e134d2):
-    pass
-
 class 0x1f5bef59():
     InactiveVfx: (Map, U8, Hash, 0x0) = {}
     ActiveVfx: (Map, U8, Hash, 0x0) = {}
@@ -680,11 +645,6 @@ class 0x20194a16(0xd0c7ee75):
     pass
 
 class 0x20946fd8(IDeathGeComponentDef):
-    pass
-
-class 0x20947da4(0xa2913bfb):
-    SplinePoints: (List2, 0x0, Embed, 0xe7868c96) = []
-    SplineCurves: (List2, 0x0, Pointer, 0x7de1323f) = []
     pass
 
 class 0x209fa685():
@@ -748,9 +708,6 @@ class 0x21e68591():
 class 0x21fc73e7():
     0xd3aa34a: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Event: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x221f2907():
     pass
 
 class 0x227fcad0(0xc87f69f4):
@@ -846,12 +803,6 @@ class 0x2483c715():
 class 0x248f26e1(MissileTriggerSpec):
     pass
 
-class 0x24a2c8d1(ISequenceAction):
-    0x1609b312: (Pointer, 0x0, 0x0, 0x286deb81) = {}
-    0x5e9b875d: (Pointer, 0x0, 0x0, 0x6dfe8e70) = {}
-    TargetObject: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    pass
-
 class 0x24de77f2(0xacf95576, IUiVariable):
     value: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -894,17 +845,9 @@ class 0x25bfa52(LevelScriptBlock):
     BarracksProperty: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x26129005(0x8930818a):
-    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    pass
-
 class 0x2630bcc1():
     0x1b08afa4: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":""}
     0x921ce7d6: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":""}
-    pass
-
-class 0x2640cef1(0x8930818a):
-    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
 class 0x26435b25(ViewController):
@@ -923,12 +866,6 @@ class 0x26435b25(ViewController):
     CardBackground: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TitleText: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x264cb166(ISequenceAction):
-    SplinePoints: (List2, 0x0, Pointer, 0x5bc98d54) = []
-    SplineCurves: (List2, 0x0, Pointer, 0x9be3a010) = []
-    0x7fd88075: (Pointer, 0x0, 0x0, 0x221f2907) = null
     pass
 
 class 0x266047aa(TftCutsceneValueProvider):
@@ -1011,10 +948,7 @@ class 0x27f036af(0x64c18f7d):
 
 class 0x280745b1():
     params: (Pointer, 0x0, 0x0, 0xc7e628b9) = null
-    0x50aad250: (List2, 0x0, Pointer, 0xdd661aab) = []
-    pass
-
-class 0x286deb81():
+    0x50aad250: (List2, 0x0, Pointer, SpellPreviewData) = []
     pass
 
 class 0x28706210(LevelScriptBlock):
@@ -1147,10 +1081,6 @@ class 0x2b365a82():
     pass
 
 class 0x2b42f4b6(BaseParams):
-    pass
-
-class 0x2b595e9a(0x8b54c9a7):
-    Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
 class 0x2b686c3d():
@@ -1350,7 +1280,7 @@ class 0x30ed049a():
     0xa7429aa5: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
-class 0x3103e774(0xece68ca6):
+class 0x3103e774(IGameScreenClientBlock):
     pass
 
 class 0x31306588(MapAction):
@@ -1480,7 +1410,7 @@ class 0x32a4dd4(ViewController):
     MainScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x32ac06f5(0x8b54c9a7):
+class 0x32ac06f5(SeqInputObject):
     MapPlaceable: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -1558,9 +1488,6 @@ class 0x34f2d06e(GameEntityComponent):
 class 0x34f43159(0x6ca3cfd):
     0x3a302e74: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     ValueArray: (List2, 0x0, Pointer, 0x6ca3cfd) = []
-    pass
-
-class 0x34f9b91e(0xf71f4123):
     pass
 
 class 0x35200ead(0xaf6bce07):
@@ -1650,7 +1577,7 @@ class 0x37fe5e09(ISequenceAction):
     EasingType: (U8, 0x0, 0x0, 0x0) = 0
     0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
     StartPosition: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
-    0xfbf05517: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
+    Pivot: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
     pass
 
 class 0x38074ad2(ISequenceActionInstance):
@@ -1701,10 +1628,6 @@ class 0x38ad3494(IDeathGeComponentDef):
 
 class 0x38d7429(0x34ecdf00):
     value: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x38ffd3d1(0x8930818a):
-    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
 class 0x3906c4b9():
@@ -1816,11 +1739,6 @@ class 0x3ab4ee7c():
     IconElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     IconBackground: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xfb8c0e70: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x3ad02cfc(ISequenceAction):
-    0x94018232: (Bool, 0x0, 0x0, 0x0) = true
-    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x3aee5d80():
@@ -1950,14 +1868,6 @@ class 0x3d900309(IGameModeConfig):
     itemLists: (Map, String, Link, GameModeItemList) = {}
     pass
 
-class 0x3dc0ea14(ISequenceAction):
-    DisableOnEnd: (Bool, 0x0, 0x0, 0x0) = true
-    element: (Pointer, 0x0, 0x0, 0xc06f5f6a) = null
-    0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    Text: (Pointer, 0x0, 0x0, 0xa8a6ac21) = null
-    EnableOnStart: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
 class 0x3dcfc315(0x7de1323f):
     0x62cd19ac: (Vec3, 0x0, 0x0, 0x0) = [-1.0,0.0,0.0]
     ControlVector2: (Vec3, 0x0, 0x0, 0x0) = [1.0,0.0,0.0]
@@ -2045,7 +1955,7 @@ class 0x3f40d811(0x2b00c366):
     itemTypeId: (String, 0x0, 0x0, 0x0) = "a100394c-a1fa-4ef1-abdd-0818ac199223"
     pass
 
-class 0x3f4b8c5(0xece68ca6):
+class 0x3f4b8c5(IGameScreenClientBlock):
     pass
 
 class 0x3f667d7e(InputEventBoolKeybind):
@@ -2053,11 +1963,6 @@ class 0x3f667d7e(InputEventBoolKeybind):
 
 class 0x3fd44d66(VfxSpawnBehavior):
     EmissionRate: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    pass
-
-class 0x4006e9f8(ISequenceAction):
-    0x20407665: (Bool, 0x0, 0x0, 0x0) = true
-    0x88f674e1: (Pointer, 0x0, 0x0, 0xd8d462e4) = null
     pass
 
 class 0x40114a13():
@@ -2161,12 +2066,6 @@ class 0x41bdce89():
     ContentTypeIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x4201f026(0x221f2907):
-    Operation: (U8, 0x0, 0x0, 0x0) = 0
-    LeftSource: (Pointer, 0x0, 0x0, 0x221f2907) = null
-    RightSource: (Pointer, 0x0, 0x0, 0x221f2907) = null
-    pass
-
 class 0x420e433d(ILoadoutInfoPanel):
     GamePassIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ItemLockIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2178,7 +2077,7 @@ class 0x420e433d(ILoadoutInfoPanel):
 
 class 0x426aa047(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Slots: (List, 0x0, Embed, 0xd2c4bed8) = []
+    Slots: (List, 0x0, Embed, TftItemDisplayData) = []
     Background: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MobileOverrideLoadable: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
     titleIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2283,7 +2182,7 @@ class 0x44852d75(IVfxVector3Driver):
     frequency: (U8, 0x0, 0x0, 0x0) = 0
     looping: (Bool, 0x0, 0x0, 0x0) = false
     ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
-    colors: (Embed, 0x0, 0x0, 0xf7711a64) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
+    colors: (Embed, 0x0, 0x0, ValueColorRgb) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
     pass
 
 class 0x44ad5085(InputEventBoolKeybind):
@@ -2401,11 +2300,6 @@ class 0x48b525af(IUiTextureDataProvider):
     pass
 
 class 0x48c497b7(UISceneViewPane):
-    pass
-
-class 0x48d730b(0x99320e3c):
-    SplinePoints: (List2, 0x0, Embed, 0xe7868c96) = []
-    SplineCurves: (List2, 0x0, Pointer, 0x7de1323f) = []
     pass
 
 class 0x48eda36d():
@@ -2620,15 +2514,6 @@ class 0x4ec57116(InputEventBoolKeybind):
     0xbac86ec1: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x4f038b33(0xba7313a3):
-    nearClip: (Pointer, 0x0, 0x0, 0x8930818a) = {}
-    Position: (Pointer, 0x0, 0x0, 0x94e82d1f) = {}
-    fov: (Pointer, 0x0, 0x0, 0x8930818a) = {}
-    orientation: (Pointer, 0x0, 0x0, 0x94e82d1f) = {}
-    farClip: (Pointer, 0x0, 0x0, 0x8930818a) = {}
-    EnableOnStart: (Pointer, 0x0, 0x0, 0x6dfe8e70) = {}
-    pass
-
 class 0x4f0aa8a0():
     0x11468c21: (Pointer, 0x0, 0x0, 0x7379bca6) = null
     TooltipText: (Pointer, 0x0, 0x0, 0x6ca3cfd) = null
@@ -2734,7 +2619,7 @@ class 0x50db156b(MapGraphicsFeature):
     options: (Embed, 0x0, 0x0, PostEffectOptions) = {"0x81ed7bcd":false,"0x88ab79b5":2000.0,"0x8e1fed5e":800.0,"0xadee7179":1.0,"0xb4e1daa3":0.0,"0xcdbcbab6":false,"0xdcc81602":5000.0,"Coc":10.0,"DepthFog":false,"DepthFogColor":[0.0,0.0,0.0,1.0],"DepthFogEnd":8000.0,"DepthFogMaxIntensity":1.0,"DepthFogStart":5000.0,"Dof":false,"DofDebug":false,"HeightFog":false,"HeightFogColor":[0.0,0.0,0.0,1.0],"HeightFogEnd":-100.0,"HeightFogMaxIntensity":1.0,"HeightFogStart":300.0}
     pass
 
-class 0x51150233(0x8214fbc2):
+class 0x51150233(SeqInputUiVfx):
     UiElementParticleSystem: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -2875,11 +2760,11 @@ class 0x578f2e71():
     0xfc87f8f6: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
-class 0x57a3a10e(0x8b54c9a7):
+class 0x57a3a10e(SeqInputObject):
     Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x58276563(0x5bc98d54):
+class 0x58276563(SeqSplinePointColor):
     pass
 
 class 0x5841e5bd():
@@ -2979,22 +2864,12 @@ class 0x595773f6(IGameModeConfigClient):
     0xfc60df61: (F32, 0x0, 0x0, 0x0) = 2.25
     pass
 
-class 0x598e72f6(0x99320e3c):
-    MidpointEvent: (Embed, 0x0, 0x0, 0x8dc06cbc) = {"0x80c98e31":null,"EventName":""}
-    TargetLocation: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    EndpointEvent: (Embed, 0x0, 0x0, 0x8dc06cbc) = {"0x80c98e31":null,"EventName":""}
-    SourceLocation: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    pass
-
 class 0x59ef46df(0xd0c7ee75):
     ResourceBin: (Link, 0x0, 0x0, BinFileContainer) = "0x0"
     pass
 
 class 0x59f5f97e(GameEntityTemplate):
     0x50a298b: (Embed, 0x0, 0x0, 0xd3dda5e5) = {"0x28e60732":true,"0x37ae4cad":false,"0x539ea54d":false,"0xaecee07f":100,"0xfc90acf2":"","DynamicLighting":false,"Polygon":{"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]},"RenderParticles":true,"SSAO":false}
-    pass
-
-class 0x5a1f2aca(0xf71f4123):
     pass
 
 class 0x5a43dcb1(Cheat):
@@ -3069,11 +2944,6 @@ class 0x5b728a1e(BaseParams):
 class 0x5ba2fb13():
     0xbc58e0e5: (F32, 0x0, 0x0, 0x0) = 1.0
     data: (Link, 0x0, 0x0, TftItemData) = "0x0"
-    pass
-
-class 0x5bc98d54(0x632fca3c):
-    Source: (Pointer, 0x0, 0x0, 0x221f2907) = null
-    0xeada8829: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class 0x5bd7cb63():
@@ -3185,11 +3055,6 @@ class 0x5d9fffed(BaseEventData):
     0xe61bf09e: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0x5da4336c(0x8930818a):
-    Parameter: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
-    Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = {}
-    pass
-
 class 0x5df3bc8d(BaseParams):
     pass
 
@@ -3207,10 +3072,10 @@ class 0x5e1b3750():
     pass
 
 class 0x5e518c82(ISequenceAction):
-    Magnitude: (Pointer, 0x0, 0x0, 0x8930818a) = {}
-    FalloffRate: (Pointer, 0x0, 0x0, 0x8930818a) = {}
-    0xd67d18ce: (Pointer, 0x0, 0x0, 0x8930818a) = {}
-    direction: (Pointer, 0x0, 0x0, 0x94e82d1f) = {}
+    Magnitude: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
+    FalloffRate: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
+    0xd67d18ce: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
+    direction: (Pointer, 0x0, 0x0, SeqInputVector) = {}
     pass
 
 class 0x5eaead1a(IUiTextureDataProvider):
@@ -3238,11 +3103,6 @@ class 0x5f33c34():
 
 class 0x5f38de60(0x859c9c2f):
     OnEvent: (Link, 0x0, 0x0, 0x83cccb6d) = "0x0"
-    pass
-
-class 0x5f457b8b(ISequenceAction):
-    0x9e8fcd0c: (Bool, 0x0, 0x0, 0x0) = false
-    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x5f582cf1(0xb5754dad):
@@ -3305,10 +3165,6 @@ class 0x60f809c3(IGameModeConfig):
     0x6a11aaf3: (Bool, 0x0, 0x0, 0x0) = false
     0x802223a2: (List2, 0x0, U32, 0x0) = []
     0x9f3d999f: (F32, 0x0, 0x0, 0x0) = 1200.0
-    pass
-
-class 0x6110d4c1(0x8930818a):
-    Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = null
     pass
 
 class 0x612b3741(0xca17e84f):
@@ -3387,10 +3243,6 @@ class 0x6311fe74():
     DescriptionTra: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x632fca3c():
-    TimePercentage: (F32, 0x0, 0x0, 0x0)
-    pass
-
 class 0x634a3a64():
     Color: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     colorblindColor: (Option, 0x0, Color, 0x0) = null
@@ -3416,12 +3268,6 @@ class 0x63fbd3de():
     pass
 
 class 0x64179f13(BaseParams):
-    pass
-
-class 0x641e4225():
-    Magnitude: (F32, 0x0, 0x0, 0x0) = 20.0
-    ShakesPerSecond: (F32, 0x0, 0x0, 0x0) = 6.0
-    FalloffRate: (F32, 0x0, 0x0, 0x0) = 2.0
     pass
 
 class 0x64399495(0xd0c7ee75):
@@ -3486,7 +3332,7 @@ class 0x65d203f4():
 class 0x65d58192(ILolKeybindSetCheck):
     pass
 
-class 0x65daf5d4(0x4201f026):
+class 0x65daf5d4(SeqInputCombinedColor):
     pass
 
 class 0x65dbf6d0():
@@ -3586,9 +3432,6 @@ class 0x68067fa5(0xb5754dad):
     pass
 
 class 0x680cfd91(BaseParams):
-    pass
-
-class 0x6837de51(0x6dfe8e70):
     pass
 
 class 0x687bf78e(ILolKeybindSetCheck):
@@ -3854,9 +3697,6 @@ class 0x6d1d4b10(BaseLoadoutData):
     IconTexturePath: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x6d79484d():
-    pass
-
 class 0x6d7df79c(Cheat):
     pass
 
@@ -3880,9 +3720,6 @@ class 0x6db59116(0x333759dd):
 
 class 0x6de4753e():
     SkillLevels: (List2, 0x0, Embed, 0xffcac16f) = []
-    pass
-
-class 0x6dfe8e70():
     pass
 
 class 0x6e715e4c(TftDisplayTag):
@@ -3948,11 +3785,6 @@ class 0x709bc2e4():
 class 0x709be6c3():
     pass
 
-class 0x70aa7cbc(ISequenceAction):
-    direction: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
-    0xf92ca41e: (Embed, 0x0, 0x0, 0x641e4225) = {"FalloffRate":2.0,"Magnitude":20.0,"ShakesPerSecond":6.0}
-    pass
-
 class 0x70cd6a18(0xa9e4d0f1):
     itemID: (String, 0x0, 0x0, 0x0) = ""
     quantity: (U16, 0x0, 0x0, 0x0) = 1
@@ -3977,7 +3809,7 @@ class 0x7169f36b(IGameModeConfigClient):
 
 class 0x71aaad67():
     0x3f59500d: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x4dc399d1: (Map, U8, Embed, 0xfcb22c81) = {}
+    0x4dc399d1: (Map, U8, Embed, AugmentLevelTextureData) = {}
     0xff10dcdb: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -4073,14 +3905,6 @@ class 0x75582751(BaseParams):
     pass
 
 class 0x755a19ce():
-    pass
-
-class 0x755cf26f(ISequenceAction):
-    SoundEvent: (Pointer, 0x0, 0x0, 0xbc280d0a) = null
-    pass
-
-class 0x755ea8dc(0x6837de51):
-    Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = {}
     pass
 
 class 0x757b6f7f(0xa4b9367d):
@@ -4249,10 +4073,6 @@ class 0x791eb92e():
 class 0x7945f8bd(ISequenceActionInstance):
     pass
 
-class 0x79aa0a94(0x6d79484d):
-    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    pass
-
 class 0x79ca73e7():
     0x1ef5b158: (String, 0x0, 0x0, 0x0) = ""
     0x20e0b520: (String, 0x0, 0x0, 0x0) = ""
@@ -4267,7 +4087,7 @@ class 0x79e1c982():
     TRAKey: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x7a0b0e42(0xece68ca6):
+class 0x7a0b0e42(IGameScreenClientBlock):
     pass
 
 class 0x7a19656():
@@ -4383,9 +4203,9 @@ class 0x7b40445f():
 class 0x7b440079(ConceptBlockBase):
     pass
 
-class 0x7b768f17(0x94e82d1f):
-    TargetPosition: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    SourcePosition: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
+class 0x7b768f17(SeqInputVector):
+    TargetPosition: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    SourcePosition: (Pointer, 0x0, 0x0, SeqInputVector) = null
     pass
 
 class 0x7c387678(IVfxVector4Driver):
@@ -4400,15 +4220,6 @@ class 0x7c809adf():
     pass
 
 class 0x7c8b2cd8(0x26d26471):
-    pass
-
-class 0x7caa7bd1(0x99320e3c):
-    0x344feb42: (Pointer, 0x0, 0x0, 0x8b54c9a7) = null
-    pass
-
-class 0x7cb40ac7(ISequenceAction):
-    0x7688f709: (Bool, 0x0, 0x0, 0x0) = false
-    Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = null
     pass
 
 class 0x7cc5a312(IVfxVector4Driver):
@@ -4560,15 +4371,6 @@ class 0x7f644206():
     RerollButtonTextColor: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     pass
 
-class 0x7faf3715(0xba7313a3):
-    0x3d60c5b7: (String, 0x0, 0x0, 0x0) = ""
-    system: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
-    scale: (Pointer, 0x0, 0x0, 0x8930818a) = {}
-    Position: (Pointer, 0x0, 0x0, 0x94e82d1f) = {}
-    AttachTo: (Pointer, 0x0, 0x0, 0x6d79484d) = null
-    orientation: (Pointer, 0x0, 0x0, 0x94e82d1f) = {}
-    pass
-
 class 0x7fb92f53():
     0x28de30d6: (F32, 0x0, 0x0, 0x0) = 0.10000000149011612
     ClosestDistance: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -4598,7 +4400,7 @@ class 0x8030c161():
     colors: (Map, U32, Embed, 0x634a3a64) = {}
     pass
 
-class 0x803f9938(0xece68ca6):
+class 0x803f9938(IGameScreenClientBlock):
     pass
 
 class 0x804056d8():
@@ -4656,10 +4458,6 @@ class 0x80f31f46():
     0xed8edf74: (F32, 0x0, 0x0, 0x0) = 0.10000000149011612
     pass
 
-class 0x810de4e7(ISequenceAction):
-    ContinueAt: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0x81169a8b():
     0x2d790b62: (U8, 0x0, 0x0, 0x0) = 2
     0x41796e8e: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
@@ -4672,10 +4470,6 @@ class 0x81199b5b(BaseParams):
     pass
 
 class 0x811d959e():
-    pass
-
-class 0x813646af(0x6837de51):
-    UIElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x8152c1ec(VfxColorRgbBase):
@@ -4714,10 +4508,6 @@ class 0x81a1e232(0xff4e30bb):
 
 class 0x81befb2():
     MessageTra: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x8214fbc2():
-    EnableOnStart: (Bool, 0x0, 0x0, 0x0)
     pass
 
 class 0x825a4d66():
@@ -4818,10 +4608,6 @@ class 0x83d442cc():
     0xb7571618: (Color, 0x0, 0x0, 0x0) = [0,215,255,255]
     pass
 
-class 0x83edd96b(0x221f2907):
-    Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = null
-    pass
-
 class 0x83efb6f9():
     0x6aa543f4: (Map, String, F32, 0x0) = {}
     pass
@@ -4884,11 +4670,6 @@ class 0x859c9c2f():
     0xe7623bb7: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0x85a1b6a2(ISequenceAction):
-    0x51674b53: (Bool, 0x0, 0x0, 0x0) = false
-    Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = null
-    pass
-
 class 0x85a6a05c():
     0x4270c6db: (Bool, 0x0, 0x0, 0x0) = false
     0x85b5060f: (Bool, 0x0, 0x0, 0x0) = false
@@ -4920,9 +4701,6 @@ class 0x862bdc3c(0xa41315c0):
     pass
 
 class 0x862f8352(ItemSlotSimpleUiData):
-    pass
-
-class 0x86687e99():
     pass
 
 class 0x8685eb51():
@@ -4964,9 +4742,6 @@ class 0x8819bac7():
     Levels: (List2, 0x0, Link, 0x83047936) = []
     pass
 
-class 0x884d167f(0xc8829f15):
-    pass
-
 class 0x88679cf5(BaseParams):
     pass
 
@@ -4988,10 +4763,7 @@ class 0x88f0f15e():
 class 0x8923a755():
     pass
 
-class 0x892dcebb(0xae95bf93):
-    pass
-
-class 0x8930818a():
+class 0x892dcebb(SeqInputCombinedFloat):
     pass
 
 class 0x89339882(BaseParams):
@@ -5076,13 +4848,6 @@ class 0x89fa197c():
     Tooltips: (List2, 0x0, String, 0x0) = []
     pass
 
-class 0x8a46e486(ISequenceAction):
-    PauseOnEnd: (Bool, 0x0, 0x0, 0x0) = false
-    AnimationName: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Object: (Pointer, 0x0, 0x0, 0x8b54c9a7) = {}
-    0xcd97640d: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0x8a96ea3c(IGameCalculationPart):
     mSubparts: (List2, 0x0, Pointer, IGameCalculationPart) = []
     pass
@@ -5114,10 +4879,7 @@ class 0x8b2a166d(IComponentData):
 class 0x8b33cf88():
     pass
 
-class 0x8b54c9a7(0xd8d462e4):
-    pass
-
-class 0x8bbb0477(0xae95bf93):
+class 0x8bbb0477(SeqInputCombinedFloat):
     pass
 
 class 0x8beb0550(GameModeConstant):
@@ -5125,13 +4887,9 @@ class 0x8beb0550(GameModeConstant):
     ModeOverrides: (Map, U32, F32, 0x0) = {}
     pass
 
-class 0x8bf8bef7(0x6dfe8e70):
-    value: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0x8cb3b5c4(0x4f038b33):
-    0xcae95eff: (Pointer, 0x0, 0x0, 0x6dfe8e70) = {}
-    Zoom: (Pointer, 0x0, 0x0, 0x8930818a) = {}
+class 0x8cb3b5c4(SeqInputCreateCamera):
+    0xcae95eff: (Pointer, 0x0, 0x0, SeqInputBool) = {}
+    Zoom: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
     pass
 
 class 0x8cc8ea8a():
@@ -5161,11 +4919,6 @@ class 0x8d8b1535():
     IconFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x8dc06cbc():
-    EventName: (String, 0x0, 0x0, 0x0) = ""
-    0x80c98e31: (Pointer, 0x0, 0x0, 0x8b54c9a7) = null
-    pass
-
 class 0x8df505ab():
     0x4c07c447: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TeamIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -5175,15 +4928,6 @@ class 0x8e072d1c(ILocatorPreview):
     pass
 
 class 0x8e11ad0c(IClockDefinition):
-    pass
-
-class 0x8e134d2(ISequenceAction):
-    EndValue: (Pointer, 0x0, 0x0, 0x221f2907)
-    EasingType: (U8, 0x0, 0x0, 0x0)
-    0x7bd430bd: (Bool, 0x0, 0x0, 0x0)
-    0xacddc1f1: (Pointer, 0x0, 0x0, 0x221f2907)
-    StartValue: (Pointer, 0x0, 0x0, 0x221f2907)
-    0xee641224: (Bool, 0x0, 0x0, 0x0)
     pass
 
 class 0x8e30b80e(TftCutscenePositionProvider):
@@ -5233,10 +4977,6 @@ class 0x8f92cfab(InstanceDataBase):
     UrlTra: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x8fe295c8():
-    name: (String, 0x0, 0x0, 0x0)
-    pass
-
 class 0x8ffd7c61(UiElementGroupData):
     0x16efd7dc: (Bool, 0x0, 0x0, 0x0) = false
     Enabled: (Bool, 0x0, 0x0, 0x0) = true
@@ -5258,7 +4998,7 @@ class 0x902e246e():
     Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x906a173a(0x5bc98d54):
+class 0x906a173a(SeqSplinePointColor):
     pass
 
 class 0x906b3602(AnnouncerVoEventType):
@@ -5311,7 +5051,7 @@ class 0x915900da(UiMetricUnitTypeSimpleI):
     pass
 
 class 0x9162a320(ISequenceAction):
-    0x970ed425: (Pointer, 0x0, 0x0, 0x6d79484d) = null
+    ToBeAttached: (Pointer, 0x0, 0x0, SeqInputAttachment) = null
     pass
 
 class 0x9170abc5(IGameModeConfigClient):
@@ -5446,13 +5186,6 @@ class 0x948c3e89():
     CeremonyLink: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x94acbb37(0x99320e3c):
-    Location: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    pass
-
-class 0x94e82d1f():
-    pass
-
 class 0x9506323a(InputEventBoolKeybind):
     0x4d5476d2: (U32, 0x0, 0x0, 0x0) = 0
     PingCategory: (U8, 0x0, 0x0, 0x0) = 0
@@ -5480,9 +5213,6 @@ class 0x958b66ff():
     pass
 
 class 0x95d85faf(ISequenceActionInstance):
-    pass
-
-class 0x964d6c11(0x8930818a):
     pass
 
 class 0x9669855a(ViewController):
@@ -5565,7 +5295,7 @@ class 0x98531301():
     pass
 
 class 0x98b663fd(ISequenceAction):
-    0x27c534f4: (Bool, 0x0, 0x0, 0x0) = true
+    RestoreOnStop: (Bool, 0x0, 0x0, 0x0) = true
     TargetObject: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     Channels: (U8, 0x0, 0x0, 0x0) = 1
     pass
@@ -5584,11 +5314,6 @@ class 0x9925c3c2():
     Background: (Hash, 0x0, 0x0, 0x0) = "0x0"
     HitTarget: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TooltipRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x99320e3c(ISequenceAction):
-    EventName: (String, 0x0, 0x0, 0x0)
-    0x80c98e31: (Pointer, 0x0, 0x0, 0x8b54c9a7)
     pass
 
 class 0x994ae080(IFloatParametricUpdater):
@@ -5703,16 +5428,8 @@ class 0x9ab8b8e6():
     name: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x9ace30(0xb59dad64):
-    pass
-
 class 0x9af7b542():
     PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x9b246821(ISequenceAction):
-    0x83ac0981: (String, 0x0, 0x0, 0x0) = ""
-    Object: (Pointer, 0x0, 0x0, 0x8b54c9a7) = {}
     pass
 
 class 0x9b29aa9d(ISequenceActionInstance):
@@ -5774,10 +5491,6 @@ class 0x9c8a0477(ViewController):
     0xb7be8b79: (Embed, 0x0, 0x0, 0x6db33e0c) = {"0x12cef16b":null,"0x491204c2":{"0x241c258b":[0,0,0,255],"0x3c4b5c83":"","0x3ddb00":1.0,"0x44f732bc":"","0x81d55cb7":"0x0","0x88ee5bd9":{"0x3845cab":[],"0x5bd8b396":"","0x829c2960":{},"0xcd3fd8ac":"","0xee10ba86":"","Frame":"0x0","Icon":"0x0","Progress":"0x0","RootGroup":"0x0","description":"0x0"},"0x8a73adc8":[0,0,0,255],"0x9d8818ba":[0,0,0,255],"0xb80d6251":[0,0,0,255],"0xbec348d3":"0x0","0xf3c1ea09":[0,0,0,255],"0xfbe13398":"","HeaderGroup":"0x0","LayoutGroup":"0x0"},"0x829c2960":{},"Frame":"0x0","PortraitIcon":"0x0","RootGroup":"0x0","RowGroup":"0x0","TooltipRegion":"0x0","name":"0x0"}
     0xbc2ce5f6: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Frame: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x9c988cfa(ISequenceAction):
-    EventName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x9cce6baf():
@@ -5933,19 +5646,11 @@ class 0x9f9ec6c2(GameModeConstant):
     characters: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0xa01bb4c2(0x8930818a):
-    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    pass
-
 class 0xa02d99c5(0xb5754dad):
     pass
 
 class 0xa047920e(InputEventBoolKeybind):
     0xa4aaab62: (U32, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0xa07a91e8(0x8930818a):
-    Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = null
     pass
 
 class 0xa0b62126(MapAction):
@@ -6013,10 +5718,6 @@ class 0xa23138c5(ILoopScriptBlock):
     DestValue: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
     pass
 
-class 0xa2913bfb(ISequenceAction):
-    ParticleSystem: (Link, 0x0, 0x0, VfxSystemDefinitionData)
-    pass
-
 class 0xa29e7869(0xc87f69f4):
     0x64132003: (Embed, 0x0, 0x0, 0x7a55218f) = {"0xc8b6a592":null,"0xef5104c7":"0x0","disabled":false,"priority":0.5}
     0x8e8371bb: (String, 0x0, 0x0, 0x0) = ""
@@ -6041,10 +5742,6 @@ class 0xa3412af(InputEventBoolKeybind):
 
 class 0xa3456555(IGameModeConfig):
     DifficultyData: (List2, 0x0, Link, 0x7c809adf) = []
-    pass
-
-class 0xa3a57b27(0x8930818a):
-    value: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0xa3c3ae3c(ITftItemFilter):
@@ -6118,10 +5815,6 @@ class 0xa50ab26():
     Tooltip: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xa52921f7(ISequenceAction):
-    tag: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xa534365c():
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TimerVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6183,9 +5876,6 @@ class 0xa6cd46b0():
 class 0xa78cfe16():
     Scene: (U8, 0x0, 0x0, 0x0) = 80
     tags: (List2, 0x0, Embed, 0x43548f46) = []
-    pass
-
-class 0xa837225(0x8e134d2):
     pass
 
 class 0xa8823dc8():
@@ -6281,11 +5971,6 @@ class 0xa9e4d0f1():
 class 0xaa0bf832():
     pass
 
-class 0xaa2fcea9(0x221f2907):
-    Parameter: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
-    Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = {}
-    pass
-
 class 0xaa3a17e9(MapAction):
     CutsceneKey: (Hash, 0x0, 0x0, 0x0) = "0x3cea8114"
     pass
@@ -6373,12 +6058,6 @@ class 0xacf95576():
 
 class 0xad399234():
     sequences: (Map, Hash, Embed, 0xf2a39a) = {}
-    pass
-
-class 0xad3f2b(0xba7313a3):
-    0x1220fb1c: (Pointer, 0x0, 0x0, 0x86687e99) = null
-    Position: (Pointer, 0x0, 0x0, 0x94e82d1f) = {}
-    StartAudioEvent: (Pointer, 0x0, 0x0, 0x86687e99) = {}
     pass
 
 class 0xad4d38bb():
@@ -6482,12 +6161,6 @@ class 0xae56d8c4(InputEventBoolKeybind):
     EmoteDirection: (U32, 0x0, 0x0, 0x0) = 2
     pass
 
-class 0xae95bf93(0x8930818a):
-    Operation: (U8, 0x0, 0x0, 0x0) = 0
-    LeftSource: (Pointer, 0x0, 0x0, 0x8930818a) = null
-    RightSource: (Pointer, 0x0, 0x0, 0x8930818a) = null
-    pass
-
 class 0xaeda4ae3():
     0x2077cc8e: (List2, 0x0, Embed, 0xd31bbf89) = []
     intro: (List2, 0x0, Embed, 0xd31bbf89) = []
@@ -6577,21 +6250,12 @@ class 0xb107dfe4():
     0xeb3bae8f: (Link, 0x0, 0x0, 0xbb56e8ed) = "0x0"
     pass
 
-class 0xb110b205(ISequenceAction):
-    0x182f3d26: (Pointer, 0x0, 0x0, 0xba7313a3) = null
-    OutputSelector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    pass
-
 class 0xb16c4c30(0x2a99a254):
     0xf2e79214: (Link, 0x0, 0x0, SpellObject) = "0x0"
     pass
 
 class 0xb183179():
     0x7bbce67d: (List2, 0x0, Link, 0xd41a611d) = []
-    pass
-
-class 0xb18ced60(ISequenceAction):
-    tag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xb1f9ca3c(ISequenceActionInstance):
@@ -6625,10 +6289,6 @@ class 0xb26bd951():
 
 class 0xb2a6e394(ILogicBoolDriver):
     LogicDriver: (Pointer, 0x0, 0x0, ILogicDriver) = null
-    pass
-
-class 0xb2b8c100(ISequenceAction):
-    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xb2fe8cea(ViewController):
@@ -6766,12 +6426,6 @@ class 0xb5754dad(ILolKeybindCheck):
 class 0xb58b70dc(0x2e1cea4f):
     0x2f1edf29: (Bool, 0x0, 0x0, 0x0) = false
     0xd384bc74: (List2, 0x0, Pointer, 0xc87f69f4) = []
-    pass
-
-class 0xb59dad64(ISequenceAction):
-    SplinePoints: (List2, 0x0, Pointer, 0xf97e018e) = []
-    SplineCurves: (List2, 0x0, Pointer, 0x7de1323f) = []
-    0x7fd88075: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
     pass
 
 class 0xb5c28890(ILogicBoolDriver):
@@ -6952,13 +6606,6 @@ class 0xba65f1fe():
     Reference: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xba7313a3():
-    pass
-
-class 0xba89deb4(0xa2913bfb):
-    Location: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    pass
-
 class 0xba9f6aca():
     0x439b26dc: (String, 0x0, 0x0, 0x0) = ""
     TroveBannerIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -7083,12 +6730,6 @@ class 0xbc8a265c():
     0xfb2cc1ba: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xbc8e54a5(ISequenceAction):
-    boneName: (String, 0x0, 0x0, 0x0) = ""
-    0x970ed425: (Pointer, 0x0, 0x0, 0x6d79484d) = null
-    AttachTo: (Pointer, 0x0, 0x0, 0x6d79484d) = null
-    pass
-
 class 0xbcb052b9():
     EventName: (String, 0x0, 0x0, 0x0)
     0x454fd872: (U32, 0x0, 0x0, 0x0)
@@ -7138,10 +6779,6 @@ class 0xbd77f870():
     states: (List2, 0x0, Pointer, 0x3df5a7a1) = []
     0xe4eed7f5: (Link, 0x0, 0x0, DesignerEvent) = "0x0"
     AutomaticallyStarts: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0xbd795c21(ISequenceAction):
-    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xbdbf785f(0xd866344b):
@@ -7214,7 +6851,7 @@ class 0xbf767b39():
 
 class 0xbfd585a7(ISequenceAction):
     TargetScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x54b38947: (U8, 0x0, 0x0, 0x0) = 0
+    ActionOnEnd: (U8, 0x0, 0x0, 0x0) = 0
     ActionOnStart: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -7245,12 +6882,6 @@ class 0xc124ec81():
     MusicTrack: (Embed, 0x0, 0x0, 0xdb03f8f4) = {"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}
     pass
 
-class 0xc126997e(ISequenceAction):
-    Color: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
-    EntityTag: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x7e9f30bd: (I32, 0x0, 0x0, 0x0) = -1
-    pass
-
 class 0xc15041c4(0xc9440657):
     OverrideAnimation: (String, 0x0, 0x0, 0x0) = ""
     PropName: (String, 0x0, 0x0, 0x0) = ""
@@ -7270,10 +6901,6 @@ class 0xc1a5c5d7(TftDisplayTag):
 class 0xc1def894(0x7b440079):
     Output: (Embed, 0x0, 0x0, BoolTableSet) = {"Table":{},"Var":""}
     Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xc1e9b6c(0x286deb81):
-    value: (I32, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0xc20b2e61():
@@ -7304,13 +6931,6 @@ class 0xc29d5ff(ViewController):
 
 class 0xc2afdb3d(0xaa0bf832):
     Icon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
-    pass
-
-class 0xc2b1af7f(ISequenceAction):
-    DisableOnEnd: (Bool, 0x0, 0x0, 0x0) = true
-    element: (Pointer, 0x0, 0x0, 0xe561be2e) = null
-    0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    EnableOnStart: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class 0xc3558483():
@@ -7353,11 +6973,6 @@ class 0xc3f95838():
 
 class 0xc406a533(0xe07edfa4):
     0x27639032: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0xc43ff014(ISequenceAction):
-    0x94018232: (Bool, 0x0, 0x0, 0x0) = true
-    tag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xc4587d4a():
@@ -7406,9 +7021,6 @@ class 0xc62b91e4():
     pass
 
 class 0xc66dcba5(UiMetricTypeSimpleI):
-    pass
-
-class 0xc68ea9ca(0xf71f4123):
     pass
 
 class 0xc6b9bf2a(0x7ffa2e6f):
@@ -7508,11 +7120,6 @@ class 0xc85b063():
     pass
 
 class 0xc87f69f4(0x2e1cea4f):
-    pass
-
-class 0xc8829f15(ISequenceAction):
-    0x1c99cc4d: (Pointer, 0x0, 0x0, 0x8930818a) = null
-    0xc04df9d4: (Embed, 0x0, 0x0, CurveFloat) = {"InterpModes":[],"times":[],"values":[]}
     pass
 
 class 0xc8879e6c(0x8b33cf88):
@@ -7618,11 +7225,6 @@ class 0xca27818b():
     0xb52e49ae: (List2, 0x0, Embed, 0x7db73f86) = []
     texturePath: (String, 0x0, 0x0, 0x0) = ""
     LocalizedDescription: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xca34b179(0xa2913bfb):
-    TargetPosition: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    SourcePosition: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
     pass
 
 class 0xca4d32d1():
@@ -7735,9 +7337,6 @@ class 0xd03de37f():
 class 0xd04cfb37():
     pass
 
-class 0xd07d9155(BaseParams):
-    pass
-
 class 0xd07fc429():
     SpineAnimation: (Embed, 0x0, 0x0, 0xd31bbf89) = {"AnimationName":"","DelayTime":0.0,"Loop":false,"SpeedScale":1.0,"TrackIndex":0}
     0x34e801f5: (String, 0x0, 0x0, 0x0) = ""
@@ -7745,9 +7344,6 @@ class 0xd07fc429():
     pass
 
 class 0xd0b5e9b(BaseParams):
-    pass
-
-class 0xd0c7bd6e(ISequenceActionInstance):
     pass
 
 class 0xd0c7ee75(ISkinAugmentLoadableModifier):
@@ -7772,11 +7368,6 @@ class 0xd0da4932(TftCutsceneClip):
     Overrides: (List2, 0x0, Embed, TftCutsceneCamOverrideEntry) = []
     pass
 
-class 0xd139de78():
-    chromaColor2: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
-    chromaColor1: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
-    pass
-
 class 0xd13da199(ISequenceAction):
     StartColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
     EasingType: (U8, 0x0, 0x0, 0x0) = 0
@@ -7793,10 +7384,6 @@ class 0xd19d72ee():
     ProgressCompleteIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xedc62dad: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TitleText: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xd1d54445():
-    Actions: (List2, 0x0, Hash, 0x0) = []
     pass
 
 class 0xd25f84b0(ILoadoutInfoPanel):
@@ -7828,13 +7415,6 @@ class 0xd2b529c():
     0xff86fe59: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xd2c4bed8():
-    Texts: (List, 0x0, Hash, 0x0) = []
-    Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    placeholder: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xd2ec8699(0x34ecdf00):
     Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
@@ -7855,7 +7435,7 @@ class 0xd31e0f11():
     Positions: (List2, 0x0, Embed, 0xfa28444b) = []
     pass
 
-class 0xd331b4c4(0xae95bf93):
+class 0xd331b4c4(SeqInputCombinedFloat):
     pass
 
 class 0xd336fad(ModalDialogViewController):
@@ -7903,13 +7483,7 @@ class 0xd3dda5e5(IGeComponentDef):
     0xfc90acf2: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xd3eb9ff9(0xae95bf93):
-    pass
-
-class 0xd3f07247():
-    0x4a6402e7: (Map, String, Bool, 0x0) = {}
-    0x8fedb340: (Map, String, Vec4, 0x0) = {}
-    0xb7e2d7e4: (Map, String, Embed, 0x32902d31) = {}
+class 0xd3eb9ff9(SeqInputCombinedFloat):
     pass
 
 class 0xd41a611d():
@@ -7919,17 +7493,10 @@ class 0xd41a611d():
 
 class 0xd428e2c8(IGameModeConfigClient):
     0x24b2fb35: (Link, 0x0, 0x0, 0x547679fe) = "0x0"
-    0x35066c8: (Link, 0x0, 0x0, 0xe78d94fa) = "0x0"
+    0x35066c8: (Link, 0x0, 0x0, PortraitSet) = "0x0"
     pass
 
 class 0xd42d11e(0xb5754dad):
-    pass
-
-class 0xd42fa4dc(ISequenceAction):
-    0x1e2f0036: (String, 0x0, 0x0, 0x0) = ""
-    0x266cb0e8: (Bool, 0x0, 0x0, 0x0) = false
-    0x8adb25f4: (String, 0x0, 0x0, 0x0) = ""
-    Object: (Pointer, 0x0, 0x0, 0x8b54c9a7) = {}
     pass
 
 class 0xd4737a04(IOptionItemFilter):
@@ -8048,14 +7615,6 @@ class 0xd6bc5e0c():
     0xb5b157f: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
-class 0xd6bdec78(ISequenceAction):
-    0x2642955f: (U8, 0x0, 0x0, 0x0) = 5
-    path: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Object: (Pointer, 0x0, 0x0, 0x8b54c9a7) = null
-    0xcb1e8bfc: (Link, 0x0, 0x0, 0xfd5c7276) = "0x0"
-    0xe92580fe: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0xd6d3da87(GameEntityBlock):
     0x98840e54: (List2, 0x0, Pointer, IEntityTagGet) = []
     0xe2226a17: (List2, 0x0, Pointer, IEntityTagGet) = []
@@ -8075,7 +7634,7 @@ class 0xd7153407(EntityScriptCondition):
 class 0xd738f7c9():
     pass
 
-class 0xd73a5ade(0x4201f026):
+class 0xd73a5ade(SeqInputCombinedColor):
     pass
 
 class 0xd75bce6a(UiElementEffectData):
@@ -8146,15 +7705,8 @@ class 0xd8c76385(InputEvent2AxisKeybind):
     0x6cb6c4fd: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
 
-class 0xd8d462e4():
-    pass
-
 class 0xd91a223(0xfd51006c):
     0xe2e5b6dd: (List2, 0x0, U32, 0x0) = []
-    pass
-
-class 0xd96e2(0x221f2907):
-    value: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     pass
 
 class 0xd974ea3(TftMapConditionData):
@@ -8163,17 +7715,8 @@ class 0xd974ea3(TftMapConditionData):
     DescriptionTra: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xd97c0524(0x94e82d1f):
-    Operation: (U8, 0x0, 0x0, 0x0) = 0
-    LeftSource: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    RightSource: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    pass
-
 class 0xd97f9bd3(TftCutsceneMissileClip):
     SplineInfo: (Pointer, 0x0, 0x0, ISplineInfo)
-    pass
-
-class 0xd9f5801b(0xf71f4123):
     pass
 
 class 0xda370296():
@@ -8340,17 +7883,6 @@ class 0xdd57ce5e():
     0xfd33c40: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xdd661aab():
-    TriggerSpells: (List2, 0x0, Hash, 0x0) = []
-    0x6cd45762: (Bool, 0x0, 0x0, 0x0) = false
-    DisplayCondition: (Pointer, 0x0, 0x0, 0xfd51006c) = null
-    0x8f7842e4: (List2, 0x0, Pointer, 0x55f6bf86) = []
-    0x96e77860: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    OverrideParams: (Pointer, 0x0, 0x0, 0xc7e628b9) = null
-    0xda1ee5bc: (Bool, 0x0, 0x0, 0x0) = false
-    InputCondition: (Pointer, 0x0, 0x0, 0xfd51006c) = null
-    pass
-
 class 0xdd8ea5ae():
     0x20e7d7b2: (Bool, 0x0, 0x0, 0x0) = true
     TopBarIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -8372,23 +7904,11 @@ class 0xdddf166a(IPictureInPictureSource):
 class 0xdde919c(InputEventBoolKeybind):
     pass
 
-class 0xddf17bcb(0x8fe295c8):
+class 0xddf17bcb(SocketDefinitionBase):
     RotationOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
-    0xbcb901b4: (Bool, 0x0, 0x0, 0x0) = false
+    IsWorldSpaceOffset: (Bool, 0x0, 0x0, 0x0) = false
     PositionOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
-    0xff22989f: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xddfb3ce9(ViewController):
-    Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    TacticianScale: (F32, 0x0, 0x0, 0x0) = 1.0
-    pass
-
-class 0xde0583cb():
-    ID: (String, 0x0, 0x0, 0x0) = ""
-    type: (U32, 0x0, 0x0, 0x0) = 1
-    name: (String, 0x0, 0x0, 0x0) = ""
+    ParentJoint: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xde125976(ILogicFloatDriver):
@@ -8399,14 +7919,6 @@ class 0xde125976(ILogicFloatDriver):
 
 class 0xde33e086():
     Positions: (List2, 0x0, Embed, 0xfa28444b) = []
-    pass
-
-class 0xde75be67(EntityScriptCondition):
-    Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    pass
-
-class 0xde847095(BaseParams):
     pass
 
 class 0xde93beb7(ViewController):
@@ -8434,27 +7946,12 @@ class 0xdf08b80b(BaseParams):
 class 0xdf0c644f(BaseParams):
     pass
 
-class 0xdf6e7fa5(IGameModeConfig):
-    0xa3627eca: (List2, 0x0, Embed, 0x2b686c3d) = []
-    pass
-
 class 0xdf7d294e(0x727d77b9):
     Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xdfc8c194(0x8930818a):
-    Objects: (Pointer, 0x0, 0x0, 0xd8d462e4) = null
-    pass
-
-class 0xdfedd500(ISequenceAction):
-    0x49a3f9ca: (Pointer, 0x0, 0x0, 0x8214fbc2) = null
-    SourceVfx: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
-    0x75da2db6: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
-class 0xe037a639(ISequenceAction):
-    tag: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x9e8fcd0c: (Bool, 0x0, 0x0, 0x0) = false
+class 0xdfc8c194(SeqInputFloat):
+    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
     pass
 
 class 0xe03fe15f():
@@ -8472,16 +7969,6 @@ class 0xe0f036ce(MissileMovementSpec):
     lifetime: (F32, 0x0, 0x0, 0x0) = 0.0
     scale: (F32, 0x0, 0x0, 0x0) = 100.0
     0xe327bf8b: (F32, 0x0, 0x0, 0x0) = 300.0
-    pass
-
-class 0xe12de24f(TftMapConditionData):
-    0xcfa2b9d6: (Pointer, 0x0, 0x0, 0xe2a48eac) = null
-    RequiredValue: (I32, 0x0, 0x0, 0x0) = 0
-    DescriptionTra: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xe1555e0a():
-    AugmentGroup: (List2, 0x0, Link, BasicSkinAugment) = []
     pass
 
 class 0xe189202c(0x777dfe18):
@@ -8532,16 +8019,6 @@ class 0xe2ef74d0(ICastRequirement):
     0xc073c624: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0xe2ff8b22():
-    GeneralCondition: (Pointer, 0x0, 0x0, 0x487b1677) = null
-    0x6c8f6dcf: (List2, 0x0, Pointer, CharacterQuestConditionData) = []
-    CompleteRewardList: (List2, 0x0, Pointer, CharacterQuestConditionData) = []
-    0x7829e090: (List2, 0x0, Pointer, CharacterQuestConditionData) = []
-    QuestName: (String, 0x0, 0x0, 0x0) = ""
-    0xd4ace659: (Bool, 0x0, 0x0, 0x0) = false
-    IsEnabled: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
 class 0xe348122d(IGameModeConfigClient):
     0x5c333500: (Pointer, 0x0, 0x0, 0xce762bab) = null
     0xf2c97a22: (Pointer, 0x0, 0x0, 0x29619231) = null
@@ -8567,11 +8044,6 @@ class 0xe3ce28e9():
     0xbcdf811c: (Link, 0x0, 0x0, MissionAsset) = "0x0"
     Expression: (String, 0x0, 0x0, 0x0) = ""
     missionId: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xe405ebc2():
-    Wasd: (Embed, 0x0, 0x0, 0x406b6b5f) = {"0xf7bb662b":"","VideoPath":""}
-    PointAndClick: (Embed, 0x0, 0x0, 0x406b6b5f) = {"0xf7bb662b":"","VideoPath":""}
     pass
 
 class 0xe4130eb0(BaseParams):
@@ -8607,14 +8079,7 @@ class 0xe51539c7(ScriptTableGet, IStringGet):
     PropPath: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xe524b2fc(IScriptBlock):
-    Invert: (Bool, 0x0, 0x0, 0x0) = false
-    Sequence: (Embed, 0x0, 0x0, ScriptSequence) = {"blocks":[]}
-    type: (U32, 0x0, 0x0, 0x0) = 0
-    Condition: (Pointer, 0x0, 0x0, IScriptCondition) = null
-    pass
-
-class 0xe53e4779(0xd8d462e4):
+class 0xe53e4779(SeqInputObjectArray):
     EntityTag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -8636,15 +8101,6 @@ class 0xe59d98ad():
     0x16c534fd: (Link, 0x0, 0x0, 0xa0c80919) = "0x0"
     0xbc58e0e5: (F32, 0x0, 0x0, 0x0) = 1.0
     0xdc49452a: (List2, 0x0, Embed, 0x825a4d66) = []
-    pass
-
-class 0xe5c4d862(ISequenceAction):
-    EndValue: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    EasingType: (U8, 0x0, 0x0, 0x0) = 0
-    0x7bd430bd: (Bool, 0x0, 0x0, 0x0) = true
-    StartValue: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    TargetObject: (Pointer, 0x0, 0x0, 0x8b54c9a7) = null
-    0xee641224: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class 0xe6144e6d(0x64c18f7d):
@@ -8715,28 +8171,15 @@ class 0xe75aad84():
     ConditionalBehaviors: (List2, 0x0, Embed, 0xeff830de) = []
     pass
 
-class 0xe7868c96(0xf97e018e):
-    pass
-
 class 0xe78a27ae(0x2b00c366):
     itemID: (String, 0x0, 0x0, 0x0) = ""
     Emote: (Link, 0x0, 0x0, SummonerEmote) = "0x0"
     itemTypeId: (String, 0x0, 0x0, 0x0) = "5cee03fb-af16-4bc9-89f7-064b49e1233f"
     pass
 
-class 0xe78d94fa():
-    0x5fde1a0b: (List2, 0x0, Hash, 0x0) = []
-    pass
-
 class 0xe7b61183(0x56b6e09):
     0x8f149e18: (F32, 0x0, 0x0, 0x0) = 0.0
     0xe1795243: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0xe7ee4f28(IChromaData):
-    SelectedPreset: (U32, 0x0, 0x0, 0x0) = 0
-    RarityOverrides: (Map, String, U32, 0x0) = {}
-    DescriptionOverrides: (Map, String, String, 0x0) = {}
     pass
 
 class 0xe8189eeb(BaseParams):
@@ -8790,10 +8233,6 @@ class 0xe92f8b6c(ViewController):
     0xfff63be6: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xe93de85a():
-    Quest: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xe945834a(IGameCalculationPart):
     ItemModifier: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Coefficient: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -8823,10 +8262,6 @@ class 0xea7bb717():
     IntroAnimation: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xea830028(ITagList):
-    tags: (Link, 0x0, 0x0, TagList) = "0x0"
-    pass
-
 class 0xea9f3cff():
     name: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -8849,13 +8284,6 @@ class 0xeaef4fc9(0xca4d32d1):
 
 class 0xeaf8e31e(SkinnedMeshDataMaterialController):
     0x4c776a95: (List2, 0x0, Embed, 0xf4da6088) = []
-    pass
-
-class 0xeb5adb26(IGameModeConfig):
-    0x2196d1e: (Bool, 0x0, 0x0, 0x0) = false
-    0x988fea51: (List2, 0x0, Link, AugmentSet) = []
-    AugmentList: (List2, 0x0, Link, AugmentData) = []
-    0xcae029f6: (Pointer, 0x0, 0x0, 0xcae029f6) = null
     pass
 
 class 0xeb8aa5d6():
@@ -8904,9 +8332,6 @@ class 0xeca2da9a():
     FunctionOutputs: (List2, 0x0, Embed, 0x294650d7) = []
     pass
 
-class 0xece68ca6(IScriptBlock):
-    pass
-
 class 0xece8d41b():
     DescriptionText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ProgressText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -8953,9 +8378,6 @@ class 0xed293bf2(ModalDialogViewController):
     pass
 
 class 0xed4b858b():
-    pass
-
-class 0xed565a57(BaseParams):
     pass
 
 class 0xed874b78(IGameModeConfig):
@@ -9026,10 +8448,6 @@ class 0xef17c645(0x129e311, GameEntityComponent, 0x3b49ffb9):
 class 0xef2cc9a6(IOptionItemFilter):
     pass
 
-class 0xef35eacc():
-    List: (List, 0x4, Embed, SpellLevelUpInfo) = [{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]
-    pass
-
 class 0xef7e7bb1():
     0x29bb1fe: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
     Enabled: (Bool, 0x0, 0x0, 0x0) = false
@@ -9067,31 +8485,6 @@ class 0xf03c301d():
     pass
 
 class 0xf07517b3(0x9d00ccbe):
-    pass
-
-class 0xf0ae6ff1():
-    PostScriptTitleElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    IconOverlayElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    PostScriptLeftElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    HrBottom: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    MainTextElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    TitleRightElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    HrTopSubScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Caret: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Backdrop: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    SubtitleLeftElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    IconElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    HrTop: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    PostScriptRightElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    CaretOffset: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    HrBottomSubScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ClickAbsorbingRegionElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    SubtitleRightElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    TitleLeftElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xf0d64228(InputEventBoolKeybind):
     pass
 
 class 0xf0d7d450(ScriptTableSet):
@@ -9305,7 +8698,7 @@ class 0xf5022dc7():
     pass
 
 class 0xf569c583():
-    0xc3b38bef: (Embed, 0x0, 0x0, 0xef35eacc) = {"List":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}
+    0xc3b38bef: (Embed, 0x0, 0x0, SpellLevelUpList) = {"List":[{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]}
     0xe4f7105d: (Link, 0x0, 0x0, GameModeMapData) = "0x0"
     pass
 
@@ -9340,26 +8733,12 @@ class 0xf6f4bb5f():
 class 0xf6fef7cb(MissileTriggerSpec):
     pass
 
-class 0xf71f4123(ISequenceAction):
-    EndValue: (Pointer, 0x0, 0x0, 0x8930818a) = null
-    EasingType: (U8, 0x0, 0x0, 0x0) = 0
-    0x7bd430bd: (Bool, 0x0, 0x0, 0x0) = true
-    0xacddc1f1: (Pointer, 0x0, 0x0, 0x8930818a) = null
-    StartValue: (Pointer, 0x0, 0x0, 0x8930818a) = null
-    0xee641224: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
 class 0xf72ada25(ModalDialogViewController):
     0x26ebe4ed: (Embed, 0x0, 0x0, UiHyperlink) = {"DisplayText":"0x0","UrlTraKey":""}
     pass
 
-class 0xf74d9a2d(0x8214fbc2):
+class 0xf74d9a2d(SeqInputUiVfx):
     Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    pass
-
-class 0xf7711a64():
-    constantValue: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
-    dynamics: (Pointer, 0x0, 0x0, VfxColorRgbBase) = null
     pass
 
 class 0xf780db2f():
@@ -9459,11 +8838,6 @@ class 0xf96d9400():
     Text: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xeb7c1529: (String, 0x0, 0x0, 0x0) = ""
     0xf906fd94: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xf97e018e(0x632fca3c):
-    Source: (Pointer, 0x0, 0x0, 0x94e82d1f) = null
-    0xeada8829: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class 0xf9983033(TftConditionData):
@@ -9571,13 +8945,6 @@ class 0xfbd2dcc6():
     name: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xfbecf8da(IOverrideOptionItem):
-    items: (List2, 0x0, Pointer, IOverrideOptionItem) = []
-    template: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    LabelTraKey: (String, 0x0, 0x0, 0x0) = ""
-    ExpandedByDefault: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0xfbef6376(IVfxMaterialDriver):
     frequency: (U8, 0x0, 0x0, 0x0) = 0
     graph: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":0.0,"dynamics":null}
@@ -9609,20 +8976,11 @@ class 0xfc6af367():
 class 0xfca7e1ca(IOptionItemFilter):
     pass
 
-class 0xfcb22c81():
-    0x8c2ded48: (List2, 0x0, String, 0x0) = []
-    0x9fa8e559: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0xfd51006c(ILogicBoolDriver):
     IsExclusive: (Bool, 0x0, 0x0, 0x0)
     pass
 
 class 0xfd52ca74(ISequenceActionInstance):
-    pass
-
-class 0xfd5c7276():
-    0x2c823ac9: (Embed, 0x0, 0x0, CurveFloat) = {"InterpModes":[],"times":[],"values":[]}
     pass
 
 class 0xfd6bd0de(IGameModeConfig):
@@ -9678,7 +9036,7 @@ class 0xfe897399():
     RunOnce: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
-class 0xfea81f3e(0xf71f4123):
+class 0xfea81f3e(SequenceActionLerpFloat):
     pass
 
 class 0xfeacedf2(0x30aa7360):
@@ -9697,16 +9055,6 @@ class 0xfead7e9b():
 class 0xff2348d3(IVfxVector4Driver):
     Vector4: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
     Divisor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    pass
-
-class 0xff2bafae(0xa2913bfb):
-    0x344feb42: (Pointer, 0x0, 0x0, 0x8b54c9a7) = null
-    0x3d60c5b7: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xff3c9ff8():
-    ID: (I32, 0x0, 0x0, 0x0) = -1
-    NameTraKey: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xff4e30bb(ILoopScriptBlock):
@@ -9788,7 +9136,7 @@ class AbilityPreviewViewController(ViewController):
     0x87e53ff1: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x8c4ccae8: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AbilityName: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb7c5930f: (Map, Hash, Embed, 0xe405ebc2) = {}
+    0xb7c5930f: (Map, Hash, Embed, ControlPreviewData) = {}
     Video: (Hash, 0x0, 0x0, 0x0) = "0x0"
     VideoGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -10352,12 +9700,19 @@ class AugmentClientConfig(IGameModeConfigClient):
     pass
 
 class AugmentData(0x22daa5b8):
-    QuestData: (Pointer, 0x0, 0x0, 0xe93de85a) = null
+    QuestData: (Pointer, 0x0, 0x0, AugmentQuestData) = null
     rarity: (U8, 0x0, 0x0, 0x0) = 0
     AugmentPlatformId: (I32, 0x0, 0x0, 0x0) = -1
     0xe3a02eac: (Bool, 0x0, 0x0, 0x0) = false
     0xed593c9c: (Bool, 0x0, 0x0, 0x0) = false
     ResourceResolver: (Link, 0x0, 0x0, ResourceResolver) = "0x0"
+    pass
+
+class AugmentDataListConfig(IGameModeConfig):
+    0x2196d1e: (Bool, 0x0, 0x0, 0x0) = false
+    0x988fea51: (List2, 0x0, Link, AugmentSet) = []
+    AugmentList: (List2, 0x0, Link, AugmentData) = []
+    0xcae029f6: (Pointer, 0x0, 0x0, 0xcae029f6) = null
     pass
 
 class AugmentDisplayTagData():
@@ -10373,6 +9728,11 @@ class AugmentFallbackPool():
     rarity: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
+class AugmentLevelTextureData():
+    0x8c2ded48: (List2, 0x0, String, 0x0) = []
+    0x9fa8e559: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class AugmentModifier():
     NamePriority: (U32, 0x0, 0x0, 0x0) = 0
     0x4f5d78c9: (String, 0x0, 0x0, 0x0) = ""
@@ -10383,6 +9743,10 @@ class AugmentModifier():
     0xab0ba193: (String, 0x0, 0x0, 0x0) = ""
     0xd05c8b33: (String, 0x0, 0x0, 0x0) = ""
     ModifierId: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class AugmentQuestData():
+    Quest: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class AugmentSelectionViewController(ViewController):
@@ -10526,12 +9890,12 @@ class BankUnitList():
     pass
 
 class BannerFlagData():
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
     pass
 
 class BannerFrameData():
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
     pass
 
@@ -10670,6 +10034,10 @@ class BasicAttackSlotIntDriver(ILogicIntDriver):
 class BasicSkinAugment(ISkinAugment):
     Modifiers: (List2, 0x0, Pointer, ISkinAugmentModifier) = []
     0xedb4d440: (List2, 0x0, Link, ISkinAugment) = []
+    pass
+
+class BasicSkinAugmentGroup():
+    AugmentGroup: (List2, 0x0, Link, BasicSkinAugment) = []
     pass
 
 class BasicSpellSlotIntDriver(ILogicIntDriver):
@@ -11356,6 +10724,16 @@ class CharacterQuestConditionData():
     OwnerChampion: (Hash, 0x0, 0x0, 0x0)
     pass
 
+class CharacterQuestData():
+    GeneralCondition: (Pointer, 0x0, 0x0, 0x487b1677) = null
+    0x6c8f6dcf: (List2, 0x0, Pointer, CharacterQuestConditionData) = []
+    CompleteRewardList: (List2, 0x0, Pointer, CharacterQuestConditionData) = []
+    0x7829e090: (List2, 0x0, Pointer, CharacterQuestConditionData) = []
+    QuestName: (String, 0x0, 0x0, 0x0) = ""
+    0xd4ace659: (Bool, 0x0, 0x0, 0x0) = false
+    IsEnabled: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
 class CharacterQuestDefinitionsData():
     0x869c3e32: (List2, 0x0, Pointer, 0x7b40445f) = []
     QuestName: (String, 0x0, 0x0, 0x0) = ""
@@ -11364,7 +10742,7 @@ class CharacterQuestDefinitionsData():
 
 class CharacterQuestListConfig(IGameModeConfig):
     CharacterQuestDefinitionsList: (List2, 0x0, Pointer, CharacterQuestDefinitionsData) = []
-    CharacterQuestList: (List2, 0x0, Pointer, 0xe2ff8b22) = []
+    CharacterQuestList: (List2, 0x0, Pointer, CharacterQuestData) = []
     0x6f7129e6: (Bool, 0x0, 0x0, 0x0) = false
     0x702d99a3: (I32, 0x0, 0x0, 0x0) = 0
     pass
@@ -11390,7 +10768,7 @@ class CharacterRecord():
     mAdaptiveForceToAbilityPowerWeight: (F32, 0x0, 0x0, 0x0) = 0.0
     areaIndicatorTextureSize: (F32, 0x0, 0x0, 0x0) = 50.0
     armorPerLevelModifiable: (Embed, 0x0, 0x0, ModifiableFloat) = {"Modifiers":[],"baseValue":0.0}
-    0x1abb82c0: (Embed, 0x0, 0x0, 0xef35eacc) = {"List":[{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]}]}
+    0x1abb82c0: (Embed, 0x0, 0x0, SpellLevelUpList) = {"List":[{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]},{"mRequirements":[{"mRequirements":[{},{}]},{"mRequirements":[{},{}]},{"mRequirements":[{},{}]}]}]}
     components: (List2, 0x0, Pointer, IComponentData) = []
     charAudioNameOverride: (String, 0x0, 0x0, 0x0) = ""
     0x1faf6b9c: (Bool, 0x0, 0x0, 0x0) = false
@@ -12484,6 +11862,11 @@ class ContextualSituation():
 class ContinueBlock(IScriptBlock):
     pass
 
+class ControlPreviewData():
+    Wasd: (Embed, 0x0, 0x0, 0x406b6b5f) = {"0xf7bb662b":"","VideoPath":""}
+    PointAndClick: (Embed, 0x0, 0x0, 0x406b6b5f) = {"0xf7bb662b":"","VideoPath":""}
+    pass
+
 class ControlSchemeSelectionViewController(ViewController):
     0x11d15802: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x43fd0cea: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -12604,6 +11987,11 @@ class CurveTheDifferenceHeightSolver(HeightSolverType):
 
 class CustomAbilitiesUiData():
     ExtraAbilities: (Map, U32, Embed, SpellSlotDetailedUiDefinition) = {}
+    pass
+
+class CustomChromaData():
+    chromaColor2: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
+    chromaColor1: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     pass
 
 class CustomGet(ICustomGet, IScriptValueGet):
@@ -14070,6 +13458,10 @@ class FogOfWarProperties():
     0xeba1b3c5: (U32, 0x0, 0x0, 0x0) = 128
     pass
 
+class FollowPathCurveData():
+    0x2c823ac9: (Embed, 0x0, 0x0, CurveFloat) = {"InterpModes":[],"times":[],"values":[]}
+    pass
+
 class FollowTerrainHeightSolver(HeightSolverType):
     mMaxSlope: (F32, 0x0, 0x0, 0x0) = 10.0
     mHeightOffset: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -14473,7 +13865,7 @@ class GdsMapObject(GenericMapPlaceable):
 
 class GearData():
     mCharacterSubmeshesToShow: (List, 0x0, Hash, 0x0) = []
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     mVFXResourceResolver: (Pointer, 0x0, 0x0, ResourceResolver) = null
     mSelfOnlyPortraitIcon: (String, 0x0, 0x0, 0x0) = ""
     EnableOverrideIdleEffects: (Bool, 0x0, 0x0, 0x0) = false
@@ -14705,6 +14097,11 @@ class HasBuffRequirement(ISpellRankUpRequirement):
 
 class HasBuffWithAttributeBoolDriver(ILogicBoolDriver):
     BuffAttribute: (U8, 0x0, 0x0, 0x0) = 2
+    pass
+
+class HasEntityScript(EntityScriptCondition):
+    Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class HasGearDynamicMaterialBoolDriver(ILogicBoolDriver):
@@ -15587,16 +14984,19 @@ class IGameModeConfigBase():
 class IGameModeConfigClient(IGameModeConfigBase):
     pass
 
-class IGameScreenCameraBlock(0xece68ca6):
+class IGameScreenCameraBlock(IGameScreenClientBlock):
     pass
 
-class IGameScreenEntityBlock(0xece68ca6):
+class IGameScreenClientBlock(IScriptBlock):
+    pass
+
+class IGameScreenEntityBlock(IGameScreenClientBlock):
     pass
 
 class IGameScreenNode():
     pass
 
-class IGameScreenVfxBlock(0xece68ca6):
+class IGameScreenVfxBlock(IGameScreenClientBlock):
     pass
 
 class IGeComponentDef():
@@ -15642,10 +15042,10 @@ class ILoadoutInfoPanel():
     ViewPaneLink: (Hash, 0x0, 0x0, 0x0)
     pass
 
-class ILobbyGlobalBlock(0xece68ca6):
+class ILobbyGlobalBlock(IGameScreenClientBlock):
     pass
 
-class ILobbySegmentBlock(0xece68ca6):
+class ILobbySegmentBlock(IGameScreenClientBlock):
     pass
 
 class ILocatorPreview():
@@ -15754,7 +15154,7 @@ class IPictureInPictureSource():
 class IRegionBoundaryRenderInfo():
     pass
 
-class IRenderingBlock(0xece68ca6):
+class IRenderingBlock(IGameScreenClientBlock):
     pass
 
 class IResource():
@@ -15829,7 +15229,7 @@ class ISequenceLocation():
     transform: (Mtx44, 0x0, 0x0, 0x0)
     pass
 
-class ISequencerBlock(0xece68ca6):
+class ISequencerBlock(IGameScreenClientBlock):
     pass
 
 class IShaderDef():
@@ -16031,6 +15431,13 @@ class IdentityInstance():
 
 class IdleParticlesVisibilityEventData(BaseEventData):
     mShow: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class IfConditionBlock(IScriptBlock):
+    Invert: (Bool, 0x0, 0x0, 0x0) = false
+    Sequence: (Embed, 0x0, 0x0, ScriptSequence) = {"blocks":[]}
+    type: (U32, 0x0, 0x0, 0x0) = 0
+    Condition: (Pointer, 0x0, 0x0, IScriptCondition) = null
     pass
 
 class IncrementalPurchaseDialog(PurchaseDialogBase):
@@ -16990,6 +16397,10 @@ class LinkedCcBehaviorData(ICcBehaviorData):
     CcBehaviorLink: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class LinkedTagList(ITagList):
+    tags: (Link, 0x0, 0x0, TagList) = "0x0"
+    pass
+
 class ListGet(IScriptValueGet):
     Elements: (List2, 0x0, Pointer, IScriptValueGet) = []
     pass
@@ -17812,6 +17223,9 @@ class LolModesTeamDisplayData():
 class LolPingKeybind(InputEventBoolKeybind):
     0x4d5476d2: (U32, 0x0, 0x0, 0x0) = 0
     PingCategory: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class LolPingSelectKeybind(InputEventBoolKeybind):
     pass
 
 class LolSpellScript(BuffScript):
@@ -18687,6 +18101,12 @@ class MapWorldParticles():
     particles: (List2, 0x0, Embed, MapWorldParticle) = []
     AllowEmitterRotation: (Bool, 0x0, 0x0, 0x0) = true
     EmitterBone: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class MapgeoExtension():
+    0x4a6402e7: (Map, String, Bool, 0x0) = {}
+    0x8fedb340: (Map, String, Vec4, 0x0) = {}
+    0xb7e2d7e4: (Map, String, Embed, 0x32902d31) = {}
     pass
 
 class MaskData():
@@ -20214,6 +19634,13 @@ class OverrideAutoAttackCastTimeData():
     mOverrideAutoattackCastTimeCalculation: (Pointer, 0x0, 0x0, IGameCalculation) = {"DamageType":4,"ResultModifier":0,"mExpandedTooltipCalculationDisplay":8,"mMultiplier":null,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}
     pass
 
+class OverrideOptionItemGroup(IOverrideOptionItem):
+    items: (List2, 0x0, Pointer, IOverrideOptionItem) = []
+    template: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    LabelTraKey: (String, 0x0, 0x0, 0x0) = ""
+    ExpandedByDefault: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
 class OverridePerkSelectionSet():
     mPerks: (List, 0x0, Link, Perk) = []
     mStyle: (Link, 0x0, 0x0, PerkStyle) = "0x0"
@@ -20299,6 +19726,12 @@ class ParametricPairData():
     mClipName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class ParamsActiveItemTelemetry(BaseParams):
+    pass
+
+class ParamsAlert(BaseParams):
+    pass
+
 class ParamsAssist(BaseParams):
     pass
 
@@ -20352,6 +19785,9 @@ class ParamsItemChange(BaseParams):
     pass
 
 class ParamsItemConsumedPurchased(BaseParams):
+    pass
+
+class ParamsItemSpellCast(BaseParams):
     pass
 
 class ParamsItemUndo(BaseParams):
@@ -20864,7 +20300,16 @@ class Portrait(BaseLoadoutData):
     0x5d20d3f5: (List2, 0x0, String, 0x0) = []
     image: (Embed, 0x0, 0x0, CensoredImage) = {"UncensoredImages":{},"image":""}
     PortraitMaterial: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
-    0xff3c9ff8: (Link, 0x0, 0x0, 0xff3c9ff8) = "0x0"
+    0xff3c9ff8: (Link, 0x0, 0x0, PortraitLine) = "0x0"
+    pass
+
+class PortraitLine():
+    ID: (I32, 0x0, 0x0, 0x0) = -1
+    NameTraKey: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class PortraitSet():
+    0x5fde1a0b: (List2, 0x0, Hash, 0x0) = []
     pass
 
 class PostEffectOptions():
@@ -21015,6 +20460,12 @@ class PreloadCharacterWithSkinID(LevelScriptBlock):
 
 class PreloadCharacters(LevelScriptBlock):
     groupName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class PresetChromaData(IChromaData):
+    SelectedPreset: (U32, 0x0, 0x0, 0x0) = 0
+    RarityOverrides: (Map, String, U32, 0x0) = {}
+    DescriptionOverrides: (Map, String, String, 0x0) = {}
     pass
 
 class ProductOfSubPartsCalculationPart(IGameCalculationPart):
@@ -21993,23 +21444,363 @@ class Self(TargetingTypeData):
 class SelfAoe(TargetingTypeData):
     pass
 
-class SeqInputCombinedPosition(0xd97c0524):
+class SeqActionAnimationClearOverride(ISequenceAction):
+    0x83ac0981: (String, 0x0, 0x0, 0x0) = ""
+    Object: (Pointer, 0x0, 0x0, SeqInputObject) = {}
     pass
 
-class SeqInputConstOrientation(0x94e82d1f):
+class SeqActionAnimationPlay(ISequenceAction):
+    PauseOnEnd: (Bool, 0x0, 0x0, 0x0) = false
+    AnimationName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Object: (Pointer, 0x0, 0x0, SeqInputObject) = {}
+    0xcd97640d: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class SeqActionAnimationSetOverride(ISequenceAction):
+    0x1e2f0036: (String, 0x0, 0x0, 0x0) = ""
+    ResetWhenDone: (Bool, 0x0, 0x0, 0x0) = false
+    0x8adb25f4: (String, 0x0, 0x0, 0x0) = ""
+    Object: (Pointer, 0x0, 0x0, SeqInputObject) = {}
+    pass
+
+class SeqActionCameraShakeConst(ISequenceAction):
+    direction: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
+    0xf92ca41e: (Embed, 0x0, 0x0, SeqActionCameraShakeHelper) = {"FalloffRate":2.0,"Magnitude":20.0,"ShakesPerSecond":6.0}
+    pass
+
+class SeqActionCameraShakeHelper():
+    Magnitude: (F32, 0x0, 0x0, 0x0) = 20.0
+    ShakesPerSecond: (F32, 0x0, 0x0, 0x0) = 6.0
+    FalloffRate: (F32, 0x0, 0x0, 0x0) = 2.0
+    pass
+
+class SeqActionCameraShakeRelative(ISequenceAction):
+    0x1695a8: (Pointer, 0x0, 0x0, 0x90e924a6) = {"FalloffEasingType":0,"FalloffRadius":0.0}
+    TargetLocation: (Pointer, 0x0, 0x0, SeqInputVector) = {}
+    0xf92ca41e: (Embed, 0x0, 0x0, SeqActionCameraShakeHelper) = {"FalloffRate":2.0,"Magnitude":20.0,"ShakesPerSecond":6.0}
+    pass
+
+class SeqActionEquipGear(ISequenceAction):
+    GearIndex: (Pointer, 0x0, 0x0, SeqInputInt) = {}
+    PlayEquipAnimation: (Pointer, 0x0, 0x0, SeqInputBool) = {}
+    TargetObject: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
+class SeqActionEquipGearInstance(ISequenceActionInstance):
+    pass
+
+class SeqActionGlobalWindSpeed(SequenceActionLerpFloat):
+    pass
+
+class SeqActionLerpColor(ISequenceAction):
+    EndValue: (Pointer, 0x0, 0x0, SeqInputColor)
+    EasingType: (U8, 0x0, 0x0, 0x0)
+    UseInitialEnd: (Bool, 0x0, 0x0, 0x0)
+    0xacddc1f1: (Pointer, 0x0, 0x0, SeqInputColor)
+    StartValue: (Pointer, 0x0, 0x0, SeqInputColor)
+    UseInitialStart: (Bool, 0x0, 0x0, 0x0)
+    pass
+
+class SeqActionLightColor(SeqActionLerpColor):
+    pass
+
+class SeqActionLightIntensityScale(SequenceActionLerpFloat):
+    pass
+
+class SeqActionLightRegionFade(ISequenceAction):
+    FadeOut: (Bool, 0x0, 0x0, 0x0) = true
+    Targets: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
+    pass
+
+class SeqActionMaterialParamColor(SeqActionLerpColor):
+    pass
+
+class SeqActionMaterialParamCurveFloat(SequenceActionCurveFloat):
+    pass
+
+class SeqActionMaterialParamFloat(SequenceActionLerpFloat):
+    pass
+
+class SeqActionMinimapPulse(ISequenceAction):
+    Color: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
+    EntityTag: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ChannelHint: (I32, 0x0, 0x0, 0x0) = -1
+    pass
+
+class SeqActionMoveObject(SeqActionSplineVector):
+    pass
+
+class SeqActionPointLightRadius(SequenceActionLerpFloat):
+    pass
+
+class SeqActionRotateObject(ISequenceAction):
+    EndValue: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    EasingType: (U8, 0x0, 0x0, 0x0) = 0
+    UseInitialEnd: (Bool, 0x0, 0x0, 0x0) = true
+    StartValue: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    TargetObject: (Pointer, 0x0, 0x0, SeqInputObject) = null
+    UseInitialStart: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class SeqActionSfxAttached(SeqActionSfxBase):
+    AttachToObject: (Pointer, 0x0, 0x0, SeqInputObject) = null
+    pass
+
+class SeqActionSfxBase(ISequenceAction):
+    EventName: (String, 0x0, 0x0, 0x0)
+    0x80c98e31: (Pointer, 0x0, 0x0, SeqInputObject)
+    pass
+
+class SeqActionSfxBeam(SeqActionSfxBase):
+    MidpointEvent: (Embed, 0x0, 0x0, SeqSfxBeamEvent) = {"0x80c98e31":null,"EventName":""}
+    TargetLocation: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    EndpointEvent: (Embed, 0x0, 0x0, SeqSfxBeamEvent) = {"0x80c98e31":null,"EventName":""}
+    SourceLocation: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    pass
+
+class SeqActionSfxGlobal(ISequenceAction):
+    EventName: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class SeqActionSfxMoving(SeqActionSfxBase):
+    SplinePoints: (List2, 0x0, Embed, SeqSplinePointPosition) = []
+    SplineCurves: (List2, 0x0, Pointer, 0x7de1323f) = []
+    pass
+
+class SeqActionSfxStatic(SeqActionSfxBase):
+    Location: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    pass
+
+class SeqActionSplineColor(ISequenceAction):
+    SplinePoints: (List2, 0x0, Pointer, SeqSplinePointColor) = []
+    SplineCurves: (List2, 0x0, Pointer, 0x9be3a010) = []
+    0x7fd88075: (Pointer, 0x0, 0x0, SeqInputColor) = null
+    pass
+
+class SeqActionSplineVector(ISequenceAction):
+    SplinePoints: (List2, 0x0, Pointer, SeqSplinePointVector) = []
+    SplineCurves: (List2, 0x0, Pointer, 0x7de1323f) = []
+    0x7fd88075: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    pass
+
+class SeqActionVfxAttached(SeqActionVfxBase):
+    AttachToObject: (Pointer, 0x0, 0x0, SeqInputObject) = null
+    AttachTargetBone: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class SeqActionVfxBase(ISequenceAction):
+    ParticleSystem: (Link, 0x0, 0x0, VfxSystemDefinitionData)
+    pass
+
+class SeqActionVfxBeam(SeqActionVfxBase):
+    TargetPosition: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    SourcePosition: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    pass
+
+class SeqActionVfxMoving(SeqActionVfxBase):
+    SplinePoints: (List2, 0x0, Embed, SeqSplinePointPosition) = []
+    SplineCurves: (List2, 0x0, Pointer, 0x7de1323f) = []
+    pass
+
+class SeqActionVfxStatic(SeqActionVfxBase):
+    Location: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    pass
+
+class SeqInputAttachment():
+    pass
+
+class SeqInputBool():
+    pass
+
+class SeqInputColor():
+    pass
+
+class SeqInputCombinedColor(SeqInputColor):
+    Operation: (U8, 0x0, 0x0, 0x0) = 0
+    LeftSource: (Pointer, 0x0, 0x0, SeqInputColor) = null
+    RightSource: (Pointer, 0x0, 0x0, SeqInputColor) = null
+    pass
+
+class SeqInputCombinedFloat(SeqInputFloat):
+    Operation: (U8, 0x0, 0x0, 0x0) = 0
+    LeftSource: (Pointer, 0x0, 0x0, SeqInputFloat) = null
+    RightSource: (Pointer, 0x0, 0x0, SeqInputFloat) = null
+    pass
+
+class SeqInputCombinedPosition(SeqInputCombinedVector):
+    pass
+
+class SeqInputCombinedVector(SeqInputVector):
+    Operation: (U8, 0x0, 0x0, 0x0) = 0
+    LeftSource: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    RightSource: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    pass
+
+class SeqInputConstBool(SeqInputBool):
+    value: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class SeqInputConstColor(SeqInputColor):
+    value: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
+    pass
+
+class SeqInputConstFloat(SeqInputFloat):
+    value: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class SeqInputConstInt(SeqInputInt):
+    value: (I32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class SeqInputConstOrientation(SeqInputVector):
     0x2b565a38: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     pass
 
-class SeqInputConstVector(0x94e82d1f):
+class SeqInputConstString(SeqInputString):
+    value: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class SeqInputConstVector(SeqInputVector):
     value: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     pass
 
-class SeqInputVarOrientation(0x94e82d1f):
-    Object: (Pointer, 0x0, 0x0, 0x8b54c9a7) = null
+class SeqInputCreateCamera(SeqInputCreateObject):
+    nearClip: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
+    Position: (Pointer, 0x0, 0x0, SeqInputVector) = {}
+    fov: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
+    orientation: (Pointer, 0x0, 0x0, SeqInputVector) = {}
+    farClip: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
+    EnableOnStart: (Pointer, 0x0, 0x0, SeqInputBool) = {}
     pass
 
-class SeqInputVarPosition(0x94e82d1f):
-    Object: (Pointer, 0x0, 0x0, 0x8b54c9a7) = null
+class SeqInputCreateEffectEmitter(SeqInputCreateObject):
+    AttachTargetBone: (String, 0x0, 0x0, 0x0) = ""
+    system: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
+    scale: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
+    Position: (Pointer, 0x0, 0x0, SeqInputVector) = {}
+    AttachTo: (Pointer, 0x0, 0x0, SeqInputAttachment) = null
+    orientation: (Pointer, 0x0, 0x0, SeqInputVector) = {}
+    pass
+
+class SeqInputCreateObject():
+    pass
+
+class SeqInputCreateSound(SeqInputCreateObject):
+    0x1220fb1c: (Pointer, 0x0, 0x0, SeqInputString) = null
+    Position: (Pointer, 0x0, 0x0, SeqInputVector) = {}
+    StartAudioEvent: (Pointer, 0x0, 0x0, SeqInputString) = {}
+    pass
+
+class SeqInputEnabled(SeqInputBool):
+    pass
+
+class SeqInputFloat():
+    pass
+
+class SeqInputInt():
+    pass
+
+class SeqInputLightColor(SeqInputColor):
+    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
+    pass
+
+class SeqInputLightIntensityScale(SeqInputFloat):
+    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
+    pass
+
+class SeqInputMaterialParamColor(SeqInputColor):
+    Parameter: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
+    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = {}
+    pass
+
+class SeqInputMaterialParamFloat(SeqInputFloat):
+    Parameter: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
+    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = {}
+    pass
+
+class SeqInputObject(SeqInputObjectArray):
+    pass
+
+class SeqInputObjectArray():
+    pass
+
+class SeqInputObjectEnabled(SeqInputEnabled):
+    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = {}
+    pass
+
+class SeqInputPointLightRadius(SeqInputFloat):
+    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
+    pass
+
+class SeqInputSelectorObject(SeqInputObject):
+    Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
+class SeqInputString():
+    pass
+
+class SeqInputUiEnabled(SeqInputEnabled):
+    UIElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class SeqInputUiVfx():
+    EnableOnStart: (Bool, 0x0, 0x0, 0x0)
+    pass
+
+class SeqInputVarAttachment(SeqInputAttachment):
+    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
+class SeqInputVarCameraFarClip(SeqInputFloat):
+    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
+class SeqInputVarCameraFov(SeqInputFloat):
+    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
+class SeqInputVarCameraNearClip(SeqInputFloat):
+    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
+class SeqInputVarCameraZoom(SeqInputFloat):
+    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
+class SeqInputVarOrientation(SeqInputVector):
+    Object: (Pointer, 0x0, 0x0, SeqInputObject) = null
+    pass
+
+class SeqInputVarPosition(SeqInputVector):
+    Object: (Pointer, 0x0, 0x0, SeqInputObject) = null
+    pass
+
+class SeqInputVector():
+    pass
+
+class SeqInputWindSpeed(SeqInputFloat):
+    pass
+
+class SeqSfxBeamEvent():
+    EventName: (String, 0x0, 0x0, 0x0) = ""
+    0x80c98e31: (Pointer, 0x0, 0x0, SeqInputObject) = null
+    pass
+
+class SeqSplinePointBase():
+    TimePercentage: (F32, 0x0, 0x0, 0x0)
+    pass
+
+class SeqSplinePointColor(SeqSplinePointBase):
+    Source: (Pointer, 0x0, 0x0, SeqInputColor) = null
+    0xeada8829: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class SeqSplinePointPosition(SeqSplinePointVector):
+    pass
+
+class SeqSplinePointVector(SeqSplinePointBase):
+    Source: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    0xeada8829: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class Sequence():
@@ -22019,22 +21810,89 @@ class Sequence():
     PhaseOverrides: (List, 0x0, Embed, SequencePhaseOverride) = []
     pass
 
+class SequenceActionActivateEntity(ISequenceAction):
+    0x94018232: (Bool, 0x0, 0x0, 0x0) = true
+    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class SequenceActionActivateEntityInstance(ISequenceActionInstance):
+    pass
+
+class SequenceActionActivateEntityTag(ISequenceAction):
+    0x94018232: (Bool, 0x0, 0x0, 0x0) = true
+    tag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class SequenceActionActivateEntityTagInstance(ISequenceActionInstance):
     pass
 
+class SequenceActionAttachToObject(ISequenceAction):
+    boneName: (String, 0x0, 0x0, 0x0) = ""
+    ToBeAttached: (Pointer, 0x0, 0x0, SeqInputAttachment) = null
+    AttachTo: (Pointer, 0x0, 0x0, SeqInputAttachment) = null
+    pass
+
+class SequenceActionCreateObject(ISequenceAction):
+    ObjectCreator: (Pointer, 0x0, 0x0, SeqInputCreateObject) = null
+    OutputSelector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
+class SequenceActionCurveFloat(ISequenceAction):
+    CurveValue: (Pointer, 0x0, 0x0, SeqInputFloat) = null
+    FloatCurve: (Embed, 0x0, 0x0, CurveFloat) = {"InterpModes":[],"times":[],"values":[]}
+    pass
+
+class SequenceActionDeactivateEntity(ISequenceAction):
+    0x9e8fcd0c: (Bool, 0x0, 0x0, 0x0) = false
+    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class SequenceActionDeactivateEntityTag(ISequenceAction):
+    tag: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x9e8fcd0c: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
 class SequenceActionDeactivateEntityTagInstance(ISequenceActionInstance):
+    pass
+
+class SequenceActionEnabled(ISequenceAction):
+    SetOnEnd: (Pointer, 0x0, 0x0, SeqInputBool) = {}
+    Object: (Pointer, 0x0, 0x0, SeqInputEnabled) = null
+    SetOnStart: (Pointer, 0x0, 0x0, SeqInputBool) = {}
     pass
 
 class SequenceActionEnabledInstance(ISequenceActionInstance):
     pass
 
+class SequenceActionFollowPath(ISequenceAction):
+    ForwardAxis: (U8, 0x0, 0x0, 0x0) = 5
+    path: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Object: (Pointer, 0x0, 0x0, SeqInputObject) = null
+    CurveData: (Link, 0x0, 0x0, FollowPathCurveData) = "0x0"
+    OrientationMode: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
 class SequenceActionFollowPathInstance(ISequenceActionInstance):
     pass
 
+class SequenceActionGroup():
+    Actions: (List2, 0x0, Hash, 0x0) = []
+    pass
+
+class SequenceActionHide(ISequenceAction):
+    DisableAtEnd: (Bool, 0x0, 0x0, 0x0) = false
+    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
+    pass
+
+class SequenceActionHideEntity(ISequenceAction):
+    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class SequenceActionHideEntityInstance(ISequenceActionInstance):
+    pass
+
+class SequenceActionHideEntityTag(ISequenceAction):
+    tag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class SequenceActionHideEntityTagInstance(ISequenceActionInstance):
@@ -22043,7 +21901,44 @@ class SequenceActionHideEntityTagInstance(ISequenceActionInstance):
 class SequenceActionHideInstance(ISequenceActionInstance):
     pass
 
+class SequenceActionLerpFloat(ISequenceAction):
+    EndValue: (Pointer, 0x0, 0x0, SeqInputFloat) = null
+    EasingType: (U8, 0x0, 0x0, 0x0) = 0
+    UseInitialEnd: (Bool, 0x0, 0x0, 0x0) = true
+    0xacddc1f1: (Pointer, 0x0, 0x0, SeqInputFloat) = null
+    StartValue: (Pointer, 0x0, 0x0, SeqInputFloat) = null
+    UseInitialStart: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class SequenceActionLerpVector(ISequenceAction):
+    EndValue: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    EasingType: (U8, 0x0, 0x0, 0x0) = 0
+    UseInitialEnd: (Bool, 0x0, 0x0, 0x0) = true
+    0xacddc1f1: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    StartValue: (Pointer, 0x0, 0x0, SeqInputVector) = null
+    UseInitialStart: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class SequenceActionOverrideUiVfx(ISequenceAction):
+    TargetUiVfx: (Pointer, 0x0, 0x0, SeqInputUiVfx) = null
+    SourceVfx: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
+    0x75da2db6: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class SequenceActionShow(ISequenceAction):
+    EnableAtStart: (Bool, 0x0, 0x0, 0x0) = false
+    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
+    pass
+
+class SequenceActionShowEntity(ISequenceAction):
+    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class SequenceActionShowEntityInstance(ISequenceActionInstance):
+    pass
+
+class SequenceActionShowEntityTag(ISequenceAction):
+    tag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class SequenceActionShowEntityTagInstance(ISequenceActionInstance):
@@ -22203,11 +22098,17 @@ class SfxGeComponentDef(IGeComponentDef):
     pass
 
 class ShaderFunctionDef():
-    Inputs: (List2, 0x0, Embed, 0xde0583cb) = []
+    Inputs: (List2, 0x0, Embed, ShaderFunctionInputDef) = []
     path: (String, 0x0, 0x0, 0x0) = ""
     name: (String, 0x0, 0x0, 0x0) = ""
     category: (String, 0x0, 0x0, 0x0) = ""
     outputs: (List2, 0x0, Embed, 0xedd8154) = []
+    pass
+
+class ShaderFunctionInputDef():
+    ID: (String, 0x0, 0x0, 0x0) = ""
+    type: (U32, 0x0, 0x0, 0x0) = 1
+    name: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class ShaderLogicalParameter():
@@ -22353,7 +22254,7 @@ class SkinAudioProperties():
 
 class SkinAugmentCategories():
     BorderAugments: (List2, 0x0, Embed, 0x4a70b12c) = []
-    BasicAugments: (List2, 0x0, Embed, 0xe1555e0a) = []
+    BasicAugments: (List2, 0x0, Embed, BasicSkinAugmentGroup) = []
     pass
 
 class SkinCharacterDataProperties():
@@ -22370,7 +22271,7 @@ class SkinCharacterDataProperties():
     alternateIconsCircle: (List, 0x0, String, 0x0) = []
     HudUnmuteEvent: (String, 0x0, 0x0, 0x0) = ""
     skinAnimationProperties: (Embed, 0x0, 0x0, SkinAnimationProperties) = {"animationGraphData":"0x0"}
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     0x46558f0e: (U8, 0x0, 0x0, 0x0) = 0
     OverrideOnScreenName: (String, 0x0, 0x0, 0x0) = ""
     attributeFlags: (U32, 0x0, 0x0, 0x0) = 0
@@ -22470,7 +22371,7 @@ class SkinMeshDataProperties():
     initialSubmeshMouseOversToHide: (String, 0x0, 0x0, 0x0) = ""
     fresnelColor: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     texture: (String, 0x0, 0x0, 0x0) = ""
-    0x4a40f92: (List2, 0x0, Pointer, 0x8fe295c8) = []
+    SocketDefinitions: (List2, 0x0, Pointer, SocketDefinitionBase) = []
     boundingCylinderRadius: (F32, 0x0, 0x0, 0x0) = 50.0
     reflectionFresnelColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
     overrideBoundingBox: (Option, 0x0, Vec3, 0x0) = null
@@ -22597,6 +22498,10 @@ class SocialStatusIcons():
     OfflineStatusIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     IngameStatusIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AwayStatusIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class SocketDefinitionBase():
+    name: (String, 0x0, 0x0, 0x0)
     pass
 
 class SortCustomTableBlock(IScriptBlock):
@@ -22895,6 +22800,10 @@ class SpellLevelUpInfo():
     mRequirements: (List, 0x0, Embed, SpellRankUpRequirements) = []
     pass
 
+class SpellLevelUpList():
+    List: (List, 0x4, Embed, SpellLevelUpInfo) = [{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]},{"mRequirements":[]}]
+    pass
+
 class SpellLevelUpUiData():
     ButtonFxOutSelected: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ButtonPostFxIn: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -22944,6 +22853,10 @@ class SpellPassiveData():
     RemoveOnPushCharacterData: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
+class SpellPickChoiceConfig(IGameModeConfig):
+    0xa3627eca: (List2, 0x0, Embed, 0x2b686c3d) = []
+    pass
+
 class SpellPickChoiceViewController(0x5bf8f70a):
     pass
 
@@ -22951,6 +22864,17 @@ class SpellPipsUiData():
     PipTargetRect: (Hash, 0x0, 0x0, 0x0) = "0x0"
     EmptyPips: (List, 0x6, Hash, 0x0) = ["0x0","0x0","0x0","0x0","0x0","0x0"]
     FullPips: (List, 0x6, Hash, 0x0) = ["0x0","0x0","0x0","0x0","0x0","0x0"]
+    pass
+
+class SpellPreviewData():
+    TriggerSpells: (List2, 0x0, Hash, 0x0) = []
+    0x6cd45762: (Bool, 0x0, 0x0, 0x0) = false
+    DisplayCondition: (Pointer, 0x0, 0x0, 0xfd51006c) = null
+    0x8f7842e4: (List2, 0x0, Pointer, 0x55f6bf86) = []
+    0x96e77860: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    OverrideParams: (Pointer, 0x0, 0x0, 0xc7e628b9) = null
+    0xda1ee5bc: (Bool, 0x0, 0x0, 0x0) = false
+    InputCondition: (Pointer, 0x0, 0x0, 0xfd51006c) = null
     pass
 
 class SpellRankIntDriver(ILogicIntDriver):
@@ -25903,6 +25827,13 @@ class TftItemData():
     0xf6fdab79: (List2, 0x0, Link, TftTraitData) = []
     pass
 
+class TftItemDisplayData():
+    Texts: (List, 0x0, Hash, 0x0) = []
+    Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    placeholder: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class TftItemSlotDisplayTemplate():
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ItemTransitionIn: (Embed, 0x0, 0x0, HudMenuTransitionData) = {"EasingType":0,"TransitionStartDelaySecs":0.0,"TransitionTime":0.10000000149011612,"maxAlpha":255,"minAlpha":0}
@@ -26003,6 +25934,12 @@ class TftMapModeData():
     EventSet: (Pointer, 0x0, 0x0, TftMapSetData) = null
     DefaultSet: (Pointer, 0x0, 0x0, TftMapSetData) = null
     0xdc1fc14b: (Pointer, 0x0, 0x0, TftMapSetData) = null
+    pass
+
+class TftMapScriptConditionData(TftMapConditionData):
+    0xcfa2b9d6: (Pointer, 0x0, 0x0, 0xe2a48eac) = null
+    RequiredValue: (I32, 0x0, 0x0, 0x0) = 0
+    DescriptionTra: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class TftMapSetData():
@@ -26183,6 +26120,12 @@ class TftPassWelcomeData():
     BodyTraKey: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class TftPictureInPictureViewController(ViewController):
+    Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TacticianScale: (F32, 0x0, 0x0, 0x0) = 1.0
+    pass
+
 class TftPlaybook(BaseLoadoutData):
     Enabled: (Bool, 0x0, 0x0, 0x0) = true
     0x37f7e4d1: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -26322,6 +26265,36 @@ class TftSellArea():
     HitTargetHandle: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SellTextHandle: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SceneHandle: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class TftSequenceActionContinue(ISequenceAction):
+    ContinueAt: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class TftSequenceActionDisableElement(ISequenceAction):
+    EnableOnEnd: (Bool, 0x0, 0x0, 0x0) = true
+    element: (Pointer, 0x0, 0x0, 0xe561be2e) = null
+    DisableOnStart: (Bool, 0x0, 0x0, 0x0) = true
+    0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
+class TftSequenceActionEnableElement(ISequenceAction):
+    DisableOnEnd: (Bool, 0x0, 0x0, 0x0) = true
+    element: (Pointer, 0x0, 0x0, 0xe561be2e) = null
+    0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    EnableOnStart: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class TftSequenceActionPlaySound(ISequenceAction):
+    SoundEvent: (Pointer, 0x0, 0x0, 0xbc280d0a) = null
+    pass
+
+class TftSequenceActionShowText(ISequenceAction):
+    DisableOnEnd: (Bool, 0x0, 0x0, 0x0) = true
+    element: (Pointer, 0x0, 0x0, 0xc06f5f6a) = null
+    0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    Text: (Pointer, 0x0, 0x0, 0xa8a6ac21) = null
+    EnableOnStart: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class TftShopContentData():
@@ -27333,9 +27306,31 @@ class TooltipViewController(ViewController):
     TooltipPopupTimeout: (F32, 0x0, 0x0, 0x0) = 0.0
     0x7c7147eb: (U32, 0x0, 0x0, 0x0) = 1
     TooltipPopupDelayTime: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xf0ae6ff1: (Embed, 0x0, 0x0, 0xf0ae6ff1) = {"Backdrop":"0x0","Caret":"0x0","CaretOffset":"0x0","ClickAbsorbingRegionElement":"0x0","HrBottom":"0x0","HrBottomSubScene":"0x0","HrTop":"0x0","HrTopSubScene":"0x0","IconElement":"0x0","IconOverlayElement":"0x0","MainTextElement":"0x0","PostScriptLeftElement":"0x0","PostScriptRightElement":"0x0","PostScriptTitleElement":"0x0","Scene":"0x0","SubtitleLeftElement":"0x0","SubtitleRightElement":"0x0","TitleLeftElement":"0x0","TitleRightElement":"0x0"}
+    0xf0ae6ff1: (Embed, 0x0, 0x0, TooltipViewData) = {"Backdrop":"0x0","Caret":"0x0","CaretOffset":"0x0","ClickAbsorbingRegionElement":"0x0","HrBottom":"0x0","HrBottomSubScene":"0x0","HrTop":"0x0","HrTopSubScene":"0x0","IconElement":"0x0","IconOverlayElement":"0x0","MainTextElement":"0x0","PostScriptLeftElement":"0x0","PostScriptRightElement":"0x0","PostScriptTitleElement":"0x0","Scene":"0x0","SubtitleLeftElement":"0x0","SubtitleRightElement":"0x0","TitleLeftElement":"0x0","TitleRightElement":"0x0"}
     0xf5f250a8: (Map, Hash, Embed, 0xc2838bde) = {}
     PerLocaleAdjustments: (Map, String, Embed, PerLocaleTooltipAdjustments) = {}
+    pass
+
+class TooltipViewData():
+    PostScriptTitleElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    IconOverlayElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    PostScriptLeftElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    HrBottom: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    MainTextElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TitleRightElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    HrTopSubScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Caret: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Backdrop: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SubtitleLeftElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    IconElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    HrTop: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    PostScriptRightElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CaretOffset: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    HrBottomSubScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ClickAbsorbingRegionElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SubtitleRightElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TitleLeftElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class TotalTurnAngleParametricUpdater(IFloatParametricUpdater):
@@ -27400,7 +27395,7 @@ class TriggerOnStart(MissileTriggerSpec):
 
 class TrophyData(BaseLoadoutData):
     mPerceptionBubbleRadius: (F32, 0x0, 0x0, 0x0) = 250.0
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     mBracketTRAKey: (String, 0x0, 0x0, 0x0) = ""
     mVFXResourceResolver: (Pointer, 0x0, 0x0, ResourceResolver) = null
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
@@ -27408,7 +27403,7 @@ class TrophyData(BaseLoadoutData):
 
 class TrophyPedestalData(BaseLoadoutData):
     mTierTRAKey: (String, 0x0, 0x0, 0x0) = ""
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x4a40f92":[],"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x8881ee77":null,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"","usesSkinVO":false}
     mJointName: (String, 0x0, 0x0, 0x0) = ""
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
     pass
@@ -28601,6 +28596,11 @@ class ValueArrayFloatDriver(ILogicFloatDriver):
 class ValueColor():
     constantValue: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     dynamics: (Pointer, 0x0, 0x0, VfxColorBase) = null
+    pass
+
+class ValueColorRgb():
+    constantValue: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
+    dynamics: (Pointer, 0x0, 0x0, VfxColorRgbBase) = null
     pass
 
 class ValueFloat():

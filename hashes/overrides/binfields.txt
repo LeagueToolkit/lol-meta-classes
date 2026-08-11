@@ -4,6 +4,7 @@ a87cd8f8 AbilityHasteMod
 01ba2bd1 AbilityResource
 25a09a75 AbilityResourceSlot
 b3ec72b9 AbilityResourceType
+54b38947 ActionOnEnd
 ee151102 ActionOnStart
 dad3f6bb ActivateActions
 888d3a04 ActivateButton
@@ -60,7 +61,9 @@ a0bf18a1 Ascending
 d631c93e AtakhanIcon
 47dac7e3 AtakhanScore
 90fce2a4 AtakhanValue
+3d60c5b7 AttachTargetBone
 9ea6766d AttachTo
+344feb42 AttachToObject
 2092043f AttackableUnit
 b7c14674 AttractionAcceleration
 aeefa0e6 AttractionRadius
@@ -169,6 +172,7 @@ bb2fa3e3 ChainProperties
 1b577ba5 ChampionScores
 04e0e6cd ChampionSpecList
 4f0e44f5 ChampionsLayout
+7e9f30bd ChannelHint
 09f298df ChannelName
 fbe86875 Channels
 04681146 ChaosSequence
@@ -252,6 +256,8 @@ a09e1bbf CurrentPip
 e23ce27f CurrentSeason
 89ad2288 CursorMode
 99380614 Curve
+cb1e8bfc CurveData
+1c99cc4d CurveValue
 2057306e Custom
 69b0a839 CustomDropRate
 629094b5 CustomTooltip
@@ -306,6 +312,7 @@ bff2f361 DescriptionShort
 4756c3d8 DifficultyData
 fdf1d536 DifficultyLevel
 670b6ae3 Dimension
+51674b53 DisableAtEnd
 827aac32 DisableFogOfWar
 97812f3b DisableThrottle
 f688ec43 DisabledOverlay
@@ -366,6 +373,7 @@ bcd3fffb EmoteType
 29d7590a EmptyTexturePath
 2bb40018 EmptyTicks
 af8bb8ce Enable
+7688f709 EnableAtStart
 08dad7b8 EnableEncounters
 2b1b533a EnableNode
 a0b12922 EncounterButton
@@ -423,6 +431,7 @@ cf15afeb Expression
 ce697851 Facets
 b8aa6948 FacingMode
 5c8ff3a6 Factor
+20407665 FadeOut
 aae9bc5e FailTra
 64c2cb47 FailureOverlay
 0f9ec900 FalloffEasingType
@@ -468,6 +477,7 @@ bb80885a FlatPhysicalDamageMod
 b4ca9c18 FlatPhysicalReduction
 f0383e4b FlatSpellBlockMod
 a6c45d85 Float
+c04df9d4 FloatCurve
 8144ce88 FloatProperty
 e3fdb170 FlowId
 51c7ac80 FontFamily
@@ -475,6 +485,7 @@ ed4469b5 FontStyle
 2bf77ed0 FontWeight
 f1a61846 FormIcon
 b99d8552 Format
+2642955f ForwardAxis
 146fb80f FrameButtons
 a51be2bb Friction
 95cd8075 From
@@ -492,6 +503,7 @@ b4873916 GameTime
 0ecb2d58 GameTypeConfigId
 162f520d GameplayRegion
 ed892164 GameplayTexture
+1609b312 GearIndex
 19752079 GeometryType
 166f6876 Goal
 b9b4d8d7 GoldAmount
@@ -610,6 +622,7 @@ fcea40c4 IsOwner
 44780383 IsUniform
 dfefe716 IsUnique
 3ed21981 IsValid
+bcb901b4 IsWorldSpaceOffset
 d3c84ef7 ItemConstants
 a1456915 ItemCount
 cc0e6fee ItemCountText
@@ -781,6 +794,7 @@ b1c14e0d Node
 d6b1e82e NoiseVector
 70bb674e NotificationVfx
 342dcc43 NumPlayers
+182f3d26 ObjectCreator
 1ba4e4a5 ObjectiveId
 b4222185 ObjectiveVfxs
 a8c6206b Objects
@@ -798,6 +812,7 @@ e10174d4 OptionalIcon
 236c71e4 OptionalInputs
 401f7351 OptionsButton
 b6639fce OrderSequence
+e92580fe OrientationMode
 d97f9a4f Origin
 3c4bd9e8 OriginLocation
 421aee08 OutEntity
@@ -822,6 +837,7 @@ af34dd8e PaintedRegion
 55b10110 Parameter
 07f9f769 ParameterOverrides
 23908b24 ParentGroup
+ff22989f ParentJoint
 1dc03d0d ParticleDefines
 b10e2d1e ParticleSystem
 faa24f5d PartnerSlot
@@ -871,11 +887,13 @@ d9ccf5cb PickMode
 666a9553 PipIcon
 7cae3080 PipLayout
 e0bf6ea7 PipSequence
+fbf05517 Pivot
 8bbc0365 Pixelate
 ab2e032a PlaneConstraint
 2a4a32b2 Platform
 75d39a3b PlayAnimation
 797fd50b PlayButton
+5e9b875d PlayEquipAnimation
 c402fafa PlayerDisconnect
 9c422946 PlayerLayout
 8a7ef9d0 PlayerNames
@@ -976,6 +994,7 @@ fc922909 RequiredTags
 f60220b1 RequiredValue
 01987941 Requirements
 22fafd5f RequiresClaim
+266cb0e8 ResetWhenDone
 29df7ff5 Resource
 6ebb734e ResourceBin
 5c06309c ResourceKey
@@ -984,6 +1003,7 @@ f60220b1 RequiredValue
 8b075f3e RespawnDelay
 ca411bdb RespawnDuration
 e343a0c6 RespawnSequence
+27c534f4 RestoreOnStop
 71e60c24 RestrictedType
 5b26202d Restriction
 3d7745f6 RestrictionText
@@ -1066,6 +1086,7 @@ d8c398f2 SeriesBackgroundImageUrl
 50c23533 SeriesName
 81189bab SetData
 3a942548 SetName
+a98993fb SetOnEnd
 dfe510ee SetOnStart
 d01ec7fc Sfx
 a1d375b5 ShaderModel
@@ -1102,6 +1123,7 @@ af20b401 SlotData
 d04a0fe6 SlotsButton
 d3a91466 SlotsScene
 42abffde SmoothTime
+04a40f92 SocketDefinitions
 7a5ff18f SoundName
 df38ac45 SourceId
 a78f532f SourceLocation
@@ -1208,7 +1230,9 @@ fe9065ba TargetGame
 66ab6b90 TargetRequirements
 13915870 TargetScene
 c8e7634b TargetSunDirection
+49a3f9ca TargetUiVfx
 37af4aa7 TargetVector
+88f674e1 Targets
 cdfd3bca TeamCodeText
 28d65053 TeamColor
 69602260 TeamColors
@@ -1249,6 +1273,7 @@ d853c3f4 TimePercentage
 0264d70c TitleColor
 55a243d9 TitleData
 42454824 To
+970ed425 ToBeAttached
 01d6318d ToggleType
 3696d198 TooltipData
 ebd43853 TooltipGroup
@@ -1294,6 +1319,8 @@ d3231b43 UnselectedHover
 95a401c3 UpgradeSpell
 0c71253f UseCurve
 acc83ffa UseFistBump
+7bd430bd UseInitialEnd
+ee641224 UseInitialStart
 064440d6 UseSkinName
 7b66f15d UseTarget
 e1e591e3 UseText

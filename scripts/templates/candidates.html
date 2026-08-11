@@ -127,7 +127,18 @@ a.hash:hover{color:var(--accent);text-decoration:underline;
   text-underline-offset:2px}
 .detail a:hover{color:var(--accent)}
 .names{display:flex;flex-direction:column;gap:2px;min-width:0}
-.nm{font-weight:500;word-break:break-word}
+.nmline{display:flex;align-items:baseline;gap:7px;min-width:0}
+.nm{font-weight:500;word-break:break-word;user-select:text;cursor:text}
+/* Faint until the row is hovered, but never fully hidden: on touch there is
+   no hover to reveal it with. */
+.cp{font-family:var(--mono);font-size:10px;line-height:1.4;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--faint);background:none;
+  border:1px solid transparent;border-radius:3px;padding:1px 5px;cursor:copy;
+  opacity:.35;flex:none;transition:opacity .12s,color .12s,border-color .12s}
+.row:hover .cp{opacity:1}
+.cp:hover{color:var(--accent);border-color:var(--line)}
+.cp:focus-visible{opacity:1}
+.cp.ok{opacity:1;color:var(--accent);border-color:transparent}
 .row.hi .nm{color:var(--ink)}
 .row:not(.hi) .nm{color:var(--dim)}
 .chips{display:flex;gap:6px;align-items:center;flex-wrap:wrap;
@@ -147,7 +158,7 @@ a.hash:hover{color:var(--accent);text-decoration:underline;
 .landed s{color:var(--faint);font-weight:400;text-decoration-thickness:1px}
 .arrow{color:var(--faint);padding:0 5px}
 .detail{grid-column:2/5;padding:8px 0 2px;font-size:12px;color:var(--dim);
-  display:flex;flex-direction:column;gap:3px}
+  display:flex;flex-direction:column;gap:3px;user-select:text;cursor:auto}
 .detail b{color:var(--faint);font-weight:400;letter-spacing:.08em;
   text-transform:uppercase;font-size:10px;margin-right:7px}
 .detail .fields{display:flex;flex-wrap:wrap;gap:4px 10px}
@@ -174,9 +185,10 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
   I-named candidate is held to a class the meta actually flags as an interface.
   <strong>None of these are cracks.</strong> A 32-bit hash collides with
   plausible names by chance, and each run below states how many of its own hits
-  it expects to be exactly that. What is new in this sweep is that the last one
-  can now be <a href="#calibration">scored</a>: the names that landed in between
-  turned some of its guesses into settled questions.</p>
+  it expects to be exactly that.<span id="h-cal" hidden> What is new in this
+  sweep is that the last one can now be <a href="#calibration">scored</a>: the
+  names that landed in between turned some of its guesses into settled
+  questions.</span></p>
   <div class="tally">
     <div><span class="k">bintypes</span><span class="v" id="t-bt"></span></div>
     <div><span class="k">binfields</span><span class="v" id="t-bf"></span></div>
@@ -380,7 +392,11 @@ if (CAL) {
   const rows = ['bintypes', 'binfields'].flatMap(
     t => CAL.rows[t].map(r => [r, t]));
   const bad = rows.filter(([r]) => !r.ok);
+  // Only claim a scored baseline when there is one: a sweep run right after
+  // the previous report has nothing resolved in between, and the section stays
+  // hidden until names land off it.
   $('calibration').hidden = false;
+  $('h-cal').hidden = false;
   $('cal-stamp').textContent = CAL.stamp;
   $('cal-note').textContent =
     `${CAL.scored} of the baseline's proposals have been resolved since`;
@@ -503,19 +519,77 @@ function render() {
       <span class="stripe"></span>
       ${hash}
       <span class="names">${r.n.map(n =>
-        `<span class="nm">${esc(n)}</span>`).join('')}</span>
+        `<span class="nmline"><span class="nm">${esc(n)}</span><button
+          class="cp" type="button" data-copy="${esc(n)}"
+          aria-label="Copy ${esc(n)}">copy</button></span>`).join('')}</span>
       <span class="chips">${chips.join('')}</span>
       ${isOpen ? detail(r) : ''}</div>`;
   }).join('') : '<p class="empty">Nothing matches that filter.</p>';
 }
 
+// Expand in place rather than re-rendering the list: a full innerHTML rewrite
+// drops any text the reader had selected, including in other rows.
 function toggleRow(el) {
-  const id = el.dataset.id;
-  open.has(id) ? open.delete(id) : open.add(id);
-  render();
+  const id = el.dataset.id, was = open.has(id);
+  if (was) {
+    open.delete(id);
+    const d = el.querySelector('.detail');
+    if (d) d.remove();
+  } else {
+    open.add(id);
+    const r = C[table].find(x => table + x.h === id);
+    if (r) el.insertAdjacentHTML('beforeend', detail(r));
+  }
+  el.setAttribute('aria-expanded', String(!was));
 }
+
+async function copyText(text, btn) {
+  let ok = false;
+  try {
+    await navigator.clipboard.writeText(text);
+    ok = true;
+  } catch (_) { /* the async API is not always granted inside the frame */ }
+  if (!ok) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { ok = document.execCommand('copy'); } catch (_) { /* nothing left */ }
+    ta.remove();
+  }
+  if (!btn) return;
+  if (!ok) {
+    // Both paths can be denied inside the frame. Leave the name selected so
+    // ctrl+c still gets it, and say so on the button.
+    const nm = btn.parentElement && btn.parentElement.querySelector('.nm');
+    if (nm) {
+      const sel = window.getSelection(), range = document.createRange();
+      range.selectNodeContents(nm);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  }
+  btn.textContent = ok ? 'copied' : 'ctrl+c';
+  btn.classList.add('ok');
+  clearTimeout(btn._t);
+  btn._t = setTimeout(() => {
+    btn.textContent = 'copy';
+    btn.classList.remove('ok');
+  }, 1200);
+}
+
 document.getElementById('list').addEventListener('click', e => {
   if (e.target.closest('a')) return;   // links navigate, they don't toggle
+  const cp = e.target.closest('.cp');
+  if (cp) { copyText(cp.dataset.copy, cp); return; }
+  // A click on a name, inside the detail, or one that ends a drag-selection is
+  // someone reading or copying text - collapsing the row under them loses it.
+  // The rest of the row still toggles.
+  if (e.target.closest('.nm') || e.target.closest('.detail')) return;
+  const sel = window.getSelection();
+  if (sel && !sel.isCollapsed && sel.toString().trim()) return;
   const b = e.target.closest('.row');
   if (b) toggleRow(b);
 });

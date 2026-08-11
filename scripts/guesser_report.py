@@ -261,12 +261,22 @@ def main():
         for h, n in read_pairs(f):
             found_in[(table, h, n)].add(run)
 
+    now_named = resolved_names(classes)
     data = {t: [] for t in TABLES}
+    landed = {t: 0 for t in TABLES}
     for table in TABLES:
         by_hash = collections.defaultdict(list)
         for h, n in read_pairs(out / f"candidates.{table}.txt"):
             by_hash[h].append(n)
         for h, found in sorted(by_hash.items()):
+            # A sweep targets what was unresolved when it ran, so every batch
+            # landed since leaves rows here that are settled. They are not
+            # candidates any more - the page says "unresolved bin hashes" and
+            # listing them invites re-proposing a name already in the tables.
+            # The calibration below is where a resolved proposal belongs.
+            if h in now_named[table]:
+                landed[table] += 1
+                continue
             key = dbkey(h)
             rec = {"h": h, "n": sorted(set(found))}
             if len(rec["n"]) > 1:
@@ -321,7 +331,7 @@ def main():
 
     doc = {"c": data, "l": ledger, "stamp": args.stamp, "fam": fam_rows}
     if baseline is not None:
-        doc["cal"] = calibrate(baseline, resolved_names(classes))
+        doc["cal"] = calibrate(baseline, now_named)
     payload = json.dumps(doc, separators=(",", ":"))
     (out / "candidates.json").write_text(payload, encoding="utf-8", newline="\n")
 
@@ -336,7 +346,9 @@ def main():
         fresh = sum(1 for r in data[t] if r.get("new"))
         print(f"[ok] {t}: {len(data[t])} hash(es), {hi} high-confidence, "
               f"{clash} with competing names"
-              + (f", {fresh} not in the baseline" if baseline else ""))
+              + (f", {fresh} not in the baseline" if baseline else "")
+              + (f" ({landed[t]} dropped: named since the sweep ran)"
+                 if landed[t] else ""))
     cal = doc.get("cal")
     if cal:
         print(f"[ok] calibration vs {base_path.name}: {cal['correct']}/"

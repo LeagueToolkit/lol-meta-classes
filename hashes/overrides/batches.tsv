@@ -24,5 +24,29 @@ guest-of-honor                	Arena Guest of Honor mode config (16.13+), instan
 map-entity-templates          	MapPlaceableBase's Entity/EntityTemplate/EntityPrefab/Definition/GeComponent lattice, plus the shipped strings that name three of its stems. See docs/map-entity-templates.md
 character-outline             	Jade's toon outline on SkinMeshDataProperties. Recombination at 0.007 expected chance hits over the Outline-naming slice, attested by 21 shipped *_CharacterOutline_inst. See docs/character-outline.md
 logic-drivers                 	ILogicDriver family: suffix folding + lattice completion, corroborated by shipped .bin driver graphs and client-binary strings. docs/logic-drivers.md
+animation-rig                 	Rig data: the 16.12 joint offset map, and the blend data embedded by JointOrientationEventData.
+audio-events                  	Audio: the 16.13 bank class (bankPath) and the audio context event type root with its announcer VO child. Repo casing rule forces the Vo spelling.
+character-gameplay            	Character-side gameplay: the numeric modifier pair on ModifiableFloat (CharacterRecord stats), the unit logic data interface, and the death-helper definition dead at 15.12.
+cheat-commands                	Timer cheat in the Cheat command family; TimerId plus one unresolved float.
+client-state-machine          	The 16.9-16.12 client state machine: ClientState children for LoL and TFT plus the ClientState/Ui manager pair. Whole set dead by 16.13; slots fixed by the named ClientState* siblings.
 clustered-lighting            	MapDynamicLighting's cluster grid: x/y/z fold to one stem, anchored search returns exactly MaxNumClusters; the rest single-hash with matching defaults. See docs/clustered-lighting.md
+dynamic-camera                	Dynamic camera update strategy root, held by DynamicCameraSettings.CameraUpdater beside ThirdPersonCameraUpdateStrategy.
+entity-scripting              	GameEntity scripting vocabulary: script events, entity conditions, the script base and two value getters. Each name sits in a slot the IScriptEvent/IScriptCondition/*Get families predict.
+event-params                  	Two 16.7 BaseParams event payloads: spell cast and player report.
 game-entity-blocks            	GameEntityBlock's script-block set. Suffix folding, two 2x2 lattices, the 15.17 EntityGroup->EntityTag rename; shipped position vars and client strings attest. docs/game-entity-blocks.md
+game-entity-runtime           	Game-entity runtime leftovers: the locator preview parent, the 15.22-only superward region entity, and the 16.15 tag-list interface.
+lol-keybind-checks            	LoL keybind checks: the root carrying InvertResult and the keybind-set check held by LolKeybindSet.
+minimap-icons                 	Minimap and entity icons: the icon texture held by GameEntityIconData, the minimap icon modifier root, and the timer style set under MinimapTimerStyleSheet.
+modes-framework               	Modes framework: the state transition interface behind a mode state's NextState, and the LoL modes team component data beside ChampionSpecComponentData.
+monarch-entity-defs           	Monarch vocabulary - day/night, properties, recipes, targeting - all dead by 16.4. LOCAL: unshipped mode, held back from upstream like the rest of *Monarch* (see overrides/README).
+options-ui                    	Options menu: the filter-item root, the override option item parent of OptionItemHotkeys, and the control-selection template pairing OptionItemControlSelectionSettings.
+rewards-progression           	Progression and rewards: quest condition data under CharacterQuestListConfig, milestone behaviours under MilestoneDefinition, and the media interface on IRewardBase.
+script-blocks                 	Script-block category interfaces under IScriptBlock - lobby, game screen, level - plus ConceptBlockBase and ExecuteFunctionLevelBlock. Template fixed by the named blocks of each family.
+sequence-action-instances     	Sequencer's ISequenceActionInstance set plus the action-side IParametricSequenceAction, named 1:1 off the ISequenceAction verbs; the 16.4 cohort carries the EntityGroup->EntityTag rename.
+shader-graph                  	Shader graph function definition: path, name, category and the input/output lists.
+skin-cosmetics                	Skin data: the loadable skin-augment modifier interface, and the spawn-in sequence block on SkinCharacterDataProperties (Order/Chaos sequences).
+tft-data                      	TFT data classes: cutscene conditional and value provider, the condition/map-condition pair, display tags, and the TftCharacter game-mode constant.
+ui-data-binding               	UI data binding: the variable interface behind UiComponent.VariableDefaults, the driver-updated value element, and the data-value mixin carried by ItemData and SpellObject.
+vfx-components                	Vfx component-side data: material container, emission surface root, legacy physics linger, the 16.9 rgb base, and the spell-level color data. Each fixed by the component field holding it.
+vfx-logic-drivers             	Driver-graph leftovers: the Vector4 switch driver completing the IVfxBaseDriver lattice, and the material driver-source interface. Same families as vfx-driver-graph and logic-drivers.
+viewcontroller-interfaces     	Interface halves of named ViewControllers (I<Feature>ViewController over <Feature>ViewController), plus RadialMenuBase and the TFT replay camera VC. Same family as viewcontroller-family.

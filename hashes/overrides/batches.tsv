@@ -48,7 +48,7 @@ shader-graph                  	Shader graph function definition - path, name, ca
 skin-cosmetics                	Skin data: the loadable skin-augment modifier interface, the spawn-in sequence block on SkinCharacterDataProperties, the basic-augment group under SkinAugmentCategories, and the splash upgrade tier.
 tft-data                      	TFT data classes: cutscene conditional and value provider, the condition/map-condition pair and its script child, display tags, the item display slot, and the TftCharacter game-mode constant.
 ui-data-binding               	UI data binding: the variable interface behind UiComponent.VariableDefaults, the driver-updated value element, and the data-value mixin carried by ItemData and SpellObject.
-vfx-components                	Vfx component-side data: material container, emission surface root, legacy physics linger, the 16.9 rgb base with the constant/dynamics value wrapper, and the spell-level color data.
+vfx-components                	Vfx component-side data: material container, emission surface root, legacy physics linger, the 16.9 rgb base and its value wrapper, spell-level color data, and the deprecated point emitter shape.
 vfx-logic-drivers             	Driver-graph leftovers: the Vector4 switch and rgba scale drivers completing the IVfxBaseDriver lattice, the bool material driver, and the material driver-source interface.
 ability-preview               	Ability preview data: the Wasd/PointAndClick video pair keyed on AbilityPreviewViewController, and the CharacterRecord-side trigger/condition record.
 augment-data                  	Augment leaf data: the quest hash behind AugmentData.QuestData, and the per-level texture block mapped by U8 tier inside AugmentSlot's display record.
@@ -58,3 +58,4 @@ mapgeo-extension              	Standalone 16.2+ value class of String-keyed Bool
 portraits                     	Portrait vocabulary (16.10+): the hash-list set linked from an IGameModeConfigClient, and the Id/NameTraKey record Portrait links.
 socket-definitions            	Abstract socket root on SkinMeshDataProperties.SocketDefinitions (16.15+): registered ctor-less with a 6-slot vtable, one AString name, and a single child carrying the joint/offset block.
 tooltip-ui                    	Tooltip scene layout embedded by TooltipViewController: one element hash per slot - title/subtitle/postscript pairs, hr rules, caret, backdrop.
+contextual-conditions         	VO contextual conditions, named off their own field names and attested by the mSituations key and rule names each ships under in CAC data. See docs/contextual-conditions.md

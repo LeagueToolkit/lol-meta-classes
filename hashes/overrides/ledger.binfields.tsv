@@ -1375,3 +1375,11 @@ c7a370a7	MapIndex                                                    	game-entit
 bcb901b4	IsWorldSpaceOffset                                          	socket-definitions            	2026-08-12	pending  	-
 ff22989f	ParentJoint                                                 	socket-definitions            	2026-08-12	pending  	-
 04a40f92	SocketDefinitions                                           	socket-definitions            	2026-08-12	pending  	-
+aa8fd0c5	CheckNewGearId                                              	contextual-conditions         	2026-08-14	pending  	-
+dba9e788	CheckPrevGearId                                             	contextual-conditions         	2026-08-14	pending  	-
+6b5e21ef	CountOffset                                                 	contextual-conditions         	2026-08-14	pending  	-
+affb8300	GearIds                                                     	contextual-conditions         	2026-08-14	pending  	-
+20941997	NewGearId                                                   	contextual-conditions         	2026-08-14	pending  	-
+262bfa2e	PrevGearId                                                  	contextual-conditions         	2026-08-14	pending  	-
+cd2c8b8f	SearchTag                                                   	contextual-conditions         	2026-08-14	pending  	-
+615964d8	TimeWindow                                                  	contextual-conditions         	2026-08-14	pending  	-

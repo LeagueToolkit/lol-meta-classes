@@ -351,10 +351,6 @@ class 0x1a261378(0xe2a48eac):
     Item: (Embed, 0x0, 0x0, TftMapItemData) = {"ArmoryIconPath":"","IconPath":"","NameId":"","description":"","effectAmounts":[],"itemID":0,"name":""}
     pass
 
-class 0x1a4d9bd(ICharacterSubcondition):
-    SpellBuff: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x1a6cd1f8(IScriptValueGet):
     pass
 
@@ -782,10 +778,6 @@ class 0x2330a302():
     pass
 
 class 0x23482a0a():
-    pass
-
-class 0x2363fb10(IContextualCondition):
-    AnimationName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x239188d5():
@@ -2438,18 +2430,8 @@ class 0x4a8a5a5d():
     type: (U8, 0x0, 0x0, 0x0)
     pass
 
-class 0x4ab36eb5(IContextualCondition):
-    SituationName: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x4acf67d2():
     0x79b24f3f: (Map, Hash, Pointer, IGameCalculation) = {}
-    pass
-
-class 0x4af7e9f2(IContextualCondition):
-    0x55848081: (Embed, 0x0, 0x0, 0x7463e786) = {"KillOffset":0,"KillThreshold":-1,"SourceId":0}
-    0x6caa1bcc: (Embed, 0x0, 0x0, 0x7463e786) = {"KillOffset":0,"KillThreshold":-1,"SourceId":0}
-    CompareOp: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x4b150334():
@@ -3171,10 +3153,6 @@ class 0x5f5925f1():
     TierBagEntries: (List2, 0x0, Embed, TftTierEntry) = []
     pass
 
-class 0x5f945dcb(IContextualCondition):
-    0xaffb8300: (List2, 0x0, U32, 0x0) = []
-    pass
-
 class 0x5fa82956(0xff4e30bb):
     0x1757fdc8: (Pointer, 0x0, 0x0, IBoolGet) = null
     Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -3253,13 +3231,6 @@ class 0x61891811(BaseParams):
 class 0x61902388():
     DailyLoginViewController: (Link, 0x0, 0x0, 0xb7b2875) = "0x0"
     0xea27ff5b: (Embed, 0x0, 0x0, 0xf1fd1323) = {"0x45bfca37":"0x0","0x53d20c62":"0x0","0x8db26ec4":"0x0","0xa8dd5e13":"0x0","0xb63628":"0x0","0xd98c2482":{"ClaimableDefaultIcon":"","ClaimableHoverIcon":"","CompleteDefaultIcon":"","CompleteHoverIcon":"","LockedDefaultIcon":"","LockedHoverIcon":""}}
-    pass
-
-class 0x61b427f(IContextualCondition):
-    0x20941997: (U32, 0x0, 0x0, 0x0) = 0
-    0x262bfa2e: (U32, 0x0, 0x0, 0x0) = 0
-    0xaa8fd0c5: (Bool, 0x0, 0x0, 0x0) = false
-    0xdba9e788: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0x6241da2():
@@ -3619,10 +3590,6 @@ class 0x6a215e04():
     0xfa4b2d5: (List2, 0x0, Link, 0x19ff61ac) = []
     pass
 
-class 0x6a50b5d7(IContextualCondition):
-    AbilityResourceSlot: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0x6a66088d(IFloatGet, IIntGet, IScriptValueGet):
     PropPath: (String, 0x0, 0x0, 0x0) = ""
     PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -3871,12 +3838,6 @@ class 0x70cdee97(IOptionItem):
     template: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x70f5ed1c(IContextualCondition):
-    BaseSource: (Embed, 0x0, 0x0, 0xe46a1cdb) = {"0x6b5e21ef":0,"CountThreshold":0,"SourceId":0,"objectives":0}
-    CompareOp: (U8, 0x0, 0x0, 0x0) = 3
-    0xb95ee9e0: (Embed, 0x0, 0x0, 0xe46a1cdb) = {"0x6b5e21ef":0,"CountThreshold":0,"SourceId":0,"objectives":0}
-    pass
-
 class 0x7169f36b(IGameModeConfigClient):
     0xbbfe2a3: (Bool, 0x0, 0x0, 0x0) = true
     pass
@@ -3973,10 +3934,6 @@ class 0x7496f1e(LevelScriptBlock):
 class 0x7544564e():
     0x2db40e95: (F32, 0x0, 0x0, 0x0) = 840.0
     Meter: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x754c268(ICharacterSubcondition):
-    0xcd2c8b8f: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x75582751(BaseParams):
@@ -5689,7 +5646,7 @@ class 0x9e5fdaf2():
 
 class 0x9e9e1f6d(IContextualCondition):
     Count: (U32, 0x0, 0x0, 0x0) = 1
-    0x615964d8: (F32, 0x0, 0x0, 0x0) = 8.0
+    TimeWindow: (F32, 0x0, 0x0, 0x0) = 8.0
     CompareOp: (U8, 0x0, 0x0, 0x0) = 0
     CharacterType: (Option, 0x0, U8, 0x0) = null
     0xeb60b2e8: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6180,9 +6137,6 @@ class 0xabe2709a(0xbc413e21):
     ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xac1764ca(IContextualCondition):
-    pass
-
 class 0xac27b13a():
     groups: (List2, 0x0, Embed, HudItemShopItemGroupDefinition) = []
     pass
@@ -6457,14 +6411,6 @@ class 0xb30f6438(ScriptTableGet, IFloatGet, IIntGet):
     PropPath: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xb3420260(ICharacterSubcondition):
-    Count: (U32, 0x0, 0x0, 0x0) = 0
-    Buff: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x4bd0e2b: (Bool, 0x0, 0x0, 0x0) = false
-    CompareOp: (U8, 0x0, 0x0, 0x0) = 3
-    BuffCaster: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0xb34ac035():
     Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6647,11 +6593,6 @@ class 0xb6a24478():
     0xd206cacf: (List, 0x3, Hash, 0x0) = ["0x0","0x0","0x0"]
     0xd507d032: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xdd60295b: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xb6da23cb(ICharacterSubcondition):
-    EncounterNumber: (U8, 0x0, 0x0, 0x0) = 1
-    CompareOp: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0xb72a7d67():
@@ -7407,7 +7348,7 @@ class 0xcae029f6():
 
 class 0xcae2695f(IContextualCondition):
     0x24392a01: (List2, 0x0, Hash, 0x0) = []
-    0x615964d8: (F32, 0x0, 0x0, 0x0) = 8.0
+    TimeWindow: (F32, 0x0, 0x0, 0x0) = 8.0
     CharacterType: (Option, 0x0, U8, 0x0) = null
     0xb293a6a9: (Bool, 0x0, 0x0, 0x0) = true
     pass
@@ -7447,10 +7388,6 @@ class 0xccf60865(IGameModeConfig):
 
 class 0xcd54aabc():
     icons: (List2, 0x0, Embed, 0x69680d) = []
-    pass
-
-class 0xcdd217c1(IContextualCondition):
-    EventName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xce50b659(IGameModeConfig):
@@ -7682,10 +7619,6 @@ class 0xd545dcdd():
     pass
 
 class 0xd554425c(ScriptTableGet, IUiElementIGet):
-    pass
-
-class 0xd55b5c23(IContextualCondition):
-    DamageResultType: (U32, 0x0, 0x0, 0x0) = 7
     pass
 
 class 0xd56fb9cc():
@@ -7941,10 +7874,6 @@ class 0xdbe05e33():
     pass
 
 class 0xdbe7562e(Cheat):
-    pass
-
-class 0xdc0a353(IContextualCondition):
-    AbilityResourceType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0xdc24bc6f():
@@ -8233,7 +8162,7 @@ class 0xe4544df(GameEntityTemplate):
 class 0xe46a1cdb():
     objectives: (U32, 0x0, 0x0, 0x0) = 0
     CountThreshold: (U32, 0x0, 0x0, 0x0) = 0
-    0x6b5e21ef: (U32, 0x0, 0x0, 0x0) = 0
+    CountOffset: (U32, 0x0, 0x0, 0x0) = 0
     SourceId: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -8590,10 +8519,6 @@ class 0xee28fb8d():
     pass
 
 class 0xee2dd07a(0xb08ef62f):
-    pass
-
-class 0xee39916f(IVfxShape):
-    emitOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     pass
 
 class 0xee4ec7c():
@@ -11713,9 +11638,21 @@ class ContextualActionTriggerEvent(IContextualAction):
     mHashedSituationTrigger: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class ContextualConditionAbilityResourceSlot(IContextualCondition):
+    AbilityResourceSlot: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class ContextualConditionAbilityResourceType(IContextualCondition):
+    AbilityResourceType: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
 class ContextualConditionAmountHealed(IContextualCondition):
     AmountHealed: (F32, 0x0, 0x0, 0x0) = 0.0
     CompareOp: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class ContextualConditionAnimationName(IContextualCondition):
+    AnimationName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class ContextualConditionAnyOtherHero(IContextualCondition):
@@ -11756,6 +11693,14 @@ class ContextualConditionCharacter(IContextualCondition):
     mCharacterType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
+class ContextualConditionCharacterBuffStackCount(ICharacterSubcondition):
+    Count: (U32, 0x0, 0x0, 0x0) = 0
+    Buff: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x4bd0e2b: (Bool, 0x0, 0x0, 0x0) = false
+    CompareOp: (U8, 0x0, 0x0, 0x0) = 3
+    BuffCaster: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
 class ContextualConditionCharacterDistance(ICharacterSubcondition):
     mDistanceTarget: (U8, 0x0, 0x0, 0x0) = 0
     mCompareOp: (U8, 0x0, 0x0, 0x0) = 5
@@ -11768,6 +11713,10 @@ class ContextualConditionCharacterFormName(ICharacterSubcondition):
 
 class ContextualConditionCharacterHasCAC(ICharacterSubcondition):
     mCacs: (List, 0x0, Hash, 0x0) = []
+    pass
+
+class ContextualConditionCharacterHasSpellBuff(ICharacterSubcondition):
+    SpellBuff: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class ContextualConditionCharacterHasTimeRemainingForAnimation(ICharacterSubcondition):
@@ -11808,6 +11757,10 @@ class ContextualConditionCharacterPlayingEmote(ICharacterSubcondition):
     mEmoteID: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
+class ContextualConditionCharacterPrimarySearchTag(ICharacterSubcondition):
+    SearchTag: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class ContextualConditionCharacterRole(ICharacterSubcondition):
     mRole: (U8, 0x0, 0x0, 0x0) = 0
     pass
@@ -11825,13 +11778,44 @@ class ContextualConditionCustomTimer(IContextualCondition):
     mCustomTimer: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class ContextualConditionDamageResultType(IContextualCondition):
+    DamageResultType: (U32, 0x0, 0x0, 0x0) = 7
+    pass
+
+class ContextualConditionDamageSelfMitigated(IContextualCondition):
+    pass
+
+class ContextualConditionEndedVoCacSituation(IContextualCondition):
+    SituationName: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class ContextualConditionEndedVoEventName(IContextualCondition):
+    EventName: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class ContextualConditionEnemyDeathsNearby(IContextualCondition):
     mEnemyDeaths: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class ContextualConditionEnemyEncounterNumber(ICharacterSubcondition):
+    EncounterNumber: (U8, 0x0, 0x0, 0x0) = 1
+    CompareOp: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class ContextualConditionGameTimer(IContextualCondition):
     mCompareOp: (U8, 0x0, 0x0, 0x0) = 2
     mGameTimeInMinutes: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class ContextualConditionGearIdCheck(IContextualCondition):
+    GearIds: (List2, 0x0, U32, 0x0) = []
+    pass
+
+class ContextualConditionGearIdEquip(IContextualCondition):
+    NewGearId: (U32, 0x0, 0x0, 0x0) = 0
+    PrevGearId: (U32, 0x0, 0x0, 0x0) = 0
+    CheckNewGearId: (Bool, 0x0, 0x0, 0x0) = false
+    CheckPrevGearId: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class ContextualConditionGlobalObjectiveBountyFirstActivation(IContextualCondition):
@@ -11879,6 +11863,12 @@ class ContextualConditionItemPurchased(IContextualCondition):
 
 class ContextualConditionItemVOGroup(IContextualCondition):
     mItemVOGroupHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ContextualConditionKillComparison(IContextualCondition):
+    0x55848081: (Embed, 0x0, 0x0, 0x7463e786) = {"KillOffset":0,"KillThreshold":-1,"SourceId":0}
+    0x6caa1bcc: (Embed, 0x0, 0x0, 0x7463e786) = {"KillOffset":0,"KillThreshold":-1,"SourceId":0}
+    CompareOp: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class ContextualConditionKillCount(IContextualCondition):
@@ -11942,6 +11932,12 @@ class ContextualConditionNumberOfCharactersNearTargetPos(IContextualCondition):
     mCompareOp: (U8, 0x0, 0x0, 0x0) = 3
     mNumberOfCharacters: (U32, 0x0, 0x0, 0x0) = 1
     mTeamCompareOp: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class ContextualConditionObjectiveCountComparison(IContextualCondition):
+    BaseSource: (Embed, 0x0, 0x0, 0xe46a1cdb) = {"CountOffset":0,"CountThreshold":0,"SourceId":0,"objectives":0}
+    CompareOp: (U8, 0x0, 0x0, 0x0) = 3
+    0xb95ee9e0: (Embed, 0x0, 0x0, 0xe46a1cdb) = {"CountOffset":0,"CountThreshold":0,"SourceId":0,"objectives":0}
     pass
 
 class ContextualConditionObjectiveTakeByMyTeam(IContextualCondition):
@@ -29995,6 +29991,10 @@ class VfxShapeLegacy(IVfxShape):
     emitRotationAngles: (List, 0x0, Embed, ValueFloat) = []
     emitRotationAxes: (List, 0x0, Vec3, 0x0) = []
     emitOffset: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
+    pass
+
+class VfxShapePointDoNotUse(IVfxShape):
+    emitOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     pass
 
 class VfxShapeSphere(VfxShapeVolume):

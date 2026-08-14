@@ -935,6 +935,7 @@ f7711a64	ValueColorRgb                                               	vfx-compon
 3bf517c5	VfxMaterialContainer                                        	vfx-components                	2026-08-11	pending  	-
 1e7ae2cb	VfxModifierBase                                             	vfx-components                	2026-08-11	pending  	-
 10725432	VfxPhysicsLingerDefinitionData                              	vfx-components                	2026-08-11	pending  	-
+ee39916f	VfxShapePointDoNotUse                                       	vfx-components                	2026-08-14	pending  	-
 fa04801e	IMaterialLogicDriverSource                                  	vfx-logic-drivers             	2026-08-11	pending  	-
 e9e6a0d5	VfxBoolLogicDriver                                          	vfx-logic-drivers             	2026-08-12	pending  	-
 fffd118e	VfxScaleColorRgbaDriver                                     	vfx-logic-drivers             	2026-08-12	pending  	-
@@ -952,3 +953,19 @@ ff3c9ff8	PortraitLine                                                	portraits 
 e78d94fa	PortraitSet                                                 	portraits                     	2026-08-12	pending  	-
 8fe295c8	SocketDefinitionBase                                        	socket-definitions            	2026-08-12	pending  	-
 f0ae6ff1	TooltipViewData                                             	tooltip-ui                    	2026-08-12	pending  	-
+6a50b5d7	ContextualConditionAbilityResourceSlot                      	contextual-conditions         	2026-08-14	pending  	-
+0dc0a353	ContextualConditionAbilityResourceType                      	contextual-conditions         	2026-08-14	pending  	-
+2363fb10	ContextualConditionAnimationName                            	contextual-conditions         	2026-08-14	pending  	-
+b3420260	ContextualConditionCharacterBuffStackCount                  	contextual-conditions         	2026-08-14	pending  	-
+01a4d9bd	ContextualConditionCharacterHasSpellBuff                    	contextual-conditions         	2026-08-14	pending  	-
+0754c268	ContextualConditionCharacterPrimarySearchTag                	contextual-conditions         	2026-08-14	pending  	-
+d55b5c23	ContextualConditionDamageResultType                         	contextual-conditions         	2026-08-14	pending  	-
+ac1764ca	ContextualConditionDamageSelfMitigated                      	contextual-conditions         	2026-08-14	pending  	-
+4ab36eb5	ContextualConditionEndedVoCacSituation                      	contextual-conditions         	2026-08-14	pending  	-
+cdd217c1	ContextualConditionEndedVoEventName                         	contextual-conditions         	2026-08-14	pending  	-
+b6da23cb	ContextualConditionEnemyEncounterNumber                     	contextual-conditions         	2026-08-14	pending  	-
+6ecc3b19	ContextualConditionGearId                                   	contextual-conditions         	2026-08-14	pending  	-
+5f945dcb	ContextualConditionGearIdCheck                              	contextual-conditions         	2026-08-14	pending  	-
+061b427f	ContextualConditionGearIdEquip                              	contextual-conditions         	2026-08-14	pending  	-
+4af7e9f2	ContextualConditionKillComparison                           	contextual-conditions         	2026-08-14	pending  	-
+70f5ed1c	ContextualConditionObjectiveCountComparison                 	contextual-conditions         	2026-08-14	pending  	-

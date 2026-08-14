@@ -186,6 +186,8 @@ fbe86875 Channels
 9bc68be3 ChatRegion
 928eb9b4 CheatList
 d1519ad2 CheckMark
+aa8fd0c5 CheckNewGearId
+dba9e788 CheckPrevGearId
 ddf728ec CheckboxButton
 1418c47f Chroma
 c3a944e7 ChromaData
@@ -239,6 +241,7 @@ a2a45218 CooldownDuration
 ea13124a CooldownStatus
 f31321aa CosmeticDuration
 eaefb0c9 CostIcon
+6b5e21ef CountOffset
 1ccf05c7 CountThreshold
 8776327e CounterDefinition
 f3cf7575 CountersBehaveLikeStacks
@@ -503,6 +506,7 @@ b4873916 GameTime
 0ecb2d58 GameTypeConfigId
 162f520d GameplayRegion
 ed892164 GameplayTexture
+affb8300 GearIds
 1609b312 GearIndex
 19752079 GeometryType
 166f6876 Goal
@@ -781,6 +785,7 @@ cace7aa0 NameSpace
 cee348f4 NamedTeams
 6c83351f NeedsPip
 58a1d8fb Networking
+20941997 NewGearId
 df76b69e NewValue
 c870eb8b NextGroup
 20c34879 NextIcon
@@ -919,6 +924,7 @@ b2f876c7 PositionProvider
 83f71517 Precision
 de7d679e PremiumTag
 97b20086 PressedFrame
+262bfa2e PrevGearId
 caebb3c7 PreviewButton
 8f413bda PriceData
 54ff80d3 PrimaryEvent
@@ -1060,6 +1066,7 @@ d2d047f1 ScrollSettings
 ddfc5454 ScrollerBar
 e0ece3d9 SearchBarGroup
 4b90d43d SearchButton
+cd2c8b8f SearchTag
 462dd7c5 SeasonId
 d5ca9b39 SecondarySpacer
 66b6cdea Seconds
@@ -1265,6 +1272,7 @@ f5092643 TierNames
 397d10d8 TiersLayout
 5d3c9be4 Time
 d853c3f4 TimePercentage
+615964d8 TimeWindow
 146b3900 TimerDefinitions
 73e973f5 TimerGroup
 48b5af2f TimerId

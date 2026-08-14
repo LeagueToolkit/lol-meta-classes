@@ -58,3 +58,4 @@ mapgeo-extension              	Standalone 16.2+ value class of String-keyed Bool
 portraits                     	Portrait vocabulary (16.10+): the hash-list set linked from an IGameModeConfigClient, and the Id/NameTraKey record Portrait links.
 socket-definitions            	Abstract socket root on SkinMeshDataProperties.SocketDefinitions (16.15+): registered ctor-less with a 6-slot vtable, one AString name, and a single child carrying the joint/offset block.
 tooltip-ui                    	Tooltip scene layout embedded by TooltipViewController: one element hash per slot - title/subtitle/postscript pairs, hr rules, caret, backdrop.
+contextual-conditions         	VO contextual conditions, named off their own field names and attested by the mSituations key and rule names each ships under in CAC data. See docs/contextual-conditions.md

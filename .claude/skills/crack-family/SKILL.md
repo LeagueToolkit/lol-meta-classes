@@ -1,6 +1,6 @@
 ---
 name: crack-family
-description: Run a naming campaign against an unnamed class family or a set of unresolved hashes in lol-meta-classes. Scope the target from the census, derive candidates from structure, prove them by suffix folding, lattices, shipped strings and shipped data, then land them with hashtool. Use when asked to crack, name, or work an unnamed family, unresolved class/field hashes, or to start/resume a campaign.
+description: Run a naming campaign against an unnamed class family or a set of unresolved hashes in lol-meta-classes. Scope the target from the census, derive candidates from structure, prove them by suffix folding, lattices, the anchored guesser and shipped data, then land them with hashtool. Use when asked to crack, name, or work an unnamed family, unresolved class/field hashes, or to start/resume a campaign.
 ---
 
 # Cracking an unnamed class family
@@ -81,11 +81,7 @@ list; re-derive those calls, do not trust the omission either way.
 **Shipped strings.** Identifier-shaped forms hashed against target states,
 folded stem states, and the family's own unresolved field hashes.
 CommunityDragon corpora (`D:\lol\Data\hashes\lol`) are usually a clean zero
-for class names; the client binary string corpora are where this vocabulary
-lives and a hit there is a name Riot wrote. Provenance rule
-(docs/string-attestation.md): a probe set whose provenance the repo does not
-state cannot back an upstream PR, and non-retail string sources are never
-named anywhere - docs, batch notes, commits, PRs - describe the method only.
+for class names.
 
 **Anchored guesser.**
 `python scripts/split_words.py hashes/hashes.*.txt hashes/overrides/*.txt >
@@ -114,6 +110,20 @@ they gate. This pass reaches names no search can (IsInWaterBoolDriver), and
 it is where renames are dated: n hashes whose lifespans meet at one patch
 boundary are the strongest evidence a campaign produces, because chance
 cannot arrange the spans.
+
+**Client binary strings - last resort only.** Do not reach for this until every
+pass above is exhausted, and do not treat a miss as evidence of anything. The
+game resolves most meta names by hash and never materializes the string, so
+whole families are simply absent: `contextual-conditions` found *zero*
+occurrences of the substring `Contextual` across both arches. It pays off only
+where a name is also used by non-meta code.
+
+The repo vendors no probe set and no generator, so **ask the user to supply a
+string dump rather than extracting one** - and ask for the **macOS** build,
+which extracts far cleaner strings than the Windows one. Provenance rule
+(docs/string-attestation.md): a probe set whose provenance the repo does not
+state cannot back an upstream PR, and non-retail string sources are never named
+anywhere - docs, batch notes, commits, PRs - describe the method only.
 
 ## 4. Standards for landing
 

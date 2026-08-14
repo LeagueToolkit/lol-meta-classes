@@ -72,6 +72,11 @@ and off the table: `map-entity-templates` took it from 28 unnamed to 5,
 to 56. **`ISequenceAction` has never been touched by a campaign here** - every
 name beside it came from upstream.
 
+Below the cutoff of this census but worked since: `IContextualCondition`
+(cab0d4ec) and `ICharacterSubcondition` (de0b1bc8), 18 live unnamed between them,
+taken to 3 by `contextual-conditions`
+([docs/contextual-conditions.md](contextual-conditions.md)).
+
 ## The nine worth following up
 
 Ordered by expected yield, not by size. `MapPlaceableBase` was number 5 on this

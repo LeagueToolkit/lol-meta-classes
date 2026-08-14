@@ -424,7 +424,7 @@
  "0x94018232": {"revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xae321e88"],"default":{}}]},
  "0x95f72993": {"name":"tag","revisions":[{"from":7465697,"type":["Pointer","0x0","0x0","0xb60096a7"],"default":null}]}
 }},
-"0x1a4d9bd": {"revisions": [{"from":5837922,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
+"0x1a4d9bd": {"name": "ContextualConditionCharacterHasSpellBuff", "revisions": [{"from":5837922,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
  "0xd1bc4ba8": {"name":"SpellBuff","revisions":[{"from":5837922,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x1aae122": {"revisions": [{"from":5681102,"bases":["0x377491e8"],"interface":false,"value":false}], "properties": {
@@ -1064,11 +1064,11 @@
  "0xd35466b8": {"revisions":[{"from":7465697,"to":7620675,"type":["String","0x0","0x0","0x0"]}]},
  "0xfc9adf03": {"name":"media","revisions":[{"from":7465697,"to":7620675,"type":["Pointer","0x0","0x0","0x14dad640"]}]}
 }},
-"0x61b427f": {"revisions": [{"from":7102027,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
- "0x20941997": {"revisions":[{"from":7102027,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x262bfa2e": {"revisions":[{"from":7102027,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0xaa8fd0c5": {"revisions":[{"from":7102027,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xdba9e788": {"revisions":[{"from":7102027,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
+"0x61b427f": {"name": "ContextualConditionGearIdEquip", "revisions": [{"from":7102027,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+ "0x20941997": {"name":"NewGearId","revisions":[{"from":7102027,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x262bfa2e": {"name":"PrevGearId","revisions":[{"from":7102027,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xaa8fd0c5": {"name":"CheckNewGearId","revisions":[{"from":7102027,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xdba9e788": {"name":"CheckPrevGearId","revisions":[{"from":7102027,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0x61c3629": {"name": "DeathRecapShowcaseSlotData", "revisions": [{"from":5229820,"to":7102811,"bases":[],"interface":false,"value":false}], "properties": {
  "0x1e871b08": {"name":"SlotGroup","revisions":[{"from":5229820,"to":7102811,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -1227,8 +1227,8 @@
  "0xb4b427aa": {"name":"constantValue","revisions":[{"from":5229820,"type":["Vec4","0x0","0x0","0x0"],"default":[0.0,0.0,0.0,0.0]}]},
  "0xbc037de7": {"name":"dynamics","revisions":[{"from":5229820,"to":5241760,"type":["Pointer","0x0","0x0","0x4349c5f5"],"default":null},{"from":5253974,"type":["Pointer","0x0","0x0","0x7c893a73"],"default":null}]}
 }},
-"0x754c268": {"revisions": [{"from":7067412,"to":7067412,"bases":["0xde0b1bc8"],"interface":false,"value":false},{"from":7079808,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
- "0xcd2c8b8f": {"revisions":[{"from":7067412,"to":7067412,"type":["String","0x0","0x0","0x0"],"default":""},{"from":7079808,"type":["String","0x0","0x0","0x0"],"default":""}]}
+"0x754c268": {"name": "ContextualConditionCharacterPrimarySearchTag", "revisions": [{"from":7067412,"to":7067412,"bases":["0xde0b1bc8"],"interface":false,"value":false},{"from":7079808,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
+ "0xcd2c8b8f": {"name":"SearchTag","revisions":[{"from":7067412,"to":7067412,"type":["String","0x0","0x0","0x0"],"default":""},{"from":7079808,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x75a22c3": {"revisions": [{"from":6085125,"bases":[],"interface":false,"value":false}], "properties": {
  "0x470935c2": {"revisions":[{"from":6124791,"type":["List2","0x0","Pointer","0xbd57ee48"],"default":[]}]},
@@ -2111,7 +2111,7 @@
  "0x5f001719": {"revisions":[{"from":5549136,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xcec577d1": {"name":"Hash","revisions":[{"from":5549136,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xdc0a353": {"revisions": [{"from":6575386,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+"0xdc0a353": {"name": "ContextualConditionAbilityResourceType", "revisions": [{"from":6575386,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0xb3ec72b9": {"name":"AbilityResourceType","revisions":[{"from":6575386,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
 "0xdcdad02": {"name": "FontResolutionData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -4796,7 +4796,7 @@
 }},
 "0x23482a0a": {"revisions": [{"from":7345787,"to":7345787,"bases":[],"interface":true,"value":false},{"from":7371049,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0x2363fb10": {"revisions": [{"from":6575386,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+"0x2363fb10": {"name": "ContextualConditionAnimationName", "revisions": [{"from":6575386,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x98557a5e": {"name":"AnimationName","revisions":[{"from":6575386,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x239188d5": {"revisions": [{"from":6236777,"bases":[],"interface":false,"value":false}], "properties": {
@@ -10011,7 +10011,7 @@
  "0x319b722c": {"name":"SequenceParameters","revisions":[{"from":6012857,"to":6034237,"type":["Map","Hash","Pointer","0xf6e711b0"],"default":{}}]},
  "0x48a52ed9": {"name":"parameters","revisions":[{"from":6048769,"to":6564086,"type":["Map","Hash","Pointer","0xf6e711b0"],"default":{}}]}
 }},
-"0x4ab36eb5": {"revisions": [{"from":6048769,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+"0x4ab36eb5": {"name": "ContextualConditionEndedVoCacSituation", "revisions": [{"from":6048769,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x93f0c42c": {"name":"SituationName","revisions":[{"from":6048769,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x4acf67d2": {"revisions": [{"from":7794239,"bases":[],"interface":false,"value":true}], "properties": {
@@ -10035,7 +10035,7 @@
  "0xdba6febb": {"name":"QuestLingerDurationSec","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":5.0}]},
  "0xef8b25c1": {"name":"SceneTemplate","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x4af7e9f2": {"revisions": [{"from":6950646,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+"0x4af7e9f2": {"name": "ContextualConditionKillComparison", "revisions": [{"from":6950646,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x55848081": {"revisions":[{"from":6950646,"type":["Embed","0x0","0x0","0x7463e786"],"default":{"KillThreshold":-1,"SourceId":0,"KillOffset":0}}]},
  "0x6caa1bcc": {"revisions":[{"from":6950646,"type":["Embed","0x0","0x0","0x7463e786"],"default":{"KillThreshold":-1,"SourceId":0,"KillOffset":0}}]},
  "0x728eb9a3": {"name":"CompareOp","revisions":[{"from":6950646,"type":["U8","0x0","0x0","0x0"],"default":0}]}
@@ -12257,8 +12257,8 @@
 "0x5f5c70a4": {"name": "StatByNamedDataValueCalculationPart", "revisions": [{"from":5229820,"bases":["0xb5f69929"],"interface":false,"value":false}], "properties": {
  "0xb386dcf1": {"name":"mDataValue","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x5f945dcb": {"revisions": [{"from":7102027,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
- "0xaffb8300": {"revisions":[{"from":7102027,"type":["List2","0x0","U32","0x0"],"default":[]}]}
+"0x5f945dcb": {"name": "ContextualConditionGearIdCheck", "revisions": [{"from":7102027,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+ "0xaffb8300": {"name":"GearIds","revisions":[{"from":7102027,"type":["List2","0x0","U32","0x0"],"default":[]}]}
 }},
 "0x5fa82956": {"revisions": [{"from":6690024,"to":6897804,"bases":["0x4359be6"],"interface":false,"value":false},{"from":6919951,"bases":["0xff4e30bb"],"interface":false,"value":false}], "properties": {
  "0x1757fdc8": {"revisions":[{"from":7496037,"type":["Pointer","0x0","0x0","0xae321e88"],"default":null}]},
@@ -13448,7 +13448,7 @@
  "0xea4e5cc8": {"name":"LightgridBounceFalloffDistance","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":5000.0}]},
  "0xf8bc3dfe": {"name":"StationaryLightChannelAssignments","revisions":[{"from":5229820,"type":["Map","Hash","U8","0x0"],"default":{}}]}
 }},
-"0x6a50b5d7": {"revisions": [{"from":6575386,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+"0x6a50b5d7": {"name": "ContextualConditionAbilityResourceSlot", "revisions": [{"from":6575386,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x25a09a75": {"name":"AbilityResourceSlot","revisions":[{"from":6575386,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x6a569767": {"name": "TFTCompanionEvolutionViewController", "revisions": [{"from":5229820,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
@@ -13976,11 +13976,11 @@
  "0x3b699169": {"revisions":[{"from":6421879,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":-1.0}]},
  "0x49412a59": {"name":"ComponentOverrides","revisions":[{"from":6421879,"to":7480682,"type":["List2","0x0","Embed","0x36aa243a"],"default":[]}]}
 }},
-"0x6ecc3b19": {"revisions": [{"from":6275678,"to":7085788,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
- "0x20941997": {"revisions":[{"from":6275678,"to":7085788,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x262bfa2e": {"revisions":[{"from":6275678,"to":7085788,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+"0x6ecc3b19": {"name": "ContextualConditionGearId", "revisions": [{"from":6275678,"to":7085788,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+ "0x20941997": {"name":"NewGearId","revisions":[{"from":6275678,"to":7085788,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x262bfa2e": {"name":"PrevGearId","revisions":[{"from":6275678,"to":7085788,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x58ecfcaa": {"revisions":[{"from":6275678,"to":7085788,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xdba9e788": {"revisions":[{"from":6275678,"to":7085788,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
+ "0xdba9e788": {"name":"CheckPrevGearId","revisions":[{"from":6275678,"to":7085788,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0x6ed77b89": {"revisions": [{"from":6877272,"to":7046097,"bases":["0xd456bab6"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0xd456bab6"],"interface":false,"value":false}], "properties": {
  "0xe13846e": {"name":"ConditionOperator","revisions":[{"from":6877272,"to":7046097,"type":["U8","0x0","0x0","0x0"],"default":0},{"from":7067476,"to":7067476,"type":["U8","0x0","0x0","0x0"],"default":0}]},
@@ -14215,10 +14215,10 @@
 "0x70e76440": {"name": "LocatorEntityPrefab", "revisions": [{"from":7027993,"to":7190545,"bases":["0x2b949af2"],"interface":false,"value":false}], "properties": {
  "0x84145ca0": {"name":"definition","revisions":[{"from":7027993,"to":7190545,"type":["Embed","0x0","0x0","0x2461f3a9"],"default":{"inheritedTags":[],"tags":[]}}]}
 }},
-"0x70f5ed1c": {"revisions": [{"from":7426169,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
- "0x49e47ecd": {"name":"BaseSource","revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xe46a1cdb"],"default":{"objectives":0,"CountThreshold":0,"0x6b5e21ef":0,"SourceId":0}}]},
+"0x70f5ed1c": {"name": "ContextualConditionObjectiveCountComparison", "revisions": [{"from":7426169,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+ "0x49e47ecd": {"name":"BaseSource","revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xe46a1cdb"],"default":{"objectives":0,"CountThreshold":0,"CountOffset":0,"SourceId":0}}]},
  "0x728eb9a3": {"name":"CompareOp","revisions":[{"from":7426169,"type":["U8","0x0","0x0","0x0"],"default":3}]},
- "0xb95ee9e0": {"revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xe46a1cdb"],"default":{"objectives":0,"CountThreshold":0,"0x6b5e21ef":0,"SourceId":0}}]}
+ "0xb95ee9e0": {"revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xe46a1cdb"],"default":{"objectives":0,"CountThreshold":0,"CountOffset":0,"SourceId":0}}]}
 }},
 "0x70fbfc5e": {"name": "TftCraftingViewController", "revisions": [{"from":5756478,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x13ae144f": {"name":"CraftingContinueButtonDefinition","revisions":[{"from":5756478,"to":5783867,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -19661,7 +19661,7 @@
 }},
 "0x9e9e1f6d": {"revisions": [{"from":7794239,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x39b1ddf4": {"name":"Count","revisions":[{"from":7794239,"type":["U32","0x0","0x0","0x0"],"default":1}]},
- "0x615964d8": {"revisions":[{"from":7794239,"type":["F32","0x0","0x0","0x0"],"default":8.0}]},
+ "0x615964d8": {"name":"TimeWindow","revisions":[{"from":7794239,"type":["F32","0x0","0x0","0x0"],"default":8.0}]},
  "0x728eb9a3": {"name":"CompareOp","revisions":[{"from":7794239,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x8ef4ba18": {"name":"CharacterType","revisions":[{"from":7794239,"type":["Option","0x0","U8","0x0"],"default":null}]},
  "0xeb60b2e8": {"revisions":[{"from":7794239,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -21077,7 +21077,7 @@
 "0xabe2709a": {"revisions": [{"from":6124791,"bases":["0xbc413e21"],"interface":false,"value":false}], "properties": {
  "0xdff003b3": {"name":"ButtonElement","revisions":[{"from":6124791,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xac1764ca": {"revisions": [{"from":5964541,"to":5964541,"bases":["0xcab0d4ec"],"interface":false,"value":false},{"from":5967996,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+"0xac1764ca": {"name": "ContextualConditionDamageSelfMitigated", "revisions": [{"from":5964541,"to":5964541,"bases":["0xcab0d4ec"],"interface":false,"value":false},{"from":5967996,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
 }},
 "0xac27b13a": {"revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0xaf6bcb6d": {"name":"groups","revisions":[{"from":5229820,"type":["List2","0x0","Embed","0x38691790"],"default":[]}]}
@@ -22010,7 +22010,7 @@
 }},
 "0xb33b2406": {"name": "ILogicFloatDriver", "revisions": [{"from":5229820,"bases":["0x995ca734"],"interface":true,"value":false}], "properties": {
 }},
-"0xb3420260": {"revisions": [{"from":7389684,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
+"0xb3420260": {"name": "ContextualConditionCharacterBuffStackCount", "revisions": [{"from":7389684,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
  "0x4bd0e2b": {"revisions":[{"from":7389684,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x39b1ddf4": {"name":"Count","revisions":[{"from":7389684,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x4a2aa0cc": {"name":"Buff","revisions":[{"from":7389684,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -22550,7 +22550,7 @@
  "0x93cd9fd4": {"name":"mEffectColor0","revisions":[{"from":5229820,"type":["Color","0x0","0x0","0x0"],"default":[255,255,255,255]}]},
  "0x94cda167": {"name":"mEffectColor1","revisions":[{"from":5229820,"type":["Color","0x0","0x0","0x0"],"default":[255,255,255,255]}]}
 }},
-"0xb6da23cb": {"revisions": [{"from":6649480,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
+"0xb6da23cb": {"name": "ContextualConditionEnemyEncounterNumber", "revisions": [{"from":6649480,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
  "0x63508947": {"name":"EncounterNumber","revisions":[{"from":6649480,"type":["U8","0x0","0x0","0x0"],"default":1}]},
  "0x728eb9a3": {"name":"CompareOp","revisions":[{"from":6649480,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
@@ -24861,7 +24861,7 @@
 }},
 "0xcae2695f": {"revisions": [{"from":7794239,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x24392a01": {"revisions":[{"from":7794239,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
- "0x615964d8": {"revisions":[{"from":7794239,"type":["F32","0x0","0x0","0x0"],"default":8.0}]},
+ "0x615964d8": {"name":"TimeWindow","revisions":[{"from":7794239,"type":["F32","0x0","0x0","0x0"],"default":8.0}]},
  "0x8ef4ba18": {"name":"CharacterType","revisions":[{"from":7794239,"type":["Option","0x0","U8","0x0"],"default":null}]},
  "0xb293a6a9": {"revisions":[{"from":7794239,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
@@ -25292,7 +25292,7 @@
  "0x7ba2382b": {"name":"SpecificEventType","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x90d6b20c": {"name":"InclusionChecks","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xf09041d0"],"default":{"AreasToCheck":[],"AreaCheckQuantifier":0}}]}
 }},
-"0xcdd217c1": {"revisions": [{"from":6048769,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+"0xcdd217c1": {"name": "ContextualConditionEndedVoEventName", "revisions": [{"from":6048769,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x2a078c9c": {"name":"EventName","revisions":[{"from":6048769,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0xcde95875": {"name": "CursorDataCaptureCooldownContext", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -26293,7 +26293,7 @@
 }},
 "0xd554425c": {"revisions": [{"from":6919951,"bases":["0x22383aea","0xb3499e6f"],"interface":false,"value":false}], "properties": {
 }},
-"0xd55b5c23": {"revisions": [{"from":5837922,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+"0xd55b5c23": {"name": "ContextualConditionDamageResultType", "revisions": [{"from":5837922,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x56581a11": {"name":"DamageResultType","revisions":[{"from":5837922,"type":["U32","0x0","0x0","0x0"],"default":7}]}
 }},
 "0xd56801d4": {"name": "StringTableSet", "revisions": [{"from":5229820,"bases":["0xf6b622c6"],"interface":false,"value":false}], "properties": {
@@ -28232,7 +28232,7 @@
 "0xe46a1cdb": {"revisions": [{"from":7426169,"bases":[],"interface":false,"value":false}], "properties": {
  "0x11e3a11": {"name":"objectives","revisions":[{"from":7426169,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x1ccf05c7": {"name":"CountThreshold","revisions":[{"from":7426169,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x6b5e21ef": {"revisions":[{"from":7426169,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x6b5e21ef": {"name":"CountOffset","revisions":[{"from":7426169,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xdf38ac45": {"name":"SourceId","revisions":[{"from":7426169,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
 "0xe4748b84": {"name": "VfxPrimitiveProjectionBase", "revisions": [{"from":5229820,"to":7527101,"bases":["0xe29392e1"],"interface":true,"value":false},{"from":7538272,"bases":["0x60c24094"],"interface":true,"value":false}], "properties": {

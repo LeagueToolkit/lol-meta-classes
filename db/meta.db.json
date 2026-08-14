@@ -29600,7 +29600,7 @@
 }},
 "0xee35f912": {"name": "TftConditionData", "revisions": [{"from":6649480,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0xee39916f": {"revisions": [{"from":5516065,"bases":["0x7d3206d"],"interface":false,"value":false}], "properties": {
+"0xee39916f": {"name": "VfxShapePointDoNotUse", "revisions": [{"from":5516065,"bases":["0x7d3206d"],"interface":false,"value":false}], "properties": {
  "0xe5f268dd": {"name":"emitOffset","revisions":[{"from":5516065,"type":["Vec3","0x0","0x0","0x0"],"default":[0.0,0.0,0.0]}]}
 }},
 "0xee405aca": {"name": "FacingParametricUpdater", "revisions": [{"from":5229820,"bases":["0xec2d115"],"interface":false,"value":false}], "properties": {

@@ -923,6 +923,7 @@ ef7ad77c VfxPropertyVector3Driver
 fffd118e VfxScaleColorRgbaDriver
 c8d6a694 VfxScaleVector2Driver
 6302c267 VfxScaleVector3Driver
+ee39916f VfxShapePointDoNotUse
 eeadd18f VfxShimmerFacingMode
 7f3cb96d VfxShimmerMeshBeamDefinitionData
 32d4052e VfxShimmerPrimitiveAttachedMesh

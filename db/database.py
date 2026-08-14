@@ -8592,10 +8592,6 @@ class 0xee28fb8d():
 class 0xee2dd07a(0xb08ef62f):
     pass
 
-class 0xee39916f(IVfxShape):
-    emitOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
-    pass
-
 class 0xee4ec7c():
     name: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xc516a68: (List2, 0x0, Embed, 0x1e3ddf38) = []
@@ -29995,6 +29991,10 @@ class VfxShapeLegacy(IVfxShape):
     emitRotationAngles: (List, 0x0, Embed, ValueFloat) = []
     emitRotationAxes: (List, 0x0, Vec3, 0x0) = []
     emitOffset: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
+    pass
+
+class VfxShapePointDoNotUse(IVfxShape):
+    emitOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     pass
 
 class VfxShapeSphere(VfxShapeVolume):

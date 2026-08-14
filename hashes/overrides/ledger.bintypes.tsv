@@ -935,6 +935,7 @@ f7711a64	ValueColorRgb                                               	vfx-compon
 3bf517c5	VfxMaterialContainer                                        	vfx-components                	2026-08-11	pending  	-
 1e7ae2cb	VfxModifierBase                                             	vfx-components                	2026-08-11	pending  	-
 10725432	VfxPhysicsLingerDefinitionData                              	vfx-components                	2026-08-11	pending  	-
+ee39916f	VfxShapePointDoNotUse                                       	vfx-components                	2026-08-14	pending  	-
 fa04801e	IMaterialLogicDriverSource                                  	vfx-logic-drivers             	2026-08-11	pending  	-
 e9e6a0d5	VfxBoolLogicDriver                                          	vfx-logic-drivers             	2026-08-12	pending  	-
 fffd118e	VfxScaleColorRgbaDriver                                     	vfx-logic-drivers             	2026-08-12	pending  	-

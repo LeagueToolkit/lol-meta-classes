@@ -47,10 +47,9 @@ pub struct MetaDump {
     pub format_version: u32,
     /// Game version string (e.g., "14.24.6442327").
     pub version: String,
-    /// Map of hash-helper vtable (hex string) to helper description, referenced
-    /// by [`PropertyDump::hasher`]. Thousands of `Hash` properties share a
-    /// handful of helpers, so they are interned here rather than repeated on
-    /// every property. Empty before format version 3.
+    /// Hash helpers referenced by [`PropertyDump::hasher`], keyed by vtable
+    /// offset (hex string). Interned: an image has a handful of helpers behind
+    /// thousands of `Hash` properties. Empty before format version 3.
     #[serde(default)]
     pub hashers: BTreeMap<String, HasherDump>,
     /// Map of class hash (hex string) to class definition.
@@ -58,10 +57,10 @@ pub struct MetaDump {
 }
 
 impl MetaDump {
-    /// Resolve the hash helper behind a property, if it has one.
+    /// Resolves a property's hash helper.
     ///
-    /// Returns `None` for a property with no helper, and for a dump written
-    /// before format version 3, where no property carries one.
+    /// `None` if the property carries no helper, including every dump written
+    /// before format version 3.
     pub fn hasher(&self, property: &PropertyDump) -> Option<&HasherDump> {
         self.hashers.get(property.hasher.as_ref()?)
     }
@@ -141,9 +140,8 @@ pub struct PropertyDump {
     pub container: Option<ContainerDump>,
     /// Map info for Map types.
     pub map: Option<MapDump>,
-    /// Key into [`MetaDump::hashers`] for Hash types, resolved by
-    /// [`MetaDump::hasher`]. Absent before format version 3, and null for builds
-    /// before the helper was installed (pre-16.1).
+    /// Key into [`MetaDump::hashers`] for `Hash` types. Absent before format
+    /// version 3, null where no helper is installed (pre-16.1).
     #[serde(default)]
     pub hasher: Option<String>,
     /// Unknown pointer (always "0x0").
@@ -165,31 +163,28 @@ pub struct ContainerDump {
     pub storage: Option<ContainerStorage>,
 }
 
-/// A hash helper, as interned in [`MetaDump::hashers`] under its vtable offset.
+/// A hash helper, interned in [`MetaDump::hashers`] under its vtable offset.
 ///
-/// The `Hash` tag does not name a hash function or a width. Both come from a
-/// helper object hanging off the property record, and the reader asks the helper
-/// how wide its storage is before deciding how many bytes to consume. Two
-/// properties can therefore both be `Hash` and disagree on both counts, so a
-/// consumer that wants to *write* a value has to know which helper is behind it.
+/// A `Hash` tag names neither a hash function nor a width; both come from this
+/// helper, and the reader asks it how many bytes to consume. Anything writing
+/// a `Hash` value must consult it: two `Hash` properties can disagree on both
+/// counts.
 ///
-/// The vtable is the key rather than a field because it is the helper's
-/// identity: it separates two helpers even when they agree on everything below.
+/// The vtable offset is the key because it is the helper's identity: it
+/// separates helpers that agree on every field below.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct HasherDump {
-    /// Bytes the helper stores, from its `get_size`. 4 everywhere so far; the
-    /// reader has honoured an 8 since 16.14 but nothing has returned one yet.
+    /// Bytes the helper stores, from its `get_size`. 4 everywhere so far;
+    /// the reader honours 8 since 16.14 but nothing returns it yet.
     pub storage_width: usize,
-    /// Which hash the helper computes when handed a string, measured by calling
-    /// it rather than by reading its code.
+    /// The hash computed for a string, measured by calling the helper.
     pub hash_function: HashFunction,
 }
 
 /// A hash function identified by probing a helper.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct HashFunction {
-    /// The algorithm, or [`HashAlgorithm::Unknown`] if no candidate reproduced
-    /// the helper's output.
+    /// The algorithm, or [`HashAlgorithm::Unknown`] if nothing matched.
     pub algorithm: HashAlgorithm,
     /// Whether the helper lowercases before hashing. Meaningless when the
     /// algorithm is unknown.
@@ -308,7 +303,7 @@ mod tests {
         assert!(flags.finalized);
     }
 
-    /// A pre-v3 dump has neither the table nor the key, and must still read.
+    /// A pre-v3 dump has neither the table nor the key.
     #[test]
     fn a_dump_without_hashers_still_reads() {
         let dump: MetaDump = serde_json::from_str(
@@ -348,8 +343,7 @@ mod tests {
         assert_eq!(hasher.storage_width, 4);
         assert_eq!(hasher.hash_function.algorithm, HashAlgorithm::Fnv1a32);
 
-        // A property with no key resolves to nothing rather than to an arbitrary
-        // entry, which is the whole risk of an index-shaped reference.
+        // No key resolves to nothing, not to an arbitrary entry.
         let no_hasher = PropertyDump {
             hasher: None,
             ..property

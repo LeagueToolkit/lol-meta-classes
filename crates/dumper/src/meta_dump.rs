@@ -323,18 +323,15 @@ fn dump_property_map(base: usize, map: &MapI) -> MapDump {
     }
 }
 
-/// The distinct hash helpers seen during a walk, keyed by vtable offset.
+/// Distinct hash helpers seen during a walk, keyed by vtable offset.
 ///
-/// Doubles as the probe cache, which is the reason it exists rather than a
-/// helper being described on each property: identifying an algorithm means
-/// calling image code, and thousands of `Hash` properties stand behind a handful
-/// of helpers. Each vtable is probed once and every property after it is a
-/// lookup that yields a key.
+/// Also the probe cache: each vtable is probed once, and every property after
+/// that resolves to its key by lookup.
 #[derive(Default)]
 pub struct HasherTable(BTreeMap<String, HasherDump>);
 
 impl HasherTable {
-    /// Return the key for this helper, probing and recording it on first sight.
+    /// Returns the key for this helper, probing it on first sight.
     fn intern(&mut self, base: usize, hashed: &HashedI) -> String {
         let key = dump_hex(hashed.vtable as *const _ as usize - base);
         self.0.entry(key.clone()).or_insert_with(|| HasherDump {

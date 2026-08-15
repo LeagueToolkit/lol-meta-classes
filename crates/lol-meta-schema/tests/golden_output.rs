@@ -199,8 +199,7 @@ fn the_specimen_round_trips() {
     assert!(parsed.classes["0x635d04b7"].defaults.is_none());
     assert!(parsed.classes["0xfa33b8e8"].defaults.is_some());
 
-    // The hasher key has to survive as a key: a reference that no longer
-    // resolves is the failure mode of interning, and it is silent otherwise.
+    // A dangling hasher key is the silent failure mode of interning.
     let hash_property = &parsed.classes["0xfa33b8e8"].properties["0xc0ffee11"];
     let hasher = parsed
         .hasher(hash_property)

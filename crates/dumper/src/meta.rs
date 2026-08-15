@@ -41,10 +41,9 @@ impl<'a, T> RiotVector<T> {
         (self.data as usize, self.size())
     }
 
-    /// Borrow a Rust slice as a vector the image's code can read.
+    /// Borrows a slice as a vector image code can read.
     ///
-    /// Only for handing arguments *into* image code - the image must not take
-    /// ownership of, or outlive, the borrow.
+    /// Argument use only: the image must not keep or outlive the borrow.
     pub fn borrowed(slice: &'a [T]) -> Self {
         RiotVector {
             data: slice.as_ptr(),
@@ -293,15 +292,14 @@ pub struct HashFunction {
     pub lowercased: bool,
 }
 
-/// Strings the hash probe is run against.
+/// Probe strings for identifying a helper's hash function.
 ///
-/// Mixed case so a lowercasing helper separates from one that does not, and two
-/// of them so a one-in-four-billion coincidence cannot promote the wrong
-/// algorithm - both have to agree or the answer is [`HashAlgorithm::Unknown`].
+/// Mixed case so lowercasing is observable; both probes must agree or the
+/// answer is [`HashAlgorithm::Unknown`].
 const HASH_PROBES: [&str; 2] = ["Characters/Ahri/Skins/Skin01", "UX/TFT/Foo_Bar.TEX"];
 
-/// Round-tripped through `from_hash` / `to_hash` to check the vtable is the
-/// shape this struct claims before any conclusion is drawn from it.
+/// Known value round-tripped through `from_hash` / `to_hash` before trusting
+/// the vtable shape.
 const HASH_SELFTEST: u64 = 0x1234_5678;
 
 fn fnv1a32(bytes: &[u8]) -> u32 {
@@ -313,35 +311,30 @@ fn fnv1a32(bytes: &[u8]) -> u32 {
 }
 
 impl HashedI {
-    /// Bytes the helper stores. The reader consumes this many from the file.
+    /// Returns the bytes the helper stores, from its `get_size`.
     pub fn storage_width(&self) -> usize {
         (self.vtable.get_size)(self, 0)
     }
 
-    /// Hash the helper produces for `text`, or `None` if the vtable does not
-    /// behave the way this struct describes.
+    /// Returns the helper's hash of `text`, or `None` if the vtable fails the
+    /// self-test.
     ///
-    /// Calls into the loaded image, like the container and map probes do. The
-    /// value is read back with `to_hash` rather than off the scratch slot, so a
-    /// 4-byte helper reports its truncated value and an 8-byte one does not have
-    /// to be special-cased.
+    /// Calls into the loaded image. The result is read back through `to_hash`,
+    /// so a truncating helper reports its truncated value.
     pub fn hash_of(&self, text: &str) -> Option<u64> {
         let mut scratch: u64 = 0;
         let slot = &mut scratch as *mut u64 as usize;
 
-        // `HASH_SELFTEST` fits in 32 bits, so a 4-byte helper round-trips it as
-        // exactly as an 8-byte one. Failing here means the vtable is not laid
-        // out the way `HashedIVtable` says - most likely a build that reordered
-        // it - and every call below would be into the wrong function.
+        // Bail if the vtable is not the layout `HashedIVtable` describes
+        // (e.g. a build reordered it); the calls below would hit the wrong
+        // functions.
         (self.vtable.from_hash)(self, slot, HASH_SELFTEST);
         if (self.vtable.to_hash)(self, slot) != HASH_SELFTEST {
             return None;
         }
 
-        // AString is a RiotVector<u8>: pointer, u32 length, u32 capacity. The
-        // helper only reads the first two. The slot deliberately still holds the
-        // self-test value: if `from_string` does not write, no candidate matches
-        // and the caller reports Unknown rather than a wrong answer.
+        // The slot still holds the self-test value, so a `from_string` that
+        // does not write matches no candidate instead of a plausible hash.
         let bytes = text.as_bytes();
         let string = AString {
             data: RiotVector::borrowed(bytes),
@@ -350,7 +343,7 @@ impl HashedI {
         Some((self.vtable.to_hash)(self, slot))
     }
 
-    /// Which hash the helper computes, measured rather than read out of its code.
+    /// Identifies the helper's hash function by probing it.
     pub fn hash_function(&self) -> HashFunction {
         let unknown = HashFunction {
             algorithm: HashAlgorithm::Unknown,
@@ -685,12 +678,9 @@ impl PropertyRef {
 
     /// The hash helper backing a `Hash` property.
     ///
-    /// Null before 16.1, when the registrar started installing one, so a `Hash`
-    /// property without a helper is expected on older builds rather than a
-    /// misread. Type-gated on both layouts: pre-16.14 the helper has a slot of
-    /// its own and only `Hash` fills it, and from 16.14 it shares the slot with
-    /// `container` and `map`, where reading it for any other type would hand
-    /// back an unrelated pointer.
+    /// Type-gated on both layouts: from 16.14 the helper shares the union slot
+    /// with `container` and `map`. Null on builds before 16.1, which never
+    /// install one.
     pub fn hashed(self) -> Option<&'static HashedI> {
         match self {
             PropertyRef::Canonical(p) => match p.value_type {
@@ -919,9 +909,8 @@ mod layout_tests {
         set_property_layout(PropertyLayout::Canonical);
     }
 
-    /// The hash helper shares the 16.14 union slot with `container` and `map`,
-    /// so it has to be gated on the type the same way they are. Getting this
-    /// wrong would report a container vtable as a hash helper and then call it.
+    /// Misreading the 16.14 union slot would report a container vtable as a
+    /// hash helper and then call it.
     #[test]
     fn hash_helper_reads_the_union_only_for_hash() {
         let _guard = lock_layout();
@@ -954,12 +943,9 @@ mod layout_tests {
         set_property_layout(PropertyLayout::Canonical);
     }
 
-    /// The probe compares the helper's output against candidates computed here,
-    /// so a wrong FNV would silently classify every helper as `Unknown`.
+    /// A wrong FNV here would classify every helper as `Unknown`.
     #[test]
     fn fnv1a32_matches_the_known_bin_hash() {
-        // "characterrecord" -> 0x23ea1915, the class hash used throughout the
-        // reversing notes, so a regression here is obvious.
         assert_eq!(fnv1a32(b"characterrecord"), 0x23ea_1915);
         assert_eq!(fnv1a32(b""), 0x811c_9dc5);
     }

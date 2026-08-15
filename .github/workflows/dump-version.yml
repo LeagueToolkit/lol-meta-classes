@@ -1,0 +1,234 @@
+# Dumps one game build on demand and uploads the JSON as an artifact.
+#
+# This is the on-request counterpart to sync-on-manifest-update.yml. That one
+# tracks live EUW1 and commits what it finds; this one dumps *any* region -
+# PBE especially - and commits nothing. Nothing under dumps/ is tracked by this
+# workflow, so a PBE build can be inspected without it entering the corpus or
+# the database.
+#
+# Leave `version` empty to take whatever the region is currently on.
+name: Dump Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      region:
+        description: 'Region to take the build from'
+        required: true
+        type: choice
+        default: PBE1
+        options:
+          - PBE1
+          - EUW1
+          - NA1
+          - KR
+          - BR1
+          - EUN1
+          - JP1
+          - LA1
+          - LA2
+          - ME1
+          - OC1
+          - PH2
+          - RU
+          - SG2
+          - TH2
+          - TR1
+          - TW2
+          - VN2
+          - STAGING
+      version:
+        description: 'Version to dump (e.g. 16.17.8057408). Empty = newest for the region.'
+        required: false
+        type: string
+        default: ''
+      build_database:
+        description: 'Also fold the dump into db/ and upload it, for local preview'
+        required: false
+        type: boolean
+        default: true
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-A warnings -C link-args=-Wl,-export-dynamic"
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install system dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y libc++1 build-essential cmake
+
+    - name: Setup Rust
+      uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        toolchain: stable
+        target: x86_64-unknown-linux-gnu
+
+    - name: Cache cargo dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-
+
+    - name: Build dumper and downloader
+      run: |
+        cargo build --release --target x86_64-unknown-linux-gnu \
+          --bin dumper --bin download-binary
+
+    - name: Resolve version
+      id: resolve
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        REGION: ${{ inputs.region }}
+        VERSION_INPUT: ${{ inputs.version }}
+      run: |
+        set -euo pipefail
+        BIN=./target/x86_64-unknown-linux-gnu/release/download-binary
+        if [ -z "$VERSION_INPUT" ]; then
+          VERSION=$("$BIN" --region "$REGION" --resolve --latest)
+        else
+          VERSION=$("$BIN" --region "$REGION" --resolve "$VERSION_INPUT")
+        fi
+        echo "Resolved ${REGION} -> ${VERSION}"
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+    - name: Download binary
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        REGION: ${{ inputs.region }}
+        VERSION: ${{ steps.resolve.outputs.version }}
+      run: |
+        set -euo pipefail
+        ./target/x86_64-unknown-linux-gnu/release/download-binary \
+          --region "$REGION" "$VERSION" -o "temp/$VERSION"
+
+    - name: Run dumper
+      id: run
+      env:
+        VERSION: ${{ steps.resolve.outputs.version }}
+      run: |
+        set -uo pipefail
+        mkdir -p dumps
+        ./target/x86_64-unknown-linux-gnu/release/dumper \
+          "temp/$VERSION" -o "dumps/$VERSION.json" 2>&1 | tee /tmp/dumper.log
+        CODE=${PIPESTATUS[0]}
+        echo "exit_code=${CODE}" >> $GITHUB_OUTPUT
+        echo "Dumper exit code: ${CODE}"
+
+    - name: Validate dump
+      if: steps.run.outputs.exit_code == '0'
+      env:
+        VERSION: ${{ steps.resolve.outputs.version }}
+      run: |
+        set -euo pipefail
+        FILE="dumps/$VERSION.json"
+        SIZE_MB=$(( $(stat --format=%s "$FILE") / 1048576 ))
+        echo "${FILE}: ${SIZE_MB}MB"
+        if [ "$SIZE_MB" -gt 50 ]; then
+          echo "::error::${FILE} is ${SIZE_MB}MB, over the 50MB sanity limit - the dump is likely corrupted."
+          exit 1
+        fi
+        python3 - "$FILE" <<'PY'
+        import json, sys
+        d = json.load(open(sys.argv[1]))
+        n = len(d["classes"])
+        print(f"version={d['version']} classes={n}")
+        if n < 1000:
+            sys.exit(f"only {n} classes - the dump looks truncated")
+        PY
+
+    - name: Build database preview
+      id: db
+      if: inputs.build_database && steps.run.outputs.exit_code == '0'
+      run: |
+        set -euo pipefail
+        python3 scripts/db_build.py 2>&1 | tee /tmp/db_build.log
+        echo "built=true" >> $GITHUB_OUTPUT
+
+    - name: Summarise
+      if: always()
+      env:
+        REGION: ${{ inputs.region }}
+        VERSION_INPUT: ${{ inputs.version }}
+        VERSION: ${{ steps.resolve.outputs.version }}
+        EXIT_CODE: ${{ steps.run.outputs.exit_code }}
+        DB_BUILT: ${{ steps.db.outputs.built }}
+      run: |
+        {
+          echo "## Dump: ${REGION} ${VERSION}"
+          echo ""
+          echo "- Region: \`${REGION}\`"
+          echo "- Requested: \`${VERSION_INPUT:-latest}\`"
+          echo "- Resolved: \`${VERSION}\`"
+          echo "- Dumper exit code: \`${EXIT_CODE}\`"
+          echo ""
+          FILE="dumps/${VERSION}.json"
+          if [ -s "$FILE" ]; then
+            python3 - "$FILE" <<'PY' || true
+        import json, sys
+        d = json.load(open(sys.argv[1]))
+        c = d["classes"]
+        print(f"- Classes: `{len(c)}`")
+        print(f"- Properties: `{sum(len(v['properties']) for v in c.values())}`")
+        PY
+            echo ""
+            echo "Artifact **${REGION}-${VERSION}** - the dump JSON."
+          else
+            echo "### No dump produced"
+            echo '```'
+            tail -30 /tmp/dumper.log 2>/dev/null || echo "(no log)"
+            echo '```'
+          fi
+          if [ "${DB_BUILT:-}" = "true" ]; then
+            echo ""
+            echo "### Database preview"
+            echo ""
+            echo "Artifact **db-${REGION}-${VERSION}** - drop \`meta.db.json\` and \`database.py\` into your local \`db/\`."
+            echo ""
+            echo '```'
+            grep -E '^\[(ok|\.\.)\]' /tmp/db_build.log 2>/dev/null || tail -5 /tmp/db_build.log
+            echo '```'
+          fi
+        } >> $GITHUB_STEP_SUMMARY
+
+    - name: Upload dump
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.region }}-${{ steps.resolve.outputs.version }}
+        path: |
+          dumps/${{ steps.resolve.outputs.version }}.json
+          /tmp/dumper.log
+        retention-days: 30
+        if-no-files-found: warn
+
+    - name: Upload database preview
+      if: steps.db.outputs.built == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: db-${{ inputs.region }}-${{ steps.resolve.outputs.version }}
+        path: |
+          db/meta.db.json
+          db/database.py
+        retention-days: 30
+        if-no-files-found: error
+
+    - name: Fail if the dumper crashed
+      if: always() && steps.run.outputs.exit_code != '0'
+      run: |
+        echo "::error::Dumper exited ${{ steps.run.outputs.exit_code }} - run Diagnose Dump on this version for a fault report."
+        exit 1

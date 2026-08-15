@@ -31,7 +31,8 @@ use std::collections::BTreeMap;
 /// History:
 ///   1 - the field was introduced; shape otherwise as dumped up to 16.14.
 ///   2 - `ClassFlags::unk5` renamed to `finalized`.
-pub const FORMAT_VERSION: u32 = 2;
+///   3 - `PropertyDump::hashed` added, describing the helper behind a `Hash` property.
+pub const FORMAT_VERSION: u32 = 3;
 
 /// Version of dumps written before the field existed.
 pub const FORMAT_VERSION_UNVERSIONED: u32 = 0;
@@ -123,6 +124,10 @@ pub struct PropertyDump {
     pub container: Option<ContainerDump>,
     /// Map info for Map types.
     pub map: Option<MapDump>,
+    /// Hash helper info for Hash types. Absent before format version 3, and null
+    /// for builds before the helper was installed (pre-16.1).
+    #[serde(default)]
+    pub hashed: Option<HashedDump>,
     /// Unknown pointer (always "0x0").
     pub unkptr: String,
 }
@@ -140,6 +145,50 @@ pub struct ContainerDump {
     pub fixed_size: Option<usize>,
     /// Storage type, if known.
     pub storage: Option<ContainerStorage>,
+}
+
+/// Hash helper information (for `Hash` properties).
+///
+/// The `Hash` tag does not name a hash function or a width. Both come from a
+/// helper object hanging off the property record, and the reader asks the helper
+/// how wide its storage is before deciding how many bytes to consume. Two
+/// properties can therefore both be `Hash` and disagree on both counts, so a
+/// consumer that wants to *write* a value has to know which helper is behind it.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct HashedDump {
+    /// Vtable offset (hex string). Distinguishes helpers even when the fields
+    /// below cannot.
+    pub vtable: String,
+    /// Bytes the helper stores, from its `get_size`. 4 everywhere so far; the
+    /// reader has honoured an 8 since 16.14 but nothing has returned one yet.
+    pub storage_width: usize,
+    /// Which hash the helper computes when handed a string, measured by calling
+    /// it rather than by reading its code.
+    pub hash_function: HashFunction,
+}
+
+/// A hash function identified by probing a helper.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub struct HashFunction {
+    /// The algorithm, or [`HashAlgorithm::Unknown`] if no candidate reproduced
+    /// the helper's output.
+    pub algorithm: HashAlgorithm,
+    /// Whether the helper lowercases before hashing. Meaningless when the
+    /// algorithm is unknown.
+    pub lowercased: bool,
+}
+
+/// Hash algorithms a helper has been observed to use.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum HashAlgorithm {
+    /// The classic bin hash: FNV-1a, 32-bit.
+    Fnv1a32,
+    /// XXH64, the same hash as a WAD chunk path.
+    Xxh64,
+    /// XXH3, 64-bit output.
+    Xxh3,
+    /// Probed, but nothing matched.
+    Unknown,
 }
 
 /// Map type information.

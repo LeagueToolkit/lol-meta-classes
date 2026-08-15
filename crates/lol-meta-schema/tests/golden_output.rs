@@ -17,7 +17,7 @@ fn golden_path() -> PathBuf {
 }
 
 /// One of everything: both nullable branches of a class, a property with a
-/// container, one with a map, and a plain scalar.
+/// container, one with a map, one with a hash helper, and a plain scalar.
 fn specimen() -> MetaDump {
     let container_property = PropertyDump {
         other_class: Some("0xcafebabe".to_string()),
@@ -32,6 +32,7 @@ fn specimen() -> MetaDump {
             storage: Some(ContainerStorage::UnknownVector),
         }),
         map: None,
+        hashed: None,
         unkptr: "0x0".to_string(),
     };
 
@@ -47,6 +48,25 @@ fn specimen() -> MetaDump {
             value_type: BinType::Embed,
             storage: MapStorage::UnknownMap,
         }),
+        hashed: None,
+        unkptr: "0x0".to_string(),
+    };
+
+    let hash_property = PropertyDump {
+        other_class: None,
+        offset: 40,
+        bitmask: 0,
+        value_type: BinType::Hash,
+        container: None,
+        map: None,
+        hashed: Some(HashedDump {
+            vtable: "0x2512e40".to_string(),
+            storage_width: 4,
+            hash_function: HashFunction {
+                algorithm: HashAlgorithm::Fnv1a32,
+                lowercased: true,
+            },
+        }),
         unkptr: "0x0".to_string(),
     };
 
@@ -57,6 +77,7 @@ fn specimen() -> MetaDump {
         value_type: BinType::Flag,
         container: None,
         map: None,
+        hashed: None,
         unkptr: "0x0".to_string(),
     };
 
@@ -84,6 +105,7 @@ fn specimen() -> MetaDump {
             ("0x4bc37f00".to_string(), flag_property),
             ("0x8e2676a9".to_string(), container_property),
             ("0x9a1b2c3d".to_string(), map_property),
+            ("0xc0ffee11".to_string(), hash_property),
         ]),
         defaults: Some(BTreeMap::from([(
             "0x4bc37f00".to_string(),

@@ -453,6 +453,19 @@ The Rust workspace under `crates/`:
   patterns, and writes it as JSON.
 - **meta-sync** - the orchestrator: discovers versions from `Morilli/riot-manifests`, pulls the build
   over the Riot CDN, extracts the macOS binary, runs the dumper, writes `dumps/{version}.json`.
+  Its `download-binary` bin fetches one build's macOS binary on its own, for the dumper or for a
+  disassembler:
+
+  ```bash
+  cargo run --release --bin download-binary -- 16.1.7374870          # live EUW1 by default
+  cargo run --release --bin download-binary -- --region PBE1 --latest
+  cargo run --release --bin download-binary -- --region PBE1 --list -n 10
+  ```
+
+  `--resolve` prints the version `--latest` would pick and exits, which is how `dump-version.yml`
+  names its output before doing any work. Listing goes through the git trees API, not the contents
+  API: contents truncates a directory at 1000 entries, and PBE1 is past that, so it reported nothing
+  newer than 14.24 while the region was on 16.17. Set `GITHUB_TOKEN` to lift the API rate limit.
 - **rman** - RMAN (Riot manifest) parsing and chunk downloading.
 - **lol-meta-schema** - the shared serde types for a dump file.
 - **hash-guesser** - guesses names for unresolved hashes by recombining words

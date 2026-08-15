@@ -31,7 +31,8 @@ use std::collections::BTreeMap;
 /// History:
 ///   1 - the field was introduced; shape otherwise as dumped up to 16.14.
 ///   2 - `ClassFlags::unk5` renamed to `finalized`.
-///   3 - `PropertyDump::hashed` added, describing the helper behind a `Hash` property.
+///   3 - hash helpers added: a `MetaDump::hashers` table, and `PropertyDump::hasher`
+///       naming the entry behind a `Hash` property.
 pub const FORMAT_VERSION: u32 = 3;
 
 /// Version of dumps written before the field existed.
@@ -46,8 +47,24 @@ pub struct MetaDump {
     pub format_version: u32,
     /// Game version string (e.g., "14.24.6442327").
     pub version: String,
+    /// Map of hash-helper vtable (hex string) to helper description, referenced
+    /// by [`PropertyDump::hasher`]. Thousands of `Hash` properties share a
+    /// handful of helpers, so they are interned here rather than repeated on
+    /// every property. Empty before format version 3.
+    #[serde(default)]
+    pub hashers: BTreeMap<String, HasherDump>,
     /// Map of class hash (hex string) to class definition.
     pub classes: BTreeMap<String, ClassDump>,
+}
+
+impl MetaDump {
+    /// Resolve the hash helper behind a property, if it has one.
+    ///
+    /// Returns `None` for a property with no helper, and for a dump written
+    /// before format version 3, where no property carries one.
+    pub fn hasher(&self, property: &PropertyDump) -> Option<&HasherDump> {
+        self.hashers.get(property.hasher.as_ref()?)
+    }
 }
 
 /// A metaclass definition.
@@ -124,10 +141,11 @@ pub struct PropertyDump {
     pub container: Option<ContainerDump>,
     /// Map info for Map types.
     pub map: Option<MapDump>,
-    /// Hash helper info for Hash types. Absent before format version 3, and null
-    /// for builds before the helper was installed (pre-16.1).
+    /// Key into [`MetaDump::hashers`] for Hash types, resolved by
+    /// [`MetaDump::hasher`]. Absent before format version 3, and null for builds
+    /// before the helper was installed (pre-16.1).
     #[serde(default)]
-    pub hashed: Option<HashedDump>,
+    pub hasher: Option<String>,
     /// Unknown pointer (always "0x0").
     pub unkptr: String,
 }
@@ -147,18 +165,18 @@ pub struct ContainerDump {
     pub storage: Option<ContainerStorage>,
 }
 
-/// Hash helper information (for `Hash` properties).
+/// A hash helper, as interned in [`MetaDump::hashers`] under its vtable offset.
 ///
 /// The `Hash` tag does not name a hash function or a width. Both come from a
 /// helper object hanging off the property record, and the reader asks the helper
 /// how wide its storage is before deciding how many bytes to consume. Two
 /// properties can therefore both be `Hash` and disagree on both counts, so a
 /// consumer that wants to *write* a value has to know which helper is behind it.
+///
+/// The vtable is the key rather than a field because it is the helper's
+/// identity: it separates two helpers even when they agree on everything below.
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct HashedDump {
-    /// Vtable offset (hex string). Distinguishes helpers even when the fields
-    /// below cannot.
-    pub vtable: String,
+pub struct HasherDump {
     /// Bytes the helper stores, from its `get_size`. 4 everywhere so far; the
     /// reader has honoured an 8 since 16.14 but nothing has returned one yet.
     pub storage_width: usize,
@@ -288,6 +306,55 @@ mod tests {
         )
         .unwrap();
         assert!(flags.finalized);
+    }
+
+    /// A pre-v3 dump has neither the table nor the key, and must still read.
+    #[test]
+    fn a_dump_without_hashers_still_reads() {
+        let dump: MetaDump = serde_json::from_str(
+            r#"{"version":"14.24.6442327","classes":{}}"#,
+        )
+        .unwrap();
+        assert!(dump.hashers.is_empty());
+    }
+
+    #[test]
+    fn a_property_resolves_its_hasher() {
+        let dump: MetaDump = serde_json::from_str(
+            r#"{
+                "formatVersion": 3,
+                "version": "16.17.8068374",
+                "hashers": {
+                    "0x25d0ff0": {
+                        "storage_width": 4,
+                        "hash_function": {"algorithm": "Fnv1a32", "lowercased": true}
+                    }
+                },
+                "classes": {}
+            }"#,
+        )
+        .unwrap();
+
+        let property: PropertyDump = serde_json::from_str(
+            r#"{
+                "other_class": null, "offset": 40, "bitmask": 0,
+                "value_type": "Hash", "container": null, "map": null,
+                "hasher": "0x25d0ff0", "unkptr": "0x0"
+            }"#,
+        )
+        .unwrap();
+
+        let hasher = dump.hasher(&property).expect("the key must resolve");
+        assert_eq!(hasher.storage_width, 4);
+        assert_eq!(hasher.hash_function.algorithm, HashAlgorithm::Fnv1a32);
+
+        // A property with no key resolves to nothing rather than to an arbitrary
+        // entry, which is the whole risk of an index-shaped reference.
+        let no_hasher = PropertyDump {
+            hasher: None,
+            ..property
+        };
+        assert!(dump.hasher(&no_hasher).is_none());
     }
 
     #[test]

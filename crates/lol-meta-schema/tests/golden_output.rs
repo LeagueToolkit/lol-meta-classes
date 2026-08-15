@@ -32,7 +32,7 @@ fn specimen() -> MetaDump {
             storage: Some(ContainerStorage::UnknownVector),
         }),
         map: None,
-        hashed: None,
+        hasher: None,
         unkptr: "0x0".to_string(),
     };
 
@@ -48,7 +48,7 @@ fn specimen() -> MetaDump {
             value_type: BinType::Embed,
             storage: MapStorage::UnknownMap,
         }),
-        hashed: None,
+        hasher: None,
         unkptr: "0x0".to_string(),
     };
 
@@ -59,14 +59,7 @@ fn specimen() -> MetaDump {
         value_type: BinType::Hash,
         container: None,
         map: None,
-        hashed: Some(HashedDump {
-            vtable: "0x2512e40".to_string(),
-            storage_width: 4,
-            hash_function: HashFunction {
-                algorithm: HashAlgorithm::Fnv1a32,
-                lowercased: true,
-            },
-        }),
+        hasher: Some("0x2512e40".to_string()),
         unkptr: "0x0".to_string(),
     };
 
@@ -77,7 +70,7 @@ fn specimen() -> MetaDump {
         value_type: BinType::Flag,
         container: None,
         map: None,
-        hashed: None,
+        hasher: None,
         unkptr: "0x0".to_string(),
     };
 
@@ -141,6 +134,16 @@ fn specimen() -> MetaDump {
     MetaDump {
         format_version: FORMAT_VERSION,
         version: "16.14.7949266".to_string(),
+        hashers: BTreeMap::from([(
+            "0x2512e40".to_string(),
+            HasherDump {
+                storage_width: 4,
+                hash_function: HashFunction {
+                    algorithm: HashAlgorithm::Fnv1a32,
+                    lowercased: true,
+                },
+            },
+        )]),
         classes: BTreeMap::from([
             ("0xfa33b8e8".to_string(), concrete),
             ("0x635d04b7".to_string(), interface),
@@ -195,6 +198,14 @@ fn the_specimen_round_trips() {
     // must stay null, not become an empty map.
     assert!(parsed.classes["0x635d04b7"].defaults.is_none());
     assert!(parsed.classes["0xfa33b8e8"].defaults.is_some());
+
+    // The hasher key has to survive as a key: a reference that no longer
+    // resolves is the failure mode of interning, and it is silent otherwise.
+    let hash_property = &parsed.classes["0xfa33b8e8"].properties["0xc0ffee11"];
+    let hasher = parsed
+        .hasher(hash_property)
+        .expect("the interned helper must resolve after a round trip");
+    assert_eq!(hasher.storage_width, 4);
 }
 
 #[test]

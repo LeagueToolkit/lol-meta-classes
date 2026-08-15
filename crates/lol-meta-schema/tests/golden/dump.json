@@ -1,6 +1,15 @@
 {
   "formatVersion": 3,
   "version": "16.14.7949266",
+  "hashers": {
+    "0x2512e40": {
+      "storage_width": 4,
+      "hash_function": {
+        "algorithm": "Fnv1a32",
+        "lowercased": true
+      }
+    }
+  },
   "classes": {
     "0x635d04b7": {
       "base": null,
@@ -57,7 +66,7 @@
           "value_type": "Flag",
           "container": null,
           "map": null,
-          "hashed": null,
+          "hasher": null,
           "unkptr": "0x0"
         },
         "0x8e2676a9": {
@@ -73,7 +82,7 @@
             "storage": "UnknownVector"
           },
           "map": null,
-          "hashed": null,
+          "hasher": null,
           "unkptr": "0x0"
         },
         "0x9a1b2c3d": {
@@ -88,7 +97,7 @@
             "value_type": "Embed",
             "storage": "UnknownMap"
           },
-          "hashed": null,
+          "hasher": null,
           "unkptr": "0x0"
         },
         "0xc0ffee11": {
@@ -98,14 +107,7 @@
           "value_type": "Hash",
           "container": null,
           "map": null,
-          "hashed": {
-            "vtable": "0x2512e40",
-            "storage_width": 4,
-            "hash_function": {
-              "algorithm": "Fnv1a32",
-              "lowercased": true
-            }
-          },
+          "hasher": "0x2512e40",
           "unkptr": "0x0"
         }
       },

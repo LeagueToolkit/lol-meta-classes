@@ -1,6 +1,6 @@
 {
 "formatVersion": 1,
-"hashSource": {"fetchedAt":"2026-08-10T04:39:45Z","bintypes":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt","entries":3709},"binfields":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt","entries":9447}},
+"hashSource": {"fetchedAt":"2026-08-17T03:52:13Z","bintypes":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt","entries":3711},"binfields":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt","entries":9448}},
 "latest": 8049184,
 "versions": [
 {"patch":"13.15","build":5229820},

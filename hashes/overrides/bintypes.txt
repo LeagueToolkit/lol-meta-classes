@@ -7,7 +7,13 @@ be4626e1 AchievementTitleReward
 92a4d6f9 AddScriptToEntity
 0babe88f AddTagToEntityBlock
 f090d2e7 AnchorHierarchy
+83cccb6d AnnouncerVoEvent
 63981b65 AnnouncerVoEventType
+c9ed1a3e AnnouncerVoEventTypeCac
+ab30ed5e AnnouncerVoEventTypeConcrete
+9e23d81a AnnouncerVoEventTypeGeneric
+4036941a AnnouncerVoEventTypeModularCac
+9963c03a AnnouncerVoEvents
 92024c11 AreaTriggerBoxData
 b1fe0ab4 AreaTriggerCircleData
 fbbe5989 AreaTriggerDefinition
@@ -24,6 +30,9 @@ c3a01413 AudioBank
 f37213a8 AudioContextEvent
 4ca99280 AudioContextEventType
 684b0875 AudioManagerWwise
+7a55218f AudioPriorityBehavior
+9bc919f2 AudioQueueConfig
+33d1cb2e AudioQueueConfigList
 54091cd5 AugmentClientConfig
 eb5adb26 AugmentDataListConfig
 fcb22c81 AugmentLevelTextureData
@@ -56,6 +65,12 @@ e3c2c81a BundleReward
 9f4272ac CapEntitlementsReward
 1cfeba20 CapWalletsReward
 7ee2ba62 ChallengeBannerAccentData
+b4dee917 ChampionMusicEvent
+2e1cea4f ChampionMusicEventType
+4870b9d4 ChampionMusicEventTypeCac
+c87f69f4 ChampionMusicEventTypeConcrete
+227fcad0 ChampionMusicEventTypeGeneric
+1ee9686c ChampionMusicEvents
 093b1be1 ChampionSpec
 23b6d264 ChampionSpecComponentData
 426acfe3 ChampionSpecConfig
@@ -92,6 +107,8 @@ ab78f6f4 ColorTableSet
 8d51331e ConceptBase
 91b37a79 ConceptBlockBase
 df639629 ConditionalKeybind
+1c23f02c ContextualActionAnnouncerVoEvent
+8482aa12 ContextualActionChampionMusicEvent
 6a50b5d7 ContextualConditionAbilityResourceSlot
 0dc0a353 ContextualConditionAbilityResourceType
 2363fb10 ContextualConditionAnimationName
@@ -243,6 +260,7 @@ ff5060b7 GameplayTextureChannel
 667eafac GetEntityPositionBlock
 7a1b11f3 GetEntityRotationBlock
 2d67b83f GetTemplateFromEntityBlock
+b2246553 GlobalContextualActionData
 ab3be611 GreenEntityPrefab
 93c05725 GreenEntityTemplate
 bd6e6d8a GreenGeComponentDef
@@ -532,6 +550,8 @@ f0f6777c MonarchUiVfxProperty
 2fe549a9 MoveSpeedFloatDriver
 8dda74d7 MoveVelocityVector3Driver
 df799a6e MovingSituations
+906b3602 MultiAnnouncerVoEventType
+b58b70dc MultiChampionMusicEventType
 661f15c3 MultiTeam
 301dab05 NavRegionDef
 38a3503e NetworkingGeComponent

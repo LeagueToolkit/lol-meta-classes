@@ -4,6 +4,7 @@ a87cd8f8 AbilityHasteMod
 01ba2bd1 AbilityResource
 25a09a75 AbilityResourceSlot
 b3ec72b9 AbilityResourceType
+3510dea4 Aced
 54b38947 ActionOnEnd
 ee151102 ActionOnStart
 dad3f6bb ActivateActions
@@ -49,6 +50,10 @@ f95b6c8b AnimCurve
 25fdb38f AnimationConfig
 b24341c8 AnimationDimensions
 6b71243c AnimationTime
+6e654622 AnnouncerQueueConfigs
+63981b65 AnnouncerVoEventType
+de72a3a2 AnnouncerVoEventTypes
+9963c03a AnnouncerVoEvents
 a7cdb46f AnonymousTra
 79ed2e39 ApplyDrag
 f359eded ArcElement
@@ -56,6 +61,7 @@ bb59b99c ArenaButton
 84542686 Arrow
 a0bf18a1 Ascending
 42e3afec AssetPath
+eff5bca1 AssistedPriorityBehavior
 0caccb87 Assists
 372ea7c1 AssociatedTrait
 d631c93e AtakhanIcon
@@ -90,6 +96,9 @@ d47ce07c BannerFrameData
 232bdbbe BannerIcon
 19cc6053 BaronKill
 bcbb5260 BaronKills
+90214be4 BaronSolo
+98912876 BaronSpawn
+3ae31586 BaronSteal
 d1ed70fe Barracks
 4397646b BarracksProperty
 49e47ecd BaseSource
@@ -115,7 +124,9 @@ f31c8cd4 BossData
 61c10808 BotSpellTag
 5c83cddd BottomGroup
 4154c75c BoundsRegion
+0d5ed622 BountyEnded
 ae8418d9 BountyGroup
+067cca4a BountyStarting
 ba83bc27 BountyValue
 35a4393b BoxSize
 cf85d043 Buddies
@@ -168,8 +179,13 @@ d94acbb2 Cells
 1558b9d3 CenterText
 65b78965 CeremonyLink
 bb2fa3e3 ChainProperties
+3a738c83 ChampionExecuted
 792f614a ChampionKill
+2e1cea4f ChampionMusicEventType
+d384bc74 ChampionMusicEventTypes
+1ee9686c ChampionMusicEvents
 1b577ba5 ChampionScores
+f8965958 ChampionShutdown
 04e0e6cd ChampionSpecList
 4f0e44f5 ChampionsLayout
 7e9f30bd ChannelHint
@@ -342,6 +358,8 @@ bd63565e DoubleLocked
 260c7a67 DragonCamp
 2dbcf122 DragonKill
 516fe283 DragonKills
+b4a64e19 DragonSolo
+a8a230d9 DragonSteal
 af6469c4 Drivers
 8e2e1f5e DropRateButton
 ea4b69c5 DuplicateText
@@ -355,6 +373,10 @@ ff0af490 EasingFunction
 4d7c697e EffectColor1
 e4124e46 EffectsQuality
 39a1c5e5 ElapsedTimeColor
+a8d720d0 ElderDragonKill
+829dfd5f ElderDragonSolo
+7a3e799b ElderDragonSteal
+73a7c872 ElderSpawn
 ec5a120e ElementCount
 f8ee7183 ElementEnter
 17d6be37 ElementExit
@@ -508,7 +530,10 @@ b4873916 GameTime
 ed892164 GameplayTexture
 affb8300 GearIds
 1609b312 GearIndex
+c5d72455 GeneralPriorityBehavior
+a2f5a276 GenericEvent
 19752079 GeometryType
+b2246553 GlobalContextualActionData
 166f6876 Goal
 b9b4d8d7 GoldAmount
 db0e9d5b GoldMax
@@ -526,6 +551,9 @@ fc51c324 GroupHelper
 5ed62070 GroupInfo
 03e58e16 GroupTemplate
 5ad3db8d Groupings
+9bbb4468 GrubsKill
+a9769d67 GrubsSolo
+070682a7 GrubsStolen
 0886394e GuestOfHonorList
 ed0c3757 H
 edbf0fe3 Has
@@ -585,6 +613,13 @@ cfdb2d7c Includes
 0ba6f538 IncompleteColor
 54f474ac IncreaseBy
 3812e73e Increment
+66fa31d8 IndividualAssistedEvent
+fbb66c25 IndividualFailedEvent
+a084e3ec IndividualPriorityBehavior
+7c74a459 IndividualSucceededEvent
+8281a415 InhibitorKill
+e1ea923b InhibitorRespawn
+94311ea0 InhibitorRespawnSoon
 759ff1df InitialAcceleration
 1d2e3b42 InitialColor
 3e590ae1 InitialDrag
@@ -749,6 +784,7 @@ eaebcf6e MinSize
 dd3fe563 MinimapCircularRangeIndicator
 c5ea66ab MinimapColor
 1405b98c MinimumRange
+6ac4e44f MinionsSpawn
 adbcc5ee Minutes
 60be11d7 MiscScene
 30f0104e MissileForce
@@ -777,9 +813,11 @@ f835b5a4 ModifiersSource
 f0ec999e ModuleName
 63d12350 MouseWheelEnabled
 5f832b26 MultiKill
+64e312ae MusicQueueConfigs
 0da9cf64 MusicSwitches
 e20b540b MusicTrack
 25883c4e Mutators
+0d3aa34a NameHash
 30b1d74a NamePriority
 cace7aa0 NameSpace
 cee348f4 NamedTeams
@@ -853,6 +891,7 @@ a1fce550 PassType
 6a5247d6 Pbe
 343ce138 PcVfx
 1a627229 PenaltyGroup
+77b17247 PentaKill
 a24aa31f PercentArmorMod
 61dcb042 PercentArmorPenetrationMod
 b56715c1 PercentAttackRangeMod
@@ -930,6 +969,7 @@ caebb3c7 PreviewButton
 54ff80d3 PrimaryEvent
 cf48be81 PrimarySpacer
 abe35607 PrioritizedStages
+64132003 PriorityBehavior
 1a1e3919 PriorityOverride
 733c40f0 PriorityUnits
 7de2adb1 Probe
@@ -963,6 +1003,7 @@ bc1b3d88 QuestId
 d0271699 QuestList
 4998b307 QuestStatus
 86749f57 QueueMaxSize
+cd02e270 QueuePriority
 f70c4715 R
 1068640f RadialTimer
 e04f1ab5 RandomVariance
@@ -1025,6 +1066,10 @@ c1c6ede2 RewardGrid
 725d1942 RewardsGroup
 46f9077c Rgb
 42b4cb29 Ribbon
+8b507734 RiftHeraldKill
+fa045deb RiftHeraldSolo
+dc4cc17b RiftHeraldSpawn
+1775abaf RiftHeraldSteal
 78e32de5 Right
 c6f4b3f8 RightSource
 9e618338 RimOffset
@@ -1234,6 +1279,7 @@ fbf302db TagData
 fe9065ba TargetGame
 5dc08bbe TargetLevel
 1970b93f TargetLocation
+ef5104c7 TargetQueue
 66ab6b90 TargetRequirements
 13915870 TargetScene
 c8e7634b TargetSunDirection
@@ -1247,9 +1293,14 @@ cdfd3bca TeamCodeText
 8cb9c019 TeamCondition
 341a92b5 TeamDefinition
 cf948d45 TeamEditorData
+d4714dbb TeamFailedEvent
+f6122be7 TeamFailedPriorityBehavior
 54675714 TeamOverride
+50b8f3f6 TeamPriorityBehavior
 848de224 TeamScene
 e71e9783 TeamSeparator
+8e8371bb TeamSucceededEvent
+141437e7 TeamSucceededPriorityBehavior
 5d473c96 TeamTemplate
 cc6fee26 TeammateSpectator
 140c8eed Teams
@@ -1289,6 +1340,7 @@ ebd43853 TooltipGroup
 4e534dcf TooltipKey
 9346bce8 TooltipPriority
 e4692e47 TopTooltip
+3e5bf916 TowerKill
 e8de69a5 TraName
 69ae9918 TrackIndex
 36f6ab37 TrackName

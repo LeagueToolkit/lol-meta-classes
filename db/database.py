@@ -175,7 +175,7 @@ class 0x15e03ef5():
 
 class 0x15e1fe7e(ChampionMusicEventTypeConcrete):
     0x4c546bb7: (String, 0x0, 0x0, 0x0) = ""
-    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     pass
 
 class 0x15ebaa9c(IScriptBlock):
@@ -1496,15 +1496,15 @@ class 0x3624c20b(IVfxVector4Driver):
 
 class 0x36255113(AnnouncerVoEventTypeConcrete):
     0x11e8956e: (String, 0x0, 0x0, 0x0) = ""
-    TeamSucceededPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    TeamSucceededPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     0x2f68e6e3: (String, 0x0, 0x0, 0x0) = ""
     IndividualSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
     TeamSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
-    IndividualPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    IndividualPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     GenericEvent: (String, 0x0, 0x0, 0x0) = ""
-    GeneralPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    GeneralPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
-    TeamFailedPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    TeamFailedPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     IndividualFailedEvent: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -4232,7 +4232,7 @@ class 0x7d564f9a():
 class 0x7d98777d():
     objectPath: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ChampionMusicEvents: (Embed, 0x0, 0x0, ChampionMusicEvents) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0"}
-    0x4249f0a2: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    0x4249f0a2: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     MusicQueueConfigs: (Embed, 0x0, 0x0, AudioQueueConfigList) = {"queues":[]}
     AnnouncerQueueConfigs: (Embed, 0x0, 0x0, AudioQueueConfigList) = {"queues":[]}
     0x93c1d30: (String, 0x0, 0x0, 0x0) = ""
@@ -5175,13 +5175,13 @@ class 0x95182f0a(IVfxVector3Driver):
     pass
 
 class 0x9583cf01(ChampionMusicEventTypeConcrete):
-    TeamPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    TeamPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     IndividualAssistedEvent: (String, 0x0, 0x0, 0x0) = ""
     IndividualSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
     TeamSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
-    IndividualPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    IndividualPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
-    AssistedPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    AssistedPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     IndividualFailedEvent: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -5657,7 +5657,7 @@ class 0xa23138c5(ILoopScriptBlock):
     pass
 
 class 0xa29e7869(ChampionMusicEventTypeConcrete):
-    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     TeamSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
     TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -9683,7 +9683,7 @@ class AudioContextEventType():
 class AudioPriorityBehavior():
     disabled: (Bool, 0x0, 0x0, 0x0) = false
     priority: (F32, 0x0, 0x0, 0x0) = 0.5
-    0xc8b6a592: (Option, 0x0, F32, 0x0) = null
+    MaxQueueTimes: (Option, 0x0, F32, 0x0) = null
     TargetQueue: (Link, 0x0, 0x0, AudioQueueConfig) = "0x0"
     pass
 
@@ -9693,7 +9693,7 @@ class AudioQueueConfig():
     tag: (U8, 0x0, 0x0, 0x0) = 0
     0xc8d0888c: (F32, 0x0, 0x0, 0x0) = 0.0
     QueuePriority: (F32, 0x0, 0x0, 0x0) = 50.0
-    0xe168a4d7: (F32, 0x0, 0x0, 0x0) = 0.0
+    DefaultMaxQueueTimes: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class AudioQueueConfigList():
@@ -10614,7 +10614,7 @@ class ChampionMusicEventTypeConcrete(ChampionMusicEventType):
     pass
 
 class ChampionMusicEventTypeGeneric(ChampionMusicEventTypeConcrete):
-    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"0xc8b6a592":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     GenericEvent: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -11578,11 +11578,11 @@ class ConstantWaveBehavior(IMinionWaveBehavior):
     pass
 
 class ContextualActionAnnouncerVoEvent(IContextualAction):
-    0xbe2133eb: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
+    TriggerAnnouncerVoEvent: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     pass
 
 class ContextualActionChampionMusicEvent(IContextualAction):
-    0x57edc39: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
+    TriggerChampionMusicEvent: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     pass
 
 class ContextualActionCooldownModifications():
@@ -12002,9 +12002,9 @@ class ContextualConditionWinningTeam(IContextualCondition):
     pass
 
 class ContextualRule():
-    0x20749c51: (Bool, 0x0, 0x0, 0x0) = true
+    ActiveVoiceOver: (Bool, 0x0, 0x0, 0x0) = true
     mConditions: (List, 0x0, Pointer, IContextualCondition) = []
-    0x3a526bfb: (Pointer, 0x0, 0x0, ContextualActionChampionMusicEvent) = null
+    TriggerChampionMusicEventAction: (Pointer, 0x0, 0x0, ContextualActionChampionMusicEvent) = null
     mAnimationAction: (Pointer, 0x0, 0x0, ContextualActionPlayAnimation) = null
     mOverrideCacCooldown: (Bool, 0x0, 0x0, 0x0) = false
     mConditionRelationship: (U32, 0x0, 0x0, 0x0) = 0
@@ -12015,7 +12015,7 @@ class ContextualRule():
     ChanceWeight: (F32, 0x0, 0x0, 0x0) = 1.0
     mTriggerEventAction: (Pointer, 0x0, 0x0, ContextualActionTriggerEvent) = null
     mAudioAction: (Pointer, 0x0, 0x0, ContextualActionPlayAudio) = null
-    0xf007f2a9: (Pointer, 0x0, 0x0, ContextualActionAnnouncerVoEvent) = null
+    TriggerAnnouncerVoEventAction: (Pointer, 0x0, 0x0, ContextualActionAnnouncerVoEvent) = null
     mPriority: (Option, 0x0, I32, 0x0) = null
     pass
 

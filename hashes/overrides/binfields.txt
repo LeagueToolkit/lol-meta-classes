@@ -23,6 +23,7 @@ d8b7cfd7 ActiveIcons
 8c4da8f8 ActiveTra
 e404f145 ActiveUi
 c895f7ad ActiveVfx
+20749c51 ActiveVoiceOver
 78811384 AdditionalData
 2920447a AdditionalRotation
 c5b58261 AdditionalSettings
@@ -305,6 +306,7 @@ c5597e8c Def
 307d1fb1 DefaultGain
 4b9489d8 DefaultIcons
 3f074682 DefaultInput
+e168a4d7 DefaultMaxQueueTimes
 7c29b357 DefaultOutput
 1bdade49 DefaultPlayerInventory
 9fb31fc2 DefaultRenderData
@@ -615,6 +617,7 @@ cfdb2d7c Includes
 3812e73e Increment
 66fa31d8 IndividualAssistedEvent
 fbb66c25 IndividualFailedEvent
+1fd795aa IndividualPriority
 a084e3ec IndividualPriorityBehavior
 7c74a459 IndividualSucceededEvent
 8281a415 InhibitorKill
@@ -758,6 +761,7 @@ e81d2ece MaterialMapping
 66380732 MaxNumClustersZ
 c40b91eb MaxPages
 9240af8c MaxQuantity
+c8b6a592 MaxQueueTimes
 df4673e5 MaxScaleChange
 a42ce6b4 MaxTimeout
 4057334e MaxToken
@@ -814,6 +818,7 @@ f0ec999e ModuleName
 63d12350 MouseWheelEnabled
 5f832b26 MultiKill
 64e312ae MusicQueueConfigs
+9346aa18 MusicQueues
 0da9cf64 MusicSwitches
 e20b540b MusicTrack
 25883c4e Mutators
@@ -1296,6 +1301,7 @@ cf948d45 TeamEditorData
 d4714dbb TeamFailedEvent
 f6122be7 TeamFailedPriorityBehavior
 54675714 TeamOverride
+b038b134 TeamPriority
 50b8f3f6 TeamPriorityBehavior
 848de224 TeamScene
 e71e9783 TeamSeparator
@@ -1353,6 +1359,10 @@ ad22c790 TransitionAnimation
 66048e3b TransitionStartTime
 f85d0a11 TranslationRange
 b9cb9ce8 Treatments
+be2133eb TriggerAnnouncerVoEvent
+f007f2a9 TriggerAnnouncerVoEventAction
+057edc39 TriggerChampionMusicEvent
+3a526bfb TriggerChampionMusicEventAction
 1b190e3b TriggerType
 4db211e5 True
 4a7b08fa TrueDamageEnhanced

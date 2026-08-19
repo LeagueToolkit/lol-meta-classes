@@ -3018,7 +3018,7 @@
 }},
 "0x15e1fe7e": {"revisions": [{"from":7584427,"bases":["0xc87f69f4"],"interface":false,"value":false}], "properties": {
  "0x4c546bb7": {"revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x64132003": {"name":"PriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
+ "0x64132003": {"name":"PriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0x94e4e309": {"name":"priority","revisions":[{"from":7584427,"to":7668562,"type":["F32","0x0","0x0","0x0"],"default":0.8999999761581421}]}
 }},
 "0x15ebaa9c": {"revisions": [{"from":5352535,"bases":["0x3c2ab5b0"],"interface":false,"value":false}], "properties": {
@@ -3687,7 +3687,7 @@
 "0x1c22201c": {"name": "LolModesTeamComponentData", "revisions": [{"from":5715678,"to":6182357,"bases":["0x51f54b8e"],"interface":false,"value":false},{"from":6206549,"bases":["0x1375d0b"],"interface":false,"value":false}], "properties": {
 }},
 "0x1c23f02c": {"name": "ContextualActionAnnouncerVoEvent", "revisions": [{"from":7643737,"bases":["0x3ff90079"],"interface":false,"value":false}], "properties": {
- "0xbe2133eb": {"revisions":[{"from":7643737,"type":["Link","0x0","0x0","0x83cccb6d"],"default":"0x0"}]}
+ "0xbe2133eb": {"name":"TriggerAnnouncerVoEvent","revisions":[{"from":7643737,"type":["Link","0x0","0x0","0x83cccb6d"],"default":"0x0"}]}
 }},
 "0x1c315cd8": {"name": "InputEvent2AxisKeybind", "revisions": [{"from":7794239,"bases":["0xbe07ec3f"],"interface":true,"value":false}], "properties": {
  "0xf248d989": {"name":"InputEvent","revisions":[{"from":7794239,"type":["Link","0x0","0x0","0xa3f1520"]}]}
@@ -4626,7 +4626,7 @@
  "0x3ae03ba3": {"name":"RelativeIndex","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xc214849f"],"default":null}]}
 }},
 "0x227fcad0": {"name": "ChampionMusicEventTypeGeneric", "revisions": [{"from":7584427,"bases":["0xc87f69f4"],"interface":false,"value":false}], "properties": {
- "0x64132003": {"name":"PriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
+ "0x64132003": {"name":"PriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0x94e4e309": {"name":"priority","revisions":[{"from":7584427,"to":7668562,"type":["F32","0x0","0x0","0x0"],"default":0.10000000149011612}]},
  "0xa2f5a276": {"name":"GenericEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
@@ -4645,9 +4645,9 @@
 "0x22d0ac10": {"name": "ContextualRule", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x8edc89c": {"name":"CanStompSelf","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf717330": {"name":"mPriority","revisions":[{"from":5229820,"type":["Option","0x0","I32","0x0"],"default":null}]},
- "0x20749c51": {"revisions":[{"from":6236777,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
+ "0x20749c51": {"name":"ActiveVoiceOver","revisions":[{"from":6236777,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x2aff6c4a": {"name":"mConditions","revisions":[{"from":5229820,"type":["List","0x0","Pointer","0xcab0d4ec"],"default":[]}]},
- "0x3a526bfb": {"revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x8482aa12"],"default":null}]},
+ "0x3a526bfb": {"name":"TriggerChampionMusicEventAction","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x8482aa12"],"default":null}]},
  "0x523eb73c": {"name":"mAnimationAction","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xb8809804"],"default":null}]},
  "0x68fee3c4": {"name":"mOverrideCacCooldown","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x8eaf0f33": {"name":"mConditionRelationship","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
@@ -4657,7 +4657,7 @@
  "0xc9969515": {"name":"ChanceWeight","revisions":[{"from":5409873,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xcd89877e": {"name":"mTriggerEventAction","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x1dce7928"],"default":null}]},
  "0xddac2570": {"name":"mAudioAction","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x6376b900"],"default":null}]},
- "0xf007f2a9": {"revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x1c23f02c"],"default":null}]}
+ "0xf007f2a9": {"name":"TriggerAnnouncerVoEventAction","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x1c23f02c"],"default":null}]}
 }},
 "0x22d8a036": {"name": "LerpVec4LogicDriver", "revisions": [{"from":5229820,"bases":["0x995ca734"],"interface":false,"value":false}], "properties": {
  "0xe4fb927": {"name":"BoolDriver","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x7a851cd8"],"default":null}]},
@@ -7243,7 +7243,7 @@
 }},
 "0x33d1cb2e": {"name": "AudioQueueConfigList", "revisions": [{"from":7695709,"bases":[],"interface":false,"value":false}], "properties": {
  "0x472fe791": {"name":"queues","revisions":[{"from":7794239,"type":["List2","0x0","Link","0x9bc919f2"],"default":[]}]},
- "0x9346aa18": {"revisions":[{"from":7695709,"to":7765552,"type":["List2","0x0","Link","0x9bc919f2"],"default":[]}]}
+ "0x9346aa18": {"name":"MusicQueues","revisions":[{"from":7695709,"to":7765552,"type":["List2","0x0","Link","0x9bc919f2"],"default":[]}]}
 }},
 "0x3401293a": {"name": "MonarchInteractComponentData", "revisions": [{"from":6649480,"to":7480682,"bases":["0x1375d0b"],"interface":false,"value":false}], "properties": {
  "0x9a61ffcf": {"revisions":[{"from":6649480,"to":7480682,"type":["Pointer","0x0","0x0","0x5a331a0c"],"default":null}]}
@@ -7511,15 +7511,15 @@
 }},
 "0x36255113": {"revisions": [{"from":7584427,"bases":["0xab30ed5e"],"interface":false,"value":false}], "properties": {
  "0x11e8956e": {"revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x141437e7": {"name":"TeamSucceededPriorityBehavior","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
+ "0x141437e7": {"name":"TeamSucceededPriorityBehavior","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0x2f68e6e3": {"revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x7c74a459": {"name":"IndividualSucceededEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x8e8371bb": {"name":"TeamSucceededEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xa084e3ec": {"name":"IndividualPriorityBehavior","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
+ "0xa084e3ec": {"name":"IndividualPriorityBehavior","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0xa2f5a276": {"name":"GenericEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xc5d72455": {"name":"GeneralPriorityBehavior","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
+ "0xc5d72455": {"name":"GeneralPriorityBehavior","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0xd4714dbb": {"name":"TeamFailedEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xf6122be7": {"name":"TeamFailedPriorityBehavior","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
+ "0xf6122be7": {"name":"TeamFailedPriorityBehavior","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0xfbb66c25": {"name":"IndividualFailedEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x3641a323": {"name": "RootScriptSequence", "revisions": [{"from":5715678,"bases":["0xa687a6a3"],"interface":false,"value":false}], "properties": {
@@ -15271,7 +15271,7 @@
 "0x7a55218f": {"name": "AudioPriorityBehavior", "revisions": [{"from":7695709,"bases":[],"interface":false,"value":false}], "properties": {
  "0x33f36f05": {"name":"disabled","revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x94e4e309": {"name":"priority","revisions":[{"from":7695709,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
- "0xc8b6a592": {"revisions":[{"from":7851316,"type":["Option","0x0","F32","0x0"],"default":null}]},
+ "0xc8b6a592": {"name":"MaxQueueTimes","revisions":[{"from":7851316,"type":["Option","0x0","F32","0x0"],"default":null}]},
  "0xef5104c7": {"name":"TargetQueue","revisions":[{"from":7695709,"type":["Link","0x0","0x0","0x9bc919f2"],"default":"0x0"}]}
 }},
 "0x7a5e5ed6": {"name": "SequenceObjectSelector", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -15650,7 +15650,7 @@
  "0x93c1d30": {"revisions":[{"from":7996036,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x1d369c29": {"name":"objectPath","revisions":[{"from":8042660,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x1ee9686c": {"name":"ChampionMusicEvents","revisions":[{"from":7584427,"type":["Embed","0x0","0x0","0x1ee9686c"],"default":{"RiftHeraldSteal":"0x0","BaronKill":"0x0","DragonKill":"0x0","Aced":"0x0","ChampionExecuted":"0x0","BaronSteal":"0x0","TowerKill":"0x0","MultiKill":"0x0","BountyStarting":"0x0","0x6a4fa98c":"0x0","MinionsSpawn":"0x0","GrubsStolen":"0x0","ElderSpawn":"0x0","PentaKill":"0x0","ChampionKill":"0x0","ElderDragonSteal":"0x0","GameEnd":"0x0","InhibitorKill":"0x0","ElderDragonSolo":"0x0","RiftHeraldKill":"0x0","PlayerReconnect":"0x0","BaronSolo":"0x0","InhibitorRespawnSoon":"0x0","BaronSpawn":"0x0","GrubsKill":"0x0","Respawn":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","GrubsSolo":"0x0","GameStart":"0x0","DragonSolo":"0x0","0xba9bae76":[],"KillingSpree":"0x0","PlayerDisconnect":"0x0","0xd0cc4924":"0x0","BountyEnded":"0x0","RiftHeraldSpawn":"0x0","FirstBlood":"0x0","InhibitorRespawn":"0x0","ChampionShutdown":"0x0","RiftHeraldSolo":"0x0"}}]},
- "0x4249f0a2": {"revisions":[{"from":7996036,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
+ "0x4249f0a2": {"revisions":[{"from":7996036,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0x64e312ae": {"name":"MusicQueueConfigs","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x33d1cb2e"],"default":{"queues":[]}}]},
  "0x6e654622": {"name":"AnnouncerQueueConfigs","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x33d1cb2e"],"default":{"queues":[]}}]},
  "0x9963c03a": {"name":"AnnouncerVoEvents","revisions":[{"from":7584427,"type":["Embed","0x0","0x0","0x9963c03a"],"default":{"RiftHeraldSteal":"0x0","BaronKill":"0x0","DragonKill":"0x0","Aced":"0x0","ChampionExecuted":"0x0","BaronSteal":"0x0","TowerKill":"0x0","MultiKill":"0x0","BountyStarting":"0x0","0x6a4fa98c":"0x0","MinionsSpawn":"0x0","GrubsStolen":"0x0","ElderSpawn":"0x0","PentaKill":"0x0","ChampionKill":"0x0","ElderDragonSteal":"0x0","GameEnd":"0x0","InhibitorKill":"0x0","ElderDragonSolo":"0x0","RiftHeraldKill":"0x0","PlayerReconnect":"0x0","BaronSolo":"0x0","InhibitorRespawnSoon":"0x0","BaronSpawn":"0x0","GrubsKill":"0x0","Respawn":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","GrubsSolo":"0x0","GameStart":"0x0","DragonSolo":"0x0","0xba9bae76":[],"KillingSpree":"0x0","PlayerDisconnect":"0x0","0xd0cc4924":"0x0","BountyEnded":"0x0","RiftHeraldSpawn":"0x0","FirstBlood":"0x0","InhibitorRespawn":"0x0","ChampionShutdown":"0x0","RiftHeraldSolo":"0x0"}}]},
@@ -16627,7 +16627,7 @@
  "0xb99eae1d": {"revisions":[{"from":6841658,"to":7151836,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0x8482aa12": {"name": "ContextualActionChampionMusicEvent", "revisions": [{"from":7643737,"bases":["0x3ff90079"],"interface":false,"value":false}], "properties": {
- "0x57edc39": {"revisions":[{"from":7643737,"type":["Link","0x0","0x0","0xb4dee917"],"default":"0x0"}]}
+ "0x57edc39": {"name":"TriggerChampionMusicEvent","revisions":[{"from":7643737,"type":["Link","0x0","0x0","0xb4dee917"],"default":"0x0"}]}
 }},
 "0x84972e16": {"name": "TftEncounterData", "revisions": [{"from":5329749,"to":5532414,"bases":[],"interface":false,"value":false},{"from":5549136,"bases":["0x3e02c8d9"],"interface":false,"value":false}], "properties": {
  "0x9ffb1b": {"name":"SkinName","revisions":[{"from":5329749,"to":5369576,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -18516,15 +18516,15 @@
  "0xc3f540ed": {"name":"mWinstreaks","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x26868b0f"],"default":[]}]}
 }},
 "0x9583cf01": {"revisions": [{"from":7584427,"bases":["0xc87f69f4"],"interface":false,"value":false}], "properties": {
- "0x1fd795aa": {"revisions":[{"from":7584427,"to":7668562,"type":["F32","0x0","0x0","0x0"],"default":0.6000000238418579}]},
- "0x50b8f3f6": {"name":"TeamPriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
+ "0x1fd795aa": {"name":"IndividualPriority","revisions":[{"from":7584427,"to":7668562,"type":["F32","0x0","0x0","0x0"],"default":0.6000000238418579}]},
+ "0x50b8f3f6": {"name":"TeamPriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0x66fa31d8": {"name":"IndividualAssistedEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x7c74a459": {"name":"IndividualSucceededEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x8e8371bb": {"name":"TeamSucceededEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xa084e3ec": {"name":"IndividualPriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
- "0xb038b134": {"revisions":[{"from":7584427,"to":7668562,"type":["F32","0x0","0x0","0x0"],"default":0.20000000298023224}]},
+ "0xa084e3ec": {"name":"IndividualPriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
+ "0xb038b134": {"name":"TeamPriority","revisions":[{"from":7584427,"to":7668562,"type":["F32","0x0","0x0","0x0"],"default":0.20000000298023224}]},
  "0xd4714dbb": {"name":"TeamFailedEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xeff5bca1": {"name":"AssistedPriorityBehavior","revisions":[{"from":7893741,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
+ "0xeff5bca1": {"name":"AssistedPriorityBehavior","revisions":[{"from":7893741,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0xfbb66c25": {"name":"IndividualFailedEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x958b66ff": {"revisions": [{"from":6649480,"bases":[],"interface":false,"value":false}], "properties": {
@@ -19257,7 +19257,7 @@
  "0x95f72993": {"name":"tag","revisions":[{"from":7695709,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xc8d0888c": {"revisions":[{"from":7695709,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xcd02e270": {"name":"QueuePriority","revisions":[{"from":7695709,"type":["F32","0x0","0x0","0x0"],"default":50.0}]},
- "0xe168a4d7": {"revisions":[{"from":7851316,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+ "0xe168a4d7": {"name":"DefaultMaxQueueTimes","revisions":[{"from":7851316,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x9bd3c53b": {"name": "UiElementComponentInstanceData", "revisions": [{"from":7345787,"to":7345787,"bases":["0x62fa6cad"],"interface":false,"value":false},{"from":7371049,"to":7374870,"bases":["0x62fa6cad"],"interface":false,"value":false},{"from":7389684,"to":7457600,"bases":["0x8ffd7c61"],"interface":false,"value":false},{"from":7465697,"bases":["0x857c08ad"],"interface":false,"value":false}], "properties": {
  "0xa9f110a": {"revisions":[{"from":7996036,"type":["Map","Hash","Pointer","0xb041c60a"],"default":{}}]},
@@ -20056,7 +20056,7 @@
  "0xb10e2d1e": {"name":"ParticleSystem","revisions":[{"from":6575386,"type":["Link","0x0","0x0","0x45cd899f"]}]}
 }},
 "0xa29e7869": {"revisions": [{"from":7584427,"bases":["0xc87f69f4"],"interface":false,"value":false}], "properties": {
- "0x64132003": {"name":"PriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"0xc8b6a592":null,"TargetQueue":"0x0"}}]},
+ "0x64132003": {"name":"PriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0x8e8371bb": {"name":"TeamSucceededEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x94e4e309": {"name":"priority","revisions":[{"from":7584427,"to":7668562,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
  "0xd4714dbb": {"name":"TeamFailedEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]}

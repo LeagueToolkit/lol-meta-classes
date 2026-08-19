@@ -253,21 +253,27 @@ hit is a name Riot wrote. The named siblings (`LolPingKeybind`,
 (`.PingCategory`, `.EmoteDirection`, `.HoldType`, `.ToggleType`) show the
 vocabulary the strings should be filtered for.
 
-### 9. `0x4ca99280` - 15 unnamed, 0 named
+### 9. `AudioContextEventType` (4ca99280) - 4 unnamed, 11 named - **worked**
 
-Small, but wholly unexplored, entirely 16.7 or newer, and the only family in the
-survey whose **root and every member are unnamed**. 15 non-zero defaults across
-28 unresolved field hashes.
+Was 15 unnamed and 0 named: small, wholly unexplored, entirely 16.7 or newer,
+and the only family in the survey whose root and every member were unnamed. 15
+non-zero defaults across 28 unresolved field hashes.
 
-The shape is a priority-ranked selector: a repeated embed
-`{disabled: False, priority: 0.5, ...}` appears on most members, members carry
-their own `.priority` at 0.9, 0.5, 0.1, and `0x4036941a.PrimaryEvent` points at
-an 11-field String-heavy class. `0x36255113` and `0x9583cf01` share five field
-hashes. The semantic pass proposed `AudioContextEventType` for the root and did
-not take it; nothing has revisited it since.
+`global-audio`'s second pass took it to 4 unnamed members and 5 unresolved
+fields ([docs/global-audio.md](global-audio.md)). The census read that this one
+"needs the shipped-data pass first and the search second" was wrong in the
+particulars and right in the diagnosis: the family has **zero shipped
+instances**, so the shipped-data pass returns nothing. What replaced it was the
+neighbouring named class. `ContextualRule` reaches the family through two
+`IContextualAction` pointers, and it supplies both the `ContextualAction<X>`
+template and the word `Cac` (from `mOverrideCacCooldown`) that the corpus could
+not otherwise offer. The repeated `{disabled, priority: 0.5}` embed is
+`AudioPriorityBehavior`, and the members are
+`<AnnouncerVo|ChampionMusic>EventType<Generic|Concrete|Cac|ModularCac>` plus a
+`Multi*` pair.
 
-Being new and unnamed at the root means no vocabulary in the corpus reaches it,
-so this one needs the shipped-data pass first and the search second.
+Generalisable: for a family new enough that no corpus vocabulary reaches it,
+the unlock is a **named class that points into it**, not the family itself.
 
 ## Big families that are not what they look like
 
@@ -311,10 +317,12 @@ they are correctly left alone.
 
 ## Status
 
-Three of the ten have been worked. `map-entity-templates` landed 109 names out
+Four of the ten have been worked. `map-entity-templates` landed 109 names out
 of `MapPlaceableBase` ([docs/map-entity-templates.md](map-entity-templates.md));
 `logic-drivers` landed 46 out of `ILogicDriver`
 ([docs/logic-drivers.md](logic-drivers.md)); `game-entity-blocks` landed 53 out
 of `IScriptBlock`'s `GameEntityBlock` sub-root
-([docs/game-entity-blocks.md](game-entity-blocks.md)). Nothing else here has
+([docs/game-entity-blocks.md](game-entity-blocks.md)); `global-audio` landed 11
+of the 15 in `AudioContextEventType`, and 34 names across that family and its
+neighbours ([docs/global-audio.md](global-audio.md)). Nothing else here has
 entered a table.

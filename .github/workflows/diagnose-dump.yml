@@ -238,7 +238,7 @@ jobs:
         path: |
           /tmp/dumper.log
           /tmp/gdb.log
-          dumps/
+          dumps/${{ steps.resolve.outputs.version }}.json
         retention-days: 14
         if-no-files-found: warn
 

@@ -393,6 +393,7 @@ fn is_empty(class: ClassRef) -> bool {
     let blacklist: &[u32] = &[
         0xfea4e3fe,
         0xe501834f,
+        0xe59ebdea
     ];
     if blacklist.contains(&class.hash()) {
         return true;

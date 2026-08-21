@@ -388,14 +388,20 @@ fn dump_class_secondary(class_offset_pairs: &[BaseOff], what: &str) -> BTreeMap<
     results
 }
 
-fn is_empty(class: ClassRef) -> bool {
+/// Blacklisted classes get no constructor call and no default values
+/// These are likely dependant on game flow
+fn is_blacklisted(class: ClassRef) -> bool {
     // FIXME: 16.1+ these depend on game flow being started
     let blacklist: &[u32] = &[
         0xfea4e3fe,
         0xe501834f,
-        0xe59ebdea
+        0xe59ebdea,
     ];
-    if blacklist.contains(&class.hash()) {
+    blacklist.contains(&class.hash()) || class.base_class().is_some_and(is_blacklisted)
+}
+
+fn is_empty(class: ClassRef) -> bool {
+    if is_blacklisted(class) {
         return true;
     }
     class.properties().size() == 0 && class.base_class().is_none_or(is_empty)

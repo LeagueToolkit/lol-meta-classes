@@ -6,10 +6,36 @@ name: Diagnose Dump
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: 'Version to diagnose (e.g. 16.14.7949266)'
+      region:
+        description: 'Region to take the build from'
         required: true
+        type: choice
+        default: PBE1
+        options:
+          - PBE1
+          - EUW1
+          - NA1
+          - KR
+          - BR1
+          - EUN1
+          - JP1
+          - LA1
+          - LA2
+          - ME1
+          - OC1
+          - PH2
+          - RU
+          - SG2
+          - TH2
+          - TR1
+          - TW2
+          - VN2
+          - STAGING
+      version:
+        description: 'Version to diagnose (e.g. 16.17.8087655). Empty = newest for the region.'
+        required: false
         type: string
+        default: ''
       poison:
         description: 'Poison unresolved imports (identifies missing stubs by name)'
         required: false
@@ -33,6 +59,8 @@ env:
 jobs:
   diagnose:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
     - name: Checkout repository
@@ -67,17 +95,41 @@ jobs:
         cargo test -p dumper --target x86_64-unknown-linux-gnu
 
     # Debug info in the release build so a gdb backtrace names functions and
-    # lines. Diagnostic-only; the sync workflow builds without it.
-    - name: Build dumper
+    # lines. Diagnostic-only; the sync workflow builds without it. The downloader
+    # is built alongside so the release profile is compiled once.
+    - name: Build dumper and downloader
       env:
         CARGO_PROFILE_RELEASE_DEBUG: "true"
       run: |
-        cargo build --release --bin dumper --target x86_64-unknown-linux-gnu
+        cargo build --release --target x86_64-unknown-linux-gnu \
+          --bin dumper --bin download-binary
+
+    - name: Resolve version
+      id: resolve
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        REGION: ${{ inputs.region }}
+        VERSION_INPUT: ${{ inputs.version }}
+      run: |
+        set -euo pipefail
+        BIN=./target/x86_64-unknown-linux-gnu/release/download-binary
+        if [ -z "$VERSION_INPUT" ]; then
+          VERSION=$("$BIN" --region "$REGION" --resolve --latest)
+        else
+          VERSION=$("$BIN" --region "$REGION" --resolve "$VERSION_INPUT")
+        fi
+        echo "Resolved ${REGION} -> ${VERSION}"
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT
 
     - name: Download binary
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        REGION: ${{ inputs.region }}
+        VERSION: ${{ steps.resolve.outputs.version }}
       run: |
-        cargo run --release --bin download-binary --target x86_64-unknown-linux-gnu -- \
-          "${{ inputs.version }}" -o "temp/${{ inputs.version }}"
+        set -euo pipefail
+        ./target/x86_64-unknown-linux-gnu/release/download-binary \
+          --region "$REGION" "$VERSION" -o "temp/$VERSION"
 
     - name: Run dumper with diagnostics
       id: run
@@ -85,12 +137,13 @@ jobs:
         DUMPER_POISON_IMPORTS: ${{ inputs.poison && '1' || '0' }}
         DUMPER_TOLERATE_ANOMALIES: ${{ inputs.tolerate && '1' || '0' }}
         DUMPER_DUMP_CLASS: ${{ inputs.dump_class }}
+        VERSION: ${{ steps.resolve.outputs.version }}
       run: |
         mkdir -p dumps
         set +e
         ./target/x86_64-unknown-linux-gnu/release/dumper \
-          "temp/${{ inputs.version }}" \
-          -o "dumps/${{ inputs.version }}.json" 2>&1 | tee /tmp/dumper.log
+          "temp/$VERSION" \
+          -o "dumps/$VERSION.json" 2>&1 | tee /tmp/dumper.log
         CODE=${PIPESTATUS[0]}
         set -e
         echo "exit_code=${CODE}" >> $GITHUB_OUTPUT
@@ -104,6 +157,7 @@ jobs:
         DUMPER_POISON_IMPORTS: ${{ inputs.poison && '1' || '0' }}
         DUMPER_TOLERATE_ANOMALIES: ${{ inputs.tolerate && '1' || '0' }}
         DUMPER_DUMP_CLASS: ${{ inputs.dump_class }}
+        VERSION: ${{ steps.resolve.outputs.version }}
       run: |
         sudo apt-get install -y gdb
         # gdb intercepts the fault before our handler, so this is the real
@@ -117,27 +171,36 @@ jobs:
           -ex 'echo \n=== FAULTING INSN ===\n' \
           -ex 'x/4i $pc' \
           --args ./target/x86_64-unknown-linux-gnu/release/dumper \
-            "temp/${{ inputs.version }}" \
-            -o "dumps/${{ inputs.version }}.json" \
+            "temp/$VERSION" \
+            -o "dumps/$VERSION.json" \
           2>&1 | tail -120 | tee /tmp/gdb.log
 
     - name: Summarise diagnosis
       if: always()
+      env:
+        REGION: ${{ inputs.region }}
+        VERSION_INPUT: ${{ inputs.version }}
+        VERSION: ${{ steps.resolve.outputs.version }}
+        POISON: ${{ inputs.poison }}
+        EXIT_CODE: ${{ steps.run.outputs.exit_code }}
       run: |
         {
-          echo "## Diagnosis: ${{ inputs.version }}"
+          echo "## Diagnosis: ${REGION} ${VERSION}"
           echo ""
-          echo "- Poisoning: \`${{ inputs.poison }}\`"
-          echo "- Dumper exit code: \`${{ steps.run.outputs.exit_code }}\`"
+          echo "- Region: \`${REGION}\`"
+          echo "- Requested: \`${VERSION_INPUT:-latest}\`"
+          echo "- Resolved: \`${VERSION}\`"
+          echo "- Poisoning: \`${POISON}\`"
+          echo "- Dumper exit code: \`${EXIT_CODE}\`"
           echo ""
           if grep -q '!!! FAULT' /tmp/dumper.log 2>/dev/null; then
             echo "### Fault report"
             echo '```'
             grep -A 6 '!!! FAULT' /tmp/dumper.log
             echo '```'
-          elif [ "${{ steps.run.outputs.exit_code }}" = "0" ]; then
+          elif [ "${EXIT_CODE}" = "0" ]; then
             echo "### No fault - dump completed"
-            ls -la "dumps/${{ inputs.version }}.json" 2>/dev/null || true
+            ls -la "dumps/${VERSION}.json" 2>/dev/null || true
           else
             echo "### Failed without a fault report"
             echo '```'
@@ -171,7 +234,7 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: diagnose-${{ inputs.version }}-${{ github.run_id }}
+        name: diagnose-${{ inputs.region }}-${{ steps.resolve.outputs.version }}-${{ github.run_id }}
         path: |
           /tmp/dumper.log
           /tmp/gdb.log

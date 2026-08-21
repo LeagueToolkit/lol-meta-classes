@@ -4,7 +4,8 @@ use std::collections::BTreeMap;
 
 use lol_meta_schema::{
     BinType as SchemaBinType, ClassDump, ClassFlags, ClassFunctions, ContainerDump,
-    ContainerStorage as SchemaContainerStorage, MapDump, MapStorage as SchemaMapStorage, MetaDump,
+    ContainerStorage as SchemaContainerStorage, HashAlgorithm as SchemaHashAlgorithm, HasherDump,
+    HashFunction as SchemaHashFunction, MapDump, MapStorage as SchemaMapStorage, MetaDump,
     PropertyDump,
 };
 use serde_json::Value;
@@ -67,6 +68,18 @@ fn convert_map_storage(s: MapStorage) -> SchemaMapStorage {
         MapStorage::StdMap => SchemaMapStorage::StdMap,
         MapStorage::StdUnorderedMap => SchemaMapStorage::StdUnorderedMap,
         MapStorage::RitoVectorMap => SchemaMapStorage::RitoVectorMap,
+    }
+}
+
+fn convert_hash_function(f: HashFunction) -> SchemaHashFunction {
+    SchemaHashFunction {
+        algorithm: match f.algorithm {
+            HashAlgorithm::Fnv1a32 => SchemaHashAlgorithm::Fnv1a32,
+            HashAlgorithm::Xxh64 => SchemaHashAlgorithm::Xxh64,
+            HashAlgorithm::Xxh3 => SchemaHashAlgorithm::Xxh3,
+            HashAlgorithm::Unknown => SchemaHashAlgorithm::Unknown,
+        },
+        lowercased: f.lowercased,
     }
 }
 
@@ -218,7 +231,11 @@ fn property_context(property: PropertyRef) -> String {
         property.bitmask(),
         if property.container().is_some() { "set" } else { "NULL" },
         if property.map().is_some() { "set" } else { "NULL" },
-    ) + &format!(" union_slot {:#x}", property.union_raw())
+    ) + &format!(
+        " hashed {} union_slot {:#x}",
+        if property.hashed().is_some() { "set" } else { "NULL" },
+        property.union_raw()
+    )
 }
 
 /// Resolve a pointer a property's type says must be present.
@@ -306,7 +323,30 @@ fn dump_property_map(base: usize, map: &MapI) -> MapDump {
     }
 }
 
-fn dump_property(base: usize, property: PropertyRef) -> PropertyDump {
+/// Distinct hash helpers seen during a walk, keyed by vtable offset.
+///
+/// Also the probe cache: each vtable is probed once, and every property after
+/// that resolves to its key by lookup.
+#[derive(Default)]
+pub struct HasherTable(BTreeMap<String, HasherDump>);
+
+impl HasherTable {
+    /// Returns the key for this helper, probing it on first sight.
+    fn intern(&mut self, base: usize, hashed: &HashedI) -> String {
+        let key = dump_hex(hashed.vtable as *const _ as usize - base);
+        self.0.entry(key.clone()).or_insert_with(|| HasherDump {
+            storage_width: hashed.storage_width(),
+            hash_function: convert_hash_function(hashed.hash_function()),
+        });
+        key
+    }
+
+    pub fn into_map(self) -> BTreeMap<String, HasherDump> {
+        self.0
+    }
+}
+
+fn dump_property(base: usize, property: PropertyRef, hashers: &mut HasherTable) -> PropertyDump {
     PropertyDump {
         other_class: property.other_class().map(|c| dump_hex(c.hash())),
         offset: property.offset(),
@@ -316,6 +356,7 @@ fn dump_property(base: usize, property: PropertyRef) -> PropertyDump {
             .container()
             .map(|c| dump_property_container(base, c, property.value_type())),
         map: property.map().map(|m| dump_property_map(base, m)),
+        hasher: property.hashed().map(|h| hashers.intern(base, h)),
         unkptr: dump_hex(0usize),
     }
 }
@@ -323,11 +364,12 @@ fn dump_property(base: usize, property: PropertyRef) -> PropertyDump {
 fn dump_property_list(
     base: usize,
     properties: impl Iterator<Item = PropertyRef>,
+    hashers: &mut HasherTable,
 ) -> BTreeMap<String, PropertyDump> {
     let mut results = BTreeMap::new();
     for property in properties {
         let key = dump_hex(property.hash());
-        let value = dump_property(base, property);
+        let value = dump_property(base, property, hashers);
         results.insert(key, value);
     }
     results
@@ -441,7 +483,7 @@ pub fn dump_class_defaults(class: ClassRef) -> Option<BTreeMap<String, Value>> {
     }
 }
 
-pub fn dump_class(base: usize, class: ClassRef) -> ClassDump {
+pub fn dump_class(base: usize, class: ClassRef, hashers: &mut HasherTable) -> ClassDump {
     ClassDump {
         base: class.base_class().map(|c| dump_hex(c.hash())),
         secondary_bases: dump_class_secondary(class.secondary_bases().slice(), "secondary_bases"),
@@ -453,12 +495,16 @@ pub fn dump_class(base: usize, class: ClassRef) -> ClassDump {
         alignment: class.alignment(),
         flags: dump_class_flags(class),
         functions: dump_class_functions(base, class),
-        properties: dump_property_list(base, class.iter_properties()),
+        properties: dump_property_list(base, class.iter_properties(), hashers),
         defaults: dump_class_defaults(class),
     }
 }
 
-pub fn dump_class_list(base: usize, classes: &[*const ()]) -> BTreeMap<String, ClassDump> {
+pub fn dump_class_list(
+    base: usize,
+    classes: &[*const ()],
+    hashers: &mut HasherTable,
+) -> BTreeMap<String, ClassDump> {
     let mut results = BTreeMap::new();
 
     // The registry holds raw pointers, so a null entry is data to report rather
@@ -486,7 +532,7 @@ pub fn dump_class_list(base: usize, classes: &[*const ()]) -> BTreeMap<String, C
             crate::diag::hexdump("properties", data, (count * 56).min(512));
         }
         let key = dump_hex(class.hash());
-        let value = dump_class(base, class);
+        let value = dump_class(base, class, hashers);
         results.insert(key, value);
     }
     crate::diag::set_current_class(0);
@@ -494,9 +540,12 @@ pub fn dump_class_list(base: usize, classes: &[*const ()]) -> BTreeMap<String, C
 }
 
 pub fn dump_meta(base: usize, classes: &[*const ()], version: String) -> MetaDump {
+    let mut hashers = HasherTable::default();
+    let classes = dump_class_list(base, classes, &mut hashers);
     MetaDump {
         format_version: lol_meta_schema::FORMAT_VERSION,
         version,
-        classes: dump_class_list(base, classes),
+        hashers: hashers.into_map(),
+        classes,
     }
 }

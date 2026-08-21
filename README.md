@@ -31,6 +31,26 @@ docs/           format specs for both database files, plus per-campaign reversin
 `dumps/` is the source of truth. Everything under `db/` is generated from it and is rebuilt from
 scratch on every run, so never hand-edit those files.
 
+One field there is easy to misread. A property's `value_type` of `Hash` does **not** name a hash
+function or a width - both live on a helper object hanging off the property record, and the reader
+asks the helper how many bytes to consume before reading any. From format version 3 the dump
+describes those helpers, each with its storage width and its algorithm, the latter measured by
+calling the helper rather than by reading its code. Anything that *writes* a `Hash` value has to
+look at it: two properties can both be `Hash` and disagree on both counts.
+
+An image has a handful of helpers standing behind thousands of `Hash` properties, so they are
+interned in a top-level `hashers` table keyed by vtable and a property names its own with `hasher`:
+
+```json
+"hashers": {
+  "0x25d0ff0": {
+    "storage_width": 4,
+    "hash_function": { "algorithm": "Fnv1a32", "lowercased": true }
+  }
+},
+"classes": { "0x…": { "properties": { "0x…": { "value_type": "Hash", "hasher": "0x25d0ff0" } } } }
+```
+
 ## Database files
 
 ### `db/meta.db.json`

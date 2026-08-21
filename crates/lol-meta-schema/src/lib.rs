@@ -31,7 +31,9 @@ use std::collections::BTreeMap;
 /// History:
 ///   1 - the field was introduced; shape otherwise as dumped up to 16.14.
 ///   2 - `ClassFlags::unk5` renamed to `finalized`.
-pub const FORMAT_VERSION: u32 = 2;
+///   3 - hash helpers added: a `MetaDump::hashers` table, and `PropertyDump::hasher`
+///       naming the entry behind a `Hash` property.
+pub const FORMAT_VERSION: u32 = 3;
 
 /// Version of dumps written before the field existed.
 pub const FORMAT_VERSION_UNVERSIONED: u32 = 0;
@@ -45,8 +47,23 @@ pub struct MetaDump {
     pub format_version: u32,
     /// Game version string (e.g., "14.24.6442327").
     pub version: String,
+    /// Hash helpers referenced by [`PropertyDump::hasher`], keyed by vtable
+    /// offset (hex string). Interned: an image has a handful of helpers behind
+    /// thousands of `Hash` properties. Empty before format version 3.
+    #[serde(default)]
+    pub hashers: BTreeMap<String, HasherDump>,
     /// Map of class hash (hex string) to class definition.
     pub classes: BTreeMap<String, ClassDump>,
+}
+
+impl MetaDump {
+    /// Resolves a property's hash helper.
+    ///
+    /// `None` if the property carries no helper, including every dump written
+    /// before format version 3.
+    pub fn hasher(&self, property: &PropertyDump) -> Option<&HasherDump> {
+        self.hashers.get(property.hasher.as_ref()?)
+    }
 }
 
 /// A metaclass definition.
@@ -123,6 +140,10 @@ pub struct PropertyDump {
     pub container: Option<ContainerDump>,
     /// Map info for Map types.
     pub map: Option<MapDump>,
+    /// Key into [`MetaDump::hashers`] for `Hash` types. Absent before format
+    /// version 3, null where no helper is installed (pre-16.1).
+    #[serde(default)]
+    pub hasher: Option<String>,
     /// Unknown pointer (always "0x0").
     pub unkptr: String,
 }
@@ -140,6 +161,47 @@ pub struct ContainerDump {
     pub fixed_size: Option<usize>,
     /// Storage type, if known.
     pub storage: Option<ContainerStorage>,
+}
+
+/// A hash helper, interned in [`MetaDump::hashers`] under its vtable offset.
+///
+/// A `Hash` tag names neither a hash function nor a width; both come from this
+/// helper, and the reader asks it how many bytes to consume. Anything writing
+/// a `Hash` value must consult it: two `Hash` properties can disagree on both
+/// counts.
+///
+/// The vtable offset is the key because it is the helper's identity: it
+/// separates helpers that agree on every field below.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct HasherDump {
+    /// Bytes the helper stores, from its `get_size`. 4 everywhere so far;
+    /// the reader honours 8 since 16.14 but nothing returns it yet.
+    pub storage_width: usize,
+    /// The hash computed for a string, measured by calling the helper.
+    pub hash_function: HashFunction,
+}
+
+/// A hash function identified by probing a helper.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub struct HashFunction {
+    /// The algorithm, or [`HashAlgorithm::Unknown`] if nothing matched.
+    pub algorithm: HashAlgorithm,
+    /// Whether the helper lowercases before hashing. Meaningless when the
+    /// algorithm is unknown.
+    pub lowercased: bool,
+}
+
+/// Hash algorithms a helper has been observed to use.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum HashAlgorithm {
+    /// The classic bin hash: FNV-1a, 32-bit.
+    Fnv1a32,
+    /// XXH64, the same hash as a WAD chunk path.
+    Xxh64,
+    /// XXH3, 64-bit output.
+    Xxh3,
+    /// Probed, but nothing matched.
+    Unknown,
 }
 
 /// Map type information.
@@ -239,6 +301,54 @@ mod tests {
         )
         .unwrap();
         assert!(flags.finalized);
+    }
+
+    /// A pre-v3 dump has neither the table nor the key.
+    #[test]
+    fn a_dump_without_hashers_still_reads() {
+        let dump: MetaDump = serde_json::from_str(
+            r#"{"version":"14.24.6442327","classes":{}}"#,
+        )
+        .unwrap();
+        assert!(dump.hashers.is_empty());
+    }
+
+    #[test]
+    fn a_property_resolves_its_hasher() {
+        let dump: MetaDump = serde_json::from_str(
+            r#"{
+                "formatVersion": 3,
+                "version": "16.17.8068374",
+                "hashers": {
+                    "0x25d0ff0": {
+                        "storage_width": 4,
+                        "hash_function": {"algorithm": "Fnv1a32", "lowercased": true}
+                    }
+                },
+                "classes": {}
+            }"#,
+        )
+        .unwrap();
+
+        let property: PropertyDump = serde_json::from_str(
+            r#"{
+                "other_class": null, "offset": 40, "bitmask": 0,
+                "value_type": "Hash", "container": null, "map": null,
+                "hasher": "0x25d0ff0", "unkptr": "0x0"
+            }"#,
+        )
+        .unwrap();
+
+        let hasher = dump.hasher(&property).expect("the key must resolve");
+        assert_eq!(hasher.storage_width, 4);
+        assert_eq!(hasher.hash_function.algorithm, HashAlgorithm::Fnv1a32);
+
+        // No key resolves to nothing, not to an arbitrary entry.
+        let no_hasher = PropertyDump {
+            hasher: None,
+            ..property
+        };
+        assert!(dump.hasher(&no_hasher).is_none());
     }
 
     #[test]

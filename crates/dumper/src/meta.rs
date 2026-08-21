@@ -41,6 +41,16 @@ impl<'a, T> RiotVector<T> {
         (self.data as usize, self.size())
     }
 
+    /// Borrows a slice as a vector image code can read.
+    ///
+    /// Argument use only: the image must not keep or outlive the borrow.
+    pub fn borrowed(slice: &'a [T]) -> Self {
+        RiotVector {
+            data: slice.as_ptr(),
+            size: slice.len() as u32,
+            capacity: slice.len() as u32,
+        }
+    }
 }
 
 #[repr(C)]
@@ -264,6 +274,137 @@ pub struct HashedIVtable {
     pub from_string: extern "C" fn(this: &HashedI, instance: usize, str: *const AString) -> usize,
     pub from_hash: extern "C" fn(this: &HashedI, instance: usize, hash: u64) -> usize,
     pub to_hash: extern "C" fn(this: &HashedI, instance: usize) -> u64,
+}
+
+/// Hash algorithms a helper has been observed to use.
+#[derive(Debug, Serialize, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
+pub enum HashAlgorithm {
+    Fnv1a32,
+    Xxh64,
+    Xxh3,
+    Unknown,
+}
+
+/// The result of probing a helper: which hash, and whether it lowercases first.
+#[derive(Debug, Serialize, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
+pub struct HashFunction {
+    pub algorithm: HashAlgorithm,
+    pub lowercased: bool,
+}
+
+/// Probe strings for identifying a helper's hash function.
+///
+/// Mixed case so lowercasing is observable; both probes must agree or the
+/// answer is [`HashAlgorithm::Unknown`].
+const HASH_PROBES: [&str; 2] = ["Characters/Ahri/Skins/Skin01", "UX/TFT/Foo_Bar.TEX"];
+
+/// Known value round-tripped through `from_hash` / `to_hash` before trusting
+/// the vtable shape.
+const HASH_SELFTEST: u64 = 0x1234_5678;
+
+fn fnv1a32(bytes: &[u8]) -> u32 {
+    let mut h: u32 = 0x811C_9DC5;
+    for &b in bytes {
+        h = (h ^ b as u32).wrapping_mul(0x0100_0193);
+    }
+    h
+}
+
+impl HashedI {
+    /// Returns the bytes the helper stores, from its `get_size`.
+    pub fn storage_width(&self) -> usize {
+        (self.vtable.get_size)(self, 0)
+    }
+
+    /// Returns the helper's hash of `text`, or `None` if the vtable fails the
+    /// self-test.
+    ///
+    /// Calls into the loaded image. The result is read back through `to_hash`,
+    /// so a truncating helper reports its truncated value.
+    pub fn hash_of(&self, text: &str) -> Option<u64> {
+        let mut scratch: u64 = 0;
+        let slot = &mut scratch as *mut u64 as usize;
+
+        // Bail if the vtable is not the layout `HashedIVtable` describes
+        // (e.g. a build reordered it); the calls below would hit the wrong
+        // functions.
+        (self.vtable.from_hash)(self, slot, HASH_SELFTEST);
+        if (self.vtable.to_hash)(self, slot) != HASH_SELFTEST {
+            return None;
+        }
+
+        // The slot still holds the self-test value, so a `from_string` that
+        // does not write matches no candidate instead of a plausible hash.
+        let bytes = text.as_bytes();
+        let string = AString {
+            data: RiotVector::borrowed(bytes),
+        };
+        (self.vtable.from_string)(self, slot, &string);
+        Some((self.vtable.to_hash)(self, slot))
+    }
+
+    /// Identifies the helper's hash function by probing it.
+    pub fn hash_function(&self) -> HashFunction {
+        let unknown = HashFunction {
+            algorithm: HashAlgorithm::Unknown,
+            lowercased: false,
+        };
+        let width = self.storage_width();
+        let mask = match width {
+            4 => u32::MAX as u64,
+            8 => u64::MAX,
+            _ => return unknown,
+        };
+
+        let mut agreed: Option<(HashAlgorithm, bool)> = None;
+        for probe in HASH_PROBES {
+            let Some(got) = self.hash_of(probe) else {
+                return unknown;
+            };
+            let mut found = None;
+            for lowercased in [false, true] {
+                let text = if lowercased {
+                    probe.to_ascii_lowercase()
+                } else {
+                    probe.to_string()
+                };
+                let bytes = text.as_bytes();
+                for algorithm in [
+                    HashAlgorithm::Fnv1a32,
+                    HashAlgorithm::Xxh64,
+                    HashAlgorithm::Xxh3,
+                ] {
+                    let want = match algorithm {
+                        HashAlgorithm::Fnv1a32 => fnv1a32(bytes) as u64,
+                        HashAlgorithm::Xxh64 => xxhash_rust::xxh64::xxh64(bytes, 0),
+                        HashAlgorithm::Xxh3 => xxhash_rust::xxh3::xxh3_64(bytes),
+                        HashAlgorithm::Unknown => continue,
+                    };
+                    if want & mask == got & mask {
+                        found = Some((algorithm, lowercased));
+                        break;
+                    }
+                }
+                if found.is_some() {
+                    break;
+                }
+            }
+            match (found, agreed) {
+                (None, _) => return unknown,
+                (Some(f), None) => agreed = Some(f),
+                (Some(f), Some(a)) if f == a => {}
+                _ => return unknown,
+            }
+        }
+
+        match agreed {
+            Some((algorithm, lowercased)) => HashFunction {
+                algorithm,
+                lowercased,
+            },
+            None => unknown,
+        }
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -534,6 +675,26 @@ impl PropertyRef {
             },
         }
     }
+
+    /// The hash helper backing a `Hash` property.
+    ///
+    /// Type-gated on both layouts: from 16.14 the helper shares the union slot
+    /// with `container` and `map`. Null on builds before 16.1, which never
+    /// install one.
+    pub fn hashed(self) -> Option<&'static HashedI> {
+        match self {
+            PropertyRef::Canonical(p) => match p.value_type {
+                BinType::Hash => p.hashed,
+                _ => None,
+            },
+            PropertyRef::V16_14(p) => match p.value_type {
+                BinType::Hash => {
+                    (p.union_slot != 0).then(|| unsafe { &*(p.union_slot as *const HashedI) })
+                }
+                _ => None,
+            },
+        }
+    }
 }
 
 #[cfg(test)]
@@ -746,6 +907,47 @@ mod layout_tests {
         assert!(r.container().is_none());
 
         set_property_layout(PropertyLayout::Canonical);
+    }
+
+    /// Misreading the 16.14 union slot would report a container vtable as a
+    /// hash helper and then call it.
+    #[test]
+    fn hash_helper_reads_the_union_only_for_hash() {
+        let _guard = lock_layout();
+        set_property_layout(PropertyLayout::V16_14);
+
+        let p = probe_16_14(BinType::Hash, SLOT);
+        let r = PropertyRef::V16_14(unsafe { &*(&p as *const _) });
+        assert!(r.hashed().is_some());
+        assert!(r.container().is_none());
+        assert!(r.map().is_none());
+
+        for t in [
+            BinType::List,
+            BinType::Map,
+            BinType::Option,
+            BinType::File,
+            BinType::String,
+            BinType::Link,
+        ] {
+            let p = probe_16_14(t, SLOT);
+            let r = PropertyRef::V16_14(unsafe { &*(&p as *const _) });
+            assert!(r.hashed().is_none(), "{t:?} must not resolve a hash helper");
+        }
+
+        // Pre-16.1 builds leave the slot empty on a Hash property.
+        let p = probe_16_14(BinType::Hash, 0);
+        let r = PropertyRef::V16_14(unsafe { &*(&p as *const _) });
+        assert!(r.hashed().is_none());
+
+        set_property_layout(PropertyLayout::Canonical);
+    }
+
+    /// A wrong FNV here would classify every helper as `Unknown`.
+    #[test]
+    fn fnv1a32_matches_the_known_bin_hash() {
+        assert_eq!(fnv1a32(b"characterrecord"), 0x23ea_1915);
+        assert_eq!(fnv1a32(b""), 0x811c_9dc5);
     }
 
     #[test]

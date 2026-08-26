@@ -4706,10 +4706,6 @@ class 0x88f0f15e():
 class 0x8923a755():
     pass
 
-class 0x892635ba():
-    0x399a1c39: (Link, 0x0, 0x0, 0x68783803) = "0x0"
-    pass
-
 class 0x892dcebb(SeqInputCombinedFloat):
     pass
 
@@ -5126,17 +5122,6 @@ class 0x9449f1a5(0x5aa60796):
 
 class 0x948c3e89():
     CeremonyLink: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x94be93d1():
-    VfxComponents: (Pointer, 0x0, 0x0, VfxComponents) = null
-    disabled: (Bool, 0x0, 0x0, 0x0) = false
-    isUniformScale: (Bool, 0x0, 0x0, 0x0) = false
-    emitterName: (String, 0x0, 0x0, 0x0) = ""
-    colorblindVisibility: (U8, 0x0, 0x0, 0x0) = 0
-    importance: (U8, 0x0, 0x0, 0x0) = 2
-    0xc26b20bf: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
-    ChanceToNotExist: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0x9506323a(InputEventBoolKeybind):
@@ -29071,6 +29056,10 @@ class VfxDynamicParametersData():
     0x1dcc5270: (List2, 0x0, Embed, 0xd5c9eb1) = []
     pass
 
+class VfxEffectorDefinition():
+    0x399a1c39: (Link, 0x0, 0x0, 0x68783803) = "0x0"
+    pass
+
 class VfxEmissionBox(IVfxEmissionSource):
     Distribution: (Pointer, 0x0, 0x0, 0x2d42ea41) = null
     BoxSize: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
@@ -30005,6 +29994,17 @@ class VfxShapeVolume(IVfxShape):
     flags: (U8, 0x0, 0x0, 0x0)
     pass
 
+class VfxShimmerEmitterDefinitionData():
+    VfxComponents: (Pointer, 0x0, 0x0, VfxComponents) = null
+    disabled: (Bool, 0x0, 0x0, 0x0) = false
+    isUniformScale: (Bool, 0x0, 0x0, 0x0) = false
+    emitterName: (String, 0x0, 0x0, 0x0) = ""
+    colorblindVisibility: (U8, 0x0, 0x0, 0x0) = 0
+    importance: (U8, 0x0, 0x0, 0x0) = 2
+    0xc26b20bf: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
+    ChanceToNotExist: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
 class VfxShimmerFacingMode():
     pass
 
@@ -30081,14 +30081,14 @@ class VfxSystemDefinitionData(IResource):
     drawingLayer: (U8, 0x0, 0x0, 0x0) = 0
     mIsPoseAfterimage: (Bool, 0x0, 0x0, 0x0) = false
     assetRemappingTable: (List, 0x0, Embed, VfxAssetRemap) = []
-    0xd88bbb2c: (Pointer, 0x0, 0x0, 0x892635ba) = null
+    EffectorDefinition: (Pointer, 0x0, 0x0, VfxEffectorDefinition) = null
     hudAnchorPositionFromWorldProjection: (Bool, 0x0, 0x0, 0x0) = true
     voiceOverPersistentDefault: (String, 0x0, 0x0, 0x0) = ""
     soundOnCreateDefault: (String, 0x0, 0x0, 0x0) = ""
     transform: (Mtx44, 0x0, 0x0, 0x0) = [[1.0,0.0,0.0,0.0],[0.0,1.0,0.0,0.0],[0.0,0.0,1.0,0.0],[0.0,0.0,0.0,1.0]]
     particlePath: (String, 0x0, 0x0, 0x0) = ""
     buildUpTime: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xeb0aabeb: (List, 0x0, Pointer, 0x94be93d1) = []
+    ShimmerEmitterDefinitionData: (List, 0x0, Pointer, VfxShimmerEmitterDefinitionData) = []
     particleName: (String, 0x0, 0x0, 0x0) = ""
     scaleDynamicallyWithAttachedBone: (Bool, 0x0, 0x0, 0x0) = false
     hudLayerDimension: (F32, 0x0, 0x0, 0x0) = 1024.0

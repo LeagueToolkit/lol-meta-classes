@@ -997,3 +997,5 @@ a4b9367d	IVfxDynamicParameterModifier                                	vfx-dynami
 51445de9	VfxDynamicParameterMultiplierModifier                       	vfx-dynamic-parameters        	2026-08-26	pending  	-
 bce20874	VfxDynamicParameterRoundModifier                            	vfx-dynamic-parameters        	2026-08-26	pending  	-
 75e34c40	VfxDynamicParametersData                                    	vfx-dynamic-parameters        	2026-08-26	pending  	-
+892635ba	VfxEffectorDefinition                                       	vfx-system-definition-fields  	2026-08-26	pending  	-
+94be93d1	VfxShimmerEmitterDefinitionData                             	vfx-system-definition-fields  	2026-08-26	pending  	-

@@ -900,6 +900,7 @@ e168ec0e VfxColorRgbaDriver
 51445de9 VfxDynamicParameterMultiplierModifier
 bce20874 VfxDynamicParameterRoundModifier
 75e34c40 VfxDynamicParametersData
+892635ba VfxEffectorDefinition
 4a3e3da9 VfxEmissionBox
 0eeaaebe VfxEmissionCylinder
 d965d435 VfxEmissionMesh
@@ -968,6 +969,7 @@ fffd118e VfxScaleColorRgbaDriver
 c8d6a694 VfxScaleVector2Driver
 6302c267 VfxScaleVector3Driver
 ee39916f VfxShapePointDoNotUse
+94be93d1 VfxShimmerEmitterDefinitionData
 eeadd18f VfxShimmerFacingMode
 7f3cb96d VfxShimmerMeshBeamDefinitionData
 32d4052e VfxShimmerPrimitiveAttachedMesh

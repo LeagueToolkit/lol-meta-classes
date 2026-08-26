@@ -1450,3 +1450,5 @@ f007f2a9	TriggerAnnouncerVoEventAction                               	global-aud
 f97b1289	DistanceBasedTransparencyParams                             	vfx-dynamic-parameters        	2026-08-26	pending  	-
 8b301739	DynamicParameterData                                        	vfx-dynamic-parameters        	2026-08-26	pending  	-
 c865acd9	FarthestDistance                                            	vfx-dynamic-parameters        	2026-08-26	pending  	-
+d88bbb2c	EffectorDefinition                                          	vfx-system-definition-fields  	2026-08-26	pending  	-
+eb0aabeb	ShimmerEmitterDefinitionData                                	vfx-system-definition-fields  	2026-08-26	pending  	-

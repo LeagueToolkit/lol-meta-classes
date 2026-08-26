@@ -9401,14 +9401,14 @@
  "0xc803c9f6": {"name":"drawingLayer","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xcf08f8e6": {"name":"mIsPoseAfterimage","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xd01a2020": {"name":"assetRemappingTable","revisions":[{"from":5229820,"type":["List","0x0","Embed","0xf627e1a2"],"default":[]}]},
- "0xd88bbb2c": {"revisions":[{"from":8042660,"type":["Pointer","0x0","0x0","0x892635ba"],"default":null}]},
+ "0xd88bbb2c": {"name":"EffectorDefinition","revisions":[{"from":8042660,"type":["Pointer","0x0","0x0","0x892635ba"],"default":null}]},
  "0xdc5adca5": {"name":"hudAnchorPositionFromWorldProjection","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0xde8bc5db": {"name":"voiceOverPersistentDefault","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xe0c375ae": {"name":"soundOnCreateDefault","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xe1ad931b": {"name":"transform","revisions":[{"from":5229820,"type":["Mtx44","0x0","0x0","0x0"],"default":[[1.0,0.0,0.0,0.0],[0.0,1.0,0.0,0.0],[0.0,0.0,1.0,0.0],[0.0,0.0,0.0,1.0]]}]},
  "0xe7638138": {"name":"particlePath","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xe994800f": {"name":"buildUpTime","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xeb0aabeb": {"revisions":[{"from":8042660,"type":["List","0x0","Pointer","0x94be93d1"],"default":[]}]},
+ "0xeb0aabeb": {"name":"ShimmerEmitterDefinitionData","revisions":[{"from":8042660,"type":["List","0x0","Pointer","0x94be93d1"],"default":[]}]},
  "0xecf1c6bc": {"name":"particleName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xf55e1472": {"name":"scaleDynamicallyWithAttachedBone","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf7467a8d": {"name":"hudLayerDimension","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":1024.0}]},
@@ -17168,7 +17168,7 @@
 }},
 "0x8923a755": {"revisions": [{"from":6478644,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0x892635ba": {"revisions": [{"from":8042660,"bases":[],"interface":false,"value":true}], "properties": {
+"0x892635ba": {"name": "VfxEffectorDefinition", "revisions": [{"from":8042660,"bases":[],"interface":false,"value":true}], "properties": {
  "0x399a1c39": {"revisions":[{"from":8042660,"type":["Link","0x0","0x0","0x68783803"],"default":"0x0"}]}
 }},
 "0x892dcebb": {"revisions": [{"from":6649480,"bases":["0xae95bf93"],"interface":false,"value":false}], "properties": {
@@ -18473,7 +18473,7 @@
 "0x94acbb37": {"name": "SeqActionSfxStatic", "revisions": [{"from":6575386,"bases":["0x99320e3c"],"interface":false,"value":false}], "properties": {
  "0xbf5a9a6": {"name":"Location","revisions":[{"from":6575386,"to":6804378,"type":["Pointer","0x0","0x0","0xb7d67a62"],"default":null},{"from":6841658,"type":["Pointer","0x0","0x0","0x94e82d1f"],"default":null}]}
 }},
-"0x94be93d1": {"revisions": [{"from":8042660,"bases":[],"interface":false,"value":true}], "properties": {
+"0x94be93d1": {"name": "VfxShimmerEmitterDefinitionData", "revisions": [{"from":8042660,"bases":[],"interface":false,"value":true}], "properties": {
  "0x1cf263eb": {"name":"VfxComponents","revisions":[{"from":8042660,"type":["Pointer","0x0","0x0","0x1cf263eb"],"default":null}]},
  "0x33f36f05": {"name":"disabled","revisions":[{"from":8042660,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x3559e15b": {"name":"isUniformScale","revisions":[{"from":8042660,"type":["Bool","0x0","0x0","0x0"],"default":false}]},

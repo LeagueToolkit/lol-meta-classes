@@ -377,6 +377,7 @@ ed17c5c8 DynamicLightsEnabled
 ff0af490 EasingFunction
 4e7c6b11 EffectColor0
 4d7c697e EffectColor1
+d88bbb2c EffectorDefinition
 e4124e46 EffectsQuality
 39a1c5e5 ElapsedTimeColor
 a8d720d0 ElderDragonKill
@@ -1159,6 +1160,7 @@ bc3b7fdc ShaderParameterOverrides
 10087a83 ShadowsEnabled
 a8d060cb ShapeCenter
 d9ee6a8f ShareRandom
+eb0aabeb ShimmerEmitterDefinitionData
 a8201a8b ShopMapIndex
 a9e4a8cb ShopStyles
 b3b79b71 ShortDescriptionTraKey

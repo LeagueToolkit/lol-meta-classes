@@ -60,3 +60,4 @@ socket-definitions            	Abstract socket root on SkinMeshDataProperties.So
 tooltip-ui                    	Tooltip scene layout embedded by TooltipViewController: one element hash per slot - title/subtitle/postscript pairs, hr rules, caret, backdrop.
 contextual-conditions         	VO contextual conditions, named off their own field names and attested by the mSituations key and rule names each ships under in CAC data. See docs/contextual-conditions.md
 global-audio                  	Global audio/VO: the AudioContextEvent and AudioContextEventType trees, the twin 40-slot event tables, the audio queue and priority classes, and their contextual actions. docs/global-audio.md
+vfx-dynamic-parameters        	VfxSystemDefinitionData's last two pointer fields and the dynamic parameter modifier family; 16.17 registration order, zero inversions over 9 classes, 0/300 decoys. No string attests any of them.

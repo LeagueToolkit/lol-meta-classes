@@ -1445,3 +1445,8 @@ be2133eb	TriggerAnnouncerVoEvent                                     	global-aud
 f007f2a9	TriggerAnnouncerVoEventAction                               	global-audio                  	2026-08-19	pending  	-
 057edc39	TriggerChampionMusicEvent                                   	global-audio                  	2026-08-19	pending  	-
 3a526bfb	TriggerChampionMusicEventAction                             	global-audio                  	2026-08-19	pending  	-
+7e8cf11a	AlphaAtClosestDistance                                      	vfx-dynamic-parameters        	2026-08-26	pending  	-
+28de30d6	AlphaAtFarthestDistance                                     	vfx-dynamic-parameters        	2026-08-26	pending  	-
+f97b1289	DistanceBasedTransparencyParams                             	vfx-dynamic-parameters        	2026-08-26	pending  	-
+8b301739	DynamicParameterData                                        	vfx-dynamic-parameters        	2026-08-26	pending  	-
+c865acd9	FarthestDistance                                            	vfx-dynamic-parameters        	2026-08-26	pending  	-

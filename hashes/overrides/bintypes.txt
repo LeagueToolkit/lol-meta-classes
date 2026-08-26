@@ -350,6 +350,7 @@ b041c60a IUiVariable
 cc52ed40 IUnitLogicData
 53de4f74 IValueUpdateElement
 cbd100e7 IVfxBaseDriver
+a4b9367d IVfxDynamicParameterModifier
 8b5022d2 IVfxEmissionSource
 f9dd7e92 IVfxEmissionSurface
 8877ad7c IVfxFloatDriver
@@ -891,7 +892,14 @@ c06dcfdd VfxColorContainer
 e168ec0e VfxColorRgbaDriver
 1cf263eb VfxComponents
 8ad25772 VfxDefinition
+7fb92f53 VfxDistanceBasedTransparencyParams
 6f4e4a08 VfxDriverContainer
+557bb273 VfxDynamicParameterAddModifier
+757b6f7f VfxDynamicParameterCeilModifier
+64e5736e VfxDynamicParameterFloorModifier
+51445de9 VfxDynamicParameterMultiplierModifier
+bce20874 VfxDynamicParameterRoundModifier
+75e34c40 VfxDynamicParametersData
 4a3e3da9 VfxEmissionBox
 0eeaaebe VfxEmissionCylinder
 d965d435 VfxEmissionMesh

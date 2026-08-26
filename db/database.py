@@ -2598,10 +2598,6 @@ class 0x51255963(BaseParams):
 class 0x5140c28(ISequenceActionInstance):
     pass
 
-class 0x51445de9(0xa4b9367d):
-    value: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
-    pass
-
 class 0x5184e3a5():
     DescriptionFooter: (String, 0x0, 0x0, 0x0) = ""
     DisplayNameOverride: (String, 0x0, 0x0, 0x0) = ""
@@ -2675,10 +2671,6 @@ class 0x5480000a(EntityScriptCondition):
 class 0x55047b08():
     TitleColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
     TitleTra: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x557bb273(0xa4b9367d):
-    value: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     pass
 
 class 0x55a810cb(0xaf6bce07):
@@ -3254,9 +3246,6 @@ class 0x64c18f7d():
 
 class 0x64c605():
     RegionGroups: (List2, 0x0, String, 0x0) = []
-    pass
-
-class 0x64e5736e(0xa4b9367d):
     pass
 
 class 0x65606039():
@@ -3875,9 +3864,6 @@ class 0x75582751(BaseParams):
 class 0x755a19ce():
     pass
 
-class 0x757b6f7f(0xa4b9367d):
-    pass
-
 class 0x759c2f60():
     PointsText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SelectedHolder: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -3893,10 +3879,6 @@ class 0x759c2f60():
 class 0x75a22c3():
     0x470935c2: (List2, 0x0, Pointer, 0xbd57ee48) = []
     0x561124fe: (Pointer, 0x0, 0x0, IMaterialLogicDriverSource) = null
-    pass
-
-class 0x75e34c40():
-    0x1dcc5270: (List2, 0x0, Embed, 0xd5c9eb1) = []
     pass
 
 class 0x75fb2c62(TftCutsceneClip):
@@ -4345,13 +4327,6 @@ class 0x7f644206():
     RerollButtonTextDisabledColor: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     RerollButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     RerollButtonTextColor: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
-    pass
-
-class 0x7fb92f53():
-    0x28de30d6: (F32, 0x0, 0x0, 0x0) = 0.10000000149011612
-    ClosestDistance: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x7e8cf11a: (F32, 0x0, 0x0, 0x0) = 1.0
-    0xc865acd9: (F32, 0x0, 0x0, 0x0) = 3.4028234663852886e+38
     pass
 
 class 0x7fd71604(BaseParams):
@@ -5696,7 +5671,7 @@ class 0xa407be92(IBoolGet, IScriptValueGet):
     pass
 
 class 0xa41315c0():
-    Modifiers: (List2, 0x0, Pointer, 0xa4b9367d)
+    Modifiers: (List2, 0x0, Pointer, IVfxDynamicParameterModifier)
     pass
 
 class 0xa431a429(0x69cdddcc):
@@ -5739,9 +5714,6 @@ class 0xa495afda():
 
 class 0xa4a0d032(IGameModeConfig):
     0x163d624b: (List2, 0x0, F32, 0x0) = []
-    pass
-
-class 0xa4b9367d():
     pass
 
 class 0xa4fcf99f(IRewardBase):
@@ -6678,9 +6650,6 @@ class 0xbcb052b9():
     0xc4c8127c: (F32, 0x0, 0x0, 0x0)
     0xc869b8bb: (Bool, 0x0, 0x0, 0x0)
     0xfffedd10: (U32, 0x0, 0x0, 0x0)
-    pass
-
-class 0xbce20874(0xa4b9367d):
     pass
 
 class 0xbcec55fa(0x114828a9):
@@ -15506,6 +15475,9 @@ class IVectorGet():
     pass
 
 class IVfxBaseDriver():
+    pass
+
+class IVfxDynamicParameterModifier():
     pass
 
 class IVfxEmissionSource():
@@ -29060,6 +29032,13 @@ class VfxComponents():
     GeometryComponent: (Pointer, 0x0, 0x0, VfxGeometryComponentBase) = null
     pass
 
+class VfxDistanceBasedTransparencyParams():
+    AlphaAtFarthestDistance: (F32, 0x0, 0x0, 0x0) = 0.10000000149011612
+    ClosestDistance: (F32, 0x0, 0x0, 0x0) = 0.0
+    AlphaAtClosestDistance: (F32, 0x0, 0x0, 0x0) = 1.0
+    FarthestDistance: (F32, 0x0, 0x0, 0x0) = 3.4028234663852886e+38
+    pass
+
 class VfxDistortionDefinitionData():
     distortionMode: (U8, 0x0, 0x0, 0x0) = 1
     distortion: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -29069,6 +29048,27 @@ class VfxDistortionDefinitionData():
 class VfxDriverContainer():
     0x8ed7a68f: (Map, U8, Pointer, 0x9999dd64) = {}
     materialDrivers: (Map, String, Pointer, IVfxVector4Driver) = {}
+    pass
+
+class VfxDynamicParameterAddModifier(IVfxDynamicParameterModifier):
+    value: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
+    pass
+
+class VfxDynamicParameterCeilModifier(IVfxDynamicParameterModifier):
+    pass
+
+class VfxDynamicParameterFloorModifier(IVfxDynamicParameterModifier):
+    pass
+
+class VfxDynamicParameterMultiplierModifier(IVfxDynamicParameterModifier):
+    value: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
+    pass
+
+class VfxDynamicParameterRoundModifier(IVfxDynamicParameterModifier):
+    pass
+
+class VfxDynamicParametersData():
+    0x1dcc5270: (List2, 0x0, Embed, 0xd5c9eb1) = []
     pass
 
 class VfxEmissionBox(IVfxEmissionSource):
@@ -30071,7 +30071,7 @@ class VfxSystemDefinitionData(IResource):
     simpleEmitterDefinitionData: (List, 0x0, Pointer, VfxEmitterDefinitionData) = []
     mEyeCandy: (Bool, 0x0, 0x0, 0x0) = false
     complexEmitterDefinitionData: (List, 0x0, Pointer, VfxEmitterDefinitionData) = []
-    0x8b301739: (Pointer, 0x0, 0x0, 0x75e34c40) = null
+    DynamicParameterData: (Pointer, 0x0, 0x0, VfxDynamicParametersData) = null
     0x9836cd87: (U8, 0x0, 0x0, 0x0) = 5
     flags: (U16, 0x0, 0x0, 0x0) = 212
     PointLight: (Pointer, 0x0, 0x0, 0x83456589) = null
@@ -30092,7 +30092,7 @@ class VfxSystemDefinitionData(IResource):
     particleName: (String, 0x0, 0x0, 0x0) = ""
     scaleDynamicallyWithAttachedBone: (Bool, 0x0, 0x0, 0x0) = false
     hudLayerDimension: (F32, 0x0, 0x0, 0x0) = 1024.0
-    0xf97b1289: (Pointer, 0x0, 0x0, 0x7fb92f53) = null
+    DistanceBasedTransparencyParams: (Pointer, 0x0, 0x0, VfxDistanceBasedTransparencyParams) = null
     visibilityRadius: (F32, 0x0, 0x0, 0x0) = 250.0
     pass
 

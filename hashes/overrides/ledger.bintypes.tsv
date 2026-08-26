@@ -989,3 +989,11 @@ c87f69f4	ChampionMusicEventTypeConcrete                              	global-aud
 b2246553	GlobalContextualActionData                                  	global-audio                  	2026-08-19	pending  	-
 906b3602	MultiAnnouncerVoEventType                                   	global-audio                  	2026-08-19	pending  	-
 b58b70dc	MultiChampionMusicEventType                                 	global-audio                  	2026-08-19	pending  	-
+a4b9367d	IVfxDynamicParameterModifier                                	vfx-dynamic-parameters        	2026-08-26	pending  	-
+7fb92f53	VfxDistanceBasedTransparencyParams                          	vfx-dynamic-parameters        	2026-08-26	pending  	-
+557bb273	VfxDynamicParameterAddModifier                              	vfx-dynamic-parameters        	2026-08-26	pending  	-
+757b6f7f	VfxDynamicParameterCeilModifier                             	vfx-dynamic-parameters        	2026-08-26	pending  	-
+64e5736e	VfxDynamicParameterFloorModifier                            	vfx-dynamic-parameters        	2026-08-26	pending  	-
+51445de9	VfxDynamicParameterMultiplierModifier                       	vfx-dynamic-parameters        	2026-08-26	pending  	-
+bce20874	VfxDynamicParameterRoundModifier                            	vfx-dynamic-parameters        	2026-08-26	pending  	-
+75e34c40	VfxDynamicParametersData                                    	vfx-dynamic-parameters        	2026-08-26	pending  	-

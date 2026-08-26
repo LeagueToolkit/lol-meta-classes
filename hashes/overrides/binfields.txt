@@ -40,6 +40,8 @@ e21f1d86 AllowEmitterRotation
 2eddea64 AllowedSpells
 302afbcd AllyIndex
 5d8b6dab Alpha
+7e8cf11a AlphaAtClosestDistance
+28de30d6 AlphaAtFarthestDistance
 3360db7e AlphaCutoff
 e630d0a5 AlphaOnly
 e9faf118 AlphaSliceRange
@@ -344,6 +346,7 @@ fb3055fc DisplayFlags
 5f22a7f6 DisplayNameOverride
 ae6404bb DisplayTemplate
 ef3b793d DisplayType
+f97b1289 DistanceBasedTransparencyParams
 fba5b4cd DistanceThreshold
 3498512b Distribution
 acee2354 DistributionMode
@@ -368,6 +371,7 @@ ea4b69c5 DuplicateText
 af128762 DurationSeconds
 7168974e DynamicLighting
 ed17c5c8 DynamicLightsEnabled
+8b301739 DynamicParameterData
 9561c6b3 EarlyComp
 8e97ff30 EasingData
 ff0af490 EasingFunction
@@ -466,6 +470,7 @@ aae9bc5e FailTra
 caa773b3 FalloffRadius
 101918e3 FalloffTexturePath
 0b069958 False
+c865acd9 FarthestDistance
 029402af Fast
 27ee9af9 FavoriteButton
 155cac23 FeatsEvents

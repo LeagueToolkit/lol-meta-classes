@@ -1445,10 +1445,16 @@ be2133eb	TriggerAnnouncerVoEvent                                     	global-aud
 f007f2a9	TriggerAnnouncerVoEventAction                               	global-audio                  	2026-08-19	pending  	-
 057edc39	TriggerChampionMusicEvent                                   	global-audio                  	2026-08-19	pending  	-
 3a526bfb	TriggerChampionMusicEventAction                             	global-audio                  	2026-08-19	pending  	-
+4d795fb5	DecayDuration                                               	environment-effectors         	2026-08-26	pending  	-
+399a1c39	EffectorData                                                	environment-effectors         	2026-08-26	pending  	-
+5e532341	OriginWidth                                                 	environment-effectors         	2026-08-26	pending  	-
+435a91a2	SpinFactor                                                  	environment-effectors         	2026-08-26	pending  	-
+2f7e29a4	TargetWidth                                                 	environment-effectors         	2026-08-26	pending  	-
 7e8cf11a	AlphaAtClosestDistance                                      	vfx-dynamic-parameters        	2026-08-26	pending  	-
 28de30d6	AlphaAtFarthestDistance                                     	vfx-dynamic-parameters        	2026-08-26	pending  	-
 f97b1289	DistanceBasedTransparencyParams                             	vfx-dynamic-parameters        	2026-08-26	pending  	-
 8b301739	DynamicParameterData                                        	vfx-dynamic-parameters        	2026-08-26	pending  	-
 c865acd9	FarthestDistance                                            	vfx-dynamic-parameters        	2026-08-26	pending  	-
 d88bbb2c	EffectorDefinition                                          	vfx-system-definition-fields  	2026-08-26	pending  	-
+c26b20bf	ParticleScale                                               	vfx-system-definition-fields  	2026-08-26	pending  	-
 eb0aabeb	ShimmerEmitterDefinitionData                                	vfx-system-definition-fields  	2026-08-26	pending  	-

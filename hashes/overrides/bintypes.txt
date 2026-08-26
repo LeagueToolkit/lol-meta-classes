@@ -189,6 +189,11 @@ b0607142 EntityScriptCondition
 72e9216e EntityTagTableSet
 aadc6ca8 EnvMeshGeComponent
 13a67d09 EnvMeshGeComponentDefinition
+68783803 EnvironmentEffectorBase
+9f7df5f1 EnvironmentEffectorBeam
+2ab3cfdc EnvironmentEffectorBurst
+e4b83f6f EnvironmentEffectorMovement
+7016daf6 EnvironmentEffectorTrapezoid
 21015269 EnvironmentEntity
 50759990 EnvironmentEntityDef
 12328447 EnvironmentEntityPrefab

@@ -1015,11 +1015,6 @@ class 0x2aa356bc():
     GridData: (List2, 0x0, Link, 0xee4ec7c) = []
     pass
 
-class 0x2ab3cfdc(0x68783803):
-    0x435a91a2: (F32, 0x0, 0x0, 0x0) = 0.0
-    radius: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
 class 0x2ae7663(IUiVariable):
     value: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
@@ -3390,12 +3385,6 @@ class 0x68067fa5(0xb5754dad):
 class 0x680cfd91(BaseParams):
     pass
 
-class 0x68783803():
-    0x24c6d754: (F32, 0x0, 0x0, 0x0)
-    Magnitude: (F32, 0x0, 0x0, 0x0)
-    0x4d795fb5: (F32, 0x0, 0x0, 0x0)
-    pass
-
 class 0x687bf78e(ILolKeybindSetCheck):
     pass
 
@@ -3723,11 +3712,6 @@ class 0x7015f762(0x709be6c3):
     startDelay: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     OutroDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     0xdcad4b02: (Flag, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0x7016daf6(0x68783803):
-    0x2f7e29a4: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x5e532341: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0x70749bea(IOptionItemFilter):
@@ -5534,10 +5518,6 @@ class 0x9f40fcd2():
     Pbe: (Embed, 0x0, 0x0, 0x3978db55) = {"0x927c10c9":0,"0xb9f88dc0":0}
     Live: (Embed, 0x0, 0x0, 0x3978db55) = {"0x927c10c9":0,"0xb9f88dc0":0}
     internal: (Embed, 0x0, 0x0, 0x3978db55) = {"0x927c10c9":0,"0xb9f88dc0":0}
-    pass
-
-class 0x9f7df5f1(0x68783803):
-    Width: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0x9f9ec6c2(GameModeConstant):
@@ -7962,10 +7942,6 @@ class 0xe4b58196():
     0xc73d8995: (Link, 0x0, 0x0, TftItemData) = "0x0"
     ModifierLists: (List2, 0x0, Link, TFTItemList) = []
     0xe8385425: (List2, 0x0, Embed, 0x843e3fe2) = []
-    pass
-
-class 0xe4b83f6f(0x68783803):
-    radius: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0xe51539c7(ScriptTableGet, IStringGet):
@@ -12858,6 +12834,30 @@ class EnvMeshGeComponentDef(IGeComponentDef):
     pass
 
 class EnvironmentBakedLightingShadingModel(IEnvironmentShadingModel):
+    pass
+
+class EnvironmentEffectorBase():
+    0x24c6d754: (F32, 0x0, 0x0, 0x0)
+    Magnitude: (F32, 0x0, 0x0, 0x0)
+    DecayDuration: (F32, 0x0, 0x0, 0x0)
+    pass
+
+class EnvironmentEffectorBeam(EnvironmentEffectorBase):
+    Width: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class EnvironmentEffectorBurst(EnvironmentEffectorBase):
+    SpinFactor: (F32, 0x0, 0x0, 0x0) = 0.0
+    radius: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class EnvironmentEffectorMovement(EnvironmentEffectorBase):
+    radius: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class EnvironmentEffectorTrapezoid(EnvironmentEffectorBase):
+    TargetWidth: (F32, 0x0, 0x0, 0x0) = 0.0
+    OriginWidth: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class EnvironmentEntity(GameEntity):
@@ -29057,7 +29057,7 @@ class VfxDynamicParametersData():
     pass
 
 class VfxEffectorDefinition():
-    0x399a1c39: (Link, 0x0, 0x0, 0x68783803) = "0x0"
+    EffectorData: (Link, 0x0, 0x0, EnvironmentEffectorBase) = "0x0"
     pass
 
 class VfxEmissionBox(IVfxEmissionSource):
@@ -30001,7 +30001,7 @@ class VfxShimmerEmitterDefinitionData():
     emitterName: (String, 0x0, 0x0, 0x0) = ""
     colorblindVisibility: (U8, 0x0, 0x0, 0x0) = 0
     importance: (U8, 0x0, 0x0, 0x0) = 2
-    0xc26b20bf: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
+    ParticleScale: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
     ChanceToNotExist: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 

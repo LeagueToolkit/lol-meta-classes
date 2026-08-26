@@ -6162,9 +6162,9 @@
 "0x2aa356bc": {"revisions": [{"from":7200925,"bases":[],"interface":false,"value":false}], "properties": {
  "0x5089a721": {"name":"GridData","revisions":[{"from":7200925,"type":["List2","0x0","Link","0xee4ec7c"],"default":[]}]}
 }},
-"0x2ab3cfdc": {"revisions": [{"from":8042660,"bases":["0x68783803"],"interface":false,"value":false}], "properties": {
+"0x2ab3cfdc": {"name": "EnvironmentEffectorBurst", "revisions": [{"from":8042660,"bases":["0x68783803"],"interface":false,"value":false}], "properties": {
  "0xdba4cb3": {"name":"radius","revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0x435a91a2": {"revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+ "0x435a91a2": {"name":"SpinFactor","revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x2acfe5ae": {"name": "MinimapBackgroundConfig", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0x47dc1276": {"revisions":[{"from":6318255,"type":["Map","Hash","Embed","0xd56fb9cc"],"default":{}}]},
@@ -13151,10 +13151,10 @@
  "0xd89732d": {"name":"mMesh","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x6a88780b"],"default":{"mAnimationVariants":[],"mMeshName":"","mMeshSkeletonName":"","mSubmeshesToDrawAlways":[],"mSimpleMeshName":"","mSubmeshesToDraw":[],"mLockMeshToAttachment":false,"mAnimationName":""}}]},
  "0xd45614c7": {"name":"mBeam","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x1fb8df09"],"default":{"mSegments":0,"mTrailMode":0,"mBirthTilingSize":{"constantValue":[0.0,0.0,0.0],"dynamics":null},"mIsColorBindedWithDistance":false,"mMode":0,"mAnimatedColorWithDistance":{"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null},"mLocalSpaceTargetOffset":[0.0,0.0,0.0],"mLocalSpaceSourceOffset":[0.0,0.0,0.0]}}]}
 }},
-"0x68783803": {"revisions": [{"from":8042660,"bases":[],"interface":true,"value":false}], "properties": {
+"0x68783803": {"name": "EnvironmentEffectorBase", "revisions": [{"from":8042660,"bases":[],"interface":true,"value":false}], "properties": {
  "0x24c6d754": {"revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"]}]},
  "0x47482875": {"name":"Magnitude","revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"]}]},
- "0x4d795fb5": {"revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"]}]}
+ "0x4d795fb5": {"name":"DecayDuration","revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"]}]}
 }},
 "0x6878c1b5": {"name": "VfxAnimatedColor", "revisions": [{"from":5253974,"bases":["0x7c893a73"],"interface":false,"value":false}], "properties": {
  "0x34474c3b": {"name":"values","revisions":[{"from":5253974,"to":5719528,"type":["List2","0x0","Vec4","0x0"],"default":[]},{"from":5756478,"to":7569613,"type":["List","0x0","Vec4","0x0"],"default":[]},{"from":7584427,"type":["List2","0x0","Vec4","0x0"],"default":[]}]},
@@ -14142,9 +14142,9 @@
  "0xdcad4b02": {"revisions":[{"from":7269074,"type":["Flag","0x0","0x0","0x0"],"default":false}]},
  "0xe25953c2": {"revisions":[{"from":7269074,"to":7283286,"type":["Flag","0x0","0x0","0x0"],"default":false}]}
 }},
-"0x7016daf6": {"revisions": [{"from":8042660,"bases":["0x68783803"],"interface":false,"value":false}], "properties": {
- "0x2f7e29a4": {"revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0x5e532341": {"revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+"0x7016daf6": {"name": "EnvironmentEffectorTrapezoid", "revisions": [{"from":8042660,"bases":["0x68783803"],"interface":false,"value":false}], "properties": {
+ "0x2f7e29a4": {"name":"TargetWidth","revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0x5e532341": {"name":"OriginWidth","revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x702ab00b": {"name": "ITftItemFilter", "revisions": [{"from":6509216,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -17169,7 +17169,7 @@
 "0x8923a755": {"revisions": [{"from":6478644,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x892635ba": {"name": "VfxEffectorDefinition", "revisions": [{"from":8042660,"bases":[],"interface":false,"value":true}], "properties": {
- "0x399a1c39": {"revisions":[{"from":8042660,"type":["Link","0x0","0x0","0x68783803"],"default":"0x0"}]}
+ "0x399a1c39": {"name":"EffectorData","revisions":[{"from":8042660,"type":["Link","0x0","0x0","0x68783803"],"default":"0x0"}]}
 }},
 "0x892dcebb": {"revisions": [{"from":6649480,"bases":["0xae95bf93"],"interface":false,"value":false}], "properties": {
 }},
@@ -18480,7 +18480,7 @@
  "0x3d25b8ce": {"name":"emitterName","revisions":[{"from":8042660,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x468da513": {"name":"colorblindVisibility","revisions":[{"from":8042660,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xb9516a6f": {"name":"importance","revisions":[{"from":8042660,"type":["U8","0x0","0x0","0x0"],"default":2}]},
- "0xc26b20bf": {"revisions":[{"from":8042660,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
+ "0xc26b20bf": {"name":"ParticleScale","revisions":[{"from":8042660,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
  "0xcef2ba70": {"name":"ChanceToNotExist","revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x94e82d1f": {"name": "SeqInputVector", "revisions": [{"from":6012857,"bases":[],"interface":true,"value":false}], "properties": {
@@ -19767,7 +19767,7 @@
  "0xef27cfa4": {"name":"BlackboardAssociatedPlayers","revisions":[{"from":5229820,"type":["List2","0x0","String","0x0"],"default":[]}]},
  "0xf3f3f7c9": {"name":"LetterBoxRatio","revisions":[{"from":5579166,"type":["F32","0x0","0x0","0x0"],"default":1.7777800559997559}]}
 }},
-"0x9f7df5f1": {"revisions": [{"from":8042660,"bases":["0x68783803"],"interface":false,"value":false}], "properties": {
+"0x9f7df5f1": {"name": "EnvironmentEffectorBeam", "revisions": [{"from":8042660,"bases":["0x68783803"],"interface":false,"value":false}], "properties": {
  "0x95876e1f": {"name":"Width","revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x9f9ec6c2": {"revisions": [{"from":6649480,"bases":["0x6395ef34"],"interface":false,"value":false}], "properties": {
@@ -28250,7 +28250,7 @@
  "0xe105c631": {"name":"ModifierLists","revisions":[{"from":6690024,"type":["List2","0x0","Link","0x977716a6"],"default":[]}]},
  "0xe8385425": {"revisions":[{"from":6690024,"type":["List2","0x0","Embed","0x843e3fe2"],"default":[]}]}
 }},
-"0xe4b83f6f": {"revisions": [{"from":8042660,"bases":["0x68783803"],"interface":false,"value":false}], "properties": {
+"0xe4b83f6f": {"name": "EnvironmentEffectorMovement", "revisions": [{"from":8042660,"bases":["0x68783803"],"interface":false,"value":false}], "properties": {
  "0xdba4cb3": {"name":"radius","revisions":[{"from":8042660,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0xe4b9896b": {"name": "TftCutsceneCamLerpClip", "revisions": [{"from":5229820,"bases":["0xa403698b"],"interface":false,"value":false}], "properties": {

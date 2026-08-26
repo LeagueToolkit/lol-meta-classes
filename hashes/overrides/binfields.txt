@@ -299,6 +299,7 @@ e44f21fd Day
 f9e90ffe DeadMaterial
 b612fe95 DeadzoneMagnitude
 a525bc7a DeadzonePercent
+4d795fb5 DecayDuration
 c5597e8c Def
 9641b3c4 DefType
 9a676645 DefaultAugment
@@ -377,6 +378,7 @@ ed17c5c8 DynamicLightsEnabled
 ff0af490 EasingFunction
 4e7c6b11 EffectColor0
 4d7c697e EffectColor1
+399a1c39 EffectorData
 d88bbb2c EffectorDefinition
 e4124e46 EffectsQuality
 39a1c5e5 ElapsedTimeColor
@@ -869,6 +871,7 @@ b6639fce OrderSequence
 e92580fe OrientationMode
 d97f9a4f Origin
 3c4bd9e8 OriginLocation
+5e532341 OriginWidth
 421aee08 OutEntity
 2d4bc6e6 OutSequence
 9a817954 OutlineCategorySubmeshes
@@ -893,6 +896,7 @@ af34dd8e PaintedRegion
 23908b24 ParentGroup
 ff22989f ParentJoint
 1dc03d0d ParticleDefines
+c26b20bf ParticleScale
 b10e2d1e ParticleSystem
 faa24f5d PartnerSlot
 a1fce550 PassType
@@ -1208,6 +1212,7 @@ c1d6b8d3 SpellCalculations
 16f1763f SpellDataTemplate
 5e7e5a06 SpellObject
 87f6b886 SpellScript
+435a91a2 SpinFactor
 2fd3d3c2 SpineAnimation
 01a24d83 SpineObject
 2d4af07e SpineStyles
@@ -1297,6 +1302,7 @@ ef5104c7 TargetQueue
 c8e7634b TargetSunDirection
 49a3f9ca TargetUiVfx
 37af4aa7 TargetVector
+2f7e29a4 TargetWidth
 88f674e1 Targets
 cdfd3bca TeamCodeText
 28d65053 TeamColor

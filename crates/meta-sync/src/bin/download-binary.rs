@@ -241,6 +241,23 @@ async fn resolve_version(
 
 /// The newest `lol-game-client` release sieve lists for a region.
 async fn fetch_sieve_latest(region: &str) -> Result<SieveRelease, Box<dyn std::error::Error>> {
+    fetch_sieve_releases(region)
+        .await?
+        .into_iter()
+        .next()
+        .ok_or_else(|| {
+            format!(
+                "sieve listed no {} release for region {}",
+                SIEVE_ARTIFACT, region
+            )
+            .into()
+        })
+}
+
+/// Every `lol-game-client` release sieve currently lists for a region, newest first.
+async fn fetch_sieve_releases(
+    region: &str,
+) -> Result<Vec<SieveRelease>, Box<dyn std::error::Error>> {
     let response = reqwest::Client::builder()
         .user_agent(USER_AGENT)
         .build()?
@@ -260,13 +277,7 @@ async fn fetch_sieve_latest(region: &str) -> Result<SieveRelease, Box<dyn std::e
 
     let body: serde_json::Value = serde_json::from_str(&response.error_for_status()?.text().await?)?;
 
-    parse_sieve_releases(&body).into_iter().next().ok_or_else(|| {
-        format!(
-            "sieve listed no {} release for region {}",
-            SIEVE_ARTIFACT, region
-        )
-        .into()
-    })
+    Ok(parse_sieve_releases(&body))
 }
 
 /// The `lol-game-client` releases in a sieve version set, newest first.
@@ -438,9 +449,8 @@ async fn download_binary(
             url.clone()
         }
         None => {
-            let url = get_manifest_url(region, &resolved.version).await?;
-            println!("       Read the pointer from the manifest archive");
-            url
+            println!("       Looking it up by version...");
+            get_manifest_url(region, &resolved.version).await?
         }
     };
 
@@ -495,11 +505,17 @@ async fn download_binary(
     Ok(())
 }
 
-/// Reads the manifest pointer for one version straight off raw.githubusercontent.
+/// Reads the manifest pointer for one version straight off raw.githubusercontent,
+/// falling back to sieve for a build the archive has not snapshotted yet.
 ///
-/// The file is a single URL. Fetching it by path avoids listing the directory at
-/// all, which is what makes a targeted download work on regions whose listing is
-/// too large for the contents API.
+/// The pointer file is a single URL. Fetching it by path avoids listing the
+/// directory at all, which is what makes a targeted download work on regions whose
+/// listing is too large for the contents API.
+///
+/// The archive is tried first because it is the only source with history. A miss
+/// there is not yet a wrong version though: on patch day a build is served for
+/// hours before the daily snapshot records it, and naming that build explicitly is
+/// exactly what the dump workflows do after resolving it through sieve.
 async fn get_manifest_url(
     region: &str,
     version: &str,
@@ -508,11 +524,33 @@ async fn get_manifest_url(
     let response = reqwest::get(&url).await?;
 
     if response.status() == reqwest::StatusCode::NOT_FOUND {
-        return Err(format!(
-            "Version {} not found for region {}. Use --region {} --list to see what is available.",
-            version, region, region
-        )
-        .into());
+        return match fetch_sieve_releases(region).await {
+            Ok(releases) => releases
+                .into_iter()
+                .find(|r| r.version == version)
+                .map(|r| {
+                    eprintln!(
+                        "{} is not in the manifest archive yet; taking it from sieve",
+                        version
+                    );
+                    r.manifest_url
+                })
+                .ok_or_else(|| {
+                    format!(
+                        "Version {} not found for region {} - not in the manifest \
+                         archive, and not one sieve is currently serving. Use \
+                         --region {} --list to see what is available.",
+                        version, region, region
+                    )
+                    .into()
+                }),
+            Err(e) => Err(format!(
+                "Version {} not found for region {} in the manifest archive, and \
+                 sieve could not be asked either ({}).",
+                version, region, e
+            )
+            .into()),
+        };
     }
     let response = response.error_for_status()?;
 
@@ -644,6 +682,20 @@ LoL/PBE1/macos/lol-game-client/16.17.8057408.txt"
             .collect();
         assert!(!urls.iter().any(|u| u.contains("CONTENT")));
         assert!(!urls.iter().any(|u| u.contains("WINDOWS")));
+    }
+
+    #[test]
+    fn sieve_releases_are_matchable_by_bare_version() {
+        // The dump workflows resolve through sieve and then ask for that version by
+        // name, and `get_manifest_url` falls back to matching it against this list.
+        // That only works while the `+branch...` suffix is stripped off.
+        let found = parsed_fixture()
+            .into_iter()
+            .find(|r| r.version == "16.16.8049184");
+        assert_eq!(
+            found.map(|r| r.manifest_url),
+            Some("https://cdn.invalid/releases/4A744F7CD02B5174.manifest".to_string())
+        );
     }
 
     #[test]

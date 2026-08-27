@@ -194,6 +194,8 @@ A second pass added these. The first block is the one that paid.
 | `P` from 96 mode codenames + 2 corpus tokens | 9.10e10 | 1 | 21.2 | 19 hits, all noise |
 | `P` from 96 mode codenames + 2 *clean* words | 4.31e8 | 1 | 0.10 | 0 hits |
 | `P` from 96 mode codenames + 3 clean words | 9.12e11 | 1 | 212 | 227 hits, all noise |
+| `P` from the authoritative 28-name roster, 140 anchors + 2 clean words | 6.28e8 | 1 | 0.15 | 0 hits |
+| the same roster sweep vs all 33 open hashes | 6.28e8 | 33 | 4.8 | 6 hits, all noise |
 
 **The codename sweep carries a calibration control, and that is what makes its zero
 mean something.** The mode codenames come from 636 leading tokens of every class name
@@ -204,6 +206,16 @@ exactly one candidate, `nova`+`item`+`get`, and nothing else. The identical swee
 against `0x478f319d` returns nothing at all. So the method demonstrably finds a name
 of this shape when one is there, and `P` is not `<codename> + 2 words`: whatever the
 filter tree is called, it is not built the way `novaitemget` is.
+
+The roster is not guesswork: `league_structs/docs/reversing/GameModeCodenames.md`
+section 1.5 reads it out of `ViewControllerSet.SpecifiedGameModes` in shipped
+`UI.wad.client`, and section 1.7 reproduces it independently from the exe's
+`GameModeModule::Register` table. `Cherry`, `Strawberry`, `Kiwi`, `Jade`, `Nova`,
+`Guava`, `Monarch`, `Battlegrounds`, `Ruby`, `Brawl`, `Ultbook`, `Tft`, the crossed
+`Kiwi_Jade`, and `Chili` (exe-only and unattested, that doc's section 1.6) were all
+swept as prefixes, with `I`-, `Item`-, `Ui`- and `ItemGet`-suffixed variants. The
+control found `novaitemget` twice, by both `nova`+`item`+`get` and `novaitem`+`get`.
+The stem returned nothing.
 
 Depth 3 is past the cliff - 227 hits against 212 expected is chance to two figures,
 the same wall section 2's character sweep hit. Do not go deeper without a new anchor.

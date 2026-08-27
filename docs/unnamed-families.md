@@ -315,6 +315,26 @@ Nothing structural can be derived here and recombination has no anchor. These
 need an attested string or a registration-order argument, and until one exists
 they are correctly left alone.
 
+## Families newer than this census
+
+The census scope is patch 16.15, so families introduced later have no row above.
+One block is worth naming here, because a campaign has already run against it.
+
+**Nova item getters, nine roots, 62 members, all born in 16.17.** Five parallel
+typed getter trees (`0x822cf77c` Bool, `0xa79ac316` Float, `0x53bee89d` Int,
+`0x8d941811` Image, `0x3f8dac45` String), plus a filter tree (`0x70f6f74b`, 16
+members), a variable-binding tree (`0x40452a8d`, 6), an input tree (`0x19ccc111`,
+3) and an empty interface pair (`0x664d2c6d`, 2). The `nova-item-getters` campaign
+landed 32 of the 62, plus 24 field names, and leaves 30
+([docs/nova-item-getters.md](nova-item-getters.md)).
+
+Two things decide how to spend here. The getter trees are parallel expressions of
+one concept set, so `recover_stem` run per node role beats any per-hash search, and
+that is what proved the batch. The filter and binding trees resist because they do
+not repeat the type word in the same position. Read the campaign's negatives before
+pointing a run at them: a full-corpus two-token sweep at 4.84 expected noise
+returned zero, so recombination does not reach this family at all.
+
 ## Status
 
 Four of the ten have been worked. `map-entity-templates` landed 109 names out

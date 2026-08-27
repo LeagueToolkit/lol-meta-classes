@@ -117,6 +117,8 @@ bceaaa2a BlockButton
 c8c453d3 BoardButton
 7c666488 Boards
 03698d8a BonusGold
+c3f30ba0 BoolProperty
+622ef3dd BoolVariable
 625b5b86 BorderColor
 2189347e BorderGroup
 dbd3d5f3 BossCharacter
@@ -177,6 +179,10 @@ e7e90aee CastShadow
 11bd49bb CastW
 4310d45d CasterRequirements
 536c1dd1 CatalogEntryId
+5eb0c06d Categories
+78115fc4 CategoryId
+b5bd9b2a CategoryName
+9a1a1c7e CategoryValue
 d94acbb2 Cells
 058c4484 Center
 1558b9d3 CenterText
@@ -234,6 +240,7 @@ b7a1ea38 CompleteBorder
 d77ad395 CompleteColor
 6b8663cf CompleteIcon
 363f1e09 CompletedItem
+496a0260 CompletionText
 5efd6ee0 Component
 49412a59 ComponentOverrides
 2cc0bcea ComponentTemplate
@@ -291,6 +298,7 @@ c70f6a1e DailyLoginViewController
 72c5c2a8 DamageType
 3965005a DampingEnd
 9ccb16cf DampingStart
+f3e7ac05 DataOptions
 137cf12a DataValue
 abb44364 Datacenter
 9ad0961e Dates
@@ -514,6 +522,7 @@ f0383e4b FlatSpellBlockMod
 a6c45d85 Float
 c04df9d4 FloatCurve
 8144ce88 FloatProperty
+56b336c5 FloatVariable
 e3fdb170 FlowId
 51c7ac80 FontFamily
 ed4469b5 FontStyle
@@ -569,6 +578,7 @@ ed0c3757 H
 edbf0fe3 Has
 707c2c57 HasLevelPurchasing
 c6d048fc HdrEnvDiffuseScale
+b209de14 HeaderButton
 c2aa4bfd HeaderImage
 91cef9f4 HealthBarBackground
 bae18fd9 HealthBars
@@ -608,6 +618,8 @@ f1a8065e IdleBuff
 059e86a1 IdleUi
 f9c21175 IgnoreDead
 6ff00c07 IgnoreSnapCameraOnRespawn
+3f03cd2f ImageProperty
+09055cde ImageVariable
 d1d746ab Images
 4191b710 ImportButton
 f6e17fdc InProgressIcon
@@ -648,6 +660,8 @@ f248d989 InputEvent
 0214e671 InputParams
 0b86d992 Instance
 ee26c73f InstanceVariables
+b7218bcb IntProperty
+8a59b96a IntVariable
 c14a25ae InteractDef
 87c66597 InteractPriority
 1fe7164e InteractionTarget
@@ -666,6 +680,7 @@ fd36c650 InvertResult
 7a9d64ea IsAutoAttackOverride
 808fcd61 IsButton
 68309c0b IsExclusive
+c4c472c8 IsExpanded
 66d660db IsOverflow
 fcea40c4 IsOwner
 086f3c70 IsReplicated
@@ -706,6 +721,7 @@ f1cea006 KillOffset
 6611a3fc KillThreshold
 2a95f870 Killed
 2095e8b2 Killer
+18932962 KillerType
 0bc0f0c0 KillingSpree
 e90c310b L
 9dac718c Laser
@@ -824,6 +840,7 @@ a19cac58 ModifierType
 f835b5a4 ModifiersSource
 f0ec999e ModuleName
 63d12350 MouseWheelEnabled
+b74298af Mult
 5f832b26 MultiKill
 64e312ae MusicQueueConfigs
 9346aa18 MusicQueues
@@ -848,6 +865,7 @@ b1c14e0d Node
 514e905a Nodes
 904416d1 Noise
 d6b1e82e NoiseVector
+74752bb3 NormalStrength
 70bb674e NotificationVfx
 342dcc43 NumPlayers
 182f3d26 ObjectCreator
@@ -860,6 +878,7 @@ d488a847 OffsetLeft
 06b84d78 OffsetRight
 6cc62ae7 OffsetUp
 baee8b38 OnEvent
+15d49cde Operand
 fbd4eefd Operator
 b818e45a OptionLayout
 49c5d8f9 Optional
@@ -1000,6 +1019,7 @@ dfe6493b Prompt
 5b2e77af PropPath
 8f80bc0f PropertyDef
 edee3d35 PropertyId
+a4c6cd6b PropertyName
 b7c0bbbc Provider
 66bcd454 ProviderType
 1367a6dd Providers
@@ -1097,6 +1117,7 @@ b8af4624 RotationOffset
 f5a853e9 RowTemplate
 098f86e0 RowsList
 9b15d5eb SSAO
+d75074d8 SandEnabled
 1d59898a ScaleFactor
 9ce1222b ScaleX
 edb15a2f Scenario
@@ -1328,6 +1349,7 @@ c44cfe37 TeamsLayout
 a0e9b9b4 TextBackdrop
 0153ef3f TextElements
 59d65fab TextProperty
+af8d054a TextVariable
 67542274 TextureElementType
 dcf71c47 TextureHeight
 ece16964 TextureRenderDataList
@@ -1410,6 +1432,7 @@ e1e591e3 UseText
 0b248040 UvAnimation
 6a5b6251 ValueTooltip
 7d425097 VariableDefaults
+9837f87b VariableValues
 29ab62c2 Variables
 26188390 Vector2
 e7302df4 Vector2Input
@@ -1439,6 +1462,7 @@ deb1ff88 WDriver
 51e9b98e WadDependencies
 599fcd6e WarningTexture
 9cf6bf22 Wasd
+8ce41f71 WaterEnabled
 dc7ec024 WipStat1
 df7ec4dd WipStat2
 de7ec34a WipStat3

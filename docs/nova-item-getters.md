@@ -190,6 +190,23 @@ A second pass added these. The first block is the one that paid.
 | `P` anchored both ends, 14 endings x 7 anchors | 9.29e10 | 1 | 21.6 | 18 hits, all noise |
 | `P` by `crack_pair` against the root and the embed, 28 shapes | 2.65e10 | 1 | 1.4e-9 | 0 hits |
 | both proved states x 594,671 tails | 1.19e6 | 25 | 0.007 | 0 hits |
+| `P` from 636 class-name leading tokens + 1-2 tokens | 3.11e9 | 1 | 0.73 | 0 hits |
+| `P` from 96 mode codenames + 2 corpus tokens | 9.10e10 | 1 | 21.2 | 19 hits, all noise |
+| `P` from 96 mode codenames + 2 *clean* words | 4.31e8 | 1 | 0.10 | 0 hits |
+| `P` from 96 mode codenames + 3 clean words | 9.12e11 | 1 | 212 | 227 hits, all noise |
+
+**The codename sweep carries a calibration control, and that is what makes its zero
+mean something.** The mode codenames come from 636 leading tokens of every class name
+the repo knows, plus 96 taken from shipped `modes/`, `maps/` and `queues/` paths -
+`nova`, `jade`, `monarch`, `cherry`, `strawberry`, `tft` and the rest are all in it.
+Run against the *proved* `0xd6fbee84` at 0.10 expected noise, the sweep returns
+exactly one candidate, `nova`+`item`+`get`, and nothing else. The identical sweep
+against `0x478f319d` returns nothing at all. So the method demonstrably finds a name
+of this shape when one is there, and `P` is not `<codename> + 2 words`: whatever the
+filter tree is called, it is not built the way `novaitemget` is.
+
+Depth 3 is past the cliff - 227 hits against 212 expected is chance to two figures,
+the same wall section 2's character sweep hit. Do not go deeper without a new anchor.
 
 Two readings. **The type word was never last**, which is why the first pass's
 `recover_stem` on these sets returned nothing: the tail is two tokens

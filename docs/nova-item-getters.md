@@ -5,7 +5,9 @@ Record for `nova-item-getters`. Method: the `crack-family` skill
 hashes are open, and the negatives below say where not to spend.
 
 Patch 16.17 (build `8104348`) introduced 85 classes. 62 of them form one system across
-nine roots, and **all 62 were live unnamed**. This pass proves 32, which leaves 30.
+nine roots, and **all 62 were live unnamed**. The first pass proved and landed 32,
+which left 30. A second pass decomposed 11 of those 30 down to a single unknown
+prefix (section 3.1) but landed none of them, so 30 are still open.
 
 | root | what it is | members | proved | left |
 | --- | --- | ---: | ---: | ---: |
@@ -14,7 +16,7 @@ nine roots, and **all 62 were live unnamed**. This pass proves 32, which leaves 
 | `0x53bee89d` | Int getter tree | 9 | 8 | 1 |
 | `0x8d941811` | Image getter tree | 7 | 5 | 2 |
 | `0x3f8dac45` | String getter tree | 6 | 6 | 0 |
-| `0x70f6f74b` | filter / predicate tree | 16 | 0 | 16 |
+| `0x70f6f74b` | filter / predicate tree | 16 | 0 | 16 (11 decomposed, see 3.1) |
 | `0x40452a8d` | variable-binding tree | 6 | 0 | 6 |
 | `0x19ccc111` | input reference tree | 3 | 0 | 3 |
 | `0x664d2c6d` | empty interface pair | 2 | 0 | 2 |
@@ -171,6 +173,32 @@ all of it is the one character sweep. Read that row as a warning, not a result.
 | exe running-hash scan, every string in the 16.17 client | - | 1 | - | no string begins with the prefix |
 | `exe_typenames.py --match`, 2,033 type descriptors | - | all | - | named 2 classes, neither in this family |
 
+A second pass added these. The first block is the one that paid.
+
+| run | probes | targets | expected noise | outcome |
+| --- | ---: | ---: | ---: | --- |
+| `recover_stem`, 2-token tails, both comparison sets | 1.83e9 | 4 each | 2.3e-20 | **the stem, twice** |
+| `0x478f319d` x 1 corpus token, filter tree | 3.08e4 | 17 | 1.2e-4 | **`And`, `Or`, `Not`** |
+| `recover_stem`, 2-token tails, binding tree | 1.46e10 | 5 | 4.3e-29 | no consistent stem |
+| 1-token sweep, every open field hash, 73,816-word vocab incl. 2.3M game paths | 7.38e4 | 21 | 3.6e-4 | 0 hits |
+| `crack_pair`, 18 oppositions x 4 field pairs | 2.73e11 | 4 pairs | 1.5e-8 | 0 hits |
+| suffix folding, field hashes vs 55 anchored states | 6.47e5 | 21 | 0.008 | 0 hits |
+| shared-stem across the open field hashes | 3.08e4 | 210 pairs | 0.002 | 0 hits |
+| input tree anchored on `keybind` / `binding` / `bind` | 4.74e9 | 3 | 3.3 | 4 hits, all noise |
+| `P` from nova-anchors + 2 corpus tokens | 1.04e10 | 1 | 2.4 | 2 hits, both noise |
+| `P` from a 159-word curated list, depth 2-4 | 6.39e8 | 1 | 0.15 | 0 hits |
+| `P` anchored both ends, 14 endings x 7 anchors | 9.29e10 | 1 | 21.6 | 18 hits, all noise |
+| `P` by `crack_pair` against the root and the embed, 28 shapes | 2.65e10 | 1 | 1.4e-9 | 0 hits |
+| both proved states x 594,671 tails | 1.19e6 | 25 | 0.007 | 0 hits |
+
+Two readings. **The type word was never last**, which is why the first pass's
+`recover_stem` on these sets returned nothing: the tail is two tokens
+(`DataCompare`, `ValueCompare`), and a one-token suffix list cannot reach it.
+**`P` resists everything a closed vocabulary can do** - 1.4e-9 noise on the 64-bit
+`crack_pair` is as clean a zero as this repo can produce, so the missing token is
+not in any name the game has shipped. That is the same stopping condition section 4
+already describes, and it points at the same routes.
+
 Four readings worth keeping.
 
 **Recombination cannot reach this family.** The full-corpus two-token sweep named 0 of
@@ -220,18 +248,54 @@ A predicate tree over the getter trees. `0x21820ed8` is the `Condition` embed ev
   0xebbc64d2   no properties                        constant
 ```
 
-Leads, in cost order:
+**Lead 1 is spent, and it worked.** `recover_stem` with the type word off the tail
+returns a consistent stem for *both* comparison sets, and both land on the same
+prefix state `0x478f319d`:
 
-1. **Retry `recover_stem` with the type word off the tail.** Both comparison sets are
-   typed-parallel, so the machinery applies, but the type word is not last. Try it
-   first or middle, with `Compare`, `Equal`, `Is`, `Match`, `Cmp` as the fixed part.
-2. **Copy the two named filter conventions.** `ViewControllerFilterI` uses
-   `ViewControllerFilter_And` / `_Or` / `_Not`, and `IOptionItemFilter` uses
-   `OptionItemFilter_And` / `_Not` / `_Map`. The underscore form is worth testing,
-   because no Nova name uses it and the guesser will not reach it by recombination.
-3. **`crack_pair` on `0x9a05a12` and `0xaeac70d`.** They are the two comparison
-   operands, each on four classes, so solving them together is a 64-bit constraint.
-4. **`Operator: U8` is an enum.** Its member names would name the tree by
+| set | tail folded out | members | check | expected noise |
+| --- | --- | ---: | --- | ---: |
+| provider vs provider | `DataCompare` | 4 | 96-bit | 2.3e-20 |
+| provider vs literal | `ValueCompare` | 4 | 96-bit | 2.3e-20 |
+
+Crossing that state with one corpus token then returns `And`, `Or` and `Not` at
+1.2e-4 expected noise, which settles the pair section 4.2 said no hash search could
+separate. Eleven of the sixteen now decompose, all on one unknown prefix `P` with
+`fnv(P) = 0x478f319d`:
+
+| hash | name | what fixes it |
+| --- | --- | --- |
+| `0xc7ad307e` | `<P>And` | stem + `And`; holds `Filters` (`List2`) |
+| `0x756c1ccc` | `<P>Or` | stem + `Or`; holds `Filters` (`List2`) |
+| `0xf4198792` | `<P>Not` | stem + `Not`; holds `Filter`, **singular, one pointer** |
+| `0x5cf296d4` | `<P>BoolDataCompare` | cross-set stem |
+| `0x17975a2c` | `<P>FloatDataCompare` | cross-set stem |
+| `0x484bd29d` | `<P>IntDataCompare` | cross-set stem |
+| `0x2c2d1a17` | `<P>StringDataCompare` | cross-set stem |
+| `0xe7791d51` | `<P>BoolValueCompare` | cross-set stem |
+| `0x2cb48189` | `<P>FloatValueCompare` | cross-set stem |
+| `0xb8efcc36` | `<P>IntValueCompare` | cross-set stem |
+| `0x1f1eadd0` | `<P>StringValueCompare` | cross-set stem |
+
+Four independent agreements on `0x478f319d`: the two 96-bit folds, the three role
+words, and the base check - all eleven have `0x70f6f74b` as their base. The
+`Filters` / `Filter` split is corroboration the search never saw: `And` and `Or`
+take a list, `Not` takes one. `DataCompare` compares two providers, `ValueCompare`
+compares a provider against the literal in `Operand`, which is what those two
+signatures do.
+
+**Nothing here can be landed until `P` is recovered** - a name needs the whole
+string. Section 2 records what has already failed against it. The underscore form of
+lead 2 is refuted: the role words concatenate, so it is `<P>And`, not `<P>_And`.
+
+Remaining leads:
+
+1. **Recover `P`.** One 32-bit state with no cross-check, the same wall the
+   `novaitemget` half hit. It is worth more than the rest of this doc combined: it
+   lands eleven classes at once.
+2. **`crack_pair` on `0x9a05a12` and `0xaeac70d`.** Still open. They are the two
+   comparison operands, each on four classes, so solving them together is a 64-bit
+   constraint.
+3. **`Operator: U8` is an enum.** Its member names would name the tree by
    association. See section 4.3.
 
 ### 3.2 The variable-binding tree, `0x40452a8d` (6)
@@ -245,10 +309,16 @@ Leads, in cost order:
   0x8aa21ee4   TextVariable  + TextProperty  -> NovaItemGetString, plus 0x78812955: Bool
 ```
 
-Typed-parallel, so `recover_stem` applies directly. It failed with
-`bool/float/int/image/text`. Retry with `string` for `text`, and with the role word as
-`Variable`, `Var`, `Set`, `Bind` or `Write`. `NovaItemSet<Type>` is the obvious
-candidate and it does **not** match. Note the extra `Bool` on the text node only.
+Typed-parallel, so `recover_stem` applies directly, and it is now spent: the retry
+ran with widened type words (`string`/`text`/`str`/`loc`/`label`/`name`/`tra` for the
+text node, eight words for image) against 594,671 one- and two-token tails, a 128-bit
+check at 4.3e-29 noise, and returned **no consistent stem**. The same run recovered
+the two filter stems, so the machinery was working.
+
+That is a real result, not a null: whatever these five share, it is not
+`<stem><typeword><tail>`. Either the type word is absent from the name, or it is not
+at a token boundary the corpus can supply. Note the extra `Bool` on the text node
+only.
 
 ### 3.3 The input reference tree, `0x19ccc111` (3)
 
@@ -259,8 +329,11 @@ candidate and it does **not** match. Note the extra `Bool` on the text node only
 ```
 
 `SpellBookIndex` is the spell-slot keybind struct Monarch introduced at 14.14 and
-mainline adopted at 15.3. Try `Keybind` as the last word, which both
-`MonarchSpellSlotKeybind` and `LoLSpellSlotKeybind` use.
+mainline adopted at 15.3. `Keybind` as the last word, which both
+`MonarchSpellSlotKeybind` and `LoLSpellSlotKeybind` use, has been tried and missed:
+anchored on `keybind`/`keybinds`/`keybinding`/`binding`/`bind` with a two-token stem
+it returned 4 hits against 3.3 expected noise, which is nothing. Anchoring the front
+on `nova*` as well drops it to 0.001 noise and 0 hits.
 
 ### 3.4 Three getter nodes
 
@@ -282,10 +355,15 @@ Nothing constrains them. Leave them.
 
 | state | what it is | slots waiting |
 | --- | --- | --- |
-| `0xd6fbee84` | `novaitemget`, proved | none, spent |
-| - | the filter-tree stem, unknown | 16 |
+| `0xd6fbee84` | `novaitemget`, proved and resolved | none, spent |
+| `0x478f319d` | the filter-tree stem, **proved as a state, prefix unrecovered** | 11 |
+| - | the filter-tree leftovers, unknown | 5 |
 | - | the binding-tree stem, unknown | 6 |
 | - | the input-tree stem, unknown | 3 |
+
+`0x478f319d` is the single highest-value target in this campaign. Neither proved
+state reaches any other open hash: both were crossed with 594,671 one- and two-token
+tails against all 25 remaining hashes at 0.007 expected noise, for 0 hits.
 
 ### 3.7 Open field hashes
 
@@ -327,10 +405,14 @@ tool had a 1.3% dropout fixed on 2026-08-26. Any index recorded before that is s
 
 Nothing in this campaign knows what *runs* these getters. Finding the evaluator names
 the roles directly, because the vtable slot order and the switch on node type both
-mirror the tree. This is ordinary reversing rather than hashing, and it is the only
-route that can distinguish, say, "and" from "or" between `0x756c1ccc` and
-`0xc7ad307e`. Those two are indistinguishable by structure: identical signatures,
-identical types. **No amount of hashing separates them.** A reader must.
+mirror the tree.
+
+This section used to say that no hash search could separate `0x756c1ccc` from
+`0xc7ad307e`, because their signatures are identical. That was wrong, and section 3.1
+records how: once the tree's stem state was proved, one corpus token off it returned
+`Or` and `And` respectively at 1.2e-4 expected noise. Identical *signatures* still
+leave the names distinguishable when the stem is known. The route below keeps its
+value for the roles no word landed on, and for what the tree is actually wired to.
 
 ### 4.3 The debug build's enum tables
 

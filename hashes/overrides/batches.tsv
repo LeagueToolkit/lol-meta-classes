@@ -63,3 +63,4 @@ global-audio                  	Global audio/VO: the AudioContextEvent and AudioC
 environment-effectors         	EnvironmentEffector shape tree behind VfxEffectorDefinition. Four shapes from one prefix-fixed pass, 0/300 decoys; slot counts for all five match the switch table in the shipped enveffectors shader.
 vfx-dynamic-parameters        	VfxSystemDefinitionData's last two pointer fields and the dynamic parameter modifier family; 16.17 registration order, zero inversions over 9 classes, 0/300 decoys. No string attests any of them.
 vfx-system-definition-fields  	VfxSystemDefinitionData's remaining pointer fields and the classes they hold, as field/class pairs on a shared stem placed by registration bracket, plus one Vec3 on the shimmer class. None attested.
+nova-item-getters             	Nova typed item getters: five parallel getter lattices and their fields, on a stem five node roles independently agree on. Base check passes 32/32. docs/nova-item-getters.md

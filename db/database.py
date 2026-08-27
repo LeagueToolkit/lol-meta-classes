@@ -265,8 +265,8 @@ class 0x1778b398():
     pass
 
 class 0x17975a2c(0x70f6f74b):
-    0x9a05a12: (Pointer, 0x0, 0x0, 0xa79ac316) = null
-    0xaeac70d: (Pointer, 0x0, 0x0, 0xa79ac316) = null
+    0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetFloat) = null
+    0xaeac70d: (Pointer, 0x0, 0x0, NovaItemGetFloat) = null
     Operator: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -550,8 +550,8 @@ class 0x1f0bbd6():
     pass
 
 class 0x1f1eadd0(0x70f6f74b):
-    0x15d49cde: (String, 0x0, 0x0, 0x0) = ""
-    0x9a05a12: (Pointer, 0x0, 0x0, 0x3f8dac45) = null
+    Operand: (String, 0x0, 0x0, 0x0) = ""
+    0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetString) = null
     Operator: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -738,10 +738,6 @@ class 0x22f9f58f():
     0x2b555730: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     0x6f4b80e6: (String, 0x0, 0x0, 0x0) = ""
     IconPath: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x23025f4a(0x3f8dac45):
-    value: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x2304aca0(MissileTriggerSpec):
@@ -1064,7 +1060,7 @@ class 0x2b00c366(TftPassRewardBase):
     pass
 
 class 0x2b11fd98(IContextualCondition):
-    0x18932962: (U8, 0x0, 0x0, 0x0) = 0
+    KillerType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x2b2278d6(ISequenceActionInstance):
@@ -1083,10 +1079,6 @@ class 0x2b365a82():
     pass
 
 class 0x2b42f4b6(BaseParams):
-    pass
-
-class 0x2b65f34e(0xa79ac316):
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x2b686c3d():
@@ -1132,18 +1124,14 @@ class 0x2c17e4a1(IOptionItemFilter):
     pass
 
 class 0x2c2d1a17(0x70f6f74b):
-    0x9a05a12: (Pointer, 0x0, 0x0, 0x3f8dac45) = null
-    0xaeac70d: (Pointer, 0x0, 0x0, 0x3f8dac45) = null
+    0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetString) = null
+    0xaeac70d: (Pointer, 0x0, 0x0, NovaItemGetString) = null
     Operator: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x2c9d2ca9(0x53bee89d):
-    0xf3e7ac05: (List2, 0x0, Pointer, 0x53bee89d) = []
-    pass
-
 class 0x2cb48189(0x70f6f74b):
-    0x15d49cde: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x9a05a12: (Pointer, 0x0, 0x0, 0xa79ac316) = null
+    Operand: (F32, 0x0, 0x0, 0x0) = 0.0
+    0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetFloat) = null
     Operator: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -1241,7 +1229,7 @@ class 0x2ea23974():
 class 0x2ee6df14():
     0x6b02dd72: (Embed, 0x0, 0x0, 0x9e0d4004) = {"0x7042c2bf":[]}
     0x9a397ac: (Embed, 0x0, 0x0, 0xadeddc6) = {}
-    0xe2194251: (Embed, 0x0, 0x0, 0xc124ec81) = {"0x55383fd3":{"0xb74298af":0.02083333395421505,"add":48.0,"rtpcName":"AroundGame_VisualModulation"},"MusicTrack":{"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}}
+    0xe2194251: (Embed, 0x0, 0x0, 0xc124ec81) = {"0x55383fd3":{"Mult":0.02083333395421505,"add":48.0,"rtpcName":"AroundGame_VisualModulation"},"MusicTrack":{"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}}
     bankUnits: (List2, 0x0, Embed, BankUnit) = []
     pass
 
@@ -1521,7 +1509,7 @@ class 0x35200ead(0xaf6bce07):
 
 class 0x3527f5d8():
     0x4692ed43: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x5eb0c06d: (List2, 0x0, Link, 0x5c00206c) = []
+    Categories: (List2, 0x0, Link, 0x5c00206c) = []
     0xb5c218a5: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
@@ -1630,11 +1618,6 @@ class 0x38246322():
 class 0x38488a13(IOptionItem):
     template: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DisplayType: (U8, 0x0, 0x0, 0x0) = 1
-    pass
-
-class 0x385be74b(0x822cf77c):
-    0x5e16be82: (Pointer, 0x0, 0x0, 0x822cf77c) = null
-    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
     pass
 
 class 0x38638e52(IGameModeConfig):
@@ -1827,7 +1810,7 @@ class 0x3b8a61ee(0x333759dd):
 
 class 0x3b8d8b3f():
     itemID: (U64, 0x0, 0x0, 0x0) = 0
-    0x9837f87b: (Map, Hash, Pointer, IUiVariable) = {}
+    VariableValues: (Map, Hash, Pointer, IUiVariable) = {}
     pass
 
 class 0x3bb98400(INumericModifier):
@@ -1907,10 +1890,6 @@ class 0x3cce8217(0x88b37dd7):
 
 class 0x3cd342a9(ViewController):
     0xa4034917: (Link, 0x0, 0x0, ViewController) = "0x0"
-    pass
-
-class 0x3d196b00(0x53bee89d):
-    0xa4c6cd6b: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x3d1f0dbe(InputEventBoolKeybind):
@@ -2019,9 +1998,6 @@ class 0x3f4b8c5(IGameScreenClientBlock):
     pass
 
 class 0x3f667d7e(InputEventBoolKeybind):
-    pass
-
-class 0x3f8dac45():
     pass
 
 class 0x3fd44d66(VfxSpawnBehavior):
@@ -2349,8 +2325,8 @@ class 0x48486635(MapGraphicsFeature):
     pass
 
 class 0x484bd29d(0x70f6f74b):
-    0x9a05a12: (Pointer, 0x0, 0x0, 0x53bee89d) = null
-    0xaeac70d: (Pointer, 0x0, 0x0, 0x53bee89d) = null
+    0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetInt) = null
+    0xaeac70d: (Pointer, 0x0, 0x0, NovaItemGetInt) = null
     Operator: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -2422,13 +2398,9 @@ class 0x499d3e3d():
 class 0x49b45024():
     pass
 
-class 0x49b83ded(0x822cf77c):
-    0xa4c6cd6b: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x49c42124(0x40452a8d):
-    0x8a59b96a: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb7218bcb: (Pointer, 0x0, 0x0, 0x53bee89d) = null
+    IntVariable: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    IntProperty: (Pointer, 0x0, 0x0, NovaItemGetInt) = null
     pass
 
 class 0x49f51d24(ViewController):
@@ -2509,11 +2481,6 @@ class 0x4bf50f92(TftDisplayTag):
 
 class 0x4c1fe46e(0x7319918a):
     Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    pass
-
-class 0x4c56ab8a(0x8d941811):
-    0x5e16be82: (Pointer, 0x0, 0x0, 0x8d941811) = null
-    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
     pass
 
 class 0x4ce08984(IGameCalculationPartByCharLevel):
@@ -2745,14 +2712,6 @@ class 0x529533b3(BaseParams):
 class 0x537385f5(Cheat):
     pass
 
-class 0x53806086(0x3f8dac45):
-    0x5e16be82: (Pointer, 0x0, 0x0, 0x3f8dac45) = null
-    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
-    pass
-
-class 0x53bee89d():
-    pass
-
 class 0x54019489(0x38749c0a):
     ReverseScale: (Bool, 0x0, 0x0, 0x0) = false
     MaxAddedSpeed: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -2787,11 +2746,11 @@ class 0x55047b08():
 class 0x55383fd3(ILogicFloatDriver):
     rtpcName: (String, 0x0, 0x0, 0x0) = "AroundGame_VisualModulation"
     add: (F32, 0x0, 0x0, 0x0) = 48.0
-    0xb74298af: (F32, 0x0, 0x0, 0x0) = 0.02083333395421505
+    Mult: (F32, 0x0, 0x0, 0x0) = 0.02083333395421505
     pass
 
-class 0x556b035c(0x8d941811):
-    slot: (Pointer, 0x0, 0x0, 0x53bee89d) = null
+class 0x556b035c(NovaItemGetImage):
+    slot: (Pointer, 0x0, 0x0, NovaItemGetInt) = null
     pass
 
 class 0x55a810cb(0xaf6bce07):
@@ -2807,17 +2766,9 @@ class 0x55c9296f():
     0xecd66999: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x55e4081d(0x8d941811):
-    0xf3e7ac05: (List2, 0x0, Pointer, 0x8d941811) = []
-    pass
-
 class 0x55f6bf86():
     ShowOnCreate: (Bool, 0x0, 0x0, 0x0) = false
     effectKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x56276148(0x3f8dac45):
-    0xa4c6cd6b: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x567a9e1b():
@@ -2837,10 +2788,6 @@ class 0x56ca5fcf(ISequenceActionInstance):
     pass
 
 class 0x570328ce(0xb08ef62f):
-    pass
-
-class 0x5711e197(0x8d941811):
-    Key: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x5727ed42(IScriptCondition):
@@ -2970,10 +2917,6 @@ class 0x5a7d5141():
     Boards: (List2, 0x0, Embed, 0xfbd2dcc6) = []
     pass
 
-class 0x5a7f871f(0x3f8dac45):
-    TooltipKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x5a8ba29d():
     pass
 
@@ -3057,7 +3000,7 @@ class 0x5bf8f70a(ViewController):
 
 class 0x5c00206c():
     DisplayNameTra: (String, 0x0, 0x0, 0x0) = ""
-    0x78115fc4: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CategoryId: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x5c5e2d13():
@@ -3128,8 +3071,8 @@ class 0x5cccf687(BaseParams):
     pass
 
 class 0x5cf296d4(0x70f6f74b):
-    0x9a05a12: (Pointer, 0x0, 0x0, 0x822cf77c) = null
-    0xaeac70d: (Pointer, 0x0, 0x0, 0x822cf77c) = null
+    0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetBool) = null
+    0xaeac70d: (Pointer, 0x0, 0x0, NovaItemGetBool) = null
     Operator: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -3153,9 +3096,6 @@ class 0x5d18fc10(BaseParams):
     pass
 
 class 0x5d3f0253(MapGraphicsFeature):
-    pass
-
-class 0x5d820e16(0x53bee89d):
     pass
 
 class 0x5d9fffed(BaseEventData):
@@ -3265,10 +3205,6 @@ class 0x60e2ec74(IGameModeConfigClient):
     LoadingScreenBackgroundOverride: (Map, String, File, 0x0) = {}
     pass
 
-class 0x60e9ac3b(0x53bee89d):
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x60f809c3(IGameModeConfig):
     0x6a11aaf3: (Bool, 0x0, 0x0, 0x0) = false
     0x802223a2: (List2, 0x0, U32, 0x0) = []
@@ -3329,9 +3265,6 @@ class 0x629f5938():
 
 class 0x62abd8e():
     0xff4593ca: (Map, U8, Embed, 0x7a1cab0d) = {}
-    pass
-
-class 0x62c1f14e(0x53bee89d):
     pass
 
 class 0x62d020ca():
@@ -3866,10 +3799,6 @@ class 0x6f7bac4e(IGameModeConfigClient):
     TeamColors: (List2, 0x0, Embed, 0x40405c82) = []
     pass
 
-class 0x6fb58e22(0x53bee89d):
-    value: (I32, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0x7015f762(0x709be6c3):
     particleLifetime: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     EmitterDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
@@ -4003,10 +3932,6 @@ class 0x7463e786():
 class 0x7496f1e(LevelScriptBlock):
     0x5a4ef4e7: (Pointer, 0x0, 0x0, IDataObjectGet) = null
     0x7511a599: (Embed, 0x0, 0x0, StringArrayTableSet) = {"Table":{},"Var":""}
-    pass
-
-class 0x74e03875(0x822cf77c):
-    value: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0x7544564e():
@@ -4148,10 +4073,6 @@ class 0x77fb37dd():
     TeamOneIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TeamTwoIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SpectateButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x786e4e48(0x822cf77c):
-    0xf3e7ac05: (List2, 0x0, Pointer, 0x822cf77c) = []
     pass
 
 class 0x789b3a90(IClockProvider):
@@ -4388,7 +4309,7 @@ class 0x7da835ce(BaseParams):
 
 class 0x7da8bcc4():
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb209de14: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    HeaderButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xf109fef0: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TitleText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -4432,10 +4353,6 @@ class 0x7dc4f3ec():
     SubTeamNameInactive: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x7dcbc017(0xa79ac316):
-    value: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
 class 0x7de1323f():
     StartValueOffset: (Vec3, 0x0, 0x0, 0x0)
     pass
@@ -4469,11 +4386,6 @@ class 0x7e173e2f(ILogicFloatDriver):
 
 class 0x7e771bf4():
     items: (List2, 0x0, Hash, 0x0) = []
-    pass
-
-class 0x7ea21ad1(0xa79ac316):
-    0x5e16be82: (Pointer, 0x0, 0x0, 0xa79ac316) = null
-    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
     pass
 
 class 0x7ebc692d(IDynamicCameraUpdateStrategy):
@@ -4638,9 +4550,6 @@ class 0x81a1e232(0xff4e30bb):
 
 class 0x81befb2():
     MessageTra: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x822cf77c():
     pass
 
 class 0x825a4d66():
@@ -4965,9 +4874,6 @@ class 0x89a52204(ViewController):
 class 0x89c633f3(ElapsedTimerController):
     pass
 
-class 0x89ea80a5(0x8d941811):
-    pass
-
 class 0x89ea8a95(ICastRequirement):
     pass
 
@@ -4981,9 +4887,9 @@ class 0x8a96ea3c(IGameCalculationPart):
     pass
 
 class 0x8aa21ee4(0x40452a8d):
-    TextProperty: (Pointer, 0x0, 0x0, 0x3f8dac45) = null
+    TextProperty: (Pointer, 0x0, 0x0, NovaItemGetString) = null
     0x78812955: (Bool, 0x0, 0x0, 0x0) = false
-    0xaf8d054a: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    TextVariable: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x8ab00c3b(IGameModeConfig):
@@ -5054,19 +4960,12 @@ class 0x8d8b1535():
     IconFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x8d941811():
-    pass
-
 class 0x8df505ab():
     0x4c07c447: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TeamIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x8e072d1c(ILocatorPreview):
-    pass
-
-class 0x8e0b143e(0xa79ac316):
-    0xf3e7ac05: (List2, 0x0, Pointer, 0xa79ac316) = []
     pass
 
 class 0x8e11ad0c(IClockDefinition):
@@ -5132,10 +5031,6 @@ class 0x8ffd7c61(UiElementGroupData):
 class 0x8ffef031():
     season: (String, 0x0, 0x0, 0x0) = ""
     counterID: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x902a32e0(0x822cf77c):
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x902e246e():
@@ -5535,8 +5430,8 @@ class 0x9b321633(GameEntityTemplate):
     0xd6ebb885: (Pointer, 0x0, 0x0, 0xfdb6b027) = {}
     pass
 
-class 0x9b8a2421(0x53bee89d):
-    0x127a3f97: (Pointer, 0x0, 0x0, 0x3f8dac45) = null
+class 0x9b8a2421(NovaItemGetInt):
+    0x127a3f97: (Pointer, 0x0, 0x0, NovaItemGetString) = null
     pass
 
 class 0x9bc366ca(ILogicBoolDriver):
@@ -5980,9 +5875,6 @@ class 0xa78cfe16():
     tags: (List2, 0x0, Embed, 0x43548f46) = []
     pass
 
-class 0xa79ac316():
-    pass
-
 class 0xa8823dc8():
     ScoreBreakpoints: (List2, 0x0, I32, 0x0) = []
     pass
@@ -6183,7 +6075,7 @@ class 0xad4d38bb():
 
 class 0xad6ff93a(ViewController):
     0x33d28b79: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    GroupTemplate: (Embed, 0x0, 0x0, 0x7da8bcc4) = {"0xb209de14":"0x0","0xf109fef0":"0x0","Group":"0x0","TitleText":"0x0"}
+    GroupTemplate: (Embed, 0x0, 0x0, 0x7da8bcc4) = {"0xf109fef0":"0x0","Group":"0x0","HeaderButton":"0x0","TitleText":"0x0"}
     0x7cb7c674: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xcc42bfd8: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xdb6f71c2: (Embed, 0x0, 0x0, 0x4b24468b) = {"0x20ef28a0":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","0xcfa79792":"0x0","0xd4841047":true,"0xf44c7b57":"0x0","DescriptionText":"0x0","Group":"0x0","HitArea":"0x0","IconData":null,"Meter":"0x0"}
@@ -6464,10 +6356,6 @@ class 0xb37ab600(0xbc413e21):
 class 0xb3b32e26(GameEntityTemplate, IMapGroup):
     pass
 
-class 0xb3cd3cc3(0xa79ac316):
-    0xa4c6cd6b: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xb3d0d405():
     Collection: (Link, 0x0, 0x0, 0xcf642c04) = "0x0"
     Mission: (Link, 0x0, 0x0, 0xe3ce28e9) = "0x0"
@@ -6539,10 +6427,6 @@ class 0xb53b9fa1():
 class 0xb53e2f1a():
     0x490b09: (F32, 0x0, 0x0, 0x0) = 0.0
     0x4b733ea3: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
-class 0xb554f9f1(0x3f8dac45):
-    0xf3e7ac05: (List2, 0x0, Pointer, 0x3f8dac45) = []
     pass
 
 class 0xb56b2deb(VfxShimmerFacingMode):
@@ -6693,8 +6577,8 @@ class 0xb8a49c96():
     pass
 
 class 0xb8efcc36(0x70f6f74b):
-    0x15d49cde: (I32, 0x0, 0x0, 0x0) = 0
-    0x9a05a12: (Pointer, 0x0, 0x0, 0x53bee89d) = null
+    Operand: (I32, 0x0, 0x0, 0x0) = 0
+    0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetInt) = null
     Operator: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -6797,11 +6681,6 @@ class 0xbc1e773c(0x8d31b69b):
     pass
 
 class 0xbc280d0a():
-    pass
-
-class 0xbc3a680e(0x53bee89d):
-    0x5e16be82: (Pointer, 0x0, 0x0, 0x53bee89d) = null
-    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
     pass
 
 class 0xbc413e21(IValueUpdateElement):
@@ -7024,7 +6903,7 @@ class 0xc10d4fdc():
     pass
 
 class 0xc124ec81():
-    0x55383fd3: (Embed, 0x0, 0x0, 0x55383fd3) = {"0xb74298af":0.02083333395421505,"add":48.0,"rtpcName":"AroundGame_VisualModulation"}
+    0x55383fd3: (Embed, 0x0, 0x0, 0x55383fd3) = {"Mult":0.02083333395421505,"add":48.0,"rtpcName":"AroundGame_VisualModulation"}
     MusicTrack: (Embed, 0x0, 0x0, 0xdb03f8f4) = {"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}
     pass
 
@@ -7200,8 +7079,8 @@ class 0xc73631da():
 class 0xc749aa30(0xf07517b3):
     pass
 
-class 0xc752c9d7(0x8d941811):
-    Property: (Pointer, 0x0, 0x0, 0x3f8dac45) = null
+class 0xc752c9d7(NovaItemGetImage):
+    Property: (Pointer, 0x0, 0x0, NovaItemGetString) = null
     pass
 
 class 0xc75640aa(InputEventBoolKeybind):
@@ -7279,8 +7158,8 @@ class 0xc85b063():
     pass
 
 class 0xc8714ff3(0x40452a8d):
-    0x622ef3dd: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xc3f30ba0: (Pointer, 0x0, 0x0, 0x822cf77c) = null
+    BoolVariable: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    BoolProperty: (Pointer, 0x0, 0x0, NovaItemGetBool) = null
     pass
 
 class 0xc8879e6c(0x8b33cf88):
@@ -7654,8 +7533,8 @@ class 0xd42d11e(0xb5754dad):
     pass
 
 class 0xd46044c0(0x40452a8d):
-    0x3f03cd2f: (Pointer, 0x0, 0x0, 0x8d941811) = null
-    0x9055cde: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ImageProperty: (Pointer, 0x0, 0x0, NovaItemGetImage) = null
+    ImageVariable: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xd4737a04(IOptionItemFilter):
@@ -7731,10 +7610,6 @@ class 0xd5d2b377():
     title: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xa51a4d37: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xf9cb518f: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xd5e5500b(0x822cf77c):
-    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
     pass
 
 class 0xd61afa3(CountdownTimerControllerDefinition):
@@ -7927,8 +7802,8 @@ class 0xdb9a90ba(0xe561be2e):
     pass
 
 class 0xdbab6aeb(0x40452a8d):
-    0x56b336c5: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    FloatProperty: (Pointer, 0x0, 0x0, 0xa79ac316) = null
+    FloatVariable: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    FloatProperty: (Pointer, 0x0, 0x0, NovaItemGetFloat) = null
     pass
 
 class 0xdbb4f634(0x709be6c3):
@@ -8126,14 +8001,14 @@ class 0xdea3b4a8(IGameModeConfigClient):
     0x6d0b0a1c: (F32, 0x0, 0x0, 0x0) = 0.550000011920929
     0x6de3397a: (F32, 0x0, 0x0, 0x0) = 6000.0
     0x73ba45f7: (F32, 0x0, 0x0, 0x0) = 120.0
-    0x74752bb3: (F32, 0x0, 0x0, 0x0) = 2.0
+    NormalStrength: (F32, 0x0, 0x0, 0x0) = 2.0
     0x74804a02: (F32, 0x0, 0x0, 0x0) = 2.6500000953674316
     0x7b6de22c: (F32, 0x0, 0x0, 0x0) = 0.44999998807907104
     0x82d0f544: (F32, 0x0, 0x0, 0x0) = 0.8999999761581421
     0x84ee1c55: (F32, 0x0, 0x0, 0x0) = 40.0
     0x850a9bff: (F32, 0x0, 0x0, 0x0) = 10.0
     0x89b60cf0: (F32, 0x0, 0x0, 0x0) = 0.029999999329447746
-    0x8ce41f71: (Bool, 0x0, 0x0, 0x0) = true
+    WaterEnabled: (Bool, 0x0, 0x0, 0x0) = true
     0x94b9171c: (F32, 0x0, 0x0, 0x0) = 0.0
     0x9b0695aa: (F32, 0x0, 0x0, 0x0) = 0.75
     0x9bd4c8cb: (F32, 0x0, 0x0, 0x0) = 0.3499999940395355
@@ -8155,7 +8030,7 @@ class 0xdea3b4a8(IGameModeConfigClient):
     0xcd9f738: (F32, 0x0, 0x0, 0x0) = 5.0
     0xd27c716b: (F32, 0x0, 0x0, 0x0) = 0.5
     0xd573fd6f: (F32, 0x0, 0x0, 0x0) = 1.0
-    0xd75074d8: (Bool, 0x0, 0x0, 0x0) = true
+    SandEnabled: (Bool, 0x0, 0x0, 0x0) = true
     0xd92fbcb3: (F32, 0x0, 0x0, 0x0) = 2.5999999046325684
     0xdf0446dd: (F32, 0x0, 0x0, 0x0) = 0.25
     0xe45800c2: (F32, 0x0, 0x0, 0x0) = 0.4000000059604645
@@ -8348,10 +8223,10 @@ class 0xe59d98ad():
 
 class 0xe59ebdea(UiComponent):
     0x1dd855cd: (Hash, 0x0, 0x0, 0x0)
-    0x496a0260: (Hash, 0x0, 0x0, 0x0)
+    CompletionText: (Hash, 0x0, 0x0, 0x0)
     0x81bd5051: (Hash, 0x0, 0x0, 0x0)
     StatusText: (Hash, 0x0, 0x0, 0x0)
-    0xc4c472c8: (Hash, 0x0, 0x0, 0x0)
+    IsExpanded: (Hash, 0x0, 0x0, 0x0)
     pass
 
 class 0xe6144e6d(0x64c18f7d):
@@ -8423,8 +8298,8 @@ class 0xe75aad84():
     pass
 
 class 0xe7791d51(0x70f6f74b):
-    0x15d49cde: (Bool, 0x0, 0x0, 0x0) = false
-    0x9a05a12: (Pointer, 0x0, 0x0, 0x822cf77c) = null
+    Operand: (Bool, 0x0, 0x0, 0x0) = false
+    0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetBool) = null
     Operator: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -8659,8 +8534,8 @@ class 0xedd8154():
     pass
 
 class 0xedfd5a0(UiComponent):
-    0x9a1a1c7e: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb5bd9b2a: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CategoryValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CategoryName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xee18a47b(IGameCalculationPartByCharLevel):
@@ -19573,6 +19448,131 @@ class NotificationsPanelViewController(ViewController):
     ListItemData: (Embed, 0x0, 0x0, NotificationListItemData) = {"ActiveGameGradient":"0x0","ActiveGameInviteIcon":"0x0","AddFriendIcon":"0x0","AlertIcon":"0x0","BodyText":"0x0","ClickRegion":"0x0","GenericIcon":"0x0","Group":"0x0","InactiveGameInviteIcon":"0x0","LootIcon":"0x0","LootItemCountBackground":"0x0","LootItemCountText":"0x0","PassRewardIcon":"0x0","TimestampText":"0x0","TitleText":"0x0","UnreadIcon":"0x0","WarningIcon":"0x0"}
     ViewPaneLink: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TitleText: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class NovaItemGetBool():
+    pass
+
+class NovaItemGetBoolCompare(NovaItemGetBool):
+    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
+    pass
+
+class NovaItemGetBoolConcept(NovaItemGetBool):
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class NovaItemGetBoolIf(NovaItemGetBool):
+    0x5e16be82: (Pointer, 0x0, 0x0, NovaItemGetBool) = null
+    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
+    pass
+
+class NovaItemGetBoolProperty(NovaItemGetBool):
+    PropertyName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class NovaItemGetBoolSwitch(NovaItemGetBool):
+    DataOptions: (List2, 0x0, Pointer, NovaItemGetBool) = []
+    pass
+
+class NovaItemGetBoolValue(NovaItemGetBool):
+    value: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class NovaItemGetDisplaySlot(NovaItemGetInt):
+    pass
+
+class NovaItemGetFloat():
+    pass
+
+class NovaItemGetFloatConcept(NovaItemGetFloat):
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class NovaItemGetFloatIf(NovaItemGetFloat):
+    0x5e16be82: (Pointer, 0x0, 0x0, NovaItemGetFloat) = null
+    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
+    pass
+
+class NovaItemGetFloatProperty(NovaItemGetFloat):
+    PropertyName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class NovaItemGetFloatSwitch(NovaItemGetFloat):
+    DataOptions: (List2, 0x0, Pointer, NovaItemGetFloat) = []
+    pass
+
+class NovaItemGetFloatValue(NovaItemGetFloat):
+    value: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class NovaItemGetIcon(NovaItemGetImage):
+    pass
+
+class NovaItemGetImage():
+    pass
+
+class NovaItemGetImageIf(NovaItemGetImage):
+    0x5e16be82: (Pointer, 0x0, 0x0, NovaItemGetImage) = null
+    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
+    pass
+
+class NovaItemGetImageLookup(NovaItemGetImage):
+    Key: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class NovaItemGetImageSwitch(NovaItemGetImage):
+    DataOptions: (List2, 0x0, Pointer, NovaItemGetImage) = []
+    pass
+
+class NovaItemGetInt():
+    pass
+
+class NovaItemGetIntConcept(NovaItemGetInt):
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class NovaItemGetIntIf(NovaItemGetInt):
+    0x5e16be82: (Pointer, 0x0, 0x0, NovaItemGetInt) = null
+    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
+    pass
+
+class NovaItemGetIntProperty(NovaItemGetInt):
+    PropertyName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class NovaItemGetIntSwitch(NovaItemGetInt):
+    DataOptions: (List2, 0x0, Pointer, NovaItemGetInt) = []
+    pass
+
+class NovaItemGetIntValue(NovaItemGetInt):
+    value: (I32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class NovaItemGetItemId(NovaItemGetInt):
+    pass
+
+class NovaItemGetString():
+    pass
+
+class NovaItemGetStringIf(NovaItemGetString):
+    0x5e16be82: (Pointer, 0x0, 0x0, NovaItemGetString) = null
+    Condition: (Embed, 0x0, 0x0, 0x21820ed8) = {"Filters":[]}
+    pass
+
+class NovaItemGetStringProperty(NovaItemGetString):
+    PropertyName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class NovaItemGetStringSwitch(NovaItemGetString):
+    DataOptions: (List2, 0x0, Pointer, NovaItemGetString) = []
+    pass
+
+class NovaItemGetStringValue(NovaItemGetString):
+    value: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class NovaItemGetTooltip(NovaItemGetString):
+    TooltipKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class NovaScoreboardViewController(ViewController):

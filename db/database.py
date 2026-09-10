@@ -118,6 +118,11 @@ class 0x13f50786():
 class 0x140a7767(InputEventBoolKeybind):
     pass
 
+class 0x14503484(IUiVariable):
+    value: (Embed, 0x0, 0x0, 0x3b8d8b3f) = {"VariableValues":{},"itemID":0}
+    0x75d77845: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class 0x1493959a():
     0x1bb7131a: (Embed, 0x0, 0x0, 0x990115ea) = {"0x3392c041":"0x0","0x58766309":"0x0","0x720e4297":"0x0","0x96349f57":"0x0","0xa807a4b2":"0x0","0xd0666cc4":"0x0","IconFrame":"0x0"}
     EventPassExpText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -138,6 +143,11 @@ class 0x1499e53b(ISequenceAction):
 
 class 0x14da24c4(0xd04cfb37):
     SwitchGroup: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class 0x14daebe5(IVfxVector4Driver):
+    0xb1ea6248: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
+    Input: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     pass
 
 class 0x14f5896d():
@@ -216,6 +226,10 @@ class 0x16594846(UiElementEffectData):
     ShadowColor0: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
     ShadowColor1: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
     thickness: (F32, 0x0, 0x0, 0x0) = 1.0
+    pass
+
+class 0x165b1803(SocketDefinitionBase):
+    PositionOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     pass
 
 class 0x1668b3e5():
@@ -356,6 +370,32 @@ class 0x19ff61ac():
     0xf5e72861: (List2, 0x0, Link, 0x19ff61ac) = []
     pass
 
+class 0x1a154229(EventBusApObject):
+    0x151f05a9: (String, 0x0, 0x0, 0x0) = ""
+    0x236e8fb3: (Option, 0x0, Bool, 0x0) = null
+    0x26a8c460: (String, 0x0, 0x0, 0x0) = ""
+    0x2b1cb05c: (Option, 0x0, Bool, 0x0) = null
+    0x2b2d1868: (Option, 0x0, I32, 0x0) = null
+    0x2ded92b0: (Option, 0x0, I32, 0x0) = null
+    0x593e9a22: (Option, 0x0, Bool, 0x0) = null
+    0x63c6156c: (String, 0x0, 0x0, 0x0) = ""
+    0x7452cab9: (Option, 0x0, String, 0x0) = null
+    SkinID: (Option, 0x0, I32, 0x0) = null
+    0x7b456efd: (String, 0x0, 0x0, 0x0) = ""
+    0x85310e1c: (Option, 0x0, Bool, 0x0) = null
+    GameId: (String, 0x0, 0x0, 0x0) = ""
+    0x94f41ea0: (Option, 0x0, String, 0x0) = null
+    SummonerLevel: (Option, 0x0, I32, 0x0) = null
+    SkinName: (Option, 0x0, String, 0x0) = null
+    0xb2fccc46: (String, 0x0, 0x0, 0x0) = ""
+    0xd316bba5: (String, 0x0, 0x0, 0x0) = ""
+    0xd378fd44: (Option, 0x0, Bool, 0x0) = null
+    0xd930a7f7: (Option, 0x0, I32, 0x0) = null
+    queueId: (String, 0x0, 0x0, 0x0) = ""
+    0xf36c2fb3: (Option, 0x0, String, 0x0) = null
+    0xfc70a758: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class 0x1a21fc8a(0x30aa7360):
     ValueDriver: (Pointer, 0x0, 0x0, ILogicDriver) = null
     0x7a721423: (List2, 0x0, Pointer, 0x21a31dfa) = []
@@ -370,6 +410,11 @@ class 0x1a6cd1f8(IScriptValueGet):
     pass
 
 class 0x1a9062ce(ScriptTableSet):
+    pass
+
+class 0x1a95dbf(IVfxFloatDriver):
+    Select: (U8, 0x0, 0x0, 0x0) = 0
+    Input: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
     pass
 
 class 0x1aaa358b(0x49832ca7):
@@ -509,6 +554,12 @@ class 0x1d452085(IGameCalculationPartWithStats):
 class 0x1d45d814(0xe2a48eac):
     pass
 
+class 0x1d708462(IVfxVector3Driver):
+    Left: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
+    Comparator: (U8, 0x0, 0x0, 0x0) = 0
+    Right: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
+    pass
+
 class 0x1d9354fe(MapAction):
     0x10b7535a: (Vec2, 0x0, 0x0, 0x0) = [0.0,-2000.0]
     duration: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -619,6 +670,7 @@ class 0x1ff0e246(IGameModeConfig):
     0x960dcbff: (File, 0x0, 0x0, 0x0) = "0x0"
     0xd1e56ce4: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xe999961a: (File, 0x0, 0x0, 0x0) = "0x0"
+    0xf10bff42: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ContinueText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xf39f8571: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -626,6 +678,9 @@ class 0x1ff0e246(IGameModeConfig):
 class 0x20194a16(0xd0c7ee75):
     ResourceResolver: (Hash, 0x0, 0x0, 0x0) = "0x0"
     IsOwner: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class 0x206916(0xac0fb04b):
     pass
 
 class 0x20946fd8(IDeathGeComponentDef):
@@ -738,6 +793,7 @@ class 0x22f9f58f():
     0x2b555730: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     0x6f4b80e6: (String, 0x0, 0x0, 0x0) = ""
     IconPath: (String, 0x0, 0x0, 0x0) = ""
+    displayPriority: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x2304aca0(MissileTriggerSpec):
@@ -823,6 +879,10 @@ class 0x25427320():
     ShortDisplayName: (String, 0x0, 0x0, 0x0) = ""
     0xa19156d9: (String, 0x0, 0x0, 0x0) = ""
     0xb8c2cc83: (Pointer, 0x0, 0x0, 0xc4587d4a) = null
+    pass
+
+class 0x254a25a7(NovaItemGetInt):
+    Stat: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x257477d2(ScriptTableGet, 0x8923a755, IFloatGet):
@@ -1123,6 +1183,9 @@ class 0x2bfb084c():
 class 0x2c17e4a1(IOptionItemFilter):
     pass
 
+class 0x2c23a84c():
+    pass
+
 class 0x2c2d1a17(0x70f6f74b):
     0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetString) = null
     0xaeac70d: (Pointer, 0x0, 0x0, NovaItemGetString) = null
@@ -1229,7 +1292,7 @@ class 0x2ea23974():
 class 0x2ee6df14():
     0x6b02dd72: (Embed, 0x0, 0x0, 0x9e0d4004) = {"0x7042c2bf":[]}
     0x9a397ac: (Embed, 0x0, 0x0, 0xadeddc6) = {}
-    0xe2194251: (Embed, 0x0, 0x0, 0xc124ec81) = {"0x55383fd3":{"Mult":0.02083333395421505,"add":48.0,"rtpcName":"AroundGame_VisualModulation"},"MusicTrack":{"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}}
+    0xe2194251: (Embed, 0x0, 0x0, 0xc124ec81) = {"0x2d5dfced":"0x0","MusicTrack":{"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}}
     bankUnits: (List2, 0x0, Embed, BankUnit) = []
     pass
 
@@ -1250,6 +1313,20 @@ class 0x2f24b82d():
     DescriptionTraKey: (String, 0x0, 0x0, 0x0) = ""
     0xbcdf811c: (Link, 0x0, 0x0, MissionAsset) = "0x0"
     missionId: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class 0x2f5be991():
+    rtpcName: (String, 0x0, 0x0, 0x0) = ""
+    objectPath: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x2c4774c5: (F32, 0x0, 0x0, 0x0) = 0.0
+    0x3e8924f2: (F32, 0x0, 0x0, 0x0) = 0.0
+    0x50e3899: (F32, 0x0, 0x0, 0x0) = 1.0
+    0x668d6f95: (F32, 0x0, 0x0, 0x0) = 0.0
+    0x6b392dd7: (F32, 0x0, 0x0, 0x0) = 4.0
+    0xd406b031: (Pointer, 0x0, 0x0, CurveFloat) = null
+    0xdc4a0b3b: (F32, 0x0, 0x0, 0x0) = 0.0
+    ObjectName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xf54539eb: (F32, 0x0, 0x0, 0x0) = -48.0
     pass
 
 class 0x2ff0e152():
@@ -1556,6 +1633,9 @@ class 0x36255113(AnnouncerVoEventTypeConcrete):
     TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
     TeamFailedPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     IndividualFailedEvent: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class 0x362b4996(VfxShimmerPrimitiveBase):
     pass
 
 class 0x367e5ca(InputEventBoolKeybind):
@@ -2052,6 +2132,9 @@ class 0x40405c82():
 class 0x40452a8d():
     pass
 
+class 0x40461f83(AudioContextEventType):
+    pass
+
 class 0x406b6b5f():
     VideoPath: (String, 0x0, 0x0, 0x0) = ""
     0xf7bb662b: (String, 0x0, 0x0, 0x0) = ""
@@ -2261,6 +2344,10 @@ class 0x45f140fc():
     0xe130f1de: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class 0x460dc9b(AudioContextEvent):
+    0x40461f83: (Pointer, 0x0, 0x0, 0x40461f83) = null
+    pass
+
 class 0x4618e076():
     Pbe: (Embed, 0x0, 0x0, 0x3572c5be) = {"0x927c10c9":0,"0xb9f88dc0":0}
     Live: (Embed, 0x0, 0x0, 0x3572c5be) = {"0x927c10c9":0,"0xb9f88dc0":0}
@@ -2341,6 +2428,9 @@ class 0x48b525af(IUiTextureDataProvider):
     pass
 
 class 0x48c497b7(UISceneViewPane):
+    pass
+
+class 0x48db62d9(PropertyTraits):
     pass
 
 class 0x48eda36d():
@@ -2448,6 +2538,7 @@ class 0x4b150334():
 class 0x4b24468b():
     DescriptionText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x20ef28a0: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x2be6ec1f: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x3bd9d6f4: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     0x42cfb600: (Pointer, 0x0, 0x0, 0xbb9078c2) = null
     0x526a8793: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2462,6 +2553,17 @@ class 0x4b24468b():
 
 class 0x4b26ffad(0x27071fbd):
     value: (Map, U32, Hash, 0x0) = {}
+    pass
+
+class 0x4b5aa9eb(IVfxVector4Driver):
+    Left: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
+    Comparator: (U8, 0x0, 0x0, 0x0) = 0
+    Right: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
+    pass
+
+class 0x4b7b05df():
+    Variables: (List2, 0x0, Link, IUiVariable) = []
+    name: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x4bcf438a():
@@ -2683,6 +2785,11 @@ class 0x51a765d1():
     Col: (I32, 0x0, 0x0, 0x0) = 0
     pass
 
+class 0x51b28927(MapGraphicsFeature):
+    0x13901a72: (F32, 0x0, 0x0, 0x0) = 1.0
+    0x14172a26: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
 class 0x51c026b9(0xc10d4fdc):
     Waves: (List2, 0x0, Link, 0xe75aad84) = []
     pass
@@ -2717,6 +2824,15 @@ class 0x54019489(0x38749c0a):
     MaxAddedSpeed: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class 0x544b6c60():
+    0x3d6009ab: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x7c009eb5: (U8, 0x0, 0x0, 0x0) = 1
+    pass
+
+class 0x5467726b(VfxRenderComponentBase):
+    RenderOrder: (I16, 0x0, 0x0, 0x0) = 0
+    pass
+
 class 0x546d62d1(ISequenceActionInstance):
     pass
 
@@ -2744,9 +2860,7 @@ class 0x55047b08():
     pass
 
 class 0x55383fd3(ILogicFloatDriver):
-    rtpcName: (String, 0x0, 0x0, 0x0) = "AroundGame_VisualModulation"
-    add: (F32, 0x0, 0x0, 0x0) = 48.0
-    Mult: (F32, 0x0, 0x0, 0x0) = 0.02083333395421505
+    0x2d5dfced: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x556b035c(NovaItemGetImage):
@@ -2793,6 +2907,19 @@ class 0x570328ce(0xb08ef62f):
 class 0x5727ed42(IScriptCondition):
     Key: (Pointer, 0x0, 0x0, IScriptValueGet) = null
     CustomTable: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
+    pass
+
+class 0x577580a9(EventBusApObject):
+    0x26a8c460: (String, 0x0, 0x0, 0x0) = ""
+    0x7452cab9: (Option, 0x0, String, 0x0) = null
+    0x7b456efd: (String, 0x0, 0x0, 0x0) = ""
+    GameId: (String, 0x0, 0x0, 0x0) = ""
+    0x94f41ea0: (Option, 0x0, String, 0x0) = null
+    0xb2fccc46: (String, 0x0, 0x0, 0x0) = ""
+    queueId: (String, 0x0, 0x0, 0x0) = ""
+    0xf36c2fb3: (Option, 0x0, String, 0x0) = null
+    0xfc70a758: (String, 0x0, 0x0, 0x0) = ""
+    0xfcdd0ccc: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x578f2e71():
@@ -2860,6 +2987,12 @@ class 0x58808e37(BaseParams):
     pass
 
 class 0x589faf60():
+    pass
+
+class 0x58a4ecbd(0x84899de0):
+    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    TeamSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
+    TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x58c2dd4f(IRegionBoundaryRenderInfo):
@@ -3652,6 +3785,7 @@ class 0x6b3ef1bd(IGameModeConfig):
 
 class 0x6b4ee221():
     0x5a6276fa: (List2, 0x0, Link, 0x7a2b62e) = []
+    0x5e7167cd: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DisplayData: (Pointer, 0x0, 0x0, 0x9e1df0c9) = null
     Locked: (Bool, 0x0, 0x0, 0x0) = false
     pass
@@ -3699,6 +3833,13 @@ class 0x6c455dac(0x333759dd):
 class 0x6c66eae4():
     Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DisabledOverlay: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class 0x6c6ea5cd():
+    rotation: (F32, 0x0, 0x0, 0x0) = 0.0
+    scale: (Vec2, 0x0, 0x0, 0x0) = [1.0,1.0]
+    0xcbd2d62c: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
+    Pivot: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
     pass
 
 class 0x6c7a6a03():
@@ -3797,6 +3938,9 @@ class 0x6f44928c():
 class 0x6f7bac4e(IGameModeConfigClient):
     DefaultColor: (Embed, 0x0, 0x0, 0x3b4c602e) = {"DefaultColor":[0,0,0,255],"colorblindColor":null}
     TeamColors: (List2, 0x0, Embed, 0x40405c82) = []
+    pass
+
+class 0x6fbad630():
     pass
 
 class 0x7015f762(0x709be6c3):
@@ -4004,6 +4148,11 @@ class 0x76b62e7c(0x7ffa2e6f):
     number: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class 0x76c70374(IVfxVector3Driver):
+    Select: (U8, 0x0, 0x0, 0x0) = 0
+    Input: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
+    pass
+
 class 0x76e13dd9():
     type: (U32, 0x0, 0x0, 0x0) = 0
     0x890ba5ff: (U64, 0x0, 0x0, 0x0) = 0
@@ -4086,6 +4235,9 @@ class 0x7908fe0e(IResourceKeyGet, IScriptValueGet):
     ResourceKey: (Embed, 0x0, 0x0, 0xba65f1fe) = {"Reference":"0x0"}
     pass
 
+class 0x791c5a64(ILogicBoolDriver):
+    pass
+
 class 0x791d1108(0x7379bca6):
     Color: (Pointer, 0x0, 0x0, SpecificColorMaterialDriver) = null
     path: (File, 0x0, 0x0, 0x0) = "0x0"
@@ -4106,6 +4258,11 @@ class 0x791eb92e():
     pass
 
 class 0x7945f8bd(ISequenceActionInstance):
+    pass
+
+class 0x799a50ac(IVfxFloatDriver):
+    Select: (U8, 0x0, 0x0, 0x0) = 0
+    Input: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     pass
 
 class 0x79ca73e7():
@@ -4238,6 +4395,13 @@ class 0x7b768f17(SeqInputVector):
     SourcePosition: (Pointer, 0x0, 0x0, SeqInputVector) = null
     pass
 
+class 0x7b9423e1(EventBusApObject):
+    0x10b79afa: (String, 0x0, 0x0, 0x0) = ""
+    0x33290b2f: (U32, 0x0, 0x0, 0x0) = 0
+    0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
+    0x978d1c13: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class 0x7c387678(IVfxVector4Driver):
     Float: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
     pass
@@ -4292,26 +4456,15 @@ class 0x7d564f9a():
     pass
 
 class 0x7d98777d():
+    0x11196556: (List2, 0x0, Link, 0xa7b33361) = []
     objectPath: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ChampionMusicEvents: (Embed, 0x0, 0x0, ChampionMusicEvents) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0"}
-    0x4249f0a2: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
-    MusicQueueConfigs: (Embed, 0x0, 0x0, AudioQueueConfigList) = {"queues":[]}
     AnnouncerQueueConfigs: (Embed, 0x0, 0x0, AudioQueueConfigList) = {"queues":[]}
-    0x93c1d30: (String, 0x0, 0x0, 0x0) = ""
     AnnouncerVoEvents: (Embed, 0x0, 0x0, AnnouncerVoEvents) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0"}
-    0xb01bdea6: (F32, 0x0, 0x0, 0x0) = 0.0
     GlobalContextualActionData: (List2, 0x0, Link, GlobalContextualActionData) = []
     pass
 
 class 0x7da835ce(BaseParams):
     0x79ef5f32: (U32, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0x7da8bcc4():
-    Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    HeaderButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xf109fef0: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    TitleText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x7db73f86():
@@ -4382,6 +4535,9 @@ class 0x7e0ad0f9(ViewController):
 
 class 0x7e173e2f(ILogicFloatDriver):
     VisibilityController: (Link, 0x0, 0x0, IMapVisibilityController) = "0x0"
+    pass
+
+class 0x7e6bc3ee():
     pass
 
 class 0x7e771bf4():
@@ -4669,6 +4825,9 @@ class 0x8444401a():
     Layout: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class 0x84899de0(0x40461f83):
+    pass
+
 class 0x84c56837():
     empty: (List2, 0x0, Hash, 0x0) = []
     win: (List2, 0x0, Hash, 0x0) = []
@@ -4774,6 +4933,9 @@ class 0x87ef793c():
 
 class 0x8819bac7():
     Levels: (List2, 0x0, Link, 0x83047936) = []
+    pass
+
+class 0x88406627(IVfxVector3Driver):
     pass
 
 class 0x88679cf5(BaseParams):
@@ -5026,6 +5188,7 @@ class 0x8ffd7c61(UiElementGroupData):
     0xb700ae39: (Pointer, 0x0, 0x0, 0x4e9c58a0) = null
     ScrollSettings: (Pointer, 0x0, 0x0, 0x55c9296f) = null
     Material: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
+    transform: (Pointer, 0x0, 0x0, 0x6c6ea5cd) = null
     pass
 
 class 0x8ffef031():
@@ -5212,6 +5375,11 @@ class 0x93e412e0():
     MilestoneRewardsIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class 0x93fdd326(IVfxVector2Driver):
+    Source: (U8, 0x0, 0x0, 0x0) = 0
+    LogicDriver: (Pointer, 0x0, 0x0, 0xac0fb04b) = null
+    pass
+
 class 0x9449f1a5(0x5aa60796):
     quantity: (U32, 0x0, 0x0, 0x0)
     RewardTexturePath: (String, 0x0, 0x0, 0x0)
@@ -5236,9 +5404,11 @@ class 0x9583cf01(ChampionMusicEventTypeConcrete):
     TeamPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     IndividualAssistedEvent: (String, 0x0, 0x0, 0x0) = ""
     IndividualSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
+    0x8c107881: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     TeamSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
     IndividualPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
+    0xe2030a49: (Bool, 0x0, 0x0, 0x0) = false
     AssistedPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     IndividualFailedEvent: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -5448,6 +5618,10 @@ class 0x9be3a010():
 class 0x9bf0bc31(ILolKeybindSetCheck):
     pass
 
+class 0x9c085077(0x859c9c2f):
+    OnEvent: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    pass
+
 class 0x9c1d99c0():
     spells: (List2, 0x0, Hash, 0x0) = []
     0x80cf3335: (Embed, 0x0, 0x0, 0x7a1a2d27) = {"AbsorbedDamageFormat":"0x0","CombinableDamageFormat":"0x0","CriticalMagicalDamageFormat":"0x0","CriticalPhysicalDamageFormat":"0x0","CriticalTrueDamageFormat":"0x0","DefaultMagicalDamageFormat":"0x0","DefaultPhysicalDamageFormat":"0x0","DefaultTrueDamageFormat":"0x0"}
@@ -5461,6 +5635,11 @@ class 0x9c5b78dd(ISkinAugmentLoadableModifier):
     ResourceBin: (Pointer, 0x0, 0x0, 0x59ef46df) = null
     ObjectiveVfxs: (List2, 0x0, Hash, 0x0) = []
     ResourceResolver: (Pointer, 0x0, 0x0, 0x20194a16) = null
+    pass
+
+class 0x9c5c4342(IVfxVector4Driver):
+    0xb1ea6248: (F32, 0x0, 0x0, 0x0) = 0.0
+    Input: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
     pass
 
 class 0x9c5f3068():
@@ -5827,6 +6006,19 @@ class 0xa5f064ff():
     0x48a30fbc: (List, 0x3, String, 0x0) = ["","",""]
     pass
 
+class 0xa625d1a6(EventBusApObject):
+    Platform: (Option, 0x0, String, 0x0) = null
+    0x34d9fd2d: (Option, 0x0, Bool, 0x0) = null
+    0x75dc9030: (Option, 0x0, I32, 0x0) = null
+    0x823c8991: (Option, 0x0, String, 0x0) = null
+    GameId: (String, 0x0, 0x0, 0x0) = ""
+    championName: (Option, 0x0, String, 0x0) = null
+    0xb061d81: (Option, 0x0, U32, 0x0) = null
+    MapId: (Option, 0x0, U32, 0x0) = null
+    gameMode: (Option, 0x0, String, 0x0) = null
+    queueId: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
 class 0xa630a690(TftConditionData):
     0x241519e9: (I32, 0x0, 0x0, 0x0) = 0
     0x3d6a5a2: (String, 0x0, 0x0, 0x0) = ""
@@ -5873,6 +6065,17 @@ class 0xa6cd46b0():
 class 0xa78cfe16():
     Scene: (U8, 0x0, 0x0, 0x0) = 80
     tags: (List2, 0x0, Embed, 0x43548f46) = []
+    pass
+
+class 0xa7b33361():
+    ChampionMusicEvents: (Embed, 0x0, 0x0, ChampionMusicEvents) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0"}
+    0x4249f0a2: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    MusicQueueConfigs: (Embed, 0x0, 0x0, AudioQueueConfigList) = {"queues":[]}
+    0x93c1d30: (String, 0x0, 0x0, 0x0) = ""
+    0xb01bdea6: (F32, 0x0, 0x0, 0x0) = 0.0
+    0xcc7bc138: (Embed, 0x0, 0x0, 0xcc7bc138) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0"}
+    0xdea83ccf: (Bool, 0x0, 0x0, 0x0) = false
+    feature: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xa8823dc8():
@@ -6044,6 +6247,9 @@ class 0xabe2709a(0xbc413e21):
     ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class 0xac0fb04b(ILogicDriver):
+    pass
+
 class 0xac27b13a():
     groups: (List2, 0x0, Embed, HudItemShopItemGroupDefinition) = []
     pass
@@ -6055,6 +6261,7 @@ class 0xacb2dba1():
 
 class 0xacef4da(0xd8927a7):
     RootSpell: (Hash, 0x0, 0x0, 0x0)
+    0x3f55112: (Bool, 0x0, 0x0, 0x0)
     pass
 
 class 0xacf95576():
@@ -6074,11 +6281,15 @@ class 0xad4d38bb():
     pass
 
 class 0xad6ff93a(ViewController):
+    0x269d7e73: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x33d28b79: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    GroupTemplate: (Embed, 0x0, 0x0, 0x7da8bcc4) = {"0xf109fef0":"0x0","Group":"0x0","HeaderButton":"0x0","TitleText":"0x0"}
+    0x4bbc368f: (Embed, 0x0, 0x0, 0x4b24468b) = {"0x20ef28a0":"0x0","0x2be6ec1f":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","0xcfa79792":"0x0","0xd4841047":true,"0xf44c7b57":"0x0","DescriptionText":"0x0","Group":"0x0","HitArea":"0x0","IconData":null,"Meter":"0x0"}
+    0x4e39db2a: (F32, 0x0, 0x0, 0x0) = 1.5
     0x7cb7c674: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xcc42bfd8: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xdb6f71c2: (Embed, 0x0, 0x0, 0x4b24468b) = {"0x20ef28a0":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","0xcfa79792":"0x0","0xd4841047":true,"0xf44c7b57":"0x0","DescriptionText":"0x0","Group":"0x0","HitArea":"0x0","IconData":null,"Meter":"0x0"}
+    0x7cc51dec: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x974fd228: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xb36aa822: (F32, 0x0, 0x0, 0x0) = 0.8500000238418579
+    0xdb6f71c2: (Embed, 0x0, 0x0, 0x4b24468b) = {"0x20ef28a0":"0x0","0x2be6ec1f":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","0xcfa79792":"0x0","0xd4841047":true,"0xf44c7b57":"0x0","DescriptionText":"0x0","Group":"0x0","HitArea":"0x0","IconData":null,"Meter":"0x0"}
     ViewPaneLink: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -6173,6 +6384,75 @@ class 0xae005c94(IGameModeConfig):
     name: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class 0xae118117(EventBusApObject):
+    0x100fff1f: (String, 0x0, 0x0, 0x0) = ""
+    0x1405d6a8: (String, 0x0, 0x0, 0x0) = ""
+    0x16f003e: (U32, 0x0, 0x0, 0x0) = 0
+    0x1ee9b1d3: (String, 0x0, 0x0, 0x0) = ""
+    0x230f813d: (U64, 0x0, 0x0, 0x0) = 0
+    0x24a56da4: (U32, 0x0, 0x0, 0x0) = 0
+    0x26a8c460: (String, 0x0, 0x0, 0x0) = ""
+    0x2837b937: (U32, 0x0, 0x0, 0x0) = 0
+    0x2df2bb0c: (U64, 0x0, 0x0, 0x0) = 0
+    0x2f058683: (U64, 0x0, 0x0, 0x0) = 0
+    0x3b397500: (U64, 0x0, 0x0, 0x0) = 0
+    0x3ed2063e: (U64, 0x0, 0x0, 0x0) = 0
+    0x4c942ef0: (U64, 0x0, 0x0, 0x0) = 0
+    0x4c96bd98: (U64, 0x0, 0x0, 0x0) = 0
+    0x4cd0ccaf: (U64, 0x0, 0x0, 0x0) = 0
+    0x4f951d9a: (U32, 0x0, 0x0, 0x0) = 0
+    0x516fe0ae: (U32, 0x0, 0x0, 0x0) = 0
+    0x530cb186: (String, 0x0, 0x0, 0x0) = ""
+    0x5603ec36: (U64, 0x0, 0x0, 0x0) = 0
+    0x5d05444: (String, 0x0, 0x0, 0x0) = ""
+    0x5e180920: (I32, 0x0, 0x0, 0x0) = 0
+    0x6a2018ef: (String, 0x0, 0x0, 0x0) = ""
+    0x6f26b5ea: (U64, 0x0, 0x0, 0x0) = 0
+    0x7452cab9: (Option, 0x0, String, 0x0) = null
+    0x748ceda0: (String, 0x0, 0x0, 0x0) = ""
+    0x78ec1285: (U64, 0x0, 0x0, 0x0) = 0
+    0x7b456efd: (String, 0x0, 0x0, 0x0) = ""
+    0x7e8dc3dd: (U32, 0x0, 0x0, 0x0) = 0
+    0x7fbe4dbf: (U64, 0x0, 0x0, 0x0) = 0
+    0x80a49d0f: (U64, 0x0, 0x0, 0x0) = 0
+    GameId: (String, 0x0, 0x0, 0x0) = ""
+    0x8d9070fe: (U64, 0x0, 0x0, 0x0) = 0
+    0x91406c48: (U64, 0x0, 0x0, 0x0) = 0
+    0x918a1107: (U64, 0x0, 0x0, 0x0) = 0
+    0x930303fd: (U64, 0x0, 0x0, 0x0) = 0
+    0x94f41ea0: (Option, 0x0, String, 0x0) = null
+    0x9530c200: (U64, 0x0, 0x0, 0x0) = 0
+    0x9776ef4e: (U32, 0x0, 0x0, 0x0) = 0
+    0x99b5726c: (U64, 0x0, 0x0, 0x0) = 0
+    0xa002b0e9: (U64, 0x0, 0x0, 0x0) = 0
+    0xa09e5c17: (String, 0x0, 0x0, 0x0) = ""
+    0xa93786fd: (U64, 0x0, 0x0, 0x0) = 0
+    0xaa5034c: (U64, 0x0, 0x0, 0x0) = 0
+    0xb29efec4: (U64, 0x0, 0x0, 0x0) = 0
+    0xb2fccc46: (String, 0x0, 0x0, 0x0) = ""
+    0xb3845a94: (String, 0x0, 0x0, 0x0) = ""
+    MapId: (String, 0x0, 0x0, 0x0) = ""
+    GameTime: (F32, 0x0, 0x0, 0x0) = 0.0
+    0xb60be195: (U64, 0x0, 0x0, 0x0) = 0
+    0xbd270662: (U64, 0x0, 0x0, 0x0) = 0
+    0xbe0676a1: (U64, 0x0, 0x0, 0x0) = 0
+    0xcf3a79dc: (U64, 0x0, 0x0, 0x0) = 0
+    0xd1ac1ed5: (U64, 0x0, 0x0, 0x0) = 0
+    gameMode: (String, 0x0, 0x0, 0x0) = ""
+    0xe0d4b0df: (U64, 0x0, 0x0, 0x0) = 0
+    0xe10540ca: (U64, 0x0, 0x0, 0x0) = 0
+    0xe1169e7a: (U64, 0x0, 0x0, 0x0) = 0
+    0xe402ab94: (U64, 0x0, 0x0, 0x0) = 0
+    queueId: (String, 0x0, 0x0, 0x0) = ""
+    0xf018b6a2: (String, 0x0, 0x0, 0x0) = ""
+    0xf36c2fb3: (Option, 0x0, String, 0x0) = null
+    0xf3bb1422: (U64, 0x0, 0x0, 0x0) = 0
+    0xf4b4af24: (I32, 0x0, 0x0, 0x0) = 0
+    0xf701e7dc: (U32, 0x0, 0x0, 0x0) = 0
+    0xfa6ba3ac: (U64, 0x0, 0x0, 0x0) = 0
+    0xfc70a758: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class 0xae56d8c4(InputEventBoolKeybind):
     EmoteDirection: (U32, 0x0, 0x0, 0x0) = 2
     pass
@@ -6263,6 +6543,16 @@ class 0xb0be1066(ILogicDriver):
     ZDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     0xb40a58b8: (Pointer, 0x0, 0x0, 0x315aff8e) = null
     WDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    pass
+
+class 0xb0cdad34(VfxComponentBase):
+    type: (U8, 0x0, 0x0, 0x0) = 1
+    lightColor: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
+    0xb9d5eb37: (Bool, 0x0, 0x0, 0x0) = false
+    HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
+    0xd0fc9cec: (U8, 0x0, 0x0, 0x0) = 3
+    radius: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    LightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class 0xb107dfe4():
@@ -6903,7 +7193,7 @@ class 0xc10d4fdc():
     pass
 
 class 0xc124ec81():
-    0x55383fd3: (Embed, 0x0, 0x0, 0x55383fd3) = {"Mult":0.02083333395421505,"add":48.0,"rtpcName":"AroundGame_VisualModulation"}
+    0x2d5dfced: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MusicTrack: (Embed, 0x0, 0x0, 0xdb03f8f4) = {"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}
     pass
 
@@ -6940,6 +7230,12 @@ class 0xc24051e7(MapAction):
     pass
 
 class 0xc267bb20(BaseParams):
+    pass
+
+class 0xc2685905(IVfxVector2Driver):
+    Left: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    Comparator: (U8, 0x0, 0x0, 0x0) = 0
+    Right: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     pass
 
 class 0xc2838bde():
@@ -7256,8 +7552,10 @@ class 0xca19d90e(IMapLightUpdater):
 class 0xca27818b():
     0x29ddc106: (String, 0x0, 0x0, 0x0) = ""
     IconPath: (String, 0x0, 0x0, 0x0) = ""
+    0x7b8e0f7f: (String, 0x0, 0x0, 0x0) = ""
     LocalizedName: (String, 0x0, 0x0, 0x0) = ""
     priority: (U8, 0x0, 0x0, 0x0) = 255
+    0x97f4a5b7: (String, 0x0, 0x0, 0x0) = ""
     0x9a1e7475: (String, 0x0, 0x0, 0x0) = ""
     0xb52e49ae: (List2, 0x0, Embed, 0x7db73f86) = []
     texturePath: (File, 0x0, 0x0, 0x0) = "0x0"
@@ -7313,6 +7611,50 @@ class 0xcbb4598a(BaseParams):
 class 0xcc2c0827():
     BaseHoverGlow: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xd3467f57: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class 0xcc7bc138():
+    RiftHeraldSteal: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    BaronKill: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    DragonKill: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    Aced: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    ChampionExecuted: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    BaronSteal: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    TowerKill: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    MultiKill: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    BountyStarting: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    0x6a4fa98c: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    MinionsSpawn: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    GrubsStolen: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    ElderSpawn: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    PentaKill: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    ChampionKill: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    ElderDragonSteal: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    GameEnd: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    InhibitorKill: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    ElderDragonSolo: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    RiftHeraldKill: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    PlayerReconnect: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    BaronSolo: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    InhibitorRespawnSoon: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    BaronSpawn: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    GrubsKill: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    Respawn: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    DragonSteal: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    ElderDragonKill: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    GrubsSolo: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    GameStart: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    DragonSolo: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    0xba9bae76: (List2, 0x0, Embed, 0x9c085077) = []
+    KillingSpree: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    PlayerDisconnect: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    0xd0cc4924: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    BountyEnded: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    RiftHeraldSpawn: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    FirstBlood: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    InhibitorRespawn: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    ChampionShutdown: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
+    RiftHeraldSolo: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
     pass
 
 class 0xccb921b(0x9a573886):
@@ -7777,6 +8119,11 @@ class 0xda5b233f(InputEventBoolKeybind):
     0x534b6cc4: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
+class 0xdab8397c(IVfxVector2Driver):
+    Select: (U8, 0x0, 0x0, 0x0) = 0
+    Input: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
+    pass
+
 class 0xdae7f670(IScriptBt):
     pass
 
@@ -7839,6 +8186,12 @@ class 0xdc24bc6f():
     0xabd0de07: (String, 0x0, 0x0, 0x0) = ""
     FailureTexturePath: (File, 0x0, 0x0, 0x0) = "0x0"
     TroveButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class 0xdc3815a8():
+    0xa4c80814: (U32, 0x0, 0x0, 0x0) = 0
+    0xd14bc802: (F32, 0x0, 0x0, 0x0) = 0.0
+    0xff102002: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0xdc53945d(ViewController):
@@ -7954,8 +8307,13 @@ class 0xdde919c(InputEventBoolKeybind):
     pass
 
 class 0xddf17bcb(SocketDefinitionBase):
+    0x5ece2c6c: (Bool, 0x0, 0x0, 0x0) = false
+    0x5fce2dff: (Bool, 0x0, 0x0, 0x0) = false
+    0x61ce3125: (Bool, 0x0, 0x0, 0x0) = false
     RotationOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
-    IsWorldSpaceOffset: (Bool, 0x0, 0x0, 0x0) = false
+    0xdcbfa078: (Bool, 0x0, 0x0, 0x0) = false
+    0xddbfa20b: (Bool, 0x0, 0x0, 0x0) = false
+    0xdebfa39e: (Bool, 0x0, 0x0, 0x0) = false
     PositionOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     ParentJoint: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -8065,6 +8423,12 @@ class 0xdfc8c194(SeqInputFloat):
     Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
     pass
 
+class 0xdfe3528c(IVfxFloatDriver):
+    Left: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    Comparator: (U8, 0x0, 0x0, 0x0) = 0
+    Right: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
 class 0xe03fe15f():
     pass
 
@@ -8143,6 +8507,11 @@ class 0xe35f9399():
 
 class 0xe3a1b4bf():
     productID: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class 0xe3a77546(IVfxVector3Driver):
+    0xb1ea6248: (F32, 0x0, 0x0, 0x0) = 0.0
+    Input: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     pass
 
 class 0xe3b7b857():
@@ -8269,6 +8638,13 @@ class 0xe67a27c8(0xd37e7059):
     0x8f7bb6e: (U32, 0x0, 0x0, 0x0) = 0
     0x9b97cf6c: (List2, 0x0, U32, 0x0) = []
     0x9c5f0056: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class 0xe6d1f14b(ILogicFloatDriver):
+    boneName: (String, 0x0, 0x0, 0x0) = ""
+    0x44ae9838: (U8, 0x0, 0x0, 0x0) = 0
+    0x4742b028: (Bool, 0x0, 0x0, 0x0) = true
+    0xef335b4: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xe6f0047():
@@ -8437,6 +8813,9 @@ class 0xebe7428(IGameModeConfig):
     0xb13ed1b2: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
     0xb4b6a94f: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
     0xc0924217: (Pointer, 0x0, 0x0, 0x499d3e3d) = null
+    pass
+
+class 0xebed7ca3(BaseParams):
     pass
 
 class 0xebf78c2f():
@@ -8623,6 +9002,11 @@ class 0xf07517b3(0x9d00ccbe):
     pass
 
 class 0xf0d7d450(ScriptTableSet):
+    pass
+
+class 0xf0ea0d4c(0x84899de0):
+    0x2a2e7fd9: (String, 0x0, 0x0, 0x0) = ""
+    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     pass
 
 class 0xf0eaab4d(TftClipConditional):
@@ -8964,6 +9348,11 @@ class 0xf8c18a6e():
     NameTraKey: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class 0xf91f9d7():
+    ComponentTemplate: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Container: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class 0xf92c7eae(BaseParams):
     pass
 
@@ -9145,6 +9534,11 @@ class 0xfd6bd0de(IGameModeConfig):
 class 0xfd7ee1ad():
     string: (String, 0x0, 0x0, 0x0) = ""
     LowerBound: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class 0xfd9b311(IVfxVector2Driver):
+    Select: (U8, 0x0, 0x0, 0x0) = 0
+    Input: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
     pass
 
 class 0xfdb6b027(IGeComponentDef):
@@ -9798,7 +10192,7 @@ class AtlasData9Slice(AtlasDataBase):
 class AtlasDataBase(IUiTextureDataProvider):
     mTextureSourceResolutionHeight: (U32, 0x0, 0x0, 0x0)
     mTextureSourceResolutionWidth: (U32, 0x0, 0x0, 0x0)
-    mTextureName: (String, 0x0, 0x0, 0x0)
+    mTextureName: (File, 0x0, 0x0, 0x0)
     pass
 
 class AtomicClipData(BlendableClipData):
@@ -9896,11 +10290,11 @@ class AudioPriorityBehavior():
     disabled: (Bool, 0x0, 0x0, 0x0) = false
     priority: (F32, 0x0, 0x0, 0x0) = 0.5
     MaxQueueTimes: (Option, 0x0, F32, 0x0) = null
-    TargetQueue: (Link, 0x0, 0x0, AudioQueueConfig) = "0x0"
+    TargetQueue: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class AudioQueueConfig():
-    0x1c6439cf: (List2, 0x0, Link, AudioQueueConfig) = []
+    0x1c6439cf: (List2, 0x0, Hash, 0x0) = []
     name: (String, 0x0, 0x0, 0x0) = ""
     tag: (U8, 0x0, 0x0, 0x0) = 0
     0xc8d0888c: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -9909,7 +10303,7 @@ class AudioQueueConfig():
     pass
 
 class AudioQueueConfigList():
-    queues: (List2, 0x0, Link, AudioQueueConfig) = []
+    queues: (List2, 0x0, Hash, 0x0) = []
     pass
 
 class AudioStatusEvents():
@@ -10124,12 +10518,12 @@ class BankUnitList():
     pass
 
 class BannerFlagData():
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":false,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":true,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
     pass
 
 class BannerFrameData():
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":false,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":true,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
     pass
 
@@ -10233,7 +10627,7 @@ class BaseLoadoutData(ICatalogEntryOwner):
 
 class BaseParams():
     0x4c819a10: (U32, 0x0, 0x0, 0x0) = 0
-    Event: (U32, 0x0, 0x0, 0x0) = 466
+    Event: (U32, 0x0, 0x0, 0x0) = 471
     pass
 
 class BasePerk():
@@ -10669,6 +11063,7 @@ class CatalogEntry():
     0x4d8c98dd: (String, 0x0, 0x0, 0x0) = ""
     contentId: (String, 0x0, 0x0, 0x0) = ""
     typeId: (String, 0x0, 0x0, 0x0) = ""
+    0xc5bb21e9: (List2, 0x0, Embed, 0x544b6c60) = []
     pass
 
 class CcBehaviorData(ICcBehaviorData):
@@ -10744,7 +11139,7 @@ class ChallengeMapAreaGroupCheck():
     pass
 
 class ChallengeTitleData():
-    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","contentId":"","itemID":0,"typeId":""}
+    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","0xc5bb21e9":[],"contentId":"","itemID":0,"typeId":""}
     TitleAcquisitionRequirementTrakey: (String, 0x0, 0x0, 0x0) = ""
     BackgroundImagePath: (String, 0x0, 0x0, 0x0) = ""
     TitleAcquisitionTrakey: (String, 0x0, 0x0, 0x0) = ""
@@ -10756,7 +11151,7 @@ class ChallengeTitleData():
     pass
 
 class Champion():
-    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","contentId":"","itemID":0,"typeId":""}
+    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","0xc5bb21e9":[],"contentId":"","itemID":0,"typeId":""}
     0x3355a58b: (U8, 0x0, 0x0, 0x0) = 2
     JunglePathRecommendations: (Embed, 0x0, 0x0, JunglePathRecommendations) = {"DataDrivenPath":"0x0","DesignerOverridePath":"0x0"}
     SpellRankUpRecommendations: (Embed, 0x0, 0x0, RecSpellRecommendations) = {"DesignerRecSpellOverride":"0x0","RecSpellRankUpInfolist":"0x0"}
@@ -11088,7 +11483,7 @@ class CharacterRecord():
     selfChampSpecificHealthSuffix: (String, 0x0, 0x0, 0x0) = ""
     MovingTowardEnemyActivationAngle: (F32, 0x0, 0x0, 0x0) = 45.0
     mCharacterCalculations: (Map, Hash, Pointer, IGameCalculation) = {}
-    onKillEvent: (U32, 0x0, 0x0, 0x0) = 466
+    onKillEvent: (U32, 0x0, 0x0, 0x0) = 471
     0x3f975e4a: (Bool, 0x0, 0x0, 0x0) = false
     critPerLevel: (F32, 0x0, 0x0, 0x0) = 0.0
     0x43135375: (F32, 0x0, 0x0, 0x0) = -1.0
@@ -11103,7 +11498,7 @@ class CharacterRecord():
     selectionRadius: (F32, 0x0, 0x0, 0x0) = -1.0
     perceptionBoundingBoxSize: (Option, 0x0, Vec3, 0x0) = null
     hoverLineIndicatorWidthMinimap: (F32, 0x0, 0x0, 0x0) = 100.0
-    onKillEventForSpectator: (U32, 0x0, 0x0, 0x0) = 466
+    onKillEventForSpectator: (U32, 0x0, 0x0, 0x0) = 471
     mPreferredPerkStyle: (Link, 0x0, 0x0, PerkStyle) = "0x0"
     RecSpellRankUpInfolist: (Embed, 0x0, 0x0, RecSpellRankUpInfoList) = {"RecSpellRankUpInfos":[{"0x5b968ffb":false,"IsDefaultRecommendation":false,"MapId":0,"ModeNameStringId":"0x0","Position":"0x0","mDefaultPriority":[3,0,1,2],"mEarlyLevelOverrides":[]}]}
     hoverLineIndicatorTargetTextureName: (File, 0x0, 0x0, 0x0) = "0x0"
@@ -11153,7 +11548,7 @@ class CharacterRecord():
     flags: (U32, 0x0, 0x0, 0x0) = 8398080
     globalExpGivenOnDeath: (F32, 0x0, 0x0, 0x0) = 0.0
     mAbilitySlotCC: (List, 0x4, I32, 0x0) = [0,0,0,0]
-    OnKillEventSteal: (U32, 0x0, 0x0, 0x0) = 466
+    OnKillEventSteal: (U32, 0x0, 0x0, 0x0) = 471
     baseStaticHPRegenModifiable: (Embed, 0x0, 0x0, ModifiableFloat) = {"Modifiers":[],"baseValue":1.0}
     healthBarHeight: (F32, 0x0, 0x0, 0x0) = 100.0
     highlightHealthbarIcons: (Bool, 0x0, 0x0, 0x0) = false
@@ -11162,7 +11557,7 @@ class CharacterRecord():
     passiveToolTip: (String, 0x0, 0x0, 0x0) = "Desc"
     areaIndicatorTextureName: (File, 0x0, 0x0, 0x0) = "0x0"
     areaIndicatorTargetDistance: (F32, 0x0, 0x0, 0x0) = 400.0
-    0xb189c89d: (U32, 0x0, 0x0, 0x0) = 466
+    0xb189c89d: (U32, 0x0, 0x0, 0x0) = 471
     healthBarFullParallax: (Bool, 0x0, 0x0, 0x0) = false
     deathTime: (F32, 0x0, 0x0, 0x0) = -1.0
     localGoldSplitWithLastHitter: (Bool, 0x0, 0x0, 0x0) = false
@@ -11552,6 +11947,7 @@ class ClientScript(RScript):
     pass
 
 class ClientStateAudioDataProperties():
+    0x42d15a72: (Bool, 0x0, 0x0, 0x0) = true
     themeMusic: (String, 0x0, 0x0, 0x0) = ""
     BankPaths: (List, 0x0, String, 0x0) = []
     pass
@@ -12623,13 +13019,13 @@ class DestroyOnMovementComplete(MissileBehaviorSpec):
     pass
 
 class DetailedItemSlots():
-    Item6: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
-    Item4: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
-    Item5: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
-    Item2: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
-    Item3: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
-    Item0: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
-    Item1: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
+    Item6: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
+    Item4: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
+    Item5: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
+    Item2: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
+    Item3: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
+    Item0: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
+    Item1: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}
     pass
 
 class DirectedTrackingElementViewController(ViewController):
@@ -12786,11 +13182,11 @@ class DynamicMaterialTextureSwapOption():
     pass
 
 class DynamicPointLightEntityTemplate(GameEntityTemplate):
-    Light: (Embed, 0x0, 0x0, DynamicPointLightGeComponentDef) = {"0x75708a14":false,"HdrScale":5.0,"Impact":3,"LightChannels":1,"UpdaterType":"0x0","intensityScale":1.0,"lightColor":[1.0,1.0,1.0,1.0],"radius":500.0}
+    Light: (Embed, 0x0, 0x0, DynamicPointLightGeComponentDef) = {"0x75708a14":false,"0x90eca7c5":31,"HdrScale":5.0,"Impact":3,"LightChannels":1,"UpdaterType":"0x0","intensityScale":1.0,"lightColor":[1.0,1.0,1.0,1.0],"radius":500.0}
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
-class DynamicPointLightGeComponent(GameEntityComponent):
+class DynamicPointLightGeComponent(GameEntityComponent, 0x6fbad630):
     pass
 
 class DynamicPointLightGeComponentDef(IGeComponentDef):
@@ -12799,17 +13195,18 @@ class DynamicPointLightGeComponentDef(IGeComponentDef):
     UpdaterType: (Link, 0x0, 0x0, MapLightUpdaterType) = "0x0"
     lightColor: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
     0x75708a14: (Bool, 0x0, 0x0, 0x0) = false
+    0x90eca7c5: (U8, 0x0, 0x0, 0x0) = 31
     HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
     radius: (F32, 0x0, 0x0, 0x0) = 500.0
     LightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class DynamicSpotlightEntityTemplate(GameEntityTemplate):
-    Light: (Embed, 0x0, 0x0, DynamicSpotlightGeComponentDef) = {"0x75708a14":false,"0xf6298343":"0x0","Aspect":1.0,"Color":[1.0,1.0,1.0,1.0],"HdrScale":5.0,"Impact":3,"LightChannels":1,"Near":10.0,"ProjectedTexture":"0x0","UpdaterType":"0x0","far":500.0,"fov":60.0,"intensity":1.0}
+    Light: (Embed, 0x0, 0x0, DynamicSpotlightGeComponentDef) = {"0x75708a14":false,"0x90eca7c5":31,"0xf6298343":"0x0","Aspect":1.0,"Color":[1.0,1.0,1.0,1.0],"HdrScale":5.0,"Impact":3,"LightChannels":1,"Near":10.0,"ProjectedTexture":"0x0","UpdaterType":"0x0","far":500.0,"fov":60.0,"intensity":1.0}
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
-class DynamicSpotlightGeComponent(GameEntityComponent):
+class DynamicSpotlightGeComponent(GameEntityComponent, 0x6fbad630):
     pass
 
 class DynamicSpotlightGeComponentDef(IGeComponentDef):
@@ -12819,6 +13216,7 @@ class DynamicSpotlightGeComponentDef(IGeComponentDef):
     UpdaterType: (Link, 0x0, 0x0, MapLightUpdaterType) = "0x0"
     0x75708a14: (Bool, 0x0, 0x0, 0x0) = false
     intensity: (F32, 0x0, 0x0, 0x0) = 1.0
+    0x90eca7c5: (U8, 0x0, 0x0, 0x0) = 31
     ProjectedTexture: (File, 0x0, 0x0, 0x0) = "0x0"
     Aspect: (F32, 0x0, 0x0, 0x0) = 1.0
     fov: (F32, 0x0, 0x0, 0x0) = 60.0
@@ -13216,7 +13614,6 @@ class EventBusApBaseObject(EventBusObject):
     pass
 
 class EventBusApClickElement(EventBusApObject):
-    Puuid: (String, 0x0, 0x0, 0x0) = ""
     ElementName: (String, 0x0, 0x0, 0x0) = ""
     0x57137ca3: (Option, 0x0, Bool, 0x0) = null
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
@@ -13228,7 +13625,6 @@ class EventBusApClickElement(EventBusApObject):
     pass
 
 class EventBusApClickNavigation(EventBusApObject):
-    Puuid: (String, 0x0, 0x0, 0x0) = ""
     ElementName: (Option, 0x0, String, 0x0) = null
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
     0x81d2abd8: (String, 0x0, 0x0, 0x0) = ""
@@ -13242,7 +13638,6 @@ class EventBusApEndOfGameObject(EventBusApBaseObject):
     pass
 
 class EventBusApGameClientPlatformInfo(EventBusApObject):
-    Puuid: (Option, 0x0, String, 0x0) = null
     Platform: (Option, 0x0, String, 0x0) = null
     GameId: (String, 0x0, 0x0, 0x0) = ""
     0x92cbcf2: (Option, 0x0, String, 0x0) = null
@@ -13259,20 +13654,19 @@ class EventBusApMetadata():
     pass
 
 class EventBusApModalViewEnd(EventBusApObject):
-    Puuid: (String, 0x0, 0x0, 0x0) = ""
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
     ModalName: (String, 0x0, 0x0, 0x0) = ""
     ScreenName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class EventBusApModalViewStart(EventBusApObject):
-    Puuid: (String, 0x0, 0x0, 0x0) = ""
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
     ModalName: (String, 0x0, 0x0, 0x0) = ""
     ScreenName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class EventBusApObject(EventBusApBaseObject):
+    Puuid: (String, 0x0, 0x0, 0x0)
     0x63479005: (String, 0x0, 0x0, 0x0)
     Metadata: (Embed, 0x0, 0x0, EventBusApMetadata)
     0x934b0104: (String, 0x0, 0x0, 0x0)
@@ -13288,7 +13682,6 @@ class EventBusApScope():
     pass
 
 class EventBusApScreenDisplayEnd(EventBusApObject):
-    Puuid: (String, 0x0, 0x0, 0x0) = ""
     ElementName: (Option, 0x0, String, 0x0) = null
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
     ModalName: (Option, 0x0, String, 0x0) = null
@@ -13296,7 +13689,6 @@ class EventBusApScreenDisplayEnd(EventBusApObject):
     pass
 
 class EventBusApScreenDisplayStart(EventBusApObject):
-    Puuid: (String, 0x0, 0x0, 0x0) = ""
     ElementName: (Option, 0x0, String, 0x0) = null
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
     ModalName: (Option, 0x0, String, 0x0) = null
@@ -13304,7 +13696,6 @@ class EventBusApScreenDisplayStart(EventBusApObject):
     pass
 
 class EventBusApScrollElement(EventBusApObject):
-    Puuid: (String, 0x0, 0x0, 0x0) = ""
     ElementName: (String, 0x0, 0x0, 0x0) = ""
     0x66fdf6bf: (String, 0x0, 0x0, 0x0) = ""
     ScreenName: (String, 0x0, 0x0, 0x0) = ""
@@ -13313,7 +13704,6 @@ class EventBusApScrollElement(EventBusApObject):
     pass
 
 class EventBusApSessionStart(EventBusApObject):
-    Puuid: (String, 0x0, 0x0, 0x0) = ""
     0x281b50e1: (String, 0x0, 0x0, 0x0) = ""
     0x3454e598: (Option, 0x0, String, 0x0) = null
     0x3525c6f7: (String, 0x0, 0x0, 0x0) = ""
@@ -13325,7 +13715,6 @@ class EventBusApSessionStart(EventBusApObject):
     pass
 
 class EventBusApTftGameClientPlatformInfo(EventBusApObject):
-    Puuid: (Option, 0x0, String, 0x0) = null
     Platform: (Option, 0x0, String, 0x0) = null
     GameId: (String, 0x0, 0x0, 0x0) = ""
     0x92cbcf2: (Option, 0x0, String, 0x0) = null
@@ -13387,7 +13776,7 @@ class EventValueConstraintInfo(ListenerConstraintInfo):
 class EvolutionDescription():
     mTitle: (String, 0x0, 0x0, 0x0) = ""
     mFlags: (U32, 0x0, 0x0, 0x0) = 0
-    mIconNames: (List, 0x4, String, 0x0) = ["","","",""]
+    mIconNames: (List, 0x4, File, 0x0) = ["0x0","0x0","0x0","0x0"]
     mTooltips: (List, 0x4, String, 0x0) = ["","","",""]
     pass
 
@@ -13738,6 +14127,7 @@ class FloatingInfoBarData():
     ScriptedThresholdTypes: (Map, Hash, Hash, 0x0)
     untargetableAlpha: (F32, 0x0, 0x0, 0x0)
     CameraMask: (U32, 0x0, 0x0, 0x0)
+    0xf446d4e8: (Pointer, 0x0, 0x0, 0xf91f9d7)
     pass
 
 class FloatingInfoBarViewController(ViewController):
@@ -14272,7 +14662,7 @@ class GdsMapObject(GenericMapPlaceable):
 
 class GearData():
     mCharacterSubmeshesToShow: (List, 0x0, Hash, 0x0) = []
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":false,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":true,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
     mVFXResourceResolver: (Pointer, 0x0, 0x0, ResourceResolver) = null
     mSelfOnlyPortraitIcon: (File, 0x0, 0x0, 0x0) = "0x0"
     EnableOverrideIdleEffects: (Bool, 0x0, 0x0, 0x0) = false
@@ -16209,6 +16599,7 @@ class ItemData(0x30e9338e, IDataValueSource):
     mPercentHealingAmountMod: (F32, 0x0, 0x0, 0x0) = 0.0
     mRequiredSpellName: (String, 0x0, 0x0, 0x0) = ""
     mPercentAttackSpeedMod: (F32, 0x0, 0x0, 0x0) = 0.0
+    0xc63da67: (Hash, 0x0, 0x0, 0x0) = "0x0"
     mFlatMissChanceMod: (F32, 0x0, 0x0, 0x0) = 0.0
     mPercentMultiplicativeAttackSpeedMod: (F32, 0x0, 0x0, 0x0) = 0.0
     mCooldownShowDisabledDuration: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -16409,6 +16800,7 @@ class ItemSlotDetailedUiData(0x5a51b355):
     0x42a45c9c: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ToggleFx: (Hash, 0x0, 0x0, 0x0) = "0x0"
     HotkeyText: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x5b00b702: (Hash, 0x0, 0x0, 0x0) = "0x0"
     BorderEnabled: (Hash, 0x0, 0x0, 0x0) = "0x0"
     BorderDisabled: (Hash, 0x0, 0x0, 0x0) = "0x0"
     OverlayOom: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -18003,7 +18395,7 @@ class MapBakeProperties(0x8e8282a9):
     lightGridCharacterFullBrightIntensity: (F32, 0x0, 0x0, 0x0) = 0.25
     lightGridFileName: (String, 0x0, 0x0, 0x0) = ""
     RmaStaticLightGridIntensityScale: (F32, 0x0, 0x0, 0x0) = 1.0
-    RmaStaticLightGridTexturePath: (String, 0x0, 0x0, 0x0) = ""
+    RmaStaticLightGridTexturePath: (File, 0x0, 0x0, 0x0) = "0x0"
     0xbc248312: (Bool, 0x0, 0x0, 0x0) = false
     LightgridBounceFalloffDistance: (F32, 0x0, 0x0, 0x0) = 5000.0
     StationaryLightChannelAssignments: (Map, Hash, U8, 0x0) = {}
@@ -18021,10 +18413,12 @@ class MapCamera(GameEntity):
 class MapCameraTemplate(GameEntityTemplate):
     Roll: (F32, 0x0, 0x0, 0x0) = 0.0
     MaxArmLength: (F32, 0x0, 0x0, 0x0) = 3600.0
+    nearClip: (F32, 0x0, 0x0, 0x0) = 50.0
     yaw: (F32, 0x0, 0x0, 0x0) = 0.0
     MinArmLength: (F32, 0x0, 0x0, 0x0) = 1800.0
     FieldOfView: (F32, 0x0, 0x0, 0x0) = 29.25
     pitch: (F32, 0x0, 0x0, 0x0) = 46.0
+    farClip: (F32, 0x0, 0x0, 0x0) = 22000.0
     pass
 
 class MapCharacterList():
@@ -18041,7 +18435,7 @@ class MapChunkVisibility(MapComponent):
 
 class MapClouds(MapGraphicsFeature):
     IsEyeCandy: (Bool, 0x0, 0x0, 0x0) = false
-    CloudsTexturePath: (String, 0x0, 0x0, 0x0) = ""
+    CloudsTexturePath: (File, 0x0, 0x0, 0x0) = "0x0"
     CloudShadowSunLightColor: (Vec4, 0x0, 0x0, 0x0) = [0.5,0.5,0.5,1.0]
     Layers: (List, 0x3, Embed, MapCloudsLayer) = [{"direction":[1.0,0.0],"scale":10.0,"speed":0.0010000000474974513},{"direction":[1.0,0.0],"scale":10.0,"speed":0.0010000000474974513},{"direction":[1.0,0.0],"scale":10.0,"speed":0.0010000000474974513}]
     pass
@@ -18079,7 +18473,7 @@ class MapCubemapProbe(MapPlaceable):
     CubemapProbeScale: (F32, 0x0, 0x0, 0x0) = 1.0
     CubemapProbeGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     CubemapRegion: (Pointer, 0x0, 0x0, MapCubemapRegion) = null
-    CubemapProbePath: (String, 0x0, 0x0, 0x0) = ""
+    CubemapProbePath: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class MapCubemapRegion():
@@ -18327,10 +18721,6 @@ class MapPointLightType():
     radius: (F32, 0x0, 0x0, 0x0) = 500.0
     pass
 
-class MapPrefab(MapPlaceable):
-    items: (List2, 0x0, Pointer, MapPlaceableBase) = []
-    pass
-
 class MapProjectedTexture(MapFrustum):
     ProjectedTexture: (File, 0x0, 0x0, 0x0) = "0x0"
     falloffTexture: (String, 0x0, 0x0, 0x0) = ""
@@ -18442,7 +18832,7 @@ class MapSunProperties(MapComponent):
     pass
 
 class MapTerrainPaint(MapGraphicsFeature):
-    TerrainPaintTexturePath: (String, 0x0, 0x0, 0x0) = ""
+    TerrainPaintTexturePath: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class MapThemeMusic(MapComponent):
@@ -19018,7 +19408,7 @@ class ModesQuestTrackerViewController(ViewController):
     0x386e926b: (U32, 0x0, 0x0, 0x0) = 2
     MainScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     QuestGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    DisplayTemplate: (Embed, 0x0, 0x0, 0x4b24468b) = {"0x20ef28a0":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","0xcfa79792":"0x0","0xd4841047":true,"0xf44c7b57":"0x0","DescriptionText":"0x0","Group":"0x0","HitArea":"0x0","IconData":null,"Meter":"0x0"}
+    DisplayTemplate: (Embed, 0x0, 0x0, 0x4b24468b) = {"0x20ef28a0":"0x0","0x2be6ec1f":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","0xcfa79792":"0x0","0xd4841047":true,"0xf44c7b57":"0x0","DescriptionText":"0x0","Group":"0x0","HitArea":"0x0","IconData":null,"Meter":"0x0"}
     pass
 
 class ModesScenarioEntityTemplate(GameEntityTemplate):
@@ -20716,7 +21106,7 @@ class PlayerInventoryViewController(ViewController):
     FlippedMinimapOverride: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
     ShopButton: (Embed, 0x0, 0x0, HudShopButton) = {"0x34a1434b":"0x0","0x40aa9d58":0,"0x697f8b6b":"0x0","0x778e26c6":"0x0","0x7dffe581":"0x0","0x8031b7a0":"0x0","0xb77375ae":"0x0","InactiveIcon":"0x0","ShopButton":"0x0","TextLink":"0x0"}
     0x5d9c5949: (Pointer, 0x0, 0x0, 0x61516a3e) = null
-    ItemSlotUiData: (List, 0x8, Embed, ItemSlotDetailedUiData) = [{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}]
+    ItemSlotUiData: (List, 0x8, Embed, ItemSlotDetailedUiData) = [{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}]
     pass
 
 class PlayerMuteViewController(ViewController):
@@ -21701,7 +22091,7 @@ class ScoreLineBaseUiData():
 class ScoreLineCherryUiData():
     UnitLevel: (Embed, 0x0, 0x0, UnitLevelUiData) = {"LevelText":"0x0"}
     OpenMuteModalButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ItemSlots: (Embed, 0x0, 0x0, DetailedItemSlots) = {"Item0":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item1":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item2":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item3":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item4":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item5":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item6":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}}
+    ItemSlots: (Embed, 0x0, 0x0, DetailedItemSlots) = {"Item0":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item1":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item2":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item3":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item4":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item5":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item6":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}}
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Portrait: (Embed, 0x0, 0x0, CherryUiPlayerPortraitData) = {"Frame":"0x0","PortraitIcon":"0x0","PortraitUv":[0.0,0.0,1.0,1.0]}
     AugmentSlots: (Embed, 0x0, 0x0, 0xfc331f53) = {"0x25c9d993":null,"AugmentLayout":"0x0","AugmentSlotData":{"0x2023e0aa":"0x0","0x71aaad67":null,"0x7ee47949":"","0xbbebf3d":"0x0","0xec5ca4c4":"0x0","AugmentGridItem":"0x0","Backdrop":"0x0","HitArea":"0x0","Icon":"0x0","PenetrationRecently":"0x0","SelectionAvailable":"0x0"}}
@@ -21727,7 +22117,7 @@ class ScoreLineSpellSlots():
     pass
 
 class ScoreLineSrSpectatorUiData(ScoreLineBaseUiData):
-    ItemSlots: (Embed, 0x0, 0x0, DetailedItemSlots) = {"Item0":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item1":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item2":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item3":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item4":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item5":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item6":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}}
+    ItemSlots: (Embed, 0x0, 0x0, DetailedItemSlots) = {"Item0":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item1":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item2":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item3":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item4":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item5":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item6":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}}
     ChampionGold: (Embed, 0x0, 0x0, ChampionGoldUiData) = {"ChampionGoldText":"0x0"}
     pass
 
@@ -22798,7 +23188,7 @@ class SkinCharacterDataProperties():
     alternateIconsCircle: (List, 0x0, File, 0x0) = []
     HudUnmuteEvent: (String, 0x0, 0x0, 0x0) = ""
     skinAnimationProperties: (Embed, 0x0, 0x0, SkinAnimationProperties) = {"animationGraphData":"0x0"}
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":false,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":true,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
     0x46558f0e: (U8, 0x0, 0x0, 0x0) = 0
     OverrideOnScreenName: (String, 0x0, 0x0, 0x0) = ""
     attributeFlags: (U32, 0x0, 0x0, 0x0) = 0
@@ -22929,7 +23319,7 @@ class SkinMeshDataProperties():
     usesSkinVO: (Bool, 0x0, 0x0, 0x0) = false
     normalMapTexture: (File, 0x0, 0x0, 0x0) = "0x0"
     rigPoseModifierData: (List, 0x0, Pointer, BaseRigPoseModifierData) = []
-    0xf37c6128: (Bool, 0x0, 0x0, 0x0) = false
+    0xf37c6128: (Bool, 0x0, 0x0, 0x0) = true
     initialSubmeshShadowsToHide: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -23082,12 +23472,6 @@ class SpawnInSequence():
     0xa4c9a8d7: (F32, 0x0, 0x0, 0x0) = 0.0
     OrderSequence: (Link, 0x0, 0x0, Sequence) = "0x0"
     Animation: (String, 0x0, 0x0, 0x0) = "Spawn_Start_SR"
-    pass
-
-class SpawnPrefabBlock(GameEntityBlock):
-    Prefab: (Pointer, 0x0, 0x0, IDataObjectGet) = {}
-    0x7addff1c: (Embed, 0x0, 0x0, EntityArrayTableSet) = {"Table":{},"Var":""}
-    Position: (Pointer, 0x0, 0x0, IVectorGet) = null
     pass
 
 class SpawningUIDefinition():
@@ -23577,14 +23961,14 @@ class StatStoneData(BaseLoadoutData):
     EpicStatStone: (Bool, 0x0, 0x0, 0x0) = false
     stoneName: (String, 0x0, 0x0, 0x0) = ""
     TriggeredFromScript: (Bool, 0x0, 0x0, 0x0) = false
-    EventsToTrack: (List, 0x0, Embed, StatStoneEventToTrack) = [{"EventToTrack":466,"StatFilters":[]}]
+    EventsToTrack: (List, 0x0, Embed, StatStoneEventToTrack) = [{"EventToTrack":471,"StatFilters":[]}]
     DataCollectionOnly: (Bool, 0x0, 0x0, 0x0) = false
     category: (Link, 0x0, 0x0, StatStoneCategory) = "0x0"
     MilestoneForHalfLitImage: (U32, 0x0, 0x0, 0x0) = 3
     pass
 
 class StatStoneEventToTrack():
-    EventToTrack: (U32, 0x0, 0x0, 0x0) = 466
+    EventToTrack: (U32, 0x0, 0x0, 0x0) = 471
     StatFilters: (List, 0x0, Pointer, IStatStoneLogicDriver) = []
     pass
 
@@ -23645,7 +24029,7 @@ class StatStoneMilestoneVfxDefinition():
     pass
 
 class StatStoneSet(ICatalogEntryOwner):
-    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","contentId":"","itemID":0,"typeId":""}
+    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","0xc5bb21e9":[],"contentId":"","itemID":0,"typeId":""}
     name: (String, 0x0, 0x0, 0x0) = ""
     statStones: (List, 0x0, Link, StatStoneData) = []
     pass
@@ -23695,7 +24079,7 @@ class StaticMaterialChildTechniqueDef():
     pass
 
 class StaticMaterialDef(IResource, IMaterialDef):
-    type: (U32, 0x0, 0x0, 0x0) = 1
+    type: (U8, 0x0, 0x0, 0x0) = 1
     SharedTextureSets: (List, 0x0, Embed, StaticMaterialSharedTextureDef) = []
     techniques: (List, 0x0, Embed, StaticMaterialTechniqueDef) = []
     dynamicMaterial: (Pointer, 0x0, 0x0, DynamicMaterialDef) = null
@@ -24131,7 +24515,7 @@ class SumOfSubPartsCalculationPart(IGameCalculationPart):
     pass
 
 class SummonerEmote():
-    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","contentId":"","itemID":0,"typeId":""}
+    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","0xc5bb21e9":[],"contentId":"","itemID":0,"typeId":""}
     VfxSystem: (Hash, 0x0, 0x0, 0x0) = "0x0"
     description: (String, 0x0, 0x0, 0x0) = ""
     UiScale: (F32, 0x0, 0x0, 0x0) = 1.0
@@ -25300,7 +25684,7 @@ class TextureOverride():
     pass
 
 class TextureResource(IResource):
-    texturePath: (String, 0x0, 0x0, 0x0) = ""
+    texturePath: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class Tft3dAnnouncementViewController(ViewController):
@@ -27931,7 +28315,7 @@ class TriggerOnStart(MissileTriggerSpec):
 
 class TrophyData(BaseLoadoutData):
     mPerceptionBubbleRadius: (F32, 0x0, 0x0, 0x0) = 250.0
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":false,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":true,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
     mBracketTRAKey: (String, 0x0, 0x0, 0x0) = ""
     mVFXResourceResolver: (Pointer, 0x0, 0x0, ResourceResolver) = null
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
@@ -27939,7 +28323,7 @@ class TrophyData(BaseLoadoutData):
 
 class TrophyPedestalData(BaseLoadoutData):
     mTierTRAKey: (String, 0x0, 0x0, 0x0) = ""
-    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":false,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
+    skinMeshProperties: (Embed, 0x0, 0x0, SkinMeshDataProperties) = {"0x783ad838":[1.0,1.0,1.0],"0x8881ee77":null,"0xc2357dbf":[90.0,0.0,0.0],"0xde85a7d3":0.0,"0xf37c6128":true,"EmitterSubmeshAvatarToHide":"","EnablePicking":true,"ForceDrawLast":false,"InitialSubmeshAvatarToHide":"","Material":"0x0","OutlineCategorySubmeshes":[],"ReducedBoneSkinning":false,"RoughnessMetallicAoTexture":"0x0","SocketDefinitions":[],"boundingCylinderHeight":150.0,"boundingCylinderRadius":50.0,"boundingSphereRadius":null,"brushAlphaOverride":0.25,"castShadows":true,"emissiveTexture":"0x0","fresnel":0.0,"fresnelColor":[0,0,0,255],"glossTexture":"0x0","initialSubmeshMouseOversToHide":"","initialSubmeshShadowsToHide":"","initialSubmeshToHide":"","materialController":null,"materialOverride":[],"normalMapTexture":"0x0","overrideBoundingBox":null,"reflectionFresnel":1.0,"reflectionFresnelColor":[255,255,255,255],"reflectionMap":"0x0","reflectionOpacityDirect":0.0,"reflectionOpacityGlancing":1.0,"rigPoseModifierData":[],"selfIllumination":0.0,"simpleSkin":"","skeleton":"","skinScale":1.0,"submeshRenderOrder":"","texture":"0x0","usesSkinVO":false}
     mJointName: (String, 0x0, 0x0, 0x0) = ""
     animationGraphData: (Link, 0x0, 0x0, AnimationGraphData) = "0x0"
     pass
@@ -28411,7 +28795,7 @@ class UiElementParticleSystem(UIElement):
 
 class UiElementParticleSystemData(UiElementData):
     RenderAtElementLayer: (Bool, 0x0, 0x0, 0x0) = true
-    TextureOverrides: (Map, File, String, 0x0) = {}
+    TextureOverrides: (Map, File, File, 0x0) = {}
     VfxSystem: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
     MaxPlayCount: (U32, 0x0, 0x0, 0x0) = 1
     PlayDuringTransition: (Bool, 0x0, 0x0, 0x0) = true
@@ -28483,7 +28867,7 @@ class UiElementTextData(UiElementData):
     pass
 
 class UiExpandableUnitStatsData():
-    ItemSlots: (Embed, 0x0, 0x0, DetailedItemSlots) = {"Item0":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item1":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item2":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item3":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item4":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item5":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item6":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}}
+    ItemSlots: (Embed, 0x0, 0x0, DetailedItemSlots) = {"Item0":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item1":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item2":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item3":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item4":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item5":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"},"Item6":{"0x42522ee4":{},"0x42a45c9c":"0x0","0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xb3e1c78a":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","ToggleFx":"0x0"}}
     ExpandedRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TeamFrameRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -30028,6 +30412,8 @@ class VfxMaterialOverrideDefinitionData():
     pass
 
 class VfxMaterialRenderComponent(VfxRenderComponentBase):
+    StencilReferenceId: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    stencilMode: (U8, 0x0, 0x0, 0x0) = 0
     MaterialContainer: (Pointer, 0x0, 0x0, VfxMaterialContainer) = null
     Color: (Embed, 0x0, 0x0, VfxColorContainer) = {"ColorOverLife":{"Vector4":{}},"InitialColor":{"Vector4":{}}}
     RenderPhase: (U8, 0x0, 0x0, 0x0) = 4
@@ -30832,7 +31218,7 @@ class XpReward(IRewardBase):
     pass
 
 class eventpass():
-    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","contentId":"","itemID":0,"typeId":""}
+    catalogEntry: (Embed, 0x0, 0x0, CatalogEntry) = {"0x4d8c98dd":"","0xc5bb21e9":[],"contentId":"","itemID":0,"typeId":""}
     LocalizedName: (String, 0x0, 0x0, 0x0) = ""
     PassType: (U32, 0x0, 0x0, 0x0) = 0
     image: (String, 0x0, 0x0, 0x0) = ""

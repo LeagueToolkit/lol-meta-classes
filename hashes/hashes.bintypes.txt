@@ -849,6 +849,7 @@ c7be3bd2 EsportsTeamData
 2868344d EsportsTeamDataInstance
 57f4cfbc EventCardDefinition
 5e487a44 EventCardViewController
+d3eab8e5 EventCarousel
 48d8c38d EventConfig
 e90ead0a EventConfigInstance
 bbb4c96a EventControlledSelectorClipData
@@ -1769,6 +1770,7 @@ f77590db LogicDriverVisibilityController
 cb05e946 LoginRootScene
 6d1f19d7 LoginViewController
 8353a901 LolBehaviorScript
+ca27818b LolCurrency
 ab89e6ba LolGameStateViewController
 b0df288d LolModesReplayConfig
 6b2225f9 LolModesSubphaseData
@@ -2793,6 +2795,7 @@ d56801d4 StringTableSet
 0c5ac0ef StringTableSetInstance
 50b6f5cb StringValueGet
 c5f84705 StructureFloatingInfoBarData
+7db73f86 SubCurrency
 995bf516 SubPartScaledProportionalToStat
 f26c205e SubmeshVisibilityBoolDriver
 bcf56e70 SubmeshVisibilityEventData
@@ -2858,12 +2861,17 @@ feed65c7 TFTCharacterRoleCardViewController
 2558886d TFTCombatRecapViewController
 ef039d8b TFTCompanionBucket
 6a569767 TFTCompanionEvolutionViewController
+27d533fe TFTCraftingViewControllerV2
 ab3db96c TFTCustomAnnouncementViewController
+0b7b2875 TFTDailyLoginRewardViewController
 8701b32d TFTDamageSkin
 54530df7 TFTDragData
 6cae7c7b TFTEliminationViewController
 c12f716a TFTEmotePanelViewController
 6970c508 TFTEventHubLargeViewController
+0d336fad TFTEventHubSkillTreeApexRewardModal
+1f200287 TFTEventHubSkillTreeModifierModal
+9669855a TFTEventHubSkillTreeSummaryModal
 aa229297 TFTEventHubViewController
 03314f38 TFTGameVariationData
 a7ae8586 TFTHintMessageViewController
@@ -2898,6 +2906,7 @@ f737def9 TFTStageData
 26868b0f TFTStreak
 956ad097 TFTStreakData
 253eba55 TFTTeamCannonCooldownViewController
+968459a8 TFTTeamCannonInfoViewController
 9401f2e2 TFTTeamCannonItemExchangeViewController
 64da2c7f TFTTraitAssignmentVariation
 e007e6f5 TFTTraitContributionData
@@ -2908,6 +2917,7 @@ c2662ac4 TFTTraitTrackerViewController
 de2af923 TFTTrovesCelebrationViewController
 d35c6ec8 TFTTrovesViewControllerV3
 7504f4c1 TFTUnitUpgradeData
+79efeb7c TFTWebViewModalViewController
 5e6f0af9 TableGet
 8799ac14 TableValue
 000760c1 TableValueExistsCondition
@@ -3426,7 +3436,9 @@ b3a933a4 UiMetricLaneMinionFlatDamageReductionFromMinion
 3de2c4c6 UiMetricLaneMinionPercentIncreasedDamageToMinion
 2cfea070 UiMetricLatencyText
 cce5e3e3 UiMetricMultiDragonKillsSrX
+6734c597 UiMetricTeamBaronKills
 bac72a13 UiMetricTeamBuffExists
+b36c777a UiMetricTeamDragonKills
 d8374374 UiMetricTeamGold
 d609f42b UiMetricTeamKills
 276cb970 UiMetricTeamTowerKills

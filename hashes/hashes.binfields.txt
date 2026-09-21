@@ -13,6 +13,7 @@ b4a5634a AbilityName
 c88c6b61 AbilityPowerIncPerLevel
 d47ff1a6 AbilityPromptAnimData
 c13ae504 AbilityPrompts
+01ba2bd1 AbilityResource
 ff1455b7 AbilityResourceBars
 c14d71dc AbilityResourceThresholdRangeHighColor
 3f68efb8 AbilityResourceThresholdRangeLowColor
@@ -31,12 +32,14 @@ c4642eff Action
 dd527b08 ActionText
 d2f7a647 ActionType
 b5b54664 Actions
+888d3a04 ActivateButton
 de1056f7 ActivateCombatRecapButton
 aec10d0a ActivateScoreboardButton
 da27e4ab ActivateUnitProperty
 0afc0620 ActivationAngle
 44ae8168 ActivationDateTime
 ef1820ba ActivationDistance
+a51a4d37 ActivationVFX
 d975992f Active
 f94c60e3 ActiveBackground
 3a612d64 ActiveBannerIcon
@@ -44,6 +47,7 @@ f94c60e3 ActiveBackground
 cba07e3e ActiveBodyKey
 cfe43398 ActiveCondition
 aa4a9078 ActiveDefault
+6d62bdb4 ActiveFrame
 5e27d665 ActiveGameGradient
 40c28e91 ActiveGameInviteIcon
 8fc7cf0f ActiveHover
@@ -69,7 +73,9 @@ b7c2681c ActiveTraitGroup
 b3f03180 ActiveTraitIcon
 b100a668 ActiveTraitLevelIcon
 2de9a1fd ActiveTraitSelectionOutline
+0ece283b ActiveTraitTemplate
 06532e95 ActiveTraitsBG
+c895f7ad ActiveVFX
 20749c51 ActiveVoiceOver
 835805da ActiveWheelButtonHoverIntroScene
 53e052ad ActiveWheelButtonHoverOutroScene
@@ -93,6 +99,8 @@ ddbea054 AddedCalculationParts
 d32dd16e AdditionalPropertyDataPath
 8e2030a7 AdditionalPropertyDataPaths
 5989220d AdditionalRoots
+3829f60c AdditionalSetsGroup
+9576c8be AdditionalSetsText
 40c7b66f AdditionalSpells
 f5f563c0 AdditionalStatusIcons
 a0a0468c AdditionalTextures
@@ -138,6 +146,7 @@ da5f7006 AllItemsHeaderText
 f481f566 AllItemsHeaderTextDimmed
 63f6810c AllItemsIconDefinition
 b5c9c4ef AllItemsItemRegion
+46b365da AllModifiersButton
 a7ec94da AllShieldBar
 e71ceb87 AllVisibilityKey
 1429a941 AlliedElementGroup
@@ -281,6 +290,7 @@ f1695b8d AudioFlexValueParameterName
 5cfe9324 AudioSource
 76503b91 AudioType
 b8e63d78 Augment
+0a8d38a0 AugmentBackgroundVFX
 e1ceee4c AugmentButton
 85e383b4 AugmentColors
 14df3d1e AugmentContainerIcon
@@ -294,11 +304,15 @@ bc2c3f87 AugmentDisplayTagFrame
 26c61566 AugmentDisplayTagSpacer
 e52e8845 AugmentDisplayTagText
 c1716cff AugmentDisplayTags
+4ddb7d67 AugmentFlashInVFX
 28c7bec7 AugmentGridItem
 2f403bdb AugmentGroup
+02984933 AugmentGuaranteedElements
 bcce96da AugmentHoverVfx
 74ea8609 AugmentIcon
 2f1fc9f9 AugmentIconBackground
+c9531aa3 AugmentIconBorder
+b086e5e9 AugmentIconFullWidthShroud
 d86980d8 AugmentIconLarge
 b812c692 AugmentIconMedium
 8731b20e AugmentIcons
@@ -315,13 +329,22 @@ f9021d56 AugmentPanelData
 4839fda4 AugmentPickedVfx
 827dc19e AugmentPlatformId
 17086006 AugmentPool
+e737695d AugmentQuestGroup
 d94aa383 AugmentRefreshOverlayVfx
 5f1b3269 AugmentRefreshVfx
+05e940ec AugmentRegion
+81f43042 AugmentReroll
 4e5e622e AugmentSelectionGrid
+27bc6378 AugmentSet
+81d22cec AugmentSetBackground
+cae92ddb AugmentSetGroup
+0c7d0c09 AugmentSetIcon
+988fea51 AugmentSets
 13187351 AugmentSkin
 ee55616c AugmentSlotData
 43a26ef5 AugmentSlots
 45481fb5 AugmentSmallIconPath
+00162165 AugmentSpellGroup
 10d5509e AugmentTitle
 5a075a9b AugmentTooltipButton
 366935fc AugmentTooltipTra
@@ -336,6 +359,10 @@ f68eb447 AutoBuffActivateAttachBoneNames
 c003e6a8 AutoOpenShopInPlanningPhaseDelaySecs
 f91faa4f AutoSpellCast
 62bb343b AutoSpellCastInfo
+b77375ae AutobuildButton
+8031b7a0 AutobuildHotKey
+697f8b6b AutobuildIcon
+778e26c6 AutobuildPotentialFX
 3fbcbe60 AvailableDefaultIcon
 8a55be97 AvailableHoverIcon
 3a42ca56 AvatarIconPath
@@ -349,6 +376,7 @@ c93265ff AxisSpeed
 30c252ab BackdropLink
 2aaa4453 BackdropLite
 4babd89d Background
+459e8e56 Background1Affix
 d67244d0 BackgroundAssets
 cbd504c1 BackgroundCooldownEffect
 d4202096 BackgroundDefault
@@ -360,6 +388,7 @@ e1ccfef5 BackgroundHover
 646cf661 BackgroundImagePath
 63307781 BackgroundLink
 d463462e BackgroundMissingTexture
+b96dbb63 BackgroundPatchingSubtitle
 fce8e78c BackgroundTexture
 87696dab BackgroundTexturePath
 b2e8a534 BackgroundTimingOffset
@@ -402,12 +431,14 @@ bcc3158a BarTipElements
 7475748d BarVfxGroup
 3cd0d32e BaronGoldValue
 e1c50cb2 BaronIcon
+bcbb5260 BaronKills
 65d39c4f BaronScore
 90214be4 BaronSolo
 98912876 BaronSpawn
 3ae31586 BaronSteal
 6b93eab0 BaronValue
 a2621347 BarrackMinion
+d1ed70fe Barracks
 4fbc08a8 BarracksConfig
 8f0c2ed6 BarracksLink
 eac10e8a BaseBinName
@@ -446,6 +477,7 @@ e3dc40d3 BattlepassButtonDefinition
 f4a16502 BattlepassRewards
 cfd1aa4a BattlepassScene
 59a22832 BattlepassSpacer
+d24a7af6 BattlepassTicketVFX
 d4c3bc70 BattlepassToastView
 a1bef65d BaublesSpell
 f2505841 BbConvertedBlockSoon
@@ -496,6 +528,7 @@ ad2d5ae5 BlackboardVfxSource
 999ec9a6 BlendInTime
 8d1a7a7d BlendOutTime
 a2734825 Blinded
+bceaaa2a BlockButton
 98ba36f3 BlockInputEvents
 44b4862a BlockPlayerIcon
 c967b34f Bloodwell
@@ -506,6 +539,8 @@ df925021 BlueTeamElementUnselectedColor
 a97179ac BlurKernelSigma
 176d4d09 BlurQuality
 666abee0 BlurTextures
+c8c453d3 BoardButton
+6394f0bb BoardButtonRegion
 8d30a918 BoardCountContribution
 75fbcb48 BoardPosition
 d5fb8330 BodyDefinition
@@ -531,6 +566,7 @@ e1f94e91 BootsPanelDefinition
 b666bd80 BorderDefault
 832a4da7 BorderDisabled
 77af310c BorderEnabled
+2189347e BorderGroup
 d8655cd7 BorderLevelFive
 b2c6f4d3 BorderLevelFour
 e545ad45 BorderLevelOne
@@ -544,6 +580,7 @@ e7b947a0 BorderPath
 c00a5c96 BorderSelected
 adfac771 BorderTreatment
 9265210c Borders
+e97a2996 BossPortraitIcon
 4048c61e BotData
 03a75fcf BotSkillData
 925b23cb BotSpell1
@@ -552,6 +589,7 @@ f12be813 BottomButtons
 f21efab0 BottomHrMomentumPost
 e2e4f9c2 BottomHrYPostAdjustment
 bb9129ab BottomHrYPreAdjustment
+3fe8aeb9 BottomInfoText
 d1c4c0d3 BottomPadding
 6783811a BottomScene
 47bdbbe9 BottomYPaddingAdjustment
@@ -564,6 +602,7 @@ c7878a1b BounceRadius
 0f9b5ab3 BountyIcon
 067cca4a BountyStarting
 214b4895 BountyText
+3388fb50 Bravery
 6e304492 BreakpointAmount
 5855caa8 BriefText
 0e1a23ca BriefTextBackdrop
@@ -599,6 +638,8 @@ c43cfe31 BuildVersionTextFooter
 3d8e74c7 BuildsIntoSlotDefinition
 7df5b85f BuildsIntoTextOverflowScale
 5c042946 BuildupMapParticleNames
+21ce7cca BulkDecrement
+54b57536 BulkIncrement
 33029197 BundleIconPath
 5dedab86 BundleItemFrameHoverIcon
 70e33256 BundleItemFrameIcon
@@ -709,7 +750,9 @@ f0d0b6e3 CancelButtonIcons
 9c1a0f62 CannonMinionLaneRotation
 83172271 Canvas
 32dd4bd4 CapBurstEmitters
+9094c397 CardAnimation
 e092a753 CardBackground
+631a990f CardButton
 839b7f88 CardDefault
 21487589 CardHoverMythic
 7ae2c38b CardHoverMythicVfx
@@ -726,6 +769,9 @@ d122d71d CardSelectedNonMythicVfx
 4be0e5d4 CardSwitcher
 29ce6f56 CardTab
 2b0b06fd CardTemplate
+7aef16a8 Caret
+c62ec87b CaretOffset
+a3dafbbb CarouselButton
 fd985966 Cases
 882db0cc CastAllButtonDefinition
 13388437 CastBar
@@ -789,6 +835,7 @@ b3f33cf8 ChampionButtonTemplate
 fe960cbb ChampionKills
 395592c9 ChampionKillsUiData
 4f0ab780 ChampionLayout
+c7b47c84 ChampionLayoutRegion
 972cf46e ChampionListingData
 2e1cea4f ChampionMusicEventType
 d384bc74 ChampionMusicEventTypes
@@ -822,6 +869,7 @@ b8cd006a ChaosFilling
 b1df2719 ChaosJunglePath
 789d2ea5 ChaosObjectiveBountiesData
 518f60ff ChaosScoreLineUiData
+04681146 ChaosSequence
 0ae6149e ChaosTeam
 4feffe3e ChaosTeamData
 a756b81c ChaosTeamIdentity
@@ -879,6 +927,7 @@ aa8fd0c5 CheckNewGearId
 dba9e788 CheckPrevGearId
 06389b18 Checkbox
 6e8692a2 CheckboxTemplate
+d1519ad2 Checkmark
 7dc9adc9 ChestAssetMultiVfx
 0f11b9fa ChestAssetSingleVfx
 d4f40efa ChestBackgroundAssetVfx
@@ -891,6 +940,7 @@ ed51e4eb ChestTimingOffset
 e35a50c8 ChoiceDescription
 9df91392 ChosenBadge
 2d4bd10e ChromaColor
+d1373982 ClaimAllButton
 f76d4989 ClaimCeremonyVfx
 7b851bb1 ClaimReadyGroup
 91e4c218 ClaimText
@@ -916,6 +966,8 @@ b18e5e08 ClearAllButtonDefinition
 c6e9fbea ClearButton
 c74c762c ClearButtonTemplate
 9a1a92b5 ClearColor
+27afb7ac ClearTeamNameButton
+36155e8c ClearTraitFilterButton
 cea34a2c ClearUndoHistoryOnActivate
 cfe20df6 ClickAbsorbingRegionElement
 9fba55f7 ClickData
@@ -929,6 +981,7 @@ e7976eb7 ClickRejectedVFX
 cd68b02a ClickedIconColor
 ad0f8882 ClickedStateElements
 2610a4a3 ClientState
+2a2d1463 ClimbingIndicator
 424a6b16 ClipAccessoryToRead
 68c14f60 ClipName
 a301c4a7 ClockToUse
@@ -966,6 +1019,7 @@ b49ed6f0 ColumnHorizontalAlignment
 79c749b6 CombatArtCleanup
 4762c958 CombatRecapLineTemplate
 8e3c4be4 CombatRecapPanelTemplate
+bec348d3 CombatRequirementText
 33653f1e CombatRoundDamage
 836908e2 CombatStateBackground
 ce2e82b0 CombatStateDotsFx
@@ -975,6 +1029,8 @@ c2035d7a CombatStateWinFx
 28e52dc5 CombinableDamageFormat
 20b20b79 CombinableTextShowCrit
 4e37fc5e CombinationRule
+552282e2 CombineInfoScene
+909e7f19 CombineInfoText
 f4cd9851 CombineMode
 f94042c8 ComboBorders
 eef61c58 ComboBoxBaseName
@@ -1007,6 +1063,7 @@ d221d784 CompleteHover
 72e2a629 CompleteRewardList
 fa79ea0b CompleteSelected
 424a4629 CompleteText
+363f1e09 CompletedItem
 df5cfa0e CompletedItems
 1b1e9485 CompletionVFX
 1c6536a1 ComponentIcon
@@ -1038,16 +1095,21 @@ c072a4f2 ConfirmButtonDefinition
 2fd58337 ConfirmButtonTraKey
 788862bd ConnectedBgRegionHandle
 151d3b4d ConnectionButton
+415ee833 ConnectionErrorBackgroundScene
+09de4ef8 ConnectionErrorContinueButton
+b96b68eb ConnectionErrorScene
 d8d7f794 ConsensusVotesRequired
 0691ea25 Constant
 c1970a60 ConstantSpeed
 e76c9b56 ConsumablesPanelDefinition
 891a5676 ConsumablesQuickBuyData
+8daff178 Container
 17c619fa ContentElement
 b9e79a12 ContentScene
 de5d7211 ContinueAt
 8c3e02a0 ContinueButton
 9acc1fc1 ContinueButtonDefinition
+f34f5793 ContinueText
 2a856173 Contrast
 042576f3 ControlPoint1
 05257886 ControlPoint2
@@ -1067,6 +1129,7 @@ fffcfb5f CooldownGem
 608ff0af CooldownText
 cc324529 CooldownTimer
 aa30297a CooldownUiData
+88ee5bd9 CoreConditionTemplate
 936ed1dd CoreName
 56647830 CorkiCharacterQuest
 8cd23c7a CorkiLarge
@@ -1075,6 +1138,7 @@ aa30297a CooldownUiData
 0af1ce00 CosmeticIcons
 e85c3338 Cost
 1bfe1e6b CostBg
+eaefb0c9 CostIcon
 f38e6a9f CostText
 fdc7d532 CostTextDefinition
 1df75d2e CostTextSelected
@@ -1088,9 +1152,13 @@ f77d0e71 CountdownMeter
 5062ea57 CountdownText
 9cacde23 Counter
 9e2eeefa CounterAdviceSets
+97c1cb47 CounterClockwise
 4c10ca77 CounterDefinitions
 2f7b8d35 CraftButton
+70fa4e8c CraftIcon
+018f5bf4 CraftIconDisabled
 b539a1cd CraftSubtitle
+ab22be6d CraftSubtitleDisabled
 87099332 CraftText
 b1c0a323 CraftTextClicked
 7719d8aa CraftTextDisable
@@ -1118,12 +1186,15 @@ c82097d4 CubemapScale
 e5561300 Cue
 f4cd79d5 CurrShopHighlightElement
 d5f7b496 CurrencyButton
+5e2da6e3 CurrencyIcon
 8ec03ae6 CurrencyInfo
 3bc6cb57 CurrencySegmentData
 bb14f928 CurrencyTemplate
+1475bab7 CurrencyValue
 11e50af6 CurrentExpText
 892bc919 CurrentGoldIcon
 33c9204f CurrentGoldText
+996a8f3f CurrentLevelText
 47dc6b2c CurrentPhaseIcon
 782dfa79 CurrentPlayerHighlight
 06d0613e CurrentPositionText
@@ -1142,6 +1213,7 @@ ba98aba0 CustomBadgeIcon
 0a710deb CustomButtonIcon
 67acc5c9 CustomButtonPopupAnchor
 bf3c1cbd CustomButtonPopupViewController
+127c55f0 CustomCurrencyIcon
 4b901db3 CustomMaterial
 0d2f6d7d CustomPlatform
 bb429484 CustomSequences
@@ -1155,6 +1227,7 @@ eaa2781f CutscenePositionLocatorName
 cc60e6a2 CycleBasedScaleAddition
 e70c8908 CycleTime
 754a85a6 Cycles
+a8dd5e13 DailyLoginButton
 a0dc95ba DamageBuffName
 6dca3a41 DamageByTypeValueText
 4293e6ae DamageDisplayData
@@ -1163,8 +1236,10 @@ cf5d9d5b DamageFlashMeter
 718456c6 DamageInhibitor
 5fb9bd8e DamageMax
 eba69111 DamageMeter
+3c0023cb DamageOverTime
 d12128e3 DamageOverview
 994018d1 DamagePercent
+0ea3d3f5 DamagePrediction
 d17c71e5 DamageProperties
 56581a11 DamageResultType
 873dc06e DamageShimmerEffect
@@ -1183,6 +1258,7 @@ cbc2f8ba DamageSourceCanBeTurret
 f6f283a3 DamageTakenPie
 e5b78177 DamageText
 5eb7940e DamageThresholdRequired
+72c5c2a8 DamageType
 59eb67ec DamageUpgrade
 59b5a4e0 DamageUpgradeLate
 2b551b30 DamagerDetailedLayout
@@ -1196,6 +1272,7 @@ eae0a7e6 DarkLaunch
 92bd18ab DataCollectionOnly
 aae01626 DataCollections
 7f189e8c DataDrivenPath
+137cf12a DataValue
 06afef1b DataValues
 fb56608c DataValuesModeOverride
 d472dc59 Date
@@ -1226,6 +1303,7 @@ a550c40c DebugVisualization
 d183213b DecimalSeparatorTraKey
 90f52f0d DeclineButton
 718f0085 DecoratedName
+19cb36b2 Decrement
 933b5bde Default
 73e8c79a DefaultAdjustments
 bd4a5ca2 DefaultBackgroundTexturePath
@@ -1340,6 +1418,7 @@ c2714fa9 DetailedDescription
 86feb6cc DetailedGroup
 63f43935 DetailedHoverRegion
 7041bc3f DetailedLayout
+4a255f53 DetailedScene
 e4b4a2b3 DetailedStatAmount
 54b92b94 DetailedStatName
 628af3b0 DetailedStatTra
@@ -1358,6 +1437,9 @@ bb4a1111 DetectionRange
 7fa7d53e DeviceUx
 9ab37cd7 DialogPickChoice
 63d4bf7a DialogText
+a9222546 Dialogue1
+a82223b3 Dialogue2
+385cc32b DigitalGoodsDisclaimerText
 02fbedaf DirectedCameraStatusText
 2a92980e DirectedCameraToggleButton
 514a365c DirectedTrackingElement
@@ -1451,6 +1533,7 @@ ff786d5a DragGroup
 8c7e787b DragType
 a0f67682 DragonFury
 2431da35 DragonGoldValue
+516fe283 DragonKills
 00a36a0a DragonNames
 b4a64e19 DragonSolo
 37a9ec14 DragonSoulGoldValue
@@ -1469,6 +1552,7 @@ c7854a18 DrawRegions
 24cdeeb4 DropHoverAnimName
 06cb9b89 DropHoverEndAnimName
 3dec71de DropRate
+8e2e1f5e DropRateButton
 12f8b50b DropRateSlots
 887f6193 DropRateSlotsList
 2b064793 DropRateTables
@@ -1477,6 +1561,7 @@ c7854a18 DrawRegions
 cd0aaa2e DropdownDisplayTraKey
 03487222 DropdownHoverElementData
 c67a95a4 DuckedAlphaValue
+ea4b69c5 DuplicateText
 5f366897 DurationDriver
 ecb79b3b DurationSecs
 8e47bc73 DurationTotrack
@@ -1507,6 +1592,7 @@ cfd5bf4b EdgeSizesLeftRight
 d3f7be3a EdgeSizesTopBottom
 633f1b95 EdgeTintPoint
 a59d87e5 EditButton
+e9d16d12 EditNameButton
 725bd4d5 EffectCalculation
 0f383923 EffectDelay
 824a7405 EffectKeyForOtherTeam
@@ -1582,11 +1668,15 @@ a5fc4ee8 EmpoweredArrivalFile
 c007a116 EmpoweredEffectFile
 13a4d526 EmptyActiveTraitTemplate
 b3e383e1 EmptyGroup
+66fb858d EmptyMessage
 be6f06f8 EmptyPip16
 864d103a EmptyPipSmall
 a03379b8 EmptyPips
 fdde5b32 EmptySlotButton
+a4c75290 EmptySlotSwapCooldown
 18b07cca EmptyStateGroup
+5d127174 EmptyTeamsScene
+2bb40018 EmptyTicks
 3708afbb EmptyUnitGroup
 244a2f37 EnableCenterActivateDefaultPing
 d889f45b EnableCondition
@@ -1609,6 +1699,8 @@ eb092951 EnabledUnitProperty
 7b9b52c3 EnabledWidgets
 14f3cff4 Enabler
 82cfb185 Enablers
+a0b12922 EncounterButton
+c67a7d17 EncounterIcon
 6299ab7e EncounterLength
 d8275936 EncounterList
 7c9e6829 EncounterLocation
@@ -1632,14 +1724,18 @@ ed38c5a4 EnemyElementGroup
 e0c6260a EnemyElements
 43724cd0 EnemyFrame
 39038b9a EnemyGem
+047483a1 EnemyLayout
 95cbd1b3 EnemyLifeHealthTextColor
 15505df2 EnemyMagicalDamage
 7158618f EnemyMagicalDamageCritical
+32383120 EnemyMagicalDamageEnhanced
 918929db EnemyPhysicalDamage
 cf8231fa EnemyPhysicalDamageCritical
+f816d439 EnemyPhysicalDamageEnhanced
 d43dd942 EnemyRevealDuration
 9cd9c316 EnemyTrueDamage
 6f720713 EnemyTrueDamageCritical
+ee6adc8c EnemyTrueDamageEnhanced
 29cc5095 Energy
 b89acf97 EnergyGainAnim
 86a36ce1 EnterBoardEvent
@@ -1657,12 +1753,15 @@ bc702c01 EpicGameIconUnlit
 837fcf93 EpicnessesInGroup
 bd51112a EqualTo
 473bd9f1 EquippedIcon
+3d6d8631 ErrorBackground
 9ac25712 ErrorBodyTra
 48a8e1f4 ErrorColor
+feb06968 ErrorGroup
 50b38f66 ErrorTitleText
 fec6c537 EsportsLoadable
 b002f5f5 EventBackdrop
 57f4cfbc EventCardDefinition
+d3eab8e5 EventCarousel
 85b47fcf EventEmptyGroup
 c1c57d66 EventHubButton
 0e5e548e EventIcon
@@ -1683,6 +1782,7 @@ e12f5ab7 EventParameters
 e785cbfc EventPassCompletedFrame
 91680730 EventPassCompletedText
 1bcb8bae EventPassExpText
+40480c3e EventPassHighlight
 11ea8ce7 EventPassLevelText
 233ae74a EventPassNameText
 1d481c09 EventPassNextRewardIcon
@@ -1698,6 +1798,7 @@ b4d66609 EventToTrack
 8f22dc9e Evolution
 cadbdc64 EvolveButton
 c1f1eefc ExButton
+9f56fb21 ExchangeIcon
 7f615b1b ExcludeIncrements
 84ffb06f ExcludedAugmentTags
 136fc91f ExcludedAugments
@@ -1706,11 +1807,14 @@ c1f1eefc ExButton
 d7750a6a ExcludedPortals
 574b507a ExclusionChecks
 d86afeef ExecutableBorder
+c1be745d ExecuteBar
 1934e46f ExecutePrint
 dce1f159 ExitBoardEvent
 e19f2477 ExitConditions
 1e7871ec ExitFlags
 991fa1d6 ExitHitRegion
+94cd2b4b ExitNowIncompleteCombatButton
+d51ffbe2 ExitSpectateButton
 732faee5 ExitStealthEffect
 56f2ddad ExpBar
 cbbd569e ExpBarDivider
@@ -1742,6 +1846,7 @@ badf029a Extension
 f1f20249 ExtraJointChains
 945b0ec5 FaceTarget
 aacfd877 FaceVelocity
+1b2d687d Faces
 1fc18d68 FacingLocation
 54222157 FadeAmount
 7146b6bc FadeBar
@@ -1764,9 +1869,11 @@ b8e861b9 FadeupTimeSecs
 4643afcc FadingScene
 425b7331 Failure
 56ff1fbc FailureIcon
+64c2cb47 FailureOverlay
 16833ab5 FailureSubtitleTraKey
 0a500602 FailureText
 cec67027 FailureTexturePath
+1cd13dc6 FailureTitleText
 7bd86e15 FailureTitleTraKey
 c61cab67 FalloffRate
 db1cc90a FarClipPlane
@@ -1775,10 +1882,12 @@ db1cc90a FarClipPlane
 9a44ff4e FiatStoreDialog
 8bac98d3 FieldOfView
 423a5de4 FightIcon
+bb99c3fc FightIconScene
 4cc2e39d FightLengthValueText
 e76d37d6 FightRecapUiData
 2961d08c FightTeamBackground
 002514a5 FightTeamFrame
+100be200 FightTeamScene
 ed531a17 Fighting
 a4914101 FightingFX
 81cd26c4 FilepathHash
@@ -1788,8 +1897,10 @@ c84bbe59 FillDirection
 5b58b41f FillMeterOpponentColor
 b2717a62 FillMeterSelfColor
 8c262820 FillType
+0ccdd309 FilledTicks
 c7e16877 Filter
 4054b33e FilterArenaToggle
+815aaee7 FilterButton
 a526b5bd FilterFeaturedToggle
 883c4bff FilterList
 5ffc00df FilterMaterialLoadingByVisibility
@@ -1819,6 +1930,7 @@ c6abb2cb FirstRewardIcon
 880456aa FirstTimeUxCloseButtonGroup
 820b5e15 FirstTimeUxOffScreenPoiTimeout
 532faad1 FirstTimeUxOffscreenButtonGroup
+c918e952 FiveSlotFrame
 bfa71bae FixAccidentalAttackWhileSnared
 40574f29 FixAttackMoveWhileSnared
 bdeaa8d7 Flag
@@ -1826,6 +1938,7 @@ bdeaa8d7 Flag
 81a7a5ec FlagRange
 7521711d FlairIcons
 92193e53 FlameEffectElement
+34296273 FlashInVfxSystem
 3c717ef3 FlashOnTimeRemaining
 73259662 FlavorName
 da5d575f Fleeing
@@ -1845,8 +1958,10 @@ c1fe84cf FloatingInfoOverride
 e1d2a478 FollowType
 ed86d587 FollowerCrossoverAnimation
 403767da FontDescription
+51c7ac80 FontFamily
 10c450de FontFilePathBold
 6b777382 FontFilePathItalics
+2bf77ed0 FontWeight
 d1342bca FooterGrid
 7b93a845 FooterGroup
 785236f5 FooterHyperlinks
@@ -1882,6 +1997,7 @@ e797836e FormulaPartStylePercent
 745628e5 FoundIndex
 e47cb43e FountainDetectionDurationSecs
 9c332560 FountainTickRestoresHpPenalty
+b486cf62 FourSlotFrame
 13021b84 FourstarBadge
 a6e81102 FovBone
 45844ce9 FowSlotHighlight
@@ -1902,6 +2018,7 @@ e10fd09d FrameAvailable
 76ef64de FrameElement
 b80b3198 FrameElementMap
 414e277a FrameEnemy
+4150d546 FrameGlowEffect
 bb396953 FrameIcon
 312ff983 FrameLeft
 a66cbd45 FrameLevels
@@ -1921,6 +2038,7 @@ d7061dce FreeCamShadowFarClipDistance
 80eddbe9 FreeCamShadowNearClipDistance
 401eaebe FreeCameraShadowExtentXz
 50fb1c08 FreeFrameData
+59b4e436 FreeRerollReminderGroup
 2584386c FreeText
 258776e4 FresnelBlue
 0d6bb10b FresnelGreen
@@ -2043,7 +2161,10 @@ b2246553 GlobalContextualActionData
 edb4b217 GlowEffectElement
 fd6ff5f6 GlowingRing
 223109ad GlowingRotatingArrow
+db9c67fe GodName
+bc61fcb1 GodTitle
 ec66d793 Gold
+b9b4d8d7 GoldAmount
 e68d14a7 GoldCostIcon
 7550a6f7 GoldCostIconDisabled
 fab5fd6f GoldDisplaySceneHandle
@@ -2052,15 +2173,18 @@ fab5fd6f GoldDisplaySceneHandle
 e2261286 GoldGainVfxHandle
 9d7f2df2 GoldIcon
 4d3d9423 GoldIconDefinition
+db0e9d5b GoldMax
 67db3cec GoldMineSkinId
 499064f1 GoldScene
 f3eb96d4 GoldText
 33a69e1a GoldTextHandle
 2781ed6b GoldTooltipTraKeys
+8557faf0 GoldValue
 2875fcd2 GravesSmall
 d209ff45 Gravity
 81bc04be GreaterThan
 7ae6487f GreenChannel
+e1c84837 GreyedOutTimerFrame
 f614d04b GreyedTimerText
 af871a91 Grid
 f5e9f0c5 GridButtonData
@@ -2131,6 +2255,7 @@ ca8e1da2 HelpButton
 b1a84d1c HeroId
 79dafa57 HexNumber
 0e13c7aa HexToRangeMap
+3aecdaf0 HidableUIScene
 b6067959 HiddenUnitCountText
 5b308567 HideButtonScene
 5ca738c0 HideEmptyPips
@@ -2163,6 +2288,7 @@ f3eb6a16 HitRegion
 6bf3194e HitRegionElement
 900a920b HitTarget
 6aa5b63d HitTargetHandle
+d5411c8f Holder
 19bbe6be HolderIcon
 afc467eb HomeGoldMineSkinId
 49e965dd HomeIconHandle
@@ -2170,9 +2296,11 @@ afc467eb HomeGoldMineSkinId
 7dd39acc HordeIcon
 cc6c4209 HordeScore
 f2706c6e HordeValue
+109da077 HorizLayout
 69988db6 HorizontalBuildTreeConnector
 e5c73ef5 HorizontalFillDirection
 a1527ead HorizontalJustification
+9b8bea73 HorizontalLayout
 a1a15b6f HorizontalRule
 99715a8f HorizontalRulesInSpellTooltips
 40589731 HorizontalSpacer
@@ -2189,6 +2317,7 @@ c8b4c48c HotkeyQuickCastButtonDefinition
 a793d4e1 HoverEffectGlowTier
 cbc740b4 HoverEffectGlowTraitBackgrounds
 ff1ac6d3 HoverEffectGlowTraitIcons
+ba92cb0e HoverFrame
 c9a8f32b HoverFrameIcon
 23fd2f24 HoverGlow
 dcfb1668 HoverIcon
@@ -2201,6 +2330,7 @@ bcd200cf HoverStateElements
 4841faf0 HoverTarget
 0bdd80f6 HoverText
 143e4d96 HoverTooltipOffsetAboveTitle
+b1e401dc HoverTooltipRegion
 67ddf4a7 HoverVfx
 dbc03b26 HoverVfxSystem
 ef6e71d8 HpMaxBonus
@@ -2215,6 +2345,11 @@ fdb91217 HudTraitUnitSlotBorders
 ce58156a HudTraitUnitSlotTemplate
 3ffe79cc HudUnmuteEvent
 37386ae0 ID
+a8b19f3b IGNBBackgroundScene
+abd77ed0 IGNBContinueButton
+cb6f219c IGNBGroup
+fe37e8e3 IGNBScene
+804f19ee IGNBText
 e61bae9c ILevelBehavior
 6d3db6e2 ILevelController
 995ca734 ILogicDriver
@@ -2274,12 +2409,14 @@ ccfa8ab2 ImageOverride
 178f85d1 ImageOverridePath
 21753196 ImgIconPath
 1e71b297 Impact
+4191b710 ImportButton
 60f740c4 InEase
 93909e07 InGameReportAndMuteModal
 2a2265d5 InQueueMusicState
 d0266d4b InRangeOfTower
 98059c83 InactiveBodyKey
 0b717735 InactiveDefault
+bc6e5ae5 InactiveFrame
 007af3da InactiveGameInviteIcon
 f06d87ba InactiveHover
 e59d38e9 InactiveIcon
@@ -2288,12 +2425,14 @@ d6b1c46b InactiveSelectedStateElements
 78ba88b4 InactiveStateElements
 2dcd4365 InactiveTitleKey
 5033088b InactiveTooltipTraKey
+7d661894 InactiveVFX
 027b13c9 IncludeMaxHealth
 90d6b20c InclusionChecks
 626362d8 InclusiveIteration
 a2182cc1 IncomingDamageBar
 61b34f70 IncomingHealBar
 6752c795 IncompatibleTraits
+3812e73e Increment
 a93a142c IncrementalBodyText
 3a33a345 IncrementalCloseButtonRegion
 fc88fe7f IncrementalDownButton
@@ -2361,6 +2500,7 @@ d36508cd InputHandler
 cb908f87 InspectButton
 83c10d42 InstanceData
 4fd47f50 InstanceParams
+d5240093 InstructionsText
 292c27df InterItemTimingOffset
 371f5bde InterItemTimingOffsetEpic
 af2aa0bc InterItemTimingOffsetLegendary
@@ -2373,6 +2513,7 @@ a1797c7e IntroAnimations
 91d875a2 IntroBezier
 0ca84d6f IntroEmote
 fb8b55dc IntroMaterial
+ea4aa27c IntroSequence
 d3ca51c8 IntroTime
 18babeb3 IntroVfx
 ac5665a7 InventoryData
@@ -2446,10 +2587,13 @@ e75b0636 ItemBuffTarget
 2d3c8da6 ItemButton
 97e0a6ab ItemButtonHighlights
 183b3a4e ItemCodexUpperRightAnchor
+83c4b267 ItemCombineInfo
 ddaa44f2 ItemCombineTooltipData
+a1456915 ItemCount
 99a8bb56 ItemDamageIconTextureName
 244c26e6 ItemData
 a5cfd667 ItemDesc
+c27d6478 ItemDescription
 3da42bb9 ItemDescriptionDefinition
 6f2c83f4 ItemDetailsScene
 4f6303c3 ItemDetailsSceneViewPane
@@ -2461,6 +2605,7 @@ a768acad ItemFootprintUnselectedVfx
 8619daeb ItemHighlights
 dd0d2e93 ItemIcon
 33e73b8c ItemIconBordered
+4bdd71fb ItemIconCircle
 6492148e ItemIconDefinition
 fa7d5111 ItemIconOne
 817805a3 ItemIconShadow
@@ -2475,6 +2620,7 @@ df966958 ItemListPanelData
 66229a1c ItemLockIcon
 be39c245 ItemName
 634caf36 ItemNameUnitProperty
+43703702 ItemRegion
 2d18091e ItemRoleNameTra
 a48389eb ItemRows
 0f087db8 ItemSceneTemplate
@@ -2600,6 +2746,8 @@ fa4c41a0 LayoutStyle
 9d5bd447 LayoutType
 8cada859 LcuBackgroundTexturePath
 49e385de LeaderControls
+cebfa3e8 LeaderboardButton
+15b50d34 LeaderboardHighlight
 5dfec065 LeagueClientIconPath
 df6bd61c LeagueClientSmallIconPath
 455dd17f LeagueClientSplashPath
@@ -2608,7 +2756,18 @@ df6bd61c LeagueClientSmallIconPath
 c12996d1 LeashDistance
 c4beadc8 LeashRadius
 7825ec74 LeaveButton
+a2d26cd7 LeaveButtonDefeatRegion
+87616d16 LeaveButtonVictoryRegion
 db3f15ec LeftBlackBar
+68c883d6 LeftBufferRegion
+1316649a LeftCraftButton
+1e76c3bf LeftCraftIcon
+6389cd6f LeftCraftIconDisabled
+ea254026 LeftCraftSubtitle
+67468dbe LeftCraftSubtitleDisabled
+ce25ab39 LeftCraftText
+2d6b78e2 LeftCraftTextClicked
+a2127147 LeftCraftTextDisable
 f221fb31 LeftIcon
 f43b8449 LeftIconRegion
 af4499c3 LeftManagedLayout
@@ -2617,6 +2776,7 @@ c66d39d3 LeftOffset
 73fd9245 LeftPlayer
 1b57cc27 LeftRightWidths
 e4620618 LeftScene
+f0464464 LeftTeamIcon
 fc2cd44b LeftTop
 7e653ca1 LeftValue
 6bb10f7a LeftViewPaneDefinition
@@ -2645,6 +2805,7 @@ c96c4266 LevelBoxOverlayEnemy
 d4ce95ce LevelControllers
 2067de5d LevelData
 9c036cd2 LevelDifferenceExperienceMultiplierPerLevel
+3f59500d LevelDisplay
 10bc0088 LevelDodge
 7b0cab18 LevelFiveIcon
 3f5fa588 LevelFourIcon
@@ -2661,6 +2822,8 @@ ebe34313 LevelPipClaimed
 60ea4a7e LevelPipCompleteDefault
 d05a8fcd LevelPipCompleteHover
 24cec4a3 LevelPipDefault
+74fcfeb2 LevelPurchaseButton
+81d55cb7 LevelRequirementText
 106bef1e LevelScriptFunctionLink
 6f20f6ea LevelScriptLink
 77acee55 LevelSpellEffectiveness
@@ -2692,6 +2855,8 @@ ea4e5cc8 LightgridBounceFalloffDistance
 22d24a9a LightgridOverallScale
 2f3b5471 LightgridScaleBounceContribution
 bd62ded9 LightingOverride
+80a492b8 LimitAmount
+0cbdf823 LimitText
 eb079194 LimitedTournamentPause
 6af0a9f6 LineColor
 53ca5f65 LineHeightRef
@@ -2708,6 +2873,7 @@ af93d663 LinkedBarracks
 ed01b2a5 LinkedTraits
 ec296e87 LinkedUnits
 e9ca9aee Links
+0cfb5881 List
 0eb2b67e ListDisplayDirection
 949930aa ListItemData
 6f54bcfa ListName
@@ -2720,6 +2886,7 @@ f1125a78 LiveClientDataApi
 19d25270 LoadLuaFilesFromWad
 be0dceb0 LoadScreenTipConfiguration
 63060019 Loadable
+753697fe LoadingGroup
 554903f4 LoadingIndicator
 ae427127 LoadingScreenBackground
 e8b7a3b7 LoadingScreenBackgroundOverride
@@ -2750,6 +2917,7 @@ fbc94a2c LocalizedDescription
 7a4d89bb LocalizedFormattingBehavior
 081f82f1 LocalizedName
 8d7a04b6 LocalizedShortDescription
+97f4a5b7 LocalizedShortName
 5a9403be LocalizedTextFormat
 0bf5a9a6 Location
 f7cb2205 LocationName
@@ -2771,12 +2939,19 @@ e62ef3c5 LockedDefaultIcon
 d0fc26f2 LockedIcon
 33b79d3d LogLargePacketGaps
 707586e2 LoginData
+ff4ab060 LoginGuestAccountMessage
 8d23bfd5 LoginLogoMapping
 2dcd2b83 LoginProviderButtonMapping
 b11e62a4 LoginProviderButtons
+5c3e459a LoginProviderCreateAccountButton
+65643564 LoginProviderGuestAccountButton
+95c2d7cf LoginProviderGuestSignInButton
+8d60d1a1 LoginProviderSignInButton
 0550d895 LoginQueueData
+45891350 LoginQueueMaintenance
 ec47ae37 LogoIcon
 128a2d92 LogoLink
+9fd03293 LogoutButton
 3f829b60 LongDescriptionTra
 a926f992 LookupKey
 ddef486b Loop
@@ -2814,10 +2989,12 @@ c9b71b3d MagicResistBorders
 fad4c40b MagicResistIcon
 4a1c6359 MagicResistThreshold
 d4b01b1e MagicResistThresholds
+47343861 MagicResistance
 c772db3b MagicResistanceUpgrade
 f21bd022 MagicShieldBar
 022e368c MagicalDamage
 71e55eed MagicalDamageCritical
+ce96732e MagicalDamageEnhanced
 655c70a4 MagicalItemsFilterButtonDefinition
 47482875 Magnitude
 34b17566 MainBannerScene
@@ -2839,6 +3016,7 @@ cad3c552 MainViewPaneDefinition
 3a1aa117 MainViewScene
 f99c4ac4 MajorActive
 3f17ef8e MajorActiveMythic
+21cfd37c MakeItemButton
 29fef316 MakeLowerPriorityEventsObsolete
 541e7ba7 ManaDamage
 0e9d23cc ManaHeal
@@ -2914,6 +3092,7 @@ ec1f44b9 MaxDuration
 518f49b9 MaxIntervalSec
 e93789ab MaxInviteCount
 41aa9616 MaxItemSlot
+ff10dcdb MaxLevelBorder
 6a6341f9 MaxMessages
 f75a1005 MaxNumChoices
 0db4c4cf MaxNumberOfMilestonesToShowPerStonePerGame
@@ -2942,7 +3121,10 @@ f61974d2 MeleeResult
 160a8b77 MemberGrid
 1f681491 MemberTemplate
 ebd37275 MemoryReportMinimalSet
+38823ae2 MenuButton
+fa0e33c7 MenuClickOffButton
 ccbfc406 MenuCloseButton
+8fba2ead MenuGroup
 c1f16a2a MenuScene
 73c8aba4 MenuTitleScene
 02d5f962 MenuToggleScene
@@ -2992,6 +3174,7 @@ f78e2f90 MeterFullAnimations
 a2137b2a MeterHolderRight
 e115c684 MeterHolderStart
 16395028 MeterInnerRing
+0364bf7c MeterLayout
 f8987d77 MeterOuterRing
 82d31fb2 MeterScene
 4b9fa32c MeterSkins
@@ -3023,6 +3206,7 @@ af227625 MilestoneFgUncolored
 fb2a56ef MilestoneForHalfLitImage
 24bbeea0 MilestoneIntroTime
 7738597e MilestoneName
+bc2ce5f6 MilestoneNotificationToggle
 7d9a7fa0 MilestoneOtherIntroTime
 891f374d MilestoneOwnerIcon
 e4c37814 MilestoneOwnerScene
@@ -3144,6 +3328,7 @@ ae9e709a MobileCatalogData
 dd522de7 MobileOverride
 8b76c33f MobileOverrideBinName
 5bfa274b MobileOverrideLoadable
+0765d6f7 MobileRTLOverride
 2508673c MobileTapRegion
 75259ad3 ModalDialogViewController
 f1c81e39 ModalShroudHandle
@@ -3160,7 +3345,11 @@ e224378f ModeSelectDefaultButtonIcons
 61767839 ModeSelectQueueButtonData
 1abf4b19 ModeText
 6f3d4e53 ModelTransformation
+9642fc50 ModesQuestComplete
+833573ac ModesQuestProgress
+c8809611 ModifierIcon
 fed1150d ModifierId
+3ce24d67 ModifierSpine
 411b1019 Modifiers
 129437e7 ModulePreloads
 0b088e38 MomentOfDeathStructures
@@ -3252,6 +3441,7 @@ d5ced975 NameText
 6194e22e NameTraKey
 36fff7ce NameTraKeyOverride
 753d0247 NamedDataValue
+f9300747 Nameplates
 bdc90544 NavGridConfig
 a97376aa NavGridOverlay
 f7197db9 NavGridPath
@@ -3274,6 +3464,7 @@ ae0964fb NegativeBountyConfig
 763cc4ab NeutralTimerStates
 4c7bb73e NeutralTimers
 291bad0a NewActorStuckPathfinding
+ebf79b40 NewBalanceText
 6cee1705 NewContentNotificationQuest
 4c8d4f60 NewDeathSFX
 20941997 NewGearId
@@ -3294,6 +3485,7 @@ c4b0866a NewSpellScript
 0af8606b NewStatType
 ef8fe151 NewStatUiData
 57c9eba0 NewStats
+8a663f35 NewTeamAnim
 fb0e7215 NewTowerFortification
 930970c7 NewTurretLogic
 dd681b43 NextBuffVars
@@ -3305,6 +3497,7 @@ c5ec44db NoContentTitleTraKey
 84757e2c NoDuplicatesButton
 154cd270 NoDuplicatesTraKey
 988c4436 NoHighlightsSequence
+1e916517 NoLPGainedText
 4cca91ee NoMatchHistoryText
 70e74cf5 NoPurchasesText
 4830d8fb NonDispellable
@@ -3316,6 +3509,7 @@ a8e4f979 NormalCastButtonPos
 ce79296c Normalize
 edec2e12 NotFacingMovementWhenCasting
 8231d843 NotPickedVfxSystem
+cc8608fe NotableSpellLayout
 0ffbfecb NotificationBottomIcon1
 10fc005e NotificationBottomIcon2
 11fc01f1 NotificationBottomIcon3
@@ -3327,6 +3521,8 @@ d839c90f NotificationBottomline
 23342deb NotificationTopline
 f623b026 NotificationsBadgeVFX
 e4e655d3 NudgeDistance
+86d04b5b NumAugments
+ab220667 NumAugmentsBackground
 528cdb47 NumExtraPlayers
 c8d23640 NumMaxDifferentCategories
 7648a351 NumRoundsLossForgiven
@@ -3426,6 +3622,7 @@ f5013cfa OpponentFillMeter
 01b3828f OptimizedShadowBlur
 9227218a OptionDisplayData
 0e845aa2 OptionHoverRegion
+b818e45a OptionLayout
 2b8fe885 OptionModalData
 5147c031 OptionReferenceRegion
 c071d24a OptionReferenceText
@@ -3442,6 +3639,7 @@ be8b277c OrderFrame
 e766e3b1 OrderJunglePath
 87c9dd2d OrderObjectiveBountiesData
 9dfb5ab7 OrderScoreLineUiData
+b6639fce OrderSequence
 6d0bc246 OrderTeam
 dd3dd146 OrderTeamData
 e3e5bcc4 OrderTeamIdentity
@@ -3469,6 +3667,7 @@ fefc1e87 OutIsConstant
 a9fe323a OutIsLerp
 93f58be6 OutKey
 a3b87335 OutLerpA
+97dec6cf OutOfRange
 d78001b6 OutSize
 036a62b1 OutTable
 8e81576e OutTime
@@ -3477,6 +3676,7 @@ a69fdb94 OutValue
 548e8cea OuterRadius
 361ad8bd Outline
 9a817954 OutlineCategorySubmeshes
+d1f18af8 OutlineIcon
 79a94f04 Output
 ae9faafb OutputMaxValue
 6129b949 OutputMinValue
@@ -3504,6 +3704,7 @@ a24a62dc OverrideCenterButtonRegion
 9e44c967 OverrideFillMeterOpponentColor
 16eaefba OverrideFillMeterSelfColor
 21741f14 OverrideFov
+8d0e3f5e OverrideFrame
 0e24cc07 OverrideIdleEffects
 d227eb02 OverrideIdleParticles
 07d955b9 OverrideMinimapCenterButtonRegion
@@ -3517,6 +3718,7 @@ a04bd9bf OverrideSunSpecDirection
 fdcc4eca Overrides
 5a060901 OvershootDistance
 2b77ba39 OvertimeBackgroundTopRight
+d44a200a OverviewScene
 118dbe5b OwnedIcon
 f562af26 OwnedTrakey
 40469c43 OwnerChampion
@@ -3539,6 +3741,7 @@ ce6bd23b PageLeftButton
 7125e498 PageRightButton
 186d4ed9 PageRightButtonDefinition
 b68efccf PageTemplateItemIconDefinition
+f3158aa5 PageText
 4eb7126b PageUp
 5a5786ce PaginateTraitButtonTemplate
 88ca9d2d PaginateTraitsButton
@@ -3568,6 +3771,7 @@ a75595ed ParBar
 537c5e0e ParametricMovement
 4aa30cae ParametricMovementType
 eacdfcfd Parent
+23908b24 ParentGroup
 dc65f8fe ParentInheritanceDefinition
 e3fe3059 ParentList
 c9d3f06a ParentMode
@@ -3624,6 +3828,7 @@ e59d6814 PerPixelUvsX
 38cc8288 PercentMPRegenMod
 b779205d PercentOmnivampMod
 1c17c0d1 PercentPhysicalVampMod
+97537db5 Percentage
 9f1386b1 PercentageChance
 c3310cda PercentageFormatTraKey
 3f9461ea PercentageHeadSamplesToDrop
@@ -3648,6 +3853,7 @@ e1833fac PhaseShift
 efcdfdd1 Phases
 f1ed03d1 PhysicalDamage
 9343f6f4 PhysicalDamageCritical
+76599c8b PhysicalDamageEnhanced
 b821026a PhysicalLethality
 4bfee116 PhysicalShieldBar
 de421b66 PhysicalVampStat
@@ -3668,7 +3874,9 @@ f96fee7c PingMuteButton
 9eb8549d PipAvailable
 96c6b2bd PipComplete
 d2841bf9 PipGroup
+7cae3080 PipLayout
 5816f0ce PipOnIcon
+e0bf6ea7 PipSequence
 edeec556 PipSpacer
 f5e0c125 PipSpacer1
 dd95e1c9 PipSpacerSamira
@@ -3692,6 +3900,7 @@ c2cbd863 Play
 5d5a384d PlayAgainButton
 4d12bc08 PlayAgainButtonDefinition
 74116245 PlayAnimChangeFromBeginning
+797fd50b PlayButton
 3ea86858 PlayDanceAnimationButton
 8ef629c9 PlayDuringTransition
 b8421985 PlayGameButton
@@ -3720,10 +3929,12 @@ df2e7464 PlayerFrameButtonFill
 e3d751e5 PlayerGoldText
 013359d0 PlayerGrid
 58de27c1 PlayerIcon
+9c422946 PlayerLayout
 d0d30c2a PlayerMinion
 dffc8083 PlayerName
 8094eecb PlayerNameTextRanked
 42b9373c PlayerNameTextUnranked
+8a7ef9d0 PlayerNames
 0077414c PlayerOffscreenAlphaValue
 52a7b84e PlayerOffscreenTimer
 b6f346eb PlayerOpponentTemplate
@@ -3735,6 +3946,7 @@ d5b6bcd3 PlayerPortrait
 d7177733 PlayerProfileScene
 4e7eddfd PlayerRankText
 cf1f4912 PlayerRejectIcon
+cb3a3644 PlayerRow
 85c88168 PlayerScene
 9ad5b45c PlayerSelfTemplate
 88e8c28c PlayerSlot
@@ -3777,6 +3989,7 @@ b85bc3e0 PortraitIconPath
 e824be60 PortraitIconShape
 f489f73f PortraitIconSummoner
 aa34e2a4 PortraitLayout
+9e0306ba PortraitOverlay
 f6ef1749 PortraitPath
 a07aab6f PortraitReference
 7f3b5da6 PortraitRegion
@@ -3821,9 +4034,11 @@ b3f182f6 PreferredOrder
 51802c17 PremiumFrameData
 794ec41d PremiumText
 76f8fa70 PremiumTitleTraKey
+97b20086 PressedFrame
 45cbd6de PrestigeCrestBase
 9a05d1e0 PrestigeCrests
 262bfa2e PrevGearId
+caebb3c7 PreviewButton
 138e5c64 PreviewElementSource
 53798b70 PreviewText
 98850381 PriceText
@@ -3832,16 +4047,23 @@ cb9f11d2 PrimaryAbilityResourceBar
 df2a906d PrimaryMission
 477ef394 PrioritizeTailSample
 64132003 PriorityBehavior
+0bbebf3d PrismaticBorder
 fbd79e70 ProbeA
 fed7a329 ProbeB
 e548412c Product
 74634cc6 ProfileBackground
 4e51b642 ProfileWidgetScene
+cb084e46 Progress
+41fcbc3c ProgressBackdrop
 2abbee1f ProgressBar
+fd6a4413 ProgressBarBackground
 2766cb77 ProgressBarDelayTime
+c2116a86 ProgressBarFill
+3d76ea82 ProgressBarSpine
 e507745d ProgressComplete
 e418aa98 ProgressCompleteIcon
 5468a177 ProgressCompleteVfx
+4fe2d9c8 ProgressFX
 a025590b ProgressFill
 6a226480 ProgressIcons
 09a942af ProgressMeter
@@ -3887,11 +4109,18 @@ f4dfb8b8 QUEUE
 e6fad853 Quanitity
 6efa5b3f QuantityText
 12682a3e QuantizationScale
+09d0cf3d Quest
+2c2fd8fd QuestAcquireFX
 cdbc1b2a QuestComplete
+bdc1c254 QuestCompleteFX
+06b06978 QuestIcon
+d8b39f8c QuestLevelGroup
+23d6693e QuestLevelText
 dba6febb QuestLingerDurationSec
 a2bf8c3e QuestName
 58ba3598 QuestObjectiveList
 0b13c31a QuestReceived
+e3f7224b QuestTrackerButton
 ca1d9872 QuestTrackerFailureColor
 24eb55a3 QuestTrackerOngoingColor
 2f02af61 QuestTrackerSuccessColor
@@ -3913,6 +4142,7 @@ c11f858d QuickbuyBootsData
 bcda38ac QuickbuyConsumablesData
 a0dcad96 QuitButton
 51b70b0f QuitButtonDefinition
+395f0ee5 RTLOverride
 ceb9f0e4 RadialBackdrop
 36779387 RadialButtons
 115f9403 RadialEffect
@@ -3925,6 +4155,7 @@ cd810dff RadialOverlays
 7eb2af0c Rage
 8982f06e RandomLoadoutButton
 783217ca RandomWeight
+3f65fe98 RandomizeButton
 fadc0cd2 Range
 4cb7363a RangeButton
 074e7fb1 RangeHexVfx
@@ -3932,9 +4163,15 @@ fadc0cd2 Range
 51d9c2fa RangeTextTra
 5120063b RangeValue
 158508fb RangedResult
+ac9b9e27 Rank
 bf51f61a RankAndRatedTraKey
+f7fe637c RankColumnGroup
+cf4eb544 RankColumnSpine
+942b1550 RankEmblemTooltipButton
+08d18026 RankIcon
 20404526 RankIconData
 36cd05cf RankIcons
+aea3ee73 RankNameText
 a38f5021 RankOnlyTraKey
 ded25f4d RankPips
 9ea4e8e0 RankText
@@ -3960,9 +4197,11 @@ d029f9a7 RareGameIconFull
 1be0ba27 Rarity5Vfx
 9c574851 Rarity6CostHealthVfx
 d3ad3028 Rarity6Vfx
+5baac24d RarityBackdropDefault
 33064c6a RarityFrameCommon
 45172fe2 RarityFrameEpic
 c55abad0 RarityFrameLegendary
+d02a6781 RarityGem
 96867f27 RarityIcon
 49ba713c RarityIcons
 d75fac87 RarityUnderlays
@@ -4013,6 +4252,7 @@ d4402d3c ReceivedMessageColor
 72b36ecf RecipientChampion
 f931aa40 ReciprocityButton
 409b10ec ReciprocityOverlay
+67531bf1 ReciprocityOverlayMyBad
 3f9a5b28 RecommendationIcons
 7cddeb87 RecommendationTags
 64806c29 ReconnectScriptsWhilePaused
@@ -4032,6 +4272,7 @@ af1fcb6f RedeTeamElementUnselectedColor
 9ae7a82d RedeemTrakey
 92fc4077 ReduceClientCameraReplication
 d62df07c ReducedBoneSkinning
+5a81f39a Reference
 caa4adcf ReflectionFresnelBlue
 cf0fb7aa ReflectionFresnelGreen
 25e2e9fa ReflectionFresnelRed
@@ -4040,6 +4281,7 @@ cf0fb7aa ReflectionFresnelGreen
 d8e77c8a RefreshCostText
 402b0b1c RefreshCountText
 886b33d1 RefreshOverlayVfxSystem
+284d353b RefreshSpineAnimation
 afebc682 RefreshTextColor
 d3f22f32 RefreshTextDisabledColor
 72f38b69 RefreshVfxSystem
@@ -4075,6 +4317,7 @@ f36dc80c RelativeDisplayTime
 3ae03ba3 RelativeIndex
 76d25cd2 RelativeOffset
 32f745b1 RemakeText
+3b5dbe09 RemoveButton
 cd92a830 RemoveFriendIcon
 f762be03 RemoveNullRepMrgTemp
 7aa0fed6 RemoveOnPopCharacterData
@@ -4104,12 +4347,15 @@ e9427229 ReportOffensiveNameButton
 03cafaeb ReportVerbalAbuseButton
 40d43c67 RequiredChampion
 55783ab4 RequiredItems
+31af55e6 RequiredLevel
 06e605bc RequiredLocations
 adbac8f0 RequiredRole
 5c92b7f2 RequiredStat
 aca5b9b4 RequiredStatFormula
 754cdce2 RequiredTeamMatches
 2e1c1e9b RequiredUnitProperty
+f60220b1 RequiredValue
+01987941 Requirements
 37985b59 RequiresAlienware
 7b98ffdd RequiresMrtSupport
 812748a2 RequiresShaderModel3
@@ -4144,6 +4390,7 @@ f1b323f1 ResistVisualization
 d8e2be38 ResizingBackdrop
 a301d674 ResolveState
 1f4dd8bb ResourceBars
+6ebb734e ResourceBin
 ef3a0f33 ResourceResolver
 676de3d4 RespawnDelaySecs
 98155aac RespawnPoints
@@ -4153,6 +4400,7 @@ b9355f63 RespawnTimerText
 fbed4d38 RestoreDefaultsHitRegion
 be61dfc0 RestoreLuaStackAfterException
 55d2cdb6 RestrictedBuffName
+5b26202d Restriction
 0e94db68 RestrictionIcon
 0a377624 Result
 3adfaffb ResultGridItem
@@ -4178,7 +4426,9 @@ e71097c1 RevealEffect
 c034af02 RewardBannerDurationSecs
 650b36b5 RewardBannerTransitionOut
 578106f8 RewardBars
+9dcff647 RewardClaimed
 bea92ccf RewardDayText
+56c607bc RewardDescription
 48d0a28b RewardFrame
 b1be4e53 RewardHitRegion
 698fa777 RewardIcon
@@ -4191,6 +4441,7 @@ a3b20a4f RewardNumberDisplay
 a2fcf0a1 RewardRecipient
 715da9a6 RewardRegion
 ac8ff38b RewardSoundEvent
+7f7e87bc RewardTemplate
 5a84f4d1 RewardText
 73b81f0e RewardTexturePath
 cf691092 RewardTrakey
@@ -4210,15 +4461,18 @@ d9ecc0a5 RiftHeraldUpdate
 2c09f8fd RiftHeraldValue
 35400ee4 RightBias
 d4ab6161 RightBlackBar
+e02906f3 RightBufferRegion
 7a865b10 RightIcon
 eea7d7ea RightOffset
 8d7fe1ae RightPhaseIcons
 81830c20 RightPlayer
 86cae8b3 RightScene
+8862947d RightTeamIcon
 8f77a96a RightValue
 7ab8b646 RmaStaticLightGridIntensityScale
 9cf064e5 RmaStaticLightGridTexturePath
 bcc87490 RoleToCheck
+16ff3d1e Roll
 b4d81627 Roll10Button
 5ca6f7d0 Roll10Text
 d9777a69 Roll10TextClicked
@@ -4234,6 +4488,7 @@ b0269b5f RolloverProtectionButton
 9f409b47 RolloverProtectionTraKey
 ccd7fbbd RootArrowCollapsedTexturePath
 aff57d21 RootArrowExpandedTexturePath
+ca62500c RootGroup
 bbf7c1da RootNodes
 8b0cfc93 RootScene
 63025e38 RootSkin
@@ -4297,7 +4552,9 @@ a02e81c2 Scaling
 36799892 ScalingData
 61082251 ScalingTagKey
 2063cb13 Scene
+8fd0b34f SceneBackground
 b08b3138 SceneButtons
+5190b8e2 SceneCards
 61a1934d SceneChat
 4c65dbfd SceneChatChannelSelectView
 8284ebb3 SceneChatTextArea
@@ -4306,9 +4563,11 @@ aae83c5b SceneData
 fd920198 SceneDivider
 cc5d06d5 SceneHandle
 09ea9c93 SceneIcons
+8780886a SceneLeft
 bd81c797 SceneLink
 514777e7 SceneOptions
 88635bfb SceneRegion
+07c3bb37 SceneRight
 0b0dab8f SceneRoot
 ef8b25c1 SceneTemplate
 3c942365 SceneTexts
@@ -4322,10 +4581,12 @@ be2af3eb Scope
 d22f9095 Score
 788c1f81 ScoreDarkStar
 9678119d ScoreLineUi
+abbacbb6 ScoreName
 21de82da ScoreProject0
 22de846d ScoreProject1
 75538f6e ScoreText
 605b77ad ScoreUnderlay
+3f14593a ScoreValue
 25342e1a ScoreboardDisabledIcon
 4b359e39 ScoreboardEnabledFinalIcon
 5404b321 ScoreboardEnabledIcon
@@ -4343,7 +4604,11 @@ ebb7c246 ScriptEvent
 69400df7 ScriptHistoryIsAStack
 dcb68071 ScriptName
 54a5eeef ScriptedThresholdTypes
+bcb67e65 ScrollableArea
+5675f8db Scroller
+e0ece3d9 SearchBarGroup
 1d341a57 SearchBlockMain
+4b90d43d SearchButton
 6b16e5d8 SearchClearTextIcon
 d5cdd657 SearchEnableArea
 3c99e7ed SearchIconDefinition
@@ -4364,17 +4629,22 @@ ce650aed SecondElementSelectedAnimations
 26e561fa SecondaryAbilityResourceBar
 8fd9f6e7 SecondaryEpicness
 ace10fe5 SecondaryMission
+d5ca9b39 SecondarySpacer
 5161d08f Segments
 f7f3f138 SelectAllButton
 7d5b0efc SelectLeagueConfigComboBoxDefinition
 0ae85202 SelectLeagueFlavorComboBoxDefinition
 822356e3 SelectRandomVisibilityFlagForMap
+eca4ae5d SelectedClicked
 6217a7bf SelectedClickedStateElements
+74f8c1e9 SelectedDefault
 f9434611 SelectedFrame
 b2a3be3c SelectedHighlightElementData
 1d74cd47 SelectedHighlightTexture
+92d960e6 SelectedHover
 bb93399a SelectedHoverStateElements
 9c515f95 SelectedIcon
+4ce2d8e5 SelectedInactive
 308d1d82 SelectedMilestoneHighlight
 974ba1a3 SelectedReward
 46b68465 SelectedRewardBanner
@@ -4386,6 +4656,7 @@ a4015da5 SelectedTerrain
 5c1b6a6f SelectedUnitProperty
 e71785a8 SelectedVfx
 3cc9ac15 SelectionBoxColor
+a3a16c61 SelectionButton
 f7008b16 SelectionButtonCooldownSecs
 603563cf SelectionCostText
 9f4d6d37 SelectionLine
@@ -4400,6 +4671,7 @@ fa132c11 SelectorMovement
 d188b400 SelectorPairDataList
 645ba277 Self
 95c7bfdc SelfFrame
+c060792d SelfLayout
 8690b977 SelfLifeHealthTextColor
 0708c71e SelfMagicalDamageCounter
 123457f2 SelfMitigationLog
@@ -4437,7 +4709,9 @@ c719768a SeraphineStyleLarge
 7711eaa0 SeriesTitleHandle
 47061567 ServerSendRevealToCastTargets
 22c5e738 SetDestroyedInFlightWhenDestroyedForTarget
+a19156d9 SetHeaderName
 68c3f356 SetManually
+3a942548 SetName
 278d2a22 SetOverrideAttackDelay
 1a28d722 SetsCompletedToBackgroundEffects
 23e7082c ShaderParameters
@@ -4471,6 +4745,7 @@ fe3c602e ShopContentData
 4c0e565a ShopDragArea
 f73339c3 ShopDropRates
 ca073dd7 ShopExtendedTooltip
+5e800761 ShopItemsScene
 a1a10c03 ShopOrderPriority
 1732b0f4 ShopUndoRulesSpike
 b9ec3a3a ShortDescriptionTra
@@ -4508,6 +4783,7 @@ c6491af8 ShowToSpecificTeam
 55746daa ShowTraitContribution
 baeca565 ShowTraitNub
 d3faa4c3 ShowUiTextHandle
+cee40baf ShowUnownedText
 b5371aa1 ShowcaseView
 790c294e Shuffle
 e164f83a SideLength
@@ -4540,6 +4816,7 @@ f28bb814 SingleStandardItemText
 23a0d95c Size
 0af8cfbf SkillAxes
 ee141295 SkillLevels
+eb85bfc2 SkillTreeButton
 b76ba6d3 SkillUpButton
 336b65b8 Skin
 77f110db SkinAugment
@@ -4628,6 +4905,7 @@ f6647cd6 SourceResolutionWidth
 721e9831 Sources
 ef29baeb SourcesX
 ee29b958 SourcesY
+ea0e4ad5 Spacer
 3bdfdf95 SpacerData
 d1e01255 SpawnAnimationName
 297b86f2 SpawnBehavior
@@ -4661,6 +4939,7 @@ bbb37ef7 SpecialOfferToastScene
 71581e65 SpecifiedGameModes
 91bcee22 SpectateButton
 2ec20ebc SpectateButtonHandle
+3e23d344 SpectateLayout
 ea19600b SpectateTitleText
 79175e85 SpectatorOffsetRegion
 a3b8a1a8 SpectatorSoundKey
@@ -4700,6 +4979,7 @@ e7fa2b10 SpellVOOverrideSkins
 cd99a01f SpellsCheckTheirAmmoRequirement
 9edb827d SpineAtlasFile
 81c3985d SpineSkelFile
+c6668613 SplashIcon
 a3bd0d60 SplineInfo
 18685ca4 SponsorMaterial
 d81f2eaf SponsorTexturePath
@@ -4734,6 +5014,7 @@ a064eee8 StageNumber
 f97c4fb3 StandaloneLoadoutsLargeIcon
 78b71335 StandardContentBackground
 7f7cccb7 StandardContentLayout
+dfadfc6b StandardGroup
 774a08b1 StandardItemRarityTexturePaths
 22be45fe StandardItemStarLevelTexturePaths
 9c5a51d5 StandardItemTemplate
@@ -4747,6 +5028,7 @@ fb07e638 StarBorders
 da8bcd33 StarLevel2Vfx
 41ed38a6 StarLevel3Vfx
 a952b6b4 StarLevelOverlays
+41752f5a StarLevelText
 91672418 StarShardCurrencyButton
 8abea360 StarShardCurrencyWidget
 d1abeb9d StarShardDecreaseVfx
@@ -4795,6 +5077,7 @@ ae8a302d StatStoneIcon
 6c1dc1b4 StatStonesStats
 49677139 StatTooltipUpperRightAnchor
 783132f6 State
+b3e1c78a StateBorderFX
 1545ddef StateEventId
 fd81566b StateIndicatorList
 fce96f95 StateLogicEventSignalId
@@ -4814,6 +5097,7 @@ ad139ea4 StatusDurationBar
 e76d6f1b StatusEffects
 02d1d21e StatusIcon
 dd4e4197 StatusIcons
+05388a5b StatusMarkerScene
 2cf093ce StatusMessage
 5efd144d StatusMessageText
 be72a198 StatusText
@@ -4877,7 +5161,9 @@ a826e328 SubmeshesToShow
 a77beff4 SubmitButtonDefinition
 93d2d9f3 SubmitReportButton
 a79bef3c Subteam
+312f9dd7 SubteamBadge
 dc71538e SubteamColumn
+c030cc99 SubteamHitRegion
 115bfcb9 Subtitle
 9f40f2a9 SubtitleBackground
 ac509cfc SubtitleLeftElement
@@ -4887,6 +5173,7 @@ ec5f2c03 SubtitleRightElement
 a107ae5a SubtitleTra
 35692f11 SubtitleTraKey
 42c1a561 Subtract
+d64694f4 SuccessBackground
 f0ca32fe SummonerChallengeBorderCrystal
 648ae538 SummonerChallengeCrystal
 f489c470 SummonerEmoteButtons
@@ -4921,7 +5208,9 @@ d8851203 SunRadiusForShadows
 19c50f94 SurrenderVoteCompleteDialogPersistsSec
 0dfbc2ee SurrenderVoteCompleteEliminateDelaySec
 a82b8a32 SurrenderVoteDurationSec
+602b4f3c SwapAnimation
 d11d9cae SwapButton
+44adf547 SwapButtonCooldown
 bedae0ce SwapData
 1eebe507 Swaps
 778d6dee SwitchIntPairDataList
@@ -4958,6 +5247,9 @@ d2af08d4 TagText
 fb0b6bed TaglineLink
 e08272cf TakeCamp
 6e53904d TallyAutoCloseDelay
+b5d4b3cf TallyGroup1
+b6d4b562 TallyGroup2
+b7d4b6f5 TallyGroup3
 32608848 Target
 77cea54c TargetAlpha
 20cd725d TargetAnimData
@@ -4969,6 +5261,8 @@ b16c581f TargetColor
 43851f70 TargetElement
 166d5141 TargetForgivenessDefinitions
 71a473ba TargetForgivenessRange
+d3547072 TargetFrameOffsetRegionClosed
+09c56227 TargetFrameOffsetRegionOpened
 66afef9c TargetFrameVisibilityKey
 5772c52d TargetFxKey
 8bfaa311 TargetGlobalBountyState
@@ -4995,7 +5289,11 @@ fb8157bc TargetingParametersList
 a2fd7d0c Team
 d20c2707 Team1
 5ee57c68 Team1AllyGlow
+3594d7df Team1BaronKillsIcon
+e7bfbb59 Team1BaronKillsText
 cd9fbedc Team1BuffIcons
+d736c5a4 Team1DragonKillsIcon
+6975adea Team1DragonKillsText
 9384bafc Team1EnemyGlow
 28a35ef0 Team1GoldIcon
 0049973e Team1GoldText
@@ -5014,7 +5312,11 @@ ececf4a0 Team1TowerKillsIcon
 64718c8e Team1TowerKillsText
 d30c289a Team2
 193f7129 Team2AllyGlow
+d43baf7a Team2BaronKillsIcon
+e47ec0fc Team2BaronKillsText
 c4bc0497 Team2BuffIcons
+ba6de6d3 Team2DragonKillsIcon
+b2d11fb5 Team2DragonKillsText
 d8b42783 Team2EnemyGlow
 6de112d9 Team2GoldIcon
 16026e0f Team2GoldText
@@ -5038,7 +5340,11 @@ a3c2f2f3 Team2TowerKillsText
 a0618d73 TeamByeText
 5502013c TeamChampionsButton
 6479865e TeamChatChannelTra
+9ed937e5 TeamCodeInfoButton
+653ba7b0 TeamCodeInfoTooltipRegion
+cdfd3bca TeamCodeText
 cb5d0824 TeamCompareOp
+b73bf774 TeamCountText
 f61f63d4 TeamData
 54d8e282 TeamDisplayData
 bc5518ba TeamDisplayNameTra
@@ -5060,6 +5366,7 @@ cdd1c749 TeamHitRegion
 77d5615d TeamIcon
 4133bc1e TeamIconPath
 d2e7fb6a TeamIcons
+ddc2fcb5 TeamImportButton
 529c6838 TeamKillsIcon
 5e47d84d TeamLeftDisplay
 345fd852 TeamLogoIcon
@@ -5087,17 +5394,21 @@ b038b134 TeamPriority
 0ca580bd TeamScoreVisibilityKey
 af92c273 TeamScoresDefinitions
 f75339e0 TeamSelfTemplate
+e71e9783 TeamSeparator
 cab626a5 TeamSize
 b57b1a79 TeamSlotDisabledIcon
 40dfc230 TeamSlotSourceIcon
+7bf984ca TeamSlotTemplate
 8e8371bb TeamSucceededEvent
 141437e7 TeamSucceededPriorityBehavior
 7ae49fa3 TeamSurrenderVoterCount
+5d473c96 TeamTemplate
 26e50f8c TeamToBuff
 51258d07 TeamToCheck
 ab994058 TeamToSpawn
 da882c4e TeamTooltipAnchor
 6ec59133 TeamTwoIcon
+c44cfe37 TeamsLayout
 10bce373 TeamtagText
 59e4ca25 TeleportDistance
 40604e5c TeleportInnerRadius
@@ -5134,6 +5445,7 @@ fb201011 TextFrameElement
 44ed626d TextSummonerName
 a197955f TextTra
 ce1d60e6 TextTraKey
+a077200a TextboxIcon
 3e8d4337 Texts
 e502c1dc TextureData
 7ac1008a TextureDefinitions
@@ -5238,12 +5550,16 @@ acaafa13 TierGroupsLayout
 d9016eff TierIndex
 fbb82562 TierOneIcon
 102dbcce TierOneThreshold
+2414834f TierTemplate
 da935a85 TierTitle
 7b542d28 TierTwoIcon
 c8d3cdb0 TierTwoThreshold
 cea0af0e Tiers
 494a4b42 TileItemIconDefinition
 cc2a34f0 TimeBackdropHandle
+009f720c TimeBarLeft
+56de9f99 TimeBarRight
+9c2732f2 TimeBarText
 5ec620b7 TimeControleVisibilityKey
 4067a66e TimeDilation
 d6f4f9d5 TimeExpiredCampIcon
@@ -5281,6 +5597,7 @@ bf551875 TimerBarFx
 22ed07f6 TimerDefaultFill
 67ea8acd TimerElementGroup
 b52b690b TimerElements
+42a45c9c TimerFX
 ce9dcc79 TimerFillLeftTexture
 da33e53a TimerFillRightTexture
 22d4499e TimerFillTexture
@@ -5314,6 +5631,7 @@ ed15b77e TipElementList
 07e760c8 TitleAcquisitionType
 ec897e20 TitleArea
 61edf0f9 TitleBackground
+55a243d9 TitleData
 4a72336b TitleDefeatTra
 559c9ff7 TitleForOtherTeam
 35593d0b TitleForSameTeam
@@ -5364,6 +5682,7 @@ b0af3cbf TooltipChatNameChaos
 d62b4497 TooltipChatNameOrder
 b7deb4ab TooltipDescriptionTra
 b6c9bff1 TooltipEnemyLocKey
+ebd43853 TooltipGroup
 137f4e36 TooltipHandle
 a96de34a TooltipIconPath
 3144ed60 TooltipLink
@@ -5383,6 +5702,7 @@ ea790206 TooltipTitleScene
 a0b80217 TooltipTitleTra
 9afb2161 TooltipTra
 5ff07ba8 TooltipTraKey
+63a05834 TooltipUpperCenterAnchor
 043a9b97 TooltipUpperRightAnchor
 cd6f2cf9 Tooltips
 4225a524 TopBarIcon
@@ -5425,6 +5745,7 @@ bb639057 TrailTimeToConsiderForVisibility
 0c1474e3 TraitAssignments
 053a1f33 TraitData
 a67b394f TraitDescription
+7993a621 TraitFilterButton
 f63a5820 TraitFooter
 e8a36b45 TraitFooterPadding
 4ac89c6f TraitGrid
@@ -5441,6 +5762,7 @@ f74504c0 TraitLists
 afca26a4 TraitPageRegion
 09a34408 TraitProgressionDisplay
 6c6c53b9 TraitTemplate
+7bef87dc TraitText
 213ab44b TraitTooltipTopHandle
 03268568 TraitTooltipTopIcon
 f2cdca2e TraitTooltipTopName
@@ -5494,6 +5816,7 @@ ecca6f9a TriggerTime
 fddc357d TroveButton
 ec18e169 TroveNameText
 8eaa24ce TrovesButton
+5b1c302e TrovesChestIcon
 7a3fea92 TrovesHighlightVfx
 e6014d27 TrovesRewardTexturePath
 b9ed4a26 TrovesThumbnail
@@ -5506,6 +5829,7 @@ e0de816d TrovesTokensStoreDialog
 c00c3194 TrovesTokensWidget
 e241a860 TrueDamage
 d5ce2141 TrueDamageCritical
+4a7b08fa TrueDamageEnhanced
 f02a6e99 TurboMobileOverrideLoadable
 1824e15f TurboOverrideLoadable
 1ea12a67 TurnOffTimeSec
@@ -5561,6 +5885,7 @@ e9663f18 UltCooldownGem
 a9443951 UnSelectableByEnemies
 86716d77 UnSlowable
 3366a183 UncensoredImages
+c0f4b3bf UndoButton
 3d304c52 UndoButtonDefinition
 bca3d385 UnifiedClock
 ffe79444 UnifiedDeathEffect
@@ -5600,6 +5925,7 @@ e53c54b4 UnitShade
 b420560a UnitSlotBorders
 67126180 UnitSlotRegions
 6c959f38 UnitSlots
+403907ce UnitSlotsLayout
 755be631 UnitStatus
 e7ae6ff1 UnitStatusPriorityList
 144aef5a UnitTags
@@ -5609,12 +5935,17 @@ e7ae6ff1 UnitStatusPriorityList
 8d0b4568 UnitsOnlyMoveForward
 f119907f UnknownDamageIconTextureName
 a9f84744 UnlimitedSpellBuffs
+d7cb25a0 UnlockRequirementScene
 5d777e64 UnownedStarShardIcon
 7a6c84ab UnownedTierButton
 e8eebaa7 UnpurchaseableOverlay
 c60e4a75 UnrankedTraKey
 a05c8daf UnreadIcon
 4e59658f UnreadMessagesBadgeVFX
+84be004c UnselectedClicked
+f8b71cc4 UnselectedDefault
+d3231b43 UnselectedHover
+1683dbca UnselectedInactive
 68f017fa Unstoppable
 7d263bc3 UpOffset
 2ed9dd77 UpdateCameraBeforeParticles
@@ -5769,6 +6100,7 @@ a873c4a3 VictoryFX
 41491a35 VictoryHighlightVfx
 080bb6b9 VideoEncoding
 643fd448 VideoPrefix
+e50186a0 VideoRegion
 7b10d5cb VietnameseRatingLabel
 ed511190 ViewController
 799f2859 ViewControllers
@@ -5831,6 +6163,7 @@ ef853971 WeekAbbreviationTraKey
 ba21570a WeeklyMissionTemplate
 35bd5a3e WeightedSelectionCalculator
 56f22512 WelcomeDialogViewController
+3cbd727a WelcomeMessage
 35feae85 WesternNumberGrouping
 95876e1f Width
 37a74ce3 WidthChangeType
@@ -5863,6 +6196,7 @@ b9cfc1ab YRotationDegrees
 276cfa24 YesButton
 536a273f YesterdayTraKey
 0390dc47 Zone
+df92e232 Zoom
 6bf0f1e8 ZoomEase
 8760e377 ZoomInEase
 a583c2dc ZoomInTime

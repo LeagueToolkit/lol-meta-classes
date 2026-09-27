@@ -2740,7 +2740,7 @@ class 0x50794e0e():
     pass
 
 class 0x50db156b(MapGraphicsFeature):
-    options: (Embed, 0x0, 0x0, PostEffectOptions) = {"0x81ed7bcd":false,"0x88ab79b5":2000.0,"0x8e1fed5e":800.0,"0xadee7179":1.0,"0xb4e1daa3":0.0,"0xcdbcbab6":false,"0xdcc81602":5000.0,"Coc":10.0,"DepthFog":false,"DepthFogColor":[0.0,0.0,0.0,1.0],"DepthFogEnd":8000.0,"DepthFogMaxIntensity":1.0,"DepthFogStart":5000.0,"Dof":false,"DofDebug":false,"HeightFog":false,"HeightFogColor":[0.0,0.0,0.0,1.0],"HeightFogEnd":-100.0,"HeightFogMaxIntensity":1.0,"HeightFogStart":300.0}
+    options: (Embed, 0x0, 0x0, PostEffectOptions) = {"0x81ed7bcd":false,"0x88ab79b5":2000.0,"0x8e1fed5e":800.0,"0xb4e1daa3":0.0,"0xcdbcbab6":false,"0xdcc81602":5000.0,"BloomIntensityScale":1.0,"Coc":10.0,"DepthFog":false,"DepthFogColor":[0.0,0.0,0.0,1.0],"DepthFogEnd":8000.0,"DepthFogMaxIntensity":1.0,"DepthFogStart":5000.0,"Dof":false,"DofDebug":false,"HeightFog":false,"HeightFogColor":[0.0,0.0,0.0,1.0],"HeightFogEnd":-100.0,"HeightFogMaxIntensity":1.0,"HeightFogStart":300.0}
     pass
 
 class 0x51150233(SeqInputUiVfx):
@@ -4633,7 +4633,7 @@ class 0x80d914e0(ISequenceActionInstance):
 class 0x80f31f46():
     RimOffset: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
     0xdba24ad6: (F32, 0x0, 0x0, 0x0) = 1.0
-    0xe9552339: (F32, 0x0, 0x0, 0x0) = 275.0
+    ModelHeight: (F32, 0x0, 0x0, 0x0) = 275.0
     0xed8edf74: (F32, 0x0, 0x0, 0x0) = 0.10000000149011612
     pass
 
@@ -7455,7 +7455,7 @@ class 0xc7e628b9():
     pass
 
 class 0xc83d315a():
-    MapLightInfo: (Embed, 0x0, 0x0, MapLightingInfo) = {"0x671e8711":0.0,"0xce4c04f9":0.0,"HdrEnvDiffuseScale":3.0,"NormalOffsetBias":0.0,"OverrideSunSpecDirection":null,"PbrSunAdditionalScale":10.0,"ScaleSunShadowIntensity":1.0,"ShadowBias":0.0006000000284984708,"SunIntensityScale":1.0,"SunRadiusForShadows":0.0,"fogAlternateColor":[0.10000000149011612,0.10000000149011612,0.20000000298023224,1.0],"fogColor":[0.20000000298023224,0.20000000298023224,0.4000000059604645,1.0],"fogEmissiveRemap":1.899999976158142,"fogEnabled":true,"fogLowQualityModeEmissiveRemap":0.019999999552965164,"fogStartAndEnd":[0.0,-2000.0],"groundColor":[0.10000000149011612,0.10000000149011612,0.10000000149011612,1.0],"horizonColor":[0.4000000059604645,0.4000000059604645,0.4000000059604645,1.0],"lightMapColorScale":1.0,"skyLightColor":[0.7049999833106995,0.8799999952316284,1.0,1.0],"skyLightScale":0.20000000298023224,"sunColor":[1.0,1.0,1.0,1.0],"sunDirection":[0.0,0.7070000171661377,0.7070000171661377]}
+    MapLightInfo: (Embed, 0x0, 0x0, MapLightingInfo) = {"0xce4c04f9":0.0,"HdrEnvDiffuseScale":3.0,"NormalOffsetBias":0.0,"OverrideSunSpecDirection":null,"PbrSunAdditionalScale":10.0,"ScaleSunShadowIntensity":1.0,"ShadowBias":0.0006000000284984708,"SunIntensityScale":1.0,"SunPenumbraSaturation":0.0,"SunRadiusForShadows":0.0,"fogAlternateColor":[0.10000000149011612,0.10000000149011612,0.20000000298023224,1.0],"fogColor":[0.20000000298023224,0.20000000298023224,0.4000000059604645,1.0],"fogEmissiveRemap":1.899999976158142,"fogEnabled":true,"fogLowQualityModeEmissiveRemap":0.019999999552965164,"fogStartAndEnd":[0.0,-2000.0],"groundColor":[0.10000000149011612,0.10000000149011612,0.10000000149011612,1.0],"horizonColor":[0.4000000059604645,0.4000000059604645,0.4000000059604645,1.0],"lightMapColorScale":1.0,"skyLightColor":[0.7049999833106995,0.8799999952316284,1.0,1.0],"skyLightScale":0.20000000298023224,"sunColor":[1.0,1.0,1.0,1.0],"sunDirection":[0.0,0.7070000171661377,0.7070000171661377]}
     CubemapPath: (String, 0x0, 0x0, 0x0) = ""
     CubemapProbeGuid: (String, 0x0, 0x0, 0x0) = ""
     CubemapScale: (F32, 0x0, 0x0, 0x0) = 1.0
@@ -8319,15 +8319,15 @@ class 0xde93beb7(ViewController):
 
 class 0xdea3b4a8(IGameModeConfigClient):
     0x11b31984: (F32, 0x0, 0x0, 0x0) = 12.0
-    0x160ab337: (F32, 0x0, 0x0, 0x0) = 2.3499999046325684
-    0x1a5286ae: (F32, 0x0, 0x0, 0x0) = 1.0499999523162842
+    WakeTroughBackwardBiasMaxSpeedMult: (F32, 0x0, 0x0, 0x0) = 2.3499999046325684
+    WakeTroughWidthMult: (F32, 0x0, 0x0, 0x0) = 1.0499999523162842
     0x1b319ff6: (F32, 0x0, 0x0, 0x0) = 40.0
     0x2b79967: (F32, 0x0, 0x0, 0x0) = 0.8999999761581421
     TextureSize: (U32, 0x0, 0x0, 0x0) = 512
-    0x311ee6fa: (F32, 0x0, 0x0, 0x0) = 0.75
+    WakeFrontWidthMult: (F32, 0x0, 0x0, 0x0) = 0.75
     0x3d9c3ae4: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x41607dcd: (F32, 0x0, 0x0, 0x0) = 1.850000023841858
-    0x45d1ac73: (F32, 0x0, 0x0, 0x0) = 4.75
+    WakeTroughBackwardBiasMinSpeedMult: (F32, 0x0, 0x0, 0x0) = 1.850000023841858
+    WakeTroughLengthMaxSpeedMult: (F32, 0x0, 0x0, 0x0) = 4.75
     0x4feff69e: (F32, 0x0, 0x0, 0x0) = 0.2199999988079071
     0x5801fe58: (F32, 0x0, 0x0, 0x0) = 0.550000011920929
     0x58947b80: (Bool, 0x0, 0x0, 0x0) = true
@@ -8339,7 +8339,7 @@ class 0xdea3b4a8(IGameModeConfigClient):
     0x6de3397a: (F32, 0x0, 0x0, 0x0) = 6000.0
     0x73ba45f7: (F32, 0x0, 0x0, 0x0) = 120.0
     NormalStrength: (F32, 0x0, 0x0, 0x0) = 2.0
-    0x74804a02: (F32, 0x0, 0x0, 0x0) = 2.6500000953674316
+    WakeTroughWeightMult: (F32, 0x0, 0x0, 0x0) = 2.6500000953674316
     0x7b6de22c: (F32, 0x0, 0x0, 0x0) = 0.44999998807907104
     0x82d0f544: (F32, 0x0, 0x0, 0x0) = 0.8999999761581421
     0x84ee1c55: (F32, 0x0, 0x0, 0x0) = 40.0
@@ -8347,26 +8347,26 @@ class 0xdea3b4a8(IGameModeConfigClient):
     0x89b60cf0: (F32, 0x0, 0x0, 0x0) = 0.029999999329447746
     WaterEnabled: (Bool, 0x0, 0x0, 0x0) = true
     0x94b9171c: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x9b0695aa: (F32, 0x0, 0x0, 0x0) = 0.75
+    WakeFrontLengthMult: (F32, 0x0, 0x0, 0x0) = 0.75
     0x9bd4c8cb: (F32, 0x0, 0x0, 0x0) = 0.3499999940395355
     0x9eebddf: (F32, 0x0, 0x0, 0x0) = 0.17499999701976776
     0x9ffc5e09: (F32, 0x0, 0x0, 0x0) = 1.0
     0xaa5c79ec: (F32, 0x0, 0x0, 0x0) = 0.550000011920929
     0xafa2c3aa: (F32, 0x0, 0x0, 0x0) = 1.5
-    0xb100dc8e: (F32, 0x0, 0x0, 0x0) = 1.0
-    0xb1c48ff9: (F32, 0x0, 0x0, 0x0) = 1.25
+    WakeFrontWeightMult: (F32, 0x0, 0x0, 0x0) = 1.0
+    WakeAmplitudeMaxSpeedMult: (F32, 0x0, 0x0, 0x0) = 1.25
     0xb2fa4c40: (F32, 0x0, 0x0, 0x0) = 0.8500000238418579
     0xb34f4c08: (F32, 0x0, 0x0, 0x0) = 1.5499999523162842
     0xb3f2d82f: (F32, 0x0, 0x0, 0x0) = 200.0
     0xbaaa6000: (F32, 0x0, 0x0, 0x0) = 0.44999998807907104
     Damping: (F32, 0x0, 0x0, 0x0) = 0.949999988079071
-    0xbd7fb06f: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
+    WaveSpeedSq: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
     0xc5c8e822: (F32, 0x0, 0x0, 0x0) = 0.5
     0xcbc26119: (F32, 0x0, 0x0, 0x0) = 40.0
     0xcc653cfe: (F32, 0x0, 0x0, 0x0) = 0.5
-    0xcd9f738: (F32, 0x0, 0x0, 0x0) = 5.0
+    WaveSpeedAmpGain: (F32, 0x0, 0x0, 0x0) = 5.0
     0xce02655: (U32, 0x0, 0x0, 0x0) = 64
-    0xd27c716b: (F32, 0x0, 0x0, 0x0) = 0.5
+    WakeAmplitudeMinSpeedMult: (F32, 0x0, 0x0, 0x0) = 0.5
     0xd573fd6f: (F32, 0x0, 0x0, 0x0) = 1.0
     SandEnabled: (Bool, 0x0, 0x0, 0x0) = true
     0xd92fbcb3: (F32, 0x0, 0x0, 0x0) = 2.5999999046325684
@@ -8377,8 +8377,8 @@ class 0xdea3b4a8(IGameModeConfigClient):
     0xef3c7f81: (F32, 0x0, 0x0, 0x0) = 45.0
     0xf74bfaf: (F32, 0x0, 0x0, 0x0) = 1.149999976158142
     0xf8b87dfd: (F32, 0x0, 0x0, 0x0) = 550.0
-    0xfb648e3a: (F32, 0x0, 0x0, 0x0) = 0.699999988079071
-    0xfc60df61: (F32, 0x0, 0x0, 0x0) = 2.25
+    WaveSpeedMinMultiplier: (F32, 0x0, 0x0, 0x0) = 0.699999988079071
+    WakeTroughLengthMinSpeedMult: (F32, 0x0, 0x0, 0x0) = 2.25
     pass
 
 class 0xdec5122e():
@@ -17119,7 +17119,7 @@ class LightRegionGeComponentDef(IGeComponentDef):
     pass
 
 class LightRegionRenderData():
-    0x2119af58: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
+    ReflectionSkyTint: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
     HeightFogEnd: (F32, 0x0, 0x0, 0x0) = -6500.0
     CharacterSunLightDirection: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     DepthFogEnd: (F32, 0x0, 0x0, 0x0) = 3300.0
@@ -18527,7 +18527,7 @@ class MapLaneComponent(MapComponent):
 
 class MapLightRegions(MapGraphicsFeature):
     TextureWidth: (U16, 0x0, 0x0, 0x0) = 1024
-    DefaultRenderData: (Embed, 0x0, 0x0, 0x3069f601) = {"0x2119af58":[1.0,1.0,1.0],"CharacterProbe":"0x0","CharacterProbeIndex":0,"CharacterSunLightColor":[1.0,1.0,1.0],"CharacterSunLightDirection":[0.0,0.0,0.0],"DepthFogColor":[0.03519999980926514,0.125,0.3050000071525574],"DepthFogEnd":3300.0,"DepthFogMaxIntensity":0.25,"DepthFogStart":2075.0,"HeightFogColor":[0.4050000011920929,0.843999981880188,0.9380000233650208],"HeightFogEnd":-6500.0,"HeightFogMaxIntensity":0.05000000074505806,"HeightFogStart":-400.0,"Probe":"0x0","ProbeIndex":0,"SunLightColor":[1.0,1.0,1.0],"priority":0}
+    DefaultRenderData: (Embed, 0x0, 0x0, 0x3069f601) = {"CharacterProbe":"0x0","CharacterProbeIndex":0,"CharacterSunLightColor":[1.0,1.0,1.0],"CharacterSunLightDirection":[0.0,0.0,0.0],"DepthFogColor":[0.03519999980926514,0.125,0.3050000071525574],"DepthFogEnd":3300.0,"DepthFogMaxIntensity":0.25,"DepthFogStart":2075.0,"HeightFogColor":[0.4050000011920929,0.843999981880188,0.9380000233650208],"HeightFogEnd":-6500.0,"HeightFogMaxIntensity":0.05000000074505806,"HeightFogStart":-400.0,"Probe":"0x0","ProbeIndex":0,"ReflectionSkyTint":[1.0,1.0,1.0],"SunLightColor":[1.0,1.0,1.0],"priority":0}
     TextureHeight: (U16, 0x0, 0x0, 0x0) = 1024
     TextureRenderDataList: (List2, 0x0, Embed, LightRegionTextureData) = []
     pass
@@ -18545,7 +18545,7 @@ class MapLightingInfo():
     fogAlternateColor: (Vec4, 0x0, 0x0, 0x0) = [0.10000000149011612,0.10000000149011612,0.20000000298023224,1.0]
     groundColor: (Vec4, 0x0, 0x0, 0x0) = [0.10000000149011612,0.10000000149011612,0.10000000149011612,1.0]
     sunColor: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
-    0x671e8711: (F32, 0x0, 0x0, 0x0) = 0.0
+    SunPenumbraSaturation: (F32, 0x0, 0x0, 0x0) = 0.0
     fogStartAndEnd: (Vec2, 0x0, 0x0, 0x0) = [0.0,-2000.0]
     fogEnabled: (Bool, 0x0, 0x0, 0x0) = true
     NormalOffsetBias: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -18798,7 +18798,7 @@ class MapSunProperties(MapComponent):
     fogAlternateColor: (Vec4, 0x0, 0x0, 0x0) = [0.10000000149011612,0.10000000149011612,0.20000000298023224,1.0]
     groundColor: (Vec4, 0x0, 0x0, 0x0) = [0.10000000149011612,0.10000000149011612,0.10000000149011612,1.0]
     sunColor: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
-    0x671e8711: (F32, 0x0, 0x0, 0x0) = 0.0
+    SunPenumbraSaturation: (F32, 0x0, 0x0, 0x0) = 0.0
     fogStartAndEnd: (Vec2, 0x0, 0x0, 0x0) = [0.0,-2000.0]
     fogEnabled: (Bool, 0x0, 0x0, 0x0) = true
     NormalOffsetBias: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -21223,7 +21223,7 @@ class PostEffectOptions():
     HeightFogStart: (F32, 0x0, 0x0, 0x0) = 300.0
     DofDebug: (Bool, 0x0, 0x0, 0x0) = false
     DepthFogStart: (F32, 0x0, 0x0, 0x0) = 5000.0
-    0xadee7179: (F32, 0x0, 0x0, 0x0) = 1.0
+    BloomIntensityScale: (F32, 0x0, 0x0, 0x0) = 1.0
     HeightFogColor: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,1.0]
     0xb4e1daa3: (F32, 0x0, 0x0, 0x0) = 0.0
     0xcdbcbab6: (Bool, 0x0, 0x0, 0x0) = false
@@ -30485,7 +30485,7 @@ class VfxLegacyRenderComponent(VfxRenderComponentBase):
     materialOverrideDefinitions: (List2, 0x0, Embed, VfxMaterialOverrideDefinitionData) = []
     AlphaCutoff: (U8, 0x0, 0x0, 0x0) = 5
     0x38059ffe: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
-    0x3bd77ed1: (Flag, 0x0, 0x0, 0x0) = false
+    ApplyTeamColorCorrection: (Flag, 0x0, 0x0, 0x0) = false
     texture: (String, 0x0, 0x0, 0x0) = ""
     reflectionDefinition: (Pointer, 0x0, 0x0, VfxReflectionDefinitionData) = null
     0x471a88ae: (Embed, 0x0, 0x0, IntegratedValueVector2) = {"constantValue":[0.0,0.0],"dynamics":null}

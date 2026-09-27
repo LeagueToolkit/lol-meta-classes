@@ -1481,3 +1481,4 @@
 {"hash": "af8d054a", "name": "TextVariable", "batch": "nova-item-getters", "cracked": "2026-08-27", "status": "pending", "pr": "-"}
 {"hash": "9837f87b", "name": "VariableValues", "batch": "nova-item-getters", "cracked": "2026-08-27", "status": "pending", "pr": "-"}
 {"hash": "8ce41f71", "name": "WaterEnabled", "batch": "nova-item-getters", "cracked": "2026-08-27", "status": "pending", "pr": "-"}
+{"hash": "b1ea6248", "name": "Fill", "batch": "vfx-driver-graph-math", "cracked": "2026-09-27", "status": "pending", "pr": "-"}

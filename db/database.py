@@ -149,11 +149,6 @@ class 0x14da24c4(0xd04cfb37):
     SwitchGroup: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x14daebe5(IVfxVector4Driver):
-    0xb1ea6248: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
-    Input: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
-    pass
-
 class 0x14f5896d():
     TriggerValue: (I32, 0x0, 0x0, 0x0) = 0
     MilestoneDefinitions: (List2, 0x0, Link, MilestoneDefinition) = []
@@ -246,11 +241,6 @@ class 0x1668b3e5():
     EventPassCompletedText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     EventPassCompletedFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xed10fe9a: (Embed, 0x0, 0x0, UiMilestoneProgressMeter) = {"BarVfxGroup":"0x0","BonusSkin":{"0xb5df893e":[],"BarElements":[],"ReverseDirectionalTipElements":[],"Sliver":"0x0","TipElements":[]},"ExpText":"0x0","LevelText":"0x0","LevelUpVfxGroup":"0x0","MeterEasingType":0,"MeterTransitionTimeSecs":0.0,"NormalSkin":{"0xb5df893e":[],"BarElements":[],"ReverseDirectionalTipElements":[],"Sliver":"0x0","TipElements":[]},"ProgressBarDelayTime":0.0,"ProgressMeter":"0x0","ProgressMeterSegments":[],"ShowLevelUp":false,"XpValueToSegmentIndex":[]}
-    pass
-
-class 0x168d2f0d(IVfxVector2Driver):
-    Vector2: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
-    Divisor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
     pass
 
 class 0x16e6e17a(0x88b37dd7):
@@ -416,11 +406,6 @@ class 0x1a6cd1f8(IScriptValueGet):
 class 0x1a9062ce(ScriptTableSet):
     pass
 
-class 0x1a95dbf(IVfxFloatDriver):
-    Select: (U8, 0x0, 0x0, 0x0) = 0
-    Input: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
-    pass
-
 class 0x1aaa358b(0x49832ca7):
     value: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -556,12 +541,6 @@ class 0x1d452085(IGameCalculationPartWithStats):
     pass
 
 class 0x1d45d814(0xe2a48eac):
-    pass
-
-class 0x1d708462(IVfxVector3Driver):
-    Left: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
-    Comparator: (U8, 0x0, 0x0, 0x0) = 0
-    Right: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
     pass
 
 class 0x1d9354fe(MapAction):
@@ -1619,13 +1598,6 @@ class 0x3572c5be():
 class 0x359681d9(0x87a6a884):
     pass
 
-class 0x3624c20b(IVfxVector4Driver):
-    W: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    Y: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    X: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    Z: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    pass
-
 class 0x36255113(AnnouncerVoEventTypeConcrete):
     0x11e8956e: (String, 0x0, 0x0, 0x0) = ""
     TeamSucceededPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
@@ -1773,11 +1745,6 @@ class 0x396e5d4f(IGameModeConfig):
 class 0x3978db55():
     0x927c10c9: (U64, 0x0, 0x0, 0x0) = 0
     0xb9f88dc0: (U64, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0x399295b9(IVfxVector2Driver):
-    Y: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    X: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
     pass
 
 class 0x39a9452c():
@@ -2174,10 +2141,6 @@ class 0x4141c557(BaseParams):
 
 class 0x4146f732(InputEventBoolKeybind):
     0xfa27d217: (U32, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0x414d1503(IVfxFloatDriver):
-    Range: (Vec2, 0x0, 0x0, 0x0) = [0.0,1.0]
     pass
 
 class 0x41bb3fd7():
@@ -2579,12 +2542,6 @@ class 0x4b24468b():
 
 class 0x4b26ffad(0x27071fbd):
     value: (Map, U32, Hash, 0x0) = {}
-    pass
-
-class 0x4b5aa9eb(IVfxVector4Driver):
-    Left: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
-    Comparator: (U8, 0x0, 0x0, 0x0) = 0
-    Right: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
     pass
 
 class 0x4b7b05df():
@@ -3505,11 +3462,6 @@ class 0x64502b50(0xd04cfb37):
     0xa5baa7fc: (List2, 0x0, Pointer, 0xd04cfb37) = []
     pass
 
-class 0x64707da8(IVfxVector3Driver):
-    Vector3: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
-    Divisor: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
-    pass
-
 class 0x64865442(ParamsChampionKill):
     pass
 
@@ -3563,12 +3515,6 @@ class 0x65dbf6d0():
     SpineAnimation: (Hash, 0x0, 0x0, 0x0) = "0x0"
     UnitPropertyToggle: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ParticleSystem: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x65e1b9a2(IVfxVector3Driver):
-    Y: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    X: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    Z: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
     pass
 
 class 0x65f7bea2(ClientScript):
@@ -4191,11 +4137,6 @@ class 0x76b62e7c(0x7ffa2e6f):
     number: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0x76c70374(IVfxVector3Driver):
-    Select: (U8, 0x0, 0x0, 0x0) = 0
-    Input: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
-    pass
-
 class 0x76e13dd9():
     type: (U32, 0x0, 0x0, 0x0) = 0
     0x890ba5ff: (U64, 0x0, 0x0, 0x0) = 0
@@ -4287,11 +4228,6 @@ class 0x791d1108(0x7379bca6):
     Material: (Pointer, 0x0, 0x0, 0xb76a119c) = null
     pass
 
-class 0x791d4f88(IVfxVector4Driver):
-    xy: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
-    Zw: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
-    pass
-
 class 0x791eb92e():
     0x5f44bdcb: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x76b81422: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -4301,11 +4237,6 @@ class 0x791eb92e():
     pass
 
 class 0x7945f8bd(ISequenceActionInstance):
-    pass
-
-class 0x799a50ac(IVfxFloatDriver):
-    Select: (U8, 0x0, 0x0, 0x0) = 0
-    Input: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     pass
 
 class 0x79ca73e7():
@@ -5527,11 +5458,6 @@ class 0x93e412e0():
     MilestoneRewardsIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x93fdd326(IVfxVector2Driver):
-    Source: (U8, 0x0, 0x0, 0x0) = 0
-    LogicDriver: (Pointer, 0x0, 0x0, 0xac0fb04b) = null
-    pass
-
 class 0x9449f1a5(0x5aa60796):
     quantity: (U32, 0x0, 0x0, 0x0)
     RewardTexturePath: (String, 0x0, 0x0, 0x0)
@@ -5545,11 +5471,6 @@ class 0x948c3e89():
 class 0x9506323a(InputEventBoolKeybind):
     0x4d5476d2: (U32, 0x0, 0x0, 0x0) = 0
     PingCategory: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0x95182f0a(IVfxVector3Driver):
-    Vector3: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
-    Divisor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
     pass
 
 class 0x9583cf01(ChampionMusicEventTypeConcrete):
@@ -5642,11 +5563,6 @@ class 0x9925c3c2():
     pass
 
 class 0x994ae080(IFloatParametricUpdater):
-    pass
-
-class 0x997d54ab(IVfxVector2Driver):
-    Vector2: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
-    Divisor: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     pass
 
 class 0x9999dd64():
@@ -5756,11 +5672,6 @@ class 0x9c5b78dd(ISkinAugmentLoadableModifier):
     ResourceBin: (Pointer, 0x0, 0x0, 0x59ef46df) = null
     ObjectiveVfxs: (List2, 0x0, Hash, 0x0) = []
     ResourceResolver: (Pointer, 0x0, 0x0, 0x20194a16) = null
-    pass
-
-class 0x9c5c4342(IVfxVector4Driver):
-    0xb1ea6248: (F32, 0x0, 0x0, 0x0) = 0.0
-    Input: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
     pass
 
 class 0x9c5f3068():
@@ -6291,11 +6202,6 @@ class 0xa975a9cf(0xb08ef62f):
     pass
 
 class 0xa98b5b03(0x129e311, GameEntityComponent):
-    pass
-
-class 0xa995ecc5(IVfxVector4Driver):
-    Vector4: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
-    Divisor: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
     pass
 
 class 0xa9e4d0f1():
@@ -7342,12 +7248,6 @@ class 0xc24051e7(MapAction):
 class 0xc267bb20(BaseParams):
     pass
 
-class 0xc2685905(IVfxVector2Driver):
-    Left: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
-    Comparator: (U8, 0x0, 0x0, 0x0) = 0
-    Right: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
-    pass
-
 class 0xc2838bde():
     0x3cc2f536: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
     DefaultAdjustments: (Embed, 0x0, 0x0, PerLocaleTooltipAdjustments) = {"0x8b64dacd":true,"BottomHrYPostAdjustment":0,"BottomHrYPreAdjustment":0,"BottomYPaddingAdjustment":0,"TitleYAdjustment":0,"TopHrYPostAdjustment":0,"TopHrYPreAdjustment":0}
@@ -7435,10 +7335,6 @@ class 0xc5d432c3(InputEventBoolKeybind):
     pass
 
 class 0xc5e16ef4(IScriptBlock):
-    pass
-
-class 0xc5e53afa(IVfxFloatDriver):
-    Range: (Vec2, 0x0, 0x0, 0x0) = [0.0,1.0]
     pass
 
 class 0xc5e719b6():
@@ -8069,11 +7965,6 @@ class 0xd6703da():
     MessageTra: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xd6738324(IVfxFloatDriver):
-    value: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    Divisor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    pass
-
 class 0xd68073ec(ISequenceActionInstance):
     pass
 
@@ -8215,11 +8106,6 @@ class 0xda3ef735():
 
 class 0xda5b233f(InputEventBoolKeybind):
     0x534b6cc4: (U32, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0xdab8397c(IVfxVector2Driver):
-    Select: (U8, 0x0, 0x0, 0x0) = 0
-    Input: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
     pass
 
 class 0xdae7f670(IScriptBt):
@@ -8521,12 +8407,6 @@ class 0xdfc8c194(SeqInputFloat):
     Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
     pass
 
-class 0xdfe3528c(IVfxFloatDriver):
-    Left: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    Comparator: (U8, 0x0, 0x0, 0x0) = 0
-    Right: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    pass
-
 class 0xe03fe15f():
     pass
 
@@ -8605,11 +8485,6 @@ class 0xe35f9399():
 
 class 0xe3a1b4bf():
     productID: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xe3a77546(IVfxVector3Driver):
-    0xb1ea6248: (F32, 0x0, 0x0, 0x0) = 0.0
-    Input: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     pass
 
 class 0xe3b7b857():
@@ -9642,11 +9517,6 @@ class 0xfd7ee1ad():
     LowerBound: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0xfd9b311(IVfxVector2Driver):
-    Select: (U8, 0x0, 0x0, 0x0) = 0
-    Input: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
-    pass
-
 class 0xfdb6b027(IGeComponentDef):
     pass
 
@@ -9697,11 +9567,6 @@ class 0xfeacedf2(0x30aa7360):
     ValueDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     0x7a721423: (List2, 0x0, Pointer, 0x9a573886) = []
     0x94eea539: (List2, 0x0, Pointer, 0xbc413e21) = []
-    pass
-
-class 0xff2348d3(IVfxVector4Driver):
-    Vector4: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
-    Divisor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
     pass
 
 class 0xff4e30bb(ILoopScriptBlock):
@@ -29934,6 +29799,29 @@ class VfxBeamDefinitionData(VfxBeamBaseDefinitionData):
     mAnimatedColorWithDistance: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}
     pass
 
+class VfxBreakVector2ToFloatsDriver(IVfxVector2Driver):
+    Y: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    X: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
+class VfxBreakVector3ToFloatsDriver(IVfxVector3Driver):
+    Y: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    X: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    Z: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
+class VfxBreakVector4ToFloatsDriver(IVfxVector4Driver):
+    W: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    Y: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    X: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    Z: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
+class VfxBreakVector4ToVector2sDriver(IVfxVector4Driver):
+    xy: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    Zw: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    pass
+
 class VfxBurstSpawn(VfxSpawnBehavior):
     0x10498eed: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     pass
@@ -30021,6 +29909,30 @@ class VfxComponents():
     GeometryComponent: (Pointer, 0x0, 0x0, VfxGeometryComponentBase) = null
     pass
 
+class VfxConditionFloatDriver(IVfxFloatDriver):
+    Left: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    Comparator: (U8, 0x0, 0x0, 0x0) = 0
+    Right: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
+class VfxConditionVector2Driver(IVfxVector2Driver):
+    Left: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    Comparator: (U8, 0x0, 0x0, 0x0) = 0
+    Right: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    pass
+
+class VfxConditionVector3Driver(IVfxVector3Driver):
+    Left: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
+    Comparator: (U8, 0x0, 0x0, 0x0) = 0
+    Right: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
+    pass
+
+class VfxConditionVector4Driver(IVfxVector4Driver):
+    Left: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
+    Comparator: (U8, 0x0, 0x0, 0x0) = 0
+    Right: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
+    pass
+
 class VfxDistanceBasedTransparencyParams():
     AlphaAtFarthestDistance: (F32, 0x0, 0x0, 0x0) = 0.10000000149011612
     ClosestDistance: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -30032,6 +29944,41 @@ class VfxDistortionDefinitionData():
     distortionMode: (U8, 0x0, 0x0, 0x0) = 1
     distortion: (F32, 0x0, 0x0, 0x0) = 0.0
     normalMapTexture: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class VfxDivideByComponentVector2Driver(IVfxVector2Driver):
+    Vector2: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    Divisor: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    pass
+
+class VfxDivideByComponentVector3Driver(IVfxVector3Driver):
+    Vector3: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
+    Divisor: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
+    pass
+
+class VfxDivideByComponentVector4Driver(IVfxVector4Driver):
+    Vector4: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
+    Divisor: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
+    pass
+
+class VfxDivideByFactorFloatDriver(IVfxFloatDriver):
+    value: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    Divisor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
+class VfxDivideByFactorVector2Driver(IVfxVector2Driver):
+    Vector2: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    Divisor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
+class VfxDivideByFactorVector3Driver(IVfxVector3Driver):
+    Vector3: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
+    Divisor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
+class VfxDivideByFactorVector4Driver(IVfxVector4Driver):
+    Vector4: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
+    Divisor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
     pass
 
 class VfxDriverContainer():
@@ -30378,6 +30325,16 @@ class VfxFloatEasingDriver(IVfxFloatDriver):
     frequency: (U8, 0x0, 0x0, 0x0) = 0
     looping: (Bool, 0x0, 0x0, 0x0) = false
     EasingFunction: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class VfxFloatFromVector2Driver(IVfxFloatDriver):
+    Select: (U8, 0x0, 0x0, 0x0) = 0
+    Input: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    pass
+
+class VfxFloatFromVector3Driver(IVfxFloatDriver):
+    Select: (U8, 0x0, 0x0, 0x0) = 0
+    Input: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
     pass
 
 class VfxFloatFromVector4Driver(IVfxFloatDriver):
@@ -31061,6 +31018,10 @@ class VfxSoftParticleDefinitionData():
 class VfxSpawnBehavior():
     pass
 
+class VfxSquareRootRangedRandomDriver(IVfxFloatDriver):
+    Range: (Vec2, 0x0, 0x0, 0x0) = [0.0,1.0]
+    pass
+
 class VfxSwitchVector4LogicDriver(IVfxVector4Driver):
     Source: (U8, 0x0, 0x0, 0x0) = 0
     True: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
@@ -31133,6 +31094,10 @@ class VfxTrailDefinitionData():
     mCutoff: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class VfxUniformRangedRandomDriver(IVfxFloatDriver):
+    Range: (Vec2, 0x0, 0x0, 0x0) = [0.0,1.0]
+    pass
+
 class VfxVector2ConstantDriver(IVfxVector2Driver):
     Vector2: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
     pass
@@ -31141,10 +31106,25 @@ class VfxVector2DynamicProperty():
     Vector2: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     pass
 
+class VfxVector2FromVector3Driver(IVfxVector2Driver):
+    Select: (U8, 0x0, 0x0, 0x0) = 0
+    Input: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
+    pass
+
+class VfxVector2FromVector4Driver(IVfxVector2Driver):
+    Select: (U8, 0x0, 0x0, 0x0) = 0
+    Input: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
+    pass
+
 class VfxVector2LerpDriver(IVfxVector2Driver):
     To: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     Factor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
     From: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    pass
+
+class VfxVector2LogicDriver(IVfxVector2Driver):
+    Source: (U8, 0x0, 0x0, 0x0) = 0
+    LogicDriver: (Pointer, 0x0, 0x0, 0xac0fb04b) = null
     pass
 
 class VfxVector2fBase():
@@ -31156,6 +31136,16 @@ class VfxVector3ConstantDriver(IVfxVector3Driver):
 
 class VfxVector3DynamicProperty():
     Vector3: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
+    pass
+
+class VfxVector3FromVector2Driver(IVfxVector3Driver):
+    Fill: (F32, 0x0, 0x0, 0x0) = 0.0
+    Input: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    pass
+
+class VfxVector3FromVector4Driver(IVfxVector3Driver):
+    Select: (U8, 0x0, 0x0, 0x0) = 0
+    Input: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
     pass
 
 class VfxVector3LerpDriver(IVfxVector3Driver):
@@ -31174,6 +31164,16 @@ class VfxVector3fBase():
 
 class VfxVector4DynamicProperty():
     Vector4: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
+    pass
+
+class VfxVector4FromVector2Driver(IVfxVector4Driver):
+    Fill: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
+    Input: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    pass
+
+class VfxVector4FromVector3Driver(IVfxVector4Driver):
+    Fill: (F32, 0x0, 0x0, 0x0) = 0.0
+    Input: (Pointer, 0x0, 0x0, IVfxVector3Driver) = null
     pass
 
 class VfxVector4LerpDriver(IVfxVector4Driver):

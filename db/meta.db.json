@@ -439,7 +439,7 @@
 "0x1a4d9bd": {"name": "ContextualConditionCharacterHasSpellBuff", "revisions": [{"from":5837922,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
  "0xd1bc4ba8": {"name":"SpellBuff","revisions":[{"from":5837922,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x1a95dbf": {"revisions": [{"from":8159717,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
+"0x1a95dbf": {"name": "VfxFloatFromVector3Driver", "revisions": [{"from":8159717,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
  "0x11c2662d": {"name":"Select","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xf9d86f7b": {"name":"Input","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x505f1532"],"default":null}]}
 }},
@@ -2383,7 +2383,7 @@
 }},
 "0xfaeb4d0": {"name": "IPictureInPictureSource", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0xfd9b311": {"revisions": [{"from":8159717,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
+"0xfd9b311": {"name": "VfxVector2FromVector4Driver", "revisions": [{"from":8159717,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
  "0x11c2662d": {"name":"Select","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xf9d86f7b": {"name":"Input","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0xc59dfcfb"],"default":null}]}
 }},
@@ -2985,8 +2985,8 @@
 }},
 "0x14dad640": {"revisions": [{"from":7465697,"to":7620675,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0x14daebe5": {"revisions": [{"from":8159717,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
- "0xb1ea6248": {"revisions":[{"from":8159717,"type":["Vec2","0x0","0x0","0x0"],"default":[0.0,0.0]}]},
+"0x14daebe5": {"name": "VfxVector4FromVector2Driver", "revisions": [{"from":8159717,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
+ "0xb1ea6248": {"name":"Fill","revisions":[{"from":8159717,"type":["Vec2","0x0","0x0","0x0"],"default":[0.0,0.0]}]},
  "0xf9d86f7b": {"name":"Input","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]}
 }},
 "0x14e5d6d8": {"revisions": [{"from":5756478,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
@@ -3196,7 +3196,7 @@
  "0xf4488f1": {"revisions":[{"from":6804378,"to":7016241,"type":["Link","0x0","0x0","0x5784d4c7"],"default":"0x0"}]},
  "0x3434677d": {"revisions":[{"from":7027993,"to":7190545,"type":["Link","0x0","0x0","0x2b949af2"],"default":"0x0"},{"from":7200925,"to":7480682,"type":["Link","0x0","0x0","0x40a9c74a"],"default":"0x0"}]}
 }},
-"0x168d2f0d": {"revisions": [{"from":7643737,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
+"0x168d2f0d": {"name": "VfxDivideByFactorVector2Driver", "revisions": [{"from":7643737,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
  "0x26188390": {"name":"Vector2","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]},
  "0x88c7215d": {"name":"Divisor","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]}
 }},
@@ -4023,7 +4023,7 @@
  "0xdcfb1668": {"name":"HoverIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xef2cd5bb": {"name":"DefaultIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x1d708462": {"revisions": [{"from":8159717,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
+"0x1d708462": {"name": "VfxConditionVector3Driver", "revisions": [{"from":8159717,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
  "0x124aec70": {"name":"Left","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x505f1532"],"default":null}]},
  "0x5481ea29": {"name":"Comparator","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x78e32de5": {"name":"Right","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x505f1532"],"default":null}]}
@@ -7705,7 +7705,7 @@
  "0x40d68bee": {"name":"CloseReminderDelaySecs","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":3.0}]},
  "0xc003e6a8": {"name":"AutoOpenShopInPlanningPhaseDelaySecs","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":1.5}]}
 }},
-"0x3624c20b": {"revisions": [{"from":7345787,"to":7345787,"bases":["0xc59dfcfb"],"interface":false,"value":false},{"from":7371049,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
+"0x3624c20b": {"name": "VfxBreakVector4ToFloatsDriver", "revisions": [{"from":7345787,"to":7345787,"bases":["0xc59dfcfb"],"interface":false,"value":false},{"from":7371049,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
  "0xf20c3f36": {"name":"W","revisions":[{"from":7345787,"to":7345787,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null},{"from":7371049,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]},
  "0xfc0c4ef4": {"name":"Y","revisions":[{"from":7345787,"to":7345787,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null},{"from":7371049,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]},
  "0xfd0c5087": {"name":"X","revisions":[{"from":7345787,"to":7345787,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null},{"from":7371049,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]},
@@ -8084,7 +8084,7 @@
  "0x92944b54": {"revisions":[{"from":7584427,"to":7668562,"type":["U8","0x0","0x0","0x0"]}]},
  "0xe13c4b8e": {"revisions":[{"from":7584427,"type":["Bool","0x0","0x0","0x0"]}]}
 }},
-"0x399295b9": {"revisions": [{"from":7538272,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
+"0x399295b9": {"name": "VfxBreakVector2ToFloatsDriver", "revisions": [{"from":7538272,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
  "0xfc0c4ef4": {"name":"Y","revisions":[{"from":7538272,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]},
  "0xfd0c5087": {"name":"X","revisions":[{"from":7538272,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]}
 }},
@@ -8887,7 +8887,7 @@
 "0x4146f732": {"revisions": [{"from":6877272,"to":7765552,"bases":["0xbe07ec3f"],"interface":false,"value":false},{"from":7794239,"bases":["0x70cf2e7"],"interface":false,"value":false}], "properties": {
  "0xfa27d217": {"revisions":[{"from":6997589,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x414d1503": {"revisions": [{"from":7496037,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
+"0x414d1503": {"name": "VfxUniformRangedRandomDriver", "revisions": [{"from":7496037,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
  "0xfadc0cd2": {"name":"Range","revisions":[{"from":7496037,"type":["Vec2","0x0","0x0","0x0"],"default":[0.0,1.0]}]}
 }},
 "0x416083ae": {"name": "FlexValueVector2", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
@@ -10351,7 +10351,7 @@
  "0x6194e22e": {"name":"NameTraKey","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x67a9c9d2": {"name":"Children","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x18599d08"],"default":[]}]}
 }},
-"0x4b5aa9eb": {"revisions": [{"from":8159717,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
+"0x4b5aa9eb": {"name": "VfxConditionVector4Driver", "revisions": [{"from":8159717,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
  "0x124aec70": {"name":"Left","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0xc59dfcfb"],"default":null}]},
  "0x5481ea29": {"name":"Comparator","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x78e32de5": {"name":"Right","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0xc59dfcfb"],"default":null}]}
@@ -13158,7 +13158,7 @@
 }},
 "0x645e288b": {"name": "IMonarchTagQueryValue", "revisions": [{"from":6421879,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0x64707da8": {"revisions": [{"from":7643737,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
+"0x64707da8": {"name": "VfxDivideByComponentVector3Driver", "revisions": [{"from":7643737,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
  "0x27188523": {"name":"Vector3","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x505f1532"],"default":null}]},
  "0x88c7215d": {"name":"Divisor","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x505f1532"],"default":null}]}
 }},
@@ -13301,7 +13301,7 @@
  "0x6f38905e": {"name":"UnitPropertyToggle","revisions":[{"from":6804378,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xb10e2d1e": {"name":"ParticleSystem","revisions":[{"from":6804378,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x65e1b9a2": {"revisions": [{"from":7538272,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
+"0x65e1b9a2": {"name": "VfxBreakVector3ToFloatsDriver", "revisions": [{"from":7538272,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
  "0xfc0c4ef4": {"name":"Y","revisions":[{"from":7538272,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]},
  "0xfd0c5087": {"name":"X","revisions":[{"from":7538272,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]},
  "0xff0c53ad": {"name":"Z","revisions":[{"from":7538272,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]}
@@ -15244,7 +15244,7 @@
 "0x76c5ccd2": {"name": "ContextualConditionCharacterRole", "revisions": [{"from":5229820,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
  "0x6d45b308": {"name":"mRole","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x76c70374": {"revisions": [{"from":8159717,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
+"0x76c70374": {"name": "VfxVector3FromVector4Driver", "revisions": [{"from":8159717,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
  "0x11c2662d": {"name":"Select","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xf9d86f7b": {"name":"Input","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0xc59dfcfb"],"default":null}]}
 }},
@@ -15493,7 +15493,7 @@
  "0x84874d36": {"name":"path","revisions":[{"from":7389684,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd2e4d060": {"name":"Material","revisions":[{"from":7389684,"type":["Pointer","0x0","0x0","0xb76a119c"],"default":null}]}
 }},
-"0x791d4f88": {"revisions": [{"from":7345787,"to":7345787,"bases":["0xc59dfcfb"],"interface":false,"value":false},{"from":7371049,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
+"0x791d4f88": {"name": "VfxBreakVector4ToVector2sDriver", "revisions": [{"from":7345787,"to":7345787,"bases":["0xc59dfcfb"],"interface":false,"value":false},{"from":7371049,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
  "0x58637fda": {"name":"xy","revisions":[{"from":7345787,"to":7345787,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null},{"from":7371049,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]},
  "0x5a68002e": {"name":"Zw","revisions":[{"from":7345787,"to":7345787,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null},{"from":7371049,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]}
 }},
@@ -15607,7 +15607,7 @@
 "0x7992a72c": {"name": "IMonarchTargetingRequirement", "revisions": [{"from":6774704,"to":7480682,"bases":[],"interface":true,"value":false}], "properties": {
  "0xfd36c650": {"name":"InvertResult","revisions":[{"from":6774704,"to":7480682,"type":["Bool","0x0","0x0","0x0"]}]}
 }},
-"0x799a50ac": {"revisions": [{"from":8159717,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
+"0x799a50ac": {"name": "VfxFloatFromVector2Driver", "revisions": [{"from":8159717,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
  "0x11c2662d": {"name":"Select","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xf9d86f7b": {"name":"Input","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]}
 }},
@@ -19023,7 +19023,7 @@
  "0xe40bac02": {"name":"mBaseExperienceMultiplier","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xf1f3d846": {"name":"DefaultMaxLevel","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":18}]}
 }},
-"0x93fdd326": {"revisions": [{"from":8159717,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
+"0x93fdd326": {"name": "VfxVector2LogicDriver", "revisions": [{"from":8159717,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
  "0x1bcf29d8": {"name":"Source","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xbfc92e63": {"name":"LogicDriver","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0xac0fb04b"],"default":null}]}
 }},
@@ -19135,7 +19135,7 @@
  "0x4d5476d2": {"revisions":[{"from":6804378,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x59e0ab85": {"name":"PingCategory","revisions":[{"from":6804378,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x95182f0a": {"revisions": [{"from":7643737,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
+"0x95182f0a": {"name": "VfxDivideByFactorVector3Driver", "revisions": [{"from":7643737,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
  "0x27188523": {"name":"Vector3","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x505f1532"],"default":null}]},
  "0x88c7215d": {"name":"Divisor","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]}
 }},
@@ -19567,7 +19567,7 @@
 }},
 "0x9973a3d9": {"name": "MapPathLineSegment", "revisions": [{"from":5229820,"bases":["0x9b34beab"],"interface":false,"value":false}], "properties": {
 }},
-"0x997d54ab": {"revisions": [{"from":7643737,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
+"0x997d54ab": {"name": "VfxDivideByComponentVector2Driver", "revisions": [{"from":7643737,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
  "0x26188390": {"name":"Vector2","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]},
  "0x88c7215d": {"name":"Divisor","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]}
 }},
@@ -19993,8 +19993,8 @@
  "0xb4222185": {"name":"ObjectiveVfxs","revisions":[{"from":6236777,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
  "0xef3a0f33": {"name":"ResourceResolver","revisions":[{"from":6359815,"type":["Pointer","0x0","0x0","0x20194a16"],"default":null}]}
 }},
-"0x9c5c4342": {"revisions": [{"from":8159717,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
- "0xb1ea6248": {"revisions":[{"from":8159717,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+"0x9c5c4342": {"name": "VfxVector4FromVector3Driver", "revisions": [{"from":8159717,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
+ "0xb1ea6248": {"name":"Fill","revisions":[{"from":8159717,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xf9d86f7b": {"name":"Input","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x505f1532"],"default":null}]}
 }},
 "0x9c5f3068": {"revisions": [{"from":6919951,"bases":[],"interface":false,"value":false}], "properties": {
@@ -21533,7 +21533,7 @@
 }},
 "0xa98b5b03": {"revisions": [{"from":7465697,"bases":["0x129e311","0x3497f0cf"],"interface":false,"value":false}], "properties": {
 }},
-"0xa995ecc5": {"revisions": [{"from":7643737,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
+"0xa995ecc5": {"name": "VfxDivideByComponentVector4Driver", "revisions": [{"from":7643737,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
  "0x2c188d02": {"name":"Vector4","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0xc59dfcfb"],"default":null}]},
  "0x88c7215d": {"name":"Divisor","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0xc59dfcfb"],"default":null}]}
 }},
@@ -24755,7 +24755,7 @@
 }},
 "0xc267bb20": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
-"0xc2685905": {"revisions": [{"from":8159717,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
+"0xc2685905": {"name": "VfxConditionVector2Driver", "revisions": [{"from":8159717,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
  "0x124aec70": {"name":"Left","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]},
  "0x5481ea29": {"name":"Comparator","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x78e32de5": {"name":"Right","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]}
@@ -24976,7 +24976,7 @@
 }},
 "0xc5e16ef4": {"revisions": [{"from":5409873,"bases":["0x3c2ab5b0"],"interface":true,"value":false}], "properties": {
 }},
-"0xc5e53afa": {"revisions": [{"from":7538272,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
+"0xc5e53afa": {"name": "VfxSquareRootRangedRandomDriver", "revisions": [{"from":7538272,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
  "0xfadc0cd2": {"name":"Range","revisions":[{"from":7538272,"type":["Vec2","0x0","0x0","0x0"],"default":[0.0,1.0]}]}
 }},
 "0xc5e719b6": {"revisions": [{"from":6509216,"bases":[],"interface":false,"value":false}], "properties": {
@@ -27348,7 +27348,7 @@
  "0x5a0d5b38": {"revisions":[{"from":6919951,"to":7190545,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xe64015f0": {"name":"Icon","revisions":[{"from":6919951,"to":7190545,"type":["Link","0x0","0x0","0x64ee2fb1"],"default":"0x0"}]}
 }},
-"0xd6738324": {"revisions": [{"from":7643737,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
+"0xd6738324": {"name": "VfxDivideByFactorFloatDriver", "revisions": [{"from":7643737,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]},
  "0x88c7215d": {"name":"Divisor","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]}
 }},
@@ -27855,7 +27855,7 @@
  "0xf2c99cb4": {"name":"boxMax","revisions":[{"from":5229820,"type":["Vec3","0x0","0x0","0x0"],"default":[0.0,0.0,0.0]}]},
  "0xf549ff11": {"name":"extraInfo","revisions":[{"from":5229820,"type":["List","0x0","Pointer","0x48dd2f52"],"default":[]}]}
 }},
-"0xdab8397c": {"revisions": [{"from":8159717,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
+"0xdab8397c": {"name": "VfxVector2FromVector3Driver", "revisions": [{"from":8159717,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
  "0x11c2662d": {"name":"Select","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xf9d86f7b": {"name":"Input","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x505f1532"],"default":null}]}
 }},
@@ -28760,7 +28760,7 @@
  "0x1bcac48f": {"name":"SourceObject","revisions":[{"from":6649480,"to":7829736,"type":["Link","0x0","0x0","0x7a5e5ed6"],"default":"0x0"}]},
  "0xa8c6206b": {"name":"Objects","revisions":[{"from":7851316,"type":["Pointer","0x0","0x0","0xd8d462e4"],"default":null}]}
 }},
-"0xdfe3528c": {"revisions": [{"from":8159717,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
+"0xdfe3528c": {"name": "VfxConditionFloatDriver", "revisions": [{"from":8159717,"bases":["0x8877ad7c"],"interface":false,"value":false}], "properties": {
  "0x124aec70": {"name":"Left","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]},
  "0x5481ea29": {"name":"Comparator","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x78e32de5": {"name":"Right","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]}
@@ -29190,8 +29190,8 @@
 "0xe3a1b4bf": {"revisions": [{"from":7893741,"bases":[],"interface":false,"value":false}], "properties": {
  "0x96483821": {"name":"productID","revisions":[{"from":7893741,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0xe3a77546": {"revisions": [{"from":8159717,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
- "0xb1ea6248": {"revisions":[{"from":8159717,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+"0xe3a77546": {"name": "VfxVector3FromVector2Driver", "revisions": [{"from":8159717,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
+ "0xb1ea6248": {"name":"Fill","revisions":[{"from":8159717,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xf9d86f7b": {"name":"Input","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]}
 }},
 "0xe3af402a": {"name": "HudReplayEventTooltip", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -32817,7 +32817,7 @@
  "0xaf871a91": {"name":"Grid","revisions":[{"from":5276396,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xcac17cff": {"name":"Layout","revisions":[{"from":5229820,"to":5266810,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xff2348d3": {"revisions": [{"from":7643737,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
+"0xff2348d3": {"name": "VfxDivideByFactorVector4Driver", "revisions": [{"from":7643737,"bases":["0xc59dfcfb"],"interface":false,"value":false}], "properties": {
  "0x2c188d02": {"name":"Vector4","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0xc59dfcfb"],"default":null}]},
  "0x88c7215d": {"name":"Divisor","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]}
 }},

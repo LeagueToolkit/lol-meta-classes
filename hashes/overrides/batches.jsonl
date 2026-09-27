@@ -63,3 +63,4 @@
 {"batch": "vfx-dynamic-parameters", "note": "VfxSystemDefinitionData's last two pointer fields and the dynamic parameter modifier family; 16.17 registration order, zero inversions over 9 classes, 0/300 decoys. No string attests any of them."}
 {"batch": "vfx-system-definition-fields", "note": "VfxSystemDefinitionData's remaining pointer fields and the classes they hold, as field/class pairs on a shared stem placed by registration bracket, plus one Vec3 on the shimmer class. None attested."}
 {"batch": "nova-item-getters", "note": "Nova typed item getters: five parallel getter lattices and their fields, on a stem five node roles independently agree on. Base check passes 32/32. docs/nova-item-getters.md"}
+{"batch": "vfx-driver-graph-math", "note": "IVfxBaseDriver math nodes: kind-suffix folding and kind lattices over shared stems, every row filled by 2-4 hashes; base check 27/27. No string attests any. docs/vfx-driver-graph-math.md"}

@@ -56,14 +56,16 @@ separately are listed in the write-ups below.
 | 34 | 0 | 0 | 0 | 0 | 0 | 13.15..16.13 | `ISequenceActionInstance` (fb677f88) |
 | 28 | 23 | 15 | 100 | 1 | 2 | 14.9..16.6 | `IScriptValueGet` (f6e711b0) |
 | 27 | 0 | 1 | 14 | 1 | 0 | 15.20..16.11 | `0x2a9f4223` |
-| 22 | 56 | 22 | 100 | 8 | 2 | 15.22..16.8 | `IVfxBaseDriver` (cbd100e7) |
+| 13 | 83 | 12 | 100 | 10 | 1 | 15.22..16.19 | `IVfxBaseDriver` (cbd100e7) |
 | 15 | 0 | 5 | 12 | 15 | 2 | 16.7..16.14 | `0x4ca99280` |
 | 15 | 0 | 10 | 100 | 0 | 3 | 14.14..16.1 | `0x8930818a` |
 | 14 | 28 | 6 | 75 | 1 | 0 | 15.14..16.9 | `Cheat` (946adb4c) |
 | 11 | 26 | 8 | 56 | 1 | 8 | 13.15..16.9 | `IGameCalculationPart` (b60012ce) |
 
 Prior campaigns, from `hashes/overrides/ledger.bintypes.jsonl`, so nobody
-re-treads: `IVfxBaseDriver` is 56/56 ours (`vfx-driver-graph`), `BaseParams`
+re-treads: `IVfxBaseDriver` is 83/83 ours (`vfx-driver-graph`, then
+`vfx-driver-graph-math` took the 16.x math nodes from 39 unnamed to 13 -
+[docs/vfx-driver-graph-math.md](vfx-driver-graph-math.md)), `BaseParams`
 20/20 and `ViewController` 31/189 (`season16-modes-ui`, `viewcontroller-family`),
 `IGameModeConfigBase` 5/19 (`gamemode-configs`). `MapPlaceableBase` is finished
 and off the table: `map-entity-templates` took it from 28 unnamed to 5,

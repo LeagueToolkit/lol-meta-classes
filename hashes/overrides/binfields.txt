@@ -59,6 +59,7 @@ de72a3a2 AnnouncerVoEventTypes
 9963c03a AnnouncerVoEvents
 a7cdb46f AnonymousTra
 79ed2e39 ApplyDrag
+3bd77ed1 ApplyTeamColorCorrection
 f359eded ArcElement
 bb59b99c ArenaButton
 84542686 Arrow
@@ -113,6 +114,7 @@ e506fa64 Billboard
 a1fa32f0 BirthRandomStartFrame
 cc2ddcc0 BlendData
 bceaaa2a BlockButton
+adee7179 BloomIntensityScale
 82fbf5cd Blue
 c8c453d3 BoardButton
 7c666488 Boards
@@ -826,6 +828,7 @@ ab6fd275 MobileVfx
 9c5ad4fd ModalName
 b9562e5b ModeOverrides
 bb63fa00 ModeRate
+e9552339 ModelHeight
 73fedbe4 ModifierButton
 58b46aae ModifierDriver
 f23cfa0e ModifierHolder
@@ -1056,6 +1059,7 @@ cb1bebae RecipeDef
 1a35cd0d RecipeTemplate
 40f480dc Red
 5a81f39a Reference
+2119af58 ReflectionSkyTint
 018a801e RegenTickInterval
 2340a395 RegionLocator
 e2ba931c RegionLocatorGroup
@@ -1298,6 +1302,7 @@ a0f848d1 SubRequirements
 4c0c91fd SuccessesRequired
 9d8b5bd5 SummonerLevel
 4a6489aa SunLightColor
+671e8711 SunPenumbraSaturation
 08a3d83e Superward
 602b4f3c SwapAnimation
 68305f93 SwapMaterial
@@ -1460,9 +1465,23 @@ e50186a0 VideoRegion
 f20c3f36 W
 deb1ff88 WDriver
 51e9b98e WadDependencies
+b1c48ff9 WakeAmplitudeMaxSpeedMult
+d27c716b WakeAmplitudeMinSpeedMult
+9b0695aa WakeFrontLengthMult
+b100dc8e WakeFrontWeightMult
+311ee6fa WakeFrontWidthMult
+160ab337 WakeTroughBackwardBiasMaxSpeedMult
+41607dcd WakeTroughBackwardBiasMinSpeedMult
+45d1ac73 WakeTroughLengthMaxSpeedMult
+fc60df61 WakeTroughLengthMinSpeedMult
+74804a02 WakeTroughWeightMult
+1a5286ae WakeTroughWidthMult
 599fcd6e WarningTexture
 9cf6bf22 Wasd
 8ce41f71 WaterEnabled
+0cd9f738 WaveSpeedAmpGain
+fb648e3a WaveSpeedMinMultiplier
+bd7fb06f WaveSpeedSq
 dc7ec024 WipStat1
 df7ec4dd WipStat2
 de7ec34a WipStat3

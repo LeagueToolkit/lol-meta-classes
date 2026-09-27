@@ -1,6 +1,6 @@
 # map-entity-templates - campaign record
 
-Record for `map-entity-templates`; its `batches.tsv` note points here. Method:
+Record for `map-entity-templates`; its `batches.jsonl` note points here. Method:
 the `crack-family` skill (`.claude/skills/crack-family/SKILL.md`).
 `MapPlaceableBase` went from 28 live unnamed members to 5. 109 names landed:
 98 classes and 11 fields.

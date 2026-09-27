@@ -382,8 +382,8 @@ Nova's searches are missing, and the two are siblings by the
 
 ## 5. Status
 
-All 56 rows `pending`, `pr=-`: 32 in `ledger.bintypes.tsv`, 24 in
-`ledger.binfields.tsv`, one batch `nova-item-getters`. No PR is open.
+All 56 rows `pending`, `pr=-`: 32 in `ledger.bintypes.jsonl`, 24 in
+`ledger.binfields.jsonl`, one batch `nova-item-getters`. No PR is open.
 
 | group | count | tier | fit to submit |
 | --- | ---: | --- | --- |

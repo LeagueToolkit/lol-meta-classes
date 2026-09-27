@@ -1,6 +1,6 @@
 # game-entity-blocks - campaign record
 
-Record for `game-entity-blocks`; its `batches.tsv` note points here. Method:
+Record for `game-entity-blocks`; its `batches.jsonl` note points here. Method:
 the `crack-family` skill (`.claude/skills/crack-family/SKILL.md`).
 `GameEntityBlock` went from 28 live unnamed members to 4. 53 names landed: 48
 classes and 5 fields.

@@ -24,7 +24,7 @@ Two invariants govern everything:
 
 - Census: `python scripts/guesser_families.py rank`; the standing survey with
   per-family reads is docs/unnamed-families.md.
-- Prior work: `hashes/overrides/ledger.*.tsv`, `batches.tsv`, and every
+- Prior work: `hashes/overrides/ledger.*.jsonl`, `batches.jsonl`, and every
   campaign doc's ruled-out section. **Never re-run a recorded negative** - the
   unlock there is new attested vocabulary, not more probes.
 - Context pack: `python scripts/guesser_families.py emit --subtree --live

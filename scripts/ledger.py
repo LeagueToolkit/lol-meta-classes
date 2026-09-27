@@ -3,31 +3,29 @@
 
 The override tables say *what* a hash resolves to, not when it was cracked or
 whether it has been sent upstream - so a crack can sit locally for months and be
-forgotten. This is that bookkeeping, in sibling TSVs so the override tables stay
-byte-comparable with upstream's format.
+forgotten. This is that bookkeeping, in sibling JSONL files so the override
+tables stay byte-comparable with upstream's format.
 
-    ledger.bintypes.tsv    hash  name  batch  cracked  status  pr
-    ledger.binfields.tsv   hash  name  batch  cracked  status  pr
-    batches.tsv            batch  note
+    ledger.bintypes.jsonl    {hash, name, batch, cracked, status, pr}
+    ledger.binfields.jsonl   {hash, name, batch, cracked, status, pr}
+    batches.jsonl            {batch, note}
 
 One ledger per table, named after the override table it shadows, so the pair
 moves together and a diff is confined to the table that changed. There is no
-`table` column: the filename is it. In memory the two are one Ledger keyed by
+`table` key: the filename is it. In memory the two are one Ledger keyed by
 (table, hash), not by hash alone - six names are both a class and a field and so
 share a hash, which is exactly what the split file names disambiguate.
 
 `batch` is the campaign a crack came out of, and the unit an upstream PR is built
 from. Rows are written grouped by it, and it is where the method and attestation
-live - one note per batch, in batches.tsv, rather than a paragraph repeated on
+live - one note per batch, in batches.jsonl, rather than a paragraph repeated on
 every row. Anything per-name belongs in the reversing doc that note points at.
-Batches cross tables, so batches.tsv stays single.
+Batches cross tables, so batches.jsonl stays single.
 
-The notes are a separate file rather than a comment block at the top because
-these are all *rendered* as tables on GitHub, which is how anyone reads a
-1000-row ledger without cloning it. That viewer takes line 1 as the header and
-has no comment syntax, so a single `#` line anywhere makes it give up on the
-whole file. Hence: no comments, no blank lines, uniform column count, header
-first - enforced in load() rather than left as a convention to erode.
+Every line is one JSON object with exactly the keys in COLUMNS (BATCH_COLUMNS),
+all strings, written in that key order. No blank lines, no comments - JSON has
+none - and no header, since each object names its own fields. load() enforces
+all of it rather than leaving it as a convention to erode.
 
 `status` also carries the one thing the override tables cannot: that a name is
 resolved here on purpose and is *not* to be sent upstream (see LOCAL).
@@ -38,6 +36,7 @@ hand-edited row is caught by the next command that touches the file.
 """
 
 import datetime
+import json
 import os
 import re
 import subprocess
@@ -48,18 +47,8 @@ TABLES = ("bintypes", "binfields")
 COLUMNS = ("hash", "name", "batch", "cracked", "status", "pr")
 BATCH_COLUMNS = ("batch", "note")
 
-# Cells are space-padded to these widths so the files read as tables in a plain
-# editor, not only in GitHub's renderer. The widths are fixed rather than
-# measured from the data on purpose: a width that tracks the longest value
-# repads all 1000+ rows the day someone cracks a longer name, turning a one-line
-# addition into a whole-file diff. A value wider than its column just overflows -
-# that one row loses alignment and nothing is ever truncated. The last column of
-# each file is left unpadded, so no line carries trailing spaces.
-WIDTHS = {"hash": 8, "name": 60, "batch": 30, "cracked": 10, "status": 9}
-BATCH_WIDTHS = {"batch": 30}
-
 # A batch note is an abstract, not the write-up. It says what the campaign was
-# and what makes its names believable, in one cell someone can read in a diff;
+# and what makes its names believable, in one line someone can read in a diff;
 # the derivation, the per-name evidence and the tables go in a doc under docs/
 # that the note points at. The limit is what keeps that split honest - without
 # it the note grows into the doc, one justified sentence at a time, and the
@@ -121,30 +110,21 @@ class Ledger:
 
 
 def ledger_path(hashes_dir, table):
-    return os.path.join(hashes_dir, "overrides", f"ledger.{table}.tsv")
+    return os.path.join(hashes_dir, "overrides", f"ledger.{table}.jsonl")
 
 
 def batches_path(hashes_dir):
-    return os.path.join(hashes_dir, "overrides", "batches.tsv")
+    return os.path.join(hashes_dir, "overrides", "batches.jsonl")
 
 
-def _clean(value):
-    """TSV has no quoting, so tabs and newlines can't survive in a field. This
-    also drops the alignment padding on the way back out, so a re-render is
-    stable whatever the previous widths were."""
-    return " ".join(str(value).split())
+def _line(values, columns):
+    """One rendered line: the columns in order, as a single JSON object.
 
-
-def _line(values, columns, widths):
-    """One rendered line: cells cleaned, then padded to their column width.
-
-    An empty cell in the last column still leaves its tab behind - the column
-    count has to stay uniform, and a row one field short is exactly what stops
-    the file rendering as a table."""
-    last = len(columns) - 1
-    return "\t".join(
-        _clean(values[c]) if i == last else _clean(values[c]).ljust(widths.get(c, 0))
-        for i, c in enumerate(columns))
+    Whitespace runs collapse to one space, so a value stays one line in a diff
+    even if it arrived with a newline in it. ensure_ascii=False keeps any
+    non-ASCII in a note readable rather than \\u-escaped."""
+    return json.dumps({c: " ".join(str(values[c]).split()) for c in columns},
+                      ensure_ascii=False)
 
 
 def slugify(text, fallback=UNSORTED):
@@ -164,41 +144,31 @@ def check_slug(slug):
 
 
 def _rows_of(path, columns):
-    """Lines of a rendered TSV -> [(lineno, [cells])], header and all.
+    """Lines of a JSONL file -> [(lineno, {column: value})].
 
-    Cells come back stripped of their alignment padding, so the widths in
-    WIDTHS are presentation only and can be changed without a migration.
-
-    Rejects anything the GitHub table viewer would choke on, because a file it
-    refuses to render is a file nobody reads: no comments, no blank lines, and
-    every row the same width as the header."""
+    Each line must be one JSON object carrying exactly `columns`, every value a
+    string. Anything else is an error naming the line, not a row skipped."""
     if not os.path.exists(path):
         return []
     out = []
     with open(path, encoding="utf-8") as f:
         for lineno, line in enumerate(f, 1):
             line = line.rstrip("\n").rstrip("\r")
-            if not line:
-                raise ValueError(
-                    f"{path}:{lineno}: blank line - this file is rendered as a "
-                    f"table, and a blank line is a 1-column row")
-            if line.startswith("#"):
-                extra = (" - batch notes live in batches.tsv now"
-                         if line.startswith("#:") else "")
-                raise ValueError(
-                    f"{path}:{lineno}: comment line{extra}; this file is "
-                    f"rendered as a table and has no comment syntax: {line!r}")
-            parts = [p.strip() for p in line.split("\t")]
-            if len(parts) != len(columns):
-                raise ValueError(
-                    f"{path}:{lineno}: expected {len(columns)} tab-separated "
-                    f"fields, got {len(parts)}: {line!r}")
-            if lineno == 1:
-                if tuple(parts) != tuple(columns):
-                    raise ValueError(f"{path}:1: expected the column header "
-                                     f"{list(columns)}, got {parts}")
-                continue
-            out.append((lineno, parts))
+            if not line.strip():
+                raise ValueError(f"{path}:{lineno}: blank line")
+            try:
+                obj = json.loads(line)
+            except json.JSONDecodeError as e:
+                raise ValueError(f"{path}:{lineno}: not JSON ({e.msg}): "
+                                 f"{line!r}") from None
+            if not isinstance(obj, dict) or set(obj) != set(columns):
+                got = sorted(obj) if isinstance(obj, dict) else type(obj).__name__
+                raise ValueError(f"{path}:{lineno}: expected an object with keys "
+                                 f"{list(columns)}, got {got}")
+            bad = [c for c in columns if not isinstance(obj[c], str)]
+            if bad:
+                raise ValueError(f"{path}:{lineno}: {bad} must be strings")
+            out.append((lineno, {c: obj[c].strip() for c in columns}))
     return out
 
 
@@ -215,8 +185,8 @@ def load(hashes_dir, strict=True):
     rows = {}
     for table in TABLES:
         path = ledger_path(hashes_dir, table)
-        for lineno, parts in _rows_of(path, COLUMNS):
-            row = dict(zip(COLUMNS, parts), table=table)
+        for lineno, cells in _rows_of(path, COLUMNS):
+            row = dict(cells, table=table)
             if not RE_HASH.match(row["hash"]):
                 raise ValueError(f"{path}:{lineno}: bad hash {row['hash']!r}")
             if row["status"] not in STATUSES:
@@ -240,11 +210,11 @@ def load(hashes_dir, strict=True):
 
     b_path = batches_path(hashes_dir)
     batches = {}
-    for lineno, (slug, note) in _rows_of(b_path, BATCH_COLUMNS):
-        slug = check_slug(slug.strip())
+    for lineno, cells in _rows_of(b_path, BATCH_COLUMNS):
+        slug = check_slug(cells["batch"])
         if slug in batches:
             raise ValueError(f"{b_path}:{lineno}: duplicate batch {slug}")
-        batches[slug] = note.strip()
+        batches[slug] = cells["note"]
     return Ledger(rows, batches)
 
 
@@ -253,38 +223,36 @@ def key_of(row):
 
 
 def render(led, table):
-    """One table's ledger: the column header, then its rows grouped by batch,
-    and within a batch by name then hash, so a row lands next to nothing else
-    when added.
+    """One table's ledger: its rows grouped by batch, and within a batch by
+    name then hash, so a row lands next to nothing else when added.
 
-    The grouping has no marker in the file - the `batch` column carries it, and
-    a heading row would be a 1-column row in a 6-column table. It survives as
-    row order, which is what keeps a diff local to the campaign that changed.
+    The grouping has no marker in the file - the `batch` key carries it. It
+    survives as row order, which is what keeps a diff local to the campaign
+    that changed.
 
     Batch order is the ledger's, not this table's, so the two files stay in step
-    with each other and with batches.tsv; a batch with no rows in this table
+    with each other and with batches.jsonl; a batch with no rows in this table
     simply contributes none."""
-    out = [_line({c: c for c in COLUMNS}, COLUMNS, WIDTHS)]
+    out = []
     for slug in led.order():
         rows = [r for r in led.of_batch(slug) if r["table"] == table]
         for row in sorted(rows, key=lambda r: (r["name"], r["hash"])):
-            out.append(_line(row, COLUMNS, WIDTHS))
-    return "\n".join(out) + "\n"
+            out.append(_line(row, COLUMNS) + "\n")
+    return "".join(out)
 
 
 def render_batches(led):
-    """batches.tsv: one row per campaign, in the same order as the ledger. A
+    """batches.jsonl: one row per campaign, in the same order as the ledger. A
     batch with no note yet still gets a row - the gap is the point, it's what
     `add` nags about."""
-    out = [_line({c: c for c in BATCH_COLUMNS}, BATCH_COLUMNS, BATCH_WIDTHS)]
-    for slug in led.order():
-        out.append(_line({"batch": slug, "note": led.batches.get(slug, "")},
-                         BATCH_COLUMNS, BATCH_WIDTHS))
-    return "\n".join(out) + "\n"
+    return "".join(
+        _line({"batch": slug, "note": led.batches.get(slug, "")},
+              BATCH_COLUMNS) + "\n"
+        for slug in led.order())
 
 
 def save(hashes_dir, led, write):
-    """Write every part: one ledger per table, plus batches.tsv. `write` is
+    """Write every part: one ledger per table, plus batches.jsonl. `write` is
     update_hashes.write_if_changed - passed in rather than imported, so this
     module stays free of the hashtable pipeline. Returns True if any file
     changed; every file is written either way, so a split can't half-apply."""

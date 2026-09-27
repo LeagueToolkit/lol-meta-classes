@@ -1,6 +1,6 @@
 # The global audio/VO pass
 
-Reversing doc for `global-audio`. Its `batches.tsv` note points here.
+Reversing doc for `global-audio`. Its `batches.jsonl` note points here.
 
 82 names off one dormant subsystem introduced across 16.7-16.14: an unnamed
 800-byte root that holds a champion-music event table, an announcer-VO event

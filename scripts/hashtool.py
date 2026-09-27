@@ -31,11 +31,11 @@ Usage:
 `Classes:`/`Fields:` header routes following names to bintypes/binfields, and an
 unsectioned list is checked against both tables.
 
-Every `add` also writes a row to hashes/overrides/ledger.<table>.tsv - one ledger
+Every `add` also writes a row to hashes/overrides/ledger.<table>.jsonl - one ledger
 per override table - which is what records when a crack happened and whether it
 has been sent upstream yet; see ledger.py. Overrides alone can't answer "what
 still needs a CDragon PR?". The per-batch method and attestation go beside them
-in batches.tsv, which stays single because batches cross tables. The `ledger`
+in batches.jsonl, which stays single because batches cross tables. The `ledger`
 subcommand reads and writes both tables at once, so its selectors are unaffected
 by the split.
 
@@ -356,14 +356,14 @@ def cmd_lint(args):
               f"({expect} -> {rebuilt}); scripts/names.py needs the case adding",
               file=sys.stderr)
 
-    # Batch notes are abstracts, and an abstract that outgrows its cell has
+    # Batch notes are abstracts, and an abstract that outgrows its line has
     # stopped being one. Checked here rather than at write time because it is
     # the whole file that has to stay scannable: a single long note is only
     # visible as a problem next to the fifteen that kept to the limit.
     long_notes = {s: n for s, n in led.batches.items()
                   if len(n) > ledger_mod.NOTE_MAX}
     for slug, note in sorted(long_notes.items()):
-        print(f"[error] batches.tsv: {slug} note is {len(note)} chars, over "
+        print(f"[error] batches.jsonl: {slug} note is {len(note)} chars, over "
               f"{ledger_mod.NOTE_MAX}. Move the derivation and the per-name "
               f"evidence into a doc under docs/ and point the note at it",
               file=sys.stderr)
@@ -727,7 +727,7 @@ def main():
                         "(default: unsorted)")
     p.add_argument("-e", "--evidence", default="",
                    help="one line: the batch's method and what attests it "
-                        "(stored per batch in batches.tsv, reused in the "
+                        "(stored per batch in batches.jsonl, reused in the "
                         "upstream PR)")
     p.add_argument("-l", "--local", action="store_true",
                    help="mark these local-only: resolved here, held back from "

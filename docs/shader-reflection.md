@@ -217,7 +217,9 @@ that is a richer probe set than any tier above.
 
 ## Status
 
-All 21 rows `pending`, `pr=-`.
+19 rows `pending`, `pr=-`. `HdrEnvDiffuseScale` and `NormalStrength` also fell
+out of this sweep but were landed first by `map-entity-templates` and
+`nova-item-getters`, so their rows live there.
 
 `shader-reflection` is fit to submit: both names are identifiers the retail
 client ships, which is the standard `light-regions` and `exe-strings` met.

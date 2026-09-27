@@ -1,7 +1,7 @@
 # gamemode-configs - campaign record
 
 Record for `gamemode-configs`, `gamemode-configs-unproven` and
-`guest-of-honor`; their `batches.tsv` notes point here. Method: the
+`guest-of-honor`; their `batches.jsonl` notes point here. Method: the
 `crack-family` skill (`.claude/skills/crack-family/SKILL.md`), worked per
 class - each unnamed class got its own search over its recursive structural
 neighbourhood, so noise stayed at 0.001-0.007 expected chance hits per target,

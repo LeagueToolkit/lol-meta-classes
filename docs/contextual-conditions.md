@@ -181,8 +181,8 @@ which is why `BaseSource` does not transfer from `70f5ed1c` to `4af7e9f2`.
 
 ## Status
 
-All 24 rows `pending`, `pr=-`: 16 in `ledger.bintypes.tsv`, 8 in
-`ledger.binfields.tsv`.
+All 24 rows `pending`, `pr=-`: 16 in `ledger.bintypes.jsonl`, 8 in
+`ledger.binfields.jsonl`.
 
 Fit to submit as one unit: everything at tier 1, 2 and 3. `cdd217c1` and
 `70f5ed1c` are tier 4 and should be split off or called out explicitly in any

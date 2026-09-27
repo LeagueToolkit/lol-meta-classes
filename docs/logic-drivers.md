@@ -1,6 +1,6 @@
 # logic-drivers - campaign record
 
-Record for `logic-drivers`; its `batches.tsv` note points here. Method: the
+Record for `logic-drivers`; its `batches.jsonl` note points here. Method: the
 `crack-family` skill (`.claude/skills/crack-family/SKILL.md`). `ILogicDriver`
 went from 66 live unnamed members to 23. 46 names landed: 43 classes and 3
 fields.

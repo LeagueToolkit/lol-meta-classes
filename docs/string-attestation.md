@@ -1,7 +1,7 @@
 # String attestation
 
 The reversing doc for `exe-strings` and `data-section-strings`. Their
-`batches.tsv` notes point here.
+`batches.jsonl` notes point here.
 
 The guesser proposes a name and the hash fails to contradict it. This runs the
 other way: the probe set is nothing but strings that shipped, so a hit is a name

@@ -1,6 +1,6 @@
 # The character outline pass
 
-Reversing doc for `character-outline`. Its `batches.tsv` note points here.
+Reversing doc for `character-outline`. Its `batches.jsonl` note points here.
 
 Three names, one feature: the toon outline League Classic (Jade) draws on
 characters, added whole in `16.10.7747445`.

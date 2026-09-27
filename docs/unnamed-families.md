@@ -62,7 +62,7 @@ separately are listed in the write-ups below.
 | 14 | 28 | 6 | 75 | 1 | 0 | 15.14..16.9 | `Cheat` (946adb4c) |
 | 11 | 26 | 8 | 56 | 1 | 8 | 13.15..16.9 | `IGameCalculationPart` (b60012ce) |
 
-Prior campaigns, from `hashes/overrides/ledger.bintypes.tsv`, so nobody
+Prior campaigns, from `hashes/overrides/ledger.bintypes.jsonl`, so nobody
 re-treads: `IVfxBaseDriver` is 56/56 ours (`vfx-driver-graph`), `BaseParams`
 20/20 and `ViewController` 31/189 (`season16-modes-ui`, `viewcontroller-family`),
 `IGameModeConfigBase` 5/19 (`gamemode-configs`). `MapPlaceableBase` is finished

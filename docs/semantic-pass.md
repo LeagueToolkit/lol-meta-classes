@@ -1,7 +1,7 @@
 # The semantic pass
 
 The reversing doc for three batches: `semantic-pass-structural`,
-`semantic-pass-family` and `viewcontroller-family`. Their `batches.tsv` notes
+`semantic-pass-family` and `viewcontroller-family`. Their `batches.jsonl` notes
 point here.
 
 ## Why it is not a guesser run

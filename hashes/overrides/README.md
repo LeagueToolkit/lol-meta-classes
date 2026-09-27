@@ -26,30 +26,28 @@ once upstream ships the identical name the entry is redundant, and
 [CommunityDragon/Data#35](https://github.com/CommunityDragon/Data/pull/35) - 136
 entries - merged upstream and was pruned on 2026-07-24.)
 
-## ledger.{table}.tsv
+## ledger.{table}.jsonl
 
 `{table}.txt` says what a hash resolves to and nothing else - not when it was
 cracked, not what attests it, not whether it has been sent upstream. That gap is
 how a crack sits here for months and is quietly forgotten, so the history lives
 beside it, one ledger per override table:
 
-    ledger.bintypes.tsv    hash  name  batch  cracked  status  pr
-    ledger.binfields.tsv   hash  name  batch  cracked  status  pr
-    batches.tsv            batch  note
+    ledger.bintypes.jsonl    {hash, name, batch, cracked, status, pr}
+    ledger.binfields.jsonl   {hash, name, batch, cracked, status, pr}
+    batches.jsonl            {batch, note}
 
 Each ledger shadows the override table it is named after, so the pair moves
-together and a diff stays in the table that changed. There is no `table` column -
+together and a diff stays in the table that changed. There is no `table` key -
 the filename is it, and that is also what keeps the six names that are *both* a
 class and a field apart: they share a hash, so a row is identified by file plus
-hash. `batches.tsv` stays single, because a campaign can span both tables.
+hash. `batches.jsonl` stays single, because a campaign can span both tables.
 
 The tooling reads and writes all three as one set of rows, so nothing below is
 per-file: `--batch`, `--match` and the summary all cut across tables.
 
-Each is a rendered table with no comments, no blank lines, a header on line 1
-and a uniform column count, which is what GitHub's table viewer needs to render
-them - `load()` enforces it. That is why the batch notes are their own file
-rather than a comment block at the top of a ledger.
+Each line is one JSON object with exactly those keys, all strings, in that
+order; no header, no blank lines. `load()` enforces it.
 
 `status` is `pending` (cracked, not sent anywhere), `submitted` (in an open
 upstream PR - put the link in `pr`), `merged` (upstream has it; `prune` will drop
@@ -58,14 +56,14 @@ upstream - see below).
 
 `batch` is the campaign a crack came out of, and the unit an upstream PR is built
 from. Rows are written grouped by it - as row order, not as a heading, since the
-`batch` column already carries it - and the method and attestation live once per
-batch in `batches.tsv` rather than repeated on every row; anything per-name
+`batch` key already carries it - and the method and attestation live once per
+batch in `batches.jsonl` rather than repeated on every row; anything per-name
 belongs in the reversing doc that note points at.
 
 That note is an abstract, not the write-up, and `lint` caps it at 200 characters
 to keep it one. Say what the campaign was and what makes its names believable;
 put the derivation, the per-name evidence and any tables in a doc under `docs/`
-and point at it from the cell. `docs/semantic-pass.md` is the worked example.
+and point at it from the note. `docs/semantic-pass.md` is the worked example.
 
 Today:
 `pre-ledger-backlog` (945, blame-dated, method not recoverable),
@@ -107,7 +105,7 @@ permanent; flip it back to `pending` if that changes.
 
 The reason a name is held back is the part worth writing down - a bare `local`
 with no explanation reads as a forgotten crack a year later. When a whole batch
-is held back the reason goes in its `batches.tsv` note; when the hold-back cuts
+is held back the reason goes in its `batches.jsonl` note; when the hold-back cuts
 across batches, as a name family cracked over several sittings does, record it
 here:
 

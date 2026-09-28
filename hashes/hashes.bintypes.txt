@@ -2057,6 +2057,8 @@ fc205680 MutatorEnabler
 332eb441 NamedDataValueCalculationPart
 d5ae911e NamedDataValueCalculationPartInstance
 af96bb9b NamedIconData
+72553f91 NarrativeBarksDefinition
+276246d8 NarrativeBarksList
 bdc90544 NavGridConfig
 bf11c509 NavGridTerrainConfig
 b13284de NavHeaderViewController
@@ -2686,6 +2688,7 @@ a41b7041 SpellDataValueInstance
 21bc7b54 SpellEvolutionUiData
 9b601778 SpellLevelUpInfo
 307a28a3 SpellLevelUpInfoInstance
+ef35eacc SpellLevelUpList
 6faebdfe SpellLevelUpUiData
 d486d6e9 SpellLockDeltaTimeData
 7640880c SpellModifier
@@ -2965,6 +2968,7 @@ db6be360 TargetingPriorityList
 cb20c47a TargetingRangeValue
 7fcf3f30 TargetingTypeData
 7c972275 TeamBuffData
+341a92b5 TeamDefinition
 86dca50c TeamFightUiTunables
 6fb1f68f TeamFightViewController
 2b768993 TeamFramesViewController
@@ -3195,6 +3199,7 @@ f340b385 TftTeamPlannerChampionListingData
 13a37f3e TftTeamPlannerMemberData
 e0003cf8 TftTeamPlannerMemberDisplayTrait
 cd92ff72 TftTeamPlannerMemberTraitData
+5ec7f50c TftTeamPlannerSetData
 e69440b8 TftTeamPlannerTierData
 ec3ec171 TftTeamPlannerViewController
 2d8b5833 TftTextInfoNubData

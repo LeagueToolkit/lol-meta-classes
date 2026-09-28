@@ -1,6 +1,6 @@
 {
 "formatVersion": 1,
-"hashSource": {"fetchedAt":"2026-09-21T08:41:08Z","bintypes":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt","entries":3759},"binfields":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt","entries":9856}},
+"hashSource": {"fetchedAt":"2026-09-28T09:29:09Z","bintypes":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt","entries":3764},"binfields":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt","entries":9909}},
 "latest": 8217343,
 "versions": [
 {"patch":"13.15","build":5229820},
@@ -328,7 +328,7 @@
 }},
 "0xb1e2f6": {"name": "LoadoutViewController", "revisions": [{"from":5229820,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x3406fbb": {"name":"SoundOnDeActivate","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xd47a855": {"name":"CompanionInfoPanel","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xa42222f"],"default":{"Scene":"0x0","UpgradeEntitlementErrorTooltipText":"","JustObtainedIcon":["0x0","0x0","0x0"],"0x4b8c1a00":"0x0","GamePassIcon":"0x0","0x5683a573":"0x0","UnownedStarShardIcon":["0x0","0x0","0x0"],"UpgradeButtonDisabledFromEntitlementText":"","0x66b6aaa7":0.5,"Tier2ButtonFeedbackVfx":"0x0","UnownedTierButton":["0x0","0x0","0x0"],"upgradeTierButton":["0x0","0x0","0x0"],"0x8300af56":0,"Tier3ButtonFeedbackVfx":"0x0","0x96e6f1ba":"0x0","tierButton":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"upgradeErrorText":"0x0","0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","UpgradeEntitlementErrorButton":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","0xee425ddc":"0x0","0xf0ed80c8":"","upgradeInfoText":"0x0"}}]},
+ "0xd47a855": {"name":"CompanionInfoPanel","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xa42222f"],"default":{"Scene":"0x0","UpgradeEntitlementErrorTooltipText":"","JustObtainedIcon":["0x0","0x0","0x0"],"0x4b8c1a00":"0x0","GamePassIcon":"0x0","0x5683a573":"0x0","UnownedStarShardIcon":["0x0","0x0","0x0"],"UpgradeButtonDisabledFromEntitlementText":"","0x66b6aaa7":0.5,"Tier2ButtonFeedbackVfx":"0x0","UnownedTierButton":["0x0","0x0","0x0"],"upgradeTierButton":["0x0","0x0","0x0"],"0x8300af56":0,"Tier3ButtonFeedbackVfx":"0x0","0x96e6f1ba":"0x0","tierButton":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"upgradeErrorText":"0x0","0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","UpgradeEntitlementErrorButton":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","FavoriteButtonDefinition":"0x0","0xf0ed80c8":"","upgradeInfoText":"0x0"}}]},
  "0x1d297fca": {"name":"CompanionLoadoutItemListPanelData","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x3fd5f11a"],"default":{"ButtonArea":"0x0","TitleTextTemplate":"0x0","TitleTemplate":"0x0","ViewPanelScene":"0x0","TitleArea":"0x0"}}]},
  "0x2eed7e1b": {"revisions":[{"from":6085125,"type":["Link","0x0","0x0","0xed511190"],"default":"0x0"}]},
  "0x30aa3195": {"name":"SearchbarText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -337,7 +337,7 @@
  "0x3f19432c": {"name":"BaseLoadable","revisions":[{"from":5304653,"to":6781456,"type":["Link","0x0","0x0","0xe0d5fc7e"],"default":"0x0"}]},
  "0x4b90d43d": {"name":"SearchButton","revisions":[{"from":5923585,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x53ff8f31": {"name":"StarShardsStoreDialog","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x661bf241": {"name":"DamageSkinInfoPanel","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x3266720b"],"default":{"Scene":"0x0","GamePassIcon":"0x0","0x5683a573":"0x0","0x66b6aaa7":0.5,"UnownedTierButton":["0x0","0x0","0x0"],"0x8300af56":0,"tierButton":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","0xee425ddc":"0x0"}}]},
+ "0x661bf241": {"name":"DamageSkinInfoPanel","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x3266720b"],"default":{"Scene":"0x0","GamePassIcon":"0x0","0x5683a573":"0x0","0x66b6aaa7":0.5,"UnownedTierButton":["0x0","0x0","0x0"],"0x8300af56":0,"tierButton":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","FavoriteButtonDefinition":"0x0"}}]},
  "0x67c56f9d": {"name":"TabletOverrideLoadable","revisions":[{"from":5304653,"type":["Link","0x0","0x0","0x13dcbd26"],"default":"0x0"}]},
  "0x681a812f": {"name":"EmoteInfoPanel","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xf46ab681"],"default":{"EmoteWheelSwButton_Icon":"0x0","EmoteWheelSButton":"0x0","Scene":"0x0","EmoteVictoryButton_Icon":"0x0","EmoteWheelNeButton":"0x0","EmoteWheelWButton_Icon":"0x0","EmoteWheelCButton":"0x0","EmoteWheelNwButton_Icon":"0x0","EmoteWheelSwButton":"0x0","0x66b6aaa7":0.5,"EmoteWheelSButton_Icon":"0x0","EmoteWheelCButton_Icon":"0x0","0x8300af56":0,"emoteStartButton":"0x0","EmoteWheelNeButton_Icon":"0x0","EmoteWheelSeButton":"0x0","0xbd2f7d09":"","EmoteWheelEButton":"0x0","EmoteWheelNButton_Icon":"0x0","EmoteWheelNwButton":"0x0","emoteVictoryButton":"0x0","EmoteWheelWButton":"0x0","EmoteWheelNButton":"0x0","ViewPaneLink":"0x0","EmoteWheelEButton_Icon":"0x0","EmoteStartButton_Icon":"0x0","EmoteWheelSeButton_Icon":"0x0"}}]},
  "0x78407281": {"name":"LoadoutScene","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -357,7 +357,7 @@
  "0xd5846a0a": {"revisions":[{"from":5923585,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd601c9f5": {"name":"EmoteLoadoutGridButtonData","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xd601c9f5"],"default":{"Group":"0x0","GamePass":"0x0","CHECK":"0x0","Icon":"0x0","Lock":"0x0"}}]},
  "0xe0ece3d9": {"name":"SearchBarGroup","revisions":[{"from":5923585,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xe7d30d42": {"name":"ArenaInfoPanel","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xa75a77b3"],"default":{"Scene":"0x0","GamePassIcon":"0x0","ItemLockIcon":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","0xee425ddc":"0x0"}}]},
+ "0xe7d30d42": {"name":"ArenaInfoPanel","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xa75a77b3"],"default":{"Scene":"0x0","GamePassIcon":"0x0","ItemLockIcon":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","FavoriteButtonDefinition":"0x0"}}]},
  "0xf32431bf": {"name":"CompanionLoadoutGridButtonData","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xf32431bf"],"default":{"0x516737fb":"0x0","0x5267398e":"0x0","0x53673b21":"0x0","Group":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","CHECK":"0x0","RarityGem":"0x0","Icon":"0x0","Lock":"0x0"}}]},
  "0xf50d446e": {"name":"DamageSkinLoadoutItemListPanelData","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x3fd5f11a"],"default":{"ButtonArea":"0x0","TitleTextTemplate":"0x0","TitleTemplate":"0x0","ViewPanelScene":"0x0","TitleArea":"0x0"}}]},
  "0xfaf537f0": {"revisions":[{"from":5606808,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -991,7 +991,7 @@
 }},
 "0x5e73536": {"name": "LoadoutViewControllerV2", "revisions": [{"from":6236777,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x3406fbb": {"name":"SoundOnDeActivate","revisions":[{"from":6236777,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xd47a855": {"name":"CompanionInfoPanel","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0xa42222f"],"default":{"Scene":"0x0","UpgradeEntitlementErrorTooltipText":"","JustObtainedIcon":["0x0","0x0","0x0"],"0x4b8c1a00":"0x0","GamePassIcon":"0x0","0x5683a573":"0x0","UnownedStarShardIcon":["0x0","0x0","0x0"],"UpgradeButtonDisabledFromEntitlementText":"","0x66b6aaa7":0.5,"Tier2ButtonFeedbackVfx":"0x0","UnownedTierButton":["0x0","0x0","0x0"],"upgradeTierButton":["0x0","0x0","0x0"],"0x8300af56":0,"Tier3ButtonFeedbackVfx":"0x0","0x96e6f1ba":"0x0","tierButton":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"upgradeErrorText":"0x0","0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","UpgradeEntitlementErrorButton":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","0xee425ddc":"0x0","0xf0ed80c8":"","upgradeInfoText":"0x0"}}]},
+ "0xd47a855": {"name":"CompanionInfoPanel","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0xa42222f"],"default":{"Scene":"0x0","UpgradeEntitlementErrorTooltipText":"","JustObtainedIcon":["0x0","0x0","0x0"],"0x4b8c1a00":"0x0","GamePassIcon":"0x0","0x5683a573":"0x0","UnownedStarShardIcon":["0x0","0x0","0x0"],"UpgradeButtonDisabledFromEntitlementText":"","0x66b6aaa7":0.5,"Tier2ButtonFeedbackVfx":"0x0","UnownedTierButton":["0x0","0x0","0x0"],"upgradeTierButton":["0x0","0x0","0x0"],"0x8300af56":0,"Tier3ButtonFeedbackVfx":"0x0","0x96e6f1ba":"0x0","tierButton":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"upgradeErrorText":"0x0","0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","UpgradeEntitlementErrorButton":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","FavoriteButtonDefinition":"0x0","0xf0ed80c8":"","upgradeInfoText":"0x0"}}]},
  "0x1aa55fe1": {"revisions":[{"from":6275678,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x1d297fca": {"name":"CompanionLoadoutItemListPanelData","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0x3fd5f11a"],"default":{"ButtonArea":"0x0","TitleTextTemplate":"0x0","TitleTemplate":"0x0","ViewPanelScene":"0x0","TitleArea":"0x0"}}]},
  "0x1e8e7b49": {"revisions":[{"from":6575386,"type":["Embed","0x0","0x0","0x1e8e7b49"],"default":{"Group":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","CHECK":"0x0","RarityGem":"0x0","Icon":"0x0","Lock":"0x0"}}]},
@@ -1005,12 +1005,12 @@
  "0x4fc30b29": {"revisions":[{"from":6275678,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x53ff8f31": {"name":"StarShardsStoreDialog","revisions":[{"from":6236777,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x548fbc13": {"revisions":[{"from":7170001,"type":["Embed","0x0","0x0","0x3fd5f11a"],"default":{"ButtonArea":"0x0","TitleTextTemplate":"0x0","TitleTemplate":"0x0","ViewPanelScene":"0x0","TitleArea":"0x0"}}]},
- "0x5f2cd4eb": {"revisions":[{"from":6575386,"type":["Embed","0x0","0x0","0x420e433d"],"default":{"Scene":"0x0","GamePassIcon":"0x0","ItemLockIcon":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","0xee425ddc":"0x0"}}]},
- "0x661bf241": {"name":"DamageSkinInfoPanel","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0x3266720b"],"default":{"Scene":"0x0","GamePassIcon":"0x0","0x5683a573":"0x0","0x66b6aaa7":0.5,"UnownedTierButton":["0x0","0x0","0x0"],"0x8300af56":0,"tierButton":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","0xee425ddc":"0x0"}}]},
+ "0x5f2cd4eb": {"revisions":[{"from":6575386,"type":["Embed","0x0","0x0","0x420e433d"],"default":{"Scene":"0x0","GamePassIcon":"0x0","ItemLockIcon":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","FavoriteButtonDefinition":"0x0"}}]},
+ "0x661bf241": {"name":"DamageSkinInfoPanel","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0x3266720b"],"default":{"Scene":"0x0","GamePassIcon":"0x0","0x5683a573":"0x0","0x66b6aaa7":0.5,"UnownedTierButton":["0x0","0x0","0x0"],"0x8300af56":0,"tierButton":["0x0","0x0","0x0"],"LockIcon":["0x0","0x0","0x0"],"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","FavoriteButtonDefinition":"0x0"}}]},
  "0x67c56f9d": {"name":"TabletOverrideLoadable","revisions":[{"from":6236777,"type":["Link","0x0","0x0","0x13dcbd26"],"default":"0x0"}]},
  "0x681a812f": {"name":"EmoteInfoPanel","revisions":[{"from":6236777,"to":6236777,"type":["Embed","0x0","0x0","0xf46ab681"],"default":{"EmoteWheelSwButton_Icon":"0x0","EmoteWheelSButton":"0x0","Scene":"0x0","EmoteVictoryButton_Icon":"0x0","EmoteWheelNeButton":"0x0","EmoteWheelWButton_Icon":"0x0","EmoteWheelCButton":"0x0","EmoteWheelNwButton_Icon":"0x0","EmoteWheelSwButton":"0x0","0x66b6aaa7":0.5,"EmoteWheelSButton_Icon":"0x0","EmoteWheelCButton_Icon":"0x0","0x8300af56":0,"emoteStartButton":"0x0","EmoteWheelNeButton_Icon":"0x0","EmoteWheelSeButton":"0x0","0xbd2f7d09":"","EmoteWheelEButton":"0x0","EmoteWheelNButton_Icon":"0x0","EmoteWheelNwButton":"0x0","emoteVictoryButton":"0x0","EmoteWheelWButton":"0x0","EmoteWheelNButton":"0x0","ViewPaneLink":"0x0","EmoteWheelEButton_Icon":"0x0","EmoteStartButton_Icon":"0x0","EmoteWheelSeButton_Icon":"0x0"}}]},
  "0x70e416ac": {"revisions":[{"from":6275678,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x719d99ae": {"revisions":[{"from":7170001,"type":["Embed","0x0","0x0","0xd25f84b0"],"default":{"Scene":"0x0","GamePassIcon":"0x0","ItemLockIcon":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","0xee425ddc":"0x0"}}]},
+ "0x719d99ae": {"revisions":[{"from":7170001,"type":["Embed","0x0","0x0","0xd25f84b0"],"default":{"Scene":"0x0","GamePassIcon":"0x0","ItemLockIcon":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","FavoriteButtonDefinition":"0x0"}}]},
  "0x78407281": {"name":"LoadoutScene","revisions":[{"from":6236777,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x7f565eb6": {"name":"ArenaSkinLoadoutItemListPanelData","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0x3fd5f11a"],"default":{"ButtonArea":"0x0","TitleTextTemplate":"0x0","TitleTemplate":"0x0","ViewPanelScene":"0x0","TitleArea":"0x0"}}]},
  "0x899e7ee7": {"revisions":[{"from":6275678,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -1031,7 +1031,7 @@
  "0xd5846a0a": {"revisions":[{"from":6236777,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd601c9f5": {"name":"EmoteLoadoutGridButtonData","revisions":[{"from":6236777,"to":6236777,"type":["Embed","0x0","0x0","0xd601c9f5"],"default":{"Group":"0x0","GamePass":"0x0","CHECK":"0x0","Icon":"0x0","Lock":"0x0"}}]},
  "0xe0ece3d9": {"name":"SearchBarGroup","revisions":[{"from":6236777,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xe7d30d42": {"name":"ArenaInfoPanel","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0xa75a77b3"],"default":{"Scene":"0x0","GamePassIcon":"0x0","ItemLockIcon":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","0xee425ddc":"0x0"}}]},
+ "0xe7d30d42": {"name":"ArenaInfoPanel","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0xa75a77b3"],"default":{"Scene":"0x0","GamePassIcon":"0x0","ItemLockIcon":"0x0","0x66b6aaa7":0.5,"0x8300af56":0,"0xbd2f7d09":"","RarityGem":"0x0","ItemIconText":"0x0","ItemIcon":"0x0","ViewPaneLink":"0x0","FavoriteButtonDefinition":"0x0"}}]},
  "0xe9adf6a4": {"revisions":[{"from":7170001,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf32431bf": {"name":"CompanionLoadoutGridButtonData","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0xf32431bf"],"default":{"0x516737fb":"0x0","0x5267398e":"0x0","0x53673b21":"0x0","Group":"0x0","FavoriteIcon":"0x0","GamePass":"0x0","CHECK":"0x0","RarityGem":"0x0","Icon":"0x0","Lock":"0x0"}}]},
  "0xf50d446e": {"name":"DamageSkinLoadoutItemListPanelData","revisions":[{"from":6236777,"type":["Embed","0x0","0x0","0x3fd5f11a"],"default":{"ButtonArea":"0x0","TitleTextTemplate":"0x0","TitleTemplate":"0x0","ViewPanelScene":"0x0","TitleArea":"0x0"}}]},
@@ -1281,7 +1281,7 @@
  "0x3bd9d6f4": {"revisions":[{"from":7747445,"to":8049184,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
  "0x4d302530": {"name":"MainScene","revisions":[{"from":7695709,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa7f23864": {"name":"QuestGroup","revisions":[{"from":7695709,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xae6404bb": {"name":"DisplayTemplate","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x4b24468b"],"default":{"DescriptionText":"0x0","TooltipPosition":"0x0","0x20ef28a0":"0x0","0x2be6ec1f":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","IconData":null,"Group":"0x0","0xb615dddd":"0x0","HitArea":"0x0","Meter":"0x0","0xcfa79792":"0x0","0xd4841047":true,"TooltipAnchor":8,"0xf44c7b57":"0x0"}}]},
+ "0xae6404bb": {"name":"DisplayTemplate","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x4b24468b"],"default":{"DescriptionText":"0x0","TooltipPosition":"0x0","CounterValue":"0x0","0x2be6ec1f":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","IconData":null,"Group":"0x0","0xb615dddd":"0x0","HitArea":"0x0","Meter":"0x0","0xcfa79792":"0x0","0xd4841047":true,"TooltipAnchor":8,"0xf44c7b57":"0x0"}}]},
  "0xee5536e5": {"revisions":[{"from":7747445,"to":8049184,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]}
 }},
 "0x7a19656": {"revisions": [{"from":5352535,"bases":[],"interface":false,"value":false}], "properties": {
@@ -1741,7 +1741,7 @@
  "0xd2605dd4": {"name":"ItemIconText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd5144b0c": {"name":"UpgradeEntitlementErrorButton","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xdd0d2e93": {"name":"ItemIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xee425ddc": {"revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xee425ddc": {"name":"FavoriteButtonDefinition","revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf0ed80c8": {"revisions":[{"from":6690024,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0xa450b25": {"name": "IconStateData", "revisions": [{"from":5715678,"bases":[],"interface":false,"value":false}], "properties": {
@@ -1833,7 +1833,7 @@
  "0xf483e2e5": {"name":"IconBackgrounds","revisions":[{"from":5229820,"to":5369576,"type":["List","0x6","Embed","0x1d6f8226"],"default":[{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"}]},{"from":5379010,"type":["List","0x7","Embed","0x1d6f8226"],"default":[{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"},{"HoverIcon":"0x0","DefaultIcon":"0x0"}]}]}
 }},
 "0xb183179": {"revisions": [{"from":7426169,"bases":[],"interface":false,"value":false}], "properties": {
- "0x7bbce67d": {"revisions":[{"from":7426169,"type":["List2","0x0","Link","0xd41a611d"],"default":[]}]}
+ "0x7bbce67d": {"name":"ItemCombinationList","revisions":[{"from":7426169,"type":["List2","0x0","Link","0xd41a611d"],"default":[]}]}
 }},
 "0xb2de797": {"name": "CursorData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x65872706": {"name":"mColorblindTextureName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -2097,7 +2097,7 @@
 "0xd8abae0": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0xd91a223": {"revisions": [{"from":6275678,"bases":["0xfd51006c"],"interface":false,"value":false}], "properties": {
- "0xe2e5b6dd": {"revisions":[{"from":6275678,"type":["List2","0x0","U32","0x0"],"default":[]}]}
+ "0xe2e5b6dd": {"name":"InputLockTypes","revisions":[{"from":6275678,"type":["List2","0x0","U32","0x0"],"default":[]}]}
 }},
 "0xd974ea3": {"revisions": [{"from":6919951,"bases":["0xd456bab6"],"interface":false,"value":false}], "properties": {
  "0x2bbbc039": {"revisions":[{"from":6919951,"type":["I32","0x0","0x0","0x0"],"default":0}]},
@@ -2734,30 +2734,30 @@
  "0xa0f69e3c": {"name":"behaviors","revisions":[{"from":5276396,"type":["List2","0x0","Embed","0xfe897399"],"default":[]}]}
 }},
 "0x12b6d15e": {"name": "TftUnitPropertyNames", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
- "0x235018b": {"revisions":[{"from":5923585,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0xeab20b3": {"revisions":[{"from":5639790,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0x235018b": {"name":"DoesNotContributeTraits","revisions":[{"from":5923585,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0xeab20b3": {"name":"EnableCustomFacingDuringMove","revisions":[{"from":5639790,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x20ec63d8": {"revisions":[{"from":6206549,"to":6223713,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x21ec656b": {"revisions":[{"from":6206549,"to":6223713,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x23ec6891": {"revisions":[{"from":6206549,"to":6223713,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x35fa4ff0": {"name":"CharacterRoleOverride","revisions":[{"from":5276396,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x3e548dfb": {"name":"RerollTraitLastCombatActive","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0x42fa070e": {"revisions":[{"from":6614445,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0x42fa070e": {"name":"AdditionalBoardContribution","revisions":[{"from":6614445,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x483d8f75": {"revisions":[{"from":7269074,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x554967ca": {"name":"UnitGoldValue","revisions":[{"from":5409873,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0x5c5feb3b": {"revisions":[{"from":5923585,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0x5c5feb3b": {"name":"DoesNotReceiveTraits","revisions":[{"from":5923585,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x5dcd7177": {"name":"RerollTraitCounter","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0x5f9096dc": {"revisions":[{"from":5579166,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0x644576e5": {"revisions":[{"from":6614445,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0x5f9096dc": {"name":"IsEphemeral","revisions":[{"from":5579166,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0x644576e5": {"name":"ArmoryBribeGold","revisions":[{"from":6614445,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x66d660db": {"name":"IsOverflow","revisions":[{"from":5923585,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x68305f93": {"name":"SwapMaterial","revisions":[{"from":5923585,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0x819c43fe": {"revisions":[{"from":5681102,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0x819c43fe": {"name":"IgnoreLookAtCamera","revisions":[{"from":5681102,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0x82b131b9": {"name":"ForceLookAtCamera","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0x9dc71969": {"revisions":[{"from":5798615,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0xa6de9020": {"revisions":[{"from":5923585,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0xb837da80": {"revisions":[{"from":7465697,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0xc483dfa4": {"revisions":[{"from":6614445,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0x9dc71969": {"name":"AllowItemDrops","revisions":[{"from":5798615,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0xa6de9020": {"name":"IsNPC","revisions":[{"from":5923585,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0xb837da80": {"name":"ArmoryBribeItem","revisions":[{"from":7465697,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
+ "0xc483dfa4": {"name":"ItemIconDecorator","revisions":[{"from":6614445,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
  "0xd091d5cb": {"revisions":[{"from":5923585,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]},
- "0xf65cc67f": {"revisions":[{"from":7200925,"to":7457600,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]}
+ "0xf65cc67f": {"name":"FavorTotal","revisions":[{"from":7200925,"to":7457600,"type":["Link","0x0","0x0","0x7041ed03"],"default":"0x0"}]}
 }},
 "0x12e24bcd": {"name": "LevelPropAiClient", "revisions": [{"from":5229820,"bases":["0xd27d6bcf"],"interface":false,"value":false}], "properties": {
 }},
@@ -4609,7 +4609,7 @@
  "0xa1a15b6f": {"name":"HorizontalRule","revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa67b394f": {"name":"TraitDescription","revisions":[{"from":5639790,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xc3002c22": {"revisions":[{"from":6161179,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xce58156a": {"name":"HudTraitUnitSlotTemplate","revisions":[{"from":5639790,"type":["Embed","0x0","0x0","0xbaddec44"],"default":{"UnitIcon":"0x0","border":"0x0","Overlay":"0x0","Region":"0x0","0x417ae5d6":"0x0","Padding":"0x0","UnitShade":"0x0","0xe96f72ce":null,"UnitGroupLink":"0x0"}}]},
+ "0xce58156a": {"name":"HudTraitUnitSlotTemplate","revisions":[{"from":5639790,"type":["Embed","0x0","0x0","0xbaddec44"],"default":{"UnitIcon":"0x0","border":"0x0","Overlay":"0x0","Region":"0x0","0x417ae5d6":"0x0","Padding":"0x0","UnitShade":"0x0","UnlockIndicator":null,"UnitGroupLink":"0x0"}}]},
  "0xe8a36b45": {"name":"TraitFooterPadding","revisions":[{"from":5798615,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf63a5820": {"name":"TraitFooter","revisions":[{"from":5798615,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xfdb91217": {"name":"HudTraitUnitSlotBorders","revisions":[{"from":5639790,"type":["Embed","0x0","0x0","0x520608f3"],"default":{"ItemSlotBorder":"0x0","UnitSlotBorders":{}}}]},
@@ -5873,7 +5873,7 @@
 }},
 "0x2761403d": {"name": "PropertyTraits", "revisions": [{"from":7945912,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0x276246d8": {"revisions": [{"from":5837922,"bases":[],"interface":false,"value":false}], "properties": {
+"0x276246d8": {"name": "NarrativeBarksList", "revisions": [{"from":5837922,"bases":[],"interface":false,"value":false}], "properties": {
  "0x90ebcab0": {"revisions":[{"from":5837922,"type":["Map","String","Embed","0x72553f91"],"default":{}}]}
 }},
 "0x276cb970": {"name": "UiMetricTeamTowerKills", "revisions": [{"from":5229820,"bases":["0x30176f82"],"interface":false,"value":false}], "properties": {
@@ -6381,7 +6381,7 @@
  "0xa3383d13": {"name":"Concept","revisions":[{"from":8104348,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x2b686c3d": {"revisions": [{"from":6124791,"bases":[],"interface":false,"value":false}], "properties": {
- "0x1cf2c30f": {"revisions":[{"from":6124791,"type":["Link","0x0","0x0","0x15502626"],"default":"0x0"}]}
+ "0x1cf2c30f": {"name":"SpellPickChoiceList","revisions":[{"from":6124791,"type":["Link","0x0","0x0","0x15502626"],"default":"0x0"}]}
 }},
 "0x2b6fac9a": {"revisions": [{"from":5549136,"bases":[],"interface":false,"value":false}], "properties": {
  "0x95f72993": {"name":"tag","revisions":[{"from":5549136,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -7295,7 +7295,7 @@
  "0xd02a6781": {"name":"RarityGem","revisions":[{"from":6690024,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd2605dd4": {"name":"ItemIconText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xdd0d2e93": {"name":"ItemIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xee425ddc": {"revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0xee425ddc": {"name":"FavoriteButtonDefinition","revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x326fe4b8": {"name": "MonarchInputUpdater", "revisions": [{"from":6012857,"to":6034237,"bases":["0x6ff8b2a7"],"interface":false,"value":false},{"from":6048769,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
  "0x5f841716": {"revisions":[{"from":6048769,"to":7480682,"type":["Link","0x0","0x0","0x2cfe8421"],"default":"0x0"}]},
@@ -8947,7 +8947,7 @@
  "0xd02a6781": {"name":"RarityGem","revisions":[{"from":6690024,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd2605dd4": {"name":"ItemIconText","revisions":[{"from":6575386,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xdd0d2e93": {"name":"ItemIcon","revisions":[{"from":6575386,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xee425ddc": {"revisions":[{"from":6575386,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0xee425ddc": {"name":"FavoriteButtonDefinition","revisions":[{"from":6575386,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x4218b45a": {"name": "UiElementEffectGlowingRotatingIconData", "revisions": [{"from":5229820,"bases":["0x9b4cc4fd"],"interface":false,"value":false}], "properties": {
  "0x54c178e": {"name":"BrightnessMod","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -9346,7 +9346,7 @@
  "0x4d5e9d13": {"name":"itemLists","revisions":[{"from":5229820,"type":["List2","0x0","Link","0x977716a6"],"default":[]}]},
  "0x4e40838e": {"name":"CompanionHealthPerTickMark","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x4fd51a36": {"name":"displayName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x52e4eea2": {"revisions":[{"from":5923585,"type":["Link","0x0","0x0","0xcd19ef3c"],"default":"0x0"}]},
+ "0x52e4eea2": {"name":"CarouselMapSkin","revisions":[{"from":5923585,"type":["Link","0x0","0x0","0xcd19ef3c"],"default":"0x0"}]},
  "0x558b0b01": {"revisions":[{"from":7389684,"type":["Link","0x0","0x0","0x32233c05"],"default":"0x0"}]},
  "0x582aff3a": {"revisions":[{"from":7102027,"to":7218442,"type":["Link","0x0","0x0","0xc95784de"],"default":"0x0"}]},
  "0x5f0ead5c": {"name":"Configs","revisions":[{"from":6649480,"type":["List2","0x0","Link","0xe24c8317"],"default":[]}]},
@@ -9381,11 +9381,11 @@
  "0xb43288f2": {"name":"AugmentUiOverride","revisions":[{"from":5409873,"type":["Pointer","0x0","0x0","0x2483c715"],"default":null}]},
  "0xbdb41827": {"revisions":[{"from":6124791,"to":7480682,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0xc1fe84cf": {"name":"FloatingInfoOverride","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x2483c715"],"default":null}]},
- "0xc4274f58": {"revisions":[{"from":6048769,"type":["Pointer","0x0","0x0","0x5ec7f50c"],"default":null}]},
+ "0xc4274f58": {"name":"TeamPlannerSetData","revisions":[{"from":6048769,"type":["Pointer","0x0","0x0","0x5ec7f50c"],"default":null}]},
  "0xc56b31c0": {"revisions":[{"from":7231955,"to":7374870,"type":["Link","0x0","0x0","0x444051c4"],"default":"0x0"}]},
  "0xc58015b5": {"name":"ItemUnitProperties","revisions":[{"from":5229820,"to":5588314,"type":["List2","0x0","String","0x0"],"default":[]}]},
  "0xc58ff569": {"revisions":[{"from":6509216,"type":["Link","0x0","0x0","0x2d531ed"],"default":"0x0"}]},
- "0xc8369109": {"revisions":[{"from":6161179,"type":["Link","0x0","0x0","0xae2530a4"],"default":"0x0"}]},
+ "0xc8369109": {"name":"CustomShopTooltip","revisions":[{"from":6161179,"type":["Link","0x0","0x0","0xae2530a4"],"default":"0x0"}]},
  "0xcc311795": {"revisions":[{"from":6540407,"to":6564086,"type":["Link","0x0","0x0","0xcd19ef3c"],"default":"0x0"}]},
  "0xd13c2d6e": {"name":"AugmentContainerTexture","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xd2538e5a": {"name":"ScriptData","revisions":[{"from":5229820,"type":["Map","String","Pointer","0x6395ef34"],"default":{}}]},
@@ -9605,7 +9605,7 @@
  "0x4e8e0def": {"name":"mIsPlayerFacing","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xa33a35b5": {"name":"mCheatPages","revisions":[{"from":5229820,"to":6750010,"type":["List","0x0","Embed","0x999c92e7"],"default":[]}]},
  "0xacc23ce7": {"name":"mUseIconsForButtons","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xbd50bdef": {"revisions":[{"from":6774704,"type":["List2","0x0","Embed","0x999c92e7"],"default":[]}]},
+ "0xbd50bdef": {"name":"CheatPageList","revisions":[{"from":6774704,"type":["List2","0x0","Embed","0x999c92e7"],"default":[]}]},
  "0xdc6e7daa": {"name":"mGameModeName","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xde748cc1": {"name":"AssociatedChampions","revisions":[{"from":5639790,"type":["List2","0x0","Embed","0x9d79fb9f"],"default":[]}]},
  "0xf28d66f4": {"name":"mIsUIAlwaysShown","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
@@ -10311,7 +10311,7 @@
 "0x4b24468b": {"revisions": [{"from":7695709,"bases":[],"interface":false,"value":false}], "properties": {
  "0x198daaca": {"name":"DescriptionText","revisions":[{"from":8104348,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x20a8fe53": {"name":"TooltipPosition","revisions":[{"from":8207193,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x20ef28a0": {"revisions":[{"from":8104348,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x20ef28a0": {"name":"CounterValue","revisions":[{"from":8104348,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x23d6693e": {"name":"QuestLevelText","revisions":[{"from":7747445,"to":8049184,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x2be6ec1f": {"revisions":[{"from":8159717,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x2c2fd8fd": {"name":"QuestAcquireFX","revisions":[{"from":7747445,"to":8049184,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -12591,7 +12591,7 @@
 "0x5ebbc52b": {"name": "ItemRecommendationChoices", "revisions": [{"from":5229820,"to":7569613,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2db18650": {"name":"mChoices","revisions":[{"from":5229820,"to":7569613,"type":["List","0x0","U32","0x0"],"default":[]}]}
 }},
-"0x5ec7f50c": {"revisions": [{"from":6048769,"bases":[],"interface":false,"value":false}], "properties": {
+"0x5ec7f50c": {"name": "TftTeamPlannerSetData", "revisions": [{"from":6048769,"bases":[],"interface":false,"value":false}], "properties": {
  "0x93fcfdc6": {"name":"ShortDisplayName","revisions":[{"from":6048769,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xa19156d9": {"name":"SetHeaderName","revisions":[{"from":6085125,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xb8c2cc83": {"revisions":[{"from":6048769,"type":["Pointer","0x0","0x0","0xc4587d4a"],"default":null}]}
@@ -13777,7 +13777,7 @@
  "0x80a492b8": {"name":"LimitAmount","revisions":[{"from":7269074,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x9865b509": {"name":"title","revisions":[{"from":7200925,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe64015f0": {"name":"Icon","revisions":[{"from":7200925,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xf65cc67f": {"revisions":[{"from":7269074,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0xf65cc67f": {"name":"FavorTotal","revisions":[{"from":7269074,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x6a04facb": {"revisions": [{"from":6997589,"bases":[],"interface":false,"value":false}], "properties": {
  "0xf69717fd": {"name":"Label","revisions":[{"from":6997589,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -14096,7 +14096,7 @@
 "0x6bc9dcf2": {"revisions": [{"from":6540407,"to":6575386,"bases":["0xc869f406"],"interface":false,"value":false}], "properties": {
 }},
 "0x6bcbfa9a": {"revisions": [{"from":5876777,"to":6303012,"bases":[],"interface":false,"value":false}], "properties": {
- "0x16c534fd": {"revisions":[{"from":5876777,"to":6303012,"type":["Link","0x0","0x0","0xa0c80919"],"default":"0x0"}]},
+ "0x16c534fd": {"name":"GoopBuff","revisions":[{"from":5876777,"to":6303012,"type":["Link","0x0","0x0","0xa0c80919"],"default":"0x0"}]},
  "0xbc58e0e5": {"revisions":[{"from":5876777,"to":6303012,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xdc49452a": {"revisions":[{"from":5876777,"to":6303012,"type":["List2","0x0","Embed","0x825a4d66"],"default":[]}]}
 }},
@@ -14773,7 +14773,7 @@
 }},
 "0x7230780e": {"name": "FloatCast", "revisions": [{"from":5379010,"to":5394823,"bases":["0x22383aea","0xa6d3b432"],"interface":false,"value":false}], "properties": {
 }},
-"0x72553f91": {"revisions": [{"from":5837922,"bases":[],"interface":false,"value":false}], "properties": {
+"0x72553f91": {"name": "NarrativeBarksDefinition", "revisions": [{"from":5837922,"bases":[],"interface":false,"value":false}], "properties": {
  "0x6b2944": {"revisions":[{"from":5837922,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x2f3b39e": {"name":"Enabled","revisions":[{"from":5837922,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x855bfb8": {"revisions":[{"from":7269074,"type":["U32","0x0","0x0","0x0"],"default":0}]},
@@ -20588,10 +20588,10 @@
 "0xa0c80919": {"revisions": [{"from":5876777,"bases":[],"interface":false,"value":false}], "properties": {
  "0x136fc91f": {"name":"ExcludedAugments","revisions":[{"from":5876777,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
  "0x4e1fe12a": {"revisions":[{"from":5876777,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
- "0x4e874e78": {"revisions":[{"from":5876777,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
+ "0x4e874e78": {"name":"GoopBuffTags","revisions":[{"from":5876777,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
  "0x8d39bde6": {"name":"name","revisions":[{"from":5876777,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x8e7390ac": {"revisions":[{"from":5876777,"type":["List2","0x0","Link","0xa0c80919"],"default":[]}]},
- "0x900aff58": {"revisions":[{"from":5876777,"type":["Link","0x0","0x0","0xae2530a4"],"default":"0x0"}]},
+ "0x900aff58": {"name":"GoopBuffTooltip","revisions":[{"from":5876777,"type":["Link","0x0","0x0","0xae2530a4"],"default":"0x0"}]},
  "0x9071fd36": {"name":"AssociatedTraits","revisions":[{"from":5876777,"type":["List2","0x0","Link","0x6f870247"],"default":[]}]},
  "0xc13d6d31": {"name":"effectAmounts","revisions":[{"from":5876777,"type":["List2","0x0","Embed","0x62ff42f4"],"default":[]}]},
  "0xd7750a6a": {"name":"ExcludedPortals","revisions":[{"from":5876777,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
@@ -20607,7 +20607,7 @@
  "0x9fd292f5": {"revisions":[{"from":5756478,"to":6034237,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xa1948377": {"revisions":[{"from":6877272,"to":7016241,"type":["List2","0x0","Embed","0xd79663ee"],"default":[]}]},
  "0xa8dc4ac3": {"name":"TftGameType","revisions":[{"from":5579166,"type":["U32","0x0","0x0","0x0"],"default":5}]},
- "0xc4274f58": {"revisions":[{"from":6048769,"type":["Pointer","0x0","0x0","0x25427320"],"default":null}]},
+ "0xc4274f58": {"name":"TeamPlannerSetData","revisions":[{"from":6048769,"type":["Pointer","0x0","0x0","0x25427320"],"default":null}]},
  "0xc58015b5": {"name":"ItemUnitProperties","revisions":[{"from":5229820,"to":5588314,"type":["List2","0x0","String","0x0"],"default":[]}]},
  "0xd13c2d6e": {"name":"AugmentContainerTexture","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xe095d841": {"name":"ObjectName","revisions":[{"from":5579166,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -21282,7 +21282,7 @@
  "0xd02a6781": {"name":"RarityGem","revisions":[{"from":6690024,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd2605dd4": {"name":"ItemIconText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xdd0d2e93": {"name":"ItemIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xee425ddc": {"revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0xee425ddc": {"name":"FavoriteButtonDefinition","revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xa77231b9": {"revisions": [{"from":5329749,"to":5369576,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2f3b39e": {"name":"Enabled","revisions":[{"from":5329749,"to":5369576,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
@@ -21445,11 +21445,11 @@
  "0x87753e0a": {"revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa586608d": {"name":"ConicRangeIndicator","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xba54f86d": {"revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xcdf065dc": {"revisions":[{"from":7426169,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xcdf065dc": {"name":"AutoAttackRangeIndicator","revisions":[{"from":7426169,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd3a0a511": {"revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xd41df86e": {"revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xd41df86e": {"name":"CircularRangeIndicator","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xdd3fe563": {"name":"MinimapCircularRangeIndicator","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xe8b9cb1a": {"revisions":[{"from":7426169,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0xe8b9cb1a": {"name":"AutoAttackDistanceIndicator","revisions":[{"from":7426169,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xa90263ef": {"name": "RemoveFromCustomTableBlock", "revisions": [{"from":5229820,"bases":["0x3c2ab5b0"],"interface":false,"value":false}], "properties": {
  "0x90aa9ab": {"name":"Index","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xc214849f"],"default":null}]},
@@ -21887,7 +21887,7 @@
  "0x269d7e73": {"revisions":[{"from":8159717,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x33d28b79": {"revisions":[{"from":8104348,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x3bd9d6f4": {"revisions":[{"from":8042660,"to":8049184,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
- "0x4bbc368f": {"revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0x4b24468b"],"default":{"DescriptionText":"0x0","TooltipPosition":"0x0","0x20ef28a0":"0x0","0x2be6ec1f":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","IconData":null,"Group":"0x0","0xb615dddd":"0x0","HitArea":"0x0","Meter":"0x0","0xcfa79792":"0x0","0xd4841047":true,"TooltipAnchor":8,"0xf44c7b57":"0x0"}}]},
+ "0x4bbc368f": {"revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0x4b24468b"],"default":{"DescriptionText":"0x0","TooltipPosition":"0x0","CounterValue":"0x0","0x2be6ec1f":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","IconData":null,"Group":"0x0","0xb615dddd":"0x0","HitArea":"0x0","Meter":"0x0","0xcfa79792":"0x0","0xd4841047":true,"TooltipAnchor":8,"0xf44c7b57":"0x0"}}]},
  "0x4d302530": {"name":"MainScene","revisions":[{"from":8042660,"to":8049184,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x4e39db2a": {"revisions":[{"from":8159717,"type":["F32","0x0","0x0","0x0"],"default":1.5}]},
  "0x672f6b87": {"revisions":[{"from":8207193,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -21897,7 +21897,7 @@
  "0xae6404bb": {"name":"DisplayTemplate","revisions":[{"from":8042660,"to":8049184,"type":["Embed","0x0","0x0","0x4b24468b"],"default":{"QuestLevelText":"0x0","QuestAcquireFX":"0x0","Outline":"0x0","Group":"0x0","0x70ed514c":"0x0","TrackerText":"0x0","HitArea":"0x0","QuestCompleteFX":"0x0","Meter":"0x0","0xc9bf974a":"0x0","QuestLevelGroup":"0x0","Icon":"0x0"}}]},
  "0xb36aa822": {"revisions":[{"from":8159717,"type":["F32","0x0","0x0","0x0"],"default":0.8500000238418579}]},
  "0xcc42bfd8": {"revisions":[{"from":8104348,"to":8104348,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xdb6f71c2": {"revisions":[{"from":8104348,"type":["Embed","0x0","0x0","0x4b24468b"],"default":{"DescriptionText":"0x0","TooltipPosition":"0x0","0x20ef28a0":"0x0","0x2be6ec1f":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","IconData":null,"Group":"0x0","0xb615dddd":"0x0","HitArea":"0x0","Meter":"0x0","0xcfa79792":"0x0","0xd4841047":true,"TooltipAnchor":8,"0xf44c7b57":"0x0"}}]},
+ "0xdb6f71c2": {"revisions":[{"from":8104348,"type":["Embed","0x0","0x0","0x4b24468b"],"default":{"DescriptionText":"0x0","TooltipPosition":"0x0","CounterValue":"0x0","0x2be6ec1f":"0x0","0x3bd9d6f4":[0,0,0,255],"0x42cfb600":null,"0x526a8793":"0x0","IconData":null,"Group":"0x0","0xb615dddd":"0x0","HitArea":"0x0","Meter":"0x0","0xcfa79792":"0x0","0xd4841047":true,"TooltipAnchor":8,"0xf44c7b57":"0x0"}}]},
  "0xe55bdc16": {"revisions":[{"from":8207193,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe744afb6": {"name":"ViewPaneLink","revisions":[{"from":8042660,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
@@ -23157,7 +23157,7 @@
 }},
 "0xb56e3cf2": {"name": "StrawberryMapData", "revisions": [{"from":5837922,"bases":["0x44f9e6c"],"interface":false,"value":false}], "properties": {
  "0x3e2cdad7": {"name":"RoundListOptions","revisions":[{"from":5837922,"type":["List2","0x0","Link","0x7e67f6dd"],"default":[]}]},
- "0x7cf5e3eb": {"revisions":[{"from":5837922,"type":["Link","0x0","0x0","0x276246d8"],"default":"0x0"}]}
+ "0x7cf5e3eb": {"name":"BarkList","revisions":[{"from":5837922,"type":["Link","0x0","0x0","0x276246d8"],"default":"0x0"}]}
 }},
 "0xb574b3af": {"name": "RegionBoundary", "revisions": [{"from":5253974,"bases":["0x598b82e8"],"interface":false,"value":false}], "properties": {
  "0xa771a57": {"name":"ConfigOverride","revisions":[{"from":5798615,"type":["Pointer","0x0","0x0","0x2da963dd"],"default":null}]},
@@ -23755,7 +23755,7 @@
  "0x417ae5d6": {"revisions":[{"from":7200925,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x809608b6": {"name":"Padding","revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe53c54b4": {"name":"UnitShade","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xe96f72ce": {"revisions":[{"from":7135912,"type":["Pointer","0x0","0x0","0x2b365a82"],"default":null}]},
+ "0xe96f72ce": {"name":"UnlockIndicator","revisions":[{"from":7135912,"type":["Pointer","0x0","0x0","0x2b365a82"],"default":null}]},
  "0xf90fa726": {"name":"UnitGroupLink","revisions":[{"from":5409873,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xbae016ad": {"revisions": [{"from":7200925,"bases":[],"interface":false,"value":false}], "properties": {
@@ -24980,7 +24980,7 @@
  "0xfadc0cd2": {"name":"Range","revisions":[{"from":7538272,"type":["Vec2","0x0","0x0","0x0"],"default":[0.0,1.0]}]}
 }},
 "0xc5e719b6": {"revisions": [{"from":6509216,"bases":[],"interface":false,"value":false}], "properties": {
- "0x7cf5e3eb": {"revisions":[{"from":6509216,"type":["Link","0x0","0x0","0x276246d8"],"default":"0x0"}]}
+ "0x7cf5e3eb": {"name":"BarkList","revisions":[{"from":6509216,"type":["Link","0x0","0x0","0x276246d8"],"default":"0x0"}]}
 }},
 "0xc5f84705": {"name": "StructureFloatingInfoBarData", "revisions": [{"from":5229820,"bases":["0x705759a"],"interface":false,"value":false}], "properties": {
  "0x3cd17151": {"name":"burstData","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x7c402f20"],"default":{"burstTriggerPercent":0.3499999940395355,"fadeAcceleration":1.0,"flashTriggerPercent":0.3499999940395355,"fadeHoldTime":0.20000000298023224,"flashDuration":0.30000001192092896,"shakeTriggerPercent":0.3499999940395355,"burstTimeWindow":0.10000000149011612,"shakeDuration":0.4000000059604645,"shakeFrequency":10.0,"shakeBox":[8.0,3.5],"shakeReferenceResolution":[1024.0,768.0],"fadeSpeed":0.05000000074505806}}]},
@@ -26781,7 +26781,7 @@
  "0xd02a6781": {"name":"RarityGem","revisions":[{"from":7170001,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd2605dd4": {"name":"ItemIconText","revisions":[{"from":7170001,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xdd0d2e93": {"name":"ItemIcon","revisions":[{"from":7170001,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xee425ddc": {"revisions":[{"from":7170001,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0xee425ddc": {"name":"FavoriteButtonDefinition","revisions":[{"from":7170001,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xd2740d35": {"name": "ScriptHelperDef", "revisions": [{"from":6421879,"bases":[],"interface":false,"value":false}], "properties": {
  "0x9b4a129b": {"name":"Scripts","revisions":[{"from":6421879,"type":["List2","0x0","Embed","0x3aa4575e"],"default":[]}]}
@@ -27997,7 +27997,7 @@
  "0xed13979f": {"revisions":[{"from":5379010,"to":5783867,"type":["Embed","0x0","0x0","0x4bfe07eb"],"default":{"DisplayText":"0x0","UrlTraKey":""}}]}
 }},
 "0xdbf27281": {"name": "ScriptCheat", "revisions": [{"from":5229820,"bases":["0x946adb4c"],"interface":false,"value":false}], "properties": {
- "0x15e8ed17": {"revisions":[{"from":8207193,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x15e8ed17": {"name":"CheatScript","revisions":[{"from":8207193,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x59540b18": {"name":"UseTargetAsSource","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x9957a441": {"name":"mTarget","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":1}]},
  "0xeb952174": {"name":"mScriptCallback","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -28708,7 +28708,7 @@
 "0xdf6dc76a": {"name": "Direction", "revisions": [{"from":5229820,"bases":["0x7fcf3f30"],"interface":false,"value":false}], "properties": {
 }},
 "0xdf6e7fa5": {"name": "SpellPickChoiceConfig", "revisions": [{"from":6048769,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
- "0x1cf2c30f": {"revisions":[{"from":6048769,"to":6120449,"type":["Link","0x0","0x0","0x15502626"],"default":"0x0"}]},
+ "0x1cf2c30f": {"name":"SpellPickChoiceList","revisions":[{"from":6048769,"to":6120449,"type":["Link","0x0","0x0","0x15502626"],"default":"0x0"}]},
  "0xa3627eca": {"revisions":[{"from":6124791,"type":["List2","0x0","Embed","0x2b686c3d"],"default":[]}]}
 }},
 "0xdf795218": {"name": "ShopGeComponent", "revisions": [{"from":6804378,"to":6972104,"bases":["0x3497f0cf"],"interface":false,"value":false},{"from":6997589,"to":7016241,"bases":["0x2576b4fc","0x3497f0cf"],"interface":false,"value":false},{"from":7027993,"to":7085788,"bases":["0x2576b4fc","0x3497f0cf"],"interface":true,"value":false},{"from":7102027,"to":7151836,"bases":["0x129e311","0x2576b4fc","0x3497f0cf"],"interface":true,"value":false},{"from":7170001,"to":7218442,"bases":["0x129e311","0x2576b4fc","0x2a036a61","0x3497f0cf"],"interface":true,"value":false},{"from":7231955,"to":7728292,"bases":["0x129e311","0x2576b4fc","0x2a036a61","0x3497f0cf"],"interface":false,"value":false},{"from":7747445,"bases":["0x129e311","0x2576b4fc","0x3497f0cf"],"interface":false,"value":false}], "properties": {
@@ -29389,7 +29389,7 @@
 "0xe573347a": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0xe59d98ad": {"revisions": [{"from":6318255,"bases":[],"interface":false,"value":false}], "properties": {
- "0x16c534fd": {"revisions":[{"from":6318255,"type":["Link","0x0","0x0","0xa0c80919"],"default":"0x0"}]},
+ "0x16c534fd": {"name":"GoopBuff","revisions":[{"from":6318255,"type":["Link","0x0","0x0","0xa0c80919"],"default":"0x0"}]},
  "0xbc58e0e5": {"revisions":[{"from":6318255,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xdc49452a": {"revisions":[{"from":6318255,"type":["List2","0x0","Embed","0x825a4d66"],"default":[]}]}
 }},
@@ -30621,8 +30621,8 @@
 }},
 "0xee18a47b": {"revisions": [{"from":7135912,"bases":["0x12626bff"],"interface":false,"value":false}], "properties": {
  "0x32a393a": {"revisions":[{"from":7135912,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
- "0x589a59c": {"revisions":[{"from":7135912,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xb65bc23": {"revisions":[{"from":7135912,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x589a59c": {"name":"StartDataValue","revisions":[{"from":7135912,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xb65bc23": {"name":"EndDataValue","revisions":[{"from":7135912,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf4e470e6": {"revisions":[{"from":7135912,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0xee1daa22": {"name": "TargeterDefinitionSkipTerrain", "revisions": [{"from":5229820,"bases":["0x4c35e652"],"interface":false,"value":false}], "properties": {

@@ -91,6 +91,7 @@ a55e849c AddTextSizeToHitRegion
 487e35dd AddToTeamFailureSound
 ddbea054 AddedCalculationParts
 432547b6 AdditionalBarTypes
+42fa070e AdditionalBoardContribution
 7b9718c4 AdditionalChannels
 51ea4860 AdditionalLevelUpLinks
 073a7e91 AdditionalMeterSkins
@@ -154,6 +155,7 @@ e71ceb87 AllVisibilityKey
 8eee23e5 AllowBloom
 6ee92909 AllowCharacterMaterials
 c576c85a AllowDefaultCharacterMaterialCreation
+9dc71969 AllowItemDrops
 2789a3a8 AllowOverflow
 b7024f99 AllowSingleItemSelection
 5ed2db8d AllowSkipping
@@ -241,6 +243,8 @@ b7bf62a1 ArmorPenetration
 bd9669f8 ArmorUpgrade
 90c4c347 ArmorUpgradeGrowth
 3132877e ArmoryActionButtons
+644576e5 ArmoryBribeGold
+b837da80 ArmoryBribeItem
 edeac8bd ArmoryIconPath
 2b0d70e8 ArmoryStyle
 76a2558a ArmoryTimeoutVFX
@@ -322,6 +326,7 @@ f1f7e50d AugmentLargeIconPath
 73f6b70e AugmentLayout
 a1af8ca8 AugmentLevelTitle
 e0f9184b AugmentLevelUpData
+9bfe08c0 AugmentList
 09dcaddb AugmentName
 19ae3e16 AugmentNameId
 6ce44f07 AugmentNotPickedVfx
@@ -351,6 +356,8 @@ ee55616c AugmentSlotData
 b43288f2 AugmentUiOverride
 64788b9b AugmentedVfx
 a6f8a5ac AutoActivateTimeBeforeSpawn
+e8b9cb1a AutoAttackDistanceIndicator
+cdf065dc AutoAttackRangeIndicator
 16c4336b AutoAttackSpellsUseSpellSource
 f68eb447 AutoBuffActivateAttachBoneNames
 7f5cd9e0 AutoBuffActivateEffects
@@ -429,6 +436,7 @@ fb0fa193 BarHitRegion
 b4f0cbde BarHoveredState
 bcc3158a BarTipElements
 7475748d BarVfxGroup
+7cf5e3eb BarkList
 3cd0d32e BaronGoldValue
 e1c50cb2 BaronIcon
 bcbb5260 BaronKills
@@ -623,6 +631,7 @@ a10ad504 BuffType
 a4b26c65 BufferRegionElement
 e94ae473 BufferScale
 8cbd6cae BufferedInputData
+801b0cad Buffs
 5fd8c182 BuildTreeDisplayRegionDefinition
 2ac59a87 BuildTreeIconDefinition
 7ba0c753 BuildTreeTopIconScale
@@ -772,6 +781,7 @@ d122d71d CardSelectedNonMythicVfx
 7aef16a8 Caret
 c62ec87b CaretOffset
 a3dafbbb CarouselButton
+52e4eea2 CarouselMapSkin
 fd985966 Cases
 882db0cc CastAllButtonDefinition
 13388437 CastBar
@@ -922,6 +932,9 @@ b48abdd7 ChatMessageKeyFallback
 74701348 ChatTextEdit
 ce0447f6 ChatVisibilityKey
 2e89a529 CheatIconMap
+928eb9b4 CheatList
+bd50bdef CheatPageList
+15e8ed17 CheatScript
 4577ec44 CheatSet
 aa8fd0c5 CheckNewGearId
 dba9e788 CheckPrevGearId
@@ -940,6 +953,7 @@ ed51e4eb ChestTimingOffset
 e35a50c8 ChoiceDescription
 9df91392 ChosenBadge
 2d4bd10e ChromaColor
+d41df86e CircularRangeIndicator
 d1373982 ClaimAllButton
 f76d4989 ClaimCeremonyVfx
 7b851bb1 ClaimReadyGroup
@@ -984,6 +998,7 @@ ad0f8882 ClickedStateElements
 2a2d1463 ClimbingIndicator
 424a6b16 ClipAccessoryToRead
 68c14f60 ClipName
+72729cf8 ClockDefinition
 a301c4a7 ClockToUse
 353d5286 CloseButtonDefinition
 5a3c65d9 CloseButtonTemplate
@@ -1068,6 +1083,7 @@ df5cfa0e CompletedItems
 1b1e9485 CompletionVFX
 1c6536a1 ComponentIcon
 85554c96 ComponentIcons
+d1edd5db Comps
 b1b3166d CondensedItemCombineTooltipData
 0922cf02 CondensedScene
 87599d02 CondensedTipIcon
@@ -1093,6 +1109,7 @@ df85b25f ConfirmButton
 c072a4f2 ConfirmButtonDefinition
 429b4e07 ConfirmButtonIcons
 2fd58337 ConfirmButtonTraKey
+a586608d ConicRangeIndicator
 788862bd ConnectedBgRegionHandle
 151d3b4d ConnectionButton
 415ee833 ConnectionErrorBackgroundScene
@@ -1154,6 +1171,7 @@ f77d0e71 CountdownMeter
 9e2eeefa CounterAdviceSets
 97c1cb47 CounterClockwise
 4c10ca77 CounterDefinitions
+20ef28a0 CounterValue
 2f7b8d35 CraftButton
 70fa4e8c CraftIcon
 018f5bf4 CraftIconDisabled
@@ -1217,6 +1235,7 @@ bf3c1cbd CustomButtonPopupViewController
 4b901db3 CustomMaterial
 0d2f6d7d CustomPlatform
 bb429484 CustomSequences
+c8369109 CustomShopTooltip
 fb910cc2 CustomTable
 1cf64a20 CustomUiData
 89667868 CustomizedSounds
@@ -1500,6 +1519,8 @@ fbb20410 DivisionToCrestMap
 6dee491f DoTranslation
 232c53d0 Dodge
 9b4ed6e7 DodgePerLevel
+0235018b DoesNotContributeTraits
+5c5feb3b DoesNotReceiveTraits
 cd3e6ad5 DoneVotingTitleTra
 9c27db83 DontRefCountTargetableAndInvulnerable
 c59f257e DontResetTimer
@@ -1680,6 +1701,7 @@ a4c75290 EmptySlotSwapCooldown
 3708afbb EmptyUnitGroup
 244a2f37 EnableCenterActivateDefaultPing
 d889f45b EnableCondition
+0eab20b3 EnableCustomFacingDuringMove
 6fb394db EnableCustomPlayerScoreColoring
 fea35e52 EnableExtendedTooltip
 1df4486f EnableLetterBox
@@ -1713,10 +1735,12 @@ bca8fa3a EncounterToggleButton
 fca00ea8 EncounterVerticalList
 4e5fff2b Encounters
 6a8e75aa End
+0b65bc23 EndDataValue
 bd8e2d9b EndFrame
 cc81b3d2 EndMoveSpeed
 3e6eebf5 EndPosition
 bde13f16 EndRegion
+6837c753 EndValue
 5bf31310 EndingJointForTrailFollowTEMP
 d9b6cda9 EndingJointName
 8f0b8bb4 EndpointEvent
@@ -1877,7 +1901,10 @@ cec67027 FailureTexturePath
 7bd86e15 FailureTitleTraKey
 c61cab67 FalloffRate
 db1cc90a FarClipPlane
+f65cc67f FavorTotal
+ee425ddc FavoriteButtonDefinition
 74381508 FavoriteIcon
+a02b6406 FeaturesList
 96f6d338 Ferocity
 9a44ff4e FiatStoreDialog
 8bac98d3 FieldOfView
@@ -2180,6 +2207,9 @@ f3eb96d4 GoldText
 33a69e1a GoldTextHandle
 2781ed6b GoldTooltipTraKeys
 8557faf0 GoldValue
+16c534fd GoopBuff
+4e874e78 GoopBuffTags
+900aff58 GoopBuffTooltip
 2875fcd2 GravesSmall
 d209ff45 Gravity
 81bc04be GreaterThan
@@ -2397,6 +2427,7 @@ e5bc4657 IdleSheenIntervalSecs
 5f2af0b8 IdleVfxSystem
 b824a2c2 IgnoreDisabledElements
 487fcd1a IgnoreGlobalScale
+819c43fe IgnoreLookAtCamera
 82e66356 IgnoreReactivationForOutsideUndoFlowItems
 981fbd00 IgnoreSafeZone
 59c20478 IgnoreTimer
@@ -2490,6 +2521,7 @@ f9d86f7b Input
 3dbb41a9 InputChains
 ba09dde4 InputErrorText
 d36508cd InputHandler
+e2e5b6dd InputLockTypes
 228ee863 InputParameters
 315b9a19 InputScene
 3f58d1c6 InputStrideTimeInSecs
@@ -2553,6 +2585,7 @@ f78dd509 IsDefaultPosition
 a786282d IsEmitterSpace
 df2b45ce IsEnabled
 eec83f7b IsEnemy
+5f9096dc IsEphemeral
 320475df IsEyeCandy
 847f0e3f IsFocusable
 dc02fdae IsItemToggled
@@ -2561,7 +2594,9 @@ dc02fdae IsItemToggled
 a02f91f8 IsLerp
 0e047278 IsLocatorArenaSpecific
 e6a808ba IsLuaEnabled
+a6de9020 IsNPC
 879e2bc9 IsOptional
+66d660db IsOverflow
 aa32e168 IsPersistentPacket
 96326c0e IsPremium
 ec23b45f IsRecipe
@@ -2587,6 +2622,7 @@ e75b0636 ItemBuffTarget
 2d3c8da6 ItemButton
 97e0a6ab ItemButtonHighlights
 183b3a4e ItemCodexUpperRightAnchor
+7bbce67d ItemCombinationList
 83c4b267 ItemCombineInfo
 ddaa44f2 ItemCombineTooltipData
 a1456915 ItemCount
@@ -2606,6 +2642,7 @@ a768acad ItemFootprintUnselectedVfx
 dd0d2e93 ItemIcon
 33e73b8c ItemIconBordered
 4bdd71fb ItemIconCircle
+c483dfa4 ItemIconDecorator
 6492148e ItemIconDefinition
 fa7d5111 ItemIconOne
 817805a3 ItemIconShadow
@@ -2659,6 +2696,7 @@ f2443554 ItemUndo
 c58015b5 ItemUnitProperties
 8142856e ItemVfx
 2717837a ItemsEither
+a4b002d7 ItemsList
 04ab21bc ItemsOnlyIcon
 7f6a0e49 ItemsOnlyRegion
 e2e6e1df ItemsOnlyScene
@@ -2692,6 +2730,7 @@ c68d40a4 KeyType
 31d46b76 KeyedLingerAcceleration
 4dbd1600 KeyedLingerDrag
 ecc996b5 KeyedLingerVelocity
+d8b966a9 KeysList
 db9ab509 Keystone
 ba1810aa KeystoneFrameData
 e4fe1a24 KeystoneIcon
@@ -3261,6 +3300,7 @@ f1a5a54c MinValue
 7c0d7f63 MinimapActiveWheelScene
 a8f86028 MinimapBackgroundCooldownEffect
 4a4536af MinimapBehaviors
+dd3fe563 MinimapCircularRangeIndicator
 0261b251 MinimapContent
 04474405 MinimapEnabled
 1f4e4c65 MinimapIcon
@@ -3873,6 +3913,7 @@ f96fee7c PingMuteButton
 96c5d681 PingWheelClarityExploration
 9eb8549d PipAvailable
 96c6b2bd PipComplete
+244362ff PipDefinition
 d2841bf9 PipGroup
 7cae3080 PipLayout
 5816f0ce PipOnIcon
@@ -3965,6 +4006,7 @@ b454b363 PlayerSlotSplash
 4893610a PlayerTemplate
 07624567 PlaysVo
 c30f3060 PlusIcon
+a126b13b PointLight
 bc9567c6 Points
 051cb889 Polygon
 aab4104c PolygonDepthBiasEnable
@@ -4117,6 +4159,7 @@ bdc1c254 QuestCompleteFX
 d8b39f8c QuestLevelGroup
 23d6693e QuestLevelText
 dba6febb QuestLingerDurationSec
+d0271699 QuestList
 a2bf8c3e QuestName
 58ba3598 QuestObjectiveList
 0b13c31a QuestReceived
@@ -4421,6 +4464,7 @@ e71097c1 RevealEffect
 883d0519 RevealPriorityEffect
 4255c7d1 ReverseDirectionalTipElements
 3cedacb1 ReverseScale
+32cd2d78 ReviveList
 5536e62e RewardAsset
 66cd937a RewardBackground
 c034af02 RewardBannerDurationSecs
@@ -4706,6 +4750,7 @@ aaa03772 SequenceTiming
 6b258540 SequenceType
 1941e0d6 SequentialAutoAttackAnimations
 c719768a SeraphineStyleLarge
+9c50fe38 SeriesList
 7711eaa0 SeriesTitleHandle
 47061567 ServerSendRevealToCastTargets
 22c5e738 SetDestroyedInFlightWhenDestroyedForTarget
@@ -4964,6 +5009,7 @@ de8d897a SpellGuessLockoutIcon
 ed5e0ca1 SpellLevel
 01ad1c31 SpellLevelOverride
 35e8662f SpellObjects
+1cf2c30f SpellPickChoiceList
 8bd9f7d8 SpellPickChoiceSpellLists
 90a09233 SpellPips
 164a99e3 SpellPreloads
@@ -5042,6 +5088,7 @@ d1abeb9d StarShardDecreaseVfx
 a9d3a87c StartAtZeroOnSpawn
 b2c24f69 StartAudioEvent
 d7a4e88f StartButton
+0589a59c StartDataValue
 42ad1ccb StartFloat
 9a3785c9 StartMoveSpeed
 5dd88c41 StartPaused
@@ -5212,6 +5259,7 @@ a82b8a32 SurrenderVoteDurationSec
 d11d9cae SwapButton
 44adf547 SwapButtonCooldown
 bedae0ce SwapData
+68305f93 SwapMaterial
 1eebe507 Swaps
 778d6dee SwitchIntPairDataList
 48fb391a SwoshAnim
@@ -5382,6 +5430,7 @@ b0b4d654 TeamPlannerButton
 0559e95d TeamPlannerButtonDefinition
 1f5d989b TeamPlannerDisabledTooltipTraKey
 dac11dd4 TeamPlannerPortraitPath
+c4274f58 TeamPlannerSetData
 7789e288 TeamPlannerSplashPath
 4eb5f3a3 TeamPlannerTooltipTraKey
 febfae4f TeamPosition
@@ -5935,6 +5984,7 @@ e7ae6ff1 UnitStatusPriorityList
 8d0b4568 UnitsOnlyMoveForward
 f119907f UnknownDamageIconTextureName
 a9f84744 UnlimitedSpellBuffs
+e96f72ce UnlockIndicator
 d7cb25a0 UnlockRequirementScene
 5d777e64 UnownedStarShardIcon
 7a6c84ab UnownedTierButton
@@ -6195,6 +6245,7 @@ b0cdc396 XboxGamePassIntroDialogViewController
 b9cfc1ab YRotationDegrees
 276cfa24 YesButton
 536a273f YesterdayTraKey
+77ef3aa7 ZombieList
 0390dc47 Zone
 df92e232 Zoom
 6bf0f1e8 ZoomEase
@@ -7027,6 +7078,7 @@ df96c96e lingerAcceleration
 e9ca82a1 lingerColor
 fac5e298 lingerDrag
 098a338d lingerVelocity
+07f017af live
 46334bc4 loadoutsButton
 57413af1 loadoutsIcon
 97f7188d loadscreen
@@ -9304,6 +9356,7 @@ a2bea925 passiveToolTip
 84874d36 path
 91bf871f pathfindingCollisionRadius
 2032de95 pathname
+6a5247d6 pbe
 a77b63e1 percentBaseMPRegenMod
 54d5cc10 percentageRequired
 50a21112 perceptionBoundingBoxSize

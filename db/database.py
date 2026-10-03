@@ -446,7 +446,7 @@ class 0x1bbd2264(0x7a3483c4):
 
 class 0x1c0e452():
     0x1aad2ecc: (Bool, 0x0, 0x0, 0x0) = true
-    0x922eae5: (F32, 0x0, 0x0, 0x0) = 0.0
+    DelayKillSeconds: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0x1c3dfd0c(VfxColorRgbBase):
@@ -3115,11 +3115,6 @@ class 0x5d3f0253(MapGraphicsFeature):
 class 0x5d9795fb(0xed2da5b0):
     0x1d445284: (Link, 0x0, 0x0, 0xa35db897) = "0x0"
     EventName: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x5d9fffed(BaseEventData):
-    0x2b969c0d: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xe61bf09e: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0x5df3bc8d(BaseParams):
@@ -12858,6 +12853,11 @@ class DynamicSpotlightGeComponentDef(IGeComponentDef):
     LightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
+class DynamicsChainBlendEventData(BaseEventData):
+    BlendFromDefaultDuration: (F32, 0x0, 0x0, 0x0) = 0.0
+    BlendToDefaultDuration: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
 class DynamicsChainProperties():
     0x583d67c2: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":1.0}
     0x6e48edbe: (Bool, 0x0, 0x0, 0x0) = false
@@ -16536,8 +16536,8 @@ class JointOffsetData():
     pass
 
 class JointOrientationBlendEventData():
-    0x2b969c0d: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xe61bf09e: (F32, 0x0, 0x0, 0x0) = 0.0
+    BlendFromDefaultDuration: (F32, 0x0, 0x0, 0x0) = 0.0
+    BlendToDefaultDuration: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class JointOrientationEventData(BaseEventData):
@@ -20539,7 +20539,7 @@ class ParamsUndoEnabledChange(BaseParams):
 
 class ParticleEventData(BaseEventData):
     mIsDetachable: (Bool, 0x0, 0x0, 0x0) = false
-    0x4fce52ba: (Pointer, 0x0, 0x0, 0x1c0e452) = null
+    AdditionalKillConfig: (Pointer, 0x0, 0x0, 0x1c0e452) = null
     mEffectName: (String, 0x0, 0x0, 0x0) = ""
     mParticleEventDataPairList: (List, 0x0, Embed, ParticleEventDataPair) = []
     mIsKillEvent: (Bool, 0x0, 0x0, 0x0) = true

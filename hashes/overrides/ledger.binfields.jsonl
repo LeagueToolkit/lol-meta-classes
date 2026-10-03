@@ -1501,6 +1501,10 @@
 {"hash": "9837f87b", "name": "VariableValues", "batch": "nova-item-getters", "cracked": "2026-08-27", "status": "pending", "pr": "-"}
 {"hash": "8ce41f71", "name": "WaterEnabled", "batch": "nova-item-getters", "cracked": "2026-08-27", "status": "pending", "pr": "-"}
 {"hash": "b1ea6248", "name": "Fill", "batch": "vfx-driver-graph-math", "cracked": "2026-09-27", "status": "pending", "pr": "-"}
+{"hash": "4fce52ba", "name": "AdditionalKillConfig", "batch": "animation-events", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "2b969c0d", "name": "BlendFromDefaultDuration", "batch": "animation-events", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "e61bf09e", "name": "BlendToDefaultDuration", "batch": "animation-events", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "0922eae5", "name": "DelayKillSeconds", "batch": "animation-events", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "b124de6f", "name": "LowHealthFlashDuration", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "a86fc2ef", "name": "PercentageDamageForFlash", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "da6afd7c", "name": "PossibleRandomLoadingScreenBackgrounds", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}

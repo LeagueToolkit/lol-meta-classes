@@ -450,7 +450,7 @@
  "0xe6915cf6": {"name":"maxDistance","revisions":[{"from":5681102,"type":["F32","0x0","0x0","0x0"],"default":600.0}]}
 }},
 "0x1c0e452": {"revisions": [{"from":7269074,"bases":[],"interface":false,"value":true}], "properties": {
- "0x922eae5": {"revisions":[{"from":7269074,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0x922eae5": {"name":"DelayKillSeconds","revisions":[{"from":7269074,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x1aad2ecc": {"revisions":[{"from":7269074,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
 "0x1cf9835": {"name": "SeqActionCameraShakeRelative", "revisions": [{"from":6575386,"bases":["0xeb31be9b"],"interface":false,"value":false}], "properties": {
@@ -893,7 +893,7 @@
 }},
 "0x542d41d": {"name": "ParticleEventData", "revisions": [{"from":5229820,"bases":["0x798c7d28"],"interface":false,"value":false}], "properties": {
  "0x41f9b163": {"name":"mIsDetachable","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x4fce52ba": {"revisions":[{"from":7269074,"type":["Pointer","0x0","0x0","0x1c0e452"],"default":null}]},
+ "0x4fce52ba": {"name":"AdditionalKillConfig","revisions":[{"from":7269074,"type":["Pointer","0x0","0x0","0x1c0e452"],"default":null}]},
  "0x5a3dd1c2": {"name":"mEffectName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x60645d6a": {"name":"mParticleEventDataPairList","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x5dd693f9"],"default":[]}]},
  "0x72a03ff8": {"name":"mIsKillEvent","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
@@ -2686,8 +2686,8 @@
  "0xf2891050": {"name":"Rating","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xaf7c0947"],"default":{"QueueTypeToSourceTierIcons":{},"RatedText":"0x0","RatedTierIcon":"0x0","0x60d19c3d":true}}]}
 }},
 "0x125a3586": {"name": "JointOrientationBlendEventData", "revisions": [{"from":6318255,"bases":[],"interface":false,"value":false}], "properties": {
- "0x2b969c0d": {"revisions":[{"from":6318255,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xe61bf09e": {"revisions":[{"from":6318255,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+ "0x2b969c0d": {"name":"BlendFromDefaultDuration","revisions":[{"from":6318255,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0xe61bf09e": {"name":"BlendToDefaultDuration","revisions":[{"from":6318255,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x12626bff": {"name": "IGameCalculationPartByCharLevel", "revisions": [{"from":5229820,"bases":["0xb60012ce"],"interface":true,"value":false}], "properties": {
 }},
@@ -12453,9 +12453,9 @@
  "0x1d445284": {"revisions":[{"from":8207193,"type":["Link","0x0","0x0","0xa35db897"],"default":"0x0"}]},
  "0x2a078c9c": {"name":"EventName","revisions":[{"from":8207193,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x5d9fffed": {"revisions": [{"from":7643737,"bases":["0x798c7d28"],"interface":false,"value":false}], "properties": {
- "0x2b969c0d": {"revisions":[{"from":7643737,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xe61bf09e": {"revisions":[{"from":7643737,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+"0x5d9fffed": {"name": "DynamicsChainBlendEventData", "revisions": [{"from":7643737,"bases":["0x798c7d28"],"interface":false,"value":false}], "properties": {
+ "0x2b969c0d": {"name":"BlendFromDefaultDuration","revisions":[{"from":7643737,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0xe61bf09e": {"name":"BlendToDefaultDuration","revisions":[{"from":7643737,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x5da4336c": {"name": "SeqInputMaterialParamFloat", "revisions": [{"from":6649480,"bases":["0x8930818a"],"interface":false,"value":false}], "properties": {
  "0x1bcac48f": {"name":"SourceObject","revisions":[{"from":6649480,"to":7218442,"type":["Link","0x0","0x0","0x7a5e5ed6"],"default":"0x0"}]},

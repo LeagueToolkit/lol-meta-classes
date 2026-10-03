@@ -1061,6 +1061,7 @@
 {"hash": "76c70374", "name": "VfxVector3FromVector4Driver", "batch": "vfx-driver-graph-math", "cracked": "2026-09-27", "status": "pending", "pr": "-"}
 {"hash": "14daebe5", "name": "VfxVector4FromVector2Driver", "batch": "vfx-driver-graph-math", "cracked": "2026-09-27", "status": "pending", "pr": "-"}
 {"hash": "9c5c4342", "name": "VfxVector4FromVector3Driver", "batch": "vfx-driver-graph-math", "cracked": "2026-09-27", "status": "pending", "pr": "-"}
+{"hash": "5d9fffed", "name": "DynamicsChainBlendEventData", "batch": "animation-events", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "c3a44766", "name": "HudFeedbackDamageConfig", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "60e2ec74", "name": "LoadingScreenBackgroundGameModeConfig", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "7169f36b", "name": "TargetingRenderGameModeConfig", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}

@@ -27,6 +27,7 @@ c895f7ad ActiveVfx
 2c4774c5 AdaptationTime
 6b392dd7 AdaptationZoom
 78811384 AdditionalData
+4fce52ba AdditionalKillConfig
 2920447a AdditionalRotation
 c5b58261 AdditionalSettings
 ddb9d277 AdditionalStats
@@ -122,6 +123,8 @@ e506fa64 Billboard
 1b1cc8c3 Bindings
 a1fa32f0 BirthRandomStartFrame
 cc2ddcc0 BlendData
+2b969c0d BlendFromDefaultDuration
+e61bf09e BlendToDefaultDuration
 bceaaa2a BlockButton
 adee7179 BloomIntensityScale
 82fbf5cd Blue
@@ -345,6 +348,7 @@ e168a4d7 DefaultMaxQueueTimes
 4fc07890 DefaultSkinName
 2f6cd7a5 DefaultTooltip
 1ff99d7f DefaultTra
+0922eae5 DelayKillSeconds
 17f82fb1 DelayTime
 6b017c21 Delta
 c556b516 Deltas

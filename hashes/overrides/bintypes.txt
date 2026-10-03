@@ -163,6 +163,7 @@ ff378352 DragonCampEntityPrefab
 c565e640 DynamicCameraSettings
 d5db92ad DynamicPointLightEntityTemplate
 714fe7b7 DynamicSpotlightEntityTemplate
+5d9fffed DynamicsChainBlendEventData
 408a4521 DynamicsChainProperties
 09188776 DynamicsChainRigPoseModifierData
 339ecf91 DynamicsJointTreeData

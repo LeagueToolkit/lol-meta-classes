@@ -24,6 +24,8 @@ d8b7cfd7 ActiveIcons
 e404f145 ActiveUi
 c895f7ad ActiveVfx
 20749c51 ActiveVoiceOver
+2c4774c5 AdaptationTime
+6b392dd7 AdaptationZoom
 78811384 AdditionalData
 2920447a AdditionalRotation
 c5b58261 AdditionalSettings
@@ -63,6 +65,7 @@ a7cdb46f AnonymousTra
 3bd77ed1 ApplyTeamColorCorrection
 f359eded ArcElement
 bb59b99c ArenaButton
+3a302e74 ArrayIndexDriver
 84542686 Arrow
 a0bf18a1 Ascending
 42e3afec AssetPath
@@ -75,6 +78,7 @@ d631c93e AtakhanIcon
 3d60c5b7 AttachTargetBone
 9ea6766d AttachTo
 344feb42 AttachToObject
+3e8924f2 AttackSeconds
 2092043f AttackableUnit
 b7c14674 AttractionAcceleration
 aeefa0e6 AttractionRadius
@@ -123,6 +127,10 @@ adee7179 BloomIntensityScale
 82fbf5cd Blue
 c8c453d3 BoardButton
 7c666488 Boards
+ee255a71 BoneAName
+b91d14d4 BoneBName
+0ef335b4 BoneBasisName
+44ae9838 BoneTransformChannel
 03698d8a BonusGold
 c3f30ba0 BoolProperty
 622ef3dd BoolVariable
@@ -306,6 +314,7 @@ c70f6a1e DailyLoginViewController
 0ea3d3f5 DamagePrediction
 33534b67 DamageTaken
 72c5c2a8 DamageType
+aa13ab5a DamageTypeToMatch
 3965005a DampingEnd
 9ccb16cf DampingStart
 f3e7ac05 DataOptions
@@ -677,6 +686,8 @@ ea0b5c3b InitialScale
 e4ecb00c InputCondition
 f11dede3 InputData
 f248d989 InputEvent
+668d6f95 InputMaxDb
+f54539eb InputMinDb
 0214e671 InputParams
 0b86d992 Instance
 ee26c73f InstanceVariables
@@ -781,6 +792,8 @@ e2622bf2 LockedColor
 3cebd87c LockedTra
 6e4ce585 LodQualities
 bfc92e63 LogicDriver
+3fe8a3b5 LogicDriverElementMaterialSource
+8d424715 LogicDriverElementUpdates
 6bfb316f LogicalName
 9fd03293 LogoutButton
 ccd0de98 LongName
@@ -1003,6 +1016,9 @@ ab2e032a PlaneConstraint
 75d39a3b PlayAnimation
 797fd50b PlayButton
 5e9b875d PlayEquipAnimation
+eaf5370d PlaySpeedModifierLogicDriver
+58074a16 PlaySpeedModifierSource
+9dba9f88 PlaySpeedModifierValueType
 c402fafa PlayerDisconnect
 9c422946 PlayerLayout
 8a7ef9d0 PlayerNames
@@ -1095,6 +1111,7 @@ cb1bebae RecipeDef
 2340a395 RegionLocator
 e2ba931c RegionLocatorGroup
 bed02ff8 RegionTags
+dc4a0b3b ReleaseSeconds
 7471eac6 Remap
 20079c4c RemoveAll
 3b5dbe09 RemoveButton
@@ -1120,6 +1137,7 @@ f60220b1 RequiredValue
 8b075f3e RespawnDelay
 ca411bdb RespawnDuration
 e343a0c6 RespawnSequence
+d406b031 ResponseCurve
 27c534f4 RestoreOnStop
 71e60c24 RestrictedType
 5b26202d Restriction
@@ -1152,6 +1170,7 @@ b8af4624 RotationOffset
 507c22b2 RowGroup
 f5a853e9 RowTemplate
 098f86e0 RowsList
+2d5dfced RtpcObject
 9b15d5eb SSAO
 02b79967 SandCarveDepth
 baaa6000 SandCarveFlatRatio
@@ -1295,6 +1314,7 @@ c1d6b8d3 SpellCalculations
 08263e1d SpellCastQueueData
 16f1763f SpellDataTemplate
 5e7e5a06 SpellObject
+dd661aab SpellPreviewData
 87f6b886 SpellScript
 435a91a2 SpinFactor
 2fd3d3c2 SpineAnimation
@@ -1497,6 +1517,7 @@ d3231b43 UnselectedHover
 acc83ffa UseFistBump
 7bd430bd UseInitialEnd
 ee641224 UseInitialStart
+4ee81483 UseRawValue
 064440d6 UseSkinName
 7b66f15d UseTarget
 e1e591e3 UseText
@@ -1526,11 +1547,14 @@ cef90b6c Video
 0fb17eff VideoGroup
 f6ec748b VideoPath
 e50186a0 VideoRegion
+94eea539 ViewElementsToUpdate
 3b060ae5 ViewModel
 4facf6d1 Views
 7f37f5e5 Visibility
 f20c3f36 W
 deb1ff88 WDriver
+590fd966 WUpdateModifier
+8729115e WValueModifier
 51e9b98e WadDependencies
 b1c48ff9 WakeAmplitudeMaxSpeedMult
 d27c716b WakeAmplitudeMinSpeedMult
@@ -1571,10 +1595,16 @@ db7ebe91 WipStat6
 a99b42a4 WorldVelocity
 fd0c5087 X
 0527728d XDriver
+4bbb835b XUpdateModifier
+20ca280d XValueModifier
 fc0c4ef4 Y
 83b2728a YDriver
+7cb2e400 YUpdateModifier
+b40a58b8 YValueModifier
 ff0c53ad Z
 ada68537 ZDriver
+22e0606d ZUpdateModifier
+1cb00d6f ZValueModifier
 df92e232 Zoom
 5ed132d9 ZoomDistance
 d1257b43 ZoomEasing

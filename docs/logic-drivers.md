@@ -216,9 +216,88 @@ Singletons, with what is known about each:
     fba9327c     field-free Float, 15.15, no shipped instance
     2ef7017      .0xaa13ab5a: U8, 15.15, no shipped instance
 
+## Reader pass
+
+A second pass, led by the code instead of the hash. Each driver's `Evaluate` was
+read in the 16.18 Windows client, the behaviour gave the vocabulary, and a small
+bounded search did the rest. Three batches: `logic-driver-readers`,
+`spell-preview`, `logic-driver-view-updates`, plus one held-back name in
+`logic-drivers-unproven`. 34 classes and 30 fields. None is attested by a string.
+
+Drivers and their data classes (`logic-driver-readers`):
+
+| hash | name | what the reader does |
+|---|---|---|
+| `a8dd91e9` | `EnabledTimerFloatDriver` | seconds its `mBoolDriver` has been true; one hit in about 19M candidates |
+| `e78a175a` | `BoundingBoxLengthFloatDriver` | half the diagonal of the bounding box; registered directly before `BoundingRadiusFloatDriver`, and the registrars are in alphabetical order |
+| `de125976` | `DistanceToEnemyMinionMaterialFloatDriver` | `DistanceToPlayerMaterialFloatDriver` with lane minions of the opposing team as targets |
+| `fba9327c` | `LastDamageAmountFloatDriver` | a float written from the unit's death record |
+| `02ef7017` | `LastDamageTypeMaterialBoolDriver` | compares `.DamageTypeToMatch` with a byte from the same record; the pair arrived together in 15.15 |
+| `3eac408c` | `BoneDistanceFloatDriver` | distance between `.BoneAName` and `.BoneBName` in the frame of `.BoneBasisName`, weighted by `ComponentWeight` |
+| `e6d1f14b` | `BoneTransformFloatDriver` | one translation or scale channel (`.BoneTransformChannel`) of `boneName` relative to `.BoneBasisName` |
+| `55383fd3` | `AudioFloatDriver` | output of the `AudioRtpcObject` linked by `.RtpcObject` |
+| `2f5be991` | `AudioRtpcObject` | reads one global RTPC by `rtpcName`; `.InputMinDb` / `.InputMaxDb` (defaults -48 and 0, one stem for both), `.AdaptationTime`, `.AdaptationZoom`, `.AttackSeconds`, `.ReleaseSeconds`, `.ResponseCurve` |
+| `612b4ce2` | `ConceptEasingData` | the class behind every `<T>Concept.EasingData` |
+| `3a302e74` | `ArrayIndexDriver` | the index operand of `ValueArrayFloatDriver` and of its string twin; one hit in about 420k |
+| `4ee81483` | `UseRawValue` | on `CharacterStatFloatDriver`: raw stat instead of the 0..1 normalised one |
+| `eaf5370d`, `9dba9f88`, `58074a16` | `PlaySpeedModifierLogicDriver`, `PlaySpeedModifierValueType`, `PlaySpeedModifierSource` | on `PersistentVfxData`, beside the known `PlaySpeedModifier` |
+
+The three bone-name fields were the most searched hashes of the first pass. They
+fell once the reader showed two endpoints and a basis joint: the stem is
+`bone<X>Name`, with `A`, `B` and `Basis`.
+
+`spell-preview`: the unnamed source class `239d0a76`, built inline in a per-unit
+spell preview component, is `SpellPreviewSource`. The same stem fills six more
+slots around the known `SpellPreviewData`: `SpellPreviewConditionData`
+(`fd51006c`, the interface from "What is left"), its children
+`SpellPreviewOrderConditionData` (`fb16e4be`) and
+`SpellPreviewInputLockConditionData` (`0d91a223`), `SpellPreviewConfigData`
+(`280745b1`), `SpellPreviewEffectData` (`55f6bf86`) and `SpellPreviewParamsData`
+(`c7e628b9`). `CharacterRecord.dd661aab` is the field `SpellPreviewData`.
+
+`logic-driver-view-updates`: the classes a `LogicDriverViewEntry` holds. Every
+`I*` name lands on an interface with the predicted children:
+`ILogicValueDriverUpdateViewElements` -> `LogicFloatDriverUpdateViewElements`,
+`LogicDriverUpdateViewElements`; `IValueUpdateModifier` -> `IFloatUpdateModifier`
+-> `DelayFloatUpdate`, `IInterpolateFloatUpdate` -> `InterpolateDeltaFloatUpdate`,
+`InterpolateDurationFloatUpdate`; `Vector4UpdateModifier` with
+`X/Y/Z/WUpdateModifier`; `ILogicDriverValueToString` -> `LogicDriverFloatToString`,
+`LogicDriverValueToStringArray`; `IFloatUpdateElement` under the known
+`IValueUpdateElement`; `LogicDriverFloatModifier`; `LogicDriverElementTooltip`.
+Fields: `LogicDriverElementUpdates`, `LogicDriverElementMaterialSource`,
+`ViewElementsToUpdate`, and `X/Y/Z/WValueModifier` on `b0be1066`.
+
+**Held back.** `Float4FromLogicDrivers` for `b0be1066` (the Vec4 composer) came
+from a wide search with about 1 in 5 odds of a chance hit. Do not submit it.
+
+Bounded searches run with the reader vocabulary, for the record: classes, 1 to 3
+free words over 708 words and 4 suffixes, 0.77 expected noise, one incoherent hit
+rejected; fields, 2 words over 700 with 8 prefixes, 0.010, one hit
+(`AdaptationZoom`); fields, 3 words over 260, 0.17, two hits sharing a stem
+(`InputMinDb`, `InputMaxDb`).
+
+Still open after this pass, with what the reader shows:
+
+    34262325     returns the playback speed scale of the animation named by
+              .AnimationName; the only value ever placed in
+              PersistentVfxData.PlaySpeedModifierLogicDriver
+    7e173e2f     returns the current fade weight (0..1) of a map visibility
+              controller; about 170 MapVisibility<X>Driver forms miss
+    608a3ee7     field-free Int, see above
+    9af7b542     the key object of the SequenceMaterial* drivers, one PathHash
+    8370ee35     Bool on both distance drivers: only count targets the source
+              can see; about 1.5M candidates miss
+    4742b028     Bool on BoneTransformFloatDriver: scale translation by 0.1 and
+              mirror X
+    0ed45b9e     F32 on ConceptEasingData: the ease duration in seconds
+    050e3899, 65f22822   F32 on AudioRtpcObject: output multiplier, unknown
+    8f60db30, 9060dcc3, 9160de56, 9e60f2cd   U8 component selectors on
+              b0be1066; one stem (state 0b1d7668) plus x, y, z, w
+
 ## Status
 
-All 46 rows `status=pending`, `pr=-`. Nothing submitted upstream.
+All 46 rows of the first pass and all 64 of the reader pass are `status=pending`,
+`pr=-`. Nothing submitted upstream.
 
 Fit to submit as it stands: the four lattices, which are proved by filling
 every slot of a row at once rather than by any single hash, and the nine rows

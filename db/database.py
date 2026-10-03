@@ -2,10 +2,6 @@
 class 0x1010e4d1(BaseParams):
     pass
 
-class 0x103b4f7d(0x65a1bb16):
-    DeltaDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    pass
-
 class 0x106b7389(0xd04cfb37):
     FirstEntry: (Pointer, 0x0, 0x0, 0xd04cfb37) = null
     0x8879a872: (Pointer, 0x0, 0x0, 0xd04cfb37) = null
@@ -390,12 +386,6 @@ class 0x1a154229(EventBusApObject):
     0xfc70a758: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x1a21fc8a(0x30aa7360):
-    ValueDriver: (Pointer, 0x0, 0x0, ILogicDriver) = null
-    0x7a721423: (List2, 0x0, Pointer, 0x21a31dfa) = []
-    0x94eea539: (List2, 0x0, Pointer, IValueUpdateElement) = []
-    pass
-
 class 0x1a261378(0xe2a48eac):
     Item: (Embed, 0x0, 0x0, TftMapItemData) = {"ArmoryIconPath":"0x0","IconPath":"0x0","NameId":"","description":"","effectAmounts":[],"itemID":0,"name":""}
     pass
@@ -701,13 +691,6 @@ class 0x21a128f8(IGameModeConfig):
     0x47da838e: (Map, U32, U8, 0x0) = {}
     pass
 
-class 0x21a31dfa(0x5a8ba29d):
-    0x22e0606d: (Pointer, 0x0, 0x0, 0x9a573886) = null
-    0x4bbb835b: (Pointer, 0x0, 0x0, 0x9a573886) = null
-    0x590fd966: (Pointer, 0x0, 0x0, 0x9a573886) = null
-    0x7cb2e400: (Pointer, 0x0, 0x0, 0x9a573886) = null
-    pass
-
 class 0x21c3bf49(ScriptTable):
     CustomTable: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
     pass
@@ -784,9 +767,6 @@ class 0x239188d5():
     IconPath: (String, 0x0, 0x0, 0x0) = ""
     TitleTra: (String, 0x0, 0x0, 0x0) = ""
     DescriptionTra: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x239d0a76(ILogicDriverSource):
     pass
 
 class 0x239ebd66():
@@ -958,11 +938,6 @@ class 0x27f036af(0x64c18f7d):
     StartMoveSpeed: (F32, 0x0, 0x0, 0x0) = 10.0
     LerpTimeSeconds: (F32, 0x0, 0x0, 0x0) = 2.0
     EndMoveSpeed: (F32, 0x0, 0x0, 0x0) = 100.0
-    pass
-
-class 0x280745b1():
-    params: (Pointer, 0x0, 0x0, 0xc7e628b9) = null
-    0x50aad250: (List2, 0x0, Pointer, SpellPreviewData) = []
     pass
 
 class 0x28556403(IContextualAction):
@@ -1262,12 +1237,8 @@ class 0x2ea23974():
 class 0x2ee6df14():
     0x6b02dd72: (Embed, 0x0, 0x0, 0x9e0d4004) = {"0x7042c2bf":[]}
     0x9a397ac: (Embed, 0x0, 0x0, 0xadeddc6) = {}
-    0xe2194251: (Embed, 0x0, 0x0, 0xc124ec81) = {"0x2d5dfced":"0x0","MusicTrack":{"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}}
+    0xe2194251: (Embed, 0x0, 0x0, 0xc124ec81) = {"MusicTrack":{"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"},"RtpcObject":"0x0"}
     bankUnits: (List2, 0x0, Embed, BankUnit) = []
-    pass
-
-class 0x2ef7017(ILogicBoolDriver):
-    0xaa13ab5a: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x2f194728(UiMetricTypeI):
@@ -1283,21 +1254,6 @@ class 0x2f24b82d():
     DescriptionTraKey: (String, 0x0, 0x0, 0x0) = ""
     0xbcdf811c: (Link, 0x0, 0x0, MissionAsset) = "0x0"
     missionId: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x2f5be991():
-    rtpcName: (String, 0x0, 0x0, 0x0) = ""
-    objectPath: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x2c4774c5: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x3e8924f2: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x50e3899: (F32, 0x0, 0x0, 0x0) = 1.0
-    0x65f22822: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x668d6f95: (F32, 0x0, 0x0, 0x0) = 0.0
-    0x6b392dd7: (F32, 0x0, 0x0, 0x0) = 4.0
-    0xd406b031: (Pointer, 0x0, 0x0, CurveFloat) = null
-    0xdc4a0b3b: (F32, 0x0, 0x0, 0x0) = 0.0
-    ObjectName: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xf54539eb: (F32, 0x0, 0x0, 0x0) = -48.0
     pass
 
 class 0x2ff0e152():
@@ -1322,9 +1278,6 @@ class 0x3094abd6():
     MeterLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MeterElements: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xb7cd7f6b: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x30aa7360():
     pass
 
 class 0x30b339fb():
@@ -1361,11 +1314,6 @@ class 0x313c0076():
 
 class 0x313da04c():
     ItemIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x315aff8e():
-    ModifierDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    ModifierType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x3170c8c7(UiMetricUnitTypeSimpleI):
@@ -1550,11 +1498,6 @@ class 0x34ecdf00():
     pass
 
 class 0x34f2d06e(GameEntityComponent):
-    pass
-
-class 0x34f43159(0x6ca3cfd):
-    0x3a302e74: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    ValueArray: (List2, 0x0, Pointer, 0x6ca3cfd) = []
     pass
 
 class 0x3527f5d8():
@@ -1981,13 +1924,6 @@ class 0x3ea620c5():
     0x9f2fba86: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     Holder: (Hash, 0x0, 0x0, 0x0) = "0x0"
     NameText: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x3eac408c(ILogicFloatDriver):
-    ComponentWeight: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
-    0xb91d14d4: (String, 0x0, 0x0, 0x0) = ""
-    0xee255a71: (String, 0x0, 0x0, 0x0) = ""
-    0xef335b4: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x3eb74cbe(IVfxVector2Driver):
@@ -2442,7 +2378,7 @@ class 0x4979fb5d(0x2b00c366):
     itemTypeId: (String, 0x0, 0x0, 0x0) = "5c964e25-76f1-4485-9bfd-08001b923447"
     pass
 
-class 0x49832ca7(0x6ca3cfd):
+class 0x49832ca7(ILogicDriverValueToString):
     pass
 
 class 0x499d3e3d():
@@ -2615,17 +2551,6 @@ class 0x4ebb680d():
 
 class 0x4ec57116(InputEventBoolKeybind):
     0xbac86ec1: (U32, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0x4f0aa8a0():
-    0x11468c21: (Pointer, 0x0, 0x0, 0x7379bca6) = null
-    TooltipText: (Pointer, 0x0, 0x0, 0x6ca3cfd) = null
-    0x36e9d151: (Bool, 0x0, 0x0, 0x0) = false
-    element: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ElementAnchor: (U8, 0x0, 0x0, 0x0) = 4
-    TooltipIcon: (Pointer, 0x0, 0x0, 0x7379bca6) = null
-    0xa620b98f: (List2, 0x0, Embed, 0xd5c5318a) = []
-    TooltipAnchor: (U8, 0x0, 0x0, 0x0) = 6
     pass
 
 class 0x4f4c4ffc():
@@ -2825,10 +2750,6 @@ class 0x55047b08():
     TitleTra: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x55383fd3(ILogicFloatDriver):
-    0x2d5dfced: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x556b035c(NovaItemGetImage):
     slot: (Pointer, 0x0, 0x0, NovaItemGetInt) = null
     pass
@@ -2840,11 +2761,6 @@ class 0x55c9296f():
     MouseWheelEnabled: (Bool, 0x0, 0x0, 0x0) = true
     0xe706420f: (Bool, 0x0, 0x0, 0x0) = false
     0xecd66999: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0x55f6bf86():
-    ShowOnCreate: (Bool, 0x0, 0x0, 0x0) = false
-    effectKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x567a9e1b():
@@ -3025,9 +2941,6 @@ class 0x5a51b355():
 
 class 0x5a7d5141():
     Boards: (List2, 0x0, Embed, 0xfbd2dcc6) = []
-    pass
-
-class 0x5a8ba29d():
     pass
 
 class 0x5a9697c1(MapPlaceable):
@@ -3313,11 +3226,6 @@ class 0x612b3741(0xca17e84f):
     NewValue: (Pointer, 0x0, 0x0, IIntGet) = null
     pass
 
-class 0x612b4ce2():
-    EasingType: (U8, 0x0, 0x0, 0x0) = 0
-    0xed45b9e: (F32, 0x0, 0x0, 0x0) = 1.0
-    pass
-
 class 0x6136d145(0x64c18f7d):
     TargetSkinScale: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
@@ -3439,10 +3347,6 @@ class 0x65720c6a():
 class 0x6587b424(IBehaviorScriptBlock):
     0x1f50a19e: (Pointer, 0x0, 0x0, IBoolGet) = {}
     Var: (Pointer, 0x0, 0x0, ScriptTableSet) = null
-    pass
-
-class 0x65a1bb16(0x9a573886):
-    Easing: (U8, 0x0, 0x0, 0x0)
     pass
 
 class 0x65ab7bf1(IScriptBt):
@@ -3788,9 +3692,6 @@ class 0x6c7a6a03():
 class 0x6c84152e():
     ForVote: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AgainstVote: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x6ca3cfd():
     pass
 
 class 0x6cae67ad(ISequenceAction):
@@ -5064,12 +4965,6 @@ class 0x8e31f800(ViewController):
     0xe5d3d1fb: (Embed, 0x0, 0x0, 0xd5d2b377) = {"0x19147e06":"0x0","0xf9cb518f":"0x0","ActivationVFX":"0x0","Group":"0x0","SpineAnimation":"0x0","Subtitle":"0x0","title":"0x0"}
     pass
 
-class 0x8e65fb6b(0x6ca3cfd):
-    ValueDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    LocalizedTextFormat: (String, 0x0, 0x0, 0x0) = ""
-    TextFormat: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x8e8282a9(MapComponent):
     MaxSize: (U32, 0x0, 0x0, 0x0) = 0
     pass
@@ -5472,9 +5367,6 @@ class 0x9a4ba494():
     0xfbe13398: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x9a573886(0x5a8ba29d):
-    pass
-
 class 0x9a722730(IGameModeConfig):
     TimerDefinitions: (List2, 0x0, Link, ITimerControllerDefinition) = []
     pass
@@ -5613,7 +5505,7 @@ class 0x9e0d4004():
 class 0x9e1df0c9():
     pass
 
-class 0x9e1e8775(0xbc413e21):
+class 0x9e1e8775(IFloatUpdateElement):
     LocalizedTextFormat: (String, 0x0, 0x0, 0x0) = ""
     TextFormat: (String, 0x0, 0x0, 0x0) = "%f"
     TextElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -5647,10 +5539,6 @@ class 0x9e9e2e5c(IGameCalculationPart):
     pass
 
 class 0x9eb07cec(IEnvironmentShadingModel):
-    pass
-
-class 0x9eba3f83(0x65a1bb16):
-    DurationDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
 
 class 0x9ef1e737(IOptionItem):
@@ -6008,10 +5896,6 @@ class 0xa8dcba52():
     0xc760b795: (Link, 0x0, 0x0, 0xc760b795) = "0x0"
     pass
 
-class 0xa8dd91e9(ILogicFloatDriver):
-    mBoolDriver: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
-    pass
-
 class 0xa8fef3df():
     0x25f550a: (File, 0x0, 0x0, 0x0) = "0x0"
     0x2fec612a: (File, 0x0, 0x0, 0x0) = "0x0"
@@ -6128,7 +6012,7 @@ class 0xab31041e(IGameModeConfig):
 class 0xab5da609(IClockDefinition):
     pass
 
-class 0xab5db4f2(0xbc413e21):
+class 0xab5db4f2(IFloatUpdateElement):
     ColorEasing: (U8, 0x0, 0x0, 0x0)
     colors: (List2, 0x0, Pointer, ColorStartFloatData)
     pass
@@ -6141,7 +6025,7 @@ class 0xabce29fc():
     0xa7d51676: (List2, 0x0, U8, 0x0) = []
     pass
 
-class 0xabe2709a(0xbc413e21):
+class 0xabe2709a(IFloatUpdateElement):
     ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -6404,7 +6288,7 @@ class 0xaff91324(ITagList):
     tags: (Embed, 0x0, 0x0, TagList) = {"tags":[]}
     pass
 
-class 0xb011f563(0xbc413e21):
+class 0xb011f563(IFloatUpdateElement):
     ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -6423,21 +6307,6 @@ class 0xb09016f6():
 
 class 0xb0afae41(ViewControllerFilterI):
     TftGameType: (U32, 0x0, 0x0, 0x0) = 5
-    pass
-
-class 0xb0be1066(ILogicDriver):
-    0x1cb00d6f: (Pointer, 0x0, 0x0, 0x315aff8e) = null
-    0x20ca280d: (Pointer, 0x0, 0x0, 0x315aff8e) = null
-    XDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    YDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    0x8729115e: (Pointer, 0x0, 0x0, 0x315aff8e) = null
-    0x8f60db30: (U8, 0x0, 0x0, 0x0) = 0
-    0x9060dcc3: (U8, 0x0, 0x0, 0x0) = 0
-    0x9160de56: (U8, 0x0, 0x0, 0x0) = 0
-    0x9e60f2cd: (U8, 0x0, 0x0, 0x0) = 0
-    ZDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    0xb40a58b8: (Pointer, 0x0, 0x0, 0x315aff8e) = null
-    WDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
 
 class 0xb0cdad34(VfxComponentBase):
@@ -6527,7 +6396,7 @@ class 0xb3674a86(TftGameStartSequenceSimpleObject):
     UIElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xb37ab600(0xbc413e21):
+class 0xb37ab600(IFloatUpdateElement):
     ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -6697,7 +6566,7 @@ class 0xb72a7d67():
 
 class 0xb76a119c():
     0x49d30fb3: (Pointer, 0x0, 0x0, ILogicDriver) = null
-    0x9bf11475: (List2, 0x0, Pointer, 0x21a31dfa) = []
+    0x9bf11475: (List2, 0x0, Pointer, Vector4UpdateModifier) = []
     0xcc860ca0: (List2, 0x0, String, 0x0) = []
     Material: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
     pass
@@ -6847,9 +6716,6 @@ class 0xbc1e773c(0x8d31b69b):
     pass
 
 class 0xbc280d0a():
-    pass
-
-class 0xbc413e21(IValueUpdateElement):
     pass
 
 class 0xbc8a265c():
@@ -7069,7 +6935,7 @@ class 0xc10d4fdc():
     pass
 
 class 0xc124ec81():
-    0x2d5dfced: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    RtpcObject: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MusicTrack: (Embed, 0x0, 0x0, 0xdb03f8f4) = {"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}
     pass
 
@@ -7292,15 +7158,6 @@ class 0xc7ca4925():
     FrameSelf: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xc7e628b9():
-    SpellLevelOverride: (I32, 0x0, 0x0, 0x0) = -1
-    0x877e4953: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xa2877ddb: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Spell: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xd00e123a: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xe5bc4229: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xc83d315a():
     MapLightInfo: (Embed, 0x0, 0x0, MapLightingInfo) = {"0xce4c04f9":0.0,"HdrEnvDiffuseScale":3.0,"NormalOffsetBias":0.0,"OverrideSunSpecDirection":null,"PbrSunAdditionalScale":10.0,"ScaleSunShadowIntensity":1.0,"ShadowBias":0.0006000000284984708,"SunIntensityScale":1.0,"SunPenumbraSaturation":0.0,"SunRadiusForShadows":0.0,"fogAlternateColor":[0.10000000149011612,0.10000000149011612,0.20000000298023224,1.0],"fogColor":[0.20000000298023224,0.20000000298023224,0.4000000059604645,1.0],"fogEmissiveRemap":1.899999976158142,"fogEnabled":true,"fogLowQualityModeEmissiveRemap":0.019999999552965164,"fogStartAndEnd":[0.0,-2000.0],"groundColor":[0.10000000149011612,0.10000000149011612,0.10000000149011612,1.0],"horizonColor":[0.4000000059604645,0.4000000059604645,0.4000000059604645,1.0],"lightMapColorScale":1.0,"skyLightColor":[0.7049999833106995,0.8799999952316284,1.0,1.0],"skyLightScale":0.20000000298023224,"sunColor":[1.0,1.0,1.0,1.0],"sunDirection":[0.0,0.7070000171661377,0.7070000171661377]}
     CubemapPath: (String, 0x0, 0x0, 0x0) = ""
@@ -7509,10 +7366,6 @@ class 0xcc7bc138():
     RiftHeraldSolo: (Link, 0x0, 0x0, 0x460dc9b) = "0x0"
     pass
 
-class 0xccb921b(0x9a573886):
-    DelayTimeDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    pass
-
 class 0xccf60865(IGameModeConfig):
     0xe5e7428f: (Map, Hash, Pointer, JadeItemRecommendations) = {}
     pass
@@ -7663,7 +7516,7 @@ class 0xd37b1519():
     Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xd37e7059(0x6ca3cfd):
+class 0xd37e7059(ILogicDriverValueToString):
     0xc011585: (Pointer, 0x0, 0x0, 0x49832ca7)
     pass
 
@@ -7760,7 +7613,7 @@ class 0xd5b5e3b9(BaseParams):
     pass
 
 class 0xd5c5318a():
-    ValueDriver: (Pointer, 0x0, 0x0, 0x6ca3cfd) = null
+    ValueDriver: (Pointer, 0x0, 0x0, ILogicDriverValueToString) = null
     Key: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -7908,10 +7761,6 @@ class 0xd8ba9b38(BaseParams):
 
 class 0xd8c76385(InputEvent2AxisKeybind):
     0x6cb6c4fd: (F32, 0x0, 0x0, 0x0) = 1.0
-    pass
-
-class 0xd91a223(0xfd51006c):
-    InputLockTypes: (List2, 0x0, U32, 0x0) = []
     pass
 
 class 0xd974ea3(TftMapConditionData):
@@ -8132,12 +7981,6 @@ class 0xddf17bcb(SocketDefinitionBase):
     0xdebfa39e: (Bool, 0x0, 0x0, 0x0) = false
     PositionOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     ParentJoint: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xde125976(ILogicFloatDriver):
-    0x8370ee35: (Bool, 0x0, 0x0, 0x0) = false
-    minDistance: (F32, 0x0, 0x0, 0x0) = 100.0
-    maxDistance: (F32, 0x0, 0x0, 0x0) = 1000.0
     pass
 
 class 0xde33e086():
@@ -8387,13 +8230,6 @@ class 0xe67a27c8(0xd37e7059):
     0x9c5f0056: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0xe6d1f14b(ILogicFloatDriver):
-    boneName: (String, 0x0, 0x0, 0x0) = ""
-    0x44ae9838: (U8, 0x0, 0x0, 0x0) = 0
-    0x4742b028: (Bool, 0x0, 0x0, 0x0) = true
-    0xef335b4: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0xe6f0047():
     pass
 
@@ -8424,9 +8260,6 @@ class 0xe7791d51(0x70f6f74b):
     Operand: (Bool, 0x0, 0x0, 0x0) = false
     0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetBool) = null
     Operator: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0xe78a175a(ILogicFloatDriver):
     pass
 
 class 0xe78a27ae(0x2b00c366):
@@ -9193,10 +9026,6 @@ class 0xfacd8b68():
     BoardPosition: (Embed, 0x0, 0x0, TftBoardPosition) = {"Col":1,"Row":1}
     pass
 
-class 0xfb16e4be(0xfd51006c):
-    OrderTypes: (List2, 0x0, U8, 0x0) = []
-    pass
-
 class 0xfb66c6d7(IValueUpdateElement):
     IconElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xcc860ca0: (List2, 0x0, String, 0x0) = []
@@ -9213,9 +9042,6 @@ class 0xfb6952d6():
 
 class 0xfb790fd0(0xbd57ee48):
     GroupElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xfba9327c(ILogicFloatDriver):
     pass
 
 class 0xfbd2dcc6():
@@ -9268,10 +9094,6 @@ class 0xfcff6553():
     pass
 
 class 0xfd244a64(InputEventBoolKeybind):
-    pass
-
-class 0xfd51006c(ILogicBoolDriver):
-    IsExclusive: (Bool, 0x0, 0x0, 0x0)
     pass
 
 class 0xfd52ca74(ISequenceActionInstance):
@@ -9331,12 +9153,6 @@ class 0xfe897399():
     pass
 
 class 0xfea81f3e(SequenceActionLerpFloat):
-    pass
-
-class 0xfeacedf2(0x30aa7360):
-    ValueDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    0x7a721423: (List2, 0x0, Pointer, 0x9a573886) = []
-    0x94eea539: (List2, 0x0, Pointer, 0xbc413e21) = []
     pass
 
 class 0xff4e30bb(ILoopScriptBlock):
@@ -10028,6 +9844,10 @@ class AudioContextEvent():
 class AudioContextEventType():
     pass
 
+class AudioFloatDriver(ILogicFloatDriver):
+    RtpcObject: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class AudioPriorityBehavior():
     disabled: (Bool, 0x0, 0x0, 0x0) = false
     priority: (F32, 0x0, 0x0, 0x0) = 0.5
@@ -10046,6 +9866,21 @@ class AudioQueueConfig():
 
 class AudioQueueConfigList():
     queues: (List2, 0x0, Hash, 0x0) = []
+    pass
+
+class AudioRtpcObject():
+    rtpcName: (String, 0x0, 0x0, 0x0) = ""
+    objectPath: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    AdaptationTime: (F32, 0x0, 0x0, 0x0) = 0.0
+    AttackSeconds: (F32, 0x0, 0x0, 0x0) = 0.0
+    0x50e3899: (F32, 0x0, 0x0, 0x0) = 1.0
+    0x65f22822: (F32, 0x0, 0x0, 0x0) = 0.0
+    InputMaxDb: (F32, 0x0, 0x0, 0x0) = 0.0
+    AdaptationZoom: (F32, 0x0, 0x0, 0x0) = 4.0
+    ResponseCurve: (Pointer, 0x0, 0x0, CurveFloat) = null
+    ReleaseSeconds: (F32, 0x0, 0x0, 0x0) = 0.0
+    ObjectName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    InputMinDb: (F32, 0x0, 0x0, 0x0) = -48.0
     pass
 
 class AudioStatusEvents():
@@ -10510,8 +10345,22 @@ class BlueEssenceReward(IRewardBase):
     itemID: (String, 0x0, 0x0, 0x0) = "6e4b2a5c-dfbb-5f9f-9194-718107047829"
     pass
 
+class BoneDistanceFloatDriver(ILogicFloatDriver):
+    ComponentWeight: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
+    BoneBName: (String, 0x0, 0x0, 0x0) = ""
+    BoneAName: (String, 0x0, 0x0, 0x0) = ""
+    BoneBasisName: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class BoneTransformFloatDriver(ILogicFloatDriver):
+    boneName: (String, 0x0, 0x0, 0x0) = ""
+    BoneTransformChannel: (U8, 0x0, 0x0, 0x0) = 0
+    0x4742b028: (Bool, 0x0, 0x0, 0x0) = true
+    BoneBasisName: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class BoolConcept(BoolConceptBase):
-    EasingData: (Pointer, 0x0, 0x0, 0x612b4ce2) = null
+    EasingData: (Pointer, 0x0, 0x0, ConceptEasingData) = null
     pass
 
 class BoolConceptBase(ConceptBase):
@@ -10554,6 +10403,9 @@ class BotsSpellData():
     0x6d548702: (Pointer, 0x0, 0x0, IGameCalculation) = null
     0x75e51b86: (Option, 0x0, U8, 0x0) = null
     0xec17e271: (List2, 0x0, Embed, 0xb09016f6) = []
+    pass
+
+class BoundingBoxLengthFloatDriver(ILogicFloatDriver):
     pass
 
 class BoundingBoxSizeVector3Driver(ILogicVector3Driver):
@@ -11331,7 +11183,7 @@ class CharacterRecord():
     localGoldGivenOnDeath: (F32, 0x0, 0x0, 0x0) = 0.0
     jointForAnimAdjustedSelection: (String, 0x0, 0x0, 0x0) = ""
     minimapIconOverride: (String, 0x0, 0x0, 0x0) = ""
-    0xdd661aab: (Pointer, 0x0, 0x0, 0x280745b1) = null
+    SpellPreviewData: (Pointer, 0x0, 0x0, SpellPreviewConfigData) = null
     hoverLineIndicatorBaseTextureName: (File, 0x0, 0x0, 0x0) = "0x0"
     mAbilities: (List, 0x0, Link, AbilityObject) = []
     damagePerLevelModifiable: (Embed, 0x0, 0x0, ModifiableFloat) = {"Modifiers":[],"baseValue":0.0}
@@ -11363,7 +11215,7 @@ class CharacterRecord():
     pass
 
 class CharacterStatFloatDriver(ILogicFloatDriver):
-    0x4ee81483: (Bool, 0x0, 0x0, 0x0) = false
+    UseRawValue: (Bool, 0x0, 0x0, 0x0) = false
     Stat: (U8, 0x0, 0x0, 0x0) = 10
     pass
 
@@ -11872,6 +11724,11 @@ class ConceptBase():
 
 class ConceptBlockBase(IScriptBlock):
     ConceptObject: (Pointer, 0x0, 0x0, 0x662c1ec3)
+    pass
+
+class ConceptEasingData():
+    EasingType: (U8, 0x0, 0x0, 0x0) = 0
+    0xed45b9e: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
 
 class ConditionBoolClipData(ClipBaseData):
@@ -12740,6 +12597,10 @@ class DefaultStatModPerkSet():
 class Defaultvisibility(MissileVisibilitySpec):
     pass
 
+class DelayFloatUpdate(IFloatUpdateModifier):
+    DelayTimeDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    pass
+
 class DelayInputSourceBool(IInputSourceBool):
     Source: (Pointer, 0x0, 0x0, IInputSourceBool) = null
     DelayTurningOff: (F32, 0x0, 0x0, 0x0) = 0.5
@@ -12834,6 +12695,12 @@ class DisplayStatsUiData():
     DetailedLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DetailedStatUi: (Embed, 0x0, 0x0, 0xee28fb8d) = {"0x83cc7d42":false,"0xab77f602":"0x0","DetailedGroup":"0x0","DetailedHoverRegion":"0x0","DetailedIcon":"0x0","DetailedStatAmount":"0x0","DetailedStatName":"0x0","DetailedStatTra":"","UseText":false}
     DisplayStats: (List2, 0x0, Embed, DisplayStatUiData) = []
+    pass
+
+class DistanceToEnemyMinionMaterialFloatDriver(ILogicFloatDriver):
+    0x8370ee35: (Bool, 0x0, 0x0, 0x0) = false
+    minDistance: (F32, 0x0, 0x0, 0x0) = 100.0
+    maxDistance: (F32, 0x0, 0x0, 0x0) = 1000.0
     pass
 
 class DistanceToPlayerMaterialFloatDriver(ILogicFloatDriver):
@@ -13180,6 +13047,10 @@ class EnableLookAtEventData(BaseEventData):
     pass
 
 class EnabledRegionData(RegionDataBase):
+    pass
+
+class EnabledTimerFloatDriver(ILogicFloatDriver):
+    mBoolDriver: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
     pass
 
 class EnchantmentGroup():
@@ -13710,6 +13581,21 @@ class FlexValueVector3():
     mFlexID: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
+class Float4FromLogicDrivers(ILogicDriver):
+    ZValueModifier: (Pointer, 0x0, 0x0, LogicDriverFloatModifier) = null
+    XValueModifier: (Pointer, 0x0, 0x0, LogicDriverFloatModifier) = null
+    XDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    YDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    WValueModifier: (Pointer, 0x0, 0x0, LogicDriverFloatModifier) = null
+    0x8f60db30: (U8, 0x0, 0x0, 0x0) = 0
+    0x9060dcc3: (U8, 0x0, 0x0, 0x0) = 0
+    0x9160de56: (U8, 0x0, 0x0, 0x0) = 0
+    0x9e60f2cd: (U8, 0x0, 0x0, 0x0) = 0
+    ZDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    YValueModifier: (Pointer, 0x0, 0x0, LogicDriverFloatModifier) = null
+    WDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    pass
+
 class Float4LiteralMaterialDriver(ILogicDriver):
     value: (Vec4, 0x0, 0x0, 0x0) = [1.0,0.0,0.0,0.0]
     pass
@@ -13724,7 +13610,7 @@ class FloatComparisonMaterialDriver(ILogicBoolDriver):
     pass
 
 class FloatConcept(FloatConceptBase):
-    EasingData: (Pointer, 0x0, 0x0, 0x612b4ce2) = null
+    EasingData: (Pointer, 0x0, 0x0, ConceptEasingData) = null
     pass
 
 class FloatConceptBase(ConceptBase):
@@ -15521,6 +15407,12 @@ class IFloatGet():
 class IFloatParametricUpdater(IBaseParametricUpdater):
     pass
 
+class IFloatUpdateElement(IValueUpdateElement):
+    pass
+
+class IFloatUpdateModifier(IValueUpdateModifier):
+    pass
+
 class IFunctionGet():
     pass
 
@@ -15600,6 +15492,10 @@ class IInputUpdater():
 class IIntGet():
     pass
 
+class IInterpolateFloatUpdate(IFloatUpdateModifier):
+    Easing: (U8, 0x0, 0x0, 0x0)
+    pass
+
 class IKeyBind():
     pass
 
@@ -15643,10 +15539,16 @@ class ILogicDriver():
 class ILogicDriverSource():
     pass
 
+class ILogicDriverValueToString():
+    pass
+
 class ILogicFloatDriver(ILogicDriver):
     pass
 
 class ILogicIntDriver(ILogicFloatDriver):
+    pass
+
+class ILogicValueDriverUpdateViewElements():
     pass
 
 class ILogicVector3Driver(ILogicDriver):
@@ -15920,6 +15822,9 @@ class IUnitLogicData():
 class IValueUpdateElement():
     pass
 
+class IValueUpdateModifier():
+    pass
+
 class IVectorGet():
     pass
 
@@ -16132,7 +16037,7 @@ class IntArrayTableSet(ScriptTableSet):
     pass
 
 class IntConcept(IntConceptBase):
-    EasingData: (Pointer, 0x0, 0x0, 0x612b4ce2) = null
+    EasingData: (Pointer, 0x0, 0x0, ConceptEasingData) = null
     pass
 
 class IntConceptBase(ConceptBase):
@@ -16170,6 +16075,14 @@ class IntensityLogicDriverLightUpdater(IMapLightUpdater):
 class InteractionData():
     idleAnim: (String, 0x0, 0x0, 0x0) = "Idle1"
     shouldRandomizeIdleAnimPhase: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class InterpolateDeltaFloatUpdate(IInterpolateFloatUpdate):
+    DeltaDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    pass
+
+class InterpolateDurationFloatUpdate(IInterpolateFloatUpdate):
+    DurationDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
 
 class InvalidDeviceViewController(ViewController):
@@ -16727,6 +16640,13 @@ class KillsOnOpponentRoleConstraintInfo(ListenerConstraintInfo):
 class LaneData():
     mNavigationPoints: (List, 0x0, String, 0x0) = []
     mContainedRegions: (List, 0x0, String, 0x0) = []
+    pass
+
+class LastDamageAmountFloatDriver(ILogicFloatDriver):
+    pass
+
+class LastDamageTypeMaterialBoolDriver(ILogicBoolDriver):
+    DamageTypeToMatch: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class LastHitAssistConfig(IGameModeConfig):
@@ -17676,8 +17596,41 @@ class LogicDriverConditionalElementsEntry():
     EnableCondition: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
     pass
 
+class LogicDriverElementTooltip():
+    0x11468c21: (Pointer, 0x0, 0x0, 0x7379bca6) = null
+    TooltipText: (Pointer, 0x0, 0x0, ILogicDriverValueToString) = null
+    0x36e9d151: (Bool, 0x0, 0x0, 0x0) = false
+    element: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ElementAnchor: (U8, 0x0, 0x0, 0x0) = 4
+    TooltipIcon: (Pointer, 0x0, 0x0, 0x7379bca6) = null
+    0xa620b98f: (List2, 0x0, Embed, 0xd5c5318a) = []
+    TooltipAnchor: (U8, 0x0, 0x0, 0x0) = 6
+    pass
+
+class LogicDriverFloatModifier():
+    ModifierDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    ModifierType: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
 class LogicDriverFloatParametricUpdater(IFloatParametricUpdater):
     driver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    pass
+
+class LogicDriverFloatToString(ILogicDriverValueToString):
+    ValueDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    LocalizedTextFormat: (String, 0x0, 0x0, 0x0) = ""
+    TextFormat: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class LogicDriverUpdateViewElements(ILogicValueDriverUpdateViewElements):
+    ValueDriver: (Pointer, 0x0, 0x0, ILogicDriver) = null
+    0x7a721423: (List2, 0x0, Pointer, Vector4UpdateModifier) = []
+    ViewElementsToUpdate: (List2, 0x0, Pointer, IValueUpdateElement) = []
+    pass
+
+class LogicDriverValueToStringArray(ILogicDriverValueToString):
+    ArrayIndexDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    ValueArray: (List2, 0x0, Pointer, ILogicDriverValueToString) = []
     pass
 
 class LogicDriverViewController(ViewController):
@@ -17688,9 +17641,9 @@ class LogicDriverViewController(ViewController):
 
 class LogicDriverViewEntry():
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x3fe8a3b5: (List2, 0x0, Embed, 0x75a22c3) = []
-    0x40c7c429: (List2, 0x0, Pointer, 0x4f0aa8a0) = []
-    0x8d424715: (List2, 0x0, Pointer, 0x30aa7360) = []
+    LogicDriverElementMaterialSource: (List2, 0x0, Embed, 0x75a22c3) = []
+    0x40c7c429: (List2, 0x0, Pointer, LogicDriverElementTooltip) = []
+    LogicDriverElementUpdates: (List2, 0x0, Pointer, ILogicValueDriverUpdateViewElements) = []
     TransitionOnState: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x9f6debf3: (List2, 0x0, Embed, LogicDriverConditionalElementsEntry) = []
     EnableCondition: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
@@ -17701,6 +17654,12 @@ class LogicDriverVisibilityController(IMapVisibilityController):
     0x35b17559: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
     VisibilityDriver: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
     TransitionTimeDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    pass
+
+class LogicFloatDriverUpdateViewElements(ILogicValueDriverUpdateViewElements):
+    ValueDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    0x7a721423: (List2, 0x0, Pointer, IFloatUpdateModifier) = []
+    ViewElementsToUpdate: (List2, 0x0, Pointer, IFloatUpdateElement) = []
     pass
 
 class LoginViewController(ViewController):
@@ -20759,7 +20718,7 @@ class PersistentVfxData():
     FollowGroundTilt: (Bool, 0x0, 0x0, 0x0) = false
     boneName: (String, 0x0, 0x0, 0x0) = ""
     PlaySpeedModifier: (F32, 0x0, 0x0, 0x0) = 1.0
-    0x58074a16: (U32, 0x0, 0x0, 0x0) = 0
+    PlaySpeedModifierSource: (U32, 0x0, 0x0, 0x0) = 0
     SpecificTeam: (U32, 0x0, 0x0, 0x0) = 0
     EffectKeyForOtherTeam: (Hash, 0x0, 0x0, 0x0) = "0x0"
     scale: (F32, 0x0, 0x0, 0x0) = 1.0
@@ -20768,12 +20727,12 @@ class PersistentVfxData():
     FaceTarget: (Bool, 0x0, 0x0, 0x0) = false
     AttachToCamera: (Bool, 0x0, 0x0, 0x0) = false
     effectKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x9dba9f88: (U32, 0x0, 0x0, 0x0) = 0
+    PlaySpeedModifierValueType: (U32, 0x0, 0x0, 0x0) = 0
     TargetPosIsOwner: (Bool, 0x0, 0x0, 0x0) = false
     ShowToSpecificTeam: (Bool, 0x0, 0x0, 0x0) = false
     ShowToOwnerOnly: (Bool, 0x0, 0x0, 0x0) = false
     targetBoneName: (String, 0x0, 0x0, 0x0) = ""
-    0xeaf5370d: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    PlaySpeedModifierLogicDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     OrientTowardsTarget: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
@@ -23633,15 +23592,49 @@ class SpellPipsUiData():
     FullPips: (List, 0x6, Hash, 0x0) = ["0x0","0x0","0x0","0x0","0x0","0x0"]
     pass
 
+class SpellPreviewConditionData(ILogicBoolDriver):
+    IsExclusive: (Bool, 0x0, 0x0, 0x0)
+    pass
+
+class SpellPreviewConfigData():
+    params: (Pointer, 0x0, 0x0, SpellPreviewParamsData) = null
+    0x50aad250: (List2, 0x0, Pointer, SpellPreviewData) = []
+    pass
+
 class SpellPreviewData():
     TriggerSpells: (List2, 0x0, Hash, 0x0) = []
     0x6cd45762: (Bool, 0x0, 0x0, 0x0) = false
-    DisplayCondition: (Pointer, 0x0, 0x0, 0xfd51006c) = null
-    0x8f7842e4: (List2, 0x0, Pointer, 0x55f6bf86) = []
+    DisplayCondition: (Pointer, 0x0, 0x0, SpellPreviewConditionData) = null
+    0x8f7842e4: (List2, 0x0, Pointer, SpellPreviewEffectData) = []
     0x96e77860: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    OverrideParams: (Pointer, 0x0, 0x0, 0xc7e628b9) = null
+    OverrideParams: (Pointer, 0x0, 0x0, SpellPreviewParamsData) = null
     0xda1ee5bc: (Bool, 0x0, 0x0, 0x0) = false
-    InputCondition: (Pointer, 0x0, 0x0, 0xfd51006c) = null
+    InputCondition: (Pointer, 0x0, 0x0, SpellPreviewConditionData) = null
+    pass
+
+class SpellPreviewEffectData():
+    ShowOnCreate: (Bool, 0x0, 0x0, 0x0) = false
+    effectKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class SpellPreviewInputLockConditionData(SpellPreviewConditionData):
+    InputLockTypes: (List2, 0x0, U32, 0x0) = []
+    pass
+
+class SpellPreviewOrderConditionData(SpellPreviewConditionData):
+    OrderTypes: (List2, 0x0, U8, 0x0) = []
+    pass
+
+class SpellPreviewParamsData():
+    SpellLevelOverride: (I32, 0x0, 0x0, 0x0) = -1
+    0x877e4953: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xa2877ddb: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Spell: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xd00e123a: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xe5bc4229: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class SpellPreviewSource(ILogicDriverSource):
     pass
 
 class SpellRankIntDriver(ILogicIntDriver):
@@ -29543,7 +29536,7 @@ class UseableData():
     pass
 
 class ValueArrayFloatDriver(ILogicFloatDriver):
-    0x3a302e74: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    ArrayIndexDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     ValueArray: (List2, 0x0, Pointer, ILogicFloatDriver) = []
     pass
 
@@ -29576,7 +29569,7 @@ class ValueVector3():
     pass
 
 class Vector3Concept(Vector3ConceptBase):
-    EasingData: (Pointer, 0x0, 0x0, 0x612b4ce2) = null
+    EasingData: (Pointer, 0x0, 0x0, ConceptEasingData) = null
     pass
 
 class Vector3ConceptBase(ConceptBase):
@@ -29584,11 +29577,18 @@ class Vector3ConceptBase(ConceptBase):
     pass
 
 class Vector4Concept(Vector4ConceptBase):
-    EasingData: (Pointer, 0x0, 0x0, 0x612b4ce2) = null
+    EasingData: (Pointer, 0x0, 0x0, ConceptEasingData) = null
     pass
 
 class Vector4ConceptBase(ConceptBase):
     DefaultValue: (Vec4, 0x0, 0x0, 0x0)
+    pass
+
+class Vector4UpdateModifier(IValueUpdateModifier):
+    ZUpdateModifier: (Pointer, 0x0, 0x0, IFloatUpdateModifier) = null
+    XUpdateModifier: (Pointer, 0x0, 0x0, IFloatUpdateModifier) = null
+    WUpdateModifier: (Pointer, 0x0, 0x0, IFloatUpdateModifier) = null
+    YUpdateModifier: (Pointer, 0x0, 0x0, IFloatUpdateModifier) = null
     pass
 
 class VectorArrayTableSet(ScriptTableSet):

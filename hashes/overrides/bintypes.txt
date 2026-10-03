@@ -1,4 +1,5 @@
 be0ca55e AbilityPreviewViewController
+3b4c602e AccessibleColor
 f32625a7 AchievementBannerAccentReward
 be4626e1 AchievementTitleReward
 3aa63a24 ActivateEntityBlock
@@ -127,6 +128,7 @@ b6da23cb ContextualConditionEnemyEncounterNumber
 70f5ed1c ContextualConditionObjectiveCountComparison
 e405ebc2 ControlPreviewData
 cc2dcb80 ControlSchemeSelectionViewController
+1ca3eb78 ControlSchemeSwapConfig
 62113c15 CountdownTimerController
 610a14d0 CountdownTimerControllerDefinition
 d1dec547 CreateEntityBlock
@@ -141,7 +143,9 @@ ec8e071a CustomGet
 c03dda3f DeactivateEntityGroup
 b0afb2dd DeactivateEntityTagBlock
 03c4be95 DeathHelper
+29619231 DeathRecapGreyscaleConfig
 b1edf879 DeathRecapTeammateSpectator
+ce762bab DeathRecapTeammateSpectatorConfig
 32790cbf DestroyEntityBlock
 a6e992c8 DirectionReleases
 ff378352 DragonCampEntityPrefab
@@ -379,11 +383,13 @@ fe70e9c4 IsInCombatDynamicMaterialBoolDriver
 f5821f8b IsInWaterBoolDriver
 77b42f3f IsStealthedBoolDriver
 dc7b01b2 ItemAutoBuyViewController
+8ab00c3b ItemRecommendationConfig
 90fcea80 JadeItemRecommendations
 08367d94 JointOffsetData
 125a3586 JointOrientationBlendEventData
 e6147387 JointOrientationRigPoseModifierData
 5307f5e1 KeybindSet
+60f809c3 LastHitAssistConfig
 fe87f21e LastHitData
 4a7f3786 LeaderboardConfiguration
 09a124d7 LegacyTeam
@@ -437,6 +443,7 @@ a19405b3 LolSpellScriptTargetExecute
 51f3b0ef LolSpellSlotLevelUpKeybind
 fce68422 LolUiKeybindSet
 b3ecfad0 LootReward
+90f7282b LuaDeprecationConfig
 fcf30f98 MapActionGroupAnimation
 a8efd56d MapAntiAliasing
 cc2f736b MapCameraDefinition
@@ -464,6 +471,7 @@ ef339ef9 MathMultiplyFloatDriver
 59861811 MeshEntityPrefab
 d002d925 MeshEntityTemplate
 912bf9eb MeshHelperDef
+ce60a9a0 MinimapDrawConfig
 1f2e5fd0 MinimapTimerDefinition
 7f796784 MinimapTimerGroupData
 0c911666 MinimapTimerStyleData
@@ -602,6 +610,8 @@ c84caf96 OnPrimaryInputSingleClickEvent
 165c0117 OptionItemControlSelectionSettings
 a91b85e3 OptionTemplateBase
 09984b4a OptionTemplateControlSelectionSettings
+5a92b195 OverrideDeferredKeyBindingsConfig
+0085f9f4 OverrideKeyBindingsConfig
 fbecf8da OverrideOptionItemGroup
 20f923a6 PaintedRegionCell
 32d53c0e PaintedRegionData
@@ -658,6 +668,7 @@ f301caaa RedGeComponentDef
 63cca046 RedGeComponentDefinition
 e9e64c32 RedGreenEntityPrefab
 490d2a8a RedGreenEntityTemplate
+b9ce95d8 RegaliaConfig
 880c52da RegionBoundaryInstanceParams
 76bc0857 RegionBoundaryInstanceParamsBase
 21570b18 RegionDefinition
@@ -812,6 +823,7 @@ e6bb215e ShopEntity
 d859356a ShowEntityTagBlock
 a4eb8410 ShuffleCustomTableBlock
 881be5aa SkinCharacterDefinition
+0f2fb88d SmartPingParticleOverrides
 8fe295c8 SocketDefinitionBase
 91ccdfbc SpawnEntityBlock
 062ca0ae SpawnInSequence
@@ -837,12 +849,14 @@ e64ff723 SuperwardEntityTemplate
 630a0360 SuperwardGeComponentDef
 49c3a539 SuperwardRegionEntity
 21d40f1b TagList
+6f7bac4e TeamColorsConfig
 341a92b5 TeamDefinition
 080be026 TeamSpawnPointDefinition
 28d09c34 TeamSpawnPointEntity
 2a0928b6 TeamSpawnPointEntityPrefab
 b1c6075e TeamSpawnPointEntityTemplate
 138a7d5f TeamsConfig
+dea3b4a8 TerrainDisturbanceConfig
 df4d7688 Tft3dAnnouncementViewController
 e7d2c6f3 TftBehaviorScriptOnMoveChampion
 1c12183d TftBehaviorScriptOnPurchaseChampion
@@ -1056,8 +1070,11 @@ d2221304 VfxVector4DynamicProperty
 3bfdd393 VfxVector4LerpDriver
 20cda9b0 VfxVector4LogicDriver
 cd481b33 VfxVector4PropertyDriver
+9170abc5 VoiceChatConfig
 75895412 WardSkin
 6ff8b2a7 WasdInputUpdater
+92309121 WasdMoveOrderData
+595773f6 WaterDisturbanceConfig
 9c33070d WhileLoopBlock
 ead9c70c WorldSpaceUiEntityTemplate
 571eec0a XpReward

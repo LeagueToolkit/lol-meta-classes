@@ -281,6 +281,7 @@ de75be67 HasEntityScript
 18278f59 HasUnitTagBoolDriver
 6ba221d7 HideEntityBlock
 a66992af HideEntityTagBlock
+c3a44766 HudFeedbackDamageConfig
 eacbd3e9 IAsyncBlock
 2f910682 IChromaData
 6630fcec IClientBlock
@@ -404,6 +405,7 @@ f15a89f3 LightRegionRenderData
 fadcd386 LightRegionTextureData
 ea830028 LinkedTagList
 ea69d6f3 ListGet
+60e2ec74 LoadingScreenBackgroundGameModeConfig
 05e73536 LoadoutViewControllerV2
 1e90bc62 LocatorEntity
 2461f3a9 LocatorEntityDef
@@ -849,6 +851,7 @@ e64ff723 SuperwardEntityTemplate
 630a0360 SuperwardGeComponentDef
 49c3a539 SuperwardRegionEntity
 21d40f1b TagList
+7169f36b TargetingRenderGameModeConfig
 6f7bac4e TeamColorsConfig
 341a92b5 TeamDefinition
 080be026 TeamSpawnPointDefinition

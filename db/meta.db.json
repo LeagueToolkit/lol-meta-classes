@@ -12757,12 +12757,12 @@
 "0x60e0bd1f": {"name": "MonarchViewDef", "revisions": [{"from":6275678,"to":7480682,"bases":["0xca92d111"],"interface":false,"value":false}], "properties": {
  "0xed511190": {"name":"ViewController","revisions":[{"from":6275678,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x60e2ec74": {"revisions": [{"from":5516065,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
+"0x60e2ec74": {"name": "LoadingScreenBackgroundGameModeConfig", "revisions": [{"from":5516065,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
  "0x84c58ee": {"name":"MutatorControlledLoadingScreenBackgrounds","revisions":[{"from":5516065,"to":8049184,"type":["List2","0x0","String","0x0"],"default":[]},{"from":8104348,"type":["List2","0x0","File","0x0"],"default":[]}]},
  "0xae427127": {"name":"LoadingScreenBackground","revisions":[{"from":5516065,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xbe0dceb0": {"name":"LoadScreenTipConfiguration","revisions":[{"from":5516065,"type":["Link","0x0","0x0","0xbe0dceb0"],"default":"0x0"}]},
- "0xda6afd7c": {"revisions":[{"from":6236777,"to":8049184,"type":["List2","0x0","String","0x0"],"default":[]},{"from":8104348,"type":["List2","0x0","File","0x0"],"default":[]}]},
- "0xe013f720": {"revisions":[{"from":6236777,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xda6afd7c": {"name":"PossibleRandomLoadingScreenBackgrounds","revisions":[{"from":6236777,"to":8049184,"type":["List2","0x0","String","0x0"],"default":[]},{"from":8104348,"type":["List2","0x0","File","0x0"],"default":[]}]},
+ "0xe013f720": {"name":"UsingRandomLoadingScreen","revisions":[{"from":6236777,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xe8b7a3b7": {"name":"LoadingScreenBackgroundOverride","revisions":[{"from":5516065,"to":8049184,"type":["Map","String","String","0x0"],"default":{}},{"from":8104348,"type":["Map","String","File","0x0"],"default":{}}]}
 }},
 "0x60e9ac3b": {"name": "NovaItemGetIntConcept", "revisions": [{"from":8104348,"bases":["0x53bee89d"],"interface":false,"value":false}], "properties": {
@@ -14721,8 +14721,8 @@
  "0xe29d1e2f": {"name":"Light","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x4e0d6ae4"],"default":{"Impact":3,"Color":[1.0,1.0,1.0,1.0],"Near":10.0,"UpdaterType":"0x0","0x75708a14":false,"intensity":1.0,"0x90eca7c5":31,"ProjectedTexture":"0x0","Aspect":1.0,"fov":60.0,"far":500.0,"HdrScale":5.0,"0xf6298343":"0x0","LightChannels":1}}]},
  "0xf8f165ee": {"name":"Sequencer","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x1eee9d10"],"default":{}}]}
 }},
-"0x7169f36b": {"revisions": [{"from":6161179,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
- "0xbbfe2a3": {"revisions":[{"from":6161179,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
+"0x7169f36b": {"name": "TargetingRenderGameModeConfig", "revisions": [{"from":6161179,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
+ "0xbbfe2a3": {"name":"TargetingIndicatorsEnabled","revisions":[{"from":6161179,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
 "0x7186a071": {"name": "ContextualConditionCustomTimer", "revisions": [{"from":5229820,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x405be548": {"name":"mCustomTimer","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
@@ -24843,17 +24843,17 @@
  "0xf9a9e1b8": {"revisions":[{"from":7893741,"to":7949266,"type":["Bool","0x0","0x0","0x0"]}]},
  "0xfd210254": {"revisions":[{"from":7893741,"to":7949266,"type":["String","0x0","0x0","0x0"]}]}
 }},
-"0xc3a44766": {"revisions": [{"from":6012857,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
+"0xc3a44766": {"name": "HudFeedbackDamageConfig", "revisions": [{"from":6012857,"bases":["0xc03bb018"],"interface":false,"value":false}], "properties": {
  "0x22728a51": {"revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0x44735f30": {"name":"StunTexture","revisions":[{"from":6012857,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x90f00469": {"name":"flashDuration","revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0x95823356": {"revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xa86fc2ef": {"revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0xb124de6f": {"revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":1.2000000476837158}]},
+ "0x95823356": {"name":"OverTimeForFlashSeconds","revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0xa86fc2ef": {"name":"PercentageDamageForFlash","revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0xb124de6f": {"name":"LowHealthFlashDuration","revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":1.2000000476837158}]},
  "0xba7b16a1": {"revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":0.800000011920929}]},
- "0xe9398686": {"revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":0.6000000238418579}]},
+ "0xe9398686": {"name":"LowHealthFlashThresholdPercentage","revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":0.6000000238418579}]},
  "0xeb6c72dd": {"name":"HitTexture","revisions":[{"from":6012857,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xed23ad91": {"revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":1.0}]}
+ "0xed23ad91": {"name":"StartFlashAlpha","revisions":[{"from":6012857,"type":["F32","0x0","0x0","0x0"],"default":1.0}]}
 }},
 "0xc3c3d2bb": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},

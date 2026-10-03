@@ -1061,6 +1061,9 @@
 {"hash": "76c70374", "name": "VfxVector3FromVector4Driver", "batch": "vfx-driver-graph-math", "cracked": "2026-09-27", "status": "pending", "pr": "-"}
 {"hash": "14daebe5", "name": "VfxVector4FromVector2Driver", "batch": "vfx-driver-graph-math", "cracked": "2026-09-27", "status": "pending", "pr": "-"}
 {"hash": "9c5c4342", "name": "VfxVector4FromVector3Driver", "batch": "vfx-driver-graph-math", "cracked": "2026-09-27", "status": "pending", "pr": "-"}
+{"hash": "c3a44766", "name": "HudFeedbackDamageConfig", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "60e2ec74", "name": "LoadingScreenBackgroundGameModeConfig", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "7169f36b", "name": "TargetingRenderGameModeConfig", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "3b4c602e", "name": "AccessibleColor", "batch": "gamemode-config-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "1ca3eb78", "name": "ControlSchemeSwapConfig", "batch": "gamemode-config-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "29619231", "name": "DeathRecapGreyscaleConfig", "batch": "gamemode-config-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}

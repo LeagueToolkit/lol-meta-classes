@@ -192,9 +192,43 @@ The class pair `WaterDisturbanceConfig` (595773f6, 16.15-16.16) ->
 sand addition, but is hash-only. Still unnamed: +52, +56, +60, +88 and the
 16.19 bool 58947b80.
 
+## gamemode-config-client-readers and hud-feedback-damage-unproven
+
+The three `IGameModeConfigClient` children from 14.x that the 15.x/16.x pass
+skipped, worked the same way (metaclass key -> reader in the 16.18 client).
+Exact FNV-1a hits whose reader fits; none is attested by a string.
+
+- **TargetingRenderGameModeConfig** (7169f36b, 14.18):
+  `TargetingIndicatorsEnabled` (0bbfe2a3, default true). The bool gates the
+  spell-targeting indicator renderer: its `TARGETING_*` materials and the
+  range, cone, line-missile, AOE and wall-cursor textures. An absent config
+  reads as true. Only Map22 (TFT) ships it, set to false.
+- **LoadingScreenBackgroundGameModeConfig** (60e2ec74, 14.1): the one hit in
+  ~1.9k candidates. `UsingRandomLoadingScreen` (e013f720, 14.20) makes the
+  client pick a random entry of `PossibleRandomLoadingScreenBackgrounds`
+  (da6afd7c, 14.20); the two share a stem, and the bool is the single 4-word
+  hit in ~7.3M. `LoadingScreenBackgroundOverride` is keyed by a string derived
+  from the queue. No reader was found for
+  `MutatorControlledLoadingScreenBackgrounds`.
+- **HudFeedbackDamageConfig** (c3a44766, 14.14), shipped as
+  `UX/HUD/Globals/DamageFeedback`: the damage screen flash for the local
+  player. `PercentageDamageForFlash` (a86fc2ef) is the share of max health
+  that recent damage must exceed, `StartFlashAlpha` (ed23ad91) the alpha floor
+  added to the scaled excess, `LowHealthFlashDuration` (b124de6f) the flash
+  length on the low-health path. The already named `flashDuration` covers the
+  burst path.
+
+The unproven batch holds two more names for the same class that came from a
+wider search (roughly 2-3% coincidence odds each):
+`LowHealthFlashThresholdPercentage` (e9398686, default 0.6, compared against
+the health fraction) and `OverTimeForFlashSeconds` (95823356, shipped 5, the
+window the damage is summed over). Left out: `LowHealthFlashOpacityStrength`
+(ba7b16a1), which fits the hash but not the reader (the value scales both
+paths). Still unnamed: 22728a51 (+16, divisor of the excess damage).
+
 ## Status
 
 All rows are `status=pending`, `pr=-`. Nothing has been submitted upstream.
-The family itself is resumable: 47 unnamed members remain, with the most
+The family itself is resumable: 44 unnamed members remain, with the most
 default evidence per class of any family in the census
 (docs/unnamed-families.md).

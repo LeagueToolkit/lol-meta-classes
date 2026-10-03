@@ -1501,6 +1501,12 @@
 {"hash": "9837f87b", "name": "VariableValues", "batch": "nova-item-getters", "cracked": "2026-08-27", "status": "pending", "pr": "-"}
 {"hash": "8ce41f71", "name": "WaterEnabled", "batch": "nova-item-getters", "cracked": "2026-08-27", "status": "pending", "pr": "-"}
 {"hash": "b1ea6248", "name": "Fill", "batch": "vfx-driver-graph-math", "cracked": "2026-09-27", "status": "pending", "pr": "-"}
+{"hash": "b124de6f", "name": "LowHealthFlashDuration", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "a86fc2ef", "name": "PercentageDamageForFlash", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "da6afd7c", "name": "PossibleRandomLoadingScreenBackgrounds", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "ed23ad91", "name": "StartFlashAlpha", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "0bbfe2a3", "name": "TargetingIndicatorsEnabled", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "e013f720", "name": "UsingRandomLoadingScreen", "batch": "gamemode-config-client-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "30b50544", "name": "AlwaysStopOrder", "batch": "gamemode-config-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "1e5c4657", "name": "AutoAttackLineDisplayEasing", "batch": "gamemode-config-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "50b07b92", "name": "AutoAttackLineDurationSecs", "batch": "gamemode-config-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
@@ -1535,6 +1541,8 @@
 {"hash": "52d1e5c3", "name": "WallSlideSearchMaxBackDist", "batch": "gamemode-config-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "51274048", "name": "WallSlideSearchMaxDist", "batch": "gamemode-config-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "433be97f", "name": "WallSlideSearchMinForwardDist", "batch": "gamemode-config-readers", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "e9398686", "name": "LowHealthFlashThresholdPercentage", "batch": "hud-feedback-damage-unproven", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "95823356", "name": "OverTimeForFlashSeconds", "batch": "hud-feedback-damage-unproven", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "d573fd6f", "name": "RippleFrequency", "batch": "terrain-disturbance-rdef", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "02b79967", "name": "SandCarveDepth", "batch": "terrain-disturbance-rdef", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "baaa6000", "name": "SandCarveFlatRatio", "batch": "terrain-disturbance-rdef", "cracked": "2026-10-03", "status": "pending", "pr": "-"}

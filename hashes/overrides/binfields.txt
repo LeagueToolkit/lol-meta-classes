@@ -787,6 +787,8 @@ ccd0de98 LongName
 6a8398d3 LoopAnimation
 b0585aea LoopDelay
 4f516a81 Low
+b124de6f LowHealthFlashDuration
+e9398686 LowHealthFlashThresholdPercentage
 82bb207a LowerBound
 47343861 MagicResistance
 ce96732e MagicalDamageEnhanced
@@ -929,6 +931,7 @@ d1f18af8 OutlineIcon
 f8881209 OutputW
 44d41437 OutputXyz
 d69a87d8 OutroDuration
+95823356 OverTimeForFlashSeconds
 8d0e3f5e OverrideFrame
 82e3e93e OverrideName
 f715926c OverrideResult
@@ -983,6 +986,7 @@ c0339c8f PercentSlowResistMod
 1a49e6bc PercentSpellVampMod
 c5e2a3e4 PercentTenacityItemMod
 97537db5 Percentage
+a86fc2ef PercentageDamageForFlash
 76599c8b PhysicalDamageEnhanced
 73276a01 PhysicsComponent
 d9ccf5cb PickMode
@@ -1020,6 +1024,7 @@ ec843b0e PortraitTexturePath
 df99dc9d PositionOffset
 b2f876c7 PositionProvider
 5ed8887b Positions
+da6afd7c PossibleRandomLoadingScreenBackgrounds
 5b0d842a PostEffectDefines
 83f71517 Precision
 de7d679e PremiumTag
@@ -1310,6 +1315,7 @@ dfadfc6b StandardGroup
 b35fc430 StartDegrees
 a527f700 StartDivision
 64899064 StartEnabled
+ed23ad91 StartFlashAlpha
 7a92b498 StartLocation
 d65a8b5c StartPosition
 e9103252 StartSoundEvent
@@ -1384,6 +1390,7 @@ c8e7634b TargetSunDirection
 49a3f9ca TargetUiVfx
 37af4aa7 TargetVector
 2f7e29a4 TargetWidth
+0bbfe2a3 TargetingIndicatorsEnabled
 88f674e1 Targets
 cdfd3bca TeamCodeText
 28d65053 TeamColor
@@ -1493,6 +1500,7 @@ ee641224 UseInitialStart
 064440d6 UseSkinName
 7b66f15d UseTarget
 e1e591e3 UseText
+e013f720 UsingRandomLoadingScreen
 0b248040 UvAnimation
 6a5b6251 ValueTooltip
 7d425097 VariableDefaults

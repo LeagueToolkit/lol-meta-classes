@@ -3308,15 +3308,6 @@ class 0x6098cd78(0x902e246e):
 class 0x60aeb0e7(OptionItemSliderFloat):
     pass
 
-class 0x60e2ec74(IGameModeConfigClient):
-    MutatorControlledLoadingScreenBackgrounds: (List2, 0x0, File, 0x0) = []
-    LoadingScreenBackground: (File, 0x0, 0x0, 0x0) = "0x0"
-    LoadScreenTipConfiguration: (Link, 0x0, 0x0, LoadScreenTipConfiguration) = "0x0"
-    0xda6afd7c: (List2, 0x0, File, 0x0) = []
-    0xe013f720: (Bool, 0x0, 0x0, 0x0) = false
-    LoadingScreenBackgroundOverride: (Map, String, File, 0x0) = {}
-    pass
-
 class 0x612b3741(0xca17e84f):
     Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
     NewValue: (Pointer, 0x0, 0x0, IIntGet) = null
@@ -3931,10 +3922,6 @@ class 0x70cdee97(IOptionItem):
     pass
 
 class 0x70f6f74b():
-    pass
-
-class 0x7169f36b(IGameModeConfigClient):
-    0xbbfe2a3: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class 0x71aaad67():
@@ -7147,19 +7134,6 @@ class 0xc3737f3e():
     ForegroundAssets: (Embed, 0x0, 0x0, 0x131f5725) = {"0xe50e4f4f":"0x0","StaticTexture":"0x0","Vfx":"0x0"}
     BackgroundAssets: (Embed, 0x0, 0x0, 0x131f5725) = {"0xe50e4f4f":"0x0","StaticTexture":"0x0","Vfx":"0x0"}
     TitleText: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xc3a44766(IGameModeConfigClient):
-    0x22728a51: (F32, 0x0, 0x0, 0x0) = 1.0
-    StunTexture: (File, 0x0, 0x0, 0x0) = "0x0"
-    flashDuration: (F32, 0x0, 0x0, 0x0) = 1.0
-    0x95823356: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xa86fc2ef: (F32, 0x0, 0x0, 0x0) = 1.0
-    0xb124de6f: (F32, 0x0, 0x0, 0x0) = 1.2000000476837158
-    0xba7b16a1: (F32, 0x0, 0x0, 0x0) = 0.800000011920929
-    0xe9398686: (F32, 0x0, 0x0, 0x0) = 0.6000000238418579
-    HitTexture: (File, 0x0, 0x0, 0x0) = "0x0"
-    0xed23ad91: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
 
 class 0xc3c3d2bb(BaseParams):
@@ -15099,6 +15073,19 @@ class HudColorData():
     mFriendlyLaneMinionBarColor: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
     pass
 
+class HudFeedbackDamageConfig(IGameModeConfigClient):
+    0x22728a51: (F32, 0x0, 0x0, 0x0) = 1.0
+    StunTexture: (File, 0x0, 0x0, 0x0) = "0x0"
+    flashDuration: (F32, 0x0, 0x0, 0x0) = 1.0
+    OverTimeForFlashSeconds: (F32, 0x0, 0x0, 0x0) = 0.0
+    PercentageDamageForFlash: (F32, 0x0, 0x0, 0x0) = 1.0
+    LowHealthFlashDuration: (F32, 0x0, 0x0, 0x0) = 1.2000000476837158
+    0xba7b16a1: (F32, 0x0, 0x0, 0x0) = 0.800000011920929
+    LowHealthFlashThresholdPercentage: (F32, 0x0, 0x0, 0x0) = 0.6000000238418579
+    HitTexture: (File, 0x0, 0x0, 0x0) = "0x0"
+    StartFlashAlpha: (F32, 0x0, 0x0, 0x0) = 1.0
+    pass
+
 class HudItemShopData():
     BuildsIntoDroplistItemHoverDefinition: (Hash, 0x0, 0x0, 0x0) = "0x0"
     BuildsIntoDroplistBackdropDefinition: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -17133,6 +17120,15 @@ class LoadScreenTipConfiguration():
 class LoadScreenTipSet():
     mName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     mTips: (List, 0x0, Link, LoadScreenTip) = []
+    pass
+
+class LoadingScreenBackgroundGameModeConfig(IGameModeConfigClient):
+    MutatorControlledLoadingScreenBackgrounds: (List2, 0x0, File, 0x0) = []
+    LoadingScreenBackground: (File, 0x0, 0x0, 0x0) = "0x0"
+    LoadScreenTipConfiguration: (Link, 0x0, 0x0, LoadScreenTipConfiguration) = "0x0"
+    PossibleRandomLoadingScreenBackgrounds: (List2, 0x0, File, 0x0) = []
+    UsingRandomLoadingScreen: (Bool, 0x0, 0x0, 0x0) = false
+    LoadingScreenBackgroundOverride: (Map, String, File, 0x0) = {}
     pass
 
 class LoadingScreenBasicViewController(ViewController):
@@ -25506,6 +25502,10 @@ class TargetingPriorityList():
 
 class TargetingRangeValue(ITargetingRangeValue):
     Range: (F32, 0x0, 0x0, 0x0) = -1.0
+    pass
+
+class TargetingRenderGameModeConfig(IGameModeConfigClient):
+    TargetingIndicatorsEnabled: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class TargetingTypeData():

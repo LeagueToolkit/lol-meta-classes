@@ -1,7 +1,8 @@
 # gamemode-configs - campaign record
 
-Record for `gamemode-configs`, `gamemode-configs-unproven` and
-`guest-of-honor`; their `batches.jsonl` notes point here. Method: the
+Record for `gamemode-configs`, `gamemode-configs-unproven`,
+`guest-of-honor`, `gamemode-config-readers`, `terrain-disturbance-rdef` and
+`terrain-disturbance-unproven`; their `batches.jsonl` notes point here. Method: the
 `crack-family` skill (`.claude/skills/crack-family/SKILL.md`), worked per
 class - each unnamed class got its own search over its recursive structural
 neighbourhood, so noise stayed at 0.001-0.007 expected chance hits per target,
@@ -119,6 +120,77 @@ attested by the hash; the lowercase is convention, since FNV-1a lowercases.
 
 11 of the map's 17 keys remain unresolved: 0b2af4b2 1dd91413 3c1b8c19 4456c501
 45bad3c2 73053227 9f6e3000 aa7985b3 d1ebc9b1 d95f7bdb e704c9a0.
+
+## gamemode-config-readers (16.18 client readers)
+
+A second pass, worked from the client instead of the schema. Every config sits
+in one global table keyed by the metaclass, so the readers were found from the
+metaclass key (getter calls, rip-relative `[metaclass+8]` loads, `PostLoad`
+vtable slots), never from the class hash, which appears only in the registrar.
+Every name below is an exact FNV-1a hit whose decompiled reader fits it. None
+is attested by a string, so treat the batch as hash cracks with a behaviour
+check.
+
+- **WasdMoveOrderData** (92309121): the directional (WASD) movement driver's
+  tuning; its presence gates the control-scheme switch. Ships on SR (Map11).
+  Fields come in families that confirm each other: `WallSlideSearch{Enabled,
+  MaxDist,MaxBackDist,MinForwardDist}`, `AutoAttackLine{DurationSecs,MaxRange,
+  DisplayEasing}` (one shared stem), `EnableUnitBlockAvoidance` /
+  `UnitBlockSearchRange`, plus `MinMoveDistance`, `MinTimeBetweenMoveOrders`,
+  `MovementRotation` (SR -45), `AlwaysStopOrder`, `StopMovementAngleDeg`,
+  `WallSlideDirectionThresholdDeg`, `AutoAttackSpellScript` (was a
+  `Link<LolSpellScript>` in 15.7-15.8). Repo casing writes `Wasd`.
+- **OverrideKeyBindingsConfig** (0085f9f4) and
+  **OverrideDeferredKeyBindingsConfig** (5a92b195): event -> binding-string
+  map; `"[]"` unbinds. SR's deferred set unbinds 258 legacy events on a switch
+  to WASD. **ControlSchemeSwapConfig** (1ca3eb78) with
+  `ControlSwapCooldownSeconds`.
+- **DeathRecapGreyscaleConfig** (29619231) / **DeathRecapTeammateSpectatorConfig**
+  (ce762bab), held by `GreyscaleConfig` / `TeammateSpectatorConfig` on
+  e348122d: each type is "DeathRecap" plus its own field name, a pair that
+  confirms itself. `FadeGreyscaleDurationSecs`, `EnableAutoSpectate`.
+- **MinimapDrawConfig.DrawTypes** (13-bit layer mask), **TeamColorsConfig** with
+  **AccessibleColor** (colour + `colorblindColor`), **VoiceChatConfig.
+  TeamVoiceChatEnabled**, **RegaliaConfig.RankedCrestLookup** (overrides the
+  default `Loadouts/Regalia/Crests/Ranked/RankedCrestLookup`),
+  **ItemRecommendationConfig**, **LuaDeprecationConfig**.
+- **LastHitAssistConfig** (60f809c3): `LastHitAssistRadius`, `RankedEnabled`,
+  `DisabledQueueIds` (SR {500,501,502}).
+- 396e5d4f (class unnamed): `OrderAnchorPoint` / `ChaosAnchorPoint` (SR ships
+  the two Nexus positions), `DefaultLaneColor` / `BothTeamsLaneColor`,
+  `UpdateFrequencySeconds`.
+- `DynamicCameraConfig.DefaultCameraSettings` and `SettingsSwitchDuration`.
+- **SmartPingParticleOverrides** (0f2fb88d, 16.19): the single hit in ~9.2M
+  candidates (~0.002 expected). Sits beside the existing `SmartPingData`.
+  Map453 remaps `SRP_<n>` resolver keys to `JadeP_<n>` (all 11 values
+  reproduce as FNV-1a of `JadeP_<n>`), which a map ResourceResolver points at
+  `Maps/Shipping/Map453/Particles/Jade_Pings_*`.
+
+Left out on purpose (hash fits, odds too weak): `MapDisplayEnabled`
+(9eb14c42, ~8%), `RemoveGreyscaleAfterDeathSecs` (2ac8249e) and
+`GreyscaleFadeEndSaturationValue` (9044f758) at ~4% each, `SecondsToResendOrder`
+(83f73f14, ~0.6 expected).
+
+## terrain-disturbance-rdef and terrain-disturbance-unproven
+
+0xdea3b4a8 (16.17) is a water + sand surface-sim config; no map ships it and
+no client code reads it through 16.20. Its field order mirrors the `$Globals`
+of two unnamed Bootstrap shaders (16.19): the water step (`3dc2cb2da9509e57`)
+and the sand step (`410dcc87aa229221`). The 28 rdef rows are the CamelCase of
+those constants in the matching slot: 24 `Sand*` fields,
+`SandImpulseSpacing`, `WaveSpeedWobbleMagnitude`, `WaveSpeedWobbleFrequency`,
+`RippleFrequency`.
+
+The unproven batch has neither reader nor shader name: `WindowWorldSize`
+(6000, next to `TextureSize`), `ImpulseRadiusMultiplier`, `WakeRefSpeed`
+(550), `WakeSpacing`, `WakeMagnitude`, `WakeForwardBias`,
+`SandWindAngleDegrees` (where the shader has `SAND_WIND_DIR`),
+`MaxWaterFloatCount` (16.19, = 64, the size of the new water-float shader's
+`WATER_FLOAT_SAMPLE_POSITIONS`), and the dropped `WakeDirectionSmoothingTime`.
+The class pair `WaterDisturbanceConfig` (595773f6, 16.15-16.16) ->
+`TerrainDisturbanceConfig` fits the shader's `WaterDisturbanceInfo` and the
+sand addition, but is hash-only. Still unnamed: +52, +56, +60, +88 and the
+16.19 bool 58947b80.
 
 ## Status
 

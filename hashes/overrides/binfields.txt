@@ -53,6 +53,9 @@ e9faf118 AlphaSliceRange
 696972ed AnchorStrawberry
 adbdac5e AngularVelocity
 f95b6c8b AnimCurve
+cb22ec08 AnimPoseAttraction
+b379dd33 AnimPoseStiffnessEnd
+61906396 AnimPoseStiffnessStart
 1ccc919a AnimatedTitle
 25fdb38f AnimationConfig
 b24341c8 AnimationDimensions
@@ -245,6 +248,7 @@ eb8dc96c Coc
 7fad8491 Collection
 8d7928e4 CollectionId
 2de6fb1a CollisionForce
+5dbadfca CollisionResolutionMode
 5b593ba8 ColorOverLife
 095a8cab ColorScales
 a74bc193 ColorTexture
@@ -274,6 +278,9 @@ a3383d13 Concept
 0c247b0b ConditionalScale
 a586608d ConicRangeIndicator
 11ca9f3d ConnectedNodes
+f3ca8ece ConstraintIterations
+a791f85d ConstraintSolverType
+13465a3b ConstraintSubsteps
 8daff178 Container
 6152a19f ContentTypeIcon
 137bf219 ContentTypeText
@@ -283,6 +290,7 @@ f34f5793 ContinueText
 2b04f589 ControlSwapCooldownSeconds
 65cd1e65 ControlVector2
 38725935 ControlsScene
+8108c459 ConvergenceThreshold
 a2a45218 CooldownDuration
 642004df CooldownMessage
 ea13124a CooldownStatus
@@ -470,6 +478,8 @@ fee040bc EntityTemplate
 7190b62d EntityTemplateVar
 c7104241 EntryTemplate
 fa10a755 Envelope
+f5f7f81a EnvelopeEnd
+c127258f EnvelopeStart
 3fee2bfa Environment
 58389612 EnvironmentDefines
 896a96a7 EnvironmentQuality
@@ -490,6 +500,7 @@ dcf1a165 EventMapIndex
 7632a5e7 EventType
 26546c1d EventsView
 9f56fb21 ExchangeIcon
+ea59c349 ExcludeJointNames
 e40347b4 ExcludeTags
 a01e3d98 Execute
 c1be745d ExecuteBar
@@ -562,6 +573,12 @@ f1a61846 FormIcon
 b99d8552 Format
 2642955f ForwardAxis
 146fb80f FrameButtons
+5fce2dff FreezePositionX
+5ece2c6c FreezePositionY
+61ce3125 FreezePositionZ
+dcbfa078 FreezeRotationX
+ddbfa20b FreezeRotationY
+debfa39e FreezeRotationZ
 a51be2bb Friction
 95cd8075 From
 20607eb7 FromAnyone
@@ -581,9 +598,11 @@ ed892164 GameplayTexture
 affb8300 GearIds
 1609b312 GearIndex
 c5d72455 GeneralPriorityBehavior
+3cc9ab8a GenerateLateralLinks
 a2f5a276 GenericEvent
 19752079 GeometryType
 b2246553 GlobalContextualActionData
+bdaa6f16 GlobalEnvelope
 166f6876 Goal
 b9b4d8d7 GoldAmount
 db0e9d5b GoldMax
@@ -591,6 +610,8 @@ b5a4f01e GoldThreshold
 234f4a0c GoldToNextLevelTra
 726ae049 GoldUpgrade
 8557faf0 GoldValue
+bc016dbd GravityOverride
+97f2e0f1 GravityScale
 011decbc Green
 f2c97a22 GreyscaleConfig
 5089a721 GridData
@@ -740,6 +761,8 @@ b8314653 JointMask
 ac1dcf05 JointRadius
 8d6db3ea JointRadiusEnd
 4c1ddc1f JointRadiusStart
+23d901d3 JointTreeGroups
+b0f77798 JointTrees
 95329f52 JourneyTrack
 5559c93f JungleTooltip
 f1e19578 KeyDest
@@ -762,6 +785,7 @@ e90c310b L
 9dac718c Laser
 9f3d999f LastHitAssistRadius
 fe87f21e LastHitData
+10278985 LateralLinkMaterial
 cebfa3e8 LeaderboardButton
 15b50d34 LeaderboardHighlight
 276c3fc7 LeashShape
@@ -1006,6 +1030,7 @@ c5e2a3e4 PercentTenacityItemMod
 a86fc2ef PercentageDamageForFlash
 76599c8b PhysicalDamageEnhanced
 73276a01 PhysicsComponent
+c20b2e61 PhysicsSimLocalSettings
 d9ccf5cb PickMode
 165df089 Ping
 8ddcecfb PingSpatialAudio
@@ -1166,9 +1191,22 @@ dc4cc17b RiftHeraldSpawn
 c6f4b3f8 RightSource
 9e618338 RimOffset
 d573fd6f RippleFrequency
+583d67c2 RodBendStiffness
+e2a1edef RodBendStiffnessEnd
+db82105a RodBendStiffnessStart
+d30ce0f0 RodShearStiffness
+027768f5 RodShearStiffnessEnd
+6521e60c RodShearStiffnessStart
+967e8270 RodStretchStiffness
+d1ae3975 RodStretchStiffnessEnd
+22fa6a8c RodStretchStiffnessStart
+b055bd6a RodTwistStiffness
+429f9d17 RodTwistStiffnessEnd
+2dd6ec92 RodTwistStiffnessStart
 16ff3d1e Roll
 9a7587b2 RollTable
 ca62500c RootGroup
+c11c69b4 RootJointName
 f22f9104 RosterTitle
 b8af4624 RotationOffset
 507c22b2 RowGroup
@@ -1522,6 +1560,7 @@ acc83ffa UseFistBump
 7bd430bd UseInitialEnd
 ee641224 UseInitialStart
 4ee81483 UseRawValue
+6e48edbe UseRodPhysics
 064440d6 UseSkinName
 7b66f15d UseTarget
 e1e591e3 UseText

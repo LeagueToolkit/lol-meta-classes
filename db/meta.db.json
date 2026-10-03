@@ -790,14 +790,14 @@
  "0xbde64e3e": {"name":"Text","revisions":[{"from":7027993,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe64015f0": {"name":"Icon","revisions":[{"from":7027993,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x3ca1fe0": {"revisions": [{"from":7643737,"bases":[],"interface":false,"value":true}], "properties": {
+"0x3ca1fe0": {"name": "DynamicsJointTreeGroupData", "revisions": [{"from":7643737,"bases":[],"interface":false,"value":true}], "properties": {
  "0x4e1a2c8": {"revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x10278985": {"revisions":[{"from":7695709,"type":["U8","0x0","0x0","0x0"],"default":2}]},
+ "0x10278985": {"name":"LateralLinkMaterial","revisions":[{"from":7695709,"type":["U8","0x0","0x0","0x0"],"default":2}]},
  "0x23382109": {"revisions":[{"from":7695709,"to":8175716,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x3cc9ab8a": {"revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x3cc9ab8a": {"name":"GenerateLateralLinks","revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x56670932": {"revisions":[{"from":7747445,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
- "0xb0f77798": {"revisions":[{"from":7643737,"type":["List2","0x0","Embed","0x339ecf91"],"default":[]}]},
- "0xbb2fa3e3": {"name":"ChainProperties","revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0x408a4521"],"default":{"0x583d67c2":{"value":1.0,"Curve":null,"UseCurve":true},"0x6e48edbe":false,"0x967e8270":{"value":1.0,"Curve":null,"UseCurve":true},"JointRadius":{"value":5.0,"Curve":null,"UseCurve":true},"0xb055bd6a":{"value":1.0,"Curve":null,"UseCurve":true},"Damping":{"value":0.5,"Curve":null,"UseCurve":true},"0xcb22ec08":{"value":0.5,"Curve":null,"UseCurve":true},"LimitAngle":{"value":180.0,"Curve":null,"UseCurve":true},"0xd30ce0f0":{"value":1.0,"Curve":null,"UseCurve":true},"Stretch":{"value":0.0,"Curve":null,"UseCurve":true},"Envelope":{"value":1.0,"Curve":null,"UseCurve":true}}}]}
+ "0xb0f77798": {"name":"JointTrees","revisions":[{"from":7643737,"type":["List2","0x0","Embed","0x339ecf91"],"default":[]}]},
+ "0xbb2fa3e3": {"name":"ChainProperties","revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0x408a4521"],"default":{"RodBendStiffness":{"value":1.0,"Curve":null,"UseCurve":true},"UseRodPhysics":false,"RodStretchStiffness":{"value":1.0,"Curve":null,"UseCurve":true},"JointRadius":{"value":5.0,"Curve":null,"UseCurve":true},"RodTwistStiffness":{"value":1.0,"Curve":null,"UseCurve":true},"Damping":{"value":0.5,"Curve":null,"UseCurve":true},"AnimPoseAttraction":{"value":0.5,"Curve":null,"UseCurve":true},"LimitAngle":{"value":180.0,"Curve":null,"UseCurve":true},"RodShearStiffness":{"value":1.0,"Curve":null,"UseCurve":true},"Stretch":{"value":0.0,"Curve":null,"UseCurve":true},"Envelope":{"value":1.0,"Curve":null,"UseCurve":true}}}]}
 }},
 "0x3d44d1e": {"revisions": [{"from":6509216,"to":7480682,"bases":["0x11b39387"],"interface":false,"value":false}], "properties": {
  "0xd872e2a5": {"name":"data","revisions":[{"from":6509216,"to":7480682,"type":["List2","0x0","Bool","0x0"],"default":[]}]}
@@ -1416,10 +1416,10 @@
 "0x90ff6ef": {"revisions": [{"from":7695709,"to":7765552,"bases":["0xe057ab66"],"interface":false,"value":false},{"from":7794239,"bases":["0xb5754dad"],"interface":false,"value":false}], "properties": {
 }},
 "0x9188776": {"name": "DynamicsChainRigPoseModifierData", "revisions": [{"from":7643737,"bases":["0xb2dd588a"],"interface":false,"value":false}], "properties": {
- "0x23d901d3": {"revisions":[{"from":7643737,"type":["List2","0x0","Embed","0x3ca1fe0"],"default":[]}]},
+ "0x23d901d3": {"name":"JointTreeGroups","revisions":[{"from":7643737,"type":["List2","0x0","Embed","0x3ca1fe0"],"default":[]}]},
  "0xbb1d1aac": {"revisions":[{"from":7643737,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xbdaa6f16": {"revisions":[{"from":7695709,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0xc20b2e61": {"revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0xc20b2e61"],"default":{"0x97f2e0f1":1.0,"0xbc016dbd":null}}]},
+ "0xbdaa6f16": {"name":"GlobalEnvelope","revisions":[{"from":7695709,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0xc20b2e61": {"name":"PhysicsSimLocalSettings","revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0xc20b2e61"],"default":{"GravityScale":1.0,"GravityOverride":null}}]},
  "0xd46d37b7": {"name":"DefaultOn","revisions":[{"from":7643737,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
 "0x91c0b1c": {"name": "MapScriptLocator", "revisions": [{"from":5229820,"bases":["0xa844df61"],"interface":false,"value":false}], "properties": {
@@ -3172,7 +3172,7 @@
  "0x5dc8db2f": {"name":"ShadowColor1","revisions":[{"from":6774704,"type":["Color","0x0","0x0","0x0"],"default":[255,255,255,255]}]},
  "0x6d0fa515": {"name":"thickness","revisions":[{"from":6774704,"type":["F32","0x0","0x0","0x0"],"default":1.0}]}
 }},
-"0x165b1803": {"revisions": [{"from":8159717,"bases":["0x8fe295c8"],"interface":false,"value":false}], "properties": {
+"0x165b1803": {"name": "SocketDefinitionWorld", "revisions": [{"from":8159717,"bases":["0x8fe295c8"],"interface":false,"value":false}], "properties": {
  "0xdf99dc9d": {"name":"PositionOffset","revisions":[{"from":8159717,"type":["Vec3","0x0","0x0","0x0"],"default":[0.0,0.0,0.0]}]}
 }},
 "0x165c0117": {"name": "OptionItemControlSelectionSettings", "revisions": [{"from":7027993,"bases":["0x7971fbee"],"interface":false,"value":false}], "properties": {
@@ -7426,8 +7426,8 @@
 }},
 "0x339ecf91": {"name": "DynamicsJointTreeData", "revisions": [{"from":7643737,"bases":[],"interface":false,"value":true}], "properties": {
  "0x9df0bf7f": {"revisions":[{"from":7643737,"to":7668562,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xc11c69b4": {"revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xea59c349": {"revisions":[{"from":7695709,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
+ "0xc11c69b4": {"name":"RootJointName","revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xea59c349": {"name":"ExcludeJointNames","revisions":[{"from":7695709,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
 "0x33b88aa0": {"name": "IconLink", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x31ff34b": {"name":"ClickedIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -8781,38 +8781,38 @@
  "0x8e277b93": {"name":"ChampionGoldText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x408a4521": {"name": "DynamicsChainProperties", "revisions": [{"from":7643737,"bases":[],"interface":false,"value":true}], "properties": {
- "0x27768f5": {"revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0x27768f5": {"name":"RodShearStiffnessEnd","revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xb633052": {"name":"StretchStart","revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0x22fa6a8c": {"revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0x2dd6ec92": {"revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0x22fa6a8c": {"name":"RodStretchStiffnessStart","revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0x2dd6ec92": {"name":"RodTwistStiffnessStart","revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0x3965005a": {"name":"DampingEnd","revisions":[{"from":7643737,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
- "0x429f9d17": {"revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0x429f9d17": {"name":"RodTwistStiffnessEnd","revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0x4c1ddc1f": {"name":"JointRadiusStart","revisions":[{"from":7643737,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":5.0}]},
- "0x583d67c2": {"revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":1.0,"Curve":null,"UseCurve":true}}]},
+ "0x583d67c2": {"name":"RodBendStiffness","revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":1.0,"Curve":null,"UseCurve":true}}]},
  "0x5b921cd7": {"name":"StretchEnd","revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0x61906396": {"revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
- "0x6521e60c": {"revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0x61906396": {"name":"AnimPoseStiffnessStart","revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
+ "0x6521e60c": {"name":"RodShearStiffnessStart","revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0x65887d65": {"name":"LimitAngleStart","revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":180.0}]},
  "0x6962a32b": {"name":"StiffnessEnd","revisions":[{"from":7643737,"to":7668562,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
- "0x6e48edbe": {"revisions":[{"from":7893741,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x6e48edbe": {"name":"UseRodPhysics","revisions":[{"from":7893741,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x8d6db3ea": {"name":"JointRadiusEnd","revisions":[{"from":7643737,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":5.0}]},
- "0x967e8270": {"revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":1.0,"Curve":null,"UseCurve":true}}]},
+ "0x967e8270": {"name":"RodStretchStiffness","revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":1.0,"Curve":null,"UseCurve":true}}]},
  "0x9ccb16cf": {"name":"DampingStart","revisions":[{"from":7643737,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
  "0xac1dcf05": {"name":"JointRadius","revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":5.0,"Curve":null,"UseCurve":true}}]},
- "0xb055bd6a": {"revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":1.0,"Curve":null,"UseCurve":true}}]},
- "0xb379dd33": {"revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
+ "0xb055bd6a": {"name":"RodTwistStiffness","revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":1.0,"Curve":null,"UseCurve":true}}]},
+ "0xb379dd33": {"name":"AnimPoseStiffnessEnd","revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
  "0xb519cb5c": {"name":"LimitAngleEnd","revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":180.0}]},
  "0xbb61b895": {"name":"Damping","revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":0.5,"Curve":null,"UseCurve":true}}]},
- "0xc127258f": {"revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0xcb22ec08": {"revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":0.5,"Curve":null,"UseCurve":true}}]},
+ "0xc127258f": {"name":"EnvelopeStart","revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0xcb22ec08": {"name":"AnimPoseAttraction","revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":0.5,"Curve":null,"UseCurve":true}}]},
  "0xcf47a91e": {"name":"StiffnessStart","revisions":[{"from":7643737,"to":7668562,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
  "0xcfd1d6cf": {"name":"LimitAngle","revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":180.0,"Curve":null,"UseCurve":true}}]},
- "0xd1ae3975": {"revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0xd30ce0f0": {"revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":1.0,"Curve":null,"UseCurve":true}}]},
+ "0xd1ae3975": {"name":"RodStretchStiffnessEnd","revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0xd30ce0f0": {"name":"RodShearStiffness","revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":1.0,"Curve":null,"UseCurve":true}}]},
  "0xd32ade2a": {"name":"Stretch","revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":0.0,"Curve":null,"UseCurve":true}}]},
- "0xdb82105a": {"revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0xe2a1edef": {"revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0xf5f7f81a": {"revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0xdb82105a": {"name":"RodBendStiffnessStart","revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0xe2a1edef": {"name":"RodBendStiffnessEnd","revisions":[{"from":7893741,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0xf5f7f81a": {"name":"EnvelopeEnd","revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xfa10a755": {"name":"Envelope","revisions":[{"from":7945912,"type":["Embed","0x0","0x0","0x311ef6d4"],"default":{"value":1.0,"Curve":null,"UseCurve":true}}]}
 }},
 "0x40900b41": {"revisions": [{"from":6236777,"to":7480682,"bases":[],"interface":false,"value":false}], "properties": {
@@ -13362,13 +13362,13 @@
 "0x6653bfda": {"revisions": [{"from":5229820,"bases":["0x304e703f"],"interface":false,"value":false}], "properties": {
  "0xa96fc6c9": {"name":"Spell","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x665c9fe7": {"revisions": [{"from":7538272,"bases":[],"interface":false,"value":false}], "properties": {
- "0x13465a3b": {"revisions":[{"from":7893741,"type":["U16","0x0","0x0","0x0"],"default":50}]},
- "0x5dbadfca": {"revisions":[{"from":7538272,"type":["U8","0x0","0x0","0x0"],"default":0}]},
- "0x8108c459": {"revisions":[{"from":7538272,"type":["F32","0x0","0x0","0x0"],"default":9.999999747378752e-06}]},
- "0xa791f85d": {"revisions":[{"from":7538272,"type":["U8","0x0","0x0","0x0"],"default":0}]},
+"0x665c9fe7": {"name": "PhysicsSimGlobalSettings", "revisions": [{"from":7538272,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x13465a3b": {"name":"ConstraintSubsteps","revisions":[{"from":7893741,"type":["U16","0x0","0x0","0x0"],"default":50}]},
+ "0x5dbadfca": {"name":"CollisionResolutionMode","revisions":[{"from":7538272,"type":["U8","0x0","0x0","0x0"],"default":0}]},
+ "0x8108c459": {"name":"ConvergenceThreshold","revisions":[{"from":7538272,"type":["F32","0x0","0x0","0x0"],"default":9.999999747378752e-06}]},
+ "0xa791f85d": {"name":"ConstraintSolverType","revisions":[{"from":7538272,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xd209ff45": {"name":"Gravity","revisions":[{"from":7538272,"type":["Vec3","0x0","0x0","0x0"],"default":[0.0,-981.0,0.0]}]},
- "0xf3ca8ece": {"revisions":[{"from":7538272,"to":7569613,"type":["I32","0x0","0x0","0x0"],"default":20},{"from":7584427,"type":["U16","0x0","0x0","0x0"],"default":1}]}
+ "0xf3ca8ece": {"name":"ConstraintIterations","revisions":[{"from":7538272,"to":7569613,"type":["I32","0x0","0x0","0x0"],"default":20},{"from":7584427,"type":["U16","0x0","0x0","0x0"],"default":1}]}
 }},
 "0x66615e8b": {"name": "AiHero", "revisions": [{"from":5229820,"bases":["0xf7fcc091"],"interface":true,"value":false}], "properties": {
 }},
@@ -24705,9 +24705,9 @@
  "0xede3943e": {"name":"mFlipY","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xeee395d1": {"name":"mFlipX","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
-"0xc20b2e61": {"revisions": [{"from":7584427,"bases":[],"interface":false,"value":true}], "properties": {
- "0x97f2e0f1": {"revisions":[{"from":7584427,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0xbc016dbd": {"revisions":[{"from":7584427,"type":["Option","0x0","Vec3","0x0"],"default":null}]}
+"0xc20b2e61": {"name": "PhysicsSimLocalSettings", "revisions": [{"from":7584427,"bases":[],"interface":false,"value":true}], "properties": {
+ "0x97f2e0f1": {"name":"GravityScale","revisions":[{"from":7584427,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0xbc016dbd": {"name":"GravityOverride","revisions":[{"from":7584427,"type":["Option","0x0","Vec3","0x0"],"default":null}]}
 }},
 "0xc214849f": {"name": "IIntGet", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -28359,15 +28359,15 @@
  "0x5c51b509": {"name":"tier","revisions":[{"from":6877272,"to":7480682,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xa330d712": {"name":"TierItemType","revisions":[{"from":6877272,"to":7480682,"type":["Link","0x0","0x0","0xf0dd85e8"],"default":"0x0"}]}
 }},
-"0xddf17bcb": {"revisions": [{"from":7996036,"bases":["0x8fe295c8"],"interface":false,"value":false}], "properties": {
- "0x5ece2c6c": {"revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x5fce2dff": {"revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x61ce3125": {"revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+"0xddf17bcb": {"name": "SocketDefinitionSingleJoint", "revisions": [{"from":7996036,"bases":["0x8fe295c8"],"interface":false,"value":false}], "properties": {
+ "0x5ece2c6c": {"name":"FreezePositionY","revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x5fce2dff": {"name":"FreezePositionX","revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x61ce3125": {"name":"FreezePositionZ","revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xb8af4624": {"name":"RotationOffset","revisions":[{"from":7996036,"type":["Vec3","0x0","0x0","0x0"],"default":[0.0,0.0,0.0]}]},
  "0xbcb901b4": {"name":"IsWorldSpaceOffset","revisions":[{"from":7996036,"to":8104348,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xdcbfa078": {"revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xddbfa20b": {"revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xdebfa39e": {"revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xdcbfa078": {"name":"FreezeRotationX","revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xddbfa20b": {"name":"FreezeRotationY","revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xdebfa39e": {"name":"FreezeRotationZ","revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xdf99dc9d": {"name":"PositionOffset","revisions":[{"from":7996036,"type":["Vec3","0x0","0x0","0x0"],"default":[0.0,0.0,0.0]}]},
  "0xff22989f": {"name":"ParentJoint","revisions":[{"from":7996036,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},

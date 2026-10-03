@@ -167,6 +167,7 @@ d5db92ad DynamicPointLightEntityTemplate
 408a4521 DynamicsChainProperties
 09188776 DynamicsChainRigPoseModifierData
 339ecf91 DynamicsJointTreeData
+03ca1fe0 DynamicsJointTreeGroupData
 5169d349 EasedBoolConceptLogicDriver
 cfb52801 EasedFloatConceptLogicDriver
 3acde15e EasedIntConceptLogicDriver
@@ -674,6 +675,8 @@ de847095 ParamsItemSpellCast
 f24aeac2 ParamsUndoEnabledChange
 0edc4dad PathReferenceGet
 e9e530a6 PathTableGet
+665c9fe7 PhysicsSimGlobalSettings
+c20b2e61 PhysicsSimLocalSettings
 a4975765 PictureInPictureViewController
 a55c9d58 PlaceEntityBlock
 75d39a3b PlayAnimation
@@ -854,6 +857,8 @@ a4eb8410 ShuffleCustomTableBlock
 881be5aa SkinCharacterDefinition
 0f2fb88d SmartPingParticleOverrides
 8fe295c8 SocketDefinitionBase
+ddf17bcb SocketDefinitionSingleJoint
+165b1803 SocketDefinitionWorld
 91ccdfbc SpawnEntityBlock
 062ca0ae SpawnInSequence
 4957da2f SpawnPrefabBlock

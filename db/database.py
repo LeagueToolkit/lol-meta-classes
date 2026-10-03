@@ -223,10 +223,6 @@ class 0x16594846(UiElementEffectData):
     thickness: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
 
-class 0x165b1803(SocketDefinitionBase):
-    PositionOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
-    pass
-
 class 0x1668b3e5():
     0x1bb7131a: (Embed, 0x0, 0x0, 0x8d8b1535) = {"0x3392c041":"0x0","0x58766309":"0x0","0x720e4297":"0x0","0x96349f57":"0x0","0xa807a4b2":"0x0","0xd0666cc4":"0x0","IconFrame":"0x0"}
     EventPassExpText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -1825,15 +1821,6 @@ class 0x3c995caf(IPath):
     Segments: (List2, 0x0, Vec3, 0x0) = []
     pass
 
-class 0x3ca1fe0():
-    0x10278985: (U8, 0x0, 0x0, 0x0) = 2
-    0x3cc9ab8a: (Bool, 0x0, 0x0, 0x0) = false
-    0x4e1a2c8: (Bool, 0x0, 0x0, 0x0) = false
-    0x56670932: (Bool, 0x0, 0x0, 0x0) = true
-    0xb0f77798: (List2, 0x0, Embed, DynamicsJointTreeData) = []
-    ChainProperties: (Embed, 0x0, 0x0, DynamicsChainProperties) = {"0x583d67c2":{"Curve":null,"UseCurve":true,"value":1.0},"0x6e48edbe":false,"0x967e8270":{"Curve":null,"UseCurve":true,"value":1.0},"0xb055bd6a":{"Curve":null,"UseCurve":true,"value":1.0},"0xcb22ec08":{"Curve":null,"UseCurve":true,"value":0.5},"0xd30ce0f0":{"Curve":null,"UseCurve":true,"value":1.0},"Damping":{"Curve":null,"UseCurve":true,"value":0.5},"Envelope":{"Curve":null,"UseCurve":true,"value":1.0},"JointRadius":{"Curve":null,"UseCurve":true,"value":5.0},"LimitAngle":{"Curve":null,"UseCurve":true,"value":180.0},"Stretch":{"Curve":null,"UseCurve":true,"value":0.0}}
-    pass
-
 class 0x3ca2b710():
     0x1979cb95: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x2c47bec4: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -3388,15 +3375,6 @@ class 0x664d2c6d():
 
 class 0x6653bfda(CharacterQuestConditionData):
     Spell: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x665c9fe7():
-    0x13465a3b: (U16, 0x0, 0x0, 0x0) = 50
-    0x5dbadfca: (U8, 0x0, 0x0, 0x0) = 0
-    0x8108c459: (F32, 0x0, 0x0, 0x0) = 9.999999747378752e-06
-    0xa791f85d: (U8, 0x0, 0x0, 0x0) = 0
-    Gravity: (Vec3, 0x0, 0x0, 0x0) = [0.0,-981.0,0.0]
-    0xf3ca8ece: (U16, 0x0, 0x0, 0x0) = 1
     pass
 
 class 0x666e8cb6():
@@ -6955,11 +6933,6 @@ class 0xc1def894(0x7b440079):
     Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xc20b2e61():
-    0x97f2e0f1: (F32, 0x0, 0x0, 0x0) = 1.0
-    0xbc016dbd: (Option, 0x0, Vec3, 0x0) = null
-    pass
-
 class 0xc24051e7(MapAction):
     Constant: (U32, 0x0, 0x0, 0x0) = 0
     constantValue: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
@@ -7964,18 +7937,6 @@ class 0xdddf166a(IPictureInPictureSource):
     pass
 
 class 0xdde919c(InputEventBoolKeybind):
-    pass
-
-class 0xddf17bcb(SocketDefinitionBase):
-    0x5ece2c6c: (Bool, 0x0, 0x0, 0x0) = false
-    0x5fce2dff: (Bool, 0x0, 0x0, 0x0) = false
-    0x61ce3125: (Bool, 0x0, 0x0, 0x0) = false
-    RotationOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
-    0xdcbfa078: (Bool, 0x0, 0x0, 0x0) = false
-    0xddbfa20b: (Bool, 0x0, 0x0, 0x0) = false
-    0xdebfa39e: (Bool, 0x0, 0x0, 0x0) = false
-    PositionOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
-    ParentJoint: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xde33e086():
@@ -12859,30 +12820,39 @@ class DynamicsChainBlendEventData(BaseEventData):
     pass
 
 class DynamicsChainProperties():
-    0x583d67c2: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":1.0}
-    0x6e48edbe: (Bool, 0x0, 0x0, 0x0) = false
-    0x967e8270: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":1.0}
+    RodBendStiffness: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":1.0}
+    UseRodPhysics: (Bool, 0x0, 0x0, 0x0) = false
+    RodStretchStiffness: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":1.0}
     JointRadius: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":5.0}
-    0xb055bd6a: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":1.0}
+    RodTwistStiffness: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":1.0}
     Damping: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":0.5}
-    0xcb22ec08: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":0.5}
+    AnimPoseAttraction: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":0.5}
     LimitAngle: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":180.0}
-    0xd30ce0f0: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":1.0}
+    RodShearStiffness: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":1.0}
     Stretch: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":0.0}
     Envelope: (Embed, 0x0, 0x0, CurveScaledFloat) = {"Curve":null,"UseCurve":true,"value":1.0}
     pass
 
 class DynamicsChainRigPoseModifierData(BaseRigPoseModifierData):
-    0x23d901d3: (List2, 0x0, Embed, 0x3ca1fe0) = []
+    JointTreeGroups: (List2, 0x0, Embed, DynamicsJointTreeGroupData) = []
     0xbb1d1aac: (String, 0x0, 0x0, 0x0) = ""
-    0xbdaa6f16: (F32, 0x0, 0x0, 0x0) = 1.0
-    0xc20b2e61: (Embed, 0x0, 0x0, 0xc20b2e61) = {"0x97f2e0f1":1.0,"0xbc016dbd":null}
+    GlobalEnvelope: (F32, 0x0, 0x0, 0x0) = 1.0
+    PhysicsSimLocalSettings: (Embed, 0x0, 0x0, PhysicsSimLocalSettings) = {"GravityOverride":null,"GravityScale":1.0}
     DefaultOn: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class DynamicsJointTreeData():
-    0xc11c69b4: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xea59c349: (List2, 0x0, Hash, 0x0) = []
+    RootJointName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ExcludeJointNames: (List2, 0x0, Hash, 0x0) = []
+    pass
+
+class DynamicsJointTreeGroupData():
+    LateralLinkMaterial: (U8, 0x0, 0x0, 0x0) = 2
+    GenerateLateralLinks: (Bool, 0x0, 0x0, 0x0) = false
+    0x4e1a2c8: (Bool, 0x0, 0x0, 0x0) = false
+    0x56670932: (Bool, 0x0, 0x0, 0x0) = true
+    JointTrees: (List2, 0x0, Embed, DynamicsJointTreeData) = []
+    ChainProperties: (Embed, 0x0, 0x0, DynamicsChainProperties) = {"AnimPoseAttraction":{"Curve":null,"UseCurve":true,"value":0.5},"Damping":{"Curve":null,"UseCurve":true,"value":0.5},"Envelope":{"Curve":null,"UseCurve":true,"value":1.0},"JointRadius":{"Curve":null,"UseCurve":true,"value":5.0},"LimitAngle":{"Curve":null,"UseCurve":true,"value":180.0},"RodBendStiffness":{"Curve":null,"UseCurve":true,"value":1.0},"RodShearStiffness":{"Curve":null,"UseCurve":true,"value":1.0},"RodStretchStiffness":{"Curve":null,"UseCurve":true,"value":1.0},"RodTwistStiffness":{"Curve":null,"UseCurve":true,"value":1.0},"Stretch":{"Curve":null,"UseCurve":true,"value":0.0},"UseRodPhysics":false}
     pass
 
 class ESportLeagueEntry():
@@ -20744,6 +20714,20 @@ class PhysicsMovement(MissileMovementSpec):
     mLifetime: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class PhysicsSimGlobalSettings():
+    ConstraintSubsteps: (U16, 0x0, 0x0, 0x0) = 50
+    CollisionResolutionMode: (U8, 0x0, 0x0, 0x0) = 0
+    ConvergenceThreshold: (F32, 0x0, 0x0, 0x0) = 9.999999747378752e-06
+    ConstraintSolverType: (U8, 0x0, 0x0, 0x0) = 0
+    Gravity: (Vec3, 0x0, 0x0, 0x0) = [0.0,-981.0,0.0]
+    ConstraintIterations: (U16, 0x0, 0x0, 0x0) = 1
+    pass
+
+class PhysicsSimLocalSettings():
+    GravityScale: (F32, 0x0, 0x0, 0x0) = 1.0
+    GravityOverride: (Option, 0x0, Vec3, 0x0) = null
+    pass
+
 class PictureInPictureViewController(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x417a4100: (F32, 0x0, 0x0, 0x0) = 1500.0
@@ -23233,6 +23217,22 @@ class SocialStatusIcons():
 
 class SocketDefinitionBase():
     name: (String, 0x0, 0x0, 0x0)
+    pass
+
+class SocketDefinitionSingleJoint(SocketDefinitionBase):
+    FreezePositionY: (Bool, 0x0, 0x0, 0x0) = false
+    FreezePositionX: (Bool, 0x0, 0x0, 0x0) = false
+    FreezePositionZ: (Bool, 0x0, 0x0, 0x0) = false
+    RotationOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
+    FreezeRotationX: (Bool, 0x0, 0x0, 0x0) = false
+    FreezeRotationY: (Bool, 0x0, 0x0, 0x0) = false
+    FreezeRotationZ: (Bool, 0x0, 0x0, 0x0) = false
+    PositionOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
+    ParentJoint: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class SocketDefinitionWorld(SocketDefinitionBase):
+    PositionOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     pass
 
 class SortCustomTableBlock(IScriptBlock):

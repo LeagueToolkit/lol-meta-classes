@@ -30,10 +30,12 @@ ad65d8c4 AttackableEntityTemplate
 c3a01413 AudioBank
 f37213a8 AudioContextEvent
 4ca99280 AudioContextEventType
+55383fd3 AudioFloatDriver
 684b0875 AudioManagerWwise
 7a55218f AudioPriorityBehavior
 9bc919f2 AudioQueueConfig
 33d1cb2e AudioQueueConfigList
+2f5be991 AudioRtpcObject
 54091cd5 AugmentClientConfig
 eb5adb26 AugmentDataListConfig
 fcb22c81 AugmentLevelTextureData
@@ -57,9 +59,12 @@ f524e8bd BattlegroundsMap
 5b1048d3 BillboardGeComponent
 600c7dce BillboardGeComponentDefinition
 7aa5ea7a BlueEssenceReward
+3eac408c BoneDistanceFloatDriver
+e6d1f14b BoneTransformFloatDriver
 d952d55b BoolConcept
 7a28c026 BoolConceptBase
 893847cc BotComposition
+e78a175a BoundingBoxLengthFloatDriver
 ae4d057b BoundingBoxSizeVector3Driver
 e90ab695 BoundingRadiusFloatDriver
 e3c2c81a BundleReward
@@ -107,6 +112,7 @@ ab78f6f4 ColorTableSet
 21c740af CommonScript
 8d51331e ConceptBase
 91b37a79 ConceptBlockBase
+612b4ce2 ConceptEasingData
 df639629 ConditionalKeybind
 1c23f02c ContextualActionAnnouncerVoEvent
 8482aa12 ContextualActionChampionMusicEvent
@@ -146,8 +152,10 @@ b0afb2dd DeactivateEntityTagBlock
 29619231 DeathRecapGreyscaleConfig
 b1edf879 DeathRecapTeammateSpectator
 ce762bab DeathRecapTeammateSpectatorConfig
+0ccb921b DelayFloatUpdate
 32790cbf DestroyEntityBlock
 a6e992c8 DirectionReleases
+de125976 DistanceToEnemyMinionMaterialFloatDriver
 ff378352 DragonCampEntityPrefab
 7f3c93aa DragonCampEntityTemplate
 054665eb DragonCampGeComponentDefinition
@@ -174,6 +182,7 @@ aa410cdf EmptyLogicIntDriver
 ab5826f6 EmptyLogicVector3Driver
 c4936408 EnableNever
 4142edcd EnableWhenAll
+a8dd91e9 EnabledTimerFloatDriver
 66cbd003 EndEventBlock
 158472db EndFunctionBlock
 09def8cb EntityArrayTableSet
@@ -227,6 +236,7 @@ d3eab8e5 EventCarousel
 06548f43 ExecuteFunctionLevelBlock
 73425974 FacingAndMovementAngleFloatDriver
 de07f33b FeatsViewController
+b0be1066 Float4FromLogicDrivers
 8c9d99d3 FloatConcept
 cbdd4dde FloatConceptBase
 fd5c7276 FollowPathCurveData
@@ -300,6 +310,8 @@ e7d4252f IEnemyRespawnTimersViewController
 13d71082 IEntityGroupGet
 b60096a7 IEntityTagGet
 87e165e5 IFilterItem
+bc413e21 IFloatUpdateElement
+9a573886 IFloatUpdateModifier
 4feb7d99 IGameEntityComponentEvents
 4e8d1d3e IGameEntityScriptEvent
 fdb7d876 IGameScreenCameraBlock
@@ -309,11 +321,14 @@ ece68ca6 IGameScreenClientBlock
 d0713947 IGameScreenVfxBlock
 990de67e IHighlighterViewController
 258e4761 IInputUpdater
+65a1bb16 IInterpolateFloatUpdate
 5ba190cc IKeyBind
 3d3ef324 ILobbyGlobalBlock
 a56f7c7a ILobbySegmentBlock
 702b5022 ILocatorPreview
 a4f28691 ILogicDriverSource
+06ca3cfd ILogicDriverValueToString
+30aa7360 ILogicValueDriverUpdateViewElements
 fed5253f ILolGameStateViewController
 2a9f4223 ILolKeybindCheck
 7f631ac9 ILolKeybindSetCheck
@@ -359,6 +374,7 @@ b041c60a IUiVariable
 540d65a6 IUnitGet
 cc52ed40 IUnitLogicData
 53de4f74 IValueUpdateElement
+5a8ba29d IValueUpdateModifier
 cbd100e7 IVfxBaseDriver
 a4b9367d IVfxDynamicParameterModifier
 8b5022d2 IVfxEmissionSource
@@ -375,6 +391,8 @@ e524b2fc IfConditionBlock
 070cf2e7 InputEventBoolKeybind
 b606ece6 IntConcept
 9dec456b IntConceptBase
+103b4f7d InterpolateDeltaFloatUpdate
+9eba3f83 InterpolateDurationFloatUpdate
 418af145 IsBitSetCondition
 635d04b7 IsChampionNameBoolDriver
 d4933ea0 IsCloneBoolDriver
@@ -390,6 +408,8 @@ dc7b01b2 ItemAutoBuyViewController
 125a3586 JointOrientationBlendEventData
 e6147387 JointOrientationRigPoseModifierData
 5307f5e1 KeybindSet
+fba9327c LastDamageAmountFloatDriver
+02ef7017 LastDamageTypeMaterialBoolDriver
 60f809c3 LastHitAssistConfig
 fe87f21e LastHitData
 4a7f3786 LeaderboardConfiguration
@@ -411,6 +431,12 @@ ea69d6f3 ListGet
 2461f3a9 LocatorEntityDef
 70e76440 LocatorEntityPrefab
 8a533844 LocatorEntityTemplate
+4f0aa8a0 LogicDriverElementTooltip
+315aff8e LogicDriverFloatModifier
+8e65fb6b LogicDriverFloatToString
+1a21fc8a LogicDriverUpdateViewElements
+34f43159 LogicDriverValueToStringArray
+feacedf2 LogicFloatDriverUpdateViewElements
 8069a433 LolCastActionKeybind
 be07ec3f LolCursorContextAwareKeybind
 79292790 LolEmoteKeybind
@@ -835,7 +861,14 @@ a4eb8410 ShuffleCustomTableBlock
 bafc3e15 SpellDataNamedValueFloatDriver
 ef35eacc SpellLevelUpList
 df6e7fa5 SpellPickChoiceConfig
+fd51006c SpellPreviewConditionData
+280745b1 SpellPreviewConfigData
 dd661aab SpellPreviewData
+55f6bf86 SpellPreviewEffectData
+0d91a223 SpellPreviewInputLockConditionData
+fb16e4be SpellPreviewOrderConditionData
+c7e628b9 SpellPreviewParamsData
+239d0a76 SpellPreviewSource
 549452c3 SpellVars
 e8f5408e SplashUpgradeTier
 29b5826a StateMachineHelperDef
@@ -923,6 +956,7 @@ f7711a64 ValueColorRgb
 5bb26ea8 Vector3ConceptBase
 f7f9a232 Vector4Concept
 077a77af Vector4ConceptBase
+21a31dfa Vector4UpdateModifier
 865c607b VfxAbsFloatDriver
 dddee91a VfxAbsVector2Driver
 d6443e1d VfxAbsVector3Driver

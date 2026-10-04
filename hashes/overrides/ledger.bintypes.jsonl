@@ -283,10 +283,10 @@
 {"hash": "6f4e4a08", "name": "VfxDriverContainer", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "pending", "pr": "-"}
 {"hash": "0eeaaebe", "name": "VfxEmissionCylinder", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "pending", "pr": "-"}
 {"hash": "d965d435", "name": "VfxEmissionMesh", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "pending", "pr": "-"}
-{"hash": "cd5a34f5", "name": "VfxEmissionMeshData", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "pending", "pr": "-"}
+{"hash": "cd5a34f5", "name": "VfxEmissionMeshData", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
 {"hash": "56abfbd6", "name": "VfxEmissionPoint", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "pending", "pr": "-"}
 {"hash": "dbd91337", "name": "VfxEmissionSkeleton", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "pending", "pr": "-"}
-{"hash": "3df230bf", "name": "VfxEmissionSkeletonData", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "pending", "pr": "-"}
+{"hash": "3df230bf", "name": "VfxEmissionSkeletonData", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
 {"hash": "5507b309", "name": "VfxEmissionSkin", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "pending", "pr": "-"}
 {"hash": "72a4bae5", "name": "VfxEmissionSphere", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "pending", "pr": "-"}
 {"hash": "fddb75c6", "name": "VfxEmitterVelocityDriver", "batch": "vfx-driver-graph", "cracked": "2026-07-28", "status": "pending", "pr": "-"}
@@ -931,7 +931,7 @@
 {"hash": "f9dd7e92", "name": "IVfxEmissionSurface", "batch": "vfx-components", "cracked": "2026-08-11", "status": "pending", "pr": "-"}
 {"hash": "f7711a64", "name": "ValueColorRgb", "batch": "vfx-components", "cracked": "2026-08-12", "status": "pending", "pr": "-"}
 {"hash": "2015ccfc", "name": "VfxColorRgbBase", "batch": "vfx-components", "cracked": "2026-08-11", "status": "pending", "pr": "-"}
-{"hash": "3bf517c5", "name": "VfxMaterialContainer", "batch": "vfx-components", "cracked": "2026-08-11", "status": "pending", "pr": "-"}
+{"hash": "3bf517c5", "name": "VfxMaterialContainer", "batch": "vfx-components", "cracked": "2026-08-11", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
 {"hash": "1e7ae2cb", "name": "VfxModifierBase", "batch": "vfx-components", "cracked": "2026-08-11", "status": "pending", "pr": "-"}
 {"hash": "10725432", "name": "VfxPhysicsLingerDefinitionData", "batch": "vfx-components", "cracked": "2026-08-11", "status": "pending", "pr": "-"}
 {"hash": "ee39916f", "name": "VfxShapePointDoNotUse", "batch": "vfx-components", "cracked": "2026-08-14", "status": "pending", "pr": "-"}

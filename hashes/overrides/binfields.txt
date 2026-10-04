@@ -738,6 +738,7 @@ fd36c650 InvertResult
 808fcd61 IsButton
 68309c0b IsExclusive
 c4c472c8 IsExpanded
+ec01928c IsGameplayGroup
 66d660db IsOverflow
 fcea40c4 IsOwner
 086f3c70 IsReplicated
@@ -988,6 +989,7 @@ af34dd8e PaintedRegion
 ff22989f ParentJoint
 1dc03d0d ParticleDefines
 c26b20bf ParticleScale
+f8b81c77 ParticleSpawnDataGenerator
 b10e2d1e ParticleSystem
 faa24f5d PartnerSlot
 a1fce550 PassType

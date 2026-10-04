@@ -16954,7 +16954,7 @@
  "0xd2212981": {"name":"UvAnimate","revisions":[{"from":5229820,"type":["Vec4","0x0","0x0","0x0"],"default":[1.0,1.0,0.0,0.0]}]},
  "0xeba1b3c5": {"revisions":[{"from":6919951,"type":["U32","0x0","0x0","0x0"],"default":128}]}
 }},
-"0x83456589": {"revisions": [{"from":5964541,"to":5964541,"bases":[],"interface":false,"value":true},{"from":5967996,"bases":[],"interface":false,"value":true}], "properties": {
+"0x83456589": {"name": "ParticlePointLightInfo", "revisions": [{"from":5964541,"to":5964541,"bases":[],"interface":false,"value":true},{"from":5967996,"bases":[],"interface":false,"value":true}], "properties": {
  "0xdba4cb3": {"name":"radius","revisions":[{"from":5964541,"to":5964541,"type":["F32","0x0","0x0","0x0"],"default":500.0},{"from":5967996,"to":5989749,"type":["F32","0x0","0x0","0x0"],"default":500.0},{"from":6012857,"type":["Embed","0x0","0x0","0x4300058"],"default":{"constantValue":500.0,"dynamics":null}}]},
  "0x1e71b297": {"name":"Impact","revisions":[{"from":5964541,"to":5964541,"type":["U8","0x0","0x0","0x0"],"default":3},{"from":5967996,"type":["U8","0x0","0x0","0x0"],"default":3}]},
  "0x3c8368c0": {"name":"intensityScale","revisions":[{"from":5964541,"to":5964541,"type":["F32","0x0","0x0","0x0"],"default":1.0},{"from":5967996,"to":5989749,"type":["F32","0x0","0x0","0x0"],"default":1.0},{"from":6012857,"type":["Embed","0x0","0x0","0x4300058"],"default":{"constantValue":1.0,"dynamics":null}}]},
@@ -22480,13 +22480,13 @@
  "0xd6f4f9d5": {"name":"TimeExpiredCampIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd91c9e73": {"name":"RejectIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xb0cdad34": {"revisions": [{"from":8159717,"bases":["0x80d55cb7"],"interface":false,"value":false}], "properties": {
+"0xb0cdad34": {"name": "VfxLightComponent", "revisions": [{"from":8159717,"bases":["0x80d55cb7"],"interface":false,"value":false}], "properties": {
  "0xdba4cb3": {"name":"radius","revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0xafe1d569"],"default":{"Float":{}}}]},
  "0x5127f14d": {"name":"type","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":1}]},
  "0x746ce73e": {"name":"lightColor","revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0xd2221304"],"default":{"Vector4":{}}}]},
- "0xb9d5eb37": {"revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xb9d5eb37": {"name":"UseFirstParticlePosition","revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xc7334a55": {"name":"HdrScale","revisions":[{"from":8159717,"type":["F32","0x0","0x0","0x0"],"default":5.0}]},
- "0xd0fc9cec": {"revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":3}]},
+ "0xd0fc9cec": {"name":"Impacts","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":3}]},
  "0xf8242c07": {"name":"LightChannels","revisions":[{"from":8159717,"type":["U8","0x0","0x0","0x0"],"default":1}]}
 }},
 "0xb0d49a20": {"name": "LoadingScreenSummonerNameData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {

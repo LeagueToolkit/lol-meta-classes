@@ -1121,3 +1121,5 @@
 {"hash": "239d0a76", "name": "SpellPreviewSource", "batch": "spell-preview", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "dea3b4a8", "name": "TerrainDisturbanceConfig", "batch": "terrain-disturbance-unproven", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "595773f6", "name": "WaterDisturbanceConfig", "batch": "terrain-disturbance-unproven", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "b0cdad34", "name": "VfxLightComponent", "batch": "vfx-light-component-unproven", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "83456589", "name": "ParticlePointLightInfo", "batch": "vfx-point-light", "cracked": "2026-10-04", "status": "pending", "pr": "-"}

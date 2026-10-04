@@ -77,3 +77,5 @@
 {"batch": "spell-preview", "note": "SpellPreview family: one stem fills seven class slots around the known SpellPreviewData and fits the 16.18 reader. Hash-only, no string. See docs/logic-drivers.md"}
 {"batch": "terrain-disturbance-rdef", "note": "TerrainDisturbanceConfig sand and wave fields: field order matches the water and sand step shader $Globals in shipped 16.19 Bootstrap RDEF, names attested there."}
 {"batch": "terrain-disturbance-unproven", "note": "TerrainDisturbanceConfig names with no reader and no shader name: slot and value fit only. Class pair Water->TerrainDisturbanceConfig. DO NOT submit as it stands. See docs/gamemode-configs.md"}
+{"batch": "vfx-light-component-unproven", "note": "The 16.18 light component for component emitters and two of its fields. No string and no shipped instance; role and reader fit, hash-only. DO NOT submit as it stands."}
+{"batch": "vfx-point-light", "note": "ParticlePointLightInfo: the class behind VfxSystemDefinitionData.PointLight. Found as a hash match, then confirmed by the maintainer. Two Map453 systems ship one."}

@@ -673,6 +673,7 @@ de847095 ParamsItemSpellCast
 1a8a31b8 ParamsPlayerReport
 176774d0 ParamsSpellCast
 f24aeac2 ParamsUndoEnabledChange
+83456589 ParticlePointLightInfo
 0edc4dad PathReferenceGet
 e9e530a6 PathTableGet
 665c9fe7 PhysicsSimGlobalSettings
@@ -1038,6 +1039,7 @@ ae0ba078 VfxFloatSineDriver
 2335a083 VfxLaserDefinitionData
 614f2da4 VfxLengthVector2Driver
 159d4bb7 VfxLengthVector3Driver
+b0cdad34 VfxLightComponent
 01e6acb1 VfxLogicDriver
 3bf517c5 VfxMaterialContainer
 e00db001 VfxMaxFloatDriver

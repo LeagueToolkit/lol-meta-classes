@@ -4556,18 +4556,6 @@ class 0x83047936():
     0xf25a7957: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x83456589():
-    Impact: (U8, 0x0, 0x0, 0x0) = 3
-    intensityScale: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":1.0,"dynamics":null}
-    type: (U8, 0x0, 0x0, 0x0) = 1
-    lifetime: (Option, 0x0, F32, 0x0) = 5.0
-    lightColor: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}
-    0xac3cf5bd: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
-    HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
-    radius: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":500.0,"dynamics":null}
-    LightChannels: (U8, 0x0, 0x0, 0x0) = 1
-    pass
-
 class 0x834e2e8d():
     tall: (List, 0x4, Embed, UiRotationalStoreItemTileData) = [{"0x276c0797":[0,0,0,255],"0x3987396d":"0x0","0x77aee5a6":"0x0","0x860c9b32":[0,0,0,255],"0xa6805f0":[0,0,0,255],"0xaef2e781":"0x0","0xb9cd82c6":"0x0","Background":"0x0","Button":"0x0","Group":"0x0","Icon":"0x0","PriceText":"0x0","RarityBackdropDefault":"0x0","RarityGem":"0x0","SpineObject":"0x0","Timer":null,"TrovesChestIcon":"0x0","Vfx":"0x0"},{"0x276c0797":[0,0,0,255],"0x3987396d":"0x0","0x77aee5a6":"0x0","0x860c9b32":[0,0,0,255],"0xa6805f0":[0,0,0,255],"0xaef2e781":"0x0","0xb9cd82c6":"0x0","Background":"0x0","Button":"0x0","Group":"0x0","Icon":"0x0","PriceText":"0x0","RarityBackdropDefault":"0x0","RarityGem":"0x0","SpineObject":"0x0","Timer":null,"TrovesChestIcon":"0x0","Vfx":"0x0"},{"0x276c0797":[0,0,0,255],"0x3987396d":"0x0","0x77aee5a6":"0x0","0x860c9b32":[0,0,0,255],"0xa6805f0":[0,0,0,255],"0xaef2e781":"0x0","0xb9cd82c6":"0x0","Background":"0x0","Button":"0x0","Group":"0x0","Icon":"0x0","PriceText":"0x0","RarityBackdropDefault":"0x0","RarityGem":"0x0","SpineObject":"0x0","Timer":null,"TrovesChestIcon":"0x0","Vfx":"0x0"},{"0x276c0797":[0,0,0,255],"0x3987396d":"0x0","0x77aee5a6":"0x0","0x860c9b32":[0,0,0,255],"0xa6805f0":[0,0,0,255],"0xaef2e781":"0x0","0xb9cd82c6":"0x0","Background":"0x0","Button":"0x0","Group":"0x0","Icon":"0x0","PriceText":"0x0","RarityBackdropDefault":"0x0","RarityGem":"0x0","SpineObject":"0x0","Timer":null,"TrovesChestIcon":"0x0","Vfx":"0x0"}]
     error: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6280,16 +6268,6 @@ class 0xb09016f6():
 
 class 0xb0afae41(ViewControllerFilterI):
     TftGameType: (U32, 0x0, 0x0, 0x0) = 5
-    pass
-
-class 0xb0cdad34(VfxComponentBase):
-    type: (U8, 0x0, 0x0, 0x0) = 1
-    lightColor: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
-    0xb9d5eb37: (Bool, 0x0, 0x0, 0x0) = false
-    HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
-    0xd0fc9cec: (U8, 0x0, 0x0, 0x0) = 3
-    radius: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    LightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class 0xb107dfe4():
@@ -20532,6 +20510,18 @@ class ParticleMeshLitShadingModel(IParticleShadingModel):
 class ParticleMeshPbrShadingModel(IParticleShadingModel):
     pass
 
+class ParticlePointLightInfo():
+    Impact: (U8, 0x0, 0x0, 0x0) = 3
+    intensityScale: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":1.0,"dynamics":null}
+    type: (U8, 0x0, 0x0, 0x0) = 1
+    lifetime: (Option, 0x0, F32, 0x0) = 5.0
+    lightColor: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}
+    0xac3cf5bd: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
+    HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
+    radius: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":500.0,"dynamics":null}
+    LightChannels: (U8, 0x0, 0x0, 0x0) = 1
+    pass
+
 class ParticleQuadLitShadingModel(IParticleQuadShadingModel):
     pass
 
@@ -30497,6 +30487,16 @@ class VfxLifetimeComponent(VfxLifetimeComponentBase):
 class VfxLifetimeComponentBase(VfxComponentBase):
     pass
 
+class VfxLightComponent(VfxComponentBase):
+    type: (U8, 0x0, 0x0, 0x0) = 1
+    lightColor: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
+    UseFirstParticlePosition: (Bool, 0x0, 0x0, 0x0) = false
+    HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
+    Impacts: (U8, 0x0, 0x0, 0x0) = 3
+    radius: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    LightChannels: (U8, 0x0, 0x0, 0x0) = 1
+    pass
+
 class VfxLingerDefinitionData():
     UseSeparateLingerColor: (Flag, 0x0, 0x0, 0x0) = false
     KeyedLingerAcceleration: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
@@ -30989,7 +30989,7 @@ class VfxSystemDefinitionData(IResource):
     DynamicParameterData: (Pointer, 0x0, 0x0, VfxDynamicParametersData) = null
     0x9836cd87: (U8, 0x0, 0x0, 0x0) = 5
     flags: (U16, 0x0, 0x0, 0x0) = 212
-    PointLight: (Pointer, 0x0, 0x0, 0x83456589) = null
+    PointLight: (Pointer, 0x0, 0x0, ParticlePointLightInfo) = null
     audioParameterTimeScaledDuration: (F32, 0x0, 0x0, 0x0) = 0.0
     ClockToUse: (U8, 0x0, 0x0, 0x0) = 0
     HudLayerAspect: (F32, 0x0, 0x0, 0x0) = 1.3333333730697632

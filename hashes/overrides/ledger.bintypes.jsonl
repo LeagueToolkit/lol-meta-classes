@@ -1126,7 +1126,7 @@
 {"hash": "2d00e4da", "name": "NavGridRegionInputData", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
 {"hash": "6b91544a", "name": "NavGridRegionRenderData", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
 {"hash": "f6f4bb5f", "name": "NavGridRegionTagDefinition", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
-{"hash": "f42cd443", "name": "NavGridRegionTagsLink", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "f42cd443", "name": "NavGridRegionTagsLink", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
 {"hash": "41c19efe", "name": "NavGridRegionVfxData", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
 {"hash": "d82714cc", "name": "NavGridTerrainTagDefinition", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
 {"hash": "671b7351", "name": "NavigationGridParticleSpawnDataGenerator", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}

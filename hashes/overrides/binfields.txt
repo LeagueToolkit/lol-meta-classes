@@ -674,6 +674,7 @@ f9c21175 IgnoreDead
 3f03cd2f ImageProperty
 09055cde ImageVariable
 d1d746ab Images
+d0fc9cec Impacts
 4191b710 ImportButton
 5f4f2e4d ImpulseRadiusMultiplier
 f6e17fdc InProgressIcon
@@ -1556,6 +1557,7 @@ d3231b43 UnselectedHover
 5f90a439 UpdaterName
 95a401c3 UpgradeSpell
 0c71253f UseCurve
+b9d5eb37 UseFirstParticlePosition
 acc83ffa UseFistBump
 7bd430bd UseInitialEnd
 ee641224 UseInitialStart

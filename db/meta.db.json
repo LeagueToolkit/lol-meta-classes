@@ -3028,7 +3028,7 @@
  "0x934f4e0a": {"name":"Position","revisions":[{"from":5229820,"to":5899418,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x99cd3c48": {"name":"BehaviorScriptList","revisions":[{"from":5229820,"to":5241760,"type":["List2","0x0","Link","0x5eac2a00"],"default":[]},{"from":5253974,"to":5899418,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
-"0x1519e8d2": {"revisions": [{"from":5409873,"bases":[],"interface":true,"value":false}], "properties": {
+"0x1519e8d2": {"name": "IParticleSpawnDataGenerator", "revisions": [{"from":5409873,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x15502626": {"name": "GameModeSpellList", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x74f5d6ce": {"name":"spells","revisions":[{"from":5229820,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
@@ -6469,10 +6469,10 @@
  "0x2fb31c01": {"name":"frequency","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xf8f489b1": {"name":"colors","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x4349c5f5"],"default":{"values":[],"times":[],"probabilityTables":[null,null,null,null]}}]}
 }},
-"0x2bfb084c": {"revisions": [{"from":5466062,"to":6303012,"bases":[],"interface":false,"value":false},{"from":6318255,"bases":[],"interface":false,"value":true}], "properties": {
+"0x2bfb084c": {"name": "NavGridRegionGroupDefinition", "revisions": [{"from":5466062,"to":6303012,"bases":[],"interface":false,"value":false},{"from":6318255,"bases":[],"interface":false,"value":true}], "properties": {
  "0x50d6d98f": {"revisions":[{"from":6614445,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xd0e71bc7": {"name":"groupName","revisions":[{"from":5466062,"to":6303012,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":6318255,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xec01928c": {"revisions":[{"from":6919951,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xec01928c": {"name":"IsGameplayGroup","revisions":[{"from":6919951,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf416eba0": {"name":"tags","revisions":[{"from":5466062,"type":["List2","0x0","Embed","0xf6f4bb5f"],"default":[]}]}
 }},
 "0x2bfff098": {"name": "ShowEntityBlock", "revisions": [{"from":7426169,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
@@ -6615,7 +6615,7 @@
 "0x2cfea070": {"name": "UiMetricLatencyText", "revisions": [{"from":5229820,"bases":["0x30176f82"],"interface":false,"value":false}], "properties": {
  "0x109b461a": {"name":"LatencyText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x2d00e4da": {"revisions": [{"from":7269074,"bases":[],"interface":false,"value":false}], "properties": {
+"0x2d00e4da": {"name": "NavGridRegionInputData", "revisions": [{"from":7269074,"bases":[],"interface":false,"value":false}], "properties": {
  "0x218a55e2": {"revisions":[{"from":7269074,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x89ad2288": {"name":"CursorMode","revisions":[{"from":7269074,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xc4454080": {"revisions":[{"from":7345787,"to":7345787,"type":["F32","0x0","0x0","0x0"],"default":0.0},{"from":7371049,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -8912,7 +8912,7 @@
  "0x5bf8755d": {"revisions":[{"from":6738244,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x6152a19f": {"name":"ContentTypeIcon","revisions":[{"from":6738244,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x41c19efe": {"name": "VfxPrimitiveCameraSegmentSeriesBeam", "revisions": [{"from":5606808,"bases":[],"interface":false,"value":false}], "properties": {
+"0x41c19efe": {"name": "NavGridRegionVfxData", "revisions": [{"from":5606808,"bases":[],"interface":false,"value":false}], "properties": {
  "0x8e786db": {"name":"VfxMask","revisions":[{"from":5606808,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
  "0x18273a68": {"revisions":[{"from":6085125,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x1c45cf5c": {"revisions":[{"from":6048769,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
@@ -11115,7 +11115,7 @@
  "0xb26be7bf": {"name":"sharedDataBuffers","revisions":[{"from":7851316,"type":["List2","0x0","Embed","0x4bcf438a"]}]},
  "0xdff4be0b": {"name":"SharedConstantBuffers","revisions":[{"from":5229820,"type":["List","0x0","Link","0x95ef430a"]}]}
 }},
-"0x526478f0": {"revisions": [{"from":7345787,"to":7345787,"bases":["0xf9dd7e92"],"interface":false,"value":false},{"from":7371049,"bases":["0xf9dd7e92"],"interface":false,"value":false}], "properties": {
+"0x526478f0": {"name": "VfxEmissionLinkedMeshData", "revisions": [{"from":7345787,"to":7345787,"bases":["0xf9dd7e92"],"interface":false,"value":false},{"from":7371049,"bases":["0xf9dd7e92"],"interface":false,"value":false}], "properties": {
 }},
 "0x5289f880": {"name": "MapDynamicPointLight", "revisions": [{"from":5229820,"to":6575386,"bases":["0xc2da185a"],"interface":false,"value":false},{"from":6614445,"bases":["0xc2da185a","0xd738f7c9"],"interface":false,"value":false}], "properties": {
  "0xdba4cb3": {"name":"radius","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":500.0}]},
@@ -13424,7 +13424,7 @@
 "0x67104c43": {"name": "VfxVector3DynamicProperty", "revisions": [{"from":7231955,"bases":[],"interface":false,"value":false}], "properties": {
  "0x27188523": {"name":"Vector3","revisions":[{"from":7231955,"type":["Pointer","0x0","0x0","0x505f1532"],"default":null}]}
 }},
-"0x671b7351": {"revisions": [{"from":5409873,"bases":["0x1519e8d2"],"interface":false,"value":false}], "properties": {
+"0x671b7351": {"name": "NavigationGridParticleSpawnDataGenerator", "revisions": [{"from":5409873,"bases":["0x1519e8d2"],"interface":false,"value":false}], "properties": {
  "0xbc1c4865": {"name":"VfxGroupName","revisions":[{"from":5409873,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x671bdc8d": {"name": "ClientScript", "revisions": [{"from":6919951,"bases":["0xbad95a7a"],"interface":true,"value":false}], "properties": {
@@ -14056,7 +14056,7 @@
 }},
 "0x6b8d7139": {"revisions": [{"from":6738244,"bases":[],"interface":false,"value":false}], "properties": {
 }},
-"0x6b91544a": {"revisions": [{"from":5579166,"to":5869705,"bases":["0xc03bb018"],"interface":false,"value":false},{"from":5876777,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
+"0x6b91544a": {"name": "NavGridRegionRenderData", "revisions": [{"from":5579166,"to":5869705,"bases":["0xc03bb018"],"interface":false,"value":false},{"from":5876777,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
  "0x46edf5aa": {"revisions":[{"from":5579166,"type":["F32","0x0","0x0","0x0"],"default":1.100000023841858}]},
  "0x666abee0": {"name":"BlurTextures","revisions":[{"from":5579166,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x9cfb5e22": {"name":"FadeInRate","revisions":[{"from":5579166,"type":["F32","0x0","0x0","0x0"],"default":1.190000057220459}]},
@@ -24492,7 +24492,7 @@
  "0xaf014196": {"name":"meshScale","revisions":[{"from":5229820,"to":7218442,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xb8314653": {"name":"JointMask","revisions":[{"from":7135912,"to":7218442,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
  "0xf83ca5b7": {"name":"meshName","revisions":[{"from":5229820,"to":7218442,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xf8b81c77": {"revisions":[{"from":5409873,"type":["Pointer","0x0","0x0","0x1519e8d2"],"default":null}]},
+ "0xf8b81c77": {"name":"ParticleSpawnDataGenerator","revisions":[{"from":5409873,"type":["Pointer","0x0","0x0","0x1519e8d2"],"default":null}]},
  "0xfc452e48": {"name":"Submeshes","revisions":[{"from":5229820,"to":7218442,"type":["List","0x0","Hash","0x0"],"default":[]}]}
 }},
 "0xbfd585a7": {"revisions": [{"from":6877272,"bases":["0xeb31be9b"],"interface":false,"value":false}], "properties": {
@@ -26789,7 +26789,7 @@
 }},
 "0xd27d6bcf": {"name": "LevelPropAiCommon", "revisions": [{"from":5229820,"bases":["0xf7fcc091"],"interface":true,"value":false}], "properties": {
 }},
-"0xd2807c60": {"revisions": [{"from":7231955,"bases":["0x3bf517c5"],"interface":false,"value":false}], "properties": {
+"0xd2807c60": {"name": "VfxEmbeddedMaterial", "revisions": [{"from":7231955,"bases":["0x3bf517c5"],"interface":false,"value":false}], "properties": {
  "0xd2e4d060": {"name":"Material","revisions":[{"from":7231955,"type":["Embed","0x0","0x0","0xff9d3409"],"default":{"type":1,"SharedTextureSets":[],"techniques":[],"dynamicMaterial":null,"name":"","childTechniques":[],"samplerValues":[],"paramValues":[],"switches":[],"shaderMacros":{}}}]}
 }},
 "0xd2956d0e": {"name": "EquippedGearParametricUpdater", "revisions": [{"from":5229820,"bases":["0xec2d115"],"interface":false,"value":false}], "properties": {
@@ -27534,7 +27534,7 @@
  "0xe62ef3c5": {"name":"LockedDefaultIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf2ba325d": {"name":"ClaimableDefaultIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xd82714cc": {"revisions": [{"from":5466062,"bases":[],"interface":false,"value":false}], "properties": {
+"0xd82714cc": {"name": "NavGridTerrainTagDefinition", "revisions": [{"from":5466062,"bases":[],"interface":false,"value":false}], "properties": {
  "0x3d7e6258": {"name":"Color","revisions":[{"from":5466062,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
  "0x8d39bde6": {"name":"name","revisions":[{"from":5466062,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x9c677a2c": {"name":"flags","revisions":[{"from":5466062,"type":["U16","0x0","0x0","0x0"],"default":0}]}
@@ -31563,7 +31563,7 @@
  "0x9119fdbf": {"name":"mAffectsStatusFlags","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xecf3f88d": {"name":"mAffectsTypeFlags","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0xf42cd443": {"revisions": [{"from":6318255,"bases":[],"interface":false,"value":true}], "properties": {
+"0xf42cd443": {"name": "NavGridRegionTagsLink", "revisions": [{"from":6318255,"bases":[],"interface":false,"value":true}], "properties": {
  "0xbdc90544": {"name":"NavGridConfig","revisions":[{"from":6318255,"type":["Link","0x0","0x0","0xbdc90544"],"default":"0x0"}]},
  "0xbed02ff8": {"name":"RegionTags","revisions":[{"from":6318255,"type":["List2","0x0","String","0x0"],"default":[]}]},
  "0xd0e71bc7": {"name":"groupName","revisions":[{"from":6318255,"type":["String","0x0","0x0","0x0"],"default":""}]}
@@ -31890,7 +31890,7 @@
 }},
 "0xf6e711b0": {"name": "IScriptValueGet", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0xf6f4bb5f": {"revisions": [{"from":5466062,"bases":[],"interface":false,"value":false}], "properties": {
+"0xf6f4bb5f": {"name": "NavGridRegionTagDefinition", "revisions": [{"from":5466062,"bases":[],"interface":false,"value":false}], "properties": {
  "0x3d7e6258": {"name":"Color","revisions":[{"from":5466062,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
  "0x8d39bde6": {"name":"name","revisions":[{"from":5466062,"to":6303012,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":6318255,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},

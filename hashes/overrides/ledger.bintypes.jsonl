@@ -1121,5 +1121,16 @@
 {"hash": "239d0a76", "name": "SpellPreviewSource", "batch": "spell-preview", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "dea3b4a8", "name": "TerrainDisturbanceConfig", "batch": "terrain-disturbance-unproven", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "595773f6", "name": "WaterDisturbanceConfig", "batch": "terrain-disturbance-unproven", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "1519e8d2", "name": "IParticleSpawnDataGenerator", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "2bfb084c", "name": "NavGridRegionGroupDefinition", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "2d00e4da", "name": "NavGridRegionInputData", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "6b91544a", "name": "NavGridRegionRenderData", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "f6f4bb5f", "name": "NavGridRegionTagDefinition", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "f42cd443", "name": "NavGridRegionTagsLink", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "41c19efe", "name": "NavGridRegionVfxData", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "d82714cc", "name": "NavGridTerrainTagDefinition", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "671b7351", "name": "NavigationGridParticleSpawnDataGenerator", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "d2807c60", "name": "VfxEmbeddedMaterial", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "526478f0", "name": "VfxEmissionLinkedMeshData", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
 {"hash": "b0cdad34", "name": "VfxLightComponent", "batch": "vfx-light-component-unproven", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
 {"hash": "83456589", "name": "ParticlePointLightInfo", "batch": "vfx-point-light", "cracked": "2026-10-04", "status": "pending", "pr": "-"}

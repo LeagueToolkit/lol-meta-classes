@@ -1653,5 +1653,7 @@
 {"hash": "f8b87dfd", "name": "WakeRefSpeed", "batch": "terrain-disturbance-unproven", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "1b319ff6", "name": "WakeSpacing", "batch": "terrain-disturbance-unproven", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
 {"hash": "6de3397a", "name": "WindowWorldSize", "batch": "terrain-disturbance-unproven", "cracked": "2026-10-03", "status": "pending", "pr": "-"}
+{"hash": "ec01928c", "name": "IsGameplayGroup", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "f8b81c77", "name": "ParticleSpawnDataGenerator", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
 {"hash": "d0fc9cec", "name": "Impacts", "batch": "vfx-light-component-unproven", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
 {"hash": "b9d5eb37", "name": "UseFirstParticlePosition", "batch": "vfx-light-component-unproven", "cracked": "2026-10-04", "status": "pending", "pr": "-"}

@@ -155,9 +155,6 @@ class 0x150d1b92():
     0xe38f54f7: (U32, 0x0, 0x0, 0x0) = 16384
     pass
 
-class 0x1519e8d2():
-    pass
-
 class 0x15898c52(IGeComponentDef):
     0x5cfe86e8: (F32, 0x0, 0x0, 0x0) = 0.5
     0x8204ce90: (F32, 0x0, 0x0, 0x0) = 2.0
@@ -1109,13 +1106,6 @@ class 0x2bde0c9c(0x8e30b80e):
     OffsetVector: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     pass
 
-class 0x2bfb084c():
-    0x50d6d98f: (Bool, 0x0, 0x0, 0x0) = false
-    groupName: (String, 0x0, 0x0, 0x0) = ""
-    0xec01928c: (Bool, 0x0, 0x0, 0x0) = false
-    tags: (List2, 0x0, Embed, 0xf6f4bb5f) = []
-    pass
-
 class 0x2c17e4a1(IOptionItemFilter):
     pass
 
@@ -1132,13 +1122,6 @@ class 0x2cb48189(0x70f6f74b):
     Operand: (F32, 0x0, 0x0, 0x0) = 0.0
     0x9a05a12: (Pointer, 0x0, 0x0, NovaItemGetFloat) = null
     Operator: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0x2d00e4da():
-    0x218a55e2: (F32, 0x0, 0x0, 0x0) = 0.0
-    CursorMode: (U32, 0x0, 0x0, 0x0) = 0
-    0xc4454080: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xe8d9f82b: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0x2d42ea41(IVfxVector3Driver):
@@ -2684,9 +2667,6 @@ class 0x5206ee88(0x6653bfda):
     0xf054015a: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x526478f0(IVfxEmissionSurface):
-    pass
-
 class 0x529533b3(BaseParams):
     pass
 
@@ -3407,10 +3387,6 @@ class 0x66dc7e9b(IContextualAction):
     0xec1b2b3c: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x671b7351(0x1519e8d2):
-    VfxGroupName: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x67406e7f(0xbc280d0a):
     value: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -3614,17 +3590,6 @@ class 0x6b73a615(IScriptBlock):
     pass
 
 class 0x6b8d7139():
-    pass
-
-class 0x6b91544a(IGameModeConfig):
-    0x46edf5aa: (F32, 0x0, 0x0, 0x0) = 1.100000023841858
-    BlurTextures: (Bool, 0x0, 0x0, 0x0) = true
-    FadeInRate: (F32, 0x0, 0x0, 0x0) = 1.190000057220459
-    BlurKernelSigma: (F32, 0x0, 0x0, 0x0) = -1.0
-    VfxSystems: (List2, 0x0, Embed, VfxPrimitiveCameraSegmentSeriesBeam) = []
-    FadeOutRate: (F32, 0x0, 0x0, 0x0) = 0.5
-    0xcd986599: (Bool, 0x0, 0x0, 0x0) = false
-    UpscaleTextures: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class 0x6bbc3db6(0x288b8edc):
@@ -7408,10 +7373,6 @@ class 0xd25f84b0(ILoadoutInfoPanel):
     FavoriteButtonDefinition: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xd2807c60(VfxMaterialContainer):
-    Material: (Embed, 0x0, 0x0, StaticMaterialDef) = {"SharedTextureSets":[],"childTechniques":[],"dynamicMaterial":null,"name":"","paramValues":[],"samplerValues":[],"shaderMacros":{},"switches":[],"techniques":[],"type":1}
-    pass
-
 class 0xd2b529c():
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x25acb4ca: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -7649,12 +7610,6 @@ class 0xd7ec4ad6():
     FrameIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     RootGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     PortraitIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xd82714cc():
-    Color: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
-    name: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    flags: (U16, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0xd83b3308():
@@ -8691,12 +8646,6 @@ class 0xf4198792(0x70f6f74b):
     Filter: (Pointer, 0x0, 0x0, 0x70f6f74b) = null
     pass
 
-class 0xf42cd443():
-    NavGridConfig: (Link, 0x0, 0x0, NavGridConfig) = "0x0"
-    RegionTags: (List2, 0x0, String, 0x0) = []
-    groupName: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0xf43ad1ce():
     IconShadowT1: (Hash, 0x0, 0x0, 0x0) = "0x0"
     IconShadowT2: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -8763,11 +8712,6 @@ class 0xf6b7b0b6(TftMapConditionData):
 class 0xf6e1bec7():
     Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
     FunctionName: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xf6f4bb5f():
-    Color: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
-    name: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xf6fef7cb(MissileTriggerSpec):
@@ -15575,6 +15519,9 @@ class IParticleQuadShadingModel(IParticleShadingModel):
 class IParticleShadingModel(IX3dShadingModel):
     pass
 
+class IParticleSpawnDataGenerator():
+    pass
+
 class IPath(MapPlaceable):
     pass
 
@@ -19310,11 +19257,62 @@ class NarrativeBarksList():
 class NavGridConfig():
     ErrorColor: (Color, 0x0, 0x0, 0x0) = [0,0,255,255]
     TerrainConfig: (Link, 0x0, 0x0, NavGridTerrainConfig) = "0x0"
-    RegionGroups: (List2, 0x0, Embed, 0x2bfb084c) = []
+    RegionGroups: (List2, 0x0, Embed, NavGridRegionGroupDefinition) = []
+    pass
+
+class NavGridRegionGroupDefinition():
+    0x50d6d98f: (Bool, 0x0, 0x0, 0x0) = false
+    groupName: (String, 0x0, 0x0, 0x0) = ""
+    IsGameplayGroup: (Bool, 0x0, 0x0, 0x0) = false
+    tags: (List2, 0x0, Embed, NavGridRegionTagDefinition) = []
+    pass
+
+class NavGridRegionInputData():
+    0x218a55e2: (F32, 0x0, 0x0, 0x0) = 0.0
+    CursorMode: (U32, 0x0, 0x0, 0x0) = 0
+    0xc4454080: (F32, 0x0, 0x0, 0x0) = 0.0
+    0xe8d9f82b: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class NavGridRegionRenderData(IGameModeConfig):
+    0x46edf5aa: (F32, 0x0, 0x0, 0x0) = 1.100000023841858
+    BlurTextures: (Bool, 0x0, 0x0, 0x0) = true
+    FadeInRate: (F32, 0x0, 0x0, 0x0) = 1.190000057220459
+    BlurKernelSigma: (F32, 0x0, 0x0, 0x0) = -1.0
+    VfxSystems: (List2, 0x0, Embed, NavGridRegionVfxData) = []
+    FadeOutRate: (F32, 0x0, 0x0, 0x0) = 0.5
+    0xcd986599: (Bool, 0x0, 0x0, 0x0) = false
+    UpscaleTextures: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class NavGridRegionTagDefinition():
+    Color: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
+    name: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class NavGridRegionTagsLink():
+    NavGridConfig: (Link, 0x0, 0x0, NavGridConfig) = "0x0"
+    RegionTags: (List2, 0x0, String, 0x0) = []
+    groupName: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class NavGridRegionVfxData():
+    0x18273a68: (File, 0x0, 0x0, 0x0) = "0x0"
+    0x1c45cf5c: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
+    VfxSystem: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
+    name: (String, 0x0, 0x0, 0x0) = ""
+    VfxMask: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
+    InputData: (Pointer, 0x0, 0x0, NavGridRegionInputData) = null
     pass
 
 class NavGridTerrainConfig():
-    tags: (List2, 0x0, Embed, 0xd82714cc) = []
+    tags: (List2, 0x0, Embed, NavGridTerrainTagDefinition) = []
+    pass
+
+class NavGridTerrainTagDefinition():
+    Color: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
+    name: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    flags: (U16, 0x0, 0x0, 0x0) = 0
     pass
 
 class NavHeaderViewController(ViewController):
@@ -19379,6 +19377,10 @@ class NavRegionGeComponent(GameEntityComponent):
     pass
 
 class NavRegionGeComponentDef(IGeComponentDef):
+    pass
+
+class NavigationGridParticleSpawnDataGenerator(IParticleSpawnDataGenerator):
+    VfxGroupName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class NavigationGroup():
@@ -29948,6 +29950,10 @@ class VfxEffectorDefinition():
     0x608eac63: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
+class VfxEmbeddedMaterial(VfxMaterialContainer):
+    Material: (Embed, 0x0, 0x0, StaticMaterialDef) = {"SharedTextureSets":[],"childTechniques":[],"dynamicMaterial":null,"name":"","paramValues":[],"samplerValues":[],"shaderMacros":{},"switches":[],"techniques":[],"type":1}
+    pass
+
 class VfxEmissionBox(IVfxEmissionSource):
     Distribution: (Pointer, 0x0, 0x0, 0x2d42ea41) = null
     BoxSize: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
@@ -29961,6 +29967,9 @@ class VfxEmissionCylinder(IVfxEmissionSource):
     height: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     radius: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     IncludeCaps: (Flag, 0x0, 0x0, 0x0) = false
+    pass
+
+class VfxEmissionLinkedMeshData(IVfxEmissionSurface):
     pass
 
 class VfxEmissionMesh(IVfxEmissionSource):
@@ -30001,7 +30010,7 @@ class VfxEmissionSphere(IVfxEmissionSource):
 
 class VfxEmissionSurfaceData():
     EmissionSurface: (Pointer, 0x0, 0x0, IVfxEmissionSurface) = null
-    0xf8b81c77: (Pointer, 0x0, 0x0, 0x1519e8d2) = null
+    ParticleSpawnDataGenerator: (Pointer, 0x0, 0x0, IParticleSpawnDataGenerator) = null
     pass
 
 class VfxEmitterAudio():
@@ -30769,15 +30778,6 @@ class VfxPrimitiveCameraQuad(VfxLegacyPrimitiveBase, IVfxShimmerGeometry):
     pass
 
 class VfxPrimitiveCameraSegmentBeam(VfxPrimitiveBeamBase):
-    pass
-
-class VfxPrimitiveCameraSegmentSeriesBeam():
-    0x18273a68: (File, 0x0, 0x0, 0x0) = "0x0"
-    0x1c45cf5c: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
-    VfxSystem: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
-    name: (String, 0x0, 0x0, 0x0) = ""
-    VfxMask: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
-    InputData: (Pointer, 0x0, 0x0, 0x2d00e4da) = null
     pass
 
 class VfxPrimitiveCameraTrail(VfxPrimitiveTrailBase):

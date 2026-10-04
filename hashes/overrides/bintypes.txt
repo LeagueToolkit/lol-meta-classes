@@ -352,6 +352,7 @@ c657a95d IMonarchItemData
 da0d41ce INumericModifier
 116f5c56 IOverrideOptionItem
 5b9c3965 IParametricSequenceAction
+1519e8d2 IParticleSpawnDataGenerator
 c56dc33d IPathGet
 4664ae0a IRegionBoundaryRenderInfo
 72f61cad IRenderingBlock
@@ -597,7 +598,15 @@ df799a6e MovingSituations
 906b3602 MultiAnnouncerVoEventType
 b58b70dc MultiChampionMusicEventType
 661f15c3 MultiTeam
+2bfb084c NavGridRegionGroupDefinition
+2d00e4da NavGridRegionInputData
+6b91544a NavGridRegionRenderData
+f6f4bb5f NavGridRegionTagDefinition
+f42cd443 NavGridRegionTagsLink
+41c19efe NavGridRegionVfxData
+d82714cc NavGridTerrainTagDefinition
 301dab05 NavRegionDef
+671b7351 NavigationGridParticleSpawnDataGenerator
 38a3503e NetworkingGeComponent
 429a2180 NeutralCampDefinition
 1f69daba NeutralCampEntity
@@ -1011,8 +1020,10 @@ ff2348d3 VfxDivideByFactorVector4Driver
 bce20874 VfxDynamicParameterRoundModifier
 75e34c40 VfxDynamicParametersData
 892635ba VfxEffectorDefinition
+d2807c60 VfxEmbeddedMaterial
 4a3e3da9 VfxEmissionBox
 0eeaaebe VfxEmissionCylinder
+526478f0 VfxEmissionLinkedMeshData
 d965d435 VfxEmissionMesh
 cd5a34f5 VfxEmissionMeshData
 56abfbd6 VfxEmissionPoint

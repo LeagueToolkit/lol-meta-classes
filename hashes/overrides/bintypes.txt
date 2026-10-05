@@ -324,6 +324,7 @@ d0713947 IGameScreenVfxBlock
 990de67e IHighlighterViewController
 258e4761 IInputUpdater
 65a1bb16 IInterpolateFloatUpdate
+aa8b4ed6 IItemGameModeData
 5ba190cc IKeyBind
 3d3ef324 ILobbyGlobalBlock
 a56f7c7a ILobbySegmentBlock
@@ -349,6 +350,7 @@ c657a95d IMonarchItemData
 4cc1ed12 IMonarchPropertyKey
 645e288b IMonarchTagQueryValue
 7992a72c IMonarchTargetingRequirement
+70f6f74b INovaItemSelectionFilter
 da0d41ce INumericModifier
 116f5c56 IOverrideOptionItem
 5b9c3965 IParametricSequenceAction
@@ -363,6 +365,7 @@ f3818a3f ISegmentGet
 046a7786 ISequencerBlock
 3ff79219 IShapeRenderInfo
 da11137d ISkinAugmentLoadableModifier
+c10d4fdc ISubphaseAdditionalData
 c5a1ad34 ITagList
 75e04233 ITargetFrameViewController
 309738e5 ITeam
@@ -426,6 +429,7 @@ fe87f21e LastHitData
 a5e2976a LightRegionEntityTemplate
 f15a89f3 LightRegionRenderData
 fadcd386 LightRegionTextureData
+d87aa3f7 LinkedNovaItemSelectionFilterList
 ea830028 LinkedTagList
 ea69d6f3 ListGet
 60e2ec74 LoadingScreenBackgroundGameModeConfig
@@ -613,6 +617,7 @@ d82714cc NavGridTerrainTagDefinition
 42239bf8 NeutralCampEntityPrefab
 d178749c NeutralCampEntityTemplate
 21814e41 NexusFinisherViewController
+1cd34280 NovaItemData
 822cf77c NovaItemGetBool
 d5e5500b NovaItemGetBoolCompare
 902a32e0 NovaItemGetBoolConcept
@@ -629,6 +634,7 @@ b3cd3cc3 NovaItemGetFloatProperty
 7dcbc017 NovaItemGetFloatValue
 89ea80a5 NovaItemGetIcon
 8d941811 NovaItemGetImage
+556b035c NovaItemGetImageBySlot
 4c56ab8a NovaItemGetImageIf
 5711e197 NovaItemGetImageLookup
 55e4081d NovaItemGetImageSwitch
@@ -639,12 +645,14 @@ bc3a680e NovaItemGetIntIf
 2c9d2ca9 NovaItemGetIntSwitch
 6fb58e22 NovaItemGetIntValue
 5d820e16 NovaItemGetItemId
+254a25a7 NovaItemGetStatValue
 3f8dac45 NovaItemGetString
 53806086 NovaItemGetStringIf
 56276148 NovaItemGetStringProperty
 b554f9f1 NovaItemGetStringSwitch
 23025f4a NovaItemGetStringValue
 5a7f871f NovaItemGetTooltip
+21820ed8 NovaItemSelectionFilterList
 c84caf96 OnPrimaryInputSingleClickEvent
 165c0117 OptionItemControlSelectionSettings
 a91b85e3 OptionTemplateBase
@@ -1131,6 +1139,7 @@ cd481b33 VfxVector4PropertyDriver
 6ff8b2a7 WasdInputUpdater
 92309121 WasdMoveOrderData
 595773f6 WaterDisturbanceConfig
+83efb6f9 WeightedTags
 9c33070d WhileLoopBlock
 ead9c70c WorldSpaceUiEntityTemplate
 571eec0a XpReward

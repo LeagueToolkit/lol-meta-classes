@@ -328,6 +328,7 @@ c70f6a1e DailyLoginViewController
 aa13ab5a DamageTypeToMatch
 3965005a DampingEnd
 9ccb16cf DampingStart
+09a05a12 DataGetter
 f3e7ac05 DataOptions
 137cf12a DataValue
 abb44364 Datacenter
@@ -588,6 +589,7 @@ ed584814 GameClientVersion
 7afcb694 GameEnd
 87d000ca GameId
 520cfbb9 GameModeAssets
+5f309a68 GameModeData
 bfe15a6a GameModeTemplate
 af4d582d GameStart
 b4873916 GameTime
@@ -938,6 +940,7 @@ b1c14e0d Node
 d6b1e82e NoiseVector
 74752bb3 NormalStrength
 70bb674e NotificationVfx
+f82a9a98 NovaItem
 342dcc43 NumPlayers
 182f3d26 ObjectCreator
 1ba4e4a5 ObjectiveId
@@ -950,6 +953,7 @@ d488a847 OffsetLeft
 6cc62ae7 OffsetUp
 baee8b38 OnEvent
 15d49cde Operand
+0aeac70d OperandGetter
 fbd4eefd Operator
 b818e45a OptionLayout
 49c5d8f9 Optional
@@ -1424,6 +1428,7 @@ b0727511 Strings
 bd00b074 SubEvents
 a0f848d1 SubRequirements
 891cfe4f Subject
+a42117a5 SubphaseAdditionalData
 312f9dd7 SubteamBadge
 4c0c91fd SuccessesRequired
 9d8b5bd5 SummonerLevel
@@ -1442,6 +1447,7 @@ c1b1aa2a SystemPrompt
 0ebfad7f TacticianScale
 8252a6f2 TagColor
 fbf302db TagData
+21d40f1b TagList
 3d4f04d8 TagName
 37c3a421 TagQuery
 0a9e6b95 Taper
@@ -1632,6 +1638,7 @@ fb648e3a WaveSpeedMinMultiplier
 bd7fb06f WaveSpeedSq
 94b9171c WaveSpeedWobbleFrequency
 3d9c3ae4 WaveSpeedWobbleMagnitude
+83efb6f9 WeightedTags
 6de3397a WindowWorldSize
 dc7ec024 WipStat1
 df7ec4dd WipStat2

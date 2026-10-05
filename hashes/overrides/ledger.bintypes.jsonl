@@ -1134,3 +1134,12 @@
 {"hash": "526478f0", "name": "VfxEmissionLinkedMeshData", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
 {"hash": "b0cdad34", "name": "VfxLightComponent", "batch": "vfx-light-component-unproven", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
 {"hash": "83456589", "name": "ParticlePointLightInfo", "batch": "vfx-point-light", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "aa8b4ed6", "name": "IItemGameModeData", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "70f6f74b", "name": "INovaItemSelectionFilter", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "c10d4fdc", "name": "ISubphaseAdditionalData", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "d87aa3f7", "name": "LinkedNovaItemSelectionFilterList", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "1cd34280", "name": "NovaItemData", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "556b035c", "name": "NovaItemGetImageBySlot", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "254a25a7", "name": "NovaItemGetStatValue", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "21820ed8", "name": "NovaItemSelectionFilterList", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "83efb6f9", "name": "WeightedTags", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}

@@ -1657,3 +1657,10 @@
 {"hash": "f8b81c77", "name": "ParticleSpawnDataGenerator", "batch": "emission-surface-navgrid", "cracked": "2026-10-04", "status": "submitted", "pr": "https://github.com/CommunityDragon/Data/pull/50"}
 {"hash": "d0fc9cec", "name": "Impacts", "batch": "vfx-light-component-unproven", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
 {"hash": "b9d5eb37", "name": "UseFirstParticlePosition", "batch": "vfx-light-component-unproven", "cracked": "2026-10-04", "status": "pending", "pr": "-"}
+{"hash": "09a05a12", "name": "DataGetter", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "5f309a68", "name": "GameModeData", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "f82a9a98", "name": "NovaItem", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "0aeac70d", "name": "OperandGetter", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "a42117a5", "name": "SubphaseAdditionalData", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "21d40f1b", "name": "TagList", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "83efb6f9", "name": "WeightedTags", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}

@@ -327,13 +327,15 @@ typed getter trees (`0x822cf77c` Bool, `0xa79ac316` Float, `0x53bee89d` Int,
 `0x8d941811` Image, `0x3f8dac45` String), plus a filter tree (`0x70f6f74b`, 16
 members), a variable-binding tree (`0x40452a8d`, 6), an input tree (`0x19ccc111`,
 3) and an empty interface pair (`0x664d2c6d`, 2). The `nova-item-getters` campaign
-landed 32 of the 62, plus 24 field names, and leaves 30
+landed 32 of the 62, plus 24 field names. `nova-item-selection-filters` then proved
+the filter tree and one image getter, which leaves 13
 ([docs/nova-item-getters.md](nova-item-getters.md)).
 
 Two things decide how to spend here. The getter trees are parallel expressions of
 one concept set, so `recover_stem` run per node role beats any per-hash search, and
-that is what proved the batch. The filter and binding trees resist because they do
-not repeat the type word in the same position. Read the campaign's negatives before
+that is what proved the batch. The filter tree fell to one-word suffix folding once
+the `_` separator was in play; fourteen of its names carry it and are upstream's to
+add. The binding tree still resists. Read the campaign's negatives before
 pointing a run at them: a full-corpus two-token sweep at 4.84 expected noise
 returned zero, so recombination does not reach this family at all.
 

@@ -9922,7 +9922,7 @@
  "0x174d75d3": {"name":"leagueName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xb311d4ef": {"name":"TextureName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x48b525af": {"revisions": [{"from":7345787,"to":7345787,"bases":["0xb4745778"],"interface":false,"value":false},{"from":7371049,"bases":["0xb4745778"],"interface":false,"value":false}], "properties": {
+"0x48b525af": {"name": "AtlasDataVideo", "revisions": [{"from":7345787,"to":7345787,"bases":["0xb4745778"],"interface":false,"value":false},{"from":7371049,"bases":["0xb4745778"],"interface":false,"value":false}], "properties": {
  "0xaaea5743": {"name":"File","revisions":[{"from":7345787,"to":7345787,"type":["String","0x0","0x0","0x0"],"default":""},{"from":7371049,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xddef486b": {"name":"Loop","revisions":[{"from":7426169,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
@@ -12587,7 +12587,7 @@
 "0x5eac2a00": {"name": "BehaviorScript", "revisions": [{"from":5229820,"bases":["0xbad95a7a"],"interface":true,"value":false}], "properties": {
  "0xf9f16781": {"name":"sequences","revisions":[{"from":5276396,"to":5706276,"type":["Map","Hash","Embed","0x9ef32dd9"]},{"from":5715678,"to":6369832,"type":["Map","Hash","Embed","0x7eafed49"]}]}
 }},
-"0x5eaead1a": {"revisions": [{"from":7135912,"bases":["0xb4745778"],"interface":false,"value":false}], "properties": {
+"0x5eaead1a": {"name": "SolidColorTextureData", "revisions": [{"from":7135912,"bases":["0xb4745778"],"interface":false,"value":false}], "properties": {
 }},
 "0x5ebbc52b": {"name": "ItemRecommendationChoices", "revisions": [{"from":5229820,"to":7569613,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2db18650": {"name":"mChoices","revisions":[{"from":5229820,"to":7569613,"type":["List","0x0","U32","0x0"],"default":[]}]}

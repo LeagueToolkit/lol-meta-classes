@@ -2244,11 +2244,6 @@ class 0x487b1677():
     0x6406d8f7: (List2, 0x0, Pointer, 0xa50ab26) = []
     pass
 
-class 0x48b525af(IUiTextureDataProvider):
-    File: (String, 0x0, 0x0, 0x0) = ""
-    Loop: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0x48c497b7(UISceneViewPane):
     pass
 
@@ -3049,9 +3044,6 @@ class 0x5e518c82(ISequenceAction):
     pass
 
 class 0x5ea71f0d(OptionItemDropdown):
-    pass
-
-class 0x5eaead1a(IUiTextureDataProvider):
     pass
 
 class 0x5ee39f14():
@@ -9517,6 +9509,11 @@ class AtlasDataBase(IUiTextureDataProvider):
     mTextureSourceResolutionHeight: (U32, 0x0, 0x0, 0x0)
     mTextureSourceResolutionWidth: (U32, 0x0, 0x0, 0x0)
     mTextureName: (File, 0x0, 0x0, 0x0)
+    pass
+
+class AtlasDataVideo(IUiTextureDataProvider):
+    File: (String, 0x0, 0x0, 0x0) = ""
+    Loop: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class AtomicClipData(BlendableClipData):
@@ -23221,6 +23218,9 @@ class SocketDefinitionSingleJoint(SocketDefinitionBase):
 
 class SocketDefinitionWorld(SocketDefinitionBase):
     PositionOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
+    pass
+
+class SolidColorTextureData(IUiTextureDataProvider):
     pass
 
 class SortCustomTableBlock(IScriptBlock):

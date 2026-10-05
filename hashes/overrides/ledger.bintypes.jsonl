@@ -1157,3 +1157,5 @@
 {"hash": "2c2d1a17", "name": "NovaItemSelectionFilter_StringDataCompare", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
 {"hash": "1f1eadd0", "name": "NovaItemSelectionFilter_StringValueCompare", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
 {"hash": "83efb6f9", "name": "WeightedTags", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "48b525af", "name": "AtlasDataVideo", "batch": "ui-texture-providers", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "5eaead1a", "name": "SolidColorTextureData", "batch": "ui-texture-providers", "cracked": "2026-10-05", "status": "pending", "pr": "-"}

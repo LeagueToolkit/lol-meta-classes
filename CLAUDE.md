@@ -11,7 +11,9 @@ live in `docs/meta-db-format.md` and `docs/database.md`.
 - A change to `dumps/` or `hashes/` must be committed together with the regenerated
   `db/` output, or the Verify Generated DB check fails.
 - **Every name added to an override table or the ledger is PascalCase**, bar a single
-  leading lowercase letter (`mCoefficient`). No other exceptions, no per-name
+  leading lowercase letter (`mCoefficient`). A name may carry `_` separators, with
+  every part PascalCase on its own (`NovaItemSelectionFilter_And`): the separator is
+  a hashed byte, so it is kept as written. No other exceptions, no per-name
   judgement calls. `hashtool add` rejects anything else and `hashtool lint` checks the
   tables as a whole; the reasoning is in `scripts/names.py`, and the short version is
   that camelCase costs the wordlist the first word of every name it appears in - which

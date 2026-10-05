@@ -330,15 +330,17 @@ fn main() -> Result<()> {
     // fields, which is the only way to reach them - "M" is not in the wordlist).
     // Two lowercase letters would emit names `hashtool add` refuses, and the
     // emit filter would drop every hit, so fail here instead of running a search
-    // that cannot report anything.
+    // that cannot report anything. A `_` is allowed: families such as
+    // `NovaItemSelectionFilter_And` put one between the stem and the last word,
+    // and a prefix ending in it is the only way the search reaches them.
     for p in &prefixes {
-        let ok = p.text.chars().all(|c| c.is_ascii_alphanumeric())
+        let ok = p.text.chars().all(|c| c.is_ascii_alphanumeric() || c == '_')
             && (p.text.is_empty()
                 || words::is_valid_name(&format!("{}Word", p.text)));
         anyhow::ensure!(
             ok,
             "prefix {:?} cannot head a name this repo would accept - it has to \
-             be empty, start uppercase, or be a single lowercase letter",
+             be empty, start uppercase, or be a single lowercase letter, with              `_` as the only separator",
             p.text
         );
     }

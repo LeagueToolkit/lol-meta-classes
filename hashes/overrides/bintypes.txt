@@ -23,6 +23,7 @@ e97bc20d AreaTriggerEntityPrefab
 4cf74021 AreaTriggerEntityTemplate
 4c9ed39e AreaTriggerPolygonData
 741fa51d AreaTriggerShapeData
+48b525af AtlasDataVideo
 01e1cce2 AttackableEntity
 3c2bf0c0 AttackableEntityPrefab
 ad65d8c4 AttackableEntityTemplate
@@ -891,6 +892,7 @@ a4eb8410 ShuffleCustomTableBlock
 8fe295c8 SocketDefinitionBase
 ddf17bcb SocketDefinitionSingleJoint
 165b1803 SocketDefinitionWorld
+5eaead1a SolidColorTextureData
 91ccdfbc SpawnEntityBlock
 062ca0ae SpawnInSequence
 4957da2f SpawnPrefabBlock

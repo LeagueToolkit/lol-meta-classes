@@ -153,8 +153,9 @@ with a short exempt list in `names.py` for names whose capitals are attested.
 Casing is ours to legislate because the bin-hash is FNV-1a over the *lowercased*
 name: recasing an entry cannot change what it resolves. Separators are a
 different matter - the underscore in `Obj_InfoPoint` is hashed like any other
-byte - so a name carrying one cannot be normalized into the rule, and `lint`
-reports it instead of rewriting it.
+byte - so a `_` is kept exactly as the name carries it, and every part between
+separators is PascalCase on its own (`NovaItemSelectionFilter_And`). `lint`
+reports any other non-alphanumeric byte instead of rewriting it.
 
 This binds what we author. `../hashes.*.txt` is upstream's file copied as
 served, largely camelCase on the binfields side, and is never rewritten; that is

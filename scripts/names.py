@@ -2,9 +2,10 @@
 """The naming rule for cracked names, and the word splitter built on it.
 
 Every name this repo adds to an override table or a ledger row is PascalCase:
-an uppercase first letter, then ASCII letters and digits only. No camelCase, no
-underscores, no separators. `check_name` is the enforcement point and is not
-advisory - `hashtool add` refuses a name that fails it.
+an uppercase first letter, then ASCII letters and digits only. No camelCase.
+A name may carry `_` separators, and then every part between them is PascalCase
+on its own: `NovaItemSelectionFilter_And`. `check_name` is the enforcement point
+and is not advisory - `hashtool add` refuses a name that fails it.
 
 The reason is the wordlist, not tidiness. Cracking a hash means recombining
 words taken from names we already know, so a name is only worth as much as the
@@ -38,9 +39,14 @@ handful of names where attestation puts the capitals there.
 Casing is free to legislate because the bin-hash is FNV-1a over the *lowercased*
 name: `abilityHaste` and `AbilityHaste` are the same hash and resolve the same
 thing. Separators are not - the underscore in `Obj_InfoPoint` is hashed like any
-other byte, so a name carrying one cannot be normalized into the rule and has to
-be rejected instead. `to_pascal` only ever changes letter case, and returns None
-rather than produce a name that hashes to something else.
+other byte, so it cannot be dropped or added. It is kept as written instead. The
+engine names whole families this way (`ViewControllerFilter_And`,
+`OptionItemFilter_Not`, `NovaItemSelectionFilter_Or`), and refusing the separator
+meant a proved name could not be recorded at all. It costs the wordlist nothing:
+`split_words` breaks on it, so `Obj_InfoPoint` yields "Obj", "Info" and "Point"
+exactly as `ObjInfoPoint` would. `_` is the only separator accepted, because it
+is the only one these names use. `to_pascal` only ever changes letter case, and
+returns None rather than produce a name that hashes to something else.
 
 Upstream is under no such rule and its binfields table is largely camelCase; the
 mirror is vendored as served and is not rewritten. The rule binds what *we*
@@ -62,6 +68,14 @@ RE_NOTATION = re.compile(r"^[a-z][A-Z][A-Za-z0-9]*$")
 # Case-only normalization is possible exactly when the name is already
 # alphanumeric - anything else would need a byte removed, which moves the hash.
 RE_ALNUM = re.compile(r"^[A-Za-z][A-Za-z0-9]*$")
+
+# The one separator a name may carry. Every part between separators obeys the
+# rule on its own; only the first may take the notation prefix.
+SEPARATOR = "_"
+
+# A part after a separator. It may open with a digit, which the head of a name
+# may not: `Foo_2d` is a spelling the engine can produce and `2dFoo` is not.
+RE_PART = re.compile(r"^[A-Z0-9][A-Za-z0-9]*$")
 
 # One identifier -> its words, in order. The alternatives are tried left to
 # right, so the acronym case wins before the ordinary one:
@@ -119,12 +133,21 @@ def is_notation_prefixed(name):
 def is_valid_name(name):
     """Whether `name` may be added to an override table or a ledger row.
 
-    PascalCase, or the one-letter-prefix exception. Interface names need no
+    PascalCase, or the one-letter-prefix exception, optionally followed by
+    `_`-separated parts that are each PascalCase. Interface names need no
     special case and never did: `IFoo` is already PascalCase, and `split_words`
     hands back "I" + "Foo" rather than "IF" + "oo", so the `I` stays a word in
     its own right - it is one of the most productive words in the wordlist, at
     197 occurrences."""
-    return (is_pascal(name) or is_notation_prefixed(name)) and not acronym_runs(name)
+    return has_valid_shape(name) and not acronym_runs(name)
+
+
+def has_valid_shape(name):
+    """The rule without the acronym check: a PascalCase or notation-prefixed
+    head, then any number of `_`-separated PascalCase parts."""
+    head, *rest = (name or "").split(SEPARATOR)
+    return ((is_pascal(head) or is_notation_prefixed(head))
+            and all(RE_PART.match(part) for part in rest))
 
 
 # No word is spelled in capitals past its first letter: `Ui`, not `UI`; `Tft`,
@@ -204,20 +227,24 @@ def why_invalid(name):
     """The specific reason `name` fails, phrased for someone about to retype it.
 
     A bare "not PascalCase" leaves the caller guessing which part offends, and
-    the failures have very different fixes: wrong case is a rename, a separator
-    means the name cannot be used at all."""
+    the failures have very different fixes: wrong case is a rename, a stray
+    byte means the spelling itself is wrong."""
     if not name:
         return "empty name"
-    bad = sorted({c for c in name if not (c.isascii() and c.isalnum())})
+    bad = sorted({c for c in name
+                  if not (c.isascii() and (c.isalnum() or c == SEPARATOR))})
     if bad:
         chars = " ".join(repr(c) for c in bad)
-        return (f"contains {chars}; PascalCase is letters and digits only, and "
-                f"a separator is part of the hashed bytes so it cannot be "
-                f"dropped - if the name really carries one, it is not ours to add")
+        return (f"contains {chars}; a name is ASCII letters and digits, with "
+                f"{SEPARATOR!r} as the only separator. Every byte is hashed, "
+                f"so this one cannot be dropped - check the spelling")
+    if "" in name.split(SEPARATOR):
+        return (f"has an empty part beside a {SEPARATOR!r}; a separator sits "
+                f"between two parts, never at an end and never doubled")
     if name[0].isdigit():
         return "starts with a digit; PascalCase starts with an uppercase letter"
     runs = acronym_runs(name)
-    if runs and (is_pascal(name) or is_notation_prefixed(name)):
+    if runs and has_valid_shape(name):
         caps = ", ".join(repr(r) for r in runs)
         return (f"spells {caps} in capitals; no word is capitalized past its "
                 f"first letter, because the splitter reads a capital run as a "
@@ -233,6 +260,10 @@ def why_invalid(name):
                     f"only a single letter may lead a name, because a longer run "
                     f"is a word the capital recovers - write it {fixed!r}")
         return f"starts lowercase; write it {fixed!r}"
+    fixed = to_pascal(name)
+    if fixed and fixed != name:
+        return (f"a part after {SEPARATOR!r} does not open with a capital; "
+                f"write it {fixed!r}")
     return "not PascalCase"
 
 
@@ -252,16 +283,22 @@ def to_pascal(name):
     exactly what it did before, and the change is confined to what the name
     displays as.
 
-    None means the name holds a separator or some other non-alphanumeric byte.
-    That is a genuinely different name, not a differently-cased one, and the
-    caller has to decide about it rather than have it silently rewritten.
+    A `_` separator stays where it is and each part is recased on its own.
+    None means the name holds some other non-alphanumeric byte, or an empty
+    part. That is a genuinely different name, not a differently-cased one, and
+    the caller has to decide about it rather than have it silently rewritten.
 
     Only ever call this on a name `is_valid_name` has already rejected. On a
     notation-prefixed name it is the wrong repair by construction - it produces
     the `MCoefficient` the exception exists to avoid."""
-    if not name or not RE_ALNUM.match(name):
+    if not name:
         return None
-    return fold_acronyms(name[0].upper() + name[1:])
+    head, *rest = name.split(SEPARATOR)
+    if not RE_ALNUM.match(head) or not all(
+            re.match(r"^[A-Za-z0-9]+$", part) for part in rest):
+        return None
+    parts = [part[0].upper() + part[1:] for part in [head] + rest]
+    return fold_acronyms(SEPARATOR.join(parts))
 
 
 def split_words(name, prefix_max=PREFIX_MAX):

@@ -50,7 +50,8 @@ back permanently - it still resolves here, but drops out of `--list pending`,
 which is the "what still needs a CDragon PR" view.
 
 Every name added here is PascalCase, bar a single leading lowercase letter
-(`mCoefficient`) - `add` rejects anything else outright, and `lint` checks the
+(`mCoefficient`) and `_` between PascalCase parts (`Filter_And`) - `add`
+rejects anything else outright, and `lint` checks the
 tables and ledgers as a whole. The rule pays for itself in the wordlist that the
 next crack is built from; scripts/names.py has the reasoning, including why that
 one prefix is exempt from it.
@@ -163,9 +164,9 @@ def cmd_add(args):
         for name, why in rejected:
             print(f"[error] {name}: {why}", file=sys.stderr)
         print(f"[error] nothing added. Names in this repo are PascalCase, bar a "
-              f"single leading lowercase letter (mCoefficient) - it is what "
-              f"makes the wordlist usable for the next crack "
-              f"(scripts/names.py)", file=sys.stderr)
+              f"single leading lowercase letter (mCoefficient) and `_` between "
+              f"PascalCase parts (Filter_And) - it is what makes the wordlist "
+              f"usable for the next crack (scripts/names.py)", file=sys.stderr)
         return 2
 
     over_path = override_path(args.hashes, args.table)
@@ -347,6 +348,17 @@ def cmd_lint(args):
                     names_mod.split_words(name, prefix_max=0))
             elif names_mod.is_notation_prefixed(name):
                 expect, rebuilt = name[1:], "".join(names_mod.split_words(name))
+            elif names_mod.is_valid_name(name):
+                # Carries a separator. The splitter breaks on it and returns
+                # the words on either side, so the name has to come back with
+                # the separators gone and nothing else changed.
+                joined = name.replace(names_mod.SEPARATOR, "")
+                if names_mod.is_pascal(name.split(names_mod.SEPARATOR)[0]):
+                    expect, rebuilt = joined, "".join(
+                        names_mod.split_words(name, prefix_max=0))
+                else:
+                    expect, rebuilt = joined[1:], "".join(
+                        names_mod.split_words(name))
             else:
                 continue
             if rebuilt != expect:
@@ -395,12 +407,13 @@ def cmd_lint(args):
 
     if stuck:
         # Refuse the whole run rather than repair half of it: the names that
-        # can't be recased need a human decision (they carry a separator, so
-        # they are a different name and not a differently-spelled one), and a
-        # half-fixed tree hides that behind a green-looking result.
+        # can't be recased need a human decision (they carry a byte that is
+        # not a letter, a digit or the `_` separator, so the spelling itself is
+        # in question), and a half-fixed tree hides that behind a green-looking
+        # result.
         print(f"[error] {len(stuck)} name(s) cannot be fixed by recasing - "
-              f"a separator is part of the hash, so these are not ours to "
-              f"rewrite. Resolve them by hand first; nothing was changed",
+              f"every byte is part of the hash, so a stray one cannot be "
+              f"dropped. Resolve them by hand first; nothing was changed",
               file=sys.stderr)
         return 1
 

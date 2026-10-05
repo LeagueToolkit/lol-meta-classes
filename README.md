@@ -162,8 +162,9 @@ its own right. It is one of the most productive words in the wordlist.
 
 Recasing is always safe - the bin-hash is FNV-1a over the *lowercased* name, so
 `abilityHaste` and `AbilityHaste` are one hash. Separators are not, since they
-are hashed like any other byte, so a name containing one cannot be normalized
-and is rejected instead of rewritten.
+are hashed like any other byte. A `_` is therefore kept exactly as the name
+carries it, with every part between separators PascalCase on its own
+(`NovaItemSelectionFilter_And`). Any other non-alphanumeric byte is rejected.
 
 The rule binds what we author. `hashes/hashes.*.txt` is upstream's file byte for
 byte and stays as served, so the two layers can disagree about spelling - and an

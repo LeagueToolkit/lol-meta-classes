@@ -70,6 +70,17 @@ equals an unresolved field hash on the class itself (the field is the stem);
 two targets share a state (shared stem - and a stem filling n slots at once is
 `(p/2^32)^n`-competitive, turning a per-hash search into a per-concept one).
 
+**Separator stems.** Filter and predicate trees name their members
+`<Stem>_<Word>` (`ViewControllerFilter_And`, `OptionItemFilter_Not`,
+`NovaItemSelectionFilter_Or`), and recombination never produces the `_`. Fold
+one plain word out of the logic nodes first (`and`, `or`, `not`): a state they
+share is the stem with its separator, found without knowing either. When a
+proved root name does not equal that state, try the root's stem plus `_`, or
+sweep a few arbitrary characters after it. Then anchor the guesser with
+`--prefix <Stem>_`. A three-way agreement alone is not proof - FNV can return
+a second, meaningless agreeing triple - so require further members on the
+same state.
+
 **Slot filling.** Read each member's fields, defaults, holders and closure;
 propose names; require the hash to land in the slot the inheritance graph
 predicts. `python scripts/guesser_families.py check proposals.txt
@@ -144,7 +155,8 @@ Casing is invisible to the hash, so it must be attested - a shipped string,
 sibling spellings, corpus counts - never invented. Repo rules apply:
 PascalCase with the one-leading-lowercase-letter exception, acronyms
 title-cased (`Ui`, `Tft`) unless attestation puts them in
-`names.py` `ACRONYM_EXEMPT`. Word boundaries need attestation too, ranked
+`names.py` `ACRONYM_EXEMPT`. A `_` separator is kept as the name carries it,
+with every part PascalCase on its own (`NovaItemSelectionFilter_And`). Word boundaries need attestation too, ranked
 separator-in-shipped-path over cased table over own corpus.
 
 ## 5. Landing

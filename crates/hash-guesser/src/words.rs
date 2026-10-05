@@ -135,8 +135,25 @@ pub fn is_notation_prefixed(name: &str) -> bool {
 /// not a word the wordlist contains (0 occurrences across the current tables).
 /// Without a lowercase prefix, the whole `m`-prefixed half of the field table is
 /// unreachable by recombination rather than merely unlikely.
+///
+/// A name may also carry `_` separators (`NovaItemSelectionFilter_And`). The
+/// head obeys the rule above and every later part is letters and digits opening
+/// with a capital or a digit, matching `names.RE_PART`. Words never contain the
+/// separator, so it reaches a candidate only through a `--prefix`.
 pub fn is_valid_name(name: &str) -> bool {
-    is_pascal(name) || is_notation_prefixed(name)
+    let mut parts = name.split('_');
+    let head = parts.next().unwrap_or("");
+    (is_pascal(head) || is_notation_prefixed(head)) && parts.all(is_part)
+}
+
+/// A part after a `_` separator, matching `names.RE_PART`.
+fn is_part(part: &str) -> bool {
+    let mut chars = part.chars();
+    match chars.next() {
+        Some(c) if c.is_ascii_uppercase() || c.is_ascii_digit() => {}
+        _ => return false,
+    }
+    chars.all(|c| c.is_ascii_alphanumeric())
 }
 
 /// Does this name claim to be an interface - `I` then another capital?
@@ -238,7 +255,17 @@ mod tests {
         assert!(is_valid_name("mCoefficient"));
         assert!(is_valid_name("IFoo"));
         assert!(!is_valid_name("uvMode"));
-        assert!(!is_valid_name("Obj_InfoPoint"));
+        // A `_` separator is kept, and each part obeys the rule on its own.
+        assert!(is_valid_name("Obj_InfoPoint"));
+        assert!(is_valid_name("NovaItemSelectionFilter_And"));
+        assert!(is_valid_name("mFoo_Bar"));
+        assert!(!is_valid_name("Foo_bar"));
+        assert!(!is_valid_name("Foo_"));
+        assert!(!is_valid_name("_Foo"));
+        assert!(!is_valid_name("Foo__Bar"));
+        assert!(!is_valid_name("Foo-Bar"));
+        // The prefix check in main.rs asks this of a prefix ending in `_`.
+        assert!(is_valid_name("NovaItemSelectionFilter_Word"));
         // The prefix check in main.rs is spelled as this question.
         assert!(is_valid_name("mWord"));
         assert!(!is_valid_name("uvWord"));

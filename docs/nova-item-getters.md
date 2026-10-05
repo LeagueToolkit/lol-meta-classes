@@ -1,20 +1,22 @@
 # nova-item-getters - campaign record
 
 Record for `nova-item-getters`. Method: the `crack-family` skill
-(`.claude/skills/crack-family/SKILL.md`). 56 names are landed and `pending`, 30
-hashes are open, and the negatives below say where not to spend.
+(`.claude/skills/crack-family/SKILL.md`). 56 names are landed and `pending`. A second
+batch, `nova-item-selection-filters` (section 6), proves the filter tree and one image
+getter, which leaves 13 hashes open. The negatives below say where not to spend.
 
 Patch 16.17 (build `8104348`) introduced 85 classes. 62 of them form one system across
-nine roots, and **all 62 were live unnamed**. This pass proves 32, which leaves 30.
+nine roots, and **all 62 were live unnamed**. The first pass proved 32 and the second
+17, which leaves 13.
 
 | root | what it is | members | proved | left |
 | --- | --- | ---: | ---: | ---: |
 | `0x822cf77c` | Bool getter tree | 7 | 7 | 0 |
 | `0xa79ac316` | Float getter tree | 6 | 6 | 0 |
 | `0x53bee89d` | Int getter tree | 9 | 8 | 1 |
-| `0x8d941811` | Image getter tree | 7 | 5 | 2 |
+| `0x8d941811` | Image getter tree | 7 | 6 | 1 |
 | `0x3f8dac45` | String getter tree | 6 | 6 | 0 |
-| `0x70f6f74b` | filter / predicate tree | 16 | 0 | 16 |
+| `0x70f6f74b` | filter / predicate tree | 16 | 16 | 0 |
 | `0x40452a8d` | variable-binding tree | 6 | 0 | 6 |
 | `0x19ccc111` | input reference tree | 3 | 0 | 3 |
 | `0x664d2c6d` | empty interface pair | 2 | 0 | 2 |
@@ -192,47 +194,11 @@ Human or model vocabulary, not a bigger machine.
 
 ---
 
-## 3. What is left - 30 open hashes
+## 3. What is left - 13 open hashes
 
-### 3.1 The filter tree, `0x70f6f74b` (16, highest value)
+### 3.1 The filter tree, `0x70f6f74b` (16)
 
-A predicate tree over the getter trees. `0x21820ed8` is the `Condition` embed every
-`…If` node holds, and it is not a subclass.
-
-```
-0x70f6f74b   INTERFACE, no properties
-0x21820ed8   Filters: List2 Pointer 0x70f6f74b     (embed, no base)
-
-  provider vs provider   { 0x9a05a12: Pointer T, Operator: U8, 0xaeac70d: Pointer T }
-    0x17975a2c  T = NovaItemGetFloat      0x2c2d1a17  T = NovaItemGetString
-    0x484bd29d  T = NovaItemGetInt        0x5cf296d4  T = NovaItemGetBool
-
-  provider vs literal    { Operand: <T>, 0x9a05a12: Pointer T, Operator: U8 }
-    0x2cb48189  Operand F32               0x1f1eadd0  Operand String
-    0xb8efcc36  Operand I32               0xe7791d51  Operand Bool
-
-  0x756c1ccc   Filters: List2 Pointer 0x70f6f74b    and / or
-  0xc7ad307e   Filters: List2 Pointer 0x70f6f74b    and / or
-  0xf4198792   Filter:  Pointer 0x70f6f74b          not
-  0xd87aa3f7   Filters: Hash
-  0x63d91c69   tag: Hash
-  0xf9420b5e   Item: Hash, 0xf82a9a98: Hash
-  0xebbc64d2   no properties                        constant
-```
-
-Leads, in cost order:
-
-1. **Retry `recover_stem` with the type word off the tail.** Both comparison sets are
-   typed-parallel, so the machinery applies, but the type word is not last. Try it
-   first or middle, with `Compare`, `Equal`, `Is`, `Match`, `Cmp` as the fixed part.
-2. **Copy the two named filter conventions.** `ViewControllerFilterI` uses
-   `ViewControllerFilter_And` / `_Or` / `_Not`, and `IOptionItemFilter` uses
-   `OptionItemFilter_And` / `_Not` / `_Map`. The underscore form is worth testing,
-   because no Nova name uses it and the guesser will not reach it by recombination.
-3. **`crack_pair` on `0x9a05a12` and `0xaeac70d`.** They are the two comparison
-   operands, each on four classes, so solving them together is a 64-bit constraint.
-4. **`Operator: U8` is an enum.** Its member names would name the tree by
-   association. See section 4.3.
+Solved. See section 6.
 
 ### 3.2 The variable-binding tree, `0x40452a8d` (6)
 
@@ -262,10 +228,11 @@ candidate and it does **not** match. Note the extra `Bool` on the text node only
 mainline adopted at 15.3. Try `Keybind` as the last word, which both
 `MonarchSpellSlotKeybind` and `LoLSpellSlotKeybind` use.
 
-### 3.4 Three getter nodes
+### 3.4 Two getter nodes
+
+`0x556b035c` is `NovaItemGetImageBySlot` (section 6).
 
 ```
-0x556b035c  base NovaItemGetImage   slot: Pointer NovaItemGetInt
 0xc752c9d7  base NovaItemGetImage   Property: Pointer NovaItemGetString
 0x9b8a2421  base NovaItemGetInt     0x127a3f97: Pointer NovaItemGetString
 ```
@@ -283,7 +250,7 @@ Nothing constrains them. Leave them.
 | state | what it is | slots waiting |
 | --- | --- | --- |
 | `0xd6fbee84` | `novaitemget`, proved | none, spent |
-| - | the filter-tree stem, unknown | 16 |
+| `0x478f319d` | `novaitemselectionfilter_`, proved | none, spent |
 | - | the binding-tree stem, unknown | 6 |
 | - | the input-tree stem, unknown | 3 |
 
@@ -292,9 +259,6 @@ Nothing constrains them. Leave them.
 | hash | on | type | note |
 | --- | --- | --- | --- |
 | `0x5e16be82` | the five `…If` nodes | `Pointer <self>` | **five classes at once, so a 5-way `crack_pair` target.** Best single field lead |
-| `0x9a05a12` | 8 filter nodes | `Pointer T` | left comparison operand |
-| `0xaeac70d` | 4 filter nodes | `Pointer T` | right comparison operand |
-| `0xf82a9a98` | `0xf9420b5e` | `Hash` | beside `Item` |
 | `0x127a3f97` | `0x9b8a2421` | `Pointer NovaItemGetString` | int from a string |
 | `0x78812955` | `0x8aa21ee4` | `Bool` | only on the text binding |
 
@@ -390,7 +354,8 @@ All 56 rows `pending`, `pr=-`: 32 in `ledger.bintypes.jsonl`, 24 in
 | getter lattice, 26 classes | 26 | 3 | yes |
 | field names, 24 | 24 | 3 | yes |
 | leaf getters, 6 classes | 6 | 4 | **flag or split off** |
-| everything in section 3 | 30 | - | no, open |
+| everything in section 3 | 13 | - | no, open |
+| `nova-item-selection-filters`, 23 classes and 7 fields | 30 | 3 | yes, see section 6 |
 
 Casing follows the repo rule: PascalCase, acronyms title-cased. Word boundaries are
 attested rather than invented - `Nova` by the upstream
@@ -404,3 +369,131 @@ FNV-1a over the lowercased name, so none of them moved.
 Full working notes, including the shipped-data scan and the two unrelated 16.17
 findings, are in `league_structs/docs/reversing/NovaItemGet_TypedGetters.md`. The
 cross-tree stem driver is `league_structs/tools/fnv_stemcross.py`.
+
+---
+
+## 6. The filter tree, solved - batch `nova-item-selection-filters`
+
+### 6.1 What fixes the names
+
+Suffix folding with **one** word per member, not a typed role word. Folding `and`,
+`not` and `or` out of the three logic nodes gives one state, `0x478f319d`. Eleven more
+members then land on that state:
+
+| pass | probes x targets | expected noise | hits |
+| --- | --- | ---: | --- |
+| fold one vocabulary word out of all 16 | 5.0e4 states | - | `and` / `not` / `or` agree on `0x478f319d` |
+| state + 2 words | 1.0e7 x 13 | 0.03 | `HasTag`, `IsItem` |
+| state + type word + 2 words | 4.1e7 x 8 | 0.07 | all eight `<Type>DataCompare` / `<Type>ValueCompare` |
+| state + one of 9 lead words + 2 words | 9.2e7 x 1 | 0.02 | `IsValidItem` |
+| root: five `I…` leads + 2 words, 27,631-word list | 3.8e9 x 1 | 0.89 | `INovaItemSelectionFilter` |
+| 9 stems + up to 5 characters of `[a-z0-9_]` | 6.4e8 x 1 | 0.15 | the root stem + exactly `_` is the state `0x478f319d` |
+| 11 stems + 1 word, 378,779-word list | 4.2e6 x 3 | 0.003 | `NovaItemSelectionFilterList` = `0x21820ed8` |
+| word + one of 4 stems + word | 3.1e9 x 1 | 0.71 | `LinkedNovaItemSelectionFilterList` = `0xd87aa3f7` |
+
+The fold also returns a second agreeing triple, `lod` / `ult` / `vs` on `0x7d2b76fb`.
+It is an FNV artifact of the first and not a second stem: no other member lands on it.
+A three-way agreement on one state is therefore worth less than 96 bits by itself, and
+the eleven further members are what carry this one.
+
+Independent of the hashes:
+
+- **Registration order.** In the 16.18 client the sixteen registrars sit directly
+  after `NovaItemGetTooltip` in exactly the sorted order of the names: `…FilterList`,
+  then `…Filter_And`, the eight compares, `_HasTag`, `_IntDataCompare`,
+  `_IntValueCompare`, `_IsItem`, `_IsValidItem`, `_Not`, `_Or`, the two string
+  compares. `L` sorts before `_`, which is why the list comes first. The root sits in
+  the interface run after `INeutralCampSpawnBehavior`, and the linked list in the `L`
+  run after `LevelScriptOnUpdate`.
+- **The reader.** Each class's evaluate function in the 16.18 client does what its
+  name says (section 6.4). This is what separates `And` from `Or`, which structure
+  cannot.
+- **Convention.** `ViewControllerFilter_And` and `OptionItemFilter_And` are upstream
+  names of the same shape.
+
+### 6.2 Evidence table - landed
+
+| hash | table | name | what fixes it |
+| --- | --- | --- | --- |
+| `0x70f6f74b` | class | `INovaItemSelectionFilter` | root; its stem plus `_` is the proved state |
+| `0x21820ed8` | class | `NovaItemSelectionFilterList` | root stem + `List`; the `Condition` embed of every `…If` getter |
+| `0xd87aa3f7` | class | `LinkedNovaItemSelectionFilterList` | `Linked` + the list's name; the reader resolves its `Filters` link to a list and evaluates it |
+| `0x1cd34280` | class | `NovaItemData` | registered directly before the `NovaItemGet` run; link target of the `NovaItem` field below |
+| `0x556b035c` | class | `NovaItemGetImageBySlot` | proved `NovaItemGet` stem, field `slot`, registered between `…GetIcon` and `…GetImage` |
+| `0x254a25a7` | class | `NovaItemGetStatValue` | proved stem, field `Stat`, registered between `…GetItemId` and `…GetStringIf` |
+| `0x83efb6f9` | class, field | `WeightedTags` | one hash as class and as field; the class is one `Map String F32`; the `HasTag` reader needs a weight above zero |
+| `0x21d40f1b` | field | `TagList` | `Pointer ITagList`, beside `WeightedTags` |
+| `0xaa8b4ed6` | class | `IItemGameModeData` | interface base of `NovaItemData`; pairs with the field below |
+| `0x5f309a68` | field | `GameModeData` | `ItemData`: `Map Hash Pointer IItemGameModeData` |
+| `0xc10d4fdc` | class | `ISubphaseAdditionalData` | interface, registered after the filter root; pairs with the field below |
+| `0xa42117a5` | field | `SubphaseAdditionalData` | `LolModesSubphaseData`: `List2 Link ISubphaseAdditionalData` |
+| `0x09a05a12` | field | `DataGetter` | the getter all eight compares evaluate first |
+| `0x0aeac70d` | field | `OperandGetter` | the second getter of the four `…DataCompare` nodes, where `…ValueCompare` holds `Operand` |
+| `0xf82a9a98` | field | `NovaItem` | on `…_IsItem` beside `Item`; the reader resolves it as a link to `NovaItemData` |
+
+`NovaItemGetImageBySlot`, `NovaItemGetStatValue`, `WeightedTags`, `IItemGameModeData`
+and `ISubphaseAdditionalData` came out of one broad two-word sweep that was far above
+one expected chance hit per target. What lands them is the slot, the pairing or the
+reader in the right-hand column, not the hash. Treat them as tier 4 where only a field
+name backs them (`NovaItemGetImageBySlot`, `NovaItemGetStatValue`).
+
+### 6.3 Evidence table - the fourteen subclasses
+
+Landed in the same batch. They carry a `_` separator, which the naming rule refused
+until this campaign; the rule now keeps a separator as written (`scripts/names.py`).
+Each is fixed by the shared state of section 6.1, its place in the registration order
+and its reader.
+
+| hash | name |
+| --- | --- |
+| `0xc7ad307e` | `NovaItemSelectionFilter_And` |
+| `0x5cf296d4` | `NovaItemSelectionFilter_BoolDataCompare` |
+| `0xe7791d51` | `NovaItemSelectionFilter_BoolValueCompare` |
+| `0x17975a2c` | `NovaItemSelectionFilter_FloatDataCompare` |
+| `0x2cb48189` | `NovaItemSelectionFilter_FloatValueCompare` |
+| `0x63d91c69` | `NovaItemSelectionFilter_HasTag` |
+| `0x484bd29d` | `NovaItemSelectionFilter_IntDataCompare` |
+| `0xb8efcc36` | `NovaItemSelectionFilter_IntValueCompare` |
+| `0xf9420b5e` | `NovaItemSelectionFilter_IsItem` |
+| `0xebbc64d2` | `NovaItemSelectionFilter_IsValidItem` |
+| `0xf4198792` | `NovaItemSelectionFilter_Not` |
+| `0x756c1ccc` | `NovaItemSelectionFilter_Or` |
+| `0x2c2d1a17` | `NovaItemSelectionFilter_StringDataCompare` |
+| `0x1f1eadd0` | `NovaItemSelectionFilter_StringValueCompare` |
+
+### 6.4 What the reader does (16.18 client)
+
+- A filter is evaluated against one item. Every filter that reads the item is false
+  when there is none.
+- `NovaItemSelectionFilterList`: every filter must pass. An empty list passes.
+  `NovaItemGetBoolIf` returns no value when its `Condition` list fails; the other
+  `…If` getters were not read.
+- `_And`: same as the list. `_Or`: any filter passes, and an empty one fails.
+  `_Not`: the negation of `Filter`.
+- `LinkedNovaItemSelectionFilterList`: resolves `Filters` to a list object and
+  evaluates it. An unresolved link fails.
+- `_IsValidItem`: an item is present.
+- `_IsItem`: the item is the one `Item` links. When `Item` does not resolve, the one
+  `NovaItem` links.
+- `_HasTag`: `tag` matches a name in the item's `WeightedTags` with a weight above
+  zero, or one of its `tags`.
+- The compares read `DataGetter`, then `OperandGetter` or `Operand`, and fail when
+  either getter returns no value. `Operator`: 0 equal, 1 not equal, 2 greater,
+  3 less, 4 greater or equal, 5 less or equal. The string compares accept 0 to 3
+  only.
+
+### 6.5 Negatives and leftovers
+
+- The binding tree does not fold: `bool` / `float` / `image` / `int` / `text`, with
+  `boolean`, `icon`, `integer` and `string` as alternates, crossed with one word from
+  the 27,631-word list before or after the type word and with a `_` in three
+  positions. No state shared by all five.
+- `0x51486c30` (Bool) and `ObjectName` joined `NovaItemSelectionFilterList` in 16.19.
+  The two-word sweep returns only `DebugCategory` for the Bool, which nothing
+  supports. Not landed. No reader: the 16.19 client is not readable.
+- `0x5e16be82`, `0x127a3f97`, `0x78812955`, `0xc752c9d7`, `0x9b8a2421`, the binding
+  tree, the input tree and the empty pair stay open.
+- `0xdc7275e9` holds `TagList` and `WeightedTags` and stays unnamed.
+- A filter-tree stem of plain words does not exist: `Nova`, `NovaItem`, `NovaShop`
+  and about 30 further leads crossed with one word of the 378,779-word list and two of the
+  27,631-word list returned noise only. The separator is the reason.

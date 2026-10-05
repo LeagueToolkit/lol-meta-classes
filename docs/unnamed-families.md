@@ -334,8 +334,8 @@ the filter tree and one image getter, which leaves 13
 Two things decide how to spend here. The getter trees are parallel expressions of
 one concept set, so `recover_stem` run per node role beats any per-hash search, and
 that is what proved the batch. The filter tree fell to one-word suffix folding once
-the `_` separator was in play; fourteen of its names carry it and are upstream's to
-add. The binding tree still resists. Read the campaign's negatives before
+the `_` separator was in play; fourteen of its names carry it. The binding tree
+still resists. Read the campaign's negatives before
 pointing a run at them: a full-corpus two-token sweep at 4.84 expected noise
 returned zero, so recombination does not reach this family at all.
 

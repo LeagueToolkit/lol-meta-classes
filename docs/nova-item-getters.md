@@ -355,8 +355,7 @@ All 56 rows `pending`, `pr=-`: 32 in `ledger.bintypes.jsonl`, 24 in
 | field names, 24 | 24 | 3 | yes |
 | leaf getters, 6 classes | 6 | 4 | **flag or split off** |
 | everything in section 3 | 13 | - | no, open |
-| `nova-item-selection-filters`, 9 classes and 7 fields | 16 | 3 | yes, see section 6 |
-| the fourteen `NovaItemSelectionFilter_` classes | 14 | 3 | not in our tables, see section 6.3 |
+| `nova-item-selection-filters`, 23 classes and 7 fields | 30 | 3 | yes, see section 6 |
 
 Casing follows the repo rule: PascalCase, acronyms title-cased. Word boundaries are
 attested rather than invented - `Nova` by the upstream
@@ -438,10 +437,12 @@ one expected chance hit per target. What lands them is the slot, the pairing or 
 reader in the right-hand column, not the hash. Treat them as tier 4 where only a field
 name backs them (`NovaItemGetImageBySlot`, `NovaItemGetStatValue`).
 
-### 6.3 Proved, and not in our tables
+### 6.3 Evidence table - the fourteen subclasses
 
-The fourteen subclasses carry a separator, so by the naming rule they are upstream's
-to add and `hashtool add` refuses them. They resolve here once upstream serves them.
+Landed in the same batch. They carry a `_` separator, which the naming rule refused
+until this campaign; the rule now keeps a separator as written (`scripts/names.py`).
+Each is fixed by the shared state of section 6.1, its place in the registration order
+and its reader.
 
 | hash | name |
 | --- | --- |

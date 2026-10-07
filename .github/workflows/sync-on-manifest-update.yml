@@ -2,11 +2,6 @@ name: Sync LoL Meta Classes
 
 # Discovers new game builds, dumps them, rebuilds db/, and opens a PR.
 #
-# Two passes run in one job. The live pass dumps every EUW1 build that dumps/
-# lacks. The PBE pass keeps the newest PBE build as the only dump in dumps/pbe/,
-# which db_build.py turns into the `preview` key of db/meta.db.json. A failure
-# of the PBE pass does not stop the live sync.
-#
 # It opens a PR rather than pushing: main is protected and requires the `verify`
 # check, and a required check can never be satisfied by a direct push - it has to
 # be green on the commit before that commit is allowed to land.
@@ -32,11 +27,9 @@ on:
         required: false
         default: 'false'
 
-  # Daily at 18:00 UTC. PBE ships a build on most days, and no dispatch
-  # announces it. The hour is after the 16:00 UTC snapshot of riot-manifests,
-  # which the live pass reads.
+  # Fallback: weekly, Sunday 00:00 UTC
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '0 0 * * 0'
 
 env:
   CARGO_TERM_COLOR: always
@@ -105,49 +98,15 @@ jobs:
         RUST_LOG: info
         DUMPER_PATH: ${{ github.workspace }}/target/x86_64-unknown-linux-gnu/release/dumper
 
-    # The PBE pass is its own step so that a PBE failure does not stop the live
-    # sync. If the pass fails, dumps/pbe/ keeps the dump it had, and db/ keeps the
-    # preview built from that dump. The outcome is re-raised in the final step.
-    - name: Run meta-sync (PBE)
-      id: meta_sync_pbe
-      continue-on-error: true
-      run: |
-        cargo run --release --bin meta-sync -- --channel pbe
-      env:
-        RUST_LOG: info
-        DUMPER_PATH: ${{ github.workspace }}/target/x86_64-unknown-linux-gnu/release/dumper
-
     - name: Detect new dumps
       id: changes
       run: |
-        # `:(glob)` stops `*` from matching `/`. Without it `dumps/*.json` also
-        # matches dumps/pbe/, and a PBE dump would be reported as a live dump.
         # Detect new untracked dump files
-        NEW_DUMPS=$(git ls-files --others --exclude-standard -- ':(glob)dumps/*.json')
+        NEW_DUMPS=$(git ls-files --others --exclude-standard -- 'dumps/*.json')
         # Detect modified dump files
-        MODIFIED_DUMPS=$(git diff --name-only -- ':(glob)dumps/*.json')
+        MODIFIED_DUMPS=$(git diff --name-only -- 'dumps/*.json')
 
         ALL_CHANGED=$(echo -e "${NEW_DUMPS}\n${MODIFIED_DUMPS}" | grep -v '^$' | sort -u)
-
-        # The PBE pass adds, replaces or removes the dump in dumps/pbe/, so a
-        # deleted file counts as a change here.
-        PBE_STATUS=$(git status --porcelain -- dumps/pbe/)
-        if [ -z "$PBE_STATUS" ]; then
-          echo "pbe_changes=false" >> $GITHUB_OUTPUT
-          echo "No PBE dump change detected."
-        else
-          echo "pbe_changes=true" >> $GITHUB_OUTPUT
-          echo "PBE dump changes:"
-          echo "$PBE_STATUS"
-          echo "$PBE_STATUS" > /tmp/changed_pbe.txt
-
-          # Empty if the pass only removed a dump.
-          PBE_VERSION=$(git ls-files --others --exclude-standard -- ':(glob)dumps/pbe/*.json' \
-            | sed -nE 's#^dumps/pbe/([0-9]+\.[0-9]+\.[0-9]+)\.json$#\1#p' \
-            | sort -V \
-            | tail -1)
-          echo "pbe_version=${PBE_VERSION}" >> $GITHUB_OUTPUT
-        fi
 
         if [ -z "$ALL_CHANGED" ]; then
           echo "changes=false" >> $GITHUB_OUTPUT
@@ -191,7 +150,7 @@ jobs:
     # where the tag can be anchored to the commit that carries the dumps.
 
     - name: Rebuild database from all dumps
-      if: steps.changes.outputs.changes == 'true' || steps.changes.outputs.pbe_changes == 'true' || github.event.inputs.force_run == 'true'
+      if: steps.changes.outputs.changes == 'true' || github.event.inputs.force_run == 'true'
       run: |
         set -e
         if [ ! -d "dumps" ] || [ -z "$(ls -1 dumps/*.json 2>/dev/null || true)" ]; then
@@ -199,14 +158,13 @@ jobs:
           exit 0
         fi
 
-        # Rebuilds db/meta.db.json (versioned history of every class/property,
-        # plus the PBE preview) and db/database.py (snapshot of the latest live
-        # build) from all dumps.
+        # Rebuilds db/meta.db.json (versioned history of every class/property)
+        # and db/database.py (snapshot of the latest build) from all dumps.
         python3 scripts/db_build.py
 
     - name: Open a pull request with the dump and database updates
       id: commit
-      if: steps.changes.outputs.changes == 'true' || steps.changes.outputs.pbe_changes == 'true' || github.event.inputs.force_run == 'true'
+      if: steps.changes.outputs.changes == 'true' || github.event.inputs.force_run == 'true'
       env:
         GH_TOKEN: ${{ steps.app_token.outputs.token }}
       run: |
@@ -235,31 +193,12 @@ jobs:
         echo "db_changed=${DB_CHANGED}" >> $GITHUB_OUTPUT
 
         VERSION="${{ steps.changes.outputs.latest_version }}"
-        PBE_CHANGES="${{ steps.changes.outputs.pbe_changes }}"
-        PBE_VERSION="${{ steps.changes.outputs.pbe_version }}"
         if [ -n "$VERSION" ]; then
           COMMIT_MSG="chore(dumper): ${VERSION}"
           BRANCH="sync/${VERSION}-${{ github.run_id }}"
-        elif [ -n "$PBE_VERSION" ]; then
-          COMMIT_MSG="chore(dumper): PBE ${PBE_VERSION}"
-          BRANCH="sync/pbe-${PBE_VERSION}-${{ github.run_id }}"
-        elif [ "$PBE_CHANGES" = "true" ]; then
-          COMMIT_MSG="chore(dumper): remove the PBE dump"
-          BRANCH="sync/pbe-remove-${{ github.run_id }}"
         else
           COMMIT_MSG="Update LoL meta classes"
           BRANCH="sync/update-${{ github.run_id }}"
-        fi
-
-        # The schedule is daily, so a run can start while the PR of an earlier
-        # run is still open. That run found the same dumps and gave its PR the
-        # same title, so a second PR would only duplicate it.
-        EXISTING_PR=$(TITLE="$COMMIT_MSG" gh pr list --state open --limit 100 --json title,url \
-          --jq '.[] | select(.title == env.TITLE) | .url' | head -1)
-        if [ -n "$EXISTING_PR" ]; then
-          echo "::notice title=sync::${EXISTING_PR} is open with the title '${COMMIT_MSG}'. No second PR was opened."
-          echo "pr_url=${EXISTING_PR}" >> $GITHUB_OUTPUT
-          exit 0
         fi
 
         git checkout -b "$BRANCH"
@@ -268,15 +207,6 @@ jobs:
         echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
 
         CHANGED=$(cat /tmp/changed_dumps.txt 2>/dev/null | sed 's/^/- `/;s/$/`/' || echo "- (none)")
-        if [ -z "$CHANGED" ]; then
-          CHANGED="- (none)"
-        fi
-        # `git status --porcelain` lines: `?? path` for an added dump, ` D path`
-        # for a removed dump.
-        PBE_CHANGED=$(cat /tmp/changed_pbe.txt 2>/dev/null | sed 's/^/- `/;s/$/`/' || true)
-        if [ -z "$PBE_CHANGED" ]; then
-          PBE_CHANGED="- (none)"
-        fi
         PR_URL=$(gh pr create \
           --base main \
           --head "$BRANCH" \
@@ -286,9 +216,6 @@ jobs:
 
         Dumps added or changed:
         ${CHANGED}
-
-        PBE dump changes (\`git status\` codes):
-        ${PBE_CHANGED}
 
         \`db/meta.db.json\` changed: \`${DB_CHANGED}\`
         EOF
@@ -315,14 +242,9 @@ jobs:
     # Runs last so everything above (release, db rebuild, commit, push, artifacts)
     # still happens for the versions that did succeed.
     - name: Report version failures
-      if: always() && (steps.meta_sync.outcome == 'failure' || steps.meta_sync_pbe.outcome == 'failure')
+      if: always() && steps.meta_sync.outcome == 'failure'
       run: |
-        if [ "${{ steps.meta_sync.outcome }}" = "failure" ]; then
-          echo "::error title=meta-sync::One or more versions failed to process - see the 'Run meta-sync' step log for the per-version reason."
-        fi
-        if [ "${{ steps.meta_sync_pbe.outcome }}" = "failure" ]; then
-          echo "::error title=meta-sync (PBE)::The PBE pass failed - see the 'Run meta-sync (PBE)' step log. dumps/pbe/ keeps the dump it had. If the dumper crashed, run Diagnose Dump on the PBE version: the live build of this patch will hit the same fault."
-        fi
+        echo "::error title=meta-sync::One or more versions failed to process - see the 'Run meta-sync' step log for the per-version reason."
         exit 1
 
   # notify-wiki is deliberately NOT called from here any more.

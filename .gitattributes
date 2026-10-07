@@ -11,3 +11,4 @@ hashes/sources.toml text eol=lf
 # workflow's `git diff --exit-code` fail on line endings alone.
 db/database.py text eol=lf
 db/meta.db.json text eol=lf
+db/meta.pbe.json text eol=lf

@@ -21,10 +21,11 @@ Also regenerates db/database.py as a snapshot of the *latest* build only
 (the previous behaviour of importing dumps into the existing file made it an
 unversioned aggregate of everything that ever existed).
 
-If dumps/pbe/ holds a PBE dump whose patch is greater than the latest live
-patch, the PBE dump is folded as one more build on top of the live history and
-the class entries that differ are written under the top-level "preview" key.
-The live history, "latest" and "versions" do not include the PBE build.
+Also writes db/meta.pbe.json, the PBE overlay. If dumps/pbe/ holds a PBE dump
+whose patch is greater than the latest live patch, the PBE dump is folded as
+one more build on top of the live history and the class entries that differ are
+written to the overlay. Otherwise the overlay states that no preview exists.
+db/meta.db.json and db/database.py never include the PBE build.
 
 See docs/meta-db-format.md for the full format description.
 
@@ -48,6 +49,7 @@ from db_import import read_resolved_hashes, read_meta, rehex_fnv1a
 FORMAT_VERSION = 1
 RE_DUMP = re.compile(r"^(\d+)\.(\d+)\.(\d+)\.json$")
 PREVIEW_CHANNEL = "pbe"
+PREVIEW_FILE = "meta.pbe.json"
 
 
 def hash_key(h):
@@ -251,7 +253,7 @@ def is_open(entity):
 
 
 def build_preview(classes, live_out, live_external, base, dump, h_types, h_fields):
-    """Builds the "preview" object for the PBE dump `dump`.
+    """Builds the overlay for the PBE dump `dump`.
 
     Folds `dump` into `classes` as the build that follows the live build `base`
     and keeps the class entries that differ from `live_out`. `classes` is
@@ -314,7 +316,7 @@ def write_external(f, external):
     f.write("},\n")
 
 
-def write_classes(f, classes_out, comma_after):
+def write_classes(f, classes_out):
     f.write('"classes": {\n')
     class_keys = list(classes_out)
     for ci, khash in enumerate(class_keys):
@@ -330,14 +332,12 @@ def write_classes(f, classes_out, comma_after):
             f.write(f" {json.dumps(fhash)}: {compact(klass['properties'][fhash])}{comma}\n")
         comma = "," if ci < len(class_keys) - 1 else ""
         f.write("}}" + comma + "\n")
-    f.write("}" + ("," if comma_after else "") + "\n")
+    f.write("}\n")
 
 
-def write_db_json(path, versions, latest_build, classes_out, external, hash_source=None,
-                  preview=None):
+def write_db_json(path, versions, latest_build, classes_out, external, hash_source=None):
     """Hand-rolled layout: one line per property, one line per version entry.
-    A schema change in one property diffs as a single-line change. If `preview`
-    is None, the "preview" key is omitted."""
+    A schema change in one property diffs as a single-line change."""
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write("{\n")
@@ -351,14 +351,27 @@ def write_db_json(path, versions, latest_build, classes_out, external, hash_sour
             f.write(compact({"patch": v["patch"], "build": v["build"]}) + comma + "\n")
         f.write("],\n")
         write_external(f, external)
-        write_classes(f, classes_out, comma_after=preview is not None)
-        if preview is not None:
-            f.write('"preview": {\n')
-            for key in ("channel", "patch", "build", "base"):
-                f.write(f'"{key}": {json.dumps(preview[key])},\n')
-            write_external(f, preview["externalTypeNames"])
-            write_classes(f, preview["classes"], comma_after=False)
-            f.write("}\n")
+        write_classes(f, classes_out)
+        f.write("}\n")
+
+
+def write_preview_json(path, preview):
+    """Writes the PBE overlay file in the layout of `write_db_json`.
+
+    If `preview` is None, the file states that no preview exists: "patch",
+    "build" and "base" are null and "classes" is empty. The file is written in
+    both cases, so a stale overlay never stays on disk."""
+    if preview is None:
+        preview = {"channel": PREVIEW_CHANNEL, "patch": None, "build": None, "base": None,
+                   "externalTypeNames": {}, "classes": {}}
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write("{\n")
+        f.write(f'"formatVersion": {FORMAT_VERSION},\n')
+        for key in ("channel", "patch", "build", "base"):
+            f.write(f'"{key}": {json.dumps(preview[key])},\n')
+        write_external(f, preview["externalTypeNames"])
+        write_classes(f, preview["classes"])
         f.write("}\n")
 
 
@@ -383,8 +396,10 @@ def main():
                         help="do not regenerate the database.py snapshot")
     parser.add_argument("--preview-dumps", default=None,
                         help="directory of the PBE dump (default: <dumps>/pbe)")
+    parser.add_argument("--preview-out", default=None,
+                        help=f"PBE overlay output (default: {PREVIEW_FILE} next to --out)")
     parser.add_argument("--no-preview", action="store_true",
-                        help="do not emit the preview key")
+                        help="do not read the PBE dump and do not write the PBE overlay")
     args = parser.parse_args()
 
     dumps = discover_dumps(args.dumps)
@@ -413,12 +428,17 @@ def main():
 
     versions = [{"patch": d["patch"], "build": d["build"]} for d in dumps]
     hash_source = read_hash_source(args.hashes)
-    write_db_json(args.out, versions, latest["build"], classes_out, external, hash_source,
-                  preview)
+    write_db_json(args.out, versions, latest["build"], classes_out, external, hash_source)
 
     # Sanity check: the hand-rolled writer must produce valid JSON.
     with open(args.out, encoding="utf-8") as f:
         json.load(f)
+
+    preview_out = args.preview_out or os.path.join(os.path.dirname(args.out), PREVIEW_FILE)
+    if not args.no_preview:
+        write_preview_json(preview_out, preview)
+        with open(preview_out, encoding="utf-8") as f:
+            json.load(f)
 
     total_props = sum(len(k["properties"]) for k in classes_out.values())
     removed_classes = sum(1 for k in classes_out.values() if "to" in k["revisions"][-1])
@@ -430,9 +450,11 @@ def main():
           f"{total_props} properties ({removed_props} removed, {multi_rev} with >1 revision)")
     if preview:
         added, removed, changed = preview_counts(preview, classes_out)
-        print(f"[ok] preview: {preview['channel']} {preview['patch']}.{preview['build']} over "
+        print(f"[ok] {preview_out}: {preview['channel']} {preview['patch']}.{preview['build']} over "
               f"{preview['base']}: {len(preview['classes'])} classes "
               f"({added} added, {removed} removed, {changed} changed)")
+    elif not args.no_preview:
+        print(f"[ok] {preview_out}: no preview")
 
     if not args.skip_py:
         write_snapshot_py(args.py, latest["path"], h_types, h_fields)

@@ -198,7 +198,9 @@ class MainTest(unittest.TestCase):
             with open(path, "w", encoding="utf-8") as f:
                 for h, name in names.items():
                     f.write(f"{int(h, 16):08x} {name}\n")
-        self.out = os.path.join(self.tmp.name, "meta.db.json")
+        self.out_dir = os.path.join(self.tmp.name, "db")
+        self.out = os.path.join(self.out_dir, "meta.db.json")
+        self.overlay = os.path.join(self.out_dir, "meta.pbe.json")
 
     def run_main(self, *extra):
         argv = ["db_build.py", "--dumps", self.corpus.dumps_dir, "--hashes", self.hashes_dir,
@@ -210,33 +212,60 @@ class MainTest(unittest.TestCase):
                 self.assertEqual(db_build.main(), 0)
         finally:
             sys.argv = old_argv
-        with open(self.out, encoding="utf-8") as f:
-            return json.load(f)
 
-    def test_main_omits_preview_if_no_pbe_dump_exists(self):
-        db = self.run_main()
-        self.assertNotIn("preview", db)
-        self.assertEqual(db["latest"], 200)
+    def read(self, path):
+        with open(path, "rb") as f:
+            return f.read()
 
-    def test_main_writes_preview_without_changing_the_live_keys(self):
-        live = self.run_main()
+    def read_overlay(self, path=None):
+        return json.loads(self.read(path or self.overlay))
+
+    def test_main_writes_empty_overlay_if_no_pbe_dump_exists(self):
+        self.run_main()
+        self.assertEqual(self.read_overlay(), {
+            "formatVersion": 1, "channel": "pbe", "patch": None, "build": None, "base": None,
+            "externalTypeNames": {}, "classes": {}})
+
+    def test_main_writes_overlay_without_changing_meta_db(self):
+        self.run_main()
+        live = self.read(self.out)
         self.corpus.add_pbe("16.21.300")
-        db = self.run_main()
-        preview = db.pop("preview")
-        self.assertEqual(db, live)
-        self.assertEqual(list(preview),
-                         ["channel", "patch", "build", "base", "externalTypeNames", "classes"])
-        self.assertEqual(list(preview["classes"]), [CHANGED, REMOVED, ADDED])
+        self.run_main()
+        self.assertEqual(self.read(self.out), live)
+        self.assertNotIn("preview", json.loads(live))
+        overlay = self.read_overlay()
+        self.assertEqual(list(overlay), ["formatVersion", "channel", "patch", "build", "base",
+                                         "externalTypeNames", "classes"])
+        self.assertEqual((overlay["patch"], overlay["build"], overlay["base"]),
+                         ("16.21", 300, 200))
+        self.assertEqual(list(overlay["classes"]), [CHANGED, REMOVED, ADDED])
 
-    def test_main_omits_preview_if_no_preview_flag_is_set(self):
+    def test_main_writes_empty_overlay_if_pbe_dump_is_removed(self):
+        path = self.corpus.add_pbe("16.21.300")
+        self.run_main()
+        self.assertEqual(self.read_overlay()["build"], 300)
+        os.remove(path)
+        self.run_main()
+        self.assertIsNone(self.read_overlay()["build"])
+        self.assertEqual(self.read_overlay()["classes"], {})
+
+    def test_main_does_not_write_overlay_if_no_preview_flag_is_set(self):
         self.corpus.add_pbe("16.21.300")
-        self.assertNotIn("preview", self.run_main("--no-preview"))
+        self.run_main("--no-preview")
+        self.assertFalse(os.path.exists(self.overlay))
 
     def test_main_reads_preview_dumps_directory_if_given(self):
         other = os.path.join(self.tmp.name, "other")
         write_dump(other, "16.22.400", PBE_CLASSES)
-        db = self.run_main("--preview-dumps", other)
-        self.assertEqual(db["preview"]["build"], 400)
+        self.run_main("--preview-dumps", other)
+        self.assertEqual(self.read_overlay()["build"], 400)
+
+    def test_main_writes_overlay_to_preview_out_if_given(self):
+        self.corpus.add_pbe("16.21.300")
+        path = os.path.join(self.tmp.name, "elsewhere.json")
+        self.run_main("--preview-out", path)
+        self.assertEqual(self.read_overlay(path)["build"], 300)
+        self.assertFalse(os.path.exists(self.overlay))
 
 
 if __name__ == "__main__":

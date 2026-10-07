@@ -61,9 +61,13 @@ jobs:
 
       - name: Fail if committed db/ is stale
         run: |
-          if git diff --exit-code -- db/; then
+          # `git status` also reports a file that the rebuild created and the
+          # PR did not commit, which `git diff` does not.
+          if [ -z "$(git status --porcelain -- db/)" ]; then
             echo "db/ is up to date with dumps/ + hashes/."
           else
+            git status --short -- db/
+            git diff -- db/
             echo "::error::db/ is out of date. An input under dumps/ or hashes/ changed without regenerating the database. Run 'python3 scripts/db_build.py' locally and commit the db/ diff shown above."
             exit 1
           fi

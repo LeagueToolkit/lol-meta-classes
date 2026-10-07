@@ -46,10 +46,13 @@ build_time      db 'Jul 24 2025',0
                 db    2
 version_major   dw 0Fh
 version_minor   dw 0Fh
-                dq 0
+
+The pattern ends at `version_minor`. The number of zero bytes that follow it
+depends on the build: 16.14 has 10, 16.21 has 3. 16.21 is also the first build
+without the `Releases/` string, so this record is its only version source.
 */
 #[allow(dead_code)]
-const PATTERN_VERSION2: &str = r"(?s-u)VersionInfoTag!\x00(....)\d{1,2}:\d{1,2}:\d{1,2}\x00\w{1,4} \d{1,2} \d{4}\x00\x02(..)(..)\x00{8,8}";
+const PATTERN_VERSION2: &str = r"(?s-u)VersionInfoTag!\x00(....)\d{1,2}:\d{1,2}:\d{1,2}\x00\w{1,4} \d{1,2} \d{4}\x00\x02(..)(..)";
 
 fn find_version(data: &[u8]) -> Option<String> {
     Regex::new(PATTERN_VERSION)
@@ -170,4 +173,71 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     eprintln!("Done!");
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    /// Builds a `VersionInfoTag!` record followed by `tail`.
+    fn version_record(
+        patch: u32,
+        time: &str,
+        date: &str,
+        major: u16,
+        minor: u16,
+        tail: &[u8],
+    ) -> Vec<u8> {
+        let mut record = b"0123456789ABCDEFVersionInfoTag!\x00".to_vec();
+        record.extend_from_slice(&patch.to_le_bytes());
+        record.extend_from_slice(time.as_bytes());
+        record.push(0);
+        record.extend_from_slice(date.as_bytes());
+        record.push(0);
+        record.push(2);
+        record.extend_from_slice(&major.to_le_bytes());
+        record.extend_from_slice(&minor.to_le_bytes());
+        record.extend_from_slice(tail);
+        record
+    }
+
+    #[test]
+    fn find_version2_returns_version_if_10_zero_bytes_follow() {
+        // The record of 16.14.7949266.
+        let mut tail = vec![0u8; 10];
+        tail.extend_from_slice(b"St11range_error\x00");
+        let data = version_record(7949266, "10:58:30", "Jul 13 2026", 16, 14, &tail);
+        assert_eq!(find_version2(&data).as_deref(), Some("16.14.7949266"));
+    }
+
+    #[test]
+    fn find_version2_returns_version_if_3_zero_bytes_follow() {
+        // The record of 16.21.8255794.
+        let data = version_record(
+            8255794,
+            "05:02:55",
+            "Oct 06 2026",
+            16,
+            21,
+            b"\x00\x00\x00St11range_error\x00",
+        );
+        assert_eq!(find_version2(&data).as_deref(), Some("16.21.8255794"));
+    }
+
+    #[test]
+    fn find_version2_returns_none_if_record_is_not_stamped() {
+        // The arm64 slice keeps the placeholder that the build did not fill.
+        let data = version_record(0, "HR:MN:SC", "MNT DY YEAR", 0, 0, &[0u8; 16]);
+        assert_eq!(find_version2(&data), None);
+    }
+
+    #[test]
+    fn property_layout_for_returns_v16_14_for_find_version2_output() {
+        let data = version_record(8255794, "05:02:55", "Oct 06 2026", 16, 21, &[0u8; 3]);
+        let version = find_version2(&data);
+        assert_eq!(
+            meta::property_layout_for(version.as_deref()),
+            meta::PropertyLayout::V16_14
+        );
+    }
 }

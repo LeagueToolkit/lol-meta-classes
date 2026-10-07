@@ -21,8 +21,9 @@ keeps them current without a human in the loop.
 
 ```text
 dumps/          raw per-build dumps from the game client, e.g. 16.13.7915903.json
-dumps/pbe/      the newest PBE dump, kept while its patch is ahead of live
-db/             generated database - meta.db.json (versioned) + database.py (latest-build snapshot)
+dumps/pbe/      the newest PBE dump in reduced form, kept while its patch is ahead of live
+db/             generated database - meta.db.json (versioned), database.py (latest-build snapshot),
+                meta.pbe.json (PBE overlay)
 hashes/         type/field hash -> name tables, plus local overrides
 crates/         the Rust toolchain that produces dumps/
 scripts/        the Python that turns dumps/ into db/
@@ -61,10 +62,6 @@ property it stores the build intervals it was present in and an ordered list of 
 definitions, so you can ask when a property appeared, when its type changed, and whether it still
 exists in the current patch.
 
-The history is live builds only. While PBE is on a patch that live has not reached, the file also
-carries a `preview` key: the class entries that differ if the newest PBE build is folded on top of
-the latest live build. A consumer that ignores the key reads the live database unchanged.
-
 Full format spec: [docs/meta-db-format.md](docs/meta-db-format.md).
 
 ### `db/database.py`
@@ -85,6 +82,22 @@ Each property line is `Name: (field type, key type, value type, referenced class
 value appended when there is one.
 
 Full format spec: [docs/database.md](docs/database.md).
+
+### `db/meta.pbe.json`
+
+The PBE overlay. While PBE is on a patch that live has not reached, it holds the class entries that
+differ if the newest PBE build is folded on top of the latest live build, in the schema of
+`meta.db.json`. Otherwise its `build` is `null` and it holds no classes. `meta.db.json` and
+`database.py` are live only: a PBE build never changes them.
+
+Format and merge rules: [docs/meta-db-format.md](docs/meta-db-format.md#pbe-preview-dbmetapbejson).
+
+The dump behind it, `dumps/pbe/{version}.json`, is a reduced dump. It keeps what the database build
+reads and drops the layout fields: function addresses, class size and alignment,
+`secondary_children`, property offsets and bitmasks, and the vtable, storage kind and element size
+of containers and maps. It is written one class per line, so two PBE builds diff by class.
+`scripts/dump_meta.py` and the `lol-meta-schema` types need the full dump, which is the asset of the
+rolling [`pbe` prerelease](https://github.com/LeagueToolkit/lol-meta-classes/releases/tag/pbe).
 
 ### Browsing it
 
@@ -428,8 +441,8 @@ git diff -- db/ | cat
 ```
 
 Useful flags: `--dumps`/`--hashes` to point at other input directories, `--out`/`--py` to redirect
-the outputs, `--skip-py` to leave the `database.py` snapshot alone, and `--no-preview` to build
-without the PBE overlay.
+the outputs, `--skip-py` to leave the `database.py` snapshot alone, and `--no-preview` to leave
+`meta.pbe.json` alone.
 
 The tests of the build script run on synthetic dumps and need no checkout data:
 
@@ -461,22 +474,29 @@ cargo run --release --bin meta-sync -- --channel pbe
 default path - cross-compilation, or CI's `--target` subdirectory - point `DUMPER_PATH` at it.
 
 `--channel pbe` runs the PBE pass instead of the live pass. It asks sieve for the newest PBE1 build
-and writes `dumps/pbe/{version}.json` if the patch of that build is greater than the latest live
-patch. The directory holds one dump: the pass removes the older PBE dumps, and it removes a PBE
-dump once live has reached its patch. If the dumper fails or the dump is rejected, the dump that
-the directory held stays in place.
+and writes the reduced dump to `dumps/pbe/{version}.json` if the patch of that build is greater
+than the latest live patch. The full dump stays in `temp/pbe/`. The directory holds one dump: the
+pass removes the older PBE dumps, and it removes a PBE dump once live has reached its patch. If the
+dumper fails or the dump is rejected, the dump that the directory held stays in place.
+
+`--plan` reports what the PBE pass would do without changing a file, downloading a binary or needing
+the dumper. `--outputs <path>` appends the result of a pass or a plan to a file as `key=value`
+lines (`changed`, `needs_dumper`, `newest`, `version`, `removed`, `full_dump`), which is how
+`sync-pbe.yml` reads it through `$GITHUB_OUTPUT`.
 
 ## Automation
 
-Six workflows keep the repo current:
+Seven workflows keep the repo current:
 
 - **Sync LoL Meta Classes** (`sync-on-manifest-update.yml`) - runs on a `manifest-updated`
   repository dispatch from [Morilli/riot-manifests](https://github.com/Morilli/riot-manifests), plus
-  a daily schedule and manual dispatch. It
-  discovers new versions, dumps them, regenerates `db/`, and opens a PR with the result. A second
-  pass in the same run keeps `dumps/pbe/` on the newest PBE build. A failure of the PBE pass fails
-  the run after the live dumps are in the PR, so a dumper fault on a new patch shows up before the
-  patch reaches live.
+  a weekly fallback and manual dispatch. It
+  discovers new versions, dumps them, regenerates `db/`, and opens a PR with the result.
+- **Sync PBE Meta Classes** (`sync-pbe.yml`) - runs daily, after each live dump lands on `main`, and
+  on manual dispatch. It plans first with `meta-sync --plan` and builds the dumper only if PBE has a
+  build that `dumps/pbe/` lacks. It keeps one rolling PR on the branch `sync/pbe`, force-pushed by
+  each run, and uploads the full dump to the rolling `pbe` prerelease. It is separate from the live
+  sync, so a dumper fault on a PBE build fails this workflow alone, before the patch reaches live.
 - **Manual LoL Meta Sync** (`manual-sync.yml`) - the same pipeline on demand, narrowed to one
   version or region.
 - **Update Hashtables** (`update-hashes.yml`) - refreshes the upstream mirror every Monday and
@@ -486,9 +506,11 @@ Six workflows keep the repo current:
   build scripts, rebuilds `db/` and fails if the committed output does not match. Make it a
   required check in branch protection for the guarantee to hold.
 - **Publish Dump Release** (`publish-release.yml`) - tags a release for the live dumps that a push
-  to `main` adds. Dumps under `dumps/pbe/` get no release.
-- **Notify Wiki** (`notify-wiki.yml`) - tells the wiki to redeploy when `db/meta.db.json` changes,
-  instead of it waiting on its own weekly cron.
+  to `main` adds. Dumps under `dumps/pbe/` get no versioned release.
+- **Notify Wiki** (`notify-wiki.yml`) - tells the wiki that `db/` changed, instead of it waiting on
+  its own weekly cron. It sends `meta-db-updated` if `db/meta.db.json` changed and
+  `meta-pbe-updated` if only `db/meta.pbe.json` changed, so the wiki chooses whether a PBE build
+  alone is worth a deploy.
 
 ## Tooling
 
@@ -498,8 +520,8 @@ The Rust workspace under `crates/`:
   patterns, and writes it as JSON.
 - **meta-sync** - the orchestrator: discovers versions from `Morilli/riot-manifests`, pulls the build
   over the Riot CDN, extracts the macOS binary, runs the dumper, writes `dumps/{version}.json`.
-  With `--channel pbe` it resolves the newest PBE build through sieve and keeps it as the only dump
-  in `dumps/pbe/`.
+  With `--channel pbe` it resolves the newest PBE build through sieve and keeps it, in reduced
+  form, as the only dump in `dumps/pbe/`.
   Its `download-binary` bin fetches one build's macOS binary on its own, for the dumper or for a
   disassembler:
 

@@ -1,0 +1,305 @@
+name: Sync PBE Meta Classes
+
+# Keeps dumps/pbe/ on the newest PBE build and db/meta.pbe.json in step with it.
+#
+# The live sync (sync-on-manifest-update.yml) is a separate workflow, so a PBE
+# failure never blocks a live dump. A dumper fault on a PBE build fails this
+# workflow before the patch reaches live.
+#
+# What a run does:
+#   1. Builds meta-sync alone and asks it for a plan. The plan reads sieve and
+#      the file names in dumps/. On a day with no PBE change the run ends here,
+#      without the dumper build.
+#   2. Builds the dumper only if the plan needs a dump.
+#   3. Runs the PBE pass. It writes the reduced dump to dumps/pbe/ and leaves
+#      the full dump in temp/pbe/.
+#   4. Rebuilds db/ and force-pushes one commit to the branch sync/pbe. One PR
+#      is open for that branch at a time, so it always holds the newest PBE
+#      build, and two PBE PRs cannot merge out of order.
+#   5. Uploads the full dump to the rolling `pbe` prerelease.
+#
+# Setup this depends on: the same GitHub App as the live sync (secrets
+# SYNC_APP_ID / SYNC_APP_PRIVATE_KEY, `contents: write` and
+# `pull-requests: write`) and "Allow auto-merge" on the repo.
+
+on:
+  # Daily at 18:00 UTC. PBE ships a build on most days, and no dispatch
+  # announces it.
+  schedule:
+    - cron: '0 18 * * *'
+
+  # A live dump can retire the PBE dump, and it makes an open sync/pbe PR
+  # conflict on db/meta.pbe.json. A run after the merge handles both.
+  push:
+    branches: [main]
+    paths:
+      - 'dumps/**'
+      - '!dumps/pbe/**'
+
+  workflow_dispatch:
+
+# Serialised: two runs would race on the sync/pbe branch and the prerelease.
+concurrency:
+  group: sync-pbe
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
+  # Ensure warnings don't cause build failures and include export-dynamic for dumper
+  RUSTFLAGS: "-A warnings -C link-args=-Wl,-export-dynamic"
+  BRANCH: sync/pbe
+  RELEASE_TAG: pbe
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    # Everything that writes goes through the app token.
+    permissions:
+      contents: read
+
+    steps:
+    - name: Mint an app token
+      id: app_token
+      uses: actions/create-github-app-token@v2
+      with:
+        app-id: ${{ secrets.SYNC_APP_ID }}
+        private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ steps.app_token.outputs.token }}
+        persist-credentials: true
+
+    - name: Setup Rust
+      uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        toolchain: stable
+        target: x86_64-unknown-linux-gnu
+
+    # Its own key: a cache saved by a run that skipped the dumper build must not
+    # replace the cache that the other workflows restore.
+    - name: Cache cargo dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          target
+        key: ${{ runner.os }}-cargo-pbe-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-pbe-
+          ${{ runner.os }}-cargo-
+
+    # meta-sync is pure Rust. The dumper needs cmake and a C++ toolchain, so it
+    # is built only if the plan asks for a dump.
+    - name: Build meta-sync
+      run: |
+        cargo build --release --bin meta-sync --target x86_64-unknown-linux-gnu
+
+    # If the plan fails, the steps below run as if it had asked for a dump, and
+    # the pass reports the error.
+    - name: Plan the PBE pass
+      id: plan
+      continue-on-error: true
+      run: |
+        ./target/x86_64-unknown-linux-gnu/release/meta-sync \
+          --channel pbe --plan --outputs "$GITHUB_OUTPUT"
+
+    - name: Install system dependencies
+      if: steps.plan.outcome != 'success' || steps.plan.outputs.needs_dumper == 'true'
+      run: |
+        sudo apt update
+        sudo apt install -y libc++1 build-essential cmake
+
+    - name: Build dumper
+      if: steps.plan.outcome != 'success' || steps.plan.outputs.needs_dumper == 'true'
+      run: |
+        cargo build --release --bin dumper --target x86_64-unknown-linux-gnu
+
+    # If the pass fails, dumps/pbe/ keeps the dump it had. The outcome is
+    # re-raised in the final step, after the changes that the pass did make are
+    # in the PR.
+    - name: Run the PBE pass
+      id: pbe
+      if: steps.plan.outcome != 'success' || steps.plan.outputs.changed == 'true'
+      continue-on-error: true
+      run: |
+        ./target/x86_64-unknown-linux-gnu/release/meta-sync \
+          --channel pbe --outputs "$GITHUB_OUTPUT"
+      env:
+        RUST_LOG: info
+        DUMPER_PATH: ${{ github.workspace }}/target/x86_64-unknown-linux-gnu/release/dumper
+
+    - name: Rebuild database from all dumps
+      if: steps.pbe.outputs.changed == 'true'
+      run: |
+        python3 scripts/db_build.py
+
+    - name: Update the rolling pull request
+      id: pr
+      if: steps.pbe.outputs.changed == 'true'
+      env:
+        GH_TOKEN: ${{ steps.app_token.outputs.token }}
+        VERSION: ${{ steps.pbe.outputs.version }}
+        REMOVED: ${{ steps.pbe.outputs.removed }}
+        APP_SLUG: ${{ steps.app_token.outputs.app-slug }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      run: |
+        set -e
+        git config --local user.email "${APP_SLUG}[bot]@users.noreply.github.com"
+        git config --local user.name "${APP_SLUG}[bot]"
+
+        git add dumps/pbe db/
+        if git diff --cached --quiet; then
+          echo "The pass reported a change, but the tree equals main."
+          exit 0
+        fi
+
+        if [ -n "$VERSION" ]; then
+          TITLE="chore(dumper): PBE ${VERSION}"
+          DUMP_LINE="- PBE dump: \`dumps/pbe/${VERSION}.json\` (reduced). Full dump: release [\`${RELEASE_TAG}\`](${{ github.server_url }}/${{ github.repository }}/releases/tag/${RELEASE_TAG})."
+        else
+          TITLE="chore(dumper): remove the PBE dump"
+          DUMP_LINE="- No PBE dump is added."
+        fi
+
+        git checkout -B "$BRANCH"
+        git commit -m "$TITLE"
+
+        # A run repeats the dump while the PR of an earlier run is open. If the
+        # branch already holds this exact tree, the push is skipped, so the PR
+        # keeps its commit and its check results.
+        if git fetch --depth=1 origin "$BRANCH" 2>/dev/null \
+           && [ "$(git rev-parse 'FETCH_HEAD^{tree}')" = "$(git rev-parse 'HEAD^{tree}')" ]; then
+          echo "origin/${BRANCH} already holds this tree. Nothing was pushed."
+        else
+          git push --force origin "$BRANCH"
+        fi
+
+        BODY=$(cat <<EOF
+        Rolling PBE sync, last updated by [this run](${RUN_URL}). Each run force-pushes this branch, so the PR always holds the newest PBE build.
+
+        ${DUMP_LINE}
+        - PBE dumps removed: \`${REMOVED:-none}\`
+        - \`db/meta.pbe.json\` is rebuilt. \`db/meta.db.json\` and \`db/database.py\` are live only and do not change.
+        EOF
+        )
+
+        # An open PR is updated through the REST API, which needs only
+        # `pull-requests: write`.
+        PR_NUMBER=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+        if [ -z "$PR_NUMBER" ]; then
+          PR_URL=$(gh pr create --base main --head "$BRANCH" --title "$TITLE" --body "$BODY")
+          echo "Opened ${PR_URL}"
+        else
+          gh api -X PATCH "repos/${{ github.repository }}/pulls/${PR_NUMBER}" \
+            -f title="$TITLE" -f body="$BODY" --silent
+          PR_URL="${{ github.server_url }}/${{ github.repository }}/pull/${PR_NUMBER}"
+          echo "Updated ${PR_URL}"
+        fi
+        echo "pr_url=${PR_URL}" >> $GITHUB_OUTPUT
+
+        # Queue it behind the required checks. Needs "Allow auto-merge" enabled
+        # on the repo; without it this is a warning, since the PR itself is the
+        # deliverable.
+        if ! gh pr merge --auto --squash --delete-branch "$PR_URL"; then
+          echo "::warning title=auto-merge::Could not enable auto-merge - merge ${PR_URL} manually."
+        fi
+
+    # The plan found nothing to change, so main already matches the newest PBE
+    # build. An open sync/pbe PR then proposes a state that is out of date, for
+    # example a dump of a patch that live has reached.
+    - name: Close an obsolete pull request
+      if: steps.plan.outcome == 'success' && steps.plan.outputs.changed == 'false'
+      env:
+        GH_TOKEN: ${{ steps.app_token.outputs.token }}
+      run: |
+        set -e
+        PR_NUMBER=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+        if [ -z "$PR_NUMBER" ]; then
+          echo "No open ${BRANCH} pull request."
+          exit 0
+        fi
+        gh pr close "$PR_NUMBER" --delete-branch \
+          --comment "Closed by the PBE sync: main already matches the newest PBE build, so this PR is out of date."
+
+    # The repository keeps the reduced dump. The full dump of the newest PBE
+    # build is the single asset of a rolling prerelease. A failure here does not
+    # fail the sync: the PR above does not depend on the release.
+    - name: Publish the full dump to the rolling prerelease
+      id: release
+      if: steps.pbe.outputs.full_dump != ''
+      continue-on-error: true
+      env:
+        GH_TOKEN: ${{ steps.app_token.outputs.token }}
+        VERSION: ${{ steps.pbe.outputs.version }}
+        FULL_DUMP: ${{ steps.pbe.outputs.full_dump }}
+      run: |
+        set -e
+        TITLE="PBE ${VERSION}"
+        NOTES="Full dump of PBE ${VERSION}, as the dumper wrote it. \`dumps/pbe/${VERSION}.json\` in the repository is the reduced form of this file. Each PBE sync replaces the asset of this release."
+
+        if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+          gh release edit "$RELEASE_TAG" --title "$TITLE" --notes "$NOTES" --prerelease
+        else
+          gh release create "$RELEASE_TAG" --prerelease --latest=false \
+            --target "$GITHUB_SHA" --title "$TITLE" --notes "$NOTES"
+        fi
+
+        # The new asset is uploaded before the earlier assets are deleted, so
+        # the release is never empty.
+        gh release upload "$RELEASE_TAG" "$FULL_DUMP" --clobber
+        KEEP=$(basename "$FULL_DUMP")
+        gh release view "$RELEASE_TAG" --json assets --jq '.assets[].name' | while IFS= read -r NAME; do
+          if [ "$NAME" != "$KEEP" ]; then
+            gh release delete-asset "$RELEASE_TAG" "$NAME" --yes
+          fi
+        done
+
+    - name: Upload artifacts
+      if: always() && steps.pbe.outcome != 'skipped'
+      uses: actions/upload-artifact@v4
+      with:
+        name: lol-meta-pbe-${{ github.run_id }}
+        path: |
+          dumps/pbe/
+          temp/pbe/
+        retention-days: 14
+        if-no-files-found: ignore
+
+    - name: Summarise
+      if: always()
+      env:
+        NEWEST: ${{ steps.plan.outputs.newest }}
+        PLAN_OUTCOME: ${{ steps.plan.outcome }}
+        PLAN_CHANGED: ${{ steps.plan.outputs.changed }}
+        PASS_OUTCOME: ${{ steps.pbe.outcome }}
+        VERSION: ${{ steps.pbe.outputs.version }}
+        REMOVED: ${{ steps.pbe.outputs.removed }}
+        PR_URL: ${{ steps.pr.outputs.pr_url }}
+        RELEASE_OUTCOME: ${{ steps.release.outcome }}
+      run: |
+        {
+          echo "## PBE sync"
+          echo ""
+          echo "- Newest PBE build: \`${NEWEST:-unknown}\`"
+          echo "- Plan: \`${PLAN_OUTCOME}\`, change needed: \`${PLAN_CHANGED:-unknown}\`"
+          echo "- Pass: \`${PASS_OUTCOME}\`"
+          echo "- Dumped: \`${VERSION:-none}\`"
+          echo "- Removed: \`${REMOVED:-none}\`"
+          echo "- Pull request: ${PR_URL:-none}"
+          echo "- Prerelease upload: \`${RELEASE_OUTCOME}\`"
+        } >> $GITHUB_STEP_SUMMARY
+
+    # Runs last so that the changes the pass did make are already in the PR.
+    - name: Report failures
+      if: always() && (steps.pbe.outcome == 'failure' || steps.release.outcome == 'failure')
+      run: |
+        if [ "${{ steps.release.outcome }}" = "failure" ]; then
+          echo "::warning title=pbe prerelease::The full dump was not uploaded to the '${RELEASE_TAG}' prerelease - see the step log. The run artifact holds the file."
+        fi
+        if [ "${{ steps.pbe.outcome }}" = "failure" ]; then
+          echo "::error title=meta-sync (PBE)::The PBE pass failed - see the 'Run the PBE pass' step log. dumps/pbe/ keeps the dump it had. If the dumper crashed, run Diagnose Dump on the PBE version: the live build of this patch will hit the same fault."
+          exit 1
+        fi

@@ -2,6 +2,10 @@ name: Sync LoL Meta Classes
 
 # Discovers new game builds, dumps them, rebuilds db/, and opens a PR.
 #
+# This workflow tracks live EUW1 only. The PBE dump in dumps/pbe/ belongs to
+# sync-pbe.yml. A live dump still changes db/meta.pbe.json, because the overlay
+# is built against the latest live build, so that file is committed here too.
+#
 # It opens a PR rather than pushing: main is protected and requires the `verify`
 # check, and a required check can never be satisfied by a direct push - it has to
 # be green on the commit before that commit is allowed to land.
@@ -101,10 +105,12 @@ jobs:
     - name: Detect new dumps
       id: changes
       run: |
+        # `:(glob)` stops `*` from matching `/`. Without it `dumps/*.json` also
+        # matches the PBE dump in dumps/pbe/.
         # Detect new untracked dump files
-        NEW_DUMPS=$(git ls-files --others --exclude-standard -- 'dumps/*.json')
+        NEW_DUMPS=$(git ls-files --others --exclude-standard -- ':(glob)dumps/*.json')
         # Detect modified dump files
-        MODIFIED_DUMPS=$(git diff --name-only -- 'dumps/*.json')
+        MODIFIED_DUMPS=$(git diff --name-only -- ':(glob)dumps/*.json')
 
         ALL_CHANGED=$(echo -e "${NEW_DUMPS}\n${MODIFIED_DUMPS}" | grep -v '^$' | sort -u)
 
@@ -174,7 +180,7 @@ jobs:
 
         # Stage dump files and database
         git add dumps/
-        git add db/database.py db/meta.db.json
+        git add db/database.py db/meta.db.json db/meta.pbe.json
 
         # Check if there's anything to commit
         if git diff --cached --quiet; then

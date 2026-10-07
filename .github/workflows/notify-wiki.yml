@@ -1,8 +1,13 @@
 name: Notify Wiki
 
-# Tells LeagueToolkit/lol-meta-wiki that db/meta.db.json moved so it can pull and
-# redeploy right away. Without this the wiki only learns via its own weekly cron
+# Tells LeagueToolkit/lol-meta-wiki that db/ moved so it can pull and redeploy
+# right away. Without this the wiki only learns via its own weekly cron
 # (Sun 06:00 UTC), so a mid-week sync sits unpublished for up to six days.
+#
+# Two event types, so that the wiki decides separately how to react to each:
+#   - `meta-db-updated`  - db/meta.db.json changed (a live build, or a name
+#     refresh). db/meta.pbe.json may have changed in the same push.
+#   - `meta-pbe-updated` - only db/meta.pbe.json changed (a PBE build).
 #
 # `push` is the entry point that matters: every db/ change now arrives by a PR
 # merging into main, whether that is the sync bot's own PR (merged under an app
@@ -12,13 +17,15 @@ name: Notify Wiki
 #
 # `workflow_call` is kept as an escape hatch for a caller that needs to dispatch
 # explicitly. The sync workflow no longer uses it: it would double-fire against
-# the `push` above.
+# the `push` above. `workflow_call` and `workflow_dispatch` send
+# `meta-db-updated`.
 
 on:
   push:
     branches: [main]
     paths:
       - 'db/meta.db.json'
+      - 'db/meta.pbe.json'
 
   workflow_call:
     secrets:
@@ -32,19 +39,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Dispatch meta-db-updated
+      # Only db/ is needed to tell which file the push changed. The sparse
+      # checkout skips dumps/, which is most of the tree.
+      - name: Checkout db/
+        if: github.event_name == 'push'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          sparse-checkout: db
+
+      - name: Select the event type
+        id: event
+        run: |
+          EVENT=meta-db-updated
+          # HEAD^ is the previous main for a squash merge and for a merge commit.
+          if [ "${{ github.event_name }}" = "push" ] \
+             && git rev-parse --verify --quiet 'HEAD^' >/dev/null \
+             && git diff --quiet 'HEAD^' HEAD -- db/meta.db.json; then
+            EVENT=meta-pbe-updated
+          fi
+          echo "Event type: ${EVENT}"
+          echo "type=${EVENT}" >> $GITHUB_OUTPUT
+
+      - name: Dispatch the event
         env:
           GH_TOKEN: ${{ secrets.WIKI_DISPATCH_TOKEN }}
+          EVENT: ${{ steps.event.outputs.type }}
         run: |
           set -e
           gh api repos/LeagueToolkit/lol-meta-wiki/dispatches \
             --input - <<EOF
           {
-            "event_type": "meta-db-updated",
+            "event_type": "${EVENT}",
             "client_payload": {
               "sha": "${{ github.sha }}",
               "run": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             }
           }
           EOF
-          echo "Dispatched meta-db-updated to lol-meta-wiki."
+          echo "Dispatched ${EVENT} to lol-meta-wiki."

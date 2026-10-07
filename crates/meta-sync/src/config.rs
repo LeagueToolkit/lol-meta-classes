@@ -72,6 +72,11 @@ impl Config {
         self.dumps_dir.join(format!("{}.json", version))
     }
 
+    /// Returns the directory that holds the PBE dump
+    pub fn preview_dumps_dir(&self) -> PathBuf {
+        self.dumps_dir.join("pbe")
+    }
+
     /// Returns the path for a temporary binary file
     pub fn temp_binary_path(&self, version: &str) -> PathBuf {
         self.temp_dir.join(version)

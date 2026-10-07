@@ -15,6 +15,9 @@ cargo build --release --bin dumper
 
 # Run meta-sync
 cargo run --release --bin meta-sync
+
+# Run the PBE pass
+cargo run --release --bin meta-sync -- --channel pbe
 ```
 
 ## What It Does
@@ -73,3 +76,15 @@ The tool checks if `dumps/{version}.json` exists before processing:
 - ❌ Missing: Process version
 
 This makes the tool idempotent and safe to re-run.
+
+## PBE Pass
+
+`--channel pbe` replaces the live pass with the PBE pass (`preview.rs`). The pass keeps the newest PBE1 build as the only dump in `dumps/pbe/`, which `scripts/db_build.py` turns into the `preview` key of `db/meta.db.json`.
+
+1. Reads the latest live patch from the file names in `dumps/`.
+2. Removes every dump in `dumps/pbe/` whose patch is not greater than the latest live patch, and every dump except the newest.
+3. Asks sieve for the newest PBE1 build. The manifest archive is not used: it lags sieve by up to a day and drops superseded builds.
+4. Skips the build if its patch is not greater than the latest live patch, or if `dumps/pbe/` holds that build or a newer build.
+5. Dumps the build into `temp/`, checks the size and the class count, moves the dump to `dumps/pbe/{version}.json`, and removes the dump that it replaces.
+
+If step 3 or step 5 fails, the pass exits with code 1 and `dumps/pbe/` keeps the dump that it held.

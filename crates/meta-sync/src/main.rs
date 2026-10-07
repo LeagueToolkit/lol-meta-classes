@@ -13,24 +13,50 @@
 //!
 //! ```bash
 //! cargo run --release --bin meta-sync
+//! cargo run --release --bin meta-sync -- --channel pbe
 //! ```
 //!
 //! The tool will process all versions newer than the legacy cutoff (13.14.5227601)
 //! and skip any versions that have already been dumped.
+//!
+//! `--channel pbe` runs the PBE pass instead: it keeps the newest PBE build as
+//! the only dump in `dumps/pbe/`. See [`preview`].
 
 mod config;
 mod dumper;
 mod error;
 mod github;
 mod manifest;
+mod preview;
 
+use clap::{Parser, ValueEnum};
 use config::{Config, LEGACY_CUTOFF};
 use error::Result;
 use octocrab::Octocrab;
 use std::io::Write;
 
+/// Release channel that a run syncs.
+#[derive(Clone, Copy, Debug, PartialEq, ValueEnum)]
+enum Channel {
+    /// Dumps every live EUW1 build that `dumps/` lacks
+    Live,
+    /// Keeps the newest PBE build as the only dump in `dumps/pbe/`
+    Pbe,
+}
+
+#[derive(Parser)]
+#[command(name = "meta-sync")]
+#[command(about = "Dumps League of Legends metaclass information into dumps/")]
+struct Args {
+    /// Release channel to sync
+    #[arg(long, value_enum, default_value_t = Channel::Live)]
+    channel: Channel,
+}
+
 #[tokio::main]
 async fn main() -> Result<()> {
+    let args = Args::parse();
+
     println!("🚀 Starting meta-sync");
     println!("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
@@ -49,6 +75,23 @@ async fn main() -> Result<()> {
     }
     println!("✓ Dumper found at: {}", config.dumper_path.display());
 
+    match args.channel {
+        Channel::Live => sync_live(&config).await,
+        Channel::Pbe => {
+            // The error is printed here because the `Debug` output that a
+            // returned error gets does not expand the dumper's stderr.
+            if let Err(e) = preview::run(&config).await {
+                eprintln!("❌ PBE pass failed: {}", e);
+                std::io::stdout().flush()?;
+                std::process::exit(1);
+            }
+            Ok(())
+        }
+    }
+}
+
+/// Dumps every live build that `dumps/` lacks.
+async fn sync_live(config: &Config) -> Result<()> {
     // Create GitHub client
     let octocrab = Octocrab::default();
 
@@ -84,7 +127,7 @@ async fn main() -> Result<()> {
         println!("────────────────────────────────────────");
 
         // Process the version
-        match process_version(&config, &game_version).await {
+        match process_version(config, &game_version).await {
             Ok(_) => {
                 println!("✅ Successfully processed {}", version);
                 processed_count += 1;

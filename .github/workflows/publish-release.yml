@@ -11,11 +11,15 @@ name: Publish Dump Release
 # It fires at all because the sync's PR merges under a GitHub App token;
 # GITHUB_TOKEN raises no push events, and this would never run.
 
+# dumps/pbe/ is excluded. A PBE build is not a live release, and its dump is
+# replaced or removed by later syncs, so it gets no tag and no release.
+
 on:
   push:
     branches: [main]
     paths:
       - 'dumps/**'
+      - '!dumps/pbe/**'
 
   # Re-publish a specific version by hand, e.g. after deleting a bad release.
   workflow_dispatch:
@@ -65,8 +69,10 @@ jobs:
              || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
             BEFORE="${GITHUB_SHA}^"
           fi
+          # `:(glob)` stops `*` from matching `/`, so a dump under dumps/pbe/ that
+          # rides along with a live dump is not listed.
           CHANGED=$(git diff --name-only --diff-filter=AM "$BEFORE" "$GITHUB_SHA" \
-                      -- 'dumps/*.json' || true)
+                      -- ':(glob)dumps/*.json' || true)
         fi
 
         CHANGED=$(echo "$CHANGED" | grep -v '^$' || true)

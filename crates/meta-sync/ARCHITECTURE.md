@@ -49,6 +49,16 @@ GitHub API → Version Discovery → Manifest Download → Binary Extraction →
    }
    ```
 
+### PBE pass
+
+`meta-sync --channel pbe` runs `preview.rs` instead of the steps above.
+
+- Version discovery goes through sieve (`sieve.rs`), which returns the build that PBE1 serves together with its manifest URL. The live pass reads the manifest archive because it needs history; the PBE pass needs only the newest build.
+- The output is `dumps/pbe/{version}.json`, in reduced form: the layout fields that the database build does not read are dropped. The directory holds one dump. `scripts/db_build.py` lists `dumps/` non-recursively, so the PBE dump is not part of the live history. It feeds `db/meta.pbe.json` only.
+- A PBE dump is kept only while its patch is greater than the latest live patch. PBE and live build numbers interleave, so the comparison uses the patch, not the build number.
+- The dumper writes the full dump to `temp/pbe/`. The reduced dump replaces the previous PBE dump only after the size and class count checks pass.
+- `--plan` stops before the download and changes no file. `--outputs` writes the result as `key=value` lines for the workflow (`outputs.rs`), so the workflow does not derive it from `git status`.
+
 ## Key Design Decisions
 
 ### Why macOS binaries?

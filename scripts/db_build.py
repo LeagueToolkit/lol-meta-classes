@@ -21,12 +21,19 @@ Also regenerates db/database.py as a snapshot of the *latest* build only
 (the previous behaviour of importing dumps into the existing file made it an
 unversioned aggregate of everything that ever existed).
 
+Also writes db/meta.pbe.json, the PBE overlay. If dumps/pbe/ holds a PBE dump
+whose patch is greater than the latest live patch, the PBE dump is folded as
+one more build on top of the live history and the class entries that differ are
+written to the overlay. Otherwise the overlay states that no preview exists.
+db/meta.db.json and db/database.py never include the PBE build.
+
 See docs/meta-db-format.md for the full format description.
 
 Usage:
     python3 scripts/db_build.py
     python3 scripts/db_build.py --dumps dumps --hashes hashes \
         --out db/meta.db.json --py db/database.py
+    python3 scripts/db_build.py --no-preview
 """
 
 import argparse
@@ -41,13 +48,17 @@ from db_import import read_resolved_hashes, read_meta, rehex_fnv1a
 
 FORMAT_VERSION = 1
 RE_DUMP = re.compile(r"^(\d+)\.(\d+)\.(\d+)\.json$")
+PREVIEW_CHANNEL = "pbe"
+PREVIEW_FILE = "meta.pbe.json"
 
 
 def hash_key(h):
     return int(h, 16)
 
 
-def discover_dumps(dumps_dir):
+def list_dumps(dumps_dir):
+    """Returns the dumps directly inside `dumps_dir`, unordered. The listing is
+    not recursive, so dumps/pbe/ does not enter the live corpus."""
     dumps = []
     for filename in os.listdir(dumps_dir):
         m = RE_DUMP.match(filename)
@@ -60,6 +71,11 @@ def discover_dumps(dumps_dir):
             "path": os.path.join(dumps_dir, filename),
             "_mm": (major, minor),
         })
+    return dumps
+
+
+def discover_dumps(dumps_dir):
+    dumps = list_dumps(dumps_dir)
     # Build numbers increase monotonically across patches and are the only
     # reliable global ordering ("13.2" vs "13.15" breaks lexicographic sorts).
     dumps.sort(key=lambda d: d["build"])
@@ -71,6 +87,27 @@ def discover_dumps(dumps_dir):
                   file=sys.stderr)
         prev = d
     return dumps
+
+
+def discover_preview(preview_dir, dumps):
+    """Returns the PBE dump that the preview is built from, or None.
+
+    Returns None if `preview_dir` does not exist or holds no dump. Returns None
+    if the patch of the newest PBE dump is not greater than the latest live
+    patch. If the directory holds several dumps, the dump with the greatest
+    patch and build is used."""
+    if not os.path.isdir(preview_dir):
+        return None
+    candidates = list_dumps(preview_dir)
+    if not candidates:
+        return None
+    dump = max(candidates, key=lambda d: (d["_mm"], d["build"]))
+    live = max(dumps, key=lambda d: d["_mm"])
+    if dump["_mm"] <= live["_mm"]:
+        print(f"[..] no preview: PBE {dump['patch']}.{dump['build']} is not ahead of "
+              f"live patch {live['patch']}")
+        return None
+    return dump
 
 
 def field_type_tuple(field):
@@ -118,34 +155,39 @@ def advance(revisions, sig, build, prev_build):
     return rev
 
 
+def fold_dump(classes, d, prev_build):
+    """Folds one dump into `classes` as the build that follows `prev_build`."""
+    build = d["build"]
+    meta = read_meta(d["path"])
+    for kname, klass in meta["classes"].items():
+        khash = rehex_fnv1a(kname)
+        entry = classes.setdefault(khash, {"revisions": [], "properties": {}})
+        sig = class_signature(klass)
+        rev = advance(entry["revisions"], sig, build, prev_build)
+        rev["payload"] = {
+            "bases": list(sig[0]),
+            "interface": sig[1],
+            "value": sig[2],
+        }
+        defaults = klass.get("defaults")
+        for fname, field in klass["properties"].items():
+            fhash = rehex_fnv1a(fname)
+            prop = entry["properties"].setdefault(fhash, {"revisions": []})
+            tsig = field_type_tuple(field)
+            frev = advance(prop["revisions"], tsig, build, prev_build)
+            frev["payload"]["type"] = list(tsig)
+            # Revisions are keyed on the type tuple; the default carried by
+            # a revision is the most recent one observed within its range.
+            if isinstance(defaults, dict) and fname in defaults:
+                frev["payload"]["default"] = defaults[fname]
+
+
 def build_history(dumps):
     classes = {}
     prev_build = None
     for d in dumps:
-        build = d["build"]
-        meta = read_meta(d["path"])
-        for kname, klass in meta["classes"].items():
-            khash = rehex_fnv1a(kname)
-            entry = classes.setdefault(khash, {"revisions": [], "properties": {}})
-            sig = class_signature(klass)
-            rev = advance(entry["revisions"], sig, build, prev_build)
-            rev["payload"] = {
-                "bases": list(sig[0]),
-                "interface": sig[1],
-                "value": sig[2],
-            }
-            defaults = klass.get("defaults")
-            for fname, field in klass["properties"].items():
-                fhash = rehex_fnv1a(fname)
-                prop = entry["properties"].setdefault(fhash, {"revisions": []})
-                tsig = field_type_tuple(field)
-                frev = advance(prop["revisions"], tsig, build, prev_build)
-                frev["payload"]["type"] = list(tsig)
-                # Revisions are keyed on the type tuple; the default carried by
-                # a revision is the most recent one observed within its range.
-                if isinstance(defaults, dict) and fname in defaults:
-                    frev["payload"]["default"] = defaults[fname]
-        prev_build = build
+        fold_dump(classes, d, prev_build)
+        prev_build = d["build"]
     return classes
 
 
@@ -206,6 +248,47 @@ def external_type_names(classes_out, h_types):
             if h not in classes_out and h in h_types and h != "0x0"}
 
 
+def is_open(entity):
+    return "to" not in entity["revisions"][-1]
+
+
+def build_preview(classes, live_out, live_external, base, dump, h_types, h_fields):
+    """Builds the overlay for the PBE dump `dump`.
+
+    Folds `dump` into `classes` as the build that follows the live build `base`
+    and keeps the class entries that differ from `live_out`. `classes` is
+    modified, so `live_out` must be finalized before the call."""
+    fold_dump(classes, dump, base["build"])
+    merged = finalize(classes, dump["build"], h_types, h_fields)
+    delta = {h: k for h, k in merged.items() if live_out.get(h) != k}
+    external = {h: name for h, name in external_type_names(merged, h_types).items()
+                if h not in live_external}
+    return {
+        "channel": PREVIEW_CHANNEL,
+        "patch": dump["patch"],
+        "build": dump["build"],
+        "base": base["build"],
+        "externalTypeNames": external,
+        "classes": delta,
+    }
+
+
+def preview_counts(preview, live_out):
+    """Returns the (added, removed, changed) class counts of `preview`. A class
+    is added if the latest live build does not have it. A class is removed if
+    the latest live build has it and the PBE build does not."""
+    added = removed = changed = 0
+    for khash, klass in preview["classes"].items():
+        live = live_out.get(khash)
+        if live is None or not is_open(live):
+            added += 1
+        elif not is_open(klass):
+            removed += 1
+        else:
+            changed += 1
+    return added, removed, changed
+
+
 def compact(obj):
     return json.dumps(obj, separators=(",", ":"))
 
@@ -224,6 +307,34 @@ def read_hash_source(hashes_dir):
     return out
 
 
+def write_external(f, external):
+    f.write('"externalTypeNames": {\n')
+    ext_keys = list(external)
+    for i, h in enumerate(ext_keys):
+        comma = "," if i < len(ext_keys) - 1 else ""
+        f.write(f"{json.dumps(h)}: {json.dumps(external[h])}{comma}\n")
+    f.write("},\n")
+
+
+def write_classes(f, classes_out):
+    f.write('"classes": {\n')
+    class_keys = list(classes_out)
+    for ci, khash in enumerate(class_keys):
+        klass = classes_out[khash]
+        head = f"{json.dumps(khash)}: {{"
+        if "name" in klass:
+            head += f'"name": {json.dumps(klass["name"])}, '
+        head += f'"revisions": {compact(klass["revisions"])}, "properties": {{'
+        f.write(head + "\n")
+        prop_keys = list(klass["properties"])
+        for pi, fhash in enumerate(prop_keys):
+            comma = "," if pi < len(prop_keys) - 1 else ""
+            f.write(f" {json.dumps(fhash)}: {compact(klass['properties'][fhash])}{comma}\n")
+        comma = "," if ci < len(class_keys) - 1 else ""
+        f.write("}}" + comma + "\n")
+    f.write("}\n")
+
+
 def write_db_json(path, versions, latest_build, classes_out, external, hash_source=None):
     """Hand-rolled layout: one line per property, one line per version entry.
     A schema change in one property diffs as a single-line change."""
@@ -239,28 +350,28 @@ def write_db_json(path, versions, latest_build, classes_out, external, hash_sour
             comma = "," if i < len(versions) - 1 else ""
             f.write(compact({"patch": v["patch"], "build": v["build"]}) + comma + "\n")
         f.write("],\n")
-        f.write('"externalTypeNames": {\n')
-        ext_keys = list(external)
-        for i, h in enumerate(ext_keys):
-            comma = "," if i < len(ext_keys) - 1 else ""
-            f.write(f"{json.dumps(h)}: {json.dumps(external[h])}{comma}\n")
-        f.write("},\n")
-        f.write('"classes": {\n')
-        class_keys = list(classes_out)
-        for ci, khash in enumerate(class_keys):
-            klass = classes_out[khash]
-            head = f"{json.dumps(khash)}: {{"
-            if "name" in klass:
-                head += f'"name": {json.dumps(klass["name"])}, '
-            head += f'"revisions": {compact(klass["revisions"])}, "properties": {{'
-            f.write(head + "\n")
-            prop_keys = list(klass["properties"])
-            for pi, fhash in enumerate(prop_keys):
-                comma = "," if pi < len(prop_keys) - 1 else ""
-                f.write(f" {json.dumps(fhash)}: {compact(klass['properties'][fhash])}{comma}\n")
-            comma = "," if ci < len(class_keys) - 1 else ""
-            f.write("}}" + comma + "\n")
+        write_external(f, external)
+        write_classes(f, classes_out)
         f.write("}\n")
+
+
+def write_preview_json(path, preview):
+    """Writes the PBE overlay file in the layout of `write_db_json`.
+
+    If `preview` is None, the file states that no preview exists: "patch",
+    "build" and "base" are null and "classes" is empty. The file is written in
+    both cases, so a stale overlay never stays on disk."""
+    if preview is None:
+        preview = {"channel": PREVIEW_CHANNEL, "patch": None, "build": None, "base": None,
+                   "externalTypeNames": {}, "classes": {}}
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write("{\n")
+        f.write(f'"formatVersion": {FORMAT_VERSION},\n')
+        for key in ("channel", "patch", "build", "base"):
+            f.write(f'"{key}": {json.dumps(preview[key])},\n')
+        write_external(f, preview["externalTypeNames"])
+        write_classes(f, preview["classes"])
         f.write("}\n")
 
 
@@ -283,6 +394,12 @@ def main():
                         help="latest-build snapshot output (existing .py format)")
     parser.add_argument("--skip-py", action="store_true",
                         help="do not regenerate the database.py snapshot")
+    parser.add_argument("--preview-dumps", default=None,
+                        help="directory of the PBE dump (default: <dumps>/pbe)")
+    parser.add_argument("--preview-out", default=None,
+                        help=f"PBE overlay output (default: {PREVIEW_FILE} next to --out)")
+    parser.add_argument("--no-preview", action="store_true",
+                        help="do not read the PBE dump and do not write the PBE overlay")
     args = parser.parse_args()
 
     dumps = discover_dumps(args.dumps)
@@ -300,6 +417,15 @@ def main():
     classes_out = finalize(classes, latest["build"], h_types, h_fields)
     external = external_type_names(classes_out, h_types)
 
+    # The PBE fold modifies `classes`, so it runs after the live finalize.
+    preview = None
+    if not args.no_preview:
+        preview_dir = args.preview_dumps or os.path.join(args.dumps, PREVIEW_CHANNEL)
+        preview_dump = discover_preview(preview_dir, dumps)
+        if preview_dump:
+            preview = build_preview(classes, classes_out, external, latest, preview_dump,
+                                    h_types, h_fields)
+
     versions = [{"patch": d["patch"], "build": d["build"]} for d in dumps]
     hash_source = read_hash_source(args.hashes)
     write_db_json(args.out, versions, latest["build"], classes_out, external, hash_source)
@@ -307,6 +433,12 @@ def main():
     # Sanity check: the hand-rolled writer must produce valid JSON.
     with open(args.out, encoding="utf-8") as f:
         json.load(f)
+
+    preview_out = args.preview_out or os.path.join(os.path.dirname(args.out), PREVIEW_FILE)
+    if not args.no_preview:
+        write_preview_json(preview_out, preview)
+        with open(preview_out, encoding="utf-8") as f:
+            json.load(f)
 
     total_props = sum(len(k["properties"]) for k in classes_out.values())
     removed_classes = sum(1 for k in classes_out.values() if "to" in k["revisions"][-1])
@@ -316,6 +448,13 @@ def main():
                     for p in k["properties"].values() if len(p["revisions"]) > 1)
     print(f"[ok] {args.out}: {len(classes_out)} classes ({removed_classes} removed), "
           f"{total_props} properties ({removed_props} removed, {multi_rev} with >1 revision)")
+    if preview:
+        added, removed, changed = preview_counts(preview, classes_out)
+        print(f"[ok] {preview_out}: {preview['channel']} {preview['patch']}.{preview['build']} over "
+              f"{preview['base']}: {len(preview['classes'])} classes "
+              f"({added} added, {removed} removed, {changed} changed)")
+    elif not args.no_preview:
+        print(f"[ok] {preview_out}: no preview")
 
     if not args.skip_py:
         write_snapshot_py(args.py, latest["path"], h_types, h_fields)

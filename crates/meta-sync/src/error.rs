@@ -12,6 +12,12 @@ pub enum SyncError {
     #[error("HTTP request failed: {0}")]
     Http(#[from] reqwest::Error),
 
+    #[error("Sieve lookup failed: {0}")]
+    Sieve(#[from] meta_sync::sieve::SieveError),
+
+    #[error("Dump {path} was rejected: {reason}")]
+    InvalidDump { path: PathBuf, reason: String },
+
     #[error("RMAN manifest parsing failed: {0}")]
     Manifest(String),
 

@@ -20,20 +20,25 @@
 //! and skip any versions that have already been dumped.
 //!
 //! `--channel pbe` runs the PBE pass instead: it keeps the newest PBE build as
-//! the only dump in `dumps/pbe/`. See [`preview`].
+//! the only dump in `dumps/pbe/`. See [`preview`]. With `--plan` the PBE pass
+//! reports what it would do and changes nothing. `--outputs <path>` appends the
+//! result of the PBE pass to a file as `key=value` lines.
 
 mod config;
 mod dumper;
 mod error;
 mod github;
 mod manifest;
+mod outputs;
 mod preview;
 
-use clap::{Parser, ValueEnum};
+use clap::error::ErrorKind;
+use clap::{CommandFactory, Parser, ValueEnum};
 use config::{Config, LEGACY_CUTOFF};
 use error::Result;
 use octocrab::Octocrab;
 use std::io::Write;
+use std::path::PathBuf;
 
 /// Release channel that a run syncs.
 #[derive(Clone, Copy, Debug, PartialEq, ValueEnum)]
@@ -51,11 +56,29 @@ struct Args {
     /// Release channel to sync
     #[arg(long, value_enum, default_value_t = Channel::Live)]
     channel: Channel,
+
+    /// Report what the PBE pass would do, without changing a file or
+    /// downloading a binary
+    #[arg(long)]
+    plan: bool,
+
+    /// File that receives the result of the PBE pass as `key=value` lines, for
+    /// example `$GITHUB_OUTPUT`
+    #[arg(long, value_name = "PATH")]
+    outputs: Option<PathBuf>,
 }
 
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
+    if args.channel == Channel::Live && (args.plan || args.outputs.is_some()) {
+        Args::command()
+            .error(
+                ErrorKind::ArgumentConflict,
+                "--plan and --outputs require --channel pbe",
+            )
+            .exit();
+    }
 
     println!("🚀 Starting meta-sync");
     println!("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
@@ -64,23 +87,26 @@ async fn main() -> Result<()> {
     let config = Config::new();
     config.ensure_directories()?;
 
-    // Verify dumper exists
-    if !config.dumper_path.exists() {
-        eprintln!("❌ Dumper not found at: {}", config.dumper_path.display());
-        eprintln!("💡 Build the dumper first:");
-        eprintln!("   cargo build --release --bin dumper");
-        return Err(error::SyncError::DumperNotFound {
-            path: config.dumper_path,
-        });
-    }
-    println!("✓ Dumper found at: {}", config.dumper_path.display());
-
     match args.channel {
         Channel::Live => sync_live(&config).await,
         Channel::Pbe => {
+            let mode = if args.plan {
+                preview::Mode::Plan
+            } else {
+                preview::Mode::Apply
+            };
+            let mut report = preview::Report::default();
+            let result = preview::run(&config, mode, &mut report).await;
+
+            // Written for a failed pass too: the pass removes obsolete dumps
+            // before the steps that can fail.
+            if let Some(path) = &args.outputs {
+                outputs::append_outputs(path, &report.outputs())?;
+            }
+
             // The error is printed here because the `Debug` output that a
             // returned error gets does not expand the dumper's stderr.
-            if let Err(e) = preview::run(&config).await {
+            if let Err(e) = result {
                 eprintln!("❌ PBE pass failed: {}", e);
                 std::io::stdout().flush()?;
                 std::process::exit(1);
@@ -92,6 +118,17 @@ async fn main() -> Result<()> {
 
 /// Dumps every live build that `dumps/` lacks.
 async fn sync_live(config: &Config) -> Result<()> {
+    // Verify dumper exists
+    if !config.dumper_path.exists() {
+        eprintln!("❌ Dumper not found at: {}", config.dumper_path.display());
+        eprintln!("💡 Build the dumper first:");
+        eprintln!("   cargo build --release --bin dumper");
+        return Err(error::SyncError::DumperNotFound {
+            path: config.dumper_path.clone(),
+        });
+    }
+    println!("✓ Dumper found at: {}", config.dumper_path.display());
+
     // Create GitHub client
     let octocrab = Octocrab::default();
 

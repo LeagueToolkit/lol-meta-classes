@@ -1,8 +1,9 @@
 name: Verify Generated DB
 
-# db/ is a pure function of its committed inputs: dumps/, the upstream hash
-# mirror (hashes/hashes.*.txt), the local overrides (hashes/overrides/), and the
-# build scripts. This check rebuilds db/ from those inputs and fails if the
+# db/ is a pure function of its committed inputs: dumps/ (including the PBE dump
+# in dumps/pbe/, which becomes the `preview` key), the upstream hash mirror
+# (hashes/hashes.*.txt), the local overrides (hashes/overrides/), and the build
+# scripts. This check rebuilds db/ from those inputs and fails if the
 # committed db/ doesn't match - so a PR that touches an input (a new dump, a
 # refreshed mirror, or a hand-added override) can't merge without carrying the
 # regenerated db/.
@@ -25,6 +26,7 @@ on:
       - 'scripts/hashtool.py'
       - 'scripts/ledger.py'
       - 'scripts/names.py'
+      - 'scripts/tests/**'
       - '.github/workflows/verify-generated.yml'
 
   workflow_dispatch:
@@ -48,6 +50,11 @@ jobs:
       # disagrees with the rule, which is how a hand-edit gets caught.
       - name: Check the naming rule on local overrides
         run: python3 scripts/hashtool.py lint
+
+      # Covers the preview overlay on synthetic dumps, so the overlay is checked
+      # in the weeks in which dumps/pbe/ holds no dump.
+      - name: Run the build script tests
+        run: python3 -m unittest discover -s scripts/tests
 
       - name: Rebuild db/ from committed inputs
         run: python3 scripts/db_build.py

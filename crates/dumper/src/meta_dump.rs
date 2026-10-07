@@ -129,6 +129,25 @@ fn dump_instance_hash(instance: usize) -> Value {
     dump_hex(result).into()
 }
 
+/// Reads a hash value that is `width` bytes wide. A width other than 8 reads
+/// 4 bytes.
+fn dump_instance_hash_of_width(instance: usize, width: usize) -> Value {
+    match width {
+        8 => {
+            let result = unsafe { (instance as *const u64).read_unaligned() };
+            dump_hex(result).into()
+        }
+        _ => dump_instance_hash(instance),
+    }
+}
+
+/// Reads the value of a `Hash` property. The helper of the property gives the
+/// stored width. A property without a helper stores 4 bytes.
+fn dump_instance_hashed(instance: usize, hashed: Option<&HashedI>) -> Value {
+    let width = hashed.map_or(4, HashedI::storage_width);
+    dump_instance_hash_of_width(instance, width)
+}
+
 fn dump_instance_link(instance: usize, _class: ClassRef) -> Value {
     dump_instance_hash(instance)
 }
@@ -274,6 +293,7 @@ fn dump_instance_property(instance: usize, property: PropertyRef) -> Value {
             }
         }
         BinType::Flag => dump_instance_flag(instance, property.bitmask()),
+        BinType::Hash => dump_instance_hashed(instance, property.hashed()),
         _ => dump_instance_nestable(instance, property.value_type(), property.other_class()),
     }
 }
@@ -547,5 +567,41 @@ pub fn dump_meta(base: usize, classes: &[*const ()], version: String) -> MetaDum
         version,
         hashers: hashers.into_map(),
         classes,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    const STORED: u64 = 0xccdb_6584_d78a_04f6;
+
+    #[test]
+    fn dump_instance_hash_of_width_reads_8_bytes_if_width_is_8() {
+        let instance = &STORED as *const u64 as usize;
+        assert_eq!(
+            dump_instance_hash_of_width(instance, 8),
+            Value::from("0xccdb6584d78a04f6")
+        );
+    }
+
+    #[test]
+    fn dump_instance_hash_of_width_reads_4_bytes_if_width_is_4() {
+        let stored = (STORED as u32).to_ne_bytes();
+        let instance = stored.as_ptr() as usize;
+        assert_eq!(
+            dump_instance_hash_of_width(instance, 4),
+            Value::from("0xd78a04f6")
+        );
+    }
+
+    #[test]
+    fn dump_instance_hashed_reads_4_bytes_if_property_has_no_helper() {
+        let instance = &STORED as *const u64 as usize;
+        let low = u32::from_ne_bytes(STORED.to_ne_bytes()[..4].try_into().unwrap());
+        assert_eq!(
+            dump_instance_hashed(instance, None),
+            Value::from(dump_hex(low))
+        );
     }
 }

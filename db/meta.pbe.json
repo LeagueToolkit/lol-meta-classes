@@ -2047,7 +2047,7 @@
  "0x69030632": {"name":"SharedTextureSets","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x272ca74d"],"default":[]}]},
  "0x844f384e": {"name":"techniques","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x60a4413"],"default":[]}]},
  "0x86875ff3": {"name":"dynamicMaterial","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x2d6bf1a2"],"default":null}]},
- "0x8d39bde6": {"name":"name","revisions":[{"from":5229820,"to":8230722,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8255794,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x8d39bde6": {"name":"name","revisions":[{"from":5229820,"to":8230722,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8255794,"type":["Hash","0x0","0x0","0x0"],"hasher":{"width":8,"algorithm":"Xxh3","lowercased":true},"default":"0x0"}]},
  "0x9330e6b6": {"name":"childTechniques","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x735b4c95"],"default":[]}]},
  "0xd0ab46b8": {"name":"paramValues","revisions":[{"from":5229820,"type":["List2","0x0","Embed","0xde480eef"],"default":[]}]},
  "0xdd7ddb9d": {"name":"switches","revisions":[{"from":5229820,"type":["List2","0x0","Embed","0xe2212a1"],"default":[]}]},

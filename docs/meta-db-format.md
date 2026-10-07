@@ -61,7 +61,26 @@ python3 scripts/db_build.py
 }
 ```
 - `type` is the same 4-tuple as `database.py` fields - `(ft, kt, vt, kh)` - see `docs/database.md`. `kh` stays a raw hash here; resolve it via `classes[kh].name` or `externalTypeNames`.
-- `default` is the most recent default value observed within that revision's range (revisions are keyed on the type tuple, so a default-only tweak updates the open revision in place rather than opening a new one).
+- `default` is the most recent default value observed within that revision's range (revisions are keyed on the type tuple and the hasher, so a default-only tweak updates the open revision in place rather than opening a new one).
+
+### Hasher of a `Hash` property
+The `Hash` type gives neither the width of the stored value nor the hash function. Both belong to the hasher of the property. A revision carries `hasher` if the hasher is not the default:
+```jsonc
+"0x8d39bde6": {
+  "name": "name",
+  "revisions": [
+    {"from": 5229820, "to": 8230722, "type": ["String", "0x0", "0x0", "0x0"], "default": ""},
+    {"from": 8255794, "type": ["Hash", "0x0", "0x0", "0x0"], "hasher": {"width": 8, "algorithm": "Xxh3", "lowercased": true}, "default": "0x0"}
+  ]
+}
+```
+- `width`: bytes of the stored value, 4 or 8. A bin reader consumes `width` bytes for the value.
+- `algorithm`: `Fnv1a32`, `Xxh64`, `Xxh3` (XXH3-64) or `Unknown`. A 64-bit algorithm with `width` 4 stores the low 32 bits.
+- `lowercased`: `true` if the string is lowercased before it is hashed.
+- A revision without `hasher` has the default: FNV-1a 32 over the lowercased string, stored in 4 bytes.
+- A change of `width`, `algorithm` or `lowercased` starts a new revision.
+- The values come from the `hashers` table of the dump (dump format version 3). A dump before 16.17.8104348 records no hasher and reads as the default.
+- A `Hash` element of a `List`, `Option` or `Map` has no hasher in the dump and gets no `hasher` here.
 
 ### Revision semantics
 - A revision is one distinct definition plus the build range it was observed in: `from` = first build seen, `to` = last build seen.

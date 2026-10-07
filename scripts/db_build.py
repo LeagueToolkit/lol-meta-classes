@@ -50,6 +50,8 @@ FORMAT_VERSION = 1
 RE_DUMP = re.compile(r"^(\d+)\.(\d+)\.(\d+)\.json$")
 PREVIEW_CHANNEL = "pbe"
 PREVIEW_FILE = "meta.pbe.json"
+# The hasher of every `Hash` property before 16.17: (width, algorithm, lowercased).
+DEFAULT_HASHER = (4, "Fnv1a32", True)
 
 
 def hash_key(h):
@@ -131,6 +133,22 @@ def field_type_tuple(field):
     return tuple(ftype)
 
 
+def field_hasher(field, hashers):
+    """Returns the (width, algorithm, lowercased) of the hasher of a `Hash`
+    property, or None.
+
+    Returns None if the dump records no hasher for the property, which is every
+    dump before format version 3. Returns None if the hasher is the default:
+    FNV-1a 32 over the lowercased string, stored in 4 bytes."""
+    key = field.get("hasher")
+    if not key:
+        return None
+    hasher = hashers[key]
+    function = hasher["hash_function"]
+    sig = (hasher["storage_width"], function["algorithm"], function["lowercased"])
+    return None if sig == DEFAULT_HASHER else sig
+
+
 def class_signature(klass):
     bases = set()
     if klass.get("base"):
@@ -159,6 +177,7 @@ def fold_dump(classes, d, prev_build):
     """Folds one dump into `classes` as the build that follows `prev_build`."""
     build = d["build"]
     meta = read_meta(d["path"])
+    hashers = meta.get("hashers") or {}
     for kname, klass in meta["classes"].items():
         khash = rehex_fnv1a(kname)
         entry = classes.setdefault(khash, {"revisions": [], "properties": {}})
@@ -174,10 +193,18 @@ def fold_dump(classes, d, prev_build):
             fhash = rehex_fnv1a(fname)
             prop = entry["properties"].setdefault(fhash, {"revisions": []})
             tsig = field_type_tuple(field)
-            frev = advance(prop["revisions"], tsig, build, prev_build)
+            hsig = field_hasher(field, hashers)
+            frev = advance(prop["revisions"], (tsig, hsig), build, prev_build)
             frev["payload"]["type"] = list(tsig)
-            # Revisions are keyed on the type tuple; the default carried by
-            # a revision is the most recent one observed within its range.
+            if hsig:
+                frev["payload"]["hasher"] = {
+                    "width": hsig[0],
+                    "algorithm": hsig[1],
+                    "lowercased": hsig[2],
+                }
+            # Revisions are keyed on the type tuple and the hasher; the
+            # default carried by a revision is the most recent one observed
+            # within its range.
             if isinstance(defaults, dict) and fname in defaults:
                 frev["payload"]["default"] = defaults[fname]
 

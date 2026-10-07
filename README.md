@@ -53,6 +53,9 @@ interned in a top-level `hashers` table keyed by vtable and a property names its
 "classes": { "0x…": { "properties": { "0x…": { "value_type": "Hash", "hasher": "0x25d0ff0" } } } }
 ```
 
+`db/meta.db.json` carries the width and the algorithm on the property revision if the hasher is not
+4-byte FNV-1a 32. See [Hasher of a `Hash` property](docs/meta-db-format.md#hasher-of-a-hash-property).
+
 ## Database files
 
 ### `db/meta.db.json`

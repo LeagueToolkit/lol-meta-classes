@@ -22367,7 +22367,7 @@
 }},
 "0xb041c60a": {"name": "IUiVariable", "revisions": [{"from":7695709,"bases":[],"interface":true,"value":false}], "properties": {
  "0x8d39bde6": {"name":"name","revisions":[{"from":7695709,"to":8049184,"type":["String","0x0","0x0","0x0"]}]},
- "0x8d9a165f": {"revisions":[{"from":8104348,"type":["Hash","0x0","0x0","0x0"]}]}
+ "0x8d9a165f": {"revisions":[{"from":8104348,"to":8104348,"type":["Hash","0x0","0x0","0x0"],"hasher":{"width":4,"algorithm":"Xxh3","lowercased":true}},{"from":8159717,"type":["Hash","0x0","0x0","0x0"]}]}
 }},
 "0xb0607142": {"name": "EntityScriptCondition", "revisions": [{"from":6919951,"bases":["0xc621aa68"],"interface":true,"value":false}], "properties": {
 }},

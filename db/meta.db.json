@@ -6026,9 +6026,9 @@
  "0xda585234": {"name":"DesignerRecSpellOverride","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x28556403": {"revisions": [{"from":8207193,"bases":["0x3ff90079"],"interface":false,"value":false}], "properties": {
- "0x7c00519f": {"revisions":[{"from":8248524,"type":["Option","0x0","F32","0x0"],"default":null}]},
+ "0x7c00519f": {"name":"OverrideLingerTime","revisions":[{"from":8248524,"type":["Option","0x0","F32","0x0"],"default":null}]},
  "0xc10d2292": {"name":"MixState","revisions":[{"from":8207193,"type":["Link","0x0","0x0","0x70726e31"],"default":"0x0"}]},
- "0xf36010f5": {"revisions":[{"from":8248524,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
+ "0xf36010f5": {"name":"ForceActivate","revisions":[{"from":8248524,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0x28628b50": {"name": "SetEntityPositionBlock", "revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x32608848": {"name":"Target","revisions":[{"from":6421879,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]},
@@ -23023,7 +23023,7 @@
  "0x1cf84925": {"name":"MobileMixEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x561de536": {"name":"PcMixEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x5f8383ca": {"name":"features","revisions":[{"from":5229820,"to":5869705,"type":["List","0x0","Link","0xf2b58198"],"default":[]}]},
- "0x81c35ced": {"revisions":[{"from":8248524,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x81c35ced": {"name":"ListenerConfiguration","revisions":[{"from":8248524,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x84ff70c0": {"name":"BaseData","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xb36da9ac"],"default":"0x0"}]},
  "0xa02b6406": {"name":"FeaturesList","revisions":[{"from":5876777,"type":["List2","0x0","Link","0xf2b58198"],"default":[]}]},
  "0xf8f29f92": {"name":"bankUnits","revisions":[{"from":5229820,"type":["List2","0x0","Embed","0xa4416515"],"default":[]}]}

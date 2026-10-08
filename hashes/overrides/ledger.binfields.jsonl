@@ -1427,6 +1427,7 @@
 {"hash": "829dfd5f", "name": "ElderDragonSolo", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
 {"hash": "7a3e799b", "name": "ElderDragonSteal", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
 {"hash": "73a7c872", "name": "ElderSpawn", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
+{"hash": "f36010f5", "name": "ForceActivate", "batch": "global-audio", "cracked": "2026-10-08", "status": "pending", "pr": "-"}
 {"hash": "c5d72455", "name": "GeneralPriorityBehavior", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
 {"hash": "a2f5a276", "name": "GenericEvent", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
 {"hash": "b2246553", "name": "GlobalContextualActionData", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
@@ -1442,6 +1443,7 @@
 {"hash": "e1ea923b", "name": "InhibitorRespawn", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
 {"hash": "94311ea0", "name": "InhibitorRespawnSoon", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
 {"hash": "f4606717", "name": "LingerTime", "batch": "global-audio", "cracked": "2026-10-08", "status": "pending", "pr": "-"}
+{"hash": "81c35ced", "name": "ListenerConfiguration", "batch": "global-audio", "cracked": "2026-10-08", "status": "pending", "pr": "-"}
 {"hash": "6dcc21b6", "name": "ListenerHeight", "batch": "global-audio", "cracked": "2026-10-08", "status": "pending", "pr": "-"}
 {"hash": "cd0349d3", "name": "ListenerOffsetForward", "batch": "global-audio", "cracked": "2026-10-08", "status": "pending", "pr": "-"}
 {"hash": "cff18b84", "name": "ListenerOffsetRight", "batch": "global-audio", "cracked": "2026-10-08", "status": "pending", "pr": "-"}
@@ -1455,6 +1457,7 @@
 {"hash": "64e312ae", "name": "MusicQueueConfigs", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
 {"hash": "9346aa18", "name": "MusicQueues", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
 {"hash": "0d3aa34a", "name": "NameHash", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
+{"hash": "7c00519f", "name": "OverrideLingerTime", "batch": "global-audio", "cracked": "2026-10-08", "status": "pending", "pr": "-"}
 {"hash": "77b17247", "name": "PentaKill", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
 {"hash": "64132003", "name": "PriorityBehavior", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}
 {"hash": "cd02e270", "name": "QueuePriority", "batch": "global-audio", "cracked": "2026-08-19", "status": "merged", "pr": "-"}

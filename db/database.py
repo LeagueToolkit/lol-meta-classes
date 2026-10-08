@@ -865,9 +865,9 @@ class 0x27f036af(0x64c18f7d):
     pass
 
 class 0x28556403(IContextualAction):
-    0x7c00519f: (Option, 0x0, F32, 0x0) = null
+    OverrideLingerTime: (Option, 0x0, F32, 0x0) = null
     MixState: (Link, 0x0, 0x0, AudioDynamicMixState) = "0x0"
-    0xf36010f5: (Bool, 0x0, 0x0, 0x0) = false
+    ForceActivate: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0x28706210(LevelScriptBlock):
@@ -17668,7 +17668,7 @@ class MapAudio(GenericMapPlaceable):
 class MapAudioDataProperties():
     MobileMixEvent: (String, 0x0, 0x0, 0x0) = ""
     PcMixEvent: (String, 0x0, 0x0, 0x0) = ""
-    0x81c35ced: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ListenerConfiguration: (Hash, 0x0, 0x0, 0x0) = "0x0"
     BaseData: (Link, 0x0, 0x0, MapAudioDataProperties) = "0x0"
     FeaturesList: (List2, 0x0, Link, FeatureAudioDataProperties) = []
     bankUnits: (List2, 0x0, Embed, BankUnit) = []

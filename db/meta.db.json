@@ -853,8 +853,8 @@
  "0x4d5476d2": {"revisions":[{"from":6804378,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x59e0ab85": {"name":"PingCategory","revisions":[{"from":6804378,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x460dc9b": {"revisions": [{"from":8159717,"bases":["0xf37213a8"],"interface":false,"value":false}], "properties": {
- "0x40461f83": {"revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x40461f83"],"default":null}]}
+"0x460dc9b": {"name": "ThemeMusicEvent", "revisions": [{"from":8159717,"bases":["0xf37213a8"],"interface":false,"value":false}], "properties": {
+ "0x40461f83": {"name":"ThemeMusicEventType","revisions":[{"from":8159717,"type":["Pointer","0x0","0x0","0x40461f83"],"default":null}]}
 }},
 "0x46a7786": {"name": "ISequencerBlock", "revisions": [{"from":7027993,"bases":["0xece68ca6"],"interface":true,"value":false}], "properties": {
 }},
@@ -4707,7 +4707,7 @@
 }},
 "0x21e68591": {"revisions": [{"from":6421879,"bases":[],"interface":false,"value":false}], "properties": {
 }},
-"0x21fc73e7": {"revisions": [{"from":7893741,"bases":[],"interface":false,"value":false}], "properties": {
+"0x21fc73e7": {"name": "AmbienceEvent", "revisions": [{"from":7893741,"bases":[],"interface":false,"value":false}], "properties": {
  "0xd3aa34a": {"name":"NameHash","revisions":[{"from":7893741,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x1d369c29": {"name":"objectPath","revisions":[{"from":8042660,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xfe30d09f": {"name":"Event","revisions":[{"from":7893741,"type":["String","0x0","0x0","0x0"],"default":""}]}
@@ -6027,7 +6027,7 @@
 }},
 "0x28556403": {"revisions": [{"from":8207193,"bases":["0x3ff90079"],"interface":false,"value":false}], "properties": {
  "0x7c00519f": {"revisions":[{"from":8248524,"type":["Option","0x0","F32","0x0"],"default":null}]},
- "0xc10d2292": {"revisions":[{"from":8207193,"type":["Link","0x0","0x0","0x70726e31"],"default":"0x0"}]},
+ "0xc10d2292": {"name":"MixState","revisions":[{"from":8207193,"type":["Link","0x0","0x0","0x70726e31"],"default":"0x0"}]},
  "0xf36010f5": {"revisions":[{"from":8248524,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0x28628b50": {"name": "SetEntityPositionBlock", "revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
@@ -8784,7 +8784,7 @@
 }},
 "0x40452a8d": {"revisions": [{"from":8104348,"to":8230722,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0x40461f83": {"revisions": [{"from":8159717,"bases":["0x4ca99280"],"interface":true,"value":false}], "properties": {
+"0x40461f83": {"name": "ThemeMusicEventType", "revisions": [{"from":8159717,"bases":["0x4ca99280"],"interface":true,"value":false}], "properties": {
 }},
 "0x4057a24f": {"name": "ProgressBarDisplayData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x14f72c9": {"name":"TimerText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -14682,18 +14682,18 @@
 }},
 "0x70678bd0": {"name": "AiTurretCommon", "revisions": [{"from":5229820,"bases":["0xf7fcc091"],"interface":false,"value":false}], "properties": {
 }},
-"0x70726e31": {"revisions": [{"from":8207193,"bases":[],"interface":false,"value":false}], "properties": {
+"0x70726e31": {"name": "AudioDynamicMixState", "revisions": [{"from":8207193,"bases":[],"interface":false,"value":false}], "properties": {
  "0xea42217": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":-3.4028234663852886e+38}]},
  "0x122c020e": {"name":"isDefault","revisions":[{"from":8207193,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x1d369c29": {"name":"objectPath","revisions":[{"from":8207193,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x1e3ee48c": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":3.0}]},
+ "0x1e3ee48c": {"name":"DefaultLingerTime","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":3.0}]},
  "0x2763e30e": {"revisions":[{"from":8207193,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0x5cf98a21": {"revisions":[{"from":8207193,"to":8230722,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x8206ad8f": {"revisions":[{"from":8207193,"to":8230722,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0x8206ad8f": {"name":"RtpcValue","revisions":[{"from":8207193,"to":8230722,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x94e4e309": {"name":"priority","revisions":[{"from":8207193,"type":["U32","0x0","0x0","0x0"],"default":50}]},
- "0xc10d2292": {"revisions":[{"from":8248524,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xf4606717": {"revisions":[{"from":8207193,"to":8230722,"type":["F32","0x0","0x0","0x0"],"default":3.0}]},
- "0xfdc99e78": {"revisions":[{"from":8248524,"type":["String","0x0","0x0","0x0"],"default":""}]}
+ "0xc10d2292": {"name":"MixState","revisions":[{"from":8248524,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0xf4606717": {"name":"LingerTime","revisions":[{"from":8207193,"to":8230722,"type":["F32","0x0","0x0","0x0"],"default":3.0}]},
+ "0xfdc99e78": {"name":"MixGroup","revisions":[{"from":8248524,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x70749bea": {"revisions": [{"from":7135912,"bases":["0xcb8dfbc8"],"interface":false,"value":false}], "properties": {
 }},
@@ -16225,9 +16225,9 @@
 }},
 "0x7d8e7504": {"name": "UiElementEffectData", "revisions": [{"from":5229820,"bases":["0xca9295fb"],"interface":true,"value":false}], "properties": {
 }},
-"0x7d98777d": {"revisions": [{"from":7584427,"bases":[],"interface":false,"value":false}], "properties": {
+"0x7d98777d": {"name": "AudioGlobalEventManager", "revisions": [{"from":7584427,"bases":[],"interface":false,"value":false}], "properties": {
  "0x93c1d30": {"revisions":[{"from":7996036,"to":8104348,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x11196556": {"revisions":[{"from":8159717,"to":8230722,"type":["List2","0x0","Link","0xa7b33361"],"default":[]}]},
+ "0x11196556": {"name":"MusicProfiles","revisions":[{"from":8159717,"to":8230722,"type":["List2","0x0","Link","0xa7b33361"],"default":[]}]},
  "0x1d369c29": {"name":"objectPath","revisions":[{"from":8042660,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x1ee9686c": {"name":"ChampionMusicEvents","revisions":[{"from":7584427,"to":8104348,"type":["Embed","0x0","0x0","0x1ee9686c"],"default":{"RiftHeraldSteal":"0x0","BaronKill":"0x0","DragonKill":"0x0","Aced":"0x0","ChampionExecuted":"0x0","BaronSteal":"0x0","TowerKill":"0x0","MultiKill":"0x0","BountyStarting":"0x0","0x6a4fa98c":"0x0","MinionsSpawn":"0x0","GrubsStolen":"0x0","ElderSpawn":"0x0","PentaKill":"0x0","ChampionKill":"0x0","ElderDragonSteal":"0x0","GameEnd":"0x0","InhibitorKill":"0x0","ElderDragonSolo":"0x0","RiftHeraldKill":"0x0","PlayerReconnect":"0x0","BaronSolo":"0x0","InhibitorRespawnSoon":"0x0","BaronSpawn":"0x0","GrubsKill":"0x0","Respawn":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","GrubsSolo":"0x0","GameStart":"0x0","DragonSolo":"0x0","0xba9bae76":[],"KillingSpree":"0x0","PlayerDisconnect":"0x0","0xd0cc4924":"0x0","BountyEnded":"0x0","RiftHeraldSpawn":"0x0","FirstBlood":"0x0","InhibitorRespawn":"0x0","ChampionShutdown":"0x0","RiftHeraldSolo":"0x0"}}]},
  "0x4249f0a2": {"revisions":[{"from":7996036,"to":8104348,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
@@ -17247,7 +17247,7 @@
 "0x8482aa12": {"name": "ContextualActionChampionMusicEvent", "revisions": [{"from":7643737,"bases":["0x3ff90079"],"interface":false,"value":false}], "properties": {
  "0x57edc39": {"name":"TriggerChampionMusicEvent","revisions":[{"from":7643737,"type":["Link","0x0","0x0","0xb4dee917"],"default":"0x0"}]}
 }},
-"0x84899de0": {"revisions": [{"from":8159717,"bases":["0x40461f83"],"interface":true,"value":false}], "properties": {
+"0x84899de0": {"name": "ThemeMusicEventTypeConcrete", "revisions": [{"from":8159717,"bases":["0x40461f83"],"interface":true,"value":false}], "properties": {
 }},
 "0x84972e16": {"name": "TftEncounterData", "revisions": [{"from":5329749,"to":5532414,"bases":[],"interface":false,"value":false},{"from":5549136,"bases":["0x3e02c8d9"],"interface":false,"value":false}], "properties": {
  "0x9ffb1b": {"name":"SkinName","revisions":[{"from":5329749,"to":5369576,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -17925,7 +17925,7 @@
  "0x8e2030a7": {"name":"AdditionalPropertyDataPaths","revisions":[{"from":5229820,"type":["List","0x0","String","0x0"],"default":[]}]},
  "0x9626eae3": {"name":"mItemShopData","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xf49573c3"],"default":"0x0"}]},
  "0x9d6a47f4": {"name":"mLoadingScreenBackground","revisions":[{"from":5229820,"to":5479214,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xa7b33361": {"revisions":[{"from":8248524,"type":["Link","0x0","0x0","0xa7b33361"],"default":"0x0"}]},
+ "0xa7b33361": {"name":"MusicProfile","revisions":[{"from":8248524,"type":["Link","0x0","0x0","0xa7b33361"],"default":"0x0"}]},
  "0xbc476670": {"name":"mModeName","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xbef080b3": {"name":"JungleRecommendationMapInformation","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xbef080b3"],"default":"0x0"}]},
  "0xbf714db8": {"name":"mDeathTimes","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0x1307c9ed"],"default":"0x0"}]},
@@ -18459,12 +18459,12 @@
  "0xa8ea735a": {"revisions":[{"from":7067412,"to":7067412,"type":["F32","0x0","0x0","0x0"],"default":0.0},{"from":7079808,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xe5d3d1fb": {"revisions":[{"from":7067412,"to":7067412,"type":["Embed","0x0","0x0","0xd5d2b377"],"default":{"Subtitle":"0x0","SpineAnimation":"0x0","Group":"0x0","title":"0x0","Icon":"0x0","ActivationSfx":"0x0"}},{"from":7079808,"type":["Embed","0x0","0x0","0xd5d2b377"],"default":{"Subtitle":"0x0","0x19147e06":"0x0","SpineAnimation":"0x0","Group":"0x0","title":"0x0","ActivationVFX":"0x0","ChampionSplashVFX":"0x0"}}]}
 }},
-"0x8e390e81": {"revisions": [{"from":8248524,"bases":[],"interface":false,"value":false}], "properties": {
- "0x6dcc21b6": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":1350.0}]},
- "0x82ba66e3": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+"0x8e390e81": {"name": "AudioListenerConfiguration", "revisions": [{"from":8248524,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x6dcc21b6": {"name":"ListenerHeight","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":1350.0}]},
+ "0x82ba66e3": {"name":"ListenerOffsetUp","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x8e84528c": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":-5.0}]},
- "0xcd0349d3": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xcff18b84": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+ "0xcd0349d3": {"name":"ListenerOffsetForward","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0xcff18b84": {"name":"ListenerOffsetRight","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x8e3b8299": {"name": "CompanionSpeciesData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0xd82d8efb": {"name":"mSpeciesId","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
@@ -21485,14 +21485,14 @@
  "0xbde64e3e": {"name":"Text","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf2c6b8dd": {"name":"VfxScene","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xa7b33361": {"revisions": [{"from":8159717,"to":8230722,"bases":[],"interface":false,"value":false},{"from":8248524,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
+"0xa7b33361": {"name": "MusicProfile", "revisions": [{"from":8159717,"to":8230722,"bases":[],"interface":false,"value":false},{"from":8248524,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
  "0x93c1d30": {"revisions":[{"from":8159717,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x1d369c29": {"name":"objectPath","revisions":[{"from":8207193,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x1ee9686c": {"name":"ChampionMusicEvents","revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0x1ee9686c"],"default":{"RiftHeraldSteal":"0x0","BaronKill":"0x0","DragonKill":"0x0","Aced":"0x0","ChampionExecuted":"0x0","BaronSteal":"0x0","TowerKill":"0x0","MultiKill":"0x0","BountyStarting":"0x0","0x6a4fa98c":"0x0","MinionsSpawn":"0x0","GrubsStolen":"0x0","ElderSpawn":"0x0","PentaKill":"0x0","ChampionKill":"0x0","ElderDragonSteal":"0x0","GameEnd":"0x0","InhibitorKill":"0x0","ElderDragonSolo":"0x0","RiftHeraldKill":"0x0","PlayerReconnect":"0x0","BaronSolo":"0x0","InhibitorRespawnSoon":"0x0","BaronSpawn":"0x0","GrubsKill":"0x0","Respawn":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","GrubsSolo":"0x0","GameStart":"0x0","DragonSolo":"0x0","0xba9bae76":[],"KillingSpree":"0x0","PlayerDisconnect":"0x0","0xd0cc4924":"0x0","BountyEnded":"0x0","RiftHeraldSpawn":"0x0","FirstBlood":"0x0","InhibitorRespawn":"0x0","ChampionShutdown":"0x0","RiftHeraldSolo":"0x0"}}]},
  "0x4249f0a2": {"revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0x64e312ae": {"name":"MusicQueueConfigs","revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0x33d1cb2e"],"default":{"queues":[]}}]},
  "0xb01bdea6": {"revisions":[{"from":8159717,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xcc7bc138": {"revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0xcc7bc138"],"default":{"RiftHeraldSteal":"0x0","BaronKill":"0x0","DragonKill":"0x0","Aced":"0x0","ChampionExecuted":"0x0","BaronSteal":"0x0","TowerKill":"0x0","MultiKill":"0x0","BountyStarting":"0x0","0x6a4fa98c":"0x0","MinionsSpawn":"0x0","GrubsStolen":"0x0","ElderSpawn":"0x0","PentaKill":"0x0","ChampionKill":"0x0","ElderDragonSteal":"0x0","GameEnd":"0x0","InhibitorKill":"0x0","ElderDragonSolo":"0x0","RiftHeraldKill":"0x0","PlayerReconnect":"0x0","BaronSolo":"0x0","InhibitorRespawnSoon":"0x0","BaronSpawn":"0x0","GrubsKill":"0x0","Respawn":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","GrubsSolo":"0x0","GameStart":"0x0","DragonSolo":"0x0","0xba9bae76":[],"KillingSpree":"0x0","PlayerDisconnect":"0x0","0xd0cc4924":"0x0","BountyEnded":"0x0","RiftHeraldSpawn":"0x0","FirstBlood":"0x0","InhibitorRespawn":"0x0","ChampionShutdown":"0x0","RiftHeraldSolo":"0x0"}}]},
+ "0xcc7bc138": {"name":"ThemeMusicEvents","revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0xcc7bc138"],"default":{"RiftHeraldSteal":"0x0","BaronKill":"0x0","DragonKill":"0x0","Aced":"0x0","ChampionExecuted":"0x0","BaronSteal":"0x0","TowerKill":"0x0","MultiKill":"0x0","BountyStarting":"0x0","0x6a4fa98c":"0x0","MinionsSpawn":"0x0","GrubsStolen":"0x0","ElderSpawn":"0x0","PentaKill":"0x0","ChampionKill":"0x0","ElderDragonSteal":"0x0","GameEnd":"0x0","InhibitorKill":"0x0","ElderDragonSolo":"0x0","RiftHeraldKill":"0x0","PlayerReconnect":"0x0","BaronSolo":"0x0","InhibitorRespawnSoon":"0x0","BaronSpawn":"0x0","GrubsKill":"0x0","Respawn":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","GrubsSolo":"0x0","GameStart":"0x0","DragonSolo":"0x0","0xba9bae76":[],"KillingSpree":"0x0","PlayerDisconnect":"0x0","0xd0cc4924":"0x0","BountyEnded":"0x0","RiftHeraldSpawn":"0x0","FirstBlood":"0x0","InhibitorRespawn":"0x0","ChampionShutdown":"0x0","RiftHeraldSolo":"0x0"}}]},
  "0xdea83ccf": {"revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xe4ba733d": {"name":"feature","revisions":[{"from":8159717,"to":8230722,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
@@ -23903,8 +23903,8 @@
  "0xe1665b89": {"revisions":[{"from":7170001,"type":["F32","0x0","0x0","0x0"],"default":0.05000000074505806}]},
  "0xe4175d4a": {"revisions":[{"from":7170001,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0xbaa223f0": {"revisions": [{"from":8248524,"bases":[],"interface":false,"value":false}], "properties": {
- "0xef85fb92": {"revisions":[{"from":8248524,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
+"0xbaa223f0": {"name": "AudioGlobalEventTargetCharacterRecords", "revisions": [{"from":8248524,"bases":[],"interface":false,"value":false}], "properties": {
+ "0xef85fb92": {"name":"CharacterRecords","revisions":[{"from":8248524,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
 "0xbac72a13": {"name": "UiMetricTeamBuffExists", "revisions": [{"from":5229820,"to":5290642,"bases":["0x30176f82"],"interface":false,"value":false}], "properties": {
  "0x5759068": {"name":"Team2IconSlots","revisions":[{"from":5229820,"to":5290642,"type":["List","0x6","Hash","0x0"],"default":["0x0","0x0","0x0","0x0","0x0","0x0"]}]},
@@ -26144,7 +26144,7 @@
 }},
 "0xcc737f8f": {"name": "HasReceivedAnimEmoteEventBoolDriver", "revisions": [{"from":5229820,"bases":["0x7a851cd8"],"interface":false,"value":false}], "properties": {
 }},
-"0xcc7bc138": {"revisions": [{"from":8159717,"bases":[],"interface":false,"value":false}], "properties": {
+"0xcc7bc138": {"name": "ThemeMusicEvents", "revisions": [{"from":8159717,"bases":[],"interface":false,"value":false}], "properties": {
  "0x67cca4a": {"name":"BountyStarting","revisions":[{"from":8159717,"type":["Link","0x0","0x0","0x460dc9b"],"default":"0x0"}]},
  "0x70682a7": {"name":"GrubsStolen","revisions":[{"from":8159717,"type":["Link","0x0","0x0","0x460dc9b"],"default":"0x0"}]},
  "0xbc0f0c0": {"name":"KillingSpree","revisions":[{"from":8159717,"type":["Link","0x0","0x0","0x460dc9b"],"default":"0x0"}]},
@@ -31249,7 +31249,7 @@
  "0x63060019": {"name":"Loadable","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xe0d5fc7e"],"default":"0x0"}]},
  "0xc7e51dac": {"revisions":[{"from":6012857,"type":["List2","0x0","Embed","0x26949c34"],"default":[]}]}
 }},
-"0xf0ea0d4c": {"revisions": [{"from":8159717,"bases":["0x84899de0"],"interface":false,"value":false}], "properties": {
+"0xf0ea0d4c": {"name": "ThemeMusicEventTypeGeneric", "revisions": [{"from":8159717,"bases":["0x84899de0"],"interface":false,"value":false}], "properties": {
  "0x2a2e7fd9": {"revisions":[{"from":8159717,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x64132003": {"name":"PriorityBehavior","revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]}
 }},

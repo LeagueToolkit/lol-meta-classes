@@ -228,6 +228,7 @@ ec475a58 ChaosAnchorPoint
 13a1bb9a CharacterProbe
 580b328e CharacterProbeIndex
 89f075a1 CharacterQuality
+ef85fb92 CharacterRecords
 98cc7895 CharacterSunLightColor
 35a14c57 CharacterSunLightDirection
 8ef4ba18 CharacterType
@@ -350,6 +351,7 @@ c5597e8c Def
 4b9489d8 DefaultIcons
 3f074682 DefaultInput
 b2ecce33 DefaultLaneColor
+1e3ee48c DefaultLingerTime
 e168a4d7 DefaultMaxQueueTimes
 7c29b357 DefaultOutput
 1bdade49 DefaultPlayerInventory
@@ -806,9 +808,14 @@ f8242c07 LightChannels
 cfd1d6cf LimitAngle
 b519cb5c LimitAngleEnd
 65887d65 LimitAngleStart
+f4606717 LingerTime
 db6ea1a7 LinkedPath
 0cfb5881 List
 9fb37b48 ListKey
+6dcc21b6 ListenerHeight
+cd0349d3 ListenerOffsetForward
+cff18b84 ListenerOffsetRight
+82ba66e3 ListenerOffsetUp
 07f017af Live
 c995099d LoadableModifiers
 753697fe LoadingGroup
@@ -893,6 +900,8 @@ c495a1c4 MissionDesc
 996d7b9e MissionImage
 6e35697b MissionStatus
 c27efcdf MissionTemplate
+fdc99e78 MixGroup
+c10d2292 MixState
 ab6fd275 MobileVfx
 9c5ad4fd ModalName
 b9562e5b ModeOverrides
@@ -915,6 +924,8 @@ f0ec999e ModuleName
 70e43c7e MovementRotation
 b74298af Mult
 5f832b26 MultiKill
+a7b33361 MusicProfile
+11196556 MusicProfiles
 64e312ae MusicQueueConfigs
 9346aa18 MusicQueues
 0da9cf64 MusicSwitches
@@ -1220,6 +1231,7 @@ b8af4624 RotationOffset
 f5a853e9 RowTemplate
 098f86e0 RowsList
 2d5dfced RtpcObject
+8206ad8f RtpcValue
 9b15d5eb SSAO
 02b79967 SandCarveDepth
 baaa6000 SandCarveFlatRatio
@@ -1498,6 +1510,8 @@ ece16964 TextureRenderDataList
 90df3f50 TextureWidth
 fb9572d0 TftEventPve
 783d09c9 TftPassId
+40461f83 ThemeMusicEventType
+cc7bc138 ThemeMusicEvents
 a330d712 TierItemType
 f5092643 TierNames
 2414834f TierTemplate
@@ -1604,6 +1618,8 @@ e50186a0 VideoRegion
 3b060ae5 ViewModel
 4facf6d1 Views
 7f37f5e5 Visibility
+7999f52c VoidGatorKill
+26ea34a7 VoidGatorSteal
 f20c3f36 W
 deb1ff88 WDriver
 590fd966 WUpdateModifier

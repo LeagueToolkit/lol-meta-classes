@@ -2,20 +2,22 @@
 
 Reversing doc for `global-audio`. Its `batches.jsonl` note points here.
 
-82 names off one dormant subsystem introduced across 16.7-16.14: an unnamed
-800-byte root that holds a champion-music event table, an announcer-VO event
+109 names off one dormant subsystem introduced across 16.7-16.20: an 800-byte
+root (`AudioGlobalEventManager`, named in the fourth pass) that holds a champion-music event table, an announcer-VO event
 table, two audio queue holders and the only link anywhere to
 `GlobalContextualActionData`; plus the `AudioContextEventType` hierarchy that
 the event tables point into, and the two `IContextualAction` implementations
 that fire them.
 
-Three passes. The first took the 40-slot event tables (section "The 40 event
+Four passes. The first took the 40-slot event tables (section "The 40 event
 slots"); the second took the queue classes, the `AudioContextEventType` tree and
 the contextual actions (section "Second pass"); the third read the meta's own
-revision history instead of searching name-space (section "Third pass").
+revision history instead of searching name-space (section "Third pass"); the
+fourth read a shipped log string that names the root and the 16.18 music class
+(section "Fourth pass").
 
 ```
-cls_7D98777D                     800 bytes, unnamed
+cls_7D98777D                     800 bytes, 16.16 layout (AudioGlobalEventManager)
   +8    ChampionMusicEvents      embed  ->  ChampionMusicEvents   1ee9686c
   +344  AnnouncerVoEvents        embed  ->  AnnouncerVoEvents     9963c03a
   +680  MusicQueueConfigs        embed  ->  AudioQueueConfigList  33d1cb2e
@@ -383,6 +385,102 @@ split, `9583cf01` has `Assisted` and no `GenericEvent`. They are different
 concepts that happen to share a shape, so the naming symmetry that carried the
 rest of this family stops here.
 
+## Fourth pass
+
+27 names (11 classes, 16 fields). The root is `AudioGlobalEventManager`. The lever is a
+log string of the shipped 16.20 Windows client:
+
+```
+MusicProfile found but AudioGlobalEventManager not available.
+```
+
+Both identifiers hash to classes of this family, with the casing the string carries.
+
+### The shape, 16.20 (8248524)
+
+```
+AudioGlobalEventManager  7d98777d
+  766af9fc                    map[u32, embed AudioGlobalEventTargetCharacterRecords]
+  AnnouncerVoEvents           embed
+  AnnouncerQueueConfigs       embed
+  objectPath                  hash
+  GlobalContextualActionData  list2[hash]            (list2[link] until 16.19)
+  MusicProfiles               list2[link MusicProfile]   16.18..16.19, dead
+
+MusicProfile  a7b33361        born 16.18, derives from IGameModeConfig since 16.20
+  MusicQueueConfigs, ChampionMusicEvents     moved here from the root at 16.18
+  ThemeMusicEvents            embed -> ThemeMusicEvents  cc7bc138
+  093c1d30 string, b01bdea6 f32, 4249f0a2 embed AudioPriorityBehavior   moved from the root
+  dea83ccf bool
+  feature hash                16.18..16.19, dead
+
+GameModeMapData.MusicProfile  link -> MusicProfile       born 16.20
+
+AudioContextEvent
+  '- ThemeMusicEvent  0460dc9b    ThemeMusicEventType pointer -> 40461f83
+AudioContextEventType
+  '- ThemeMusicEventType  40461f83
+     '- ThemeMusicEventTypeConcrete  84899de0
+        |- ThemeMusicEventTypeGeneric  f0ea0d4c   PriorityBehavior, 2a2e7fd9 string
+        '- 58a4ecbd                               PriorityBehavior, TeamSucceeded/TeamFailedEvent
+
+AudioGlobalEventTargetCharacterRecords  baa223f0   CharacterRecords list2[hash]
+AudioListenerConfiguration  8e390e81   ListenerHeight 1350, ListenerOffsetUp/Forward/Right, 8e84528c -5
+AudioDynamicMixState  70726e31   isDefault, priority, MixState, MixGroup, DefaultLingerTime, 2763e30e, 0ea42217
+AmbienceEvent  21fc73e7   NameHash, objectPath, Event string
+```
+
+`ThemeMusicEvents` is a third twin of the two event tables: the same slots at the same
+offsets, linking `ThemeMusicEvent`. The 16.21 PBE dump adds two slots to all three tables,
+`VoidGatorKill` and `VoidGatorSteal`, between `RiftHeraldSteal` and `BountyEnded`.
+
+### Evidence
+
+Noise is `probes / 2^32` per target for the run that produced the row. Registration
+slots are read from the 16.21 PBE Windows client, where registration order is roughly
+alphabetical by class name inside one run.
+
+| hashes | names | what fixes it | tier |
+|---|---|---|---|
+| 7d98777d, a7b33361 (class) | AudioGlobalEventManager, MusicProfile | the shipped log string above. Both register in the alphabetical slot the name requires: `AudioContextEventType` .. `AudioPriorityBehavior`, and `MusicAudioDataProperties` .. `RunSpeedRatioFloatDriver` | 1 |
+| a7b33361 (field) | MusicProfile | hash identity: the `GameModeMapData` link whose hash is the class hash and whose target is that class | 1 |
+| 11196556 | MusicProfiles | plural of the class, on the root's `list2[link MusicProfile]` | 3 |
+| 0460dc9b, cc7bc138, 40461f83, 84899de0, f0ea0d4c | ThemeMusicEvent, ThemeMusicEvents, ThemeMusicEventType, ThemeMusicEventTypeConcrete, ThemeMusicEventTypeGeneric | folding `Event`, `Events`, `EventType`, `EventTypeConcrete`, `EventTypeGeneric` out of the five lands every one on state `53ad3c01`, which is upstream's field name `themeMusic`. Same five suffixes as the announcer and champion families | 3 |
+| cc7bc138, 40461f83 (fields) | ThemeMusicEvents, ThemeMusicEventType | hash identity: the embed on `MusicProfile` and the pointer on `ThemeMusicEvent`, each targeting the class of the same hash | 1 |
+| 7999f52c, 26ea34a7 | VoidGatorKill, VoidGatorSteal | folding `Kill` and `Steal` lands both on state `3c388d1c` = `voidgator`. The shipped 16.20 client carries `OnKillVoidGator`, `OnKillVoidGatorSteal` and `OnSpawnVoidGator`, which also give the casing | 1 |
+| ef85fb92 | CharacterRecords | depth-2 over an 8,915-token list, 0.019. A `list2[hash]`; the client resolves each element against the `CharacterRecord` class and compares it with the record of the event's unit | 3 |
+| baa223f0 | AudioGlobalEventTargetCharacterRecords | seeded depth-3, 0.015. Its only field is `CharacterRecords`; registers between `AudioGlobalEventManager` and `AudioListenerConfiguration` | 3 |
+| 8e390e81, 6dcc21b6, 82ba66e3, cd0349d3, cff18b84 | AudioListenerConfiguration, ListenerHeight, ListenerOffsetUp, ListenerOffsetForward, ListenerOffsetRight | the class hit at 0.2 on its own. The four fields then hit in separate depth-2 runs at 0.019 each and complete an Up/Forward/Right row on that class | 3 |
+| f4606717, 1e3ee48c | LingerTime, DefaultLingerTime | rename boundary: `LingerTime` dies at 8230722 and `DefaultLingerTime` is born at 8248524 on the same class with the same type and the same default 3.0. Found in separate runs | 2 |
+| 70726e31, c10d2292, fdc99e78, 8206ad8f | AudioDynamicMixState, MixState, MixGroup, RtpcValue | fields at 0.019 each, class at 0.8 in a seeded depth-3. `MixState` is also the link field on the `IContextualAction` class `28556403`, born with this class at 16.19 and targeting it. Registers between `AudioContextEventType` and `AudioGlobalEventManager` | 3 |
+| 21fc73e7 | AmbienceEvent | single hash, depth-2 at 0.019. Carries `NameHash` and an `Event` string; registers directly before `AnnouncerVoEvent`. No second method | 4 |
+
+The client reads the root map by game event id: if the event unit's `CharacterRecord` is in
+the entry's `CharacterRecords`, the audio event is not dispatched.
+
+### Proposed and not taken
+
+| hash | candidate | why not |
+|---|---|---|
+| c8d0888c | DisableDurations | depth-2 at 0.019, an f32 on `AudioQueueConfig`; nothing outside the hash |
+| 5cf98a21 | RtpcMixString | seeded depth-3 at 0.8; the string that died with `RtpcValue` at 8230722 |
+| 0ea42217 | TimeToLive | seeded depth-3 at 0.8; f32 with default `-FLT_MAX` |
+
+### Negatives
+
+| run | probes | noise per target | result |
+|---|---|---|---|
+| every identifier-shaped string of the client, `On` stripped and `Kill`/`Spawn` moved to the end, against the open slots and fields | ~3k | 1e-6 | nothing |
+| depth-2 under `Spawn`/`Respawn`/`SpawnSoon`, slot `6a4fa98c` | 2.4e8 | 0.056 | nothing |
+| depth-2 under 14 event suffixes, slot `d0cc4924` | 1.1e9 | 0.26 | junk only |
+| 42 templates around `Target` / `TargetCharacterRecords` / `EventTarget`, map `766af9fc` | 8e7 each | 0.019 each | junk only |
+| `ContextualAction` + depth-2, class `28556403`; 2,880 curated `MixState` forms on it and its `ContextualRule` pointer `ea4213a0` | 7.9e7 | 0.019 | nothing |
+| three-way stem recovery over `AnnouncerVo` / `ChampionMusic` / `ThemeMusic`, suffixes to depth 2, on `5f38de60` / `d52eac74` / `9c085077` | 1e7 suffixes | ~0 | nothing |
+
+`OnElementalDragonSpawn` sits between `OnElderSpawn` and `OnRiftHeraldSpawn` in the client's
+event-name table, the same bracket as slot `6a4fa98c`, and `ElementalDragonSpawn` does not
+hash to it.
+
 ## Not shipped - do not submit yet
 
 `bin-grep --class <hash> --count` returns **0 objects on retail** for every class
@@ -392,6 +490,11 @@ is registered by the client but no data instantiates it: `ContextualRule` has
 `ContextualActionAnnouncerVoEvent` or `ContextualActionChampionMusicEvent` -
 re-checked directly on `f007f2a9` and `3a526bfb` once those were named, 0 hits
 each across 456 WADs.
+
+The fourth-pass names are in the same state. `ritobin-tools search <hash>` finds no
+class, field or value for `AudioGlobalEventManager`, `MusicProfile`, `MusicProfiles`,
+`ThemeMusicEvent`, `ThemeMusicEvents`, `AudioGlobalEventTargetCharacterRecords` or the map
+`766af9fc` in 16.20.8248524 (40,907 bins) or PBE 16.21.8260843 (41,153 bins).
 
 One exception, added in the third pass. **`20749c51 ActiveVoiceOver` is
 shipped**: 116 authored occurrences across 38 WADs, on `ContextualRule`, which is
@@ -405,16 +508,22 @@ batch should stay `pending` here until instances appear.
 
 ## Leftovers
 
-Nine classes and sixteen fields, after three passes.
+After four passes. The fourth named the root and opened the 16.18-16.20 additions.
 
-Classes: the root `7d98777d`; the two outcome matrices `36255113` and `9583cf01`;
+Classes: the two outcome matrices `36255113` and `9583cf01`;
 `15e1fe7e` and `a29e7869` under `ChampionMusicEventTypeConcrete`; the event-binding
 triple `859c9c2f` (`EventType` u32 + `e7623bb7` f32) with its children `5f38de60`
-and `d52eac74` (`OnEvent` link to the announcer / music event); and `66dc7e9b`
-under `IContextualAction`.
+and `d52eac74` (`OnEvent` link to the announcer / music event) plus the 16.18
+third child `9c085077` (`OnEvent` link to `ThemeMusicEvent`); `58a4ecbd` under
+`ThemeMusicEventTypeConcrete`; and `66dc7e9b` and `28556403` under
+`IContextualAction`.
 
-Fields: root `093c1d30` (string), `b01bdea6` (f32), `4249f0a2` (embed
-`AudioPriorityBehavior`); queue `c8d0888c` (f32) and `1c6439cf` (list2 of
+Fields: `093c1d30` (string), `b01bdea6` (f32), `4249f0a2` (embed
+`AudioPriorityBehavior`) and `dea83ccf` (bool), on `MusicProfile` since 16.18; the
+root map `766af9fc`; `2a2e7fd9` (string on `ThemeMusicEventTypeGeneric`); `8e84528c`
+on `AudioListenerConfiguration`; `2763e30e`, `5cf98a21` and `0ea42217` on
+`AudioDynamicMixState`; `ea4213a0` on `ContextualRule` with `7c00519f` and `f36010f5`
+on the class it points at; queue `c8d0888c` (f32) and `1c6439cf` (list2 of
 itself); `e7623bb7`; `2f1edf29` (bool shared by both `Multi*` classes); the
 strings `1ad40789`, `2f68e6e3`, `11e8956e`, `4c546bb7`; the `ContextualRule`
 pointer `913543b4` and `ec1b2b3c` on the class it points at; and the three event

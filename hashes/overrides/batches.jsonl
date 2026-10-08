@@ -82,3 +82,4 @@
 {"batch": "vfx-point-light", "note": "ParticlePointLightInfo: the class behind VfxSystemDefinitionData.PointLight. Found as a hash match, then confirmed by the maintainer. Two Map453 systems ship one."}
 {"batch": "nova-item-selection-filters", "note": "Nova item selection filters: 14 subclasses fold to one state, the root's stem plus `_`; registration order and the 16.18 evaluators agree. docs/nova-item-getters.md section 6"}
 {"batch": "ui-texture-providers", "note": "Two IUiTextureDataProvider children. Hash matches off a grid of sibling-style names, confirmed by the maintainer; the 16.18 WebM player behind File/Loop fits. No string, no shipped instance."}
+{"batch": "ui-audio-events", "note": "UI audio events (16.19): 2 interfaces, 17 fields. Hash matches from word searches; the client pairs each new pointer with an old string field by index. docs/ui-audio-events.md"}

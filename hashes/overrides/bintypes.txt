@@ -380,8 +380,10 @@ c85e6a02 ITeamFramesViewController
 acc5c631 ITimerController
 692bf354 ITimerControllerDefinition
 c6674208 ITimerView
+ed2da5b0 IUiAudioEvent
 49e845fb IUiBlock
 b3499e6f IUiElementIGet
+012759fb IUiSfxEvent
 b041c60a IUiVariable
 540d65a6 IUnitGet
 cc52ed40 IUnitLogicData

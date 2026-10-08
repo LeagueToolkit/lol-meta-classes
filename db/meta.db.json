@@ -429,7 +429,7 @@
  "0xa1d375b5": {"name":"ShaderModel","revisions":[{"from":6359815,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xd37fa39a": {"name":"PlatformMask","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x12759fb": {"revisions": [{"from":8207193,"bases":["0xed2da5b0"],"interface":true,"value":false}], "properties": {
+"0x12759fb": {"name": "IUiSfxEvent", "revisions": [{"from":8207193,"bases":["0xed2da5b0"],"interface":true,"value":false}], "properties": {
 }},
 "0x129e311": {"revisions": [{"from":7102027,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -11516,12 +11516,12 @@
  "0xd5e57340": {"name":"TurretsAreValid","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0x560e6c39": {"name": "UiElementGroupSliderSoundEvents", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
- "0x5a2649b0": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x5a2649b0": {"name":"DragEnd","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0x73dbef7a": {"name":"OnBarClickedEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x8f1a336d": {"name":"OnDragEndEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x976d3aeb": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x976d3aeb": {"name":"BarClicked","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0xd8073196": {"name":"OnDragStartEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xfa73afb1": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]}
+ "0xfa73afb1": {"name":"DragStart","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]}
 }},
 "0x56276148": {"name": "NovaItemGetStringProperty", "revisions": [{"from":8104348,"to":8230722,"bases":["0x3f8dac45"],"interface":false,"value":false}], "properties": {
  "0xa4c6cd6b": {"name":"PropertyName","revisions":[{"from":8104348,"to":8230722,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -11696,7 +11696,7 @@
  "0xf969d2ee": {"name":"counterID","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x57b38653": {"revisions": [{"from":8207193,"bases":["0xdf305970"],"interface":false,"value":false}], "properties": {
- "0x9087c853": {"revisions":[{"from":8207193,"type":["Link","0x0","0x0","0xa35db897"],"default":"0x0"}]}
+ "0x9087c853": {"name":"AudioBehavior","revisions":[{"from":8207193,"type":["Link","0x0","0x0","0xa35db897"],"default":"0x0"}]}
 }},
 "0x57b5ff8c": {"name": "OverrideAttackTimeData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x20991541": {"name":"mTotalAttackTimeSecs","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x17373233"],"default":{"mMultiplier":null,"mExpandedTooltipCalculationDisplay":8,"DamageType":4,"ResultModifier":0,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}}]},
@@ -12508,7 +12508,7 @@
  "0x324daf2d": {"revisions":[{"from":6919951,"to":7480682,"type":["Pointer","0x0","0x0","0xc481fd75"],"default":null}]}
 }},
 "0x5d9795fb": {"revisions": [{"from":8207193,"bases":["0xed2da5b0"],"interface":false,"value":false}], "properties": {
- "0x1d445284": {"revisions":[{"from":8207193,"type":["Link","0x0","0x0","0xa35db897"],"default":"0x0"}]},
+ "0x1d445284": {"name":"VoBehavior","revisions":[{"from":8207193,"type":["Link","0x0","0x0","0xa35db897"],"default":"0x0"}]},
  "0x2a078c9c": {"name":"EventName","revisions":[{"from":8207193,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x5d9fffed": {"name": "DynamicsChainBlendEventData", "revisions": [{"from":7643737,"bases":["0x798c7d28"],"interface":false,"value":false}], "properties": {
@@ -20970,10 +20970,10 @@
  "0xf248d989": {"name":"InputEvent","revisions":[{"from":6012857,"to":7480682,"type":["Link","0x0","0x0","0x5a51d019"],"default":"0x0"}]}
 }},
 "0xa35db897": {"revisions": [{"from":8207193,"bases":[],"interface":false,"value":false}], "properties": {
- "0x7aafcde5": {"revisions":[{"from":8207193,"type":["U8","0x0","0x0","0x0"],"default":100}]},
- "0xa4c80814": {"revisions":[{"from":8207193,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0xd14bc802": {"revisions":[{"from":8207193,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xff102002": {"revisions":[{"from":8207193,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+ "0x7aafcde5": {"name":"PercentChanceToPlay","revisions":[{"from":8207193,"type":["U8","0x0","0x0","0x0"],"default":100}]},
+ "0xa4c80814": {"name":"MaxPlays","revisions":[{"from":8207193,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xd14bc802": {"name":"BehaviorCooldown","revisions":[{"from":8207193,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0xff102002": {"name":"LineCooldown","revisions":[{"from":8207193,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0xa361c5ef": {"name": "MonarchRegionConfig", "revisions": [{"from":7170001,"to":7480682,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
  "0xe2ba931c": {"name":"RegionLocatorGroup","revisions":[{"from":7170001,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -28227,9 +28227,9 @@
  "0xfddc357d": {"name":"TroveButton","revisions":[{"from":5639790,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xdc3815a8": {"revisions": [{"from":8159717,"to":8175716,"bases":[],"interface":false,"value":false}], "properties": {
- "0xa4c80814": {"revisions":[{"from":8159717,"to":8175716,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0xd14bc802": {"revisions":[{"from":8159717,"to":8175716,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xff102002": {"revisions":[{"from":8159717,"to":8175716,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+ "0xa4c80814": {"name":"MaxPlays","revisions":[{"from":8159717,"to":8175716,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xd14bc802": {"name":"BehaviorCooldown","revisions":[{"from":8159717,"to":8175716,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0xff102002": {"name":"LineCooldown","revisions":[{"from":8159717,"to":8175716,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0xdc53945d": {"name": "TftWebViewViewController", "revisions": [{"from":5229820,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x1ea15738": {"revisions":[{"from":5229820,"to":7283286,"type":["List","0x5","Hash","0x0"],"default":["0x0","0x0","0x0","0x0","0x0"]},{"from":7300505,"type":["List","0x6","Hash","0x0"],"default":["0x0","0x0","0x0","0x0","0x0","0x0"]}]},
@@ -30721,7 +30721,7 @@
  "0xd8d71d83": {"name":"PromoteButton","revisions":[{"from":6161179,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xdffc8083": {"name":"PlayerName","revisions":[{"from":6161179,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xed2da5b0": {"revisions": [{"from":8207193,"bases":[],"interface":true,"value":false}], "properties": {
+"0xed2da5b0": {"name": "IUiAudioEvent", "revisions": [{"from":8207193,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0xed4b858b": {"revisions": [{"from":5579166,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -32642,18 +32642,18 @@
  "0xc6a8b1d0": {"name":"mCoolDownTime","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0xfc2d67aa": {"name": "UiElementGroupButtonSoundEvents", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
- "0xfdb425": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
- "0x1fcf9b4": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0xfdb425": {"name":"PressInactive","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x1fcf9b4": {"name":"Press","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0x452034c": {"name":"MouseDownOnInactive","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x1036ae7e": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x1036ae7e": {"name":"Release","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0x210ea29e": {"name":"RollOutEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x5977e147": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
- "0x5d147744": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
- "0x66b8c713": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x5977e147": {"name":"ReleaseSelected","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x5d147744": {"name":"RollOver","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x66b8c713": {"name":"ReleaseInactive","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0x7c552179": {"name":"MouseDownSelected","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x84b6cf03": {"name":"MouseUpEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x8b848362": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
- "0xa52ae29d": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x8b848362": {"name":"RollOut","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0xa52ae29d": {"name":"PressSelected","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0xa55a6b7c": {"name":"RollOverEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xb416d0a8": {"name":"MouseUpSelected","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xb49ca145": {"name":"MouseUpOnInactive","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},

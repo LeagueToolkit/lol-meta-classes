@@ -66,9 +66,6 @@ class 0x11b72b56(0xfbd56421):
     augments: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0x12759fb(0xed2da5b0):
-    pass
-
 class 0x12908937(0xfbd56421):
     items: (List2, 0x0, Hash, 0x0) = []
     pass
@@ -2624,7 +2621,7 @@ class 0x57a3a10e(SeqInputObject):
     pass
 
 class 0x57b38653(0xdf305970):
-    0x9087c853: (Link, 0x0, 0x0, 0xa35db897) = "0x0"
+    AudioBehavior: (Link, 0x0, 0x0, 0xa35db897) = "0x0"
     pass
 
 class 0x58276563(SeqSplinePointColor):
@@ -2892,8 +2889,8 @@ class 0x5d18fc10(BaseParams):
 class 0x5d3f0253(MapGraphicsFeature):
     pass
 
-class 0x5d9795fb(0xed2da5b0):
-    0x1d445284: (Link, 0x0, 0x0, 0xa35db897) = "0x0"
+class 0x5d9795fb(IUiAudioEvent):
+    VoBehavior: (Link, 0x0, 0x0, 0xa35db897) = "0x0"
     EventName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -5398,10 +5395,10 @@ class 0xa3456555(IGameModeConfig):
     pass
 
 class 0xa35db897():
-    0x7aafcde5: (U8, 0x0, 0x0, 0x0) = 100
-    0xa4c80814: (U32, 0x0, 0x0, 0x0) = 0
-    0xd14bc802: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xff102002: (F32, 0x0, 0x0, 0x0) = 0.0
+    PercentChanceToPlay: (U8, 0x0, 0x0, 0x0) = 100
+    MaxPlays: (U32, 0x0, 0x0, 0x0) = 0
+    BehaviorCooldown: (F32, 0x0, 0x0, 0x0) = 0.0
+    LineCooldown: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0xa3c3ae3c(ITftItemFilter):
@@ -7518,7 +7515,7 @@ class 0xdf08b80b(BaseParams):
 class 0xdf0c644f(BaseParams):
     pass
 
-class 0xdf305970(0x12759fb):
+class 0xdf305970(IUiSfxEvent):
     EventName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -7905,9 +7902,6 @@ class 0xed293bf2(ModalDialogViewController):
     KickButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     PromoteButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     PlayerName: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xed2da5b0():
     pass
 
 class 0xed4b858b():
@@ -15292,6 +15286,9 @@ class ITimerControllerDefinition():
 class ITimerView():
     pass
 
+class IUiAudioEvent():
+    pass
+
 class IUiBlock(IClientBlock):
     pass
 
@@ -15299,6 +15296,9 @@ class IUiEffectTextureDataProvider():
     pass
 
 class IUiElementIGet():
+    pass
+
+class IUiSfxEvent(IUiAudioEvent):
     pass
 
 class IUiTextureDataProvider():
@@ -28299,7 +28299,7 @@ class UiComboBoxDefinition():
     pass
 
 class UiComboBoxSoundEvents():
-    Select: (Pointer, 0x0, 0x0, 0x12759fb) = null
+    Select: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
     OnSelectionEvent: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -28524,22 +28524,22 @@ class UiElementGroupButtonData(UiElementGroupData):
     pass
 
 class UiElementGroupButtonSoundEvents():
-    0x1036ae7e: (Pointer, 0x0, 0x0, 0x12759fb) = null
-    0x1fcf9b4: (Pointer, 0x0, 0x0, 0x12759fb) = null
+    Release: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
+    Press: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
     RollOutEvent: (String, 0x0, 0x0, 0x0) = ""
     MouseDownOnInactive: (String, 0x0, 0x0, 0x0) = ""
-    0x5977e147: (Pointer, 0x0, 0x0, 0x12759fb) = null
-    0x5d147744: (Pointer, 0x0, 0x0, 0x12759fb) = null
-    0x66b8c713: (Pointer, 0x0, 0x0, 0x12759fb) = null
+    ReleaseSelected: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
+    RollOver: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
+    ReleaseInactive: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
     MouseDownSelected: (String, 0x0, 0x0, 0x0) = ""
     MouseUpEvent: (String, 0x0, 0x0, 0x0) = ""
-    0x8b848362: (Pointer, 0x0, 0x0, 0x12759fb) = null
-    0xa52ae29d: (Pointer, 0x0, 0x0, 0x12759fb) = null
+    RollOut: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
+    PressSelected: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
     RollOverEvent: (String, 0x0, 0x0, 0x0) = ""
     MouseUpSelected: (String, 0x0, 0x0, 0x0) = ""
     MouseUpOnInactive: (String, 0x0, 0x0, 0x0) = ""
     MouseDownEvent: (String, 0x0, 0x0, 0x0) = ""
-    0xfdb425: (Pointer, 0x0, 0x0, 0x12759fb) = null
+    PressInactive: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
     pass
 
 class UiElementGroupButtonState():
@@ -28596,12 +28596,12 @@ class UiElementGroupSliderData(UiElementGroupData):
     pass
 
 class UiElementGroupSliderSoundEvents():
-    0x5a2649b0: (Pointer, 0x0, 0x0, 0x12759fb) = null
+    DragEnd: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
     OnBarClickedEvent: (String, 0x0, 0x0, 0x0) = ""
     OnDragEndEvent: (String, 0x0, 0x0, 0x0) = ""
-    0x976d3aeb: (Pointer, 0x0, 0x0, 0x12759fb) = null
+    BarClicked: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
     OnDragStartEvent: (String, 0x0, 0x0, 0x0) = ""
-    0xfa73afb1: (Pointer, 0x0, 0x0, 0x12759fb) = null
+    DragStart: (Pointer, 0x0, 0x0, IUiSfxEvent) = null
     pass
 
 class UiElementGroupSliderState():

@@ -7,6 +7,7 @@ be4626e1 AchievementTitleReward
 017411ce ActivateEntityTagBlock
 92a4d6f9 AddScriptToEntity
 0babe88f AddTagToEntityBlock
+21fc73e7 AmbienceEvent
 f090d2e7 AnchorHierarchy
 83cccb6d AnnouncerVoEvent
 63981b65 AnnouncerVoEventType
@@ -31,7 +32,11 @@ ad65d8c4 AttackableEntityTemplate
 c3a01413 AudioBank
 f37213a8 AudioContextEvent
 4ca99280 AudioContextEventType
+70726e31 AudioDynamicMixState
 55383fd3 AudioFloatDriver
+7d98777d AudioGlobalEventManager
+baa223f0 AudioGlobalEventTargetCharacterRecords
+8e390e81 AudioListenerConfiguration
 684b0875 AudioManagerWwise
 7a55218f AudioPriorityBehavior
 9bc919f2 AudioQueueConfig
@@ -603,6 +608,7 @@ df799a6e MovingSituations
 906b3602 MultiAnnouncerVoEventType
 b58b70dc MultiChampionMusicEventType
 661f15c3 MultiTeam
+a7b33361 MusicProfile
 2bfb084c NavGridRegionGroupDefinition
 2d00e4da NavGridRegionInputData
 6b91544a NavGridRegionRenderData
@@ -965,6 +971,11 @@ ed5506a6 TftTeamCannonMaterialDriver
 cc6491d4 TftTeamEditorViewController
 8c31df6a TftTrovesViewControllerEvents
 d35c6ec8 TftTrovesViewControllerV3
+0460dc9b ThemeMusicEvent
+40461f83 ThemeMusicEventType
+84899de0 ThemeMusicEventTypeConcrete
+f0ea0d4c ThemeMusicEventTypeGeneric
+cc7bc138 ThemeMusicEvents
 ba9ff884 ThirdPersonCameraUpdateStrategy
 cfba77f5 ThirdPersonCameraUpdater
 143f10a8 TimerViews

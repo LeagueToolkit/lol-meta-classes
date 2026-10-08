@@ -255,14 +255,16 @@ hit is a name Riot wrote. The named siblings (`LolPingKeybind`,
 (`.PingCategory`, `.EmoteDirection`, `.HoldType`, `.ToggleType`) show the
 vocabulary the strings should be filtered for.
 
-### 9. `AudioContextEventType` (4ca99280) - 4 unnamed, 11 named - **worked**
+### 9. `AudioContextEventType` (4ca99280) - 5 unnamed, 15 named - **worked**
 
 Was 15 unnamed and 0 named: small, wholly unexplored, entirely 16.7 or newer,
 and the only family in the survey whose root and every member were unnamed. 15
 non-zero defaults across 28 unresolved field hashes.
 
 `global-audio`'s second pass took it to 4 unnamed members and 5 unresolved
-fields ([docs/global-audio.md](global-audio.md)). The census read that this one
+fields ([docs/global-audio.md](global-audio.md)). 16.18 added a `ThemeMusic`
+branch of four classes; the fourth pass named three of them and the family root's
+holder, `AudioGlobalEventManager`, from a shipped log string. The census read that this one
 "needs the shipped-data pass first and the search second" was wrong in the
 particulars and right in the diagnosis: the family has **zero shipped
 instances**, so the shipped-data pass returns nothing. What replaced it was the

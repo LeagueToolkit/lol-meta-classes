@@ -2,7 +2,7 @@
 
 Reversing doc for `global-audio`. Its `batches.jsonl` note points here.
 
-109 names off one dormant subsystem introduced across 16.7-16.20: an 800-byte
+112 names off one dormant subsystem introduced across 16.7-16.20: an 800-byte
 root (`AudioGlobalEventManager`, named in the fourth pass) that holds a champion-music event table, an announcer-VO event
 table, two audio queue holders and the only link anywhere to
 `GlobalContextualActionData`; plus the `AudioContextEventType` hierarchy that
@@ -387,7 +387,7 @@ rest of this family stops here.
 
 ## Fourth pass
 
-27 names (11 classes, 16 fields). The root is `AudioGlobalEventManager`. The lever is a
+30 names (11 classes, 19 fields). The root is `AudioGlobalEventManager`. The lever is a
 log string of the shipped 16.20 Windows client:
 
 ```
@@ -453,10 +453,27 @@ alphabetical by class name inside one run.
 | 8e390e81, 6dcc21b6, 82ba66e3, cd0349d3, cff18b84 | AudioListenerConfiguration, ListenerHeight, ListenerOffsetUp, ListenerOffsetForward, ListenerOffsetRight | the class hit at 0.2 on its own. The four fields then hit in separate depth-2 runs at 0.019 each and complete an Up/Forward/Right row on that class | 3 |
 | f4606717, 1e3ee48c | LingerTime, DefaultLingerTime | rename boundary: `LingerTime` dies at 8230722 and `DefaultLingerTime` is born at 8248524 on the same class with the same type and the same default 3.0. Found in separate runs | 2 |
 | 70726e31, c10d2292, fdc99e78, 8206ad8f | AudioDynamicMixState, MixState, MixGroup, RtpcValue | fields at 0.019 each, class at 0.8 in a seeded depth-3. `MixState` is also the link field on the `IContextualAction` class `28556403`, born with this class at 16.19 and targeting it. Registers between `AudioContextEventType` and `AudioGlobalEventManager` | 3 |
+| 81c35ced | ListenerConfiguration | single hash. The hash field on `MapAudioDataProperties` that the client resolves as an `AudioListenerConfiguration`, falling back along `BaseData` | 3 |
+| 7c00519f | OverrideLingerTime | the option<f32> on the `IContextualAction` class `28556403`. When it is unset the client takes the linked state's `DefaultLingerTime`, so the two share the `LingerTime` stem | 3 |
+| f36010f5 | ForceActivate | single hash. The bool on `28556403` that makes the client apply the linked mix state at once | 4 |
 | 21fc73e7 | AmbienceEvent | single hash, depth-2 at 0.019. Carries `NameHash` and an `Event` string; registers directly before `AnnouncerVoEvent`. No second method | 4 |
 
-The client reads the root map by game event id: if the event unit's `CharacterRecord` is in
+The client reads the root map by game event id: if the killed unit's `CharacterRecord` is in
 the entry's `CharacterRecords`, the audio event is not dispatched.
+
+What the 16.21 PBE client does with the rest:
+
+- The event chain has no play step. A triggered slot reaches its event type, and the type
+  picks an event name, but no code queues or posts it. `ThemeMusicEventTypeGeneric`'s
+  trigger is an empty function. `AudioPriorityBehavior` and `AudioQueueConfig` have no
+  runtime reader.
+- `AudioDynamicMixState` is live code: every object registers with a per-frame manager
+  that applies the highest-`priority` requested or `isDefault` state as one audio-engine
+  state (`MixGroup`, `MixState`). The action `28556403` writes the request.
+- `AudioListenerConfiguration` is live code: `ListenerHeight` and the three offsets place
+  the listener, and `8e84528c` is a pitch in degrees for its front vector. With no object
+  the client uses the class defaults.
+- `AmbienceEvent` has no reader: only its registrar, constructor and vtable reference it.
 
 ### Proposed and not taken
 
@@ -522,8 +539,7 @@ Fields: `093c1d30` (string), `b01bdea6` (f32), `4249f0a2` (embed
 `AudioPriorityBehavior`) and `dea83ccf` (bool), on `MusicProfile` since 16.18; the
 root map `766af9fc`; `2a2e7fd9` (string on `ThemeMusicEventTypeGeneric`); `8e84528c`
 on `AudioListenerConfiguration`; `2763e30e`, `5cf98a21` and `0ea42217` on
-`AudioDynamicMixState`; `ea4213a0` on `ContextualRule` with `7c00519f` and `f36010f5`
-on the class it points at; queue `c8d0888c` (f32) and `1c6439cf` (list2 of
+`AudioDynamicMixState`; `ea4213a0` on `ContextualRule`; queue `c8d0888c` (f32) and `1c6439cf` (list2 of
 itself); `e7623bb7`; `2f1edf29` (bool shared by both `Multi*` classes); the
 strings `1ad40789`, `2f68e6e3`, `11e8956e`, `4c546bb7`; the `ContextualRule`
 pointer `913543b4` and `ec1b2b3c` on the class it points at; and the three event

@@ -1039,9 +1039,6 @@ class 0x2bde0c9c(0x8e30b80e):
 class 0x2c17e4a1(IOptionItemFilter):
     pass
 
-class 0x2c23a84c():
-    pass
-
 class 0x2d42ea41(IVfxVector3Driver):
     Vector3: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[1.0,1.0,1.0],"dynamics":null}
     frequency: (U8, 0x0, 0x0, 0x0) = 0
@@ -15345,6 +15342,9 @@ class IVfxMaterialDriver():
     pass
 
 class IVfxRandomDriver(IVfxFloatDriver):
+    pass
+
+class IVfxRuntime():
     pass
 
 class IVfxShape():

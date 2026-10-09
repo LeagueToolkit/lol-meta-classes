@@ -88,6 +88,7 @@ b7c14674 AttractionAcceleration
 aeefa0e6 AttractionRadius
 55001320 AudioBanks
 9087c853 AudioBehavior
+584327ed AudioCues
 9bfe08c0 AugmentList
 cce2113c AugmentPillar
 2d96f463 AugmentRarities
@@ -1595,6 +1596,7 @@ f8b71cc4 UnselectedDefault
 d3231b43 UnselectedHover
 1683dbca UnselectedInactive
 4247adf7 UpdateFrequencySeconds
+fa48afb7 UpdateMode
 5f90a439 UpdaterName
 95a401c3 UpgradeSpell
 0c71253f UseCurve

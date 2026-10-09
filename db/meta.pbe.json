@@ -10,14 +10,14 @@
 "0x260ec0c": {"revisions": [{"from":8248524,"to":8248524,"bases":[],"interface":false,"value":true}], "properties": {
  "0xb6394388": {"revisions":[{"from":8248524,"to":8248524,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x68008e9": {"revisions": [{"from":8264391,"bases":["0x858d9212"],"interface":false,"value":false}], "properties": {
+"0x68008e9": {"name": "VfxMovementEffectorComponentData", "revisions": [{"from":8264391,"bases":["0x858d9212"],"interface":false,"value":false}], "properties": {
  "0xdba4cb3": {"name":"radius","revisions":[{"from":8264391,"type":["Embed","0x0","0x0","0xafe1d569"],"default":{"Float":{}}}]}
 }},
 "0x14503484": {"revisions": [{"from":8159717,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0x3b8d8b3f"],"default":{"itemID":18446744073709551615,"VariableValues":{}}}]},
  "0x75d77845": {"revisions":[{"from":8159717,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x145598b7": {"revisions": [{"from":8264391,"bases":["0x858d9212"],"interface":false,"value":false}], "properties": {
+"0x145598b7": {"name": "VfxBeamEffectorComponentData", "revisions": [{"from":8264391,"bases":["0x858d9212"],"interface":false,"value":false}], "properties": {
  "0x95876e1f": {"name":"Width","revisions":[{"from":8264391,"type":["Embed","0x0","0x0","0xafe1d569"],"default":{"Float":{}}}]}
 }},
 "0x15f28ac8": {"name": "LoadingScreenPlayerCardClassicData", "revisions": [{"from":5229820,"bases":["0xcbdadf65"],"interface":false,"value":false}], "properties": {
@@ -44,7 +44,7 @@
  "0xe6e3afce": {"name":"SummonerName","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xb0d49a20"],"default":{"OtherPlayerNameColor":[210,230,240,255],"LocalPlayerNameColor":[10,190,250,255],"SummonerName":[]}}]},
  "0xe8dcc7f6": {"name":"SummonerSpells","revisions":[{"from":5229820,"type":["List","0x2","Embed","0xa5dec77a"],"default":[{"Frame":"0x0","Icon":"0x0"},{"Frame":"0x0","Icon":"0x0"}]}]}
 }},
-"0x1ad8951d": {"revisions": [{"from":8264391,"bases":["0xc239373a"],"interface":true,"value":false}], "properties": {
+"0x1ad8951d": {"name": "VfxAudioRuntime", "revisions": [{"from":8264391,"bases":["0xc239373a"],"interface":true,"value":false}], "properties": {
 }},
 "0x1ee9686c": {"name": "ChampionMusicEvents", "revisions": [{"from":7584427,"bases":[],"interface":false,"value":false}], "properties": {
  "0x67cca4a": {"name":"BountyStarting","revisions":[{"from":7584427,"type":["Link","0x0","0x0","0xb4dee917"],"default":"0x0"}]},
@@ -95,7 +95,7 @@
  "0xdba4cb3": {"name":"radius","revisions":[{"from":8042660,"to":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x435a91a2": {"name":"SpinFactor","revisions":[{"from":8042660,"to":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0x2c6f09a6": {"revisions": [{"from":8264391,"bases":["0xb9b8fb5a"],"interface":true,"value":false}], "properties": {
+"0x2c6f09a6": {"name": "VfxBurstEffectorComponentRuntime", "revisions": [{"from":8264391,"bases":["0xb9b8fb5a"],"interface":true,"value":false}], "properties": {
 }},
 "0x2f798a22": {"name": "AugmentTierDisplayData", "revisions": [{"from":7695709,"to":8248524,"bases":[],"interface":false,"value":false},{"from":8264391,"bases":[],"interface":false,"value":true}], "properties": {
  "0x2c4a7c82": {"name":"PickedVfxSystem","revisions":[{"from":7695709,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
@@ -192,9 +192,9 @@
  "0xf18ff8ac": {"revisions":[{"from":7269074,"type":["String","0x0","0x0","0x0"],"default":"icon"}]},
  "0xfd229168": {"revisions":[{"from":7269074,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x507d7fe1": {"revisions": [{"from":8264391,"bases":["0xb9b8fb5a"],"interface":true,"value":false}], "properties": {
+"0x507d7fe1": {"name": "VfxBeamEffectorComponentRuntime", "revisions": [{"from":8264391,"bases":["0xb9b8fb5a"],"interface":true,"value":false}], "properties": {
 }},
-"0x524de342": {"revisions": [{"from":8264391,"bases":["0x80d55cb7"],"interface":false,"value":false}], "properties": {
+"0x524de342": {"name": "VfxEffectorComponent", "revisions": [{"from":8264391,"bases":["0x80d55cb7"],"interface":false,"value":false}], "properties": {
  "0x399a1c39": {"name":"EffectorData","revisions":[{"from":8264391,"type":["Pointer","0x0","0x0","0x858d9212"],"default":null}]}
 }},
 "0x5e7e5a06": {"name": "SpellObject", "revisions": [{"from":5229820,"to":7190545,"bases":[],"interface":false,"value":false},{"from":7200925,"to":7218442,"bases":["0x86e510f8"],"interface":false,"value":false},{"from":7231955,"bases":["0x30e9338e","0x86e510f8"],"interface":false,"value":false}], "properties": {
@@ -234,8 +234,8 @@
  "0x2f7e29a4": {"name":"TargetWidth","revisions":[{"from":8042660,"to":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x5e532341": {"name":"OriginWidth","revisions":[{"from":8042660,"to":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0x7a98ac76": {"revisions": [{"from":8264391,"bases":["0xfdbf829b"],"interface":false,"value":false}], "properties": {
- "0x584327ed": {"revisions":[{"from":8264391,"type":["List2","0x0","Embed","0x86af78a6"],"default":[]}]}
+"0x7a98ac76": {"name": "VfxAudioComponent", "revisions": [{"from":8264391,"bases":["0xfdbf829b"],"interface":false,"value":false}], "properties": {
+ "0x584327ed": {"name":"AudioCues","revisions":[{"from":8264391,"type":["List2","0x0","Embed","0x86af78a6"],"default":[]}]}
 }},
 "0x7be50d9e": {"revisions": [{"from":8264391,"bases":[],"interface":false,"value":true}], "properties": {
  "0x5591fe0": {"revisions":[{"from":8264391,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -254,13 +254,13 @@
  "0xb01bdea6": {"revisions":[{"from":7996036,"to":8104348,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xb2246553": {"name":"GlobalContextualActionData","revisions":[{"from":7695709,"to":7728292,"type":["List2","0x0","Link","0xcf313c24"],"default":[]},{"from":7747445,"to":8230722,"type":["List2","0x0","Link","0xb2246553"],"default":[]},{"from":8248524,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
-"0x858d9212": {"revisions": [{"from":8264391,"bases":[],"interface":true,"value":false}], "properties": {
+"0x858d9212": {"name": "VfxEffectorComponentData", "revisions": [{"from":8264391,"bases":[],"interface":true,"value":false}], "properties": {
  "0x47482875": {"name":"Magnitude","revisions":[{"from":8264391,"type":["Embed","0x0","0x0","0xafe1d569"]}]},
  "0x4d795fb5": {"name":"DecayDuration","revisions":[{"from":8264391,"type":["F32","0x0","0x0","0x0"]}]},
  "0xb9d5eb37": {"name":"UseFirstParticlePosition","revisions":[{"from":8264391,"type":["Bool","0x0","0x0","0x0"]}]},
- "0xfa48afb7": {"revisions":[{"from":8264391,"type":["U8","0x0","0x0","0x0"]}]}
+ "0xfa48afb7": {"name":"UpdateMode","revisions":[{"from":8264391,"type":["U8","0x0","0x0","0x0"]}]}
 }},
-"0x86af78a6": {"revisions": [{"from":8264391,"bases":[],"interface":false,"value":false}], "properties": {
+"0x86af78a6": {"name": "VfxAudioCue", "revisions": [{"from":8264391,"bases":[],"interface":false,"value":false}], "properties": {
  "0xe0d9594": {"name":"sound","revisions":[{"from":8264391,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x5127f14d": {"name":"type","revisions":[{"from":8264391,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x986002d8": {"name":"LifetimeBehavior","revisions":[{"from":8264391,"type":["U8","0x0","0x0","0x0"],"default":0}]},
@@ -442,7 +442,7 @@
  "0xdea83ccf": {"revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xe4ba733d": {"name":"feature","revisions":[{"from":8159717,"to":8230722,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xa7cee9c8": {"revisions": [{"from":8264391,"bases":["0xb9b8fb5a"],"interface":true,"value":false}], "properties": {
+"0xa7cee9c8": {"name": "VfxTrapezoidEffectorComponentRuntime", "revisions": [{"from":8264391,"bases":["0xb9b8fb5a"],"interface":true,"value":false}], "properties": {
 }},
 "0xa89e6d1e": {"name": "LoadingScreenGameModeBackground", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x81a31b1": {"name":"ToggleButton","revisions":[{"from":8264391,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -457,9 +457,9 @@
  "0x8137940d": {"revisions":[{"from":8104348,"type":["Link","0x0","0x0","0x8137940d"],"default":"0x0"}]},
  "0xc760b795": {"revisions":[{"from":8042660,"type":["Link","0x0","0x0","0xc760b795"],"default":"0x0"}]}
 }},
-"0xb36c307f": {"revisions": [{"from":8264391,"bases":["0xb9b8fb5a"],"interface":true,"value":false}], "properties": {
+"0xb36c307f": {"name": "VfxMovementEffectorComponentRuntime", "revisions": [{"from":8264391,"bases":["0xb9b8fb5a"],"interface":true,"value":false}], "properties": {
 }},
-"0xb9b8fb5a": {"revisions": [{"from":8264391,"bases":["0x2c23a84c"],"interface":true,"value":false}], "properties": {
+"0xb9b8fb5a": {"name": "VfxEffectorComponentRuntime", "revisions": [{"from":8264391,"bases":["0x2c23a84c"],"interface":true,"value":false}], "properties": {
 }},
 "0xba43011f": {"name": "PlayerReportViewController", "revisions": [{"from":5229820,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x1357eca": {"name":"ReportNegativeAttitudeButton","revisions":[{"from":5229820,"to":7336673,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7347485,"to":7347485,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -507,7 +507,7 @@
 "0xbf11ddc7": {"name": "MapMaterialSwap", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0x1eebe507": {"name":"Swaps","revisions":[{"from":5229820,"to":8248524,"type":["Map","String","Link","0xff9d3409"],"default":{}},{"from":8264391,"type":["Map","Hash","Link","0xff9d3409"],"default":{}}]}
 }},
-"0xc239373a": {"revisions": [{"from":8264391,"bases":["0x2c23a84c"],"interface":true,"value":false}], "properties": {
+"0xc239373a": {"name": "IVfxAudioRuntime", "revisions": [{"from":8264391,"bases":["0x2c23a84c"],"interface":true,"value":false}], "properties": {
 }},
 "0xc2f31dbb": {"revisions": [{"from":8264391,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -812,7 +812,7 @@
 "0xe4b83f6f": {"name": "EnvironmentEffectorMovement", "revisions": [{"from":8042660,"to":8248524,"bases":["0x68783803"],"interface":false,"value":false}], "properties": {
  "0xdba4cb3": {"name":"radius","revisions":[{"from":8042660,"to":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
-"0xeed60e9c": {"revisions": [{"from":8264391,"bases":["0x858d9212"],"interface":false,"value":false}], "properties": {
+"0xeed60e9c": {"name": "VfxTrapezoidEffectorComponentData", "revisions": [{"from":8264391,"bases":["0x858d9212"],"interface":false,"value":false}], "properties": {
  "0x2f7e29a4": {"name":"TargetWidth","revisions":[{"from":8264391,"type":["Embed","0x0","0x0","0xafe1d569"],"default":{"Float":{}}}]},
  "0x5e532341": {"name":"OriginWidth","revisions":[{"from":8264391,"type":["Embed","0x0","0x0","0xafe1d569"],"default":{"Float":{}}}]}
 }},
@@ -844,17 +844,17 @@
  "0xf38e6a9f": {"name":"CostText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf3eb6a16": {"name":"HitRegion","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xf6e84048": {"revisions": [{"from":8264391,"bases":["0x2c23a84c"],"interface":true,"value":false}], "properties": {
+"0xf6e84048": {"name": "VfxLightComponentRuntime", "revisions": [{"from":8264391,"bases":["0x2c23a84c"],"interface":true,"value":false}], "properties": {
 }},
 "0xf9b5b50e": {"revisions": [{"from":8264391,"bases":[],"interface":false,"value":true}], "properties": {
  "0xc287d6b": {"revisions":[{"from":8264391,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
  "0xb7ab82e4": {"revisions":[{"from":8264391,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
-"0xf9ed3b7e": {"revisions": [{"from":8264391,"bases":["0x858d9212"],"interface":false,"value":false}], "properties": {
+"0xf9ed3b7e": {"name": "VfxBurstEffectorComponentData", "revisions": [{"from":8264391,"bases":["0x858d9212"],"interface":false,"value":false}], "properties": {
  "0xdba4cb3": {"name":"radius","revisions":[{"from":8264391,"type":["Embed","0x0","0x0","0xafe1d569"],"default":{"Float":{}}}]},
  "0x435a91a2": {"name":"SpinFactor","revisions":[{"from":8264391,"type":["Embed","0x0","0x0","0xafe1d569"],"default":{"Float":{}}}]}
 }},
-"0xfdbf829b": {"revisions": [{"from":8264391,"bases":["0x80d55cb7"],"interface":true,"value":false}], "properties": {
+"0xfdbf829b": {"name": "VfxAudioComponentBase", "revisions": [{"from":8264391,"bases":["0x80d55cb7"],"interface":true,"value":false}], "properties": {
 }},
 "0xff9d3409": {"name": "StaticMaterialDef", "revisions": [{"from":5229820,"bases":["0x20a178b8","0xecf76724"],"interface":false,"value":false}], "properties": {
  "0xa6f0eb5": {"name":"samplerValues","revisions":[{"from":5229820,"type":["List2","0x0","Embed","0x904b150"],"default":[]}]},

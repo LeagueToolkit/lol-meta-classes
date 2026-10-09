@@ -6539,7 +6539,7 @@
 }},
 "0x2c17e4a1": {"revisions": [{"from":7345787,"to":7345787,"bases":["0xcb8dfbc8"],"interface":false,"value":false},{"from":7371049,"bases":["0xcb8dfbc8"],"interface":false,"value":false}], "properties": {
 }},
-"0x2c23a84c": {"revisions": [{"from":8159717,"bases":[],"interface":true,"value":false}], "properties": {
+"0x2c23a84c": {"name": "IVfxRuntime", "revisions": [{"from":8159717,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x2c26c305": {"name": "SurrenderTypeData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x3f72f07a": {"name":"StartTimeWithAfk","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":1200.0}]},

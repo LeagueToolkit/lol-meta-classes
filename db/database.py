@@ -4195,7 +4195,7 @@ class 0x80d914e0(ISequenceActionInstance):
 
 class 0x80f31f46():
     RimOffset: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
-    0xbdc69b11: (Embed, 0x0, 0x0, 0xbdc69b11) = {"0x4815183f":0.6499999761581421,"0x57d3720a":0.800000011920929,"0x8a74fffa":0.30000001192092896}
+    ShadowGradientRenderData: (Embed, 0x0, 0x0, ShadowGradientRenderData) = {"GradientEnd":0.800000011920929,"GradientStart":0.6499999761581421,"ShadowFactor":0.30000001192092896}
     0xdba24ad6: (F32, 0x0, 0x0, 0x0) = 1.0
     ModelHeight: (F32, 0x0, 0x0, 0x0) = 275.0
     0xed8edf74: (F32, 0x0, 0x0, 0x0) = 0.10000000149011612
@@ -5113,14 +5113,6 @@ class 0x9c085077(0x859c9c2f):
 class 0x9c1d99c0():
     spells: (List2, 0x0, Hash, 0x0) = []
     0x80cf3335: (Embed, 0x0, 0x0, 0x7a1a2d27) = {"AbsorbedDamageFormat":"0x0","CombinableDamageFormat":"0x0","CriticalMagicalDamageFormat":"0x0","CriticalPhysicalDamageFormat":"0x0","CriticalTrueDamageFormat":"0x0","DefaultMagicalDamageFormat":"0x0","DefaultPhysicalDamageFormat":"0x0","DefaultTrueDamageFormat":"0x0"}
-    pass
-
-class 0x9c39a518():
-    rotation: (Vec3, 0x0, 0x0, 0x0) = [90.0,0.0,0.0]
-    Contrast: (F32, 0x0, 0x0, 0x0) = 0.5
-    Enabled: (Bool, 0x0, 0x0, 0x0) = false
-    0x7f337738: (F32, 0x0, 0x0, 0x0) = 1.0
-    0xb2a597b2: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0x9c545130(BaseParams):
@@ -6478,12 +6470,6 @@ class 0xbd77f870():
 
 class 0xbdbf785f(0xd866344b):
     value: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0xbdc69b11():
-    0x4815183f: (F32, 0x0, 0x0, 0x0) = 0.6499999761581421
-    0x57d3720a: (F32, 0x0, 0x0, 0x0) = 0.800000011920929
-    0x8a74fffa: (F32, 0x0, 0x0, 0x0) = 0.30000001192092896
     pass
 
 class 0xbe081d2c():
@@ -16370,7 +16356,7 @@ class LightRegionRenderData():
     DepthFogColor: (Vec3, 0x0, 0x0, 0x0) = [0.03519999980926514,0.125,0.3050000071525574]
     CharacterProbeIndex: (U32, 0x0, 0x0, 0x0) = 0
     DepthFogMaxIntensity: (F32, 0x0, 0x0, 0x0) = 0.25
-    0x783ad838: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
+    RimLightColor: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
     HeightFogMaxIntensity: (F32, 0x0, 0x0, 0x0) = 0.05000000074505806
     Padding: (F32, 0x0, 0x0, 0x0) = 0.0
     HeightFogStart: (F32, 0x0, 0x0, 0x0) = -400.0
@@ -17828,8 +17814,8 @@ class MapLaneComponent(MapComponent):
 
 class MapLightRegions(MapGraphicsFeature):
     TextureWidth: (U16, 0x0, 0x0, 0x0) = 1024
-    DefaultRenderData: (Embed, 0x0, 0x0, 0x3069f601) = {"0x783ad838":[1.0,1.0,1.0],"CharacterProbe":"0x0","CharacterProbeIndex":0,"CharacterSunLightColor":[1.0,1.0,1.0],"CharacterSunLightDirection":[0.0,0.0,0.0],"DepthFogColor":[0.03519999980926514,0.125,0.3050000071525574],"DepthFogEnd":3300.0,"DepthFogMaxIntensity":0.25,"DepthFogStart":2075.0,"HeightFogColor":[0.4050000011920929,0.843999981880188,0.9380000233650208],"HeightFogEnd":-6500.0,"HeightFogMaxIntensity":0.05000000074505806,"HeightFogStart":-400.0,"Padding":0.0,"Probe":"0x0","ProbeIndex":0,"ReflectionSkyTint":[1.0,1.0,1.0],"SunLightColor":[1.0,1.0,1.0],"priority":0}
-    0xc74f953c: (Embed, 0x0, 0x0, 0x9c39a518) = {"0x7f337738":1.0,"0xb2a597b2":0.0,"Contrast":0.5,"Enabled":false,"rotation":[90.0,0.0,0.0]}
+    DefaultRenderData: (Embed, 0x0, 0x0, 0x3069f601) = {"CharacterProbe":"0x0","CharacterProbeIndex":0,"CharacterSunLightColor":[1.0,1.0,1.0],"CharacterSunLightDirection":[0.0,0.0,0.0],"DepthFogColor":[0.03519999980926514,0.125,0.3050000071525574],"DepthFogEnd":3300.0,"DepthFogMaxIntensity":0.25,"DepthFogStart":2075.0,"HeightFogColor":[0.4050000011920929,0.843999981880188,0.9380000233650208],"HeightFogEnd":-6500.0,"HeightFogMaxIntensity":0.05000000074505806,"HeightFogStart":-400.0,"Padding":0.0,"Probe":"0x0","ProbeIndex":0,"ReflectionSkyTint":[1.0,1.0,1.0],"RimLightColor":[1.0,1.0,1.0],"SunLightColor":[1.0,1.0,1.0],"priority":0}
+    RimLightProperties: (Embed, 0x0, 0x0, RimLightMapProperties) = {"Contrast":0.5,"Enabled":false,"SunLightBlendWeight":0.0,"SunShadowBlendWeight":1.0,"rotation":[90.0,0.0,0.0]}
     TextureHeight: (U16, 0x0, 0x0, 0x0) = 1024
     TextureRenderDataList: (List2, 0x0, Embed, LightRegionTextureData) = []
     pass
@@ -21292,6 +21278,14 @@ class RigResource():
     mFlags: (U16, 0x0, 0x0, 0x0) = 0
     pass
 
+class RimLightMapProperties():
+    rotation: (Vec3, 0x0, 0x0, 0x0) = [90.0,0.0,0.0]
+    Contrast: (F32, 0x0, 0x0, 0x0) = 0.5
+    Enabled: (Bool, 0x0, 0x0, 0x0) = false
+    SunShadowBlendWeight: (F32, 0x0, 0x0, 0x0) = 1.0
+    SunLightBlendWeight: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
 class RoleBoundItemSlotDetailedUiData(ItemSlotDetailedUiData):
     ProgressBackdrop: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ProgressFX: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -22371,6 +22365,12 @@ class ShaderTexture():
     samplerName: (String, 0x0, 0x0, 0x0) = ""
     defaultTexturePath: (File, 0x0, 0x0, 0x0) = "0x0"
     name: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class ShadowGradientRenderData():
+    GradientStart: (F32, 0x0, 0x0, 0x0) = 0.6499999761581421
+    GradientEnd: (F32, 0x0, 0x0, 0x0) = 0.800000011920929
+    ShadowFactor: (F32, 0x0, 0x0, 0x0) = 0.30000001192092896
     pass
 
 class ShadowOverrideSettings():

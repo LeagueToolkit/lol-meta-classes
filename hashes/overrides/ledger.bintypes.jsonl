@@ -1171,6 +1171,8 @@
 {"hash": "48b525af", "name": "AtlasDataVideo", "batch": "ui-texture-providers", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
 {"hash": "5eaead1a", "name": "SolidColorTextureData", "batch": "ui-texture-providers", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
 {"hash": "f9b5b50e", "name": "DynamicsJointPinningData", "batch": "dynamics-joint-pinning", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "9c39a518", "name": "RimLightMapProperties", "batch": "map-rim-light", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "bdc69b11", "name": "ShadowGradientRenderData", "batch": "map-rim-light", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "ed2da5b0", "name": "IUiAudioEvent", "batch": "ui-audio-events", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "012759fb", "name": "IUiSfxEvent", "batch": "ui-audio-events", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "c239373a", "name": "IVfxAudioRuntime", "batch": "vfx-effector-component", "cracked": "2026-10-09", "status": "pending", "pr": "-"}

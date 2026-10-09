@@ -12865,7 +12865,7 @@
  "0x561f4fea": {"name":"reflectionFresnelColor","revisions":[{"from":5229820,"type":["Color","0x0","0x0","0x0"],"default":[255,255,255,255]}]},
  "0x5c7a0332": {"name":"overrideBoundingBox","revisions":[{"from":5229820,"type":["Option","0x0","Vec3","0x0"],"default":null}]},
  "0x706468a8": {"name":"boundingCylinderHeight","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":150.0}]},
- "0x783ad838": {"revisions":[{"from":8042660,"to":8230722,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
+ "0x783ad838": {"name":"RimLightColor","revisions":[{"from":8042660,"to":8230722,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
  "0x7ac73608": {"name":"materialController","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xce3b9427"],"default":null}]},
  "0x80b7f78f": {"name":"initialSubmeshToHide","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x8881ee77": {"revisions":[{"from":7695709,"type":["Pointer","0x0","0x0","0x80f31f46"],"default":null}]},
@@ -16751,7 +16751,7 @@
 }},
 "0x80f31f46": {"revisions": [{"from":7695709,"bases":[],"interface":false,"value":true}], "properties": {
  "0x9e618338": {"name":"RimOffset","revisions":[{"from":7695709,"type":["F32","0x0","0x0","0x0"],"default":0.20000000298023224}]},
- "0xbdc69b11": {"revisions":[{"from":8248524,"type":["Embed","0x0","0x0","0xbdc69b11"],"default":{"0x4815183f":0.6499999761581421,"0x57d3720a":0.800000011920929,"0x8a74fffa":0.30000001192092896}}]},
+ "0xbdc69b11": {"name":"ShadowGradientRenderData","revisions":[{"from":8248524,"type":["Embed","0x0","0x0","0xbdc69b11"],"default":{"GradientStart":0.6499999761581421,"GradientEnd":0.800000011920929,"ShadowFactor":0.30000001192092896}}]},
  "0xdba24ad6": {"revisions":[{"from":7695709,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xe9552339": {"name":"ModelHeight","revisions":[{"from":7695709,"type":["F32","0x0","0x0","0x0"],"default":275.0}]},
  "0xed8edf74": {"revisions":[{"from":7695709,"type":["F32","0x0","0x0","0x0"],"default":0.10000000149011612}]}
@@ -20105,12 +20105,12 @@
 "0x9c33070d": {"name": "WhileLoopBlock", "revisions": [{"from":6048769,"bases":["0x4359be6"],"interface":false,"value":false}], "properties": {
  "0xd212fabe": {"name":"Condition","revisions":[{"from":6048769,"type":["Pointer","0x0","0x0","0xc621aa68"],"default":{}}]}
 }},
-"0x9c39a518": {"revisions": [{"from":8248524,"bases":[],"interface":false,"value":false}], "properties": {
+"0x9c39a518": {"name": "RimLightMapProperties", "revisions": [{"from":8248524,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2f3b39e": {"name":"Enabled","revisions":[{"from":8248524,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x21ac415f": {"name":"rotation","revisions":[{"from":8248524,"type":["Vec3","0x0","0x0","0x0"],"default":[90.0,0.0,0.0]}]},
  "0x2a856173": {"name":"Contrast","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
- "0x7f337738": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
- "0xb2a597b2": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+ "0x7f337738": {"name":"SunShadowBlendWeight","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0xb2a597b2": {"name":"SunLightBlendWeight","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x9c472cf3": {"name": "AbilityResourcePipsData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0xa1d364f": {"name":"Pips","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xffd0bda4"],"default":{"DefaultMediumPip":"0x0","DefaultSmallPip":"0x0","AdditionalPipTypes":{},"DefaultLargePip":"0x0","DefaultEmptyPip":"0x0"}}]},
@@ -24374,10 +24374,10 @@
 "0xbdbf785f": {"revisions": [{"from":5579166,"bases":["0xd866344b"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":5579166,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
-"0xbdc69b11": {"revisions": [{"from":8248524,"bases":[],"interface":false,"value":false}], "properties": {
- "0x4815183f": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.6499999761581421}]},
- "0x57d3720a": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.800000011920929}]},
- "0x8a74fffa": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.30000001192092896}]}
+"0xbdc69b11": {"name": "ShadowGradientRenderData", "revisions": [{"from":8248524,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x4815183f": {"name":"GradientStart","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.6499999761581421}]},
+ "0x57d3720a": {"name":"GradientEnd","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.800000011920929}]},
+ "0x8a74fffa": {"name":"ShadowFactor","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.30000001192092896}]}
 }},
 "0xbdc90544": {"name": "NavGridConfig", "revisions": [{"from":5466062,"bases":[],"interface":false,"value":false}], "properties": {
  "0x48a8e1f4": {"name":"ErrorColor","revisions":[{"from":5466062,"type":["Color","0x0","0x0","0x0"],"default":[0,0,255,255]}]},
@@ -31309,7 +31309,7 @@
  "0x4d87c515": {"name":"DepthFogColor","revisions":[{"from":6997589,"type":["Vec3","0x0","0x0","0x0"],"default":[0.03519999980926514,0.125,0.3050000071525574]}]},
  "0x580b328e": {"name":"CharacterProbeIndex","revisions":[{"from":6738244,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x749b3695": {"name":"DepthFogMaxIntensity","revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":0.25}]},
- "0x783ad838": {"revisions":[{"from":8248524,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
+ "0x783ad838": {"name":"RimLightColor","revisions":[{"from":8248524,"type":["Vec3","0x0","0x0","0x0"],"default":[1.0,1.0,1.0]}]},
  "0x7a8d755d": {"name":"HeightFogMaxIntensity","revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":0.05000000074505806}]},
  "0x809608b6": {"name":"Padding","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0x8e731442": {"name":"HeightFogStart","revisions":[{"from":6997589,"type":["F32","0x0","0x0","0x0"],"default":-400.0}]},
@@ -32457,8 +32457,8 @@
 }},
 "0xfa8824c0": {"name": "MapLightRegions", "revisions": [{"from":6738244,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
  "0x90df3f50": {"name":"TextureWidth","revisions":[{"from":6738244,"type":["U16","0x0","0x0","0x0"],"default":1024}]},
- "0x9fb31fc2": {"name":"DefaultRenderData","revisions":[{"from":6738244,"type":["Embed","0x0","0x0","0x3069f601"],"default":{"CharacterProbe":"0x0","ReflectionSkyTint":[1.0,1.0,1.0],"HeightFogEnd":-6500.0,"CharacterSunLightDirection":[0.0,0.0,0.0],"DepthFogEnd":3300.0,"SunLightColor":[1.0,1.0,1.0],"DepthFogColor":[0.03519999980926514,0.125,0.3050000071525574],"CharacterProbeIndex":0,"DepthFogMaxIntensity":0.25,"0x783ad838":[1.0,1.0,1.0],"HeightFogMaxIntensity":0.05000000074505806,"Probe":"0x0","Padding":0.0,"HeightFogStart":-400.0,"priority":0,"CharacterSunLightColor":[1.0,1.0,1.0],"DepthFogStart":2075.0,"HeightFogColor":[0.4050000011920929,0.843999981880188,0.9380000233650208],"ProbeIndex":0}}]},
- "0xc74f953c": {"revisions":[{"from":8248524,"type":["Embed","0x0","0x0","0x9c39a518"],"default":{"rotation":[90.0,0.0,0.0],"Contrast":0.5,"Enabled":false,"0x7f337738":1.0,"0xb2a597b2":0.0}}]},
+ "0x9fb31fc2": {"name":"DefaultRenderData","revisions":[{"from":6738244,"type":["Embed","0x0","0x0","0x3069f601"],"default":{"CharacterProbe":"0x0","ReflectionSkyTint":[1.0,1.0,1.0],"HeightFogEnd":-6500.0,"CharacterSunLightDirection":[0.0,0.0,0.0],"DepthFogEnd":3300.0,"SunLightColor":[1.0,1.0,1.0],"DepthFogColor":[0.03519999980926514,0.125,0.3050000071525574],"CharacterProbeIndex":0,"DepthFogMaxIntensity":0.25,"RimLightColor":[1.0,1.0,1.0],"HeightFogMaxIntensity":0.05000000074505806,"Probe":"0x0","Padding":0.0,"HeightFogStart":-400.0,"priority":0,"CharacterSunLightColor":[1.0,1.0,1.0],"DepthFogStart":2075.0,"HeightFogColor":[0.4050000011920929,0.843999981880188,0.9380000233650208],"ProbeIndex":0}}]},
+ "0xc74f953c": {"name":"RimLightProperties","revisions":[{"from":8248524,"type":["Embed","0x0","0x0","0x9c39a518"],"default":{"rotation":[90.0,0.0,0.0],"Contrast":0.5,"Enabled":false,"SunShadowBlendWeight":1.0,"SunLightBlendWeight":0.0}}]},
  "0xdcf71c47": {"name":"TextureHeight","revisions":[{"from":6738244,"type":["U16","0x0","0x0","0x0"],"default":1024}]},
  "0xece16964": {"name":"TextureRenderDataList","revisions":[{"from":7465697,"type":["List2","0x0","Embed","0xfadcd386"],"default":[]}]}
 }},

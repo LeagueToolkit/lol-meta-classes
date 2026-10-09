@@ -93,6 +93,10 @@ sunShadow = s + t * (1 - s) * (1 - ShadowFactor)
 Below `GradientStart` the shadow is the sampled value. Above `GradientEnd` the darkness of
 the shadow is multiplied by `ShadowFactor`.
 
+The client sets `SHADOW_GRADIENT` per submesh from +16 of the 80f31f46 object: the object
+of the submesh if there is one, else the object of the skin. With no object the client
+sends `(1, 0, 1)`, which leaves the shadow unchanged.
+
 ## Evidence
 
 | hash | name | on | what fixes it | tier |

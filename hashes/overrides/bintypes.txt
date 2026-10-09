@@ -760,6 +760,7 @@ d443ea96 RewardGroupCelebrationAssets
 e27f0273 RewardGroupCelebrationCanvas
 31d66103 RewardGroupCelebrationIntro
 0cb6bad8 RewardGroupCelebrationTransition
+9c39a518 RimLightMapProperties
 26b76506 RoleBoundQuestSelectionViewController
 d2740d35 ScriptHelperDef
 968ff282 SegmentGet
@@ -889,6 +890,7 @@ b6fc7767 SfxEntity
 d2d78714 SfxHelper
 338822e7 ShaderFunctionDef
 de0583cb ShaderFunctionInputDef
+bdc69b11 ShadowGradientRenderData
 8f7f3f4e ShieldingParams
 eb0aabeb ShimmerEmitterDefinitionData
 f775806c ShopDefinition

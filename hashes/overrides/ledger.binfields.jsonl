@@ -1686,6 +1686,14 @@
 {"hash": "b7ab82e4", "name": "PinRoot", "batch": "dynamics-joint-pinning", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "0c287d6b", "name": "PinnedJointNames", "batch": "dynamics-joint-pinning", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "aa3e5b12", "name": "PinningData", "batch": "dynamics-joint-pinning", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "57d3720a", "name": "GradientEnd", "batch": "map-rim-light", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "4815183f", "name": "GradientStart", "batch": "map-rim-light", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "783ad838", "name": "RimLightColor", "batch": "map-rim-light", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "c74f953c", "name": "RimLightProperties", "batch": "map-rim-light", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "8a74fffa", "name": "ShadowFactor", "batch": "map-rim-light", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "bdc69b11", "name": "ShadowGradientRenderData", "batch": "map-rim-light", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "b2a597b2", "name": "SunLightBlendWeight", "batch": "map-rim-light", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "7f337738", "name": "SunShadowBlendWeight", "batch": "map-rim-light", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "9087c853", "name": "AudioBehavior", "batch": "ui-audio-events", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "976d3aeb", "name": "BarClicked", "batch": "ui-audio-events", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "d14bc802", "name": "BehaviorCooldown", "batch": "ui-audio-events", "cracked": "2026-10-09", "status": "pending", "pr": "-"}

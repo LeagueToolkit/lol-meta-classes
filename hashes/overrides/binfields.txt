@@ -621,6 +621,8 @@ b5a4f01e GoldThreshold
 234f4a0c GoldToNextLevelTra
 726ae049 GoldUpgrade
 8557faf0 GoldValue
+57d3720a GradientEnd
+4815183f GradientStart
 bc016dbd GravityOverride
 97f2e0f1 GravityScale
 011decbc Green
@@ -1228,6 +1230,8 @@ dc4cc17b RiftHeraldSpawn
 1775abaf RiftHeraldSteal
 78e32de5 Right
 c6f4b3f8 RightSource
+783ad838 RimLightColor
+c74f953c RimLightProperties
 9e618338 RimOffset
 d573fd6f RippleFrequency
 583d67c2 RodBendStiffness
@@ -1347,6 +1351,8 @@ a1d375b5 ShaderModel
 bc3b7fdc ShaderParameterOverrides
 5cc8d99c ShadowColor0
 5dc8db2f ShadowColor1
+8a74fffa ShadowFactor
+bdc69b11 ShadowGradientRenderData
 590f9cd2 ShadowQuality
 10087a83 ShadowsEnabled
 a8d060cb ShapeCenter
@@ -1467,8 +1473,10 @@ a42117a5 SubphaseAdditionalData
 312f9dd7 SubteamBadge
 4c0c91fd SuccessesRequired
 9d8b5bd5 SummonerLevel
+b2a597b2 SunLightBlendWeight
 4a6489aa SunLightColor
 671e8711 SunPenumbraSaturation
+7f337738 SunShadowBlendWeight
 08a3d83e Superward
 602b4f3c SwapAnimation
 68305f93 SwapMaterial

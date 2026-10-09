@@ -1062,8 +1062,11 @@ a86fc2ef PercentageDamageForFlash
 73276a01 PhysicsComponent
 c20b2e61 PhysicsSimLocalSettings
 d9ccf5cb PickMode
+b7ab82e4 PinRoot
 165df089 Ping
 8ddcecfb PingSpatialAudio
+0c287d6b PinnedJointNames
+aa3e5b12 PinningData
 244362ff PipDefinition
 666a9553 PipIcon
 7cae3080 PipLayout

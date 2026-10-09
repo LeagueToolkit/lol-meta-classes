@@ -112,7 +112,7 @@
 }},
 "0x339ecf91": {"name": "DynamicsJointTreeData", "revisions": [{"from":7643737,"bases":[],"interface":false,"value":true}], "properties": {
  "0x9df0bf7f": {"revisions":[{"from":7643737,"to":7668562,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xaa3e5b12": {"revisions":[{"from":8264391,"type":["Embed","0x0","0x0","0xf9b5b50e"],"default":{"0xb7ab82e4":true,"0xc287d6b":[]}}]},
+ "0xaa3e5b12": {"name":"PinningData","revisions":[{"from":8264391,"type":["Embed","0x0","0x0","0xf9b5b50e"],"default":{"PinRoot":true,"PinnedJointNames":[]}}]},
  "0xc11c69b4": {"name":"RootJointName","revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xea59c349": {"name":"ExcludeJointNames","revisions":[{"from":7695709,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
@@ -846,9 +846,9 @@
 }},
 "0xf6e84048": {"name": "VfxLightComponentRuntime", "revisions": [{"from":8264391,"bases":["0x2c23a84c"],"interface":true,"value":false}], "properties": {
 }},
-"0xf9b5b50e": {"revisions": [{"from":8264391,"bases":[],"interface":false,"value":true}], "properties": {
- "0xc287d6b": {"revisions":[{"from":8264391,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
- "0xb7ab82e4": {"revisions":[{"from":8264391,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
+"0xf9b5b50e": {"name": "DynamicsJointPinningData", "revisions": [{"from":8264391,"bases":[],"interface":false,"value":true}], "properties": {
+ "0xc287d6b": {"name":"PinnedJointNames","revisions":[{"from":8264391,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
+ "0xb7ab82e4": {"name":"PinRoot","revisions":[{"from":8264391,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
 "0xf9ed3b7e": {"name": "VfxBurstEffectorComponentData", "revisions": [{"from":8264391,"bases":["0x858d9212"],"interface":false,"value":false}], "properties": {
  "0xdba4cb3": {"name":"radius","revisions":[{"from":8264391,"type":["Embed","0x0","0x0","0xafe1d569"],"default":{"Float":{}}}]},

@@ -172,6 +172,7 @@ d5db92ad DynamicPointLightEntityTemplate
 5d9fffed DynamicsChainBlendEventData
 408a4521 DynamicsChainProperties
 09188776 DynamicsChainRigPoseModifierData
+f9b5b50e DynamicsJointPinningData
 339ecf91 DynamicsJointTreeData
 03ca1fe0 DynamicsJointTreeGroupData
 5169d349 EasedBoolConceptLogicDriver

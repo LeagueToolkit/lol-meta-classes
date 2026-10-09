@@ -1683,6 +1683,9 @@
 {"hash": "a42117a5", "name": "SubphaseAdditionalData", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
 {"hash": "21d40f1b", "name": "TagList", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
 {"hash": "83efb6f9", "name": "WeightedTags", "batch": "nova-item-selection-filters", "cracked": "2026-10-05", "status": "pending", "pr": "-"}
+{"hash": "b7ab82e4", "name": "PinRoot", "batch": "dynamics-joint-pinning", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "0c287d6b", "name": "PinnedJointNames", "batch": "dynamics-joint-pinning", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "aa3e5b12", "name": "PinningData", "batch": "dynamics-joint-pinning", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "9087c853", "name": "AudioBehavior", "batch": "ui-audio-events", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "976d3aeb", "name": "BarClicked", "batch": "ui-audio-events", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "d14bc802", "name": "BehaviorCooldown", "batch": "ui-audio-events", "cracked": "2026-10-09", "status": "pending", "pr": "-"}

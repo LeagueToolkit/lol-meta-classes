@@ -178,7 +178,7 @@
 }},
 "0x213ccd36": {"revisions": [{"from":8207193,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2a078c9c": {"name":"EventName","revisions":[{"from":8207193,"type":["U32","0x0","0x0","0x0"],"default":474}]},
- "0x30963364": {"revisions":[{"from":8207193,"type":["List","0x0","Embed","0x4a99e777"],"default":[]}]},
+ "0x30963364": {"name":"BannerOverrides","revisions":[{"from":8207193,"type":["List","0x0","Embed","0x4a99e777"],"default":[]}]},
  "0xaf128762": {"name":"DurationSeconds","revisions":[{"from":8207193,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x23ea1915": {"name": "CharacterRecord", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -438,7 +438,7 @@
 }},
 "0x3d7822a4": {"name": "PerkBuff", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0x6eac7015": {"name":"mBuffScriptName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xca93d232": {"name":"mBuffSpellObject","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x5e7e5a06"],"default":{"CcBehaviorData":null,"objectPath":"0x0","Script":"0x0","0x34cdd819":"","BotData":null,"mSpell":null,"AdditionalData":[],"mBuff":null,"mScriptName":"","ObjectName":""}}]}
+ "0xca93d232": {"name":"mBuffSpellObject","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x5e7e5a06"],"default":{"CcBehaviorData":null,"objectPath":"0x0","Script":"0x0","OverrideScriptName":"","BotData":null,"mSpell":null,"AdditionalData":[],"mBuff":null,"mScriptName":"","ObjectName":""}}]}
 }},
 "0x4036941a": {"name": "AnnouncerVoEventTypeModularCac", "revisions": [{"from":7945912,"bases":["0xc9ed1a3e"],"interface":false,"value":false}], "properties": {
  "0x54ff80d3": {"name":"PrimaryEvent","revisions":[{"from":7945912,"to":8248524,"type":["Pointer","0x0","0x0","0x36255113"],"default":null},{"from":8289811,"type":["Pointer","0x0","0x0","0xab30ed5e"],"default":null}]}
@@ -494,11 +494,11 @@
  "0x9240af8c": {"name":"MaxQuantity","revisions":[{"from":7269074,"type":["I8","0x0","0x0","0x0"],"default":1}]},
  "0xa59ea1ab": {"revisions":[{"from":7269074,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xb67be02d": {"revisions":[{"from":7269074,"type":["String","0x0","0x0","0x0"],"default":"itemId"}]},
- "0xbe672e4a": {"revisions":[{"from":7269074,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0xbe672e4a": {"name":"InventoryTypeId","revisions":[{"from":7269074,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xd17b4ad4": {"revisions":[{"from":8289811,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xd2d110ba": {"revisions":[{"from":7269074,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0xf18ff8ac": {"revisions":[{"from":7269074,"type":["String","0x0","0x0","0x0"],"default":"icon"}]},
- "0xfd229168": {"revisions":[{"from":7269074,"type":["String","0x0","0x0","0x0"],"default":""}]}
+ "0xfd229168": {"name":"CapInventoryTypeId","revisions":[{"from":7269074,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x4a2445d4": {"revisions": [{"from":8289811,"bases":["0x9a4cdc60"],"interface":false,"value":false}], "properties": {
  "0xcc42a2fb": {"revisions":[{"from":8289811,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
@@ -541,7 +541,7 @@
  "0x108deea5": {"name":"CcBehaviorData","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x21e5666c"],"default":null}]},
  "0x1d369c29": {"name":"objectPath","revisions":[{"from":8042660,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x203e6faa": {"name":"Script","revisions":[{"from":6161179,"type":["Link","0x0","0x0","0x69dae321"],"default":"0x0"}]},
- "0x34cdd819": {"revisions":[{"from":6877272,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x34cdd819": {"name":"OverrideScriptName","revisions":[{"from":6877272,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x4048c61e": {"name":"BotData","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xf195e56b"],"default":null}]},
  "0x452d5fcb": {"name":"mScript","revisions":[{"from":5229820,"to":6152328,"type":["Pointer","0x0","0x0","0x69dae321"],"default":null}]},
  "0x56d2be52": {"name":"mSpell","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x43368569"],"default":null}]},
@@ -1058,7 +1058,7 @@
  "0x1ac248aa": {"revisions":[{"from":7102027,"to":7915903,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x1c07defa": {"revisions":[{"from":5715678,"to":5899418,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x1db16466": {"revisions":[{"from":5923585,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x1f64500a": {"revisions":[{"from":5229820,"to":7245161,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
+ "0x1f64500a": {"name":"UseNavGridWasd","revisions":[{"from":5229820,"to":7245161,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x1f7a2991": {"revisions":[{"from":7643737,"to":7668562,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x1fb605bf": {"revisions":[{"from":6841658,"to":7413171,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x2094dd6e": {"revisions":[{"from":7135912,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
@@ -1192,7 +1192,7 @@
  "0xa6dc5d6f": {"revisions":[{"from":7345787,"to":7345787,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":7371049,"to":7569613,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xa6fd18e9": {"name":"TftCollapsibleStageUi","revisions":[{"from":5229820,"to":5419804,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xa770b762": {"revisions":[{"from":7170001,"to":7283286,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
- "0xa882cddf": {"revisions":[{"from":7426169,"to":8248524,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xa882cddf": {"name":"KeybindingsInputPorting","revisions":[{"from":7426169,"to":8248524,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xab3d1e78": {"revisions":[{"from":7135912,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0xab545ae5": {"revisions":[{"from":6478644,"to":6564086,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xab676340": {"name":"TftMobileCameraTp","revisions":[{"from":5229820,"to":5944901,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":5967495,"to":5967495,"type":["Bool","0x0","0x0","0x0"],"default":false}]},

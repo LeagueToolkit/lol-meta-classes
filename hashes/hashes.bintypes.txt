@@ -271,6 +271,7 @@ dff5a8f8 CameraConfig
 2a406a23 CameraConfigInstance
 47fc4706 CameraTrapezoid
 86d1477b CandidateListViewController
+e3a1b4bf CapProductId
 aa25504e Cast
 f8b77a74 CastOnDistanceFromCaster
 d9f51778 CastOnHit
@@ -665,6 +666,8 @@ f81e16e3 DeathGeComponentDef
 d09acba6 DeathRecapDamageOverview
 7efae6c2 DeathRecapDamagerCondensedList
 75e8f0c1 DeathRecapDamagerDetailedDisplayData
+e348122d DeathRecapExtrasConfig
+29619231 DeathRecapGreyscaleConfig
 db36062d DeathRecapShowcase
 340536c7 DeathRecapShowcasePips
 061c3629 DeathRecapShowcaseSlotData
@@ -672,6 +675,7 @@ db36062d DeathRecapShowcase
 b2feedb2 DeathRecapShowcaseSlotMasteryData
 45652c20 DeathRecapShowcaseSlotStatStoneData
 b1edf879 DeathRecapTeammateSpectator
+ce762bab DeathRecapTeammateSpectatorConfig
 72849ea5 DeathRecapViewController
 1307c9ed DeathTimes
 21243f6a DeathTimesInstance
@@ -734,6 +738,8 @@ cd0d7450 DragonUITunables
 cdb319f6 DrawablePositionLocator
 b29e8d11 DrawablePositionLocatorInstance
 266089da DropRateSlot
+85bf79cf DynamicCameraConfig
+c565e640 DynamicCameraSettings
 2d6bf1a2 DynamicMaterialDef
 8dd0b9dd DynamicMaterialDefInstance
 96974776 DynamicMaterialGeComponent
@@ -830,6 +836,7 @@ f7efc2c3 EnableLookAtEventDataInstance
 039f4e7c EncounterUITunables
 63326f99 EndGameBlock
 7cfb6e78 EndGameForLevelBlock
+537385f5 EndGameWithIgnbTransgressionCheat
 9011876f EndOfGameCeremonyBehavior
 e7a8a5a4 EndOfGameViewController
 26557b0a EnemyRespawnTimersViewController
@@ -1156,6 +1163,7 @@ aa2b7ab2 GrassObject
 69ea53eb GreenGeComponent
 a0406423 GroupRepeat
 8b331b12 GuestOfHonor
+c7ccb2ce GuestOfHonorListData
 7a633477 HappenedNearTurretConstraintInfo
 f7ae5e16 HasAllSubRequirementsCastRequirement
 60221531 HasAllSubRequirementsCastRequirementInstance
@@ -1224,6 +1232,7 @@ ded67873 HeroFloatingInfoResistBorderData
 d6a5e331 HeroFloatingInfoResistData
 fb821d03 HeroStatData
 01c51279 HeroStatsDefinition
+a975a9cf HideUiTimerCheat
 9e7b8301 HighlighterViewController
 8478a093 HomeViewController
 5a4abe00 HomeViewPromoBanner
@@ -1426,6 +1435,7 @@ cb8dfbc8 IOptionItemFilter
 bc0bc533 IOptionTemplate
 f7292242 IParticleQuadShadingModel
 2393bd4d IParticleShadingModel
+1519e8d2 IParticleSpawnDataGenerator
 ec1355b3 IPath
 0faeb4d0 IPictureInPictureSource
 9ee5e504 IRSCondition
@@ -1496,6 +1506,7 @@ db6e9d8d IconElementDataExtension
 f3b028db IconElementDataInstance
 d4441c55 IconElementGradientExtension
 8fac195f IconGeComponent
+313c0076 IconGeComponentProperties
 33b88aa0 IconLink
 77274757 IconPath
 0a450b25 IconStateData
@@ -1718,6 +1729,7 @@ df899961 LoadingScreenChallengeTokenData
 15793a8c LoadingScreenClash
 4f3e1bdd LoadingScreenClashTeam
 2dfb2488 LoadingScreenClassicViewController
+7d3c2685 LoadingScreenClimbingIndicatorData
 868f2575 LoadingScreenEmblemData
 a89e6d1e LoadingScreenGameModeBackground
 3c8d0b5d LoadingScreenHonorFlairData
@@ -1740,6 +1752,7 @@ af7c0947 LoadingScreenRatedData
 69af20f0 LoadingScreenRegaliaData
 df58e9c6 LoadingScreenSettings
 d3be7d61 LoadingScreenSettingsInstance
+7dc4f3ec LoadingScreenSubteamColumnData
 b0d49a20 LoadingScreenSummonerNameData
 e8062aeb LoadingScreenSummonerTitleData
 a502a9f5 LoadingScreenTips
@@ -1929,6 +1942,8 @@ d7d66467 MapSkinInstance
 d11fafa3 MapSpotlight
 adefc98e MapSpotlightBase
 1717869f MapSsao
+ce8f4190 MapSsaoRenderer
+502b0c72 MapSsaoSettings
 429f3e94 MapStaticPointLightBase
 169a2f9c MapSunProperties
 09fb9fc7 MapSunPropertiesInstance
@@ -2078,14 +2093,23 @@ af96bb9b NamedIconData
 276246d8 NarrativeBarksList
 26435b25 NarrativeBarksViewController
 bdc90544 NavGridConfig
+2bfb084c NavGridRegionGroupDefinition
+2d00e4da NavGridRegionInputData
+6b91544a NavGridRegionRenderData
+f6f4bb5f NavGridRegionTagDefinition
+f42cd443 NavGridRegionTagsLink
+41c19efe NavGridRegionVfxData
 bf11c509 NavGridTerrainConfig
+d82714cc NavGridTerrainTagDefinition
 b13284de NavHeaderViewController
 7866db89 NavRegionGeComponent
 4bb80830 NavRegionGeComponentDef
+671b7351 NavigationGridParticleSpawnDataGenerator
 0dc0043a NavigationGroup
 7a2bf6d5 NetworkingGeComponentDef
 1ced7194 NeutralCampGeComponent
 9597a7ab NeutralCampGeComponentDef
+3f04641e NeutralCampIdentifier
 fe7449a3 NeutralMinionCamp
 95fd84e9 NeutralMinionCampClearedLogic
 acb408c2 NeutralMinionCampCommon
@@ -2219,6 +2243,7 @@ a10379c5 OrInputSourceBool
 bed31fc8 OutnumberedConstraintInfo
 57b5ff8c OverrideAttackTimeData
 ca859188 OverrideAutoAttackCastTimeData
+fbecf8da OverrideOptionItemGroup
 351922b3 OverridePerkSelectionSet
 b9d9bab0 OverridePerkSelectionSetInstance
 da99f3bb OverrideResourceResolver
@@ -2258,6 +2283,7 @@ dd5707f9 PatchingRootScene
 e443fb30 PathingAngleParametricUpdater
 1f728d34 PauseCheat
 e0e70cfc PauseDialogViewController
+5a43dcb1 PauseTimerCheat
 6884e28b Pawn
 9e5aed77 PerLocaleTooltipAdjustments
 ea2ab5ca PercentageOfBuffNameElapsed
@@ -2463,6 +2489,7 @@ ef3a0f33 ResourceResolver
 0c5bb730 ResourceResolverInstance
 c9fe2fdf RespawnPointData
 4cb037a7 RespawnPointDataList
+a67da76a ResumeTimerCheat
 a3d2b899 RetiredStatStoneData
 836354ec ReturnChildrenOnMovementCompleteSpec
 d45fa322 ReturnToCaster
@@ -2597,8 +2624,10 @@ f9caf4e5 SetInvulnerableBlock
 35b54ed0 SetModePreloadFlags
 3e9d7b55 SetRespawnTimerCheat
 80f1cd62 SetRespawnTimerCheatInstance
+dbe7562e SetSelfAfkCheat
 fd6c74ef SetTableValueBlock
 6a61d4af SetTargetableBlock
+0f3f357f SetTimerCheat
 5261adb9 SetVarInPtp
 bc67870e SetVarInTableBlock
 00f59899 SetVarInTableBlockInstance
@@ -2625,6 +2654,7 @@ df795218 ShopGeComponent
 8fd42905 ShowMissileHitboxCheat
 947b858f ShowObjectsCheat
 f4dc8ec5 ShowServerMissilesCheat
+570328ce ShowUiTimerCheat
 e9fb4d18 SiblingStatCoefficientBySubPart
 0f535ab5 SimpleItemSlots
 312aaf93 SineMaterialDriver
@@ -2720,6 +2750,8 @@ d486d6e9 SpellLockDeltaTimeData
 5e7e5a06 SpellObject
 600119a1 SpellObjectInstance
 d45ebe4a SpellPassiveData
+df6e7fa5 SpellPickChoiceConfig
+2b686c3d SpellPickChoiceListConfig
 61a8deda SpellPickChoiceViewController
 946612f1 SpellPipsUiData
 dd91fd22 SpellRankIntDriver
@@ -2738,6 +2770,8 @@ a3bd0d60 SplineInfo
 0064dcde SponsoredBanner
 e5bbe067 SpringPhysicsEventData
 cc9e24e1 SpringPhysicsRigPoseModifierData
+66969f1a StartIgnbSurrenderCheat
+11267c43 StartTimerCheat
 5815b0a9 StatByCoefficientCalculationPart
 9b423a76 StatByCoefficientCalculationPartInstance
 5f5c70a4 StatByNamedDataValueCalculationPart
@@ -3004,6 +3038,7 @@ f934934d TeamScoreMeterUITunables
 6638d338 TeamScoreUiData
 eebabfce TeamSpawnPointGeComponent
 d85cb8c5 TeamSpawnPointGeComponentDef
+138a7d5f TeamsConfig
 73dca0f0 TechniqueDef
 ac9d3cf9 TempTable
 8386aed8 TempTable1
@@ -3013,6 +3048,7 @@ ac9d3cf9 TempTable
 8586b1fe TempTable3
 63137212 TempTable3Table
 f5676233 TerminatePath
+bfe8a95c TerminateTimerCheat
 7d6afbc5 TerrainLocation
 350f16ae TerrainType
 28930c51 TestMap
@@ -3065,6 +3101,7 @@ e0eb3283 TftCharacterRoleCardHeaderData
 18ee4f3b TftConditionalTraitSetData
 d65315ee TftConstants
 bb5a7716 TftContentData
+41bdce89 TftContentTagGroupData
 0baaecb0 TftCraftingCelebrationViewController
 aeda4e3a TftCraftingDialogViewController
 70fbfc5e TftCraftingViewController
@@ -3126,6 +3163,7 @@ e55f21a9 TftEncounterPanelViewController
 b2bf2c82 TftEncounterSlotData
 025ad6e2 TftEventHubSkillTreeViewController
 7ed069aa TftEventHubXsViewController
+6d1d4b10 TftEventSkillData
 a48aca10 TftEventTimer
 ec7cb61d TftFinisherCutscene
 8f85e859 TftFinisherData
@@ -3199,6 +3237,7 @@ a30c7694 TftOptionsViewController
 32d26743 TftPassCurrencyInfo
 57aaa28c TftPassData
 3658e05a TftPassLevel
+402c056e TftPassMilestoneData
 f083449f TftPassRepeatInfo
 8b52a39e TftPassRewardBase
 adbd2900 TftPassRewardCurrency
@@ -3283,6 +3322,7 @@ dbdf56b8 TftTrovesCelebrationStandardSegmentData
 2c16677f TftTrovesViewController
 d45c705b TftTrovesViewControllerV2
 9cd4ec31 TftTunables
+2483c715 TftUiPropertyOverrideLoadableGroup
 f0f3a045 TftUnitAttachmentLargeSlotData
 257ce8cb TftUnitAttachmentSlotsData
 7a2da7e3 TftUnitAttachmentStandardSlotData
@@ -3309,6 +3349,7 @@ e90d4a7a TftUnlockableChampionData
 17539cc2 TftUnlockableIndicatorData
 d96fd43c TftUxTunables
 dc53945d TftWebViewViewController
+90cd0f69 TftZoomGroupData
 275342a3 TftZoomSkin
 3d7f07ef TimeBlendData
 ee5fb96c TimeBlendDataInstance
@@ -3336,6 +3377,7 @@ df6a8659 ToggleInvulnerableCheat
 b5bd148c ToggleNetworkCheat
 a7fab94b TogglePlantFastRespawnCheat
 b3dba2b8 TogglePlantFastRespawnCheatInstance
+6d7df79c TogglePrintAfkTimeCheat
 b5b0ef71 ToggleRegenCheat
 0076300e ToggleRegenCheatInstance
 a6b5ba1b ToggleTeamCheat
@@ -3654,6 +3696,10 @@ b520045a VfxChildParticleSetDefinitionData
 1cf263eb VfxComponents
 49d51b69 VfxDistortionDefinitionData
 1a72ed36 VfxDistortionDefinitionDataInstance
+d2807c60 VfxEmbeddedMaterial
+526478f0 VfxEmissionLinkedMeshData
+cd5a34f5 VfxEmissionMeshData
+3df230bf VfxEmissionSkeletonData
 bfc2e133 VfxEmissionSurfaceData
 45ecc930 VfxEmissionSurfaceDataInstance
 8324a97b VfxEmitterAudio
@@ -3691,6 +3737,7 @@ e90140f4 VfxLegacyPhysicsComponent
 6f07f7b3 VfxLifetimeComponent
 a9e1acbe VfxLifetimeComponentBase
 9b19f2b5 VfxLingerDefinitionData
+3bf517c5 VfxMaterialContainer
 2820c167 VfxMaterialDefinitionData
 f9a4891f VfxMaterialOverrideDefinition
 d9b82e87 VfxMaterialOverrideDefinitionData
@@ -3724,7 +3771,6 @@ cdfc5a49 VfxPrimitiveBeamBaseInstance
 b7c1ee8f VfxPrimitiveCameraQuadInstance
 f14fefab VfxPrimitiveCameraSegmentBeam
 f7198018 VfxPrimitiveCameraSegmentBeamInstance
-41c19efe VfxPrimitiveCameraSegmentSeriesBeam
 287851b9 VfxPrimitiveCameraTrail
 b6800906 VfxPrimitiveCameraTrailInstance
 fdd6dfa2 VfxPrimitiveCameraUnitQuad

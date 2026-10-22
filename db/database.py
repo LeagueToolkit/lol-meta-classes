@@ -132,12 +132,6 @@ class 0x1493959a():
     0xed10fe9a: (Embed, 0x0, 0x0, UiMilestoneProgressMeter) = {"BarVfxGroup":"0x0","BonusSkin":{"BackdropElements":[],"BarElements":[],"ReverseDirectionalTipElements":[],"Sliver":"0x0","TipElements":[]},"ExpText":"0x0","LevelText":"0x0","LevelUpVfxGroup":"0x0","MeterEasingType":0,"MeterTransitionTimeSecs":0.0,"NormalSkin":{"BackdropElements":[],"BarElements":[],"ReverseDirectionalTipElements":[],"Sliver":"0x0","TipElements":[]},"ProgressBarDelayTime":0.0,"ProgressMeter":"0x0","ProgressMeterSegments":[],"ShowLevelUp":false,"XpValueToSegmentIndex":[]}
     pass
 
-class 0x1499e53b(ISequenceAction):
-    ActionOnEnd: (U8, 0x0, 0x0, 0x0) = 0
-    0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ActionOnStart: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0x14a6b9ba(IUiAudioEvent):
     Condition: (Pointer, 0x0, 0x0, 0x8a4a4963) = null
     0xd949ebd1: (Pointer, 0x0, 0x0, IUiAudioEvent) = null
@@ -169,9 +163,6 @@ class 0x159bf4ba(0x7319918a):
     pass
 
 class 0x15afeef9(BaseParams):
-    pass
-
-class 0x15bd86f8(ISequenceActionInstance):
     pass
 
 class 0x15c90f4f():
@@ -392,11 +383,6 @@ class 0x1b3a73f0():
     LevelText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x693979f: (String, 0x0, 0x0, 0x0) = ""
     0xd5cba936: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x1bb49ec5(SeqInputObject):
-    Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    EntityTag: (Link, 0x0, 0x0, 0xb5d9d3a0) = "0x0"
     pass
 
 class 0x1bc73dfd(0x39f85a07):
@@ -655,9 +641,6 @@ class 0x239ebd66():
     LevelIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x23d6622f(ISequenceActionInstance):
-    pass
-
 class 0x2483c715():
     BaseLoadable: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MobileLoadable: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -845,9 +828,6 @@ class 0x2a2c82dc():
     FunctionOutputs: (Map, Hash, Pointer, ScriptTableSet) = {}
     pass
 
-class 0x2a31f122(ISequenceActionInstance):
-    pass
-
 class 0x2a34c166(BaseParams):
     pass
 
@@ -892,9 +872,6 @@ class 0x2b11fd98(IContextualCondition):
     KillerType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x2b2278d6(ISequenceActionInstance):
-    pass
-
 class 0x2b365a82():
     LockIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ProgressBarFill: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -926,9 +903,6 @@ class 0x2b979019():
     BottomGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MiddleElements: (List2, 0x0, Hash, 0x0) = []
     AugmentPillar: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x2bcba3b4(ISequenceActionInstance):
     pass
 
 class 0x2bde0c9c(0x8e30b80e):
@@ -1160,10 +1134,6 @@ class 0x32a4dd4(ViewController):
     MainScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x32ac06f5(SeqInputObject):
-    MapPlaceable: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x32e94b82():
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x9225213: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -1311,17 +1281,6 @@ class 0x37ee6882():
     pass
 
 class 0x37f84640(InputEvent2AxisKeybind):
-    pass
-
-class 0x37fe5e09(ISequenceAction):
-    EndPosition: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
-    EasingType: (U8, 0x0, 0x0, 0x0) = 0
-    0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    StartPosition: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
-    Pivot: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
-    pass
-
-class 0x38074ad2(ISequenceActionInstance):
     pass
 
 class 0x38246322():
@@ -1594,13 +1553,6 @@ class 0x3dcfc315(0x7de1323f):
     ControlVector2: (Vec3, 0x0, 0x0, 0x0) = [1.0,0.0,0.0]
     pass
 
-class 0x3ddbfcb4(ISequenceAction):
-    StartScale: (F32, 0x0, 0x0, 0x0) = 1.0
-    EasingType: (U8, 0x0, 0x0, 0x0) = 0
-    EndScale: (F32, 0x0, 0x0, 0x0) = 1.0
-    0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x3df5a7a1():
     0x1bbbf21d: (Link, 0x0, 0x0, DesignerEvent) = "0x0"
     NameTra: (String, 0x0, 0x0, 0x0) = ""
@@ -1734,9 +1686,6 @@ class 0x40bae5c7(ICharacterSubcondition):
 class 0x40f71780():
     pass
 
-class 0x4110cd5b(ISequenceActionInstance):
-    pass
-
 class 0x41246faa():
     0xb65e83d: (F32, 0x0, 0x0, 0x0) = 0.0
     0xe541f702: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -1846,9 +1795,6 @@ class 0x43548f46():
     Show: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x4357c4df(IMinimapIconModifier):
-    pass
-
 class 0x43aaf187():
     0x39b2057a: (Hash, 0x0, 0x0, 0x0) = "0x0"
     PhaseIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -1902,9 +1848,6 @@ class 0x45381060(ViewController):
     ItemTemplate: (Embed, 0x0, 0x0, 0x32e94b82) = {"0x9225213":"0x0","0xa25cecc":"0x0","Group":"0x0"}
     0xe4013f31: (F32, 0x0, 0x0, 0x0) = 6.0
     0xe771d590: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x45397e6(ISequenceActionInstance):
     pass
 
 class 0x45471a6f():
@@ -1979,9 +1922,6 @@ class 0x4750ceb6(IStringCalculation):
 class 0x47f13ab0():
     0xcf19cb5d: (Embed, 0x0, 0x0, 0x770f7888) = {"armorPerLevel":0.0,"attackSpeed":0.0,"attackSpeedPerLevel":0.0,"attackSpeedRatio":0.0,"baseArmor":0.0,"baseDamage":0.0,"baseFactorHPRegen":0.0,"baseHP":0.0,"baseMoveSpeed":0.0,"baseSpellBlock":0.0,"baseStaticHPRegen":0.0,"damagePerLevel":0.0,"hpPerLevel":0.0,"hpRegenPerLevel":0.0,"spellBlockPerLevel":0.0}
     0xe4f7105d: (Link, 0x0, 0x0, GameModeMapData) = "0x0"
-    pass
-
-class 0x4805c972(ISequenceActionInstance):
     pass
 
 class 0x48486635(MapGraphicsFeature):
@@ -2289,13 +2229,6 @@ class 0x50db156b(MapGraphicsFeature):
     options: (Embed, 0x0, 0x0, PostEffectOptions) = {"0x81ed7bcd":false,"0x88ab79b5":2000.0,"0x8e1fed5e":800.0,"0xb4e1daa3":0.0,"0xcdbcbab6":false,"0xdcc81602":5000.0,"BloomIntensityScale":1.0,"Coc":10.0,"DepthFog":false,"DepthFogColor":[0.0,0.0,0.0,1.0],"DepthFogEnd":8000.0,"DepthFogMaxIntensity":1.0,"DepthFogStart":5000.0,"Dof":false,"DofDebug":false,"HeightFog":false,"HeightFogColor":[0.0,0.0,0.0,1.0],"HeightFogEnd":-100.0,"HeightFogMaxIntensity":1.0,"HeightFogStart":300.0}
     pass
 
-class 0x51150233(SeqInputUiVfx):
-    UiElementParticleSystem: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x5140c28(ISequenceActionInstance):
-    pass
-
 class 0x515075cd():
     pass
 
@@ -2360,9 +2293,6 @@ class 0x5467726b(VfxRenderComponentBase):
     RenderOrder: (I16, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x546d62d1(ISequenceActionInstance):
-    pass
-
 class 0x547679fe():
     0x794d06db: (F32, 0x0, 0x0, 0x0) = 0.25
     0x81947899: (F32, 0x0, 0x0, 0x0) = 5.0
@@ -2411,9 +2341,6 @@ class 0x56bb851():
     0xe6d60f41: (Map, U8, Pointer, 0xa41315c0) = {}
     pass
 
-class 0x56ca5fcf(ISequenceActionInstance):
-    pass
-
 class 0x570328ce(0xb08ef62f):
     pass
 
@@ -2434,10 +2361,6 @@ class 0x578f2e71():
     0x147271ef: (Bool, 0x0, 0x0, 0x0) = false
     0x9c39b407: (Bool, 0x0, 0x0, 0x0) = true
     0xfc87f8f6: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
-class 0x57a3a10e(SeqInputObject):
-    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x57b38653(0xdf305970):
@@ -2506,11 +2429,6 @@ class 0x598e6212():
     0x70ed514c: (Hash, 0x0, 0x0, 0x0) = "0x0"
     QuestCompleteFX: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x59bbc4db(ISequenceAction):
-    TargetElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Animation: (Embed, 0x0, 0x0, 0xd31bbf89) = {"AnimationName":"","DelayTime":0.0,"Loop":false,"SpeedScale":1.0,"TrackIndex":0}
     pass
 
 class 0x59c21541():
@@ -2730,13 +2648,6 @@ class 0x5e1b3750():
     0xfc3539b0: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x5e518c82(ISequenceAction):
-    Magnitude: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
-    FalloffRate: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
-    0xd67d18ce: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
-    direction: (Pointer, 0x0, 0x0, SeqInputVector) = {}
-    pass
-
 class 0x5ea71f0d(OptionItemDropdown):
     pass
 
@@ -2924,9 +2835,6 @@ class 0x65d203f4():
 class 0x65d58192(ILolKeybindSetCheck):
     pass
 
-class 0x65daf5d4(SeqInputCombinedColor):
-    pass
-
 class 0x65dbf6d0():
     SpineAnimation: (Hash, 0x0, 0x0, 0x0) = "0x0"
     UnitPropertyToggle: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -3011,10 +2919,6 @@ class 0x680cfd91(BaseParams):
     pass
 
 class 0x687bf78e(ILolKeybindSetCheck):
-    pass
-
-class 0x68d2500f(IMinimapIconModifier):
-    IsEnabled: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0x68f56a56():
@@ -3239,11 +3143,6 @@ class 0x6c80e578(0xfbd56421):
 class 0x6c84152e():
     ForVote: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AgainstVote: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x6cae67ad(ISequenceAction):
-    modifier: (Pointer, 0x0, 0x0, IMinimapIconModifier) = null
-    TargetObject: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
 class 0x6cb0c909():
@@ -3576,9 +3475,6 @@ class 0x791d1108(0x7379bca6):
     Color: (Pointer, 0x0, 0x0, SpecificColorMaterialDriver) = null
     path: (File, 0x0, 0x0, 0x0) = "0x0"
     Material: (Pointer, 0x0, 0x0, 0xb76a119c) = null
-    pass
-
-class 0x7945f8bd(ISequenceActionInstance):
     pass
 
 class 0x79ca73e7():
@@ -3926,9 +3822,6 @@ class 0x80ca8a75():
     0xf52ede4b: (I32, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x80d914e0(ISequenceActionInstance):
-    pass
-
 class 0x80f31f46():
     RimOffset: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
     ShadowGradientRenderData: (Embed, 0x0, 0x0, ShadowGradientRenderData) = {"GradientEnd":0.800000011920929,"GradientStart":0.6499999761581421,"ShadowFactor":0.30000001192092896}
@@ -4228,9 +4121,6 @@ class 0x88f0f15e():
 class 0x8923a755():
     pass
 
-class 0x892dcebb(SeqInputCombinedFloat):
-    pass
-
 class 0x89339882(BaseParams):
     pass
 
@@ -4241,9 +4131,6 @@ class 0x8948ed01():
     Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ActiveBackground: (Hash, 0x0, 0x0, 0x0) = "0x0"
     GroupLink: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x89553bc9(ISequenceActionInstance):
     pass
 
 class 0x8958fee2():
@@ -4339,17 +4226,9 @@ class 0x8b2a166d(IComponentData):
 class 0x8b33cf88():
     pass
 
-class 0x8bbb0477(SeqInputCombinedFloat):
-    pass
-
 class 0x8beb0550(GameModeConstant):
     DefaultValue: (F32, 0x0, 0x0, 0x0) = 0.0
     ModeOverrides: (Map, U32, F32, 0x0) = {}
-    pass
-
-class 0x8cb3b5c4(SeqInputCreateCamera):
-    0xcae95eff: (Pointer, 0x0, 0x0, SeqInputBool) = {}
-    Zoom: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
     pass
 
 class 0x8cc8ea8a():
@@ -4550,11 +4429,6 @@ class 0x90e87b1e():
     NameTraKey: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x90e924a6():
-    FalloffRadius: (F32, 0x0, 0x0, 0x0) = 0.0
-    FalloffEasingType: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0x90ff6ef(0xb5754dad):
     pass
 
@@ -4571,10 +4445,6 @@ class 0x914fafb2(ILocatorPreview):
 
 class 0x915900da(UiMetricUnitTypeSimpleI):
     ShowDisguise: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0x9162a320(ISequenceAction):
-    ToBeAttached: (Pointer, 0x0, 0x0, SeqInputAttachment) = null
     pass
 
 class 0x91fd0920(MissileBehaviorSpec):
@@ -4673,9 +4543,6 @@ class 0x958b66ff():
     Show: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x95d85faf(ISequenceActionInstance):
-    pass
-
 class 0x968ce2ad():
     WaveToSpawn: (Link, 0x0, 0x0, 0xe75aad84) = "0x0"
     pass
@@ -4717,12 +4584,6 @@ class 0x981e3fdf():
 
 class 0x982508c8(0xfbd56421):
     Conditions: (List2, 0x0, Pointer, 0xfbd56421) = []
-    pass
-
-class 0x98b663fd(ISequenceAction):
-    RestoreOnStop: (Bool, 0x0, 0x0, 0x0) = true
-    TargetObject: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    Channels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class 0x990115ea():
@@ -4796,9 +4657,6 @@ class 0x9ab8b8e6():
 
 class 0x9af7b542():
     PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x9b29aa9d(ISequenceActionInstance):
     pass
 
 class 0x9b321633(GameEntityTemplate):
@@ -5621,11 +5479,6 @@ class 0xaff91324(ITagList):
     tags: (Embed, 0x0, 0x0, TagList) = {"tags":[]}
     pass
 
-class 0xb01df39a(IMinimapIconModifier):
-    MinimapIcon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
-    0x8ef421e5: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
 class 0xb08ef62f(Cheat):
     pass
 
@@ -5646,18 +5499,6 @@ class 0xb107dfe4():
 
 class 0xb16c4c30(0x2a99a254):
     0xf2e79214: (Link, 0x0, 0x0, SpellObject) = "0x0"
-    pass
-
-class 0xb1f9ca3c(ISequenceActionInstance):
-    pass
-
-class 0xb213e4ff(ISequenceAction):
-    AnimationConfig: (Embed, 0x0, 0x0, 0xd31bbf89) = {"AnimationName":"","DelayTime":0.0,"Loop":false,"SpeedScale":1.0,"TrackIndex":0}
-    DisableOnEnd: (Bool, 0x0, 0x0, 0x0) = true
-    0x457338e5: (Bool, 0x0, 0x0, 0x0) = true
-    element: (Pointer, 0x0, 0x0, 0x34ecdf00) = null
-    0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    EnableOnStart: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class 0xb2430347():
@@ -5687,10 +5528,6 @@ class 0xb2ff06ac(IGameModeConfigClient):
 class 0xb34ac035():
     Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xb3674a86(TftGameStartSequenceSimpleObject):
-    UIElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xb3b32e26(GameEntityTemplate, IMapGroup):
@@ -6159,12 +5996,6 @@ class 0xbf65c0ce(ICustomGet, IScriptValueGet):
 class 0xbf767b39():
     pass
 
-class 0xbfd585a7(ISequenceAction):
-    TargetScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ActionOnEnd: (U8, 0x0, 0x0, 0x0) = 0
-    ActionOnStart: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0xbfdc606e():
     0x67bcb532: (String, 0x0, 0x0, 0x0) = ""
     VideoPath: (String, 0x0, 0x0, 0x0) = ""
@@ -6271,9 +6102,6 @@ class 0xc4587d4a():
     UnselectedHover: (String, 0x0, 0x0, 0x0) = ""
     SelectedClicked: (String, 0x0, 0x0, 0x0) = ""
     UnselectedDefault: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xc4fd2fbc(ISequenceActionInstance):
     pass
 
 class 0xc5d432c3(InputEventBoolKeybind):
@@ -6616,14 +6444,6 @@ class 0xd0da4932(TftCutsceneClip):
     Overrides: (List2, 0x0, Embed, TftCutsceneCamOverrideEntry) = []
     pass
 
-class 0xd13da199(ISequenceAction):
-    StartColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
-    EasingType: (U8, 0x0, 0x0, 0x0) = 0
-    EndColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
-    0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    AlphaOnly: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0xd19d72ee():
     DescriptionText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ProgressText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6679,9 +6499,6 @@ class 0xd31e0f11():
     Positions: (List2, 0x0, Embed, 0xfa28444b) = []
     pass
 
-class 0xd331b4c4(SeqInputCombinedFloat):
-    pass
-
 class 0xd3424391():
     0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
     objectPath: (List2, 0x0, Hash, 0x0) = []
@@ -6715,9 +6532,6 @@ class 0xd3dda5e5(IGeComponentDef):
     0xfc90acf2: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xd3eb9ff9(SeqInputCombinedFloat):
-    pass
-
 class 0xd428e2c8(IGameModeConfigClient):
     0x24b2fb35: (Link, 0x0, 0x0, 0x547679fe) = "0x0"
     0x35066c8: (Link, 0x0, 0x0, PortraitSet) = "0x0"
@@ -6727,9 +6541,6 @@ class 0xd42d11e(0xb5754dad):
     pass
 
 class 0xd4737a04(IOptionItemFilter):
-    pass
-
-class 0xd47fd63b(ISequenceActionInstance):
     pass
 
 class 0xd52eac74(0x859c9c2f):
@@ -6811,9 +6622,6 @@ class 0xd6703da():
     MessageTra: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xd68073ec(ISequenceActionInstance):
-    pass
-
 class 0xd6bc5e0c():
     Trait: (Link, 0x0, 0x0, TftTraitData) = "0x0"
     0xb5b157f: (Bool, 0x0, 0x0, 0x0) = true
@@ -6832,9 +6640,6 @@ class 0xd6edc2f4(ViewController):
     pass
 
 class 0xd738f7c9():
-    pass
-
-class 0xd73a5ade(SeqInputCombinedColor):
     pass
 
 class 0xd75bce6a(UiElementEffectData):
@@ -7106,10 +6911,6 @@ class 0xdf7d294e(0x727d77b9):
     Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xdfc8c194(SeqInputFloat):
-    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
-    pass
-
 class 0xe03fe15f():
     pass
 
@@ -7229,10 +7030,6 @@ class 0xe4b58196():
     0xc73d8995: (Link, 0x0, 0x0, TftItemData) = "0x0"
     ModifierLists: (List2, 0x0, Link, TFTItemList) = []
     0xe8385425: (List2, 0x0, Embed, 0x843e3fe2) = []
-    pass
-
-class 0xe53e4779(SeqInputObjectArray):
-    EntityTag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xe561be2e():
@@ -7798,10 +7595,6 @@ class 0xf72ada25(ModalDialogViewController):
     0x26ebe4ed: (Embed, 0x0, 0x0, UiHyperlink) = {"DisplayText":"0x0","UrlTraKey":""}
     pass
 
-class 0xf74d9a2d(SeqInputUiVfx):
-    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    pass
-
 class 0xf77593b5():
     pass
 
@@ -8027,9 +7820,6 @@ class 0xfd347675():
     objectPath: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0xfd52ca74(ISequenceActionInstance):
-    pass
-
 class 0xfd6bd0de(IGameModeConfig):
     0x20256ec5: (Bool, 0x0, 0x0, 0x0) = false
     0x6984eec1: (Bool, 0x0, 0x0, 0x0) = false
@@ -8078,9 +7868,6 @@ class 0xfe897399():
     RunOnce: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
-class 0xfea81f3e(SequenceActionLerpFloat):
-    pass
-
 class 0xff55db60():
     0x29f5a8d9: (List2, 0x0, Hash, 0x0) = []
     HealthBars: (List2, 0x0, Hash, 0x0) = []
@@ -8089,9 +7876,6 @@ class 0xff55db60():
     pass
 
 class 0xff57df15(TFTCharacterRecord):
-    pass
-
-class 0xffabacc8(ISequenceActionInstance):
     pass
 
 class 0xffc26938():
@@ -9687,6 +9471,11 @@ class CameraConfig():
     mZoomMinDistance: (F32, 0x0, 0x0, 0x0) = 1000.0
     pass
 
+class CameraShakeFalloff():
+    FalloffRadius: (F32, 0x0, 0x0, 0x0) = 0.0
+    FalloffEasingType: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
 class CameraTrapezoid():
     mMaxXTop: (F32, 0x0, 0x0, 0x0) = 0.0
     mMaxZUp: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -9987,6 +9776,11 @@ class ChampionTransformSelectionViewController(ViewController):
 
 class ChangeHeightSolver(MissileTriggeredActionSpec):
     mOverrideHeightSolver: (Pointer, 0x0, 0x0, HeightSolverType) = null
+    pass
+
+class ChangeMinimapIcon(ISequenceAction):
+    modifier: (Pointer, 0x0, 0x0, IMinimapIconModifier) = null
+    TargetObject: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
 class ChangeMissileSpeed(MissileTriggeredActionSpec):
@@ -10605,6 +10399,9 @@ class ClearBit(IScriptBlock):
 class ClearGameEntityIconOverride(GameEntityBlock):
     Enabled: (Pointer, 0x0, 0x0, IBoolGet) = null
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
+class ClearIconOverride(IMinimapIconModifier):
     pass
 
 class ClearSkillsSumsCooldownCheat(Cheat):
@@ -13468,6 +13265,64 @@ class GameObject(0xa4795108, UObject):
     pass
 
 class GameScreenContainerBase(IGameScreenNode, BinFileContainer):
+    pass
+
+class GameScreenSequenceActionUiChangeElementColor(ISequenceAction):
+    StartColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
+    EasingType: (U8, 0x0, 0x0, 0x0) = 0
+    EndColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
+    0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    AlphaOnly: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class GameScreenSequenceActionUiChangeElementColorInstance(ISequenceActionInstance):
+    pass
+
+class GameScreenSequenceActionUiChangeElementScale(ISequenceAction):
+    StartScale: (F32, 0x0, 0x0, 0x0) = 1.0
+    EasingType: (U8, 0x0, 0x0, 0x0) = 0
+    EndScale: (F32, 0x0, 0x0, 0x0) = 1.0
+    0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class GameScreenSequenceActionUiChangeElementScaleInstance(ISequenceActionInstance):
+    pass
+
+class GameScreenSequenceActionUiEnableElement(ISequenceAction):
+    ActionOnEnd: (U8, 0x0, 0x0, 0x0) = 0
+    0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ActionOnStart: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class GameScreenSequenceActionUiEnableElementInstance(ISequenceActionInstance):
+    pass
+
+class GameScreenSequenceActionUiEnableScene(ISequenceAction):
+    TargetScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ActionOnEnd: (U8, 0x0, 0x0, 0x0) = 0
+    ActionOnStart: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class GameScreenSequenceActionUiEnableSceneInstance(ISequenceActionInstance):
+    pass
+
+class GameScreenSequenceActionUiMoveElement(ISequenceAction):
+    EndPosition: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
+    EasingType: (U8, 0x0, 0x0, 0x0) = 0
+    0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    StartPosition: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
+    Pivot: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
+    pass
+
+class GameScreenSequenceActionUiMoveElementInstance(ISequenceActionInstance):
+    pass
+
+class GameScreenSequenceActionUiPlaySpineAnimation(ISequenceAction):
+    TargetElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    Animation: (Embed, 0x0, 0x0, 0xd31bbf89) = {"AnimationName":"","DelayTime":0.0,"Loop":false,"SpeedScale":1.0,"TrackIndex":0}
+    pass
+
+class GameScreenSequenceActionUiPlaySpineAnimationInstance(ISequenceActionInstance):
     pass
 
 class GameScreenVars(ScriptTable):
@@ -21689,7 +21544,7 @@ class SeqActionCameraShakeHelper():
     pass
 
 class SeqActionCameraShakeRelative(ISequenceAction):
-    0x1695a8: (Pointer, 0x0, 0x0, 0x90e924a6) = {"FalloffEasingType":0,"FalloffRadius":0.0}
+    0x1695a8: (Pointer, 0x0, 0x0, CameraShakeFalloff) = {"FalloffEasingType":0,"FalloffRadius":0.0}
     TargetLocation: (Pointer, 0x0, 0x0, SeqInputVector) = {}
     0xf92ca41e: (Embed, 0x0, 0x0, SeqActionCameraShakeHelper) = {"FalloffRate":2.0,"Magnitude":20.0,"ShakesPerSecond":6.0}
     pass
@@ -21716,6 +21571,9 @@ class SeqActionLerpColor(ISequenceAction):
     pass
 
 class SeqActionLightColor(SeqActionLerpColor):
+    pass
+
+class SeqActionLightHdrScale(SequenceActionLerpFloat):
     pass
 
 class SeqActionLightIntensityScale(SequenceActionLerpFloat):
@@ -21754,6 +21612,9 @@ class SeqActionRotateObject(ISequenceAction):
     StartValue: (Pointer, 0x0, 0x0, SeqInputVector) = null
     TargetObject: (Pointer, 0x0, 0x0, SeqInputObject) = null
     UseInitialStart: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class SeqActionRotateObjectInstance(ISequenceActionInstance):
     pass
 
 class SeqActionSfxAttached(SeqActionSfxBase):
@@ -21841,6 +21702,24 @@ class SeqInputCombinedFloat(SeqInputFloat):
     RightSource: (Pointer, 0x0, 0x0, SeqInputFloat) = null
     pass
 
+class SeqInputCombinedLightColor(SeqInputCombinedColor):
+    pass
+
+class SeqInputCombinedLightHdrScale(SeqInputCombinedFloat):
+    pass
+
+class SeqInputCombinedLightIntensityScale(SeqInputCombinedFloat):
+    pass
+
+class SeqInputCombinedMaterialParamColor(SeqInputCombinedColor):
+    pass
+
+class SeqInputCombinedMaterialParamFloat(SeqInputCombinedFloat):
+    pass
+
+class SeqInputCombinedPointLightRadius(SeqInputCombinedFloat):
+    pass
+
 class SeqInputCombinedPosition(SeqInputCombinedVector):
     pass
 
@@ -21874,6 +21753,10 @@ class SeqInputConstString(SeqInputString):
     value: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class SeqInputConstUiVfx(SeqInputUiVfx):
+    UiElementParticleSystem: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class SeqInputConstVector(SeqInputVector):
     value: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     pass
@@ -21900,15 +21783,28 @@ class SeqInputCreateObject():
     pass
 
 class SeqInputCreateSound(SeqInputCreateObject):
-    0x1220fb1c: (Pointer, 0x0, 0x0, SeqInputString) = null
+    EndAudioEvent: (Pointer, 0x0, 0x0, SeqInputString) = null
     Position: (Pointer, 0x0, 0x0, SeqInputVector) = {}
     StartAudioEvent: (Pointer, 0x0, 0x0, SeqInputString) = {}
+    pass
+
+class SeqInputCreateZoomableCamera(SeqInputCreateCamera):
+    0xcae95eff: (Pointer, 0x0, 0x0, SeqInputBool) = {}
+    Zoom: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
     pass
 
 class SeqInputEnabled(SeqInputBool):
     pass
 
 class SeqInputFloat():
+    pass
+
+class SeqInputGameEntityObject(SeqInputObject):
+    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class SeqInputGameEntityTagObjectArray(SeqInputObjectArray):
+    EntityTag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class SeqInputInt():
@@ -21918,8 +21814,16 @@ class SeqInputLightColor(SeqInputColor):
     Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
     pass
 
+class SeqInputLightHdrScale(SeqInputFloat):
+    Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
+    pass
+
 class SeqInputLightIntensityScale(SeqInputFloat):
     Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = null
+    pass
+
+class SeqInputMapPlaceableReferenceObject(SeqInputObject):
+    MapPlaceable: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class SeqInputMaterialParamColor(SeqInputColor):
@@ -21930,6 +21834,11 @@ class SeqInputMaterialParamColor(SeqInputColor):
 class SeqInputMaterialParamFloat(SeqInputFloat):
     Parameter: (Link, 0x0, 0x0, 0x9af7b542) = "0x0"
     Objects: (Pointer, 0x0, 0x0, SeqInputObjectArray) = {}
+    pass
+
+class SeqInputNearestGameEntityByTagObject(SeqInputObject):
+    Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    EntityTag: (Link, 0x0, 0x0, 0xb5d9d3a0) = "0x0"
     pass
 
 class SeqInputObject(SeqInputObjectArray):
@@ -21989,6 +21898,10 @@ class SeqInputVarPosition(SeqInputVector):
     Object: (Pointer, 0x0, 0x0, SeqInputObject) = null
     pass
 
+class SeqInputVarUiVfx(SeqInputUiVfx):
+    Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
 class SeqInputVector():
     pass
 
@@ -22040,10 +21953,20 @@ class SequenceActionActivateEntityTag(ISequenceAction):
 class SequenceActionActivateEntityTagInstance(ISequenceActionInstance):
     pass
 
+class SequenceActionAttachToMainCamera(ISequenceAction):
+    ToBeAttached: (Pointer, 0x0, 0x0, SeqInputAttachment) = null
+    pass
+
+class SequenceActionAttachToMainCameraInstance(ISequenceActionInstance):
+    pass
+
 class SequenceActionAttachToObject(ISequenceAction):
     boneName: (String, 0x0, 0x0, 0x0) = ""
     ToBeAttached: (Pointer, 0x0, 0x0, SeqInputAttachment) = null
     AttachTo: (Pointer, 0x0, 0x0, SeqInputAttachment) = null
+    pass
+
+class SequenceActionAttachToObjectInstance(ISequenceActionInstance):
     pass
 
 class SequenceActionCreateObject(ISequenceAction):
@@ -22051,14 +21974,23 @@ class SequenceActionCreateObject(ISequenceAction):
     OutputSelector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
+class SequenceActionCreateObjectInstance(ISequenceActionInstance):
+    pass
+
 class SequenceActionCurveFloat(ISequenceAction):
     CurveValue: (Pointer, 0x0, 0x0, SeqInputFloat) = null
     FloatCurve: (Embed, 0x0, 0x0, CurveFloat) = {"InterpModes":[],"times":[],"values":[]}
     pass
 
+class SequenceActionCurveFloatInstance(ISequenceActionInstance):
+    pass
+
 class SequenceActionDeactivateEntity(ISequenceAction):
     HideThenDeactivate: (Bool, 0x0, 0x0, 0x0) = false
     Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class SequenceActionDeactivateEntityInstance(ISequenceActionInstance):
     pass
 
 class SequenceActionDeactivateEntityTag(ISequenceAction):
@@ -22115,6 +22047,9 @@ class SequenceActionHideEntityTagInstance(ISequenceActionInstance):
 class SequenceActionHideInstance(ISequenceActionInstance):
     pass
 
+class SequenceActionLerpColorInstance(ISequenceActionInstance):
+    pass
+
 class SequenceActionLerpFloat(ISequenceAction):
     EndValue: (Pointer, 0x0, 0x0, SeqInputFloat) = null
     EasingType: (U8, 0x0, 0x0, 0x0) = 0
@@ -22122,6 +22057,9 @@ class SequenceActionLerpFloat(ISequenceAction):
     0xacddc1f1: (Pointer, 0x0, 0x0, SeqInputFloat) = null
     StartValue: (Pointer, 0x0, 0x0, SeqInputFloat) = null
     UseInitialStart: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class SequenceActionLerpFloatInstance(ISequenceActionInstance):
     pass
 
 class SequenceActionLerpVector(ISequenceAction):
@@ -22133,10 +22071,26 @@ class SequenceActionLerpVector(ISequenceAction):
     UseInitialStart: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
+class SequenceActionLerpVectorInstance(ISequenceActionInstance):
+    pass
+
 class SequenceActionOverrideUiVfx(ISequenceAction):
     TargetUiVfx: (Pointer, 0x0, 0x0, SeqInputUiVfx) = null
     SourceVfx: (Link, 0x0, 0x0, VfxSystemDefinitionData) = "0x0"
     0x75da2db6: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class SequenceActionOverrideUiVfxInstance(ISequenceActionInstance):
+    pass
+
+class SequenceActionShakeMainCamera(ISequenceAction):
+    Magnitude: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
+    FalloffRate: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
+    ShakesPerSec: (Pointer, 0x0, 0x0, SeqInputFloat) = {}
+    direction: (Pointer, 0x0, 0x0, SeqInputVector) = {}
+    pass
+
+class SequenceActionShakeMainCameraInstance(ISequenceActionInstance):
     pass
 
 class SequenceActionShow(ISequenceAction):
@@ -22286,6 +22240,15 @@ class SetGameEntityIconOverride(GameEntityBlock):
     Icon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
     pass
 
+class SetIconEnabled(IMinimapIconModifier):
+    IsEnabled: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class SetIconOverride(IMinimapIconModifier):
+    MinimapIcon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
+    0x8ef421e5: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
 class SetIntConceptBlock(SetConceptBlockBase):
     Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
     NewValue: (Pointer, 0x0, 0x0, IIntGet) = null
@@ -22299,6 +22262,12 @@ class SetKeyValueInCustomTableBlock(IScriptBlock):
     value: (Pointer, 0x0, 0x0, IScriptValueGet) = null
     Key: (Pointer, 0x0, 0x0, IScriptValueGet) = null
     DestTable: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
+    pass
+
+class SetLightChannels(ISequenceAction):
+    RestoreOnStop: (Bool, 0x0, 0x0, 0x0) = true
+    TargetObject: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    Channels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class SetModePreloadFlags(LevelScriptBlock):
@@ -22840,9 +22809,9 @@ class SpawnEntityBlock(GameEntityBlock):
 class SpawnInSequence():
     0x259377f1: (F32, 0x0, 0x0, 0x0) = 5.0
     ChaosSequence: (Link, 0x0, 0x0, Sequence) = "0x0"
-    0x4adc6795: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    PlayerSelector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     0x5a439ea4: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    0xa4c9a8d7: (F32, 0x0, 0x0, 0x0) = 0.0
+    SpawnDelay: (F32, 0x0, 0x0, 0x0) = 0.0
     OrderSequence: (Link, 0x0, 0x0, Sequence) = "0x0"
     Animation: (String, 0x0, 0x0, 0x0) = "Spawn_Start_SR"
     pass
@@ -26148,6 +26117,10 @@ class TftGameStartSequenceTutorial(TftGameStartSequence):
     GameWelcomeVfxShowDurationSecs: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class TftGameStartSequenceUiElement(TftGameStartSequenceSimpleObject):
+    UIElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class TftGameStartViewController(ViewController):
     GameStartTable: (Map, U32, Link, TftGameStartSequence) = {}
     pass
@@ -26902,11 +26875,17 @@ class TftSequenceActionContinue(ISequenceAction):
     ContinueAt: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
+class TftSequenceActionContinueInstance(ISequenceActionInstance):
+    pass
+
 class TftSequenceActionDisableElement(ISequenceAction):
     EnableOnEnd: (Bool, 0x0, 0x0, 0x0) = true
     element: (Pointer, 0x0, 0x0, 0xe561be2e) = null
     DisableOnStart: (Bool, 0x0, 0x0, 0x0) = true
     0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    pass
+
+class TftSequenceActionDisableElementInstance(ISequenceActionInstance):
     pass
 
 class TftSequenceActionEnableElement(ISequenceAction):
@@ -26916,8 +26895,26 @@ class TftSequenceActionEnableElement(ISequenceAction):
     EnableOnStart: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
+class TftSequenceActionEnableElementInstance(ISequenceActionInstance):
+    pass
+
 class TftSequenceActionPlaySound(ISequenceAction):
     SoundEvent: (Pointer, 0x0, 0x0, 0xbc280d0a) = null
+    pass
+
+class TftSequenceActionPlaySoundInstance(ISequenceActionInstance):
+    pass
+
+class TftSequenceActionPlaySpineAnimation(ISequenceAction):
+    AnimationConfig: (Embed, 0x0, 0x0, 0xd31bbf89) = {"AnimationName":"","DelayTime":0.0,"Loop":false,"SpeedScale":1.0,"TrackIndex":0}
+    DisableOnEnd: (Bool, 0x0, 0x0, 0x0) = true
+    0x457338e5: (Bool, 0x0, 0x0, 0x0) = true
+    element: (Pointer, 0x0, 0x0, 0x34ecdf00) = null
+    0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    EnableOnStart: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class TftSequenceActionPlaySpineAnimationInstance(ISequenceActionInstance):
     pass
 
 class TftSequenceActionShowText(ISequenceAction):
@@ -26926,6 +26923,9 @@ class TftSequenceActionShowText(ISequenceAction):
     0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     Text: (Pointer, 0x0, 0x0, 0xa8a6ac21) = null
     EnableOnStart: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class TftSequenceActionShowTextInstance(ISequenceActionInstance):
     pass
 
 class TftShopContentData():

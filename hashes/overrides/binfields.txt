@@ -9,6 +9,7 @@ b3ec72b9 AbilityResourceType
 ee151102 ActionOnStart
 dad3f6bb ActivateActions
 888d3a04 ActivateButton
+94018232 ActivateThenShow
 eb01e454 ActivationSfx
 74037860 ActivationThreshold
 6049cd42 ActivationTimeMillis
@@ -26,6 +27,8 @@ c895f7ad ActiveVfx
 20749c51 ActiveVoiceOver
 2c4774c5 AdaptationTime
 6b392dd7 AdaptationZoom
+a85a9d2d AddValue
+ae9b464d AdditionalBonusAtThisLevelDataValue
 78811384 AdditionalData
 4fce52ba AdditionalKillConfig
 2920447a AdditionalRotation
@@ -142,6 +145,8 @@ b91d14d4 BoneBName
 0ef335b4 BoneBasisName
 44ae9838 BoneTransformChannel
 03698d8a BonusGold
+b0d8b2ac BonusPerLevelAtAndAfterDataValue
+b2cd0eb0 BonusPerLevelDataValue
 c3f30ba0 BoolProperty
 622ef3dd BoolVariable
 625b5b86 BorderColor
@@ -336,6 +341,8 @@ aa13ab5a DamageTypeToMatch
 09a05a12 DataGetter
 f3e7ac05 DataOptions
 137cf12a DataValue
+9823b29a DataValueBreakpoints
+a519b194 DataValueSourceObject
 abb44364 Datacenter
 9ad0961e Dates
 e44f21fd Day
@@ -504,6 +511,7 @@ feb06968 ErrorGroup
 fe30d09f Event
 d3eab8e5 EventCarousel
 dcf1a165 EventMapIndex
+28d1d977 EventParameterOverrides
 81ba3772 EventPrompts
 5950d0c5 EventSet
 7632a5e7 EventType
@@ -548,6 +556,7 @@ a9a04dd9 FillIcon
 11292cca FillVolume
 0ccdd309 FilledTicks
 815aaee7 FilterButton
+1757fdc8 FilterByMapIndex
 f2c9b3be FilterGroup
 d4e4979c FilterNameTraKey
 e1bc2b5b FirstBlood
@@ -657,6 +666,7 @@ b0d4508d HeightFogColor
 5e6ab845 HeightOffset
 9e6ab7fa Helpers
 47ac0d65 HideDuration
+9e8fcd0c HideThenDeactivate
 3dddb9fd High
 949cfb4a HighlightedTrait
 eb6c72dd HitTexture
@@ -712,6 +722,7 @@ a084e3ec IndividualPriorityBehavior
 e1ea923b InhibitorRespawn
 94311ea0 InhibitorRespawnSoon
 759ff1df InitialAcceleration
+bbd778a2 InitialBonusPerLevelDataValue
 1d2e3b42 InitialColor
 3e590ae1 InitialDrag
 193b8a8a InitialFrameRate
@@ -772,6 +783,8 @@ e917e5c0 ItemLayout
 01a2dc28 ItemOutline
 43703702 ItemRegion
 a4b002d7 ItemsList
+031923de IterKey
+4b091a3c IterValue
 b8314653 JointMask
 ac1dcf05 JointRadius
 8d6db3ea JointRadiusEnd
@@ -806,6 +819,7 @@ cebfa3e8 LeaderboardButton
 276c3fc7 LeashShape
 124aec70 Left
 a07db915 LeftSource
+91d404a5 Level1DataValue
 0d39efe5 LevelBackground
 cfce3637 LevelCard
 78c0fc71 LevelDescription
@@ -859,6 +873,7 @@ a3eee9db MainScript
 5a3d5de0 ManaRegenPercent
 16d6bc74 MapCue
 c7a370a7 MapIndex
+7c891337 MapIndexOverride
 ce8f4190 MapSSAORenderer
 26045d85 Mapping
 cf7f6e66 Maps
@@ -952,6 +967,9 @@ cee348f4 NamedTeams
 58a1d8fb Networking
 20941997 NewGearId
 df76b69e NewValue
+84ba3181 NewValueColor
+b0e1f0cb NewValueW
+512a5551 NewValueXyz
 c870eb8b NextGroup
 20c34879 NextIcon
 915005ed NextState
@@ -991,6 +1009,7 @@ e92580fe OrientationMode
 d97f9a4f Origin
 3c4bd9e8 OriginLocation
 5e532341 OriginWidth
+7addff1c OutEntities
 421aee08 OutEntity
 2d4bc6e6 OutSequence
 9a817954 OutlineCategorySubmeshes
@@ -1290,7 +1309,9 @@ b34f4c08 SandRimWiden
 e45800c2 SandSingleCrossingRatio
 ef3c7f81 SandWindAngleDegrees
 e6aecd89 SandWindInfillRate
+f4e470e6 ScaleByStatProgressionMultiplier
 1d59898a ScaleFactor
+032a393a ScalePastDefaultMaxLevel
 9ce1222b ScaleX
 edb15a2f Scenario
 6cfac45e ScenarioIcon
@@ -1311,6 +1332,7 @@ e07619ca ScreenName
 acc0893c ScriptDataNumbers
 75601a20 ScriptDataStrings
 0d484801 ScriptDef
+ae79839e ScriptHash
 4daf6896 Scripting
 9b4a129b Scripts
 eac7c160 ScrollRegion
@@ -1388,6 +1410,7 @@ d04a0fe6 SlotsButton
 d3a91466 SlotsScene
 42abffde SmoothTime
 04a40f92 SocketDefinitions
+02e104d7 SoulTypes
 7a5ff18f SoundName
 df38ac45 SourceId
 a78f532f SourceLocation
@@ -1400,6 +1423,7 @@ ea0e4ad5 Spacer
 c8d3a9fe Spacing
 efd909e8 SpawnDuration
 3378edaf SpawnGrubbies
+7511a599 SpawnTypes
 0d7e521d SpecName
 3e23d344 SpectateLayout
 bc4804ec SpellBook
@@ -1437,6 +1461,7 @@ c04f610f StartValueOffset
 3798de1c StartVector
 2370e859 Starting
 d33b3297 Stat
+d13afc27 StatFormula
 f5d0c797 StatLocalizations
 436cd370 StatTra
 a1832a8c StatValue
@@ -1496,6 +1521,8 @@ fbf302db TagData
 21d40f1b TagList
 3d4f04d8 TagName
 37c3a421 TagQuery
+98840e54 TagsToActivate
+e2226a17 TagsToDeactivate
 0a9e6b95 Taper
 fe9065ba TargetGame
 5dc08bbe TargetLevel
@@ -1622,10 +1649,13 @@ ee641224 UseInitialStart
 6e48edbe UseRodPhysics
 064440d6 UseSkinName
 7b66f15d UseTarget
+353099b0 UseTargetForRequirements
+a8cb9c14 UseTargetStats
 e1e591e3 UseText
 e013f720 UsingRandomLoadingScreen
 0b248040 UvAnimation
 6a5b6251 ValueTooltip
+dec56440 ValuesToExclude
 7d425097 VariableDefaults
 9837f87b VariableValues
 29ab62c2 Variables

@@ -129,7 +129,7 @@ class 0x140a7767(InputEventBoolKeybind):
     pass
 
 class 0x14503484(IUiVariable):
-    value: (Embed, 0x0, 0x0, 0x3b8d8b3f) = {"VariableValues":{},"itemID":0}
+    value: (Embed, 0x0, 0x0, 0x3b8d8b3f) = {"VariableValues":{},"itemID":4294967295}
     0x75d77845: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -149,6 +149,12 @@ class 0x1499e53b(ISequenceAction):
     ActionOnEnd: (U8, 0x0, 0x0, 0x0) = 0
     0xcfe79554: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ActionOnStart: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class 0x14a6b9ba(IUiAudioEvent):
+    Condition: (Pointer, 0x0, 0x0, 0x8a4a4963) = null
+    0xd949ebd1: (Pointer, 0x0, 0x0, IUiAudioEvent) = null
+    0xeb6f3310: (Pointer, 0x0, 0x0, IUiAudioEvent) = null
     pass
 
 class 0x14da24c4(0xd04cfb37):
@@ -201,6 +207,14 @@ class 0x15ebaa9c(IScriptBlock):
     Dest: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
     pass
 
+class 0x15efa930(GameEntityBlock):
+    offset: (Pointer, 0x0, 0x0, IVectorGet) = null
+    Source: (Pointer, 0x0, 0x0, IEntityGet) = null
+    0x9f97e7c: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    Attachment: (Pointer, 0x0, 0x0, IEntityGet) = null
+    0xe2d12280: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    pass
+
 class 0x15f2f87c(IModesStateTransition):
     StateDuration: (F32, 0x0, 0x0, 0x0) = 5.0
     NextState: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -245,6 +259,9 @@ class 0x1668b3e5():
 class 0x16e6e17a(0x88b37dd7):
     DeadzonePercent: (F32, 0x0, 0x0, 0x0) = 0.10000000149011612
     0xc8323d7c: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class 0x172b3d31(0x39f85a07):
     pass
 
 class 0x1739a4e6():
@@ -405,6 +422,11 @@ class 0x1ab4d045(0x2b00c366):
 class 0x1addb679(VfxShimmerFacingMode):
     pass
 
+class 0x1b08a666(GameEntityBlock):
+    Source: (Pointer, 0x0, 0x0, IEntityGet) = null
+    Attachment: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
 class 0x1b3a73f0():
     ProgressText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ProgressBar: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -432,6 +454,9 @@ class 0x1bb49ec5(SeqInputObject):
 class 0x1bbd2264(0x7a3483c4):
     Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xa85a9d2d: (Pointer, 0x0, 0x0, IIntGet) = {}
+    pass
+
+class 0x1bc73dfd(0x39f85a07):
     pass
 
 class 0x1c0e452():
@@ -614,7 +639,7 @@ class 0x210fea10(GameEntityComponent):
     pass
 
 class 0x213ccd36():
-    EventName: (U32, 0x0, 0x0, 0x0) = 473
+    EventName: (U32, 0x0, 0x0, 0x0) = 474
     0x30963364: (List, 0x0, Embed, RotatingBanner) = []
     DurationSeconds: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
@@ -736,6 +761,11 @@ class 0x2483c715():
 class 0x248f26e1(MissileTriggerSpec):
     pass
 
+class 0x24ae1730():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
+    pass
+
 class 0x24de77f2(0xacf95576, IUiVariable):
     value: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -776,10 +806,6 @@ class 0x2576b4fc():
 class 0x25bfa52(LevelScriptBlock):
     value: (Pointer, 0x0, 0x0, IFloatGet) = null
     BarracksProperty: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0x260ec0c():
-    0xb6394388: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x2630bcc1():
@@ -1092,6 +1118,15 @@ class 0x2ee6df14():
     bankUnits: (List2, 0x0, Embed, BankUnit) = []
     pass
 
+class 0x2efeb8c(0xf77593b5):
+    0x26b603f: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class 0x2f064b8e():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
+    pass
+
 class 0x2f194728(UiMetricTypeI):
     ListKey: (String, 0x0, 0x0, 0x0) = ""
     Frame: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -1368,6 +1403,18 @@ class 0x3572c5be():
 class 0x359681d9(0x87a6a884):
     pass
 
+class 0x35b6fecc():
+    0x2ee1834e: (List2, 0x0, Hash, 0x0) = []
+    0x843019b6: (List2, 0x0, Hash, 0x0) = []
+    0x8894a0de: (List2, 0x0, Hash, 0x0) = []
+    0xc1fb53e3: (List2, 0x0, Hash, 0x0) = []
+    pass
+
+class 0x35ba6cda():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
+    pass
+
 class 0x36255113(AnnouncerVoEventTypeConcrete):
     0x11e8956e: (String, 0x0, 0x0, 0x0) = ""
     TeamSucceededPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
@@ -1483,6 +1530,12 @@ class 0x3906c4b9():
     0x5fa4298d: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class 0x393d54(GameEntityTemplate):
+    CharacterMesh: (Embed, 0x0, 0x0, CharacterMeshGeComponentDef) = {"0xb887f6e9":0.0,"IdleAnimationName":"","PlayIdleAnimation":false}
+    banner: (Embed, 0x0, 0x0, 0xeb5cafc3) = {"banner":"0x0"}
+    Character: (Embed, 0x0, 0x0, SkinCharacterGeComponentDef) = {"CharacterRecord":"","Skin":""}
+    pass
+
 class 0x393df345():
     SlotsButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SlotsScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -1526,6 +1579,9 @@ class 0x39a9452c():
     0x9cc6881: (String, 0x0, 0x0, 0x0) = ""
     0xec824f6b: (String, 0x0, 0x0, 0x0) = ""
     0xf2714556: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class 0x39f85a07(ILogicDriverSource):
     pass
 
 class 0x3a001614(TftDisplayTag):
@@ -1622,7 +1678,7 @@ class 0x3b8a61ee(0x333759dd):
     pass
 
 class 0x3b8d8b3f():
-    itemID: (U64, 0x0, 0x0, 0x0) = 0
+    itemID: (U32, 0x0, 0x0, 0x0) = 4294967295
     VariableValues: (Map, Hash, Pointer, IUiVariable) = {}
     pass
 
@@ -1863,6 +1919,9 @@ class 0x40bae5c7(ICharacterSubcondition):
 class 0x40dd375d(IStringGet, IScriptValueGet):
     PropPath: (String, 0x0, 0x0, 0x0) = ""
     PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class 0x40f71780():
     pass
 
 class 0x4110cd5b(ISequenceActionInstance):
@@ -2187,6 +2246,7 @@ class 0x4945c5ac():
     0xa59ea1ab: (String, 0x0, 0x0, 0x0) = ""
     0xb67be02d: (String, 0x0, 0x0, 0x0) = "itemId"
     0xbe672e4a: (String, 0x0, 0x0, 0x0) = ""
+    0xd17b4ad4: (String, 0x0, 0x0, 0x0) = ""
     0xd2d110ba: (Bool, 0x0, 0x0, 0x0) = true
     0xf18ff8ac: (String, 0x0, 0x0, 0x0) = "icon"
     0xfd229168: (String, 0x0, 0x0, 0x0) = ""
@@ -2221,6 +2281,11 @@ class 0x49f51d24(ViewController):
     0xb1a780bf: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xc98119b: (Embed, 0x0, 0x0, 0x8948ed01) = {"0x9a800d92":"0x0","ActiveBackground":"0x0","GroupLink":"0x0","Icon":"0x0","description":"0x0","title":"0x0"}
     MobileOverride: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
+    pass
+
+class 0x4a2445d4(VfxPhysicsModifierBase):
+    0xcc42a2fb: (Bool, 0x0, 0x0, 0x0) = false
+    0xf6f54bbe: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
 
 class 0x4a253f91(PropertyTraits):
@@ -2556,6 +2621,14 @@ class 0x5480000a(EntityScriptCondition):
     Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
+class 0x54a1b7a6():
+    medium: (U8, 0x0, 0x0, 0x0) = 60
+    0x372a116d: (U8, 0x0, 0x0, 0x0) = 20
+    High: (U8, 0x0, 0x0, 0x0) = 100
+    Low: (U8, 0x0, 0x0, 0x0) = 40
+    0x5a47a861: (U8, 0x0, 0x0, 0x0) = 100
+    pass
+
 class 0x55047b08():
     TitleColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
     TitleTra: (String, 0x0, 0x0, 0x0) = ""
@@ -2618,7 +2691,7 @@ class 0x57a3a10e(SeqInputObject):
     pass
 
 class 0x57b38653(0xdf305970):
-    AudioBehavior: (Link, 0x0, 0x0, 0xa35db897) = "0x0"
+    AudioBehavior: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x58276563(SeqSplinePointColor):
@@ -2887,7 +2960,7 @@ class 0x5d3f0253(MapGraphicsFeature):
     pass
 
 class 0x5d9795fb(IUiAudioEvent):
-    VoBehavior: (Link, 0x0, 0x0, 0xa35db897) = "0x0"
+    VoBehavior: (Hash, 0x0, 0x0, 0x0) = "0x0"
     EventName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -3159,6 +3232,9 @@ class 0x6653bfda(CharacterQuestConditionData):
     Spell: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class 0x666d2e06(IGeComponentDef):
+    pass
+
 class 0x666e8cb6():
     0x341a394e: (Link, 0x0, 0x0, 0xfcff6553) = "0x0"
     pass
@@ -3331,11 +3407,16 @@ class 0x6a4adf05():
     0x194f4d10: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     0x1e784b89: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     0x3542b127: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
+    0x6dfd45aa: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     0x73e1b720: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     0x8c310338: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
+    0x8e9a96ca: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
+    0x90156182: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     0xa3adbaf8: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
+    0xafbc2eb9: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     0xafbe3021: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     0xd117e249: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
+    0xe4597f4e: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     pass
 
 class 0x6a66088d(IFloatGet, IIntGet, IScriptValueGet):
@@ -3473,6 +3554,10 @@ class 0x6cec0484(0x4a8a5a5d):
 
 class 0x6d1d4b10(BaseLoadoutData):
     IconTexturePath: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class 0x6d613e54(IVfxVector3Driver):
+    0xcc42a2fb: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0x6d7df79c(Cheat):
@@ -3957,6 +4042,11 @@ class 0x7b9423e1(EventBusApObject):
     0x978d1c13: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class 0x7be50d9e():
+    0x5591fe0: (String, 0x0, 0x0, 0x0) = ""
+    0xc12465e0: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class 0x7c387678(IVfxVector4Driver):
     Float: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
     pass
@@ -4256,6 +4346,11 @@ class 0x821da484():
 class 0x825a4d66():
     AssociatedTrait: (Link, 0x0, 0x0, TftTraitData) = "0x0"
     0xcb42a855: (F32, 0x0, 0x0, 0x0) = 1.0
+    pass
+
+class 0x8270c1ad():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
     pass
 
 class 0x82a00368(0x38ad3494):
@@ -4572,6 +4667,9 @@ class 0x89c633f3(ElapsedTimerController):
     pass
 
 class 0x89ea8a95(ICastRequirement):
+    pass
+
+class 0x8a4a4963():
     pass
 
 class 0x8a96ea3c(IGameCalculationPart):
@@ -5129,6 +5227,12 @@ class 0x9c5f3068():
     Trait: (Embed, 0x0, 0x0, TftMapTraitData) = {"ActiveIconColor":[0,0,0,255],"DecoratedName":"","IconPath":"0x0","description":"","displayName":""}
     pass
 
+class 0x9c875600(IUiAudioEvent):
+    EventName: (String, 0x0, 0x0, 0x0) = ""
+    0x42a11948: (Pointer, 0x0, 0x0, 0xf77593b5) = null
+    AudioBehavior: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class 0x9c8a0477(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TabButtons: (List2, 0x0, Embed, 0x8b232009) = []
@@ -5536,6 +5640,11 @@ class 0xa78cfe16():
     tags: (List2, 0x0, Embed, 0x43548f46) = []
     pass
 
+class 0xa7b26594():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
+    pass
+
 class 0xa8823dc8():
     ScoreBreakpoints: (List2, 0x0, I32, 0x0) = []
     pass
@@ -5558,8 +5667,8 @@ class 0xa8c7473f(0xacf95576, IUiVariable):
     pass
 
 class 0xa8dcba52():
+    0x3cb97286: (List2, 0x0, Embed, 0x7be50d9e) = []
     0x55dd7d5: (Link, 0x0, 0x0, ProgressTrack) = "0x0"
-    0x63ad1984: (List2, 0x0, Embed, 0x260ec0c) = []
     0x8137940d: (Link, 0x0, 0x0, 0x8137940d) = "0x0"
     0xc760b795: (Link, 0x0, 0x0, 0xc760b795) = "0x0"
     pass
@@ -6235,6 +6344,11 @@ class 0xb7d27a44(ILolKeybindSetCheck):
 class 0xb7ea4f54(IOptionItemFilter):
     pass
 
+class 0xb7f419d8():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
+    pass
+
 class 0xb846a56c(0x811d959e):
     pass
 
@@ -6468,6 +6582,9 @@ class 0xbd77f870():
     AutomaticallyStarts: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
+class 0xbdaa899c(0x129e311, GameEntityComponent):
+    pass
+
 class 0xbdbf785f(0xd866344b):
     value: (U8, 0x0, 0x0, 0x0) = 0
     pass
@@ -6610,6 +6727,9 @@ class 0xc29d5ff(ViewController):
 
 class 0xc2afdb3d(0xaa0bf832):
     Icon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
+    pass
+
+class 0xc2f31dbb():
     pass
 
 class 0xc3558483():
@@ -6770,6 +6890,11 @@ class 0xc7ca4925():
     FrameSelf: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class 0xc812ff6b():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
+    pass
+
 class 0xc83d315a():
     MapLightInfo: (Embed, 0x0, 0x0, MapLightingInfo) = {"0xce4c04f9":0.0,"HdrEnvDiffuseScale":3.0,"NormalOffsetBias":0.0,"OverrideSunSpecDirection":null,"PbrSunAdditionalScale":10.0,"ScaleSunShadowIntensity":1.0,"ShadowBias":0.0006000000284984708,"SunIntensityScale":1.0,"SunPenumbraSaturation":0.0,"SunRadiusForShadows":0.0,"fogAlternateColor":[0.10000000149011612,0.10000000149011612,0.20000000298023224,1.0],"fogColor":[0.20000000298023224,0.20000000298023224,0.4000000059604645,1.0],"fogEmissiveRemap":1.899999976158142,"fogEnabled":true,"fogLowQualityModeEmissiveRemap":0.019999999552965164,"fogStartAndEnd":[0.0,-2000.0],"groundColor":[0.10000000149011612,0.10000000149011612,0.10000000149011612,1.0],"horizonColor":[0.4000000059604645,0.4000000059604645,0.4000000059604645,1.0],"lightMapColorScale":1.0,"skyLightColor":[0.7049999833106995,0.8799999952316284,1.0,1.0],"skyLightScale":0.20000000298023224,"sunColor":[1.0,1.0,1.0,1.0],"sunDirection":[0.0,0.7070000171661377,0.7070000171661377]}
     CubemapPath: (String, 0x0, 0x0, 0x0) = ""
@@ -6863,6 +6988,11 @@ class 0xc9feb84a(0xe2a48eac):
 class 0xca17e84f(ConceptBlockBase):
     pass
 
+class 0xca1804b3():
+    0x6b5bdad3: (List2, 0x0, Hash, 0x0) = []
+    Item: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class 0xca19d90e(IMapLightUpdater):
     0x1c29a921: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
     0x1ded15f4: (F32, 0x0, 0x0, 0x0) = 1.0
@@ -6879,6 +7009,10 @@ class 0xca19d90e(IMapLightUpdater):
     pass
 
 class 0xca4d32d1():
+    pass
+
+class 0xca5586b(0xd0c7ee75):
+    0x276cea6: (Embed, 0x0, 0x0, 0xe5e2f9ff) = {"0xbe127f8d":"0x0"}
     pass
 
 class 0xca6583c6():
@@ -6905,6 +7039,11 @@ class 0xcae2695f(IContextualCondition):
     pass
 
 class 0xcaefc854(InputEventBoolKeybind):
+    pass
+
+class 0xcb10c081():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
     pass
 
 class 0xcb29f21f():
@@ -7064,6 +7203,11 @@ class 0xd31e0f11():
 class 0xd331b4c4(SeqInputCombinedFloat):
     pass
 
+class 0xd3424391():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
+    pass
+
 class 0xd34a5d70(ILolKeybindSetCheck):
     0x92e9508c: (I32, 0x0, 0x0, 0x0) = -1
     championName: (String, 0x0, 0x0, 0x0) = ""
@@ -7077,6 +7221,11 @@ class 0xd37b1519():
 
 class 0xd37e7059(ILogicDriverValueToString):
     0xc011585: (Pointer, 0x0, 0x0, 0x49832ca7)
+    pass
+
+class 0xd39980cd():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
     pass
 
 class 0xd3d7f73c(IUiVariable):
@@ -7245,6 +7394,11 @@ class 0xd79663ee():
     0x7dd1f577: (Bool, 0x0, 0x0, 0x0) = false
     0x86c68b6d: (I32, 0x0, 0x0, 0x0) = 0
     0xd219bca8: (List2, 0x0, Pointer, TftMapConditionData) = []
+    pass
+
+class 0xd7e0b882():
+    0x2eba068b: (List2, 0x0, Embed, 0xca1804b3) = []
+    0x676cdd0f: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xd7ec4ad6():
@@ -7667,6 +7821,14 @@ class 0xe59ebdea(UiComponent):
     IsExpanded: (Hash, 0x0, 0x0, 0x0)
     pass
 
+class 0xe5e2f9ff():
+    0xbe127f8d: (File, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class 0xe60fd4f2(0x8a4a4963):
+    0x26b603f: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
 class 0xe6144e6d(0x64c18f7d):
     pass
 
@@ -7793,6 +7955,10 @@ class 0xeaf8e31e(SkinnedMeshDataMaterialController):
     0x4c776a95: (List2, 0x0, Embed, 0xf4da6088) = []
     pass
 
+class 0xeb5cafc3(IGeComponentDef):
+    banner: (Link, 0x0, 0x0, EsportsBannerData) = "0x0"
+    pass
+
 class 0xeb8aa5d6():
     rtpcName: (String, 0x0, 0x0, 0x0) = ""
     0x714bd26f: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -7802,6 +7968,9 @@ class 0xeb8aa5d6():
     0xd1f8128: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
     0xd7c027d2: (U32, 0x0, 0x0, 0x0) = 0
     0xe31a8851: (F32, 0x0, 0x0, 0x0) = 0.4000000059604645
+    pass
+
+class 0xeb9f2cd7(GameEntityComponent):
     pass
 
 class 0xebe7428(IGameModeConfig):
@@ -8221,6 +8390,9 @@ class 0xf74d9a2d(SeqInputUiVfx):
     Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
+class 0xf77593b5():
+    pass
+
 class 0xf780db2f():
     ShadowQuality: (U32, 0x0, 0x0, 0x0) = 4
     EnvironmentQuality: (U32, 0x0, 0x0, 0x0) = 4
@@ -8468,6 +8640,11 @@ class 0xfcff6553():
 class 0xfd244a64(InputEventBoolKeybind):
     pass
 
+class 0xfd347675():
+    0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    objectPath: (List2, 0x0, Hash, 0x0) = []
+    pass
+
 class 0xfd52ca74(ISequenceActionInstance):
     pass
 
@@ -8615,6 +8792,8 @@ class AbilityPrompt():
     pass
 
 class AbilityResourceBarData():
+    0x2707b8af: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x2f9e7b78: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x484b8029: (Hash, 0x0, 0x0, 0x0) = "0x0"
     UseAnimatedSkins: (Bool, 0x0, 0x0, 0x0) = false
     Backdrop: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -9013,12 +9192,13 @@ class AnnouncerVoEventTypeGeneric(AnnouncerVoEventTypeConcrete):
     pass
 
 class AnnouncerVoEventTypeModularCac(AnnouncerVoEventTypeCac):
-    PrimaryEvent: (Pointer, 0x0, 0x0, 0x36255113) = null
+    PrimaryEvent: (Pointer, 0x0, 0x0, AnnouncerVoEventTypeConcrete) = null
     pass
 
 class AnnouncerVoEvents():
     RiftHeraldSteal: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     BaronKill: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
+    VoidGatorSteal: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     DragonKill: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     Aced: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     ChampionExecuted: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
@@ -9032,6 +9212,7 @@ class AnnouncerVoEvents():
     ElderSpawn: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     PentaKill: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     ChampionKill: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
+    VoidGatorKill: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     ElderDragonSteal: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     GameEnd: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     InhibitorKill: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
@@ -9050,6 +9231,7 @@ class AnnouncerVoEvents():
     DragonSolo: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     0xba9bae76: (List2, 0x0, Embed, 0x5f38de60) = []
     KillingSpree: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
+    0xc0a99193: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     PlayerDisconnect: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     0xd0cc4924: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     BountyEnded: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
@@ -9252,7 +9434,7 @@ class AudioGlobalEventManager():
     objectPath: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AnnouncerQueueConfigs: (Embed, 0x0, 0x0, AudioQueueConfigList) = {"queues":[]}
     0x766af9fc: (Map, U32, Embed, AudioGlobalEventTargetCharacterRecords) = {}
-    AnnouncerVoEvents: (Embed, 0x0, 0x0, AnnouncerVoEvents) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0"}
+    AnnouncerVoEvents: (Embed, 0x0, 0x0, AnnouncerVoEvents) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xc0a99193":"0x0","0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0","VoidGatorKill":"0x0","VoidGatorSteal":"0x0"}
     GlobalContextualActionData: (List2, 0x0, Hash, 0x0) = []
     pass
 
@@ -9279,6 +9461,7 @@ class AudioQueueConfig():
     0x1c6439cf: (List2, 0x0, Hash, 0x0) = []
     name: (String, 0x0, 0x0, 0x0) = ""
     tag: (U8, 0x0, 0x0, 0x0) = 0
+    0xa050cd9b: (F32, 0x0, 0x0, 0x0) = 0.0
     0xc8d0888c: (F32, 0x0, 0x0, 0x0) = 0.0
     QueuePriority: (F32, 0x0, 0x0, 0x0) = 50.0
     DefaultMaxQueueTimes: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -9391,6 +9574,7 @@ class AugmentSelectionViewController(ViewController):
     0x3b44ff7a: (String, 0x0, 0x0, 0x0) = ""
     MainScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AugmentSelectionGrid: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x5107f8cc: (Pointer, 0x0, 0x0, AugmentTierDisplayData) = null
     0x55047b08: (Map, Hash, Embed, 0x55047b08) = {}
     0x56592fa3: (U32, 0x0, 0x0, 0x0) = 2
     TimeoutPreventClicksOnShow: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -9637,7 +9821,7 @@ class BaseLoadoutData(ICatalogEntryOwner):
 
 class BaseParams():
     0x4c819a10: (U32, 0x0, 0x0, 0x0) = 0
-    Event: (U32, 0x0, 0x0, 0x0) = 473
+    Event: (U32, 0x0, 0x0, 0x0) = 474
     pass
 
 class BasePerk():
@@ -9823,7 +10007,7 @@ class BorderSkinAugmentGroup():
 
 class BossHealthBarViewController(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    healthBarData: (Embed, 0x0, 0x0, HealthBarData) = {"Backdrop":"0x0","ExtraBars":null,"Frame":"0x0","Healthbar":{"AdditionalBarTypes":{},"DefaultBar":"0x0","DrainDirection":0,"MinDisplayPercentOverride":0.0},"IncomingDamageBar":"0x0","MaxHpPenaltyBar":"0x0","MaxHpPenaltyDivider":"0x0","TextData":null,"TickStyle":null,"fadeData":null}
+    healthBarData: (Embed, 0x0, 0x0, HealthBarData) = {"0x2707b8af":"0x0","0x2f9e7b78":"0x0","Backdrop":"0x0","ExtraBars":null,"Frame":"0x0","Healthbar":{"AdditionalBarTypes":{},"DefaultBar":"0x0","DrainDirection":0,"MinDisplayPercentOverride":0.0},"IncomingDamageBar":"0x0","MaxHpPenaltyBar":"0x0","MaxHpPenaltyDivider":"0x0","TextData":null,"TickStyle":null,"fadeData":null}
     0x740b49c: (Pointer, 0x0, 0x0, 0x1739a4e6) = null
     PipLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
     InvulnerableIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -10272,6 +10456,7 @@ class ChampionMusicEventTypeGeneric(ChampionMusicEventTypeConcrete):
 class ChampionMusicEvents():
     RiftHeraldSteal: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     BaronKill: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
+    VoidGatorSteal: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     DragonKill: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     Aced: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     ChampionExecuted: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
@@ -10285,6 +10470,7 @@ class ChampionMusicEvents():
     ElderSpawn: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     PentaKill: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     ChampionKill: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
+    VoidGatorKill: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     ElderDragonSteal: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     GameEnd: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     InhibitorKill: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
@@ -10303,6 +10489,7 @@ class ChampionMusicEvents():
     DragonSolo: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     0xba9bae76: (List2, 0x0, Embed, 0xd52eac74) = []
     KillingSpree: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
+    0xc0a99193: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     PlayerDisconnect: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     0xd0cc4924: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     BountyEnded: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
@@ -10527,7 +10714,7 @@ class CharacterRecord():
     selfChampSpecificHealthSuffix: (String, 0x0, 0x0, 0x0) = ""
     MovingTowardEnemyActivationAngle: (F32, 0x0, 0x0, 0x0) = 45.0
     mCharacterCalculations: (Map, Hash, Pointer, IGameCalculation) = {}
-    onKillEvent: (U32, 0x0, 0x0, 0x0) = 473
+    onKillEvent: (U32, 0x0, 0x0, 0x0) = 474
     0x3f975e4a: (Bool, 0x0, 0x0, 0x0) = false
     critPerLevel: (F32, 0x0, 0x0, 0x0) = 0.0
     0x43135375: (F32, 0x0, 0x0, 0x0) = -1.0
@@ -10542,7 +10729,7 @@ class CharacterRecord():
     selectionRadius: (F32, 0x0, 0x0, 0x0) = -1.0
     perceptionBoundingBoxSize: (Option, 0x0, Vec3, 0x0) = null
     hoverLineIndicatorWidthMinimap: (F32, 0x0, 0x0, 0x0) = 100.0
-    onKillEventForSpectator: (U32, 0x0, 0x0, 0x0) = 473
+    onKillEventForSpectator: (U32, 0x0, 0x0, 0x0) = 474
     mPreferredPerkStyle: (Link, 0x0, 0x0, PerkStyle) = "0x0"
     RecSpellRankUpInfolist: (Embed, 0x0, 0x0, RecSpellRankUpInfoList) = {"RecSpellRankUpInfos":[{"0x5b968ffb":false,"IsDefaultRecommendation":false,"MapId":0,"ModeNameStringId":"0x0","Position":"0x0","mDefaultPriority":[3,0,1,2],"mEarlyLevelOverrides":[]}]}
     hoverLineIndicatorTargetTextureName: (File, 0x0, 0x0, 0x0) = "0x0"
@@ -10592,7 +10779,7 @@ class CharacterRecord():
     flags: (U32, 0x0, 0x0, 0x0) = 8398080
     globalExpGivenOnDeath: (F32, 0x0, 0x0, 0x0) = 0.0
     mAbilitySlotCC: (List, 0x4, I32, 0x0) = [0,0,0,0]
-    OnKillEventSteal: (U32, 0x0, 0x0, 0x0) = 473
+    OnKillEventSteal: (U32, 0x0, 0x0, 0x0) = 474
     baseStaticHPRegenModifiable: (Embed, 0x0, 0x0, ModifiableFloat) = {"Modifiers":[],"baseValue":1.0}
     healthBarHeight: (F32, 0x0, 0x0, 0x0) = 100.0
     highlightHealthbarIcons: (Bool, 0x0, 0x0, 0x0) = false
@@ -10601,7 +10788,7 @@ class CharacterRecord():
     passiveToolTip: (String, 0x0, 0x0, 0x0) = "Desc"
     areaIndicatorTextureName: (File, 0x0, 0x0, 0x0) = "0x0"
     areaIndicatorTargetDistance: (F32, 0x0, 0x0, 0x0) = 400.0
-    0xb189c89d: (U32, 0x0, 0x0, 0x0) = 473
+    0xb189c89d: (U32, 0x0, 0x0, 0x0) = 474
     healthBarFullParallax: (Bool, 0x0, 0x0, 0x0) = false
     deathTime: (F32, 0x0, 0x0, 0x0) = -1.0
     localGoldSplitWithLastHitter: (Bool, 0x0, 0x0, 0x0) = false
@@ -12332,7 +12519,13 @@ class DynamicsChainRigPoseModifierData(BaseRigPoseModifierData):
     DefaultOn: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
+class DynamicsJointPinningData():
+    PinRoot: (Bool, 0x0, 0x0, 0x0) = true
+    PinnedJointNames: (List2, 0x0, Hash, 0x0) = []
+    pass
+
 class DynamicsJointTreeData():
+    PinningData: (Embed, 0x0, 0x0, DynamicsJointPinningData) = {"PinRoot":true,"PinnedJointNames":[]}
     RootJointName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ExcludeJointNames: (List2, 0x0, Hash, 0x0) = []
     pass
@@ -12618,29 +12811,6 @@ class EnvMeshGeComponentDef(IGeComponentDef):
     pass
 
 class EnvironmentBakedLightingShadingModel(IEnvironmentShadingModel):
-    pass
-
-class EnvironmentEffectorBase():
-    Magnitude: (F32, 0x0, 0x0, 0x0)
-    DecayDuration: (F32, 0x0, 0x0, 0x0)
-    pass
-
-class EnvironmentEffectorBeam(EnvironmentEffectorBase):
-    Width: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
-class EnvironmentEffectorBurst(EnvironmentEffectorBase):
-    SpinFactor: (F32, 0x0, 0x0, 0x0) = 0.0
-    radius: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
-class EnvironmentEffectorMovement(EnvironmentEffectorBase):
-    radius: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
-class EnvironmentEffectorTrapezoid(EnvironmentEffectorBase):
-    TargetWidth: (F32, 0x0, 0x0, 0x0) = 0.0
-    OriginWidth: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class EnvironmentEntity(GameEntity):
@@ -13453,6 +13623,8 @@ class GameCalculation(IGameCalculation):
     mFormulaParts: (List, 0x0, Pointer, IGameCalculationPart) = []
     mDisplayAsPercent: (Bool, 0x0, 0x0, 0x0) = false
     mPrecision: (I32, 0x0, 0x0, 0x0) = 0
+    0xacc210ca: (Pointer, 0x0, 0x0, IGameCalculationPart) = null
+    0xbafc65c0: (Pointer, 0x0, 0x0, IGameCalculationPart) = null
     pass
 
 class GameCalculationConditional(IGameCalculation):
@@ -14080,7 +14252,9 @@ class HasUnitTagsCastRequirement(ICastRequirement):
     pass
 
 class HealthBarData():
+    0x2707b8af: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ExtraBars: (Pointer, 0x0, 0x0, HealthBarExtraBarsData) = null
+    0x2f9e7b78: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MaxHpPenaltyBar: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MaxHpPenaltyDivider: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Backdrop: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -14163,7 +14337,7 @@ class HeroFloatingInfoBarData(FloatingInfoBarData):
     Borders: (Embed, 0x0, 0x0, HeroFloatingInfoBorderData) = {"AdditionalStatusIcons":{},"DefaultBorder":{"AnimIn":"0x0","Highlight":"0x0","LevelBoxOverlayAlly":"0x0","LevelBoxOverlayEnemy":"0x0","LevelBoxOverlaySelf":"0x0","LevelBoxOverlaySelfColorblind":"0x0","border":"0x0"},"DefenseModifierIcons":null,"ExecutableBorder":null,"HasAttachedAllyBorder":null,"InvulnerableBorder":null,"LevelText":"0x0","LevelTextColorAlly":[255,255,255,255],"LevelTextColorEnemy":[255,255,255,255],"LevelTextColorSelf":[255,255,255,255],"LevelTextColorSelfColorblind":[255,255,255,255],"SpellShieldBorder":null}
     BurstFadeMeterSelf: (Hash, 0x0, 0x0, 0x0) = "0x0"
     BurstFadeMeterOther: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Healthbar: (Embed, 0x0, 0x0, HealthBarData) = {"Backdrop":"0x0","ExtraBars":null,"Frame":"0x0","Healthbar":{"AdditionalBarTypes":{},"DefaultBar":"0x0","DrainDirection":0,"MinDisplayPercentOverride":0.0},"IncomingDamageBar":"0x0","MaxHpPenaltyBar":"0x0","MaxHpPenaltyDivider":"0x0","TextData":null,"TickStyle":null,"fadeData":null}
+    Healthbar: (Embed, 0x0, 0x0, HealthBarData) = {"0x2707b8af":"0x0","0x2f9e7b78":"0x0","Backdrop":"0x0","ExtraBars":null,"Frame":"0x0","Healthbar":{"AdditionalBarTypes":{},"DefaultBar":"0x0","DrainDirection":0,"MinDisplayPercentOverride":0.0},"IncomingDamageBar":"0x0","MaxHpPenaltyBar":"0x0","MaxHpPenaltyDivider":"0x0","TextData":null,"TickStyle":null,"fadeData":null}
     ParBar: (Pointer, 0x0, 0x0, AbilityResourceBarData) = null
     CharacterStateIndicators: (Pointer, 0x0, 0x0, HeroFloatingInfoCharacterStateIndicatorData) = null
     DamageFlashMeter: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -14561,6 +14735,7 @@ class HudItemShopItemIconDefinition():
     OrnnFrame: (Hash, 0x0, 0x0, 0x0) = "0x0"
     RecentlyChangedIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MythicPurchaseableVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0x986a21eb: (Hash, 0x0, 0x0, 0x0) = "0x0"
     PurchaseableVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MythicFrameIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SelectedIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -14674,7 +14849,7 @@ class HudPlayerResourceBars():
     SarText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     HealthAnimatedMeterSkin: (Embed, 0x0, 0x0, UiElementMeterSkin) = {"BackdropElements":[],"BarElements":[],"ReverseDirectionalTipElements":[],"Sliver":"0x0","TipElements":[]}
     ParRegenText: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ParMeterData: (Embed, 0x0, 0x0, AbilityResourceBarData) = {"0x484b8029":"0x0","AbilityResourceBars":null,"Backdrop":"0x0","StandardTick":"0x0","UseAnimatedSkins":false,"ValueText":"0x0"}
+    ParMeterData: (Embed, 0x0, 0x0, AbilityResourceBarData) = {"0x2707b8af":"0x0","0x2f9e7b78":"0x0","0x484b8029":"0x0","AbilityResourceBars":null,"Backdrop":"0x0","StandardTick":"0x0","UseAnimatedSkins":false,"ValueText":"0x0"}
     HealthHitRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ArThresholdIndicator: (Pointer, 0x0, 0x0, HudAbilityResourceThresholdIndicator) = null
     HealthRegenText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -15306,6 +15481,9 @@ class IValueUpdateModifier():
 class IVectorGet():
     pass
 
+class IVfxAudioRuntime(IVfxRuntime):
+    pass
+
 class IVfxBaseDriver():
     pass
 
@@ -15905,6 +16083,7 @@ class ItemRecOverrideRange():
     pass
 
 class ItemRecommendationConfig(IGameModeConfig):
+    0x58aaeaa2: (List2, 0x0, Embed, 0xd7e0b882) = []
     0x99fa8da4: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
@@ -16403,18 +16582,18 @@ class ListenerConstraintInfo():
     pass
 
 class LiveFeatureToggles():
-    mLoLToggles: (Embed, 0x0, 0x0, LoLFeatureToggles) = {"0x1243f0b":false,"0x17fb5d01":false,"0x1db16466":false,"0x2094dd6e":false,"0x2cb137a3":false,"0x2da5d839":false,"0x30ba7188":false,"0x37874f7":false,"0x3eebe0a":true,"0x488bc114":false,"0x4ed93bd7":false,"0x51601c15":false,"0x54bd35c6":true,"0x5a0599c9":false,"0x5ac78357":false,"0x5adee452":false,"0x5b41032a":false,"0x5e414ebb":false,"0x5e7dec3f":false,"0x60db17b3":false,"0x625c69b3":false,"0x62aaa28f":true,"0x67b280d":false,"0x724bed8c":false,"0x791348b4":true,"0x79300d79":false,"0x80e296cb":false,"0x86df15e6":true,"0x898c0b97":false,"0x8ce38003":true,"0x8d1b31e9":false,"0x909e7d40":true,"0x96eee674":false,"0x9a0588ef":true,"0xa038e9b0":true,"0xa882cddf":false,"0xaa0fcb5":false,"0xab3d1e78":true,"0xaef3b874":true,"0xb059e275":false,"0xba3537aa":false,"0xbc0ba76a":true,"0xbe70d686":true,"0xc1a41d10":false,"0xc34957b2":false,"0xda2f1faf":false,"0xda3cd3c8":true,"0xda5b6e04":false,"0xe2213221":true,"0xe314b705":true,"0xe7bdcea6":true,"0xeb6a5659":false,"0xed1d15f0":true,"0xf306863":false,"0xf5d6cca4":false,"AllChatRemoved":false,"AutoItemPurchasingUsesNewRecData":false,"BbNewBlockOnly":true,"DefenseModifierIcons":true,"EnableUnitOrderHandler":false,"FixAccidentalAttackWhileSnared":true,"FixAttackMoveWhileSnared":true,"GetAcquisitionRangeUsesAttackRange":false,"ItemUndo":true,"LiveClientDataApi":true,"OmnivampStat":false,"PathControllerMessageSizeLimit":false,"PhysicalVampStat":false,"PromoController":false,"RegularUpdateClock":false,"SpellsCheckTheirAmmoRequirement":true,"TFTMatchupBanner":false,"TftEventPve":false,"TftLittleLegendEvolution":false,"TftPcItemPanel":false,"TftPcTeamPlanner":false,"TftRegularUpdateClock":false,"TftSocialModeRequestSystem":false,"TftUnrestrictedArenaCamera":false,"TftZoomSkin":false,"UseOverideAttackSpeedForAutoAttackTime":false,"closeOnEndGameAfterDelay":false}
+    mLoLToggles: (Embed, 0x0, 0x0, LoLFeatureToggles) = {"0x17fb5d01":false,"0x1db16466":false,"0x2094dd6e":false,"0x255d65d7":false,"0x2cb137a3":false,"0x2da5d839":false,"0x30ba7188":false,"0x37874f7":false,"0x3c3ecc32":false,"0x3eebe0a":true,"0x488bc114":false,"0x4ed93bd7":false,"0x51601c15":false,"0x5a0599c9":false,"0x5ac78357":false,"0x5adee452":false,"0x5b41032a":false,"0x5e414ebb":false,"0x5e7dec3f":false,"0x60db17b3":false,"0x625c69b3":false,"0x62aaa28f":true,"0x67b280d":false,"0x791348b4":true,"0x79300d79":false,"0x80e296cb":false,"0x86df15e6":true,"0x898c0b97":false,"0x8ce38003":true,"0x8d1b31e9":false,"0x909e7d40":true,"0x96eee674":false,"0x9a0588ef":true,"0x9af01b9b":false,"0x9fbd0dc6":false,"0xaa0fcb5":false,"0xab3d1e78":true,"0xaef3b874":true,"0xb059e275":false,"0xba3537aa":false,"0xbc0ba76a":true,"0xbe70d686":true,"0xc1a41d10":false,"0xc34957b2":false,"0xda2f1faf":false,"0xda3cd3c8":true,"0xda5b6e04":false,"0xe2213221":true,"0xe314b705":true,"0xe7bdcea6":true,"0xeb6a5659":false,"0xed1d15f0":true,"0xf306863":false,"0xf5d6cca4":false,"AllChatRemoved":false,"AutoItemPurchasingUsesNewRecData":false,"BbNewBlockOnly":true,"DefenseModifierIcons":true,"EnableUnitOrderHandler":false,"FixAccidentalAttackWhileSnared":true,"FixAttackMoveWhileSnared":true,"GetAcquisitionRangeUsesAttackRange":false,"ItemUndo":true,"LiveClientDataApi":true,"OmnivampStat":false,"PathControllerMessageSizeLimit":false,"PhysicalVampStat":false,"PromoController":false,"RegularUpdateClock":false,"SpellsCheckTheirAmmoRequirement":true,"TFTMatchupBanner":false,"TftEventPve":false,"TftLittleLegendEvolution":false,"TftPcItemPanel":false,"TftPcTeamPlanner":false,"TftRegularUpdateClock":false,"TftSocialModeRequestSystem":false,"TftUnrestrictedArenaCamera":false,"TftZoomSkin":false,"UseOverideAttackSpeedForAutoAttackTime":false,"closeOnEndGameAfterDelay":false}
     mGameplayToggles: (Embed, 0x0, 0x0, GameplayFeatureToggles) = {"fowCastRayAccurate":false}
     pass
 
 class LoLFeatureToggles():
-    0x1243f0b: (Bool, 0x0, 0x0, 0x0) = false
     PromoController: (Bool, 0x0, 0x0, 0x0) = false
     0x17fb5d01: (Bool, 0x0, 0x0, 0x0) = false
     AllChatRemoved: (Bool, 0x0, 0x0, 0x0) = false
     EnableUnitOrderHandler: (Bool, 0x0, 0x0, 0x0) = false
     0x1db16466: (Bool, 0x0, 0x0, 0x0) = false
     0x2094dd6e: (Bool, 0x0, 0x0, 0x0) = false
+    0x255d65d7: (Bool, 0x0, 0x0, 0x0) = false
     TftSocialModeRequestSystem: (Bool, 0x0, 0x0, 0x0) = false
     TftLittleLegendEvolution: (Bool, 0x0, 0x0, 0x0) = false
     TftZoomSkin: (Bool, 0x0, 0x0, 0x0) = false
@@ -16424,6 +16603,7 @@ class LoLFeatureToggles():
     0x30ba7188: (Bool, 0x0, 0x0, 0x0) = false
     PathControllerMessageSizeLimit: (Bool, 0x0, 0x0, 0x0) = false
     0x37874f7: (Bool, 0x0, 0x0, 0x0) = false
+    0x3c3ecc32: (Bool, 0x0, 0x0, 0x0) = false
     AutoItemPurchasingUsesNewRecData: (Bool, 0x0, 0x0, 0x0) = false
     0x3eebe0a: (Bool, 0x0, 0x0, 0x0) = true
     FixAttackMoveWhileSnared: (Bool, 0x0, 0x0, 0x0) = true
@@ -16432,7 +16612,6 @@ class LoLFeatureToggles():
     0x4ed93bd7: (Bool, 0x0, 0x0, 0x0) = false
     0x51601c15: (Bool, 0x0, 0x0, 0x0) = false
     DefenseModifierIcons: (Bool, 0x0, 0x0, 0x0) = true
-    0x54bd35c6: (Bool, 0x0, 0x0, 0x0) = true
     TftPcItemPanel: (Bool, 0x0, 0x0, 0x0) = false
     0x5a0599c9: (Bool, 0x0, 0x0, 0x0) = false
     0x5ac78357: (Bool, 0x0, 0x0, 0x0) = false
@@ -16445,7 +16624,6 @@ class LoLFeatureToggles():
     0x62aaa28f: (Bool, 0x0, 0x0, 0x0) = true
     0x67b280d: (Bool, 0x0, 0x0, 0x0) = false
     TFTMatchupBanner: (Bool, 0x0, 0x0, 0x0) = false
-    0x724bed8c: (Bool, 0x0, 0x0, 0x0) = false
     0x791348b4: (Bool, 0x0, 0x0, 0x0) = true
     0x79300d79: (Bool, 0x0, 0x0, 0x0) = false
     RegularUpdateClock: (Bool, 0x0, 0x0, 0x0) = false
@@ -16459,10 +16637,10 @@ class LoLFeatureToggles():
     0x909e7d40: (Bool, 0x0, 0x0, 0x0) = true
     0x96eee674: (Bool, 0x0, 0x0, 0x0) = false
     0x9a0588ef: (Bool, 0x0, 0x0, 0x0) = true
+    0x9af01b9b: (Bool, 0x0, 0x0, 0x0) = false
     OmnivampStat: (Bool, 0x0, 0x0, 0x0) = false
-    0xa038e9b0: (Bool, 0x0, 0x0, 0x0) = true
+    0x9fbd0dc6: (Bool, 0x0, 0x0, 0x0) = false
     BbNewBlockOnly: (Bool, 0x0, 0x0, 0x0) = true
-    0xa882cddf: (Bool, 0x0, 0x0, 0x0) = false
     0xaa0fcb5: (Bool, 0x0, 0x0, 0x0) = false
     0xab3d1e78: (Bool, 0x0, 0x0, 0x0) = true
     0xaef3b874: (Bool, 0x0, 0x0, 0x0) = true
@@ -16548,21 +16726,13 @@ class LoadingScreenBackgroundGameModeConfig(IGameModeConfigClient):
     pass
 
 class LoadingScreenBasicViewController(ViewController):
-    0x15327f96: (U8, 0x0, 0x0, 0x0) = 2
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x419ca81b: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Version: (Embed, 0x0, 0x0, VersionString) = {"VersionText":"0x0"}
-    Background: (Embed, 0x0, 0x0, LoadingScreenGameModeBackground) = {"Background":"0x0"}
+    Background: (Embed, 0x0, 0x0, LoadingScreenGameModeBackground) = {"0x4266fe65":"0x0","Background":"0x0","ToggleButton":"0x0"}
     Tips: (Embed, 0x0, 0x0, LoadingScreenTips) = {"CondensedTipIcon":"0x0","TipBodyText":"0x0"}
-    0x6b6df254: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x742dcb7c: (Hash, 0x0, 0x0, 0x0) = "0x0"
     VietnameseRatingLabel: (Embed, 0x0, 0x0, UiMetricVietnameseRatingLabel) = {"DeviceUx":0,"Label":"0x0"}
-    VoiceChatButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ProgressMeter: (Embed, 0x0, 0x0, LoadingScreenProgressMeter) = {"Meter":"0x0","Text":"0x0"}
-    0xb4c253c5: (Bool, 0x0, 0x0, 0x0) = false
-    0xc8988c8d: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Latency: (Embed, 0x0, 0x0, LoadingScreenLatency) = {"Text":"0x0","Thresholds":[]}
-    0xfcb3c626: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class LoadingScreenChallengeTokenData():
@@ -16620,7 +16790,9 @@ class LoadingScreenEmblemData():
     pass
 
 class LoadingScreenGameModeBackground():
+    0x4266fe65: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Background: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ToggleButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class LoadingScreenHonorFlairData():
@@ -16656,9 +16828,13 @@ class LoadingScreenPlayerCardClassicData(LoadingScreenPlayerCardBaseData):
     Regalia: (Embed, 0x0, 0x0, LoadingScreenRegaliaData) = {"Addons":["0x0","0x0","0x0"],"BannerFlag":"0x0","BannerTrim":"0x0","CrestTier":[],"LoadingScreenRegaliaflags":0,"PrestigeCrestBase":"0x0","RankedCrestBase":"0x0","RankedRegaliaLevelText":"0x0","SummonerLevelText":"0x0"}
     SummonerTitle: (Embed, 0x0, 0x0, LoadingScreenSummonerTitleData) = {"LocalPlayerTitleColor":[10,190,250,255],"OtherPlayerTitleColor":[210,230,240,255],"SummonerTitle":[]}
     RankedFrames: (Link, 0x0, 0x0, LoadingScreenRankedFrames) = "0x0"
+    0x9b8b0a53: (Embed, 0x0, 0x0, 0x35b6fecc) = {"0x2ee1834e":[],"0x843019b6":[],"0x8894a0de":[],"0xc1fb53e3":[]}
     PortraitOverlay: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Perks: (List, 0x2, Embed, LoadingScreenPlayerCardClassicSpellData) = [{"Frame":"0x0","Icon":"0x0"},{"Frame":"0x0","Icon":"0x0"}]
     Challenges: (Embed, 0x0, 0x0, LoadingScreenChallengesData) = {"ChallengeBorderCrystalsData":{},"ChallengeCrystalsData":{},"ChallengeTokenData":{"ChallengeTokenCapstoneIcon":"0x0","ChallengeTokenGroup":"0x0","ChallengeTokenHitRegion":"0x0","ChallengeTokenIcon":"0x0"},"ChallengesTokenLayout":"0x0","SummonerChallengeBorderCrystal":[],"SummonerChallengeCrystal":[]}
+    0xdf32cedd: (Option, 0x0, Color, 0x0) = null
+    0xe3807c6d: (Option, 0x0, Color, 0x0) = null
+    0xe3f5e246: (Hash, 0x0, 0x0, 0x0) = "0x0"
     CharacterSplash: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SummonerName: (Embed, 0x0, 0x0, LoadingScreenSummonerNameData) = {"LocalPlayerNameColor":[10,190,250,255],"OtherPlayerNameColor":[210,230,240,255],"SummonerName":[]}
     SummonerSpells: (List, 0x2, Embed, LoadingScreenPlayerCardClassicSpellData) = [{"Frame":"0x0","Icon":"0x0"},{"Frame":"0x0","Icon":"0x0"}]
@@ -17886,7 +18062,7 @@ class MapLocatorArray():
     pass
 
 class MapMaterialSwap():
-    Swaps: (Map, String, Link, StaticMaterialDef) = {}
+    Swaps: (Map, Hash, Link, StaticMaterialDef) = {}
     pass
 
 class MapMinimap(MapComponent):
@@ -18010,10 +18186,11 @@ class MapQualityLodComponent(MapComponent):
     pass
 
 class MapSSAO(MapGraphicsFeature):
-    MapSSAORenderer: (Embed, 0x0, 0x0, MapSSAORenderer) = {"settings":{"0x6509d993":true,"0x880f515d":0,"Bias":3.0,"BufferScale":0.5,"SampleQuality":0,"SampleRadius":25.0,"intensity":1.0,"power":1.0}}
+    MapSSAORenderer: (Embed, 0x0, 0x0, MapSSAORenderer) = {"0x442d3d6f":{},"settings":{"0x6509d993":true,"0x880f515d":0,"Bias":3.0,"BufferScale":0.5,"SampleQuality":0,"SampleRadius":25.0,"intensity":1.0,"power":1.0}}
     pass
 
 class MapSSAORenderer():
+    0x442d3d6f: (Map, U8, Embed, MapSSAOSettings) = {}
     settings: (Embed, 0x0, 0x0, MapSSAOSettings) = {"0x6509d993":true,"0x880f515d":0,"Bias":3.0,"BufferScale":0.5,"SampleQuality":0,"SampleRadius":25.0,"intensity":1.0,"power":1.0}
     pass
 
@@ -18299,7 +18476,7 @@ class MeshHelperDef():
     MeshPath: (String, 0x0, 0x0, 0x0) = ""
     RenderPass: (U8, 0x0, 0x0, 0x0) = 0
     quality: (U8, 0x0, 0x0, 0x0) = 31
-    MaterialMapping: (Map, String, Link, IMaterialDef) = {}
+    MaterialMapping: (Map, Hash, Link, IMaterialDef) = {}
     pass
 
 class MessageBoxDialog(ModalDialogViewController):
@@ -18861,12 +19038,12 @@ class MusicAudioDataProperties():
 
 class MusicProfile(IGameModeConfig):
     objectPath: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ChampionMusicEvents: (Embed, 0x0, 0x0, ChampionMusicEvents) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0"}
+    ChampionMusicEvents: (Embed, 0x0, 0x0, ChampionMusicEvents) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xc0a99193":"0x0","0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0","VoidGatorKill":"0x0","VoidGatorSteal":"0x0"}
     0x4249f0a2: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     MusicQueueConfigs: (Embed, 0x0, 0x0, AudioQueueConfigList) = {"queues":[]}
     0x93c1d30: (String, 0x0, 0x0, 0x0) = ""
     0xb01bdea6: (F32, 0x0, 0x0, 0x0) = 0.0
-    ThemeMusicEvents: (Embed, 0x0, 0x0, ThemeMusicEvents) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0"}
+    ThemeMusicEvents: (Embed, 0x0, 0x0, ThemeMusicEvents) = {"0x6a4fa98c":"0x0","0xba9bae76":[],"0xc0a99193":"0x0","0xd0cc4924":"0x0","Aced":"0x0","BaronKill":"0x0","BaronSolo":"0x0","BaronSpawn":"0x0","BaronSteal":"0x0","BountyEnded":"0x0","BountyStarting":"0x0","ChampionExecuted":"0x0","ChampionKill":"0x0","ChampionShutdown":"0x0","DragonKill":"0x0","DragonSolo":"0x0","DragonSteal":"0x0","ElderDragonKill":"0x0","ElderDragonSolo":"0x0","ElderDragonSteal":"0x0","ElderSpawn":"0x0","FirstBlood":"0x0","GameEnd":"0x0","GameStart":"0x0","GrubsKill":"0x0","GrubsSolo":"0x0","GrubsStolen":"0x0","InhibitorKill":"0x0","InhibitorRespawn":"0x0","InhibitorRespawnSoon":"0x0","KillingSpree":"0x0","MinionsSpawn":"0x0","MultiKill":"0x0","PentaKill":"0x0","PlayerDisconnect":"0x0","PlayerReconnect":"0x0","Respawn":"0x0","RiftHeraldKill":"0x0","RiftHeraldSolo":"0x0","RiftHeraldSpawn":"0x0","RiftHeraldSteal":"0x0","TowerKill":"0x0","VoidGatorKill":"0x0","VoidGatorSteal":"0x0"}
     0xdea83ccf: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
@@ -20104,7 +20281,7 @@ class Perk(BasePerk):
 
 class PerkBuff():
     mBuffScriptName: (String, 0x0, 0x0, 0x0) = ""
-    mBuffSpellObject: (Embed, 0x0, 0x0, SpellObject) = {"0x34cdd819":"","BotData":null,"CcBehaviorData":null,"ObjectName":"","Script":"0x0","mBuff":null,"mScriptName":"","mSpell":null,"objectPath":"0x0"}
+    mBuffSpellObject: (Embed, 0x0, 0x0, SpellObject) = {"0x34cdd819":"","AdditionalData":[],"BotData":null,"CcBehaviorData":null,"ObjectName":"","Script":"0x0","mBuff":null,"mScriptName":"","mSpell":null,"objectPath":"0x0"}
     pass
 
 class PerkConfig():
@@ -20173,6 +20350,7 @@ class PerkSubStyleBonus():
     pass
 
 class PersistentEffectConditionData():
+    0x1d59904c: (List2, 0x0, Embed, PersistentVfxData) = []
     OwnerCondition: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
     PersistentVfxs: (List2, 0x0, Embed, PersistentVfxData) = []
     SourceCondition: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
@@ -20201,6 +20379,7 @@ class PersistentVfxData():
     targetBoneName: (String, 0x0, 0x0, 0x0) = ""
     PlaySpeedModifierLogicDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     OrientTowardsTarget: (Bool, 0x0, 0x0, 0x0) = false
+    0xfb3d9477: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class PhysicsMovement(MissileMovementSpec):
@@ -20352,7 +20531,7 @@ class PlayerAugmentsViewController(PlayerStatsPanelViewController):
 
 class PlayerFrameViewController(ViewController):
     StatPagesData: (List2, 0x0, Embed, StatPageEntryData) = []
-    ResourceBars: (Embed, 0x0, 0x0, HudPlayerResourceBars) = {"ArThresholdIndicator":null,"ExperienceBar":"0x0","ExperienceHitRegion":"0x0","HealthAnimatedMeterSkin":{"BackdropElements":[],"BarElements":[],"ReverseDirectionalTipElements":[],"Sliver":"0x0","TipElements":[]},"HealthHitRegion":"0x0","HealthMeter":{"FadeBar":"0x0","Meter":"0x0","ValueText":"0x0","fadeSpeed":0.5},"HealthRegenText":"0x0","ParHitRegion":"0x0","ParMeterData":{"0x484b8029":"0x0","AbilityResourceBars":null,"Backdrop":"0x0","StandardTick":"0x0","UseAnimatedSkins":false,"ValueText":"0x0"},"ParRegenText":"0x0","SarText":"0x0"}
+    ResourceBars: (Embed, 0x0, 0x0, HudPlayerResourceBars) = {"ArThresholdIndicator":null,"ExperienceBar":"0x0","ExperienceHitRegion":"0x0","HealthAnimatedMeterSkin":{"BackdropElements":[],"BarElements":[],"ReverseDirectionalTipElements":[],"Sliver":"0x0","TipElements":[]},"HealthHitRegion":"0x0","HealthMeter":{"FadeBar":"0x0","Meter":"0x0","ValueText":"0x0","fadeSpeed":0.5},"HealthRegenText":"0x0","ParHitRegion":"0x0","ParMeterData":{"0x2707b8af":"0x0","0x2f9e7b78":"0x0","0x484b8029":"0x0","AbilityResourceBars":null,"Backdrop":"0x0","StandardTick":"0x0","UseAnimatedSkins":false,"ValueText":"0x0"},"ParRegenText":"0x0","SarText":"0x0"}
     StatusMessage: (Hash, 0x0, 0x0, 0x0) = "0x0"
     PlayerBuffsScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DrawAreaList: (Embed, 0x0, 0x0, DrawAreaList) = {"DrawRegions":[]}
@@ -20470,6 +20649,7 @@ class PlayerReportViewController(ViewController):
     ReportIntentionalFeedingButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DragRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ReportOffensiveNameButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    0xf34a6d72: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class PlayerStatStonesViewController(PlayerStatsPanelViewController):
@@ -22535,6 +22715,7 @@ class SkinCharacterDataProperties():
     uncensoredIconCircles: (Map, Hash, File, 0x0) = {}
     skinAudioProperties: (Embed, 0x0, 0x0, SkinAudioProperties) = {"PlaysVo":true,"bankUnits":[],"tagEventList":[]}
     metaDataTags: (String, 0x0, 0x0, 0x0) = ""
+    0x957f2fcc: (String, 0x0, 0x0, 0x0) = ""
     loadscreen: (Embed, 0x0, 0x0, CensoredImage) = {"UncensoredImages":{},"image":"0x0"}
     0x9cf5d363: (String, 0x0, 0x0, 0x0) = ""
     uncensoredIconSquares: (Map, Hash, File, 0x0) = {}
@@ -23098,6 +23279,7 @@ class SpellObject(0x30e9338e, IDataValueSource):
     0x34cdd819: (String, 0x0, 0x0, 0x0) = ""
     BotData: (Pointer, 0x0, 0x0, BotsSpellData) = null
     mSpell: (Pointer, 0x0, 0x0, SpellDataResource) = null
+    AdditionalData: (List2, 0x0, Hash, 0x0) = []
     mBuff: (Pointer, 0x0, 0x0, BuffData) = null
     mScriptName: (String, 0x0, 0x0, 0x0) = ""
     ObjectName: (String, 0x0, 0x0, 0x0) = ""
@@ -23343,14 +23525,14 @@ class StatStoneData(BaseLoadoutData):
     EpicStatStone: (Bool, 0x0, 0x0, 0x0) = false
     stoneName: (String, 0x0, 0x0, 0x0) = ""
     TriggeredFromScript: (Bool, 0x0, 0x0, 0x0) = false
-    EventsToTrack: (List, 0x0, Embed, StatStoneEventToTrack) = [{"EventToTrack":473,"StatFilters":[]}]
+    EventsToTrack: (List, 0x0, Embed, StatStoneEventToTrack) = [{"EventToTrack":474,"StatFilters":[]}]
     DataCollectionOnly: (Bool, 0x0, 0x0, 0x0) = false
     category: (Link, 0x0, 0x0, StatStoneCategory) = "0x0"
     MilestoneForHalfLitImage: (U32, 0x0, 0x0, 0x0) = 3
     pass
 
 class StatStoneEventToTrack():
-    EventToTrack: (U32, 0x0, 0x0, 0x0) = 473
+    EventToTrack: (U32, 0x0, 0x0, 0x0) = 474
     StatFilters: (List, 0x0, Pointer, IStatStoneLogicDriver) = []
     pass
 
@@ -23465,7 +23647,7 @@ class StaticMaterialDef(IResource, IMaterialDef):
     SharedTextureSets: (List, 0x0, Embed, StaticMaterialSharedTextureDef) = []
     techniques: (List, 0x0, Embed, StaticMaterialTechniqueDef) = []
     dynamicMaterial: (Pointer, 0x0, 0x0, DynamicMaterialDef) = null
-    name: (String, 0x0, 0x0, 0x0) = ""
+    name: (Hash, 0x0, 0x0, 0x0) = "0x0"
     childTechniques: (List, 0x0, Embed, StaticMaterialChildTechniqueDef) = []
     samplerValues: (List2, 0x0, Embed, StaticMaterialShaderSamplerDef) = []
     paramValues: (List2, 0x0, Embed, StaticMaterialShaderParamDef) = []
@@ -24808,7 +24990,7 @@ class TargetFrameViewController(ViewController):
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     LevelData: (Embed, 0x0, 0x0, UnitLevelUiData) = {"LevelText":"0x0"}
     Portrait: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ParBarData: (Embed, 0x0, 0x0, AbilityResourceBarData) = {"0x484b8029":"0x0","AbilityResourceBars":null,"Backdrop":"0x0","StandardTick":"0x0","UseAnimatedSkins":false,"ValueText":"0x0"}
+    ParBarData: (Embed, 0x0, 0x0, AbilityResourceBarData) = {"0x2707b8af":"0x0","0x2f9e7b78":"0x0","0x484b8029":"0x0","AbilityResourceBars":null,"Backdrop":"0x0","StandardTick":"0x0","UseAnimatedSkins":false,"ValueText":"0x0"}
     DrawAreaList: (Embed, 0x0, 0x0, DrawAreaList) = {"DrawRegions":[]}
     AugmentSlots: (Pointer, 0x0, 0x0, 0xfc331f53) = null
     NegativeBuffs: (Embed, 0x0, 0x0, BuffDisplayList) = {"BuffDisplayTemplate":{"CooldownFx":"0x0","Group":"0x0","HitRegion":"0x0","Icon":"0x0","IconBorderNegative":"0x0","IconBorderPositive":"0x0","StacksText":"0x0"},"Layout":"0x0","MaxBuffDisplayCount":5}
@@ -27634,14 +27816,14 @@ class TftUnitInfoViewController(ViewController):
     PositioningIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ParRegenText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ChampInspectVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ParBarData: (Embed, 0x0, 0x0, AbilityResourceBarData) = {"0x484b8029":"0x0","AbilityResourceBars":null,"Backdrop":"0x0","StandardTick":"0x0","UseAnimatedSkins":false,"ValueText":"0x0"}
+    ParBarData: (Embed, 0x0, 0x0, AbilityResourceBarData) = {"0x2707b8af":"0x0","0x2f9e7b78":"0x0","0x484b8029":"0x0","AbilityResourceBars":null,"Backdrop":"0x0","StandardTick":"0x0","UseAnimatedSkins":false,"ValueText":"0x0"}
     items: (List, 0x3, Embed, TftUnitInfoItemDisplayData) = [{"Button":"0x0","Icon":"0x0"},{"Button":"0x0","Icon":"0x0"},{"Button":"0x0","Icon":"0x0"}]
     UnitName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     StatTooltipUpperRightAnchor: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SellUnitButtonTextTra: (String, 0x0, 0x0, 0x0) = ""
     RangeButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x517ee83f: (List2, 0x0, Embed, 0x629f5938) = []
-    healthBarData: (Embed, 0x0, 0x0, HealthBarData) = {"Backdrop":"0x0","ExtraBars":null,"Frame":"0x0","Healthbar":{"AdditionalBarTypes":{},"DefaultBar":"0x0","DrainDirection":0,"MinDisplayPercentOverride":0.0},"IncomingDamageBar":"0x0","MaxHpPenaltyBar":"0x0","MaxHpPenaltyDivider":"0x0","TextData":null,"TickStyle":null,"fadeData":null}
+    healthBarData: (Embed, 0x0, 0x0, HealthBarData) = {"0x2707b8af":"0x0","0x2f9e7b78":"0x0","Backdrop":"0x0","ExtraBars":null,"Frame":"0x0","Healthbar":{"AdditionalBarTypes":{},"DefaultBar":"0x0","DrainDirection":0,"MinDisplayPercentOverride":0.0},"IncomingDamageBar":"0x0","MaxHpPenaltyBar":"0x0","MaxHpPenaltyDivider":"0x0","TextData":null,"TickStyle":null,"fadeData":null}
     RangeTextTra: (String, 0x0, 0x0, 0x0) = ""
     AbilityTooltipUpperRightAnchor: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MobileOverrideLoadable: (Link, 0x0, 0x0, UiPropertyOverrideLoadable) = "0x0"
@@ -27863,6 +28045,7 @@ class ThemeMusicEventTypeGeneric(ThemeMusicEventTypeConcrete):
 class ThemeMusicEvents():
     RiftHeraldSteal: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     BaronKill: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
+    VoidGatorSteal: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     DragonKill: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     Aced: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     ChampionExecuted: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
@@ -27876,6 +28059,7 @@ class ThemeMusicEvents():
     ElderSpawn: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     PentaKill: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     ChampionKill: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
+    VoidGatorKill: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     ElderDragonSteal: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     GameEnd: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     InhibitorKill: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
@@ -27894,6 +28078,7 @@ class ThemeMusicEvents():
     DragonSolo: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     0xba9bae76: (List2, 0x0, Embed, 0x9c085077) = []
     KillingSpree: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
+    0xc0a99193: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     PlayerDisconnect: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     0xd0cc4924: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
     BountyEnded: (Link, 0x0, 0x0, ThemeMusicEvent) = "0x0"
@@ -29282,7 +29467,7 @@ class UnitFloatingInfoBarData(FloatingInfoBarData):
     ObjectiveBountyEnemy: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DeathAnimEnemy: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Execute: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Healthbar: (Embed, 0x0, 0x0, HealthBarData) = {"Backdrop":"0x0","ExtraBars":null,"Frame":"0x0","Healthbar":{"AdditionalBarTypes":{},"DefaultBar":"0x0","DrainDirection":0,"MinDisplayPercentOverride":0.0},"IncomingDamageBar":"0x0","MaxHpPenaltyBar":"0x0","MaxHpPenaltyDivider":"0x0","TextData":null,"TickStyle":null,"fadeData":null}
+    Healthbar: (Embed, 0x0, 0x0, HealthBarData) = {"0x2707b8af":"0x0","0x2f9e7b78":"0x0","Backdrop":"0x0","ExtraBars":null,"Frame":"0x0","Healthbar":{"AdditionalBarTypes":{},"DefaultBar":"0x0","DrainDirection":0,"MinDisplayPercentOverride":0.0},"IncomingDamageBar":"0x0","MaxHpPenaltyBar":"0x0","MaxHpPenaltyDivider":"0x0","TextData":null,"TickStyle":null,"fadeData":null}
     ParBar: (Pointer, 0x0, 0x0, AbilityResourceBarData) = null
     ExecuteBar: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DamagePrediction: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -29590,6 +29775,23 @@ class VfxAssetRemap():
     newAsset: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class VfxAudioComponent(VfxAudioComponentBase):
+    AudioCues: (List2, 0x0, Embed, VfxAudioCue) = []
+    pass
+
+class VfxAudioComponentBase(VfxComponentBase):
+    pass
+
+class VfxAudioCue():
+    type: (U8, 0x0, 0x0, 0x0) = 0
+    LifetimeBehavior: (U8, 0x0, 0x0, 0x0) = 0
+    Attachment: (U8, 0x0, 0x0, 0x0) = 0
+    sound: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class VfxAudioRuntime(IVfxAudioRuntime):
+    pass
+
 class VfxBeamBaseDefinitionData():
     mLocalSpaceTargetOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     mLocalSpaceSourceOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
@@ -29602,6 +29804,13 @@ class VfxBeamDefinitionData(VfxBeamBaseDefinitionData):
     mIsColorBindedWithDistance: (Bool, 0x0, 0x0, 0x0) = false
     mMode: (U8, 0x0, 0x0, 0x0) = 0
     mAnimatedColorWithDistance: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}
+    pass
+
+class VfxBeamEffectorComponentData(VfxEffectorComponentData):
+    Width: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    pass
+
+class VfxBeamEffectorComponentRuntime(VfxEffectorComponentRuntime):
     pass
 
 class VfxBreakVector2ToFloatsDriver(IVfxVector2Driver):
@@ -29625,6 +29834,14 @@ class VfxBreakVector4ToFloatsDriver(IVfxVector4Driver):
 class VfxBreakVector4ToVector2sDriver(IVfxVector4Driver):
     xy: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
     Zw: (Pointer, 0x0, 0x0, IVfxVector2Driver) = null
+    pass
+
+class VfxBurstEffectorComponentData(VfxEffectorComponentData):
+    SpinFactor: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    radius: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    pass
+
+class VfxBurstEffectorComponentRuntime(VfxEffectorComponentRuntime):
     pass
 
 class VfxBurstSpawn(VfxSpawnBehavior):
@@ -29813,13 +30030,22 @@ class VfxDynamicParametersData():
     0x1dcc5270: (List2, 0x0, Embed, 0xd5c9eb1) = []
     pass
 
-class VfxEffectorDefinition():
-    EffectorData: (Link, 0x0, 0x0, EnvironmentEffectorBase) = "0x0"
-    0x608eac63: (Bool, 0x0, 0x0, 0x0) = false
+class VfxEffectorComponent(VfxComponentBase):
+    EffectorData: (Pointer, 0x0, 0x0, VfxEffectorComponentData) = null
+    pass
+
+class VfxEffectorComponentData():
+    Magnitude: (Embed, 0x0, 0x0, VfxFloatDynamicProperty)
+    DecayDuration: (F32, 0x0, 0x0, 0x0)
+    UseFirstParticlePosition: (Bool, 0x0, 0x0, 0x0)
+    UpdateMode: (U8, 0x0, 0x0, 0x0)
+    pass
+
+class VfxEffectorComponentRuntime(IVfxRuntime):
     pass
 
 class VfxEmbeddedMaterial(VfxMaterialContainer):
-    Material: (Embed, 0x0, 0x0, StaticMaterialDef) = {"SharedTextureSets":[],"childTechniques":[],"dynamicMaterial":null,"name":"","paramValues":[],"samplerValues":[],"shaderMacros":{},"switches":[],"techniques":[],"type":1}
+    Material: (Embed, 0x0, 0x0, StaticMaterialDef) = {"SharedTextureSets":[],"childTechniques":[],"dynamicMaterial":null,"name":"0x0","paramValues":[],"samplerValues":[],"shaderMacros":{},"switches":[],"techniques":[],"type":1}
     pass
 
 class VfxEmissionBox(IVfxEmissionSource):
@@ -30222,6 +30448,7 @@ class VfxLegacyLifetimeComponent(VfxLifetimeComponentBase):
     timeBeforeFirstEmission: (F32, 0x0, 0x0, 0x0) = 0.0
     particleLinger: (Option, 0x0, F32, 0x0) = null
     particleLifetime: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":3.0,"dynamics":null}
+    0x2f61e63c: (Embed, 0x0, 0x0, 0x54a1b7a6) = {"0x372a116d":20,"0x5a47a861":100,"High":100,"Low":40,"medium":60}
     EmitterLifetime: (Option, 0x0, F32, 0x0) = null
     particleLingerType: (U8, 0x0, 0x0, 0x0) = 0
     emitterLinger: (Option, 0x0, F32, 0x0) = null
@@ -30359,6 +30586,7 @@ class VfxLengthVector3Driver(IVfxFloatDriver):
 
 class VfxLifetimeComponent(VfxLifetimeComponentBase):
     SpawnBehavior: (Pointer, 0x0, 0x0, VfxSpawnBehavior) = {}
+    0x2f61e63c: (Embed, 0x0, 0x0, 0x54a1b7a6) = {"0x372a116d":20,"0x5a47a861":100,"High":100,"Low":40,"medium":60}
     LifetimeBehavior: (Pointer, 0x0, 0x0, 0x709be6c3) = {}
     pass
 
@@ -30373,6 +30601,9 @@ class VfxLightComponent(VfxComponentBase):
     Impacts: (U8, 0x0, 0x0, 0x0) = 3
     radius: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     LightChannels: (U8, 0x0, 0x0, 0x0) = 1
+    pass
+
+class VfxLightComponentRuntime(IVfxRuntime):
     pass
 
 class VfxLingerDefinitionData():
@@ -30481,6 +30712,13 @@ class VfxModularPhysicsComponent(VfxPhysicsComponentBase):
     0xb5d23158: (U8, 0x0, 0x0, 0x0) = 1
     0xb95926b1: (Flag, 0x0, 0x0, 0x0) = false
     0xf35c764c: (Flag, 0x0, 0x0, 0x0) = true
+    pass
+
+class VfxMovementEffectorComponentData(VfxEffectorComponentData):
+    radius: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    pass
+
+class VfxMovementEffectorComponentRuntime(VfxEffectorComponentRuntime):
     pass
 
 class VfxMultiplyFloatDriver(IVfxFloatDriver):
@@ -30784,7 +31022,6 @@ class VfxShimmerEmitterDefinitionData():
     isUniformScale: (Bool, 0x0, 0x0, 0x0) = false
     emitterName: (String, 0x0, 0x0, 0x0) = ""
     colorblindVisibility: (U8, 0x0, 0x0, 0x0) = 0
-    importance: (U8, 0x0, 0x0, 0x0) = 2
     ParticleScale: (Vec3, 0x0, 0x0, 0x0) = [1.0,1.0,1.0]
     ChanceToNotExist: (F32, 0x0, 0x0, 0x0) = 0.0
     Filtering: (Pointer, 0x0, 0x0, VfxEmitterFiltering) = null
@@ -30870,7 +31107,6 @@ class VfxSystemDefinitionData(IResource):
     drawingLayer: (U8, 0x0, 0x0, 0x0) = 0
     mIsPoseAfterimage: (Bool, 0x0, 0x0, 0x0) = false
     assetRemappingTable: (List, 0x0, Embed, VfxAssetRemap) = []
-    EffectorDefinition: (Pointer, 0x0, 0x0, VfxEffectorDefinition) = null
     hudAnchorPositionFromWorldProjection: (Bool, 0x0, 0x0, 0x0) = true
     voiceOverPersistentDefault: (String, 0x0, 0x0, 0x0) = ""
     soundOnCreateDefault: (String, 0x0, 0x0, 0x0) = ""
@@ -30912,6 +31148,14 @@ class VfxTrailDefinitionData():
     mMode: (U8, 0x0, 0x0, 0x0) = 0
     mSmoothingMode: (U8, 0x0, 0x0, 0x0) = 0
     mCutoff: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class VfxTrapezoidEffectorComponentData(VfxEffectorComponentData):
+    TargetWidth: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    OriginWidth: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    pass
+
+class VfxTrapezoidEffectorComponentRuntime(VfxEffectorComponentRuntime):
     pass
 
 class VfxUniformRangedRandomDriver(IVfxFloatDriver):
@@ -31185,7 +31429,6 @@ class WasdMoveOrderData(IGameModeConfig):
     AlwaysStopOrder: (Bool, 0x0, 0x0, 0x0) = true
     0x3dde71ba: (Bool, 0x0, 0x0, 0x0) = true
     WallSlideSearchMinForwardDist: (F32, 0x0, 0x0, 0x0) = 50.0
-    0x43bf3213: (Option, 0x0, F32, 0x0) = null
     0x43f8c271: (Bool, 0x0, 0x0, 0x0) = false
     StopMovementAngleDeg: (F32, 0x0, 0x0, 0x0) = 45.0
     0x497e6121: (Bool, 0x0, 0x0, 0x0) = true

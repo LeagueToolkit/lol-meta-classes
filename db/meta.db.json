@@ -612,7 +612,7 @@
  "0x55d517a": {"name":"mSubRequirements","revisions":[{"from":5229820,"type":["List","0x0","Pointer","0x5c71eb26"],"default":[]}]},
  "0x2581ca46": {"name":"mSuccessesRequired","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x2ae7663": {"revisions": [{"from":7695709,"to":7915903,"bases":["0x69cd83da","0x729df20b","0xb041c60a"],"interface":false,"value":false},{"from":7996036,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
+"0x2ae7663": {"name": "UiVariableFloat", "revisions": [{"from":7695709,"to":7915903,"bases":["0x69cd83da","0x729df20b","0xb041c60a"],"interface":false,"value":false},{"from":7996036,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":7695709,"to":7915903,"type":["F32","0x0","0x0","0x0"],"default":0.0},{"from":7996036,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x2c77d2c": {"name": "FloatingTextTypeList", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -2956,9 +2956,9 @@
 "0x143f10a8": {"name": "TimerViews", "revisions": [{"from":6950646,"bases":[],"interface":false,"value":false}], "properties": {
  "0x4facf6d1": {"name":"Views","revisions":[{"from":6950646,"type":["List2","0x0","Pointer","0xc6674208"],"default":[]}]}
 }},
-"0x14503484": {"revisions": [{"from":8159717,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
+"0x14503484": {"name": "UiVariableObject", "revisions": [{"from":8159717,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0x3b8d8b3f"],"default":{"itemID":4294967295,"VariableValues":{}}}]},
- "0x75d77845": {"revisions":[{"from":8159717,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0x75d77845": {"name":"ObjectSchema","revisions":[{"from":8159717,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x145598b7": {"name": "VfxBeamEffectorComponentData", "revisions": [{"from":8298620,"bases":["0x858d9212"],"interface":false,"value":false}], "properties": {
  "0x95876e1f": {"name":"Width","revisions":[{"from":8298620,"type":["Embed","0x0","0x0","0xafe1d569"],"default":{"Float":{}}}]}
@@ -3641,7 +3641,7 @@
 }},
 "0x1a21fc8a": {"name": "LogicDriverUpdateViewElements", "revisions": [{"from":7027993,"bases":["0x30aa7360"],"interface":false,"value":false}], "properties": {
  "0x2d6f5674": {"name":"ValueDriver","revisions":[{"from":7027993,"type":["Pointer","0x0","0x0","0x995ca734"],"default":null}]},
- "0x7a721423": {"revisions":[{"from":7027993,"type":["List2","0x0","Pointer","0x21a31dfa"],"default":[]}]},
+ "0x7a721423": {"name":"ValueUpdateModifiers","revisions":[{"from":7027993,"type":["List2","0x0","Pointer","0x21a31dfa"],"default":[]}]},
  "0x94eea539": {"name":"ViewElementsToUpdate","revisions":[{"from":7027993,"type":["List2","0x0","Pointer","0x53de4f74"],"default":[]}]}
 }},
 "0x1a261378": {"revisions": [{"from":7067412,"to":7067412,"bases":["0xe2a48eac"],"interface":false,"value":false},{"from":7079808,"bases":["0xe2a48eac"],"interface":false,"value":false}], "properties": {
@@ -5469,7 +5469,7 @@
  "0xec054176": {"name":"GameTypeFields","revisions":[{"from":5229820,"type":["Map","U32","Embed","0xe87aa7bf"],"default":{}}]},
  "0xf12be813": {"name":"BottomButtons","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x407b58d1"],"default":{"RestrictionText":"0x0","WarningTexture":"0x0","Restriction":"0x0","VietnameseRatingLabel":"0x0","ErrorTexture":"0x0","TeamPlannerButton":"0x0","closeButton":"0x0","StartButton":"0x0","RestrictionIcon":"0x0","InviteButton":"0x0"}}]}
 }},
-"0x24de77f2": {"revisions": [{"from":7695709,"to":7915903,"bases":["0x69cd83da","0xb041c60a"],"interface":false,"value":false},{"from":7996036,"bases":["0xacf95576","0xb041c60a"],"interface":false,"value":false}], "properties": {
+"0x24de77f2": {"name": "UiVariableString", "revisions": [{"from":7695709,"to":7915903,"bases":["0x69cd83da","0xb041c60a"],"interface":false,"value":false},{"from":7996036,"bases":["0xacf95576","0xb041c60a"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":7695709,"to":7915903,"type":["String","0x0","0x0","0x0"],"default":""},{"from":7996036,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x24e1cb45": {"revisions": [{"from":5837922,"bases":[],"interface":false,"value":false}], "properties": {
@@ -8151,7 +8151,7 @@
  "0xb872990e": {"name":"ShouldRemove","revisions":[{"from":6048769,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf1e19578": {"name":"KeyDest","revisions":[{"from":6048769,"type":["Embed","0x0","0x0","0xf6b622c6"],"default":{"Table":{},"Var":""}}]}
 }},
-"0x394f5aaf": {"revisions": [{"from":6012857,"bases":["0xab5db4f2"],"interface":false,"value":false}], "properties": {
+"0x394f5aaf": {"name": "FloatUpdateMeterElement", "revisions": [{"from":6012857,"bases":["0xab5db4f2"],"interface":false,"value":false}], "properties": {
  "0x55a6d9a": {"name":"MeterElement","revisions":[{"from":6012857,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x396e5d4f": {"revisions": [{"from":6690024,"bases":["0xe24c8317"],"interface":false,"value":false}], "properties": {
@@ -8339,10 +8339,10 @@
  "0x62580dd4": {"name":"BuffDisplayTemplate","revisions":[{"from":5837922,"type":["Embed","0x0","0x0","0xcff0bd42"],"default":{"StacksText":"0x0","Group":"0x0","IconBorderPositive":"0x0","IconBorderNegative":"0x0","Icon":"0x0","CooldownFx":"0x0","HitRegion":"0x0"}}]},
  "0xd829fd95": {"name":"MaxBuffDisplayCount","revisions":[{"from":5837922,"type":["U32","0x0","0x0","0x0"],"default":1}]}
 }},
-"0x3b09052f": {"revisions": [{"from":8042660,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
+"0x3b09052f": {"name": "UiVariableList", "revisions": [{"from":8042660,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
  "0x2aa34b14": {"revisions":[{"from":8042660,"to":8230722,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x425ed3ca": {"name":"value","revisions":[{"from":8042660,"to":8049184,"type":["Embed","0x0","0x0","0x73b4a2eb"],"default":{"items":[]}},{"from":8104348,"type":["Pointer","0x0","0x0","0x73b4a2eb"],"default":null}]},
- "0x75d77845": {"revisions":[{"from":8248524,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0x75d77845": {"name":"ObjectSchema","revisions":[{"from":8248524,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x3b2ba6c0": {"revisions": [{"from":5837922,"bases":[],"interface":false,"value":false}], "properties": {
  "0x1dd027ec": {"name":"IconOverrideTexturePath","revisions":[{"from":5837922,"type":["String","0x0","0x0","0x0"],"default":""}]}
@@ -10660,7 +10660,7 @@
 "0x4dc8b7cf": {"name": "EntityGroupGet", "revisions": [{"from":6421879,"to":7046097,"bases":["0x13d71082","0xf6e711b0"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0x13d71082","0xf6e711b0"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":6421879,"to":7016241,"type":["Link","0x0","0x0","0x5566d3a3"],"default":"0x0"},{"from":7027993,"to":7046097,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7067476,"to":7067476,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x4dd20b88": {"revisions": [{"from":7996036,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
+"0x4dd20b88": {"name": "UiVariableInt", "revisions": [{"from":7996036,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":7996036,"type":["I32","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x4dd5511e": {"name": "MinimapIconChangeOpacity", "revisions": [{"from":5229820,"bases":["0x91c2a2c7"],"interface":false,"value":false}], "properties": {
@@ -15985,7 +15985,7 @@
 "0x7abcb65c": {"name": "MapMotionPath", "revisions": [{"from":5229820,"bases":["0x598b82e8"],"interface":false,"value":false}], "properties": {
  "0x5161d08f": {"name":"Segments","revisions":[{"from":5229820,"type":["List","0x0","Pointer","0x9b34beab"],"default":[]}]}
 }},
-"0x7ac03bd3": {"revisions": [{"from":7996036,"bases":["0xb041c60a","0xbf767b39"],"interface":false,"value":false}], "properties": {
+"0x7ac03bd3": {"name": "UiVariableBool", "revisions": [{"from":7996036,"bases":["0xb041c60a","0xbf767b39"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":7996036,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0x7ac070ef": {"name": "ContextualConditionSpell", "revisions": [{"from":5229820,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
@@ -19771,7 +19771,7 @@
 "0x99428dad": {"revisions": [{"from":7794239,"to":7829736,"bases":["0xc259aa32"],"interface":false,"value":false}], "properties": {
  "0x16e7c68b": {"revisions":[{"from":7794239,"to":7829736,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x994ae080": {"revisions": [{"from":6649480,"bases":["0xec2d115"],"interface":false,"value":false}], "properties": {
+"0x994ae080": {"name": "FacingAndCursorAngleParametricUpdater", "revisions": [{"from":6649480,"bases":["0xec2d115"],"interface":false,"value":false}], "properties": {
 }},
 "0x995bf516": {"name": "SubPartScaledProportionalToStat", "revisions": [{"from":5229820,"bases":["0xb60012ce"],"interface":false,"value":false}], "properties": {
  "0x1cd83c4b": {"name":"mSubpart","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xb60012ce"],"default":null}]},
@@ -20448,7 +20448,7 @@
  "0x646cf661": {"name":"BackgroundImagePath","revisions":[{"from":7893741,"to":8175716,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xa107ae5a": {"name":"SubtitleTra","revisions":[{"from":7893741,"to":8175716,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x9e1e8775": {"revisions": [{"from":5681102,"bases":["0xbc413e21"],"interface":false,"value":false}], "properties": {
+"0x9e1e8775": {"name": "FloatUpdateTextElement", "revisions": [{"from":5681102,"bases":["0xbc413e21"],"interface":false,"value":false}], "properties": {
  "0x5a9403be": {"name":"LocalizedTextFormat","revisions":[{"from":5681102,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x6e6dcfed": {"name":"TextFormat","revisions":[{"from":5681102,"type":["String","0x0","0x0","0x0"],"default":"%f"}]},
  "0xeec29756": {"name":"TextElement","revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -21721,7 +21721,7 @@
  "0x5329572e": {"revisions":[{"from":5352535,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xb80015ba": {"revisions":[{"from":5352535,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xa8c7473f": {"revisions": [{"from":7695709,"to":7915903,"bases":["0x69cd83da","0xb041c60a"],"interface":false,"value":false},{"from":7945912,"to":7949266,"bases":["0xb041c60a"],"interface":false,"value":false},{"from":7996036,"bases":["0xacf95576","0xb041c60a"],"interface":false,"value":false}], "properties": {
+"0xa8c7473f": {"name": "UiVariableTraKey", "revisions": [{"from":7695709,"to":7915903,"bases":["0x69cd83da","0xb041c60a"],"interface":false,"value":false},{"from":7945912,"to":7949266,"bases":["0xb041c60a"],"interface":false,"value":false},{"from":7996036,"bases":["0xacf95576","0xb041c60a"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":7695709,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0xa8c89348": {"revisions": [{"from":6774704,"to":7480682,"bases":["0x7992a72c"],"interface":false,"value":false}], "properties": {
@@ -22082,7 +22082,7 @@
  "0x8d39bde6": {"name":"name","revisions":[{"from":7345787,"to":7345787,"type":["String","0x0","0x0","0x0"],"default":""},{"from":7371049,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xa7d51676": {"revisions":[{"from":7345787,"to":7345787,"type":["List2","0x0","U8","0x0"],"default":[]},{"from":7371049,"type":["List2","0x0","U8","0x0"],"default":[]}]}
 }},
-"0xabe2709a": {"revisions": [{"from":6124791,"bases":["0xbc413e21"],"interface":false,"value":false}], "properties": {
+"0xabe2709a": {"name": "FloatButtonElementSetEnabled", "revisions": [{"from":6124791,"bases":["0xbc413e21"],"interface":false,"value":false}], "properties": {
  "0xdff003b3": {"name":"ButtonElement","revisions":[{"from":6124791,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xac0fb04b": {"name": "ILogicVector2Driver", "revisions": [{"from":8159717,"bases":["0x995ca734"],"interface":true,"value":false}], "properties": {
@@ -22665,7 +22665,7 @@
 "0xaff91324": {"revisions": [{"from":7996036,"bases":["0xc5a1ad34"],"interface":false,"value":false}], "properties": {
  "0xf416eba0": {"name":"tags","revisions":[{"from":7996036,"type":["Embed","0x0","0x0","0x21d40f1b"],"default":{"tags":[]}}]}
 }},
-"0xb011f563": {"revisions": [{"from":6124791,"bases":["0xbc413e21"],"interface":false,"value":false}], "properties": {
+"0xb011f563": {"name": "FloatButtonElementSetActive", "revisions": [{"from":6124791,"bases":["0xbc413e21"],"interface":false,"value":false}], "properties": {
  "0xdff003b3": {"name":"ButtonElement","revisions":[{"from":6124791,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xb01df39a": {"revisions": [{"from":6421879,"bases":["0xd5b0f96f"],"interface":false,"value":false}], "properties": {
@@ -22682,7 +22682,7 @@
 }},
 "0xb041c60a": {"name": "IUiVariable", "revisions": [{"from":7695709,"bases":[],"interface":true,"value":false}], "properties": {
  "0x8d39bde6": {"name":"name","revisions":[{"from":7695709,"to":8049184,"type":["String","0x0","0x0","0x0"]}]},
- "0x8d9a165f": {"revisions":[{"from":8104348,"to":8104348,"type":["Hash","0x0","0x0","0x0"],"hasher":{"width":4,"algorithm":"Xxh3","lowercased":true}},{"from":8159717,"type":["Hash","0x0","0x0","0x0"]}]}
+ "0x8d9a165f": {"name":"SchemaFieldId","revisions":[{"from":8104348,"to":8104348,"type":["Hash","0x0","0x0","0x0"],"hasher":{"width":4,"algorithm":"Xxh3","lowercased":true}},{"from":8159717,"type":["Hash","0x0","0x0","0x0"]}]}
 }},
 "0xb0607142": {"name": "EntityScriptCondition", "revisions": [{"from":6919951,"bases":["0xc621aa68"],"interface":true,"value":false}], "properties": {
 }},
@@ -23185,7 +23185,7 @@
 }},
 "0xb375545f": {"name": "JointSnapRigPoseModifilerData", "revisions": [{"from":5229820,"bases":["0xb2dd588a"],"interface":false,"value":false}], "properties": {
 }},
-"0xb37ab600": {"revisions": [{"from":6124791,"bases":["0xbc413e21"],"interface":false,"value":false}], "properties": {
+"0xb37ab600": {"name": "FloatButtonElementSetSelected", "revisions": [{"from":6124791,"bases":["0xbc413e21"],"interface":false,"value":false}], "properties": {
  "0xdff003b3": {"name":"ButtonElement","revisions":[{"from":6124791,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xb37dda69": {"name": "AbilityResourceTypeData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -23452,7 +23452,7 @@
  "0xdc65f8fe": {"name":"ParentInheritanceDefinition","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x12ab5c27"],"default":null}]},
  "0xf1d201d5": {"name":"childrenProbability","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x4300058"],"default":{"constantValue":0.0,"dynamics":null}}]}
 }},
-"0xb5215699": {"revisions": [{"from":5681102,"to":5706276,"bases":["0xbc413e21"],"interface":false,"value":false},{"from":5715678,"bases":["0xab5db4f2"],"interface":false,"value":false}], "properties": {
+"0xb5215699": {"name": "FloatUpdateRadialElement", "revisions": [{"from":5681102,"to":5706276,"bases":["0xbc413e21"],"interface":false,"value":false},{"from":5715678,"bases":["0xab5db4f2"],"interface":false,"value":false}], "properties": {
  "0x4ada0ec6": {"name":"RadialElement","revisions":[{"from":5681102,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xb53b9fa1": {"revisions": [{"from":7465697,"bases":[],"interface":false,"value":true}], "properties": {
@@ -27333,7 +27333,7 @@
 "0xd3cbd2bf": {"name": "ScriptBtInverter", "revisions": [{"from":5229820,"bases":["0x19097be9"],"interface":false,"value":false}], "properties": {
  "0x160da1c3": {"name":"blocks","revisions":[{"from":5229820,"to":5651230,"type":["List2","0x0","Pointer","0xba21fca2"],"default":[]}]}
 }},
-"0xd3d7f73c": {"revisions": [{"from":7695709,"to":7915903,"bases":["0x69cd83da","0xb041c60a"],"interface":false,"value":false},{"from":7996036,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
+"0xd3d7f73c": {"name": "UiVariableImage", "revisions": [{"from":7695709,"to":7915903,"bases":["0x69cd83da","0xb041c60a"],"interface":false,"value":false},{"from":7996036,"bases":["0xb041c60a"],"interface":false,"value":false}], "properties": {
  "0x425ed3ca": {"name":"value","revisions":[{"from":7695709,"to":7915903,"type":["String","0x0","0x0","0x0"],"default":""},{"from":7996036,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xd3dda5e5": {"revisions": [{"from":7345787,"to":7345787,"bases":["0x62a09c62"],"interface":false,"value":false},{"from":7371049,"bases":["0x62a09c62"],"interface":false,"value":false}], "properties": {
@@ -27580,7 +27580,7 @@
 }},
 "0xd4933ea0": {"name": "IsCloneBoolDriver", "revisions": [{"from":7538272,"bases":["0x7a851cd8"],"interface":false,"value":false}], "properties": {
 }},
-"0xd4ac6ed4": {"revisions": [{"from":6575386,"bases":["0xab5db4f2"],"interface":false,"value":false}], "properties": {
+"0xd4ac6ed4": {"name": "FloatUpdateArcElement", "revisions": [{"from":6575386,"bases":["0xab5db4f2"],"interface":false,"value":false}], "properties": {
  "0x9d636613": {"name":"EndDegrees","revisions":[{"from":6575386,"type":["U16","0x0","0x0","0x0"],"default":360}]},
  "0xb35fc430": {"name":"StartDegrees","revisions":[{"from":6575386,"type":["U16","0x0","0x0","0x0"],"default":0}]},
  "0xc84bbe59": {"name":"FillDirection","revisions":[{"from":6575386,"type":["U8","0x0","0x0","0x0"],"default":0}]},
@@ -27620,7 +27620,7 @@
 }},
 "0xd574bc5b": {"revisions": [{"from":6275678,"bases":["0xcb8dfbc8"],"interface":false,"value":false}], "properties": {
 }},
-"0xd59163d9": {"revisions": [{"from":6275678,"bases":["0x6c816d62"],"interface":false,"value":false}], "properties": {
+"0xd59163d9": {"name": "HasMovedParametricUpdater", "revisions": [{"from":6275678,"bases":["0x6c816d62"],"interface":false,"value":false}], "properties": {
 }},
 "0xd59587e0": {"name": "MapGameplayTexture", "revisions": [{"from":7538272,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
  "0x23e7082c": {"name":"ShaderParameters","revisions":[{"from":7643737,"type":["Map","String","F32","0x0"],"default":{}}]},
@@ -30052,7 +30052,7 @@
  "0x6a90713f": {"name":"mPrioritizedUnitStatusData","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x4bebf6c1"],"default":[]}]},
  "0xb311d4ef": {"name":"TextureName","revisions":[{"from":5229820,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xe7b61183": {"revisions": [{"from":6048769,"bases":["0x56b6e09"],"interface":false,"value":false}], "properties": {
+"0xe7b61183": {"name": "LookAtMissileAngleParametricUpdater", "revisions": [{"from":6048769,"bases":["0x56b6e09"],"interface":false,"value":false}], "properties": {
  "0x8f149e18": {"revisions":[{"from":6275678,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xe1795243": {"revisions":[{"from":6275678,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
@@ -32775,7 +32775,7 @@
  "0xc7f057ac": {"name":"MessageDisplayDurationSecs","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":5.0}]},
  "0xcc5d06d5": {"name":"SceneHandle","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xfb66c6d7": {"revisions": [{"from":7027993,"bases":["0x53de4f74"],"interface":false,"value":false}], "properties": {
+"0xfb66c6d7": {"name": "ValueUpdateIconElementMaterialParameters", "revisions": [{"from":7027993,"bases":["0x53de4f74"],"interface":false,"value":false}], "properties": {
  "0xb54b7b8": {"name":"IconElement","revisions":[{"from":7027993,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xcc860ca0": {"name":"ParameterNames","revisions":[{"from":7027993,"type":["List2","0x0","String","0x0"],"default":[]}]}
 }},
@@ -33238,7 +33238,7 @@
 }},
 "0xfeacedf2": {"name": "LogicFloatDriverUpdateViewElements", "revisions": [{"from":5681102,"bases":["0x30aa7360"],"interface":false,"value":false}], "properties": {
  "0x2d6f5674": {"name":"ValueDriver","revisions":[{"from":5681102,"type":["Pointer","0x0","0x0","0xb33b2406"],"default":null}]},
- "0x7a721423": {"revisions":[{"from":5681102,"type":["List2","0x0","Pointer","0x9a573886"],"default":[]}]},
+ "0x7a721423": {"name":"ValueUpdateModifiers","revisions":[{"from":5681102,"type":["List2","0x0","Pointer","0x9a573886"],"default":[]}]},
  "0x94eea539": {"name":"ViewElementsToUpdate","revisions":[{"from":5681102,"type":["List2","0x0","Pointer","0xbc413e21"],"default":[]}]}
 }},
 "0xfead7e9b": {"revisions": [{"from":7538272,"to":8175716,"bases":[],"interface":false,"value":false}], "properties": {

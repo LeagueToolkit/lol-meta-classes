@@ -985,6 +985,7 @@ d6b1e82e NoiseVector
 f82a9a98 NovaItem
 342dcc43 NumPlayers
 182f3d26 ObjectCreator
+75d77845 ObjectSchema
 1ba4e4a5 ObjectiveId
 b4222185 ObjectiveVfxs
 a8c6206b Objects
@@ -1321,6 +1322,7 @@ edb15a2f Scenario
 07c3bb37 SceneRight
 5d192820 Scenes
 527d0336 Schema
+8d9a165f SchemaFieldId
 31a43617 ScoreBreakpoints
 01741a1c ScoreGroup
 b0b412d0 ScoreHeader
@@ -1655,6 +1657,7 @@ e1e591e3 UseText
 e013f720 UsingRandomLoadingScreen
 0b248040 UvAnimation
 6a5b6251 ValueTooltip
+7a721423 ValueUpdateModifiers
 dec56440 ValuesToExclude
 7d425097 VariableDefaults
 9837f87b VariableValues

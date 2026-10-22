@@ -120,11 +120,6 @@ class 0x13f50786():
 class 0x140a7767(InputEventBoolKeybind):
     pass
 
-class 0x14503484(IUiVariable):
-    value: (Embed, 0x0, 0x0, 0x3b8d8b3f) = {"VariableValues":{},"itemID":4294967295}
-    0x75d77845: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x1493959a():
     EventPassNextRewardIconFrame: (Embed, 0x0, 0x0, 0x990115ea) = {"0x3392c041":"0x0","0x58766309":"0x0","0x720e4297":"0x0","0x96349f57":"0x0","0xa807a4b2":"0x0","0xd0666cc4":"0x0","IconFrame":"0x0"}
     EventPassExpText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -676,10 +671,6 @@ class 0x24ae1730():
     objectPath: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0x24de77f2(0xacf95576, IUiVariable):
-    value: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x24e1cb45():
     0xb8ee5cef: (F32, 0x0, 0x0, 0x0) = 0.0
     0xc080021c: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -887,10 +878,6 @@ class 0x2a99a254():
 
 class 0x2aa356bc():
     GridData: (List2, 0x0, Link, 0xee4ec7c) = []
-    pass
-
-class 0x2ae7663(IUiVariable):
-    value: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0x2af4e3d0(InputEventBoolKeybind):
@@ -1397,10 +1384,6 @@ class 0x393df345():
     SlotsLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x394f5aaf(0xab5db4f2):
-    MeterElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x396e5d4f(IGameModeConfig):
     OrderAnchorPoint: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     UpdateFrequencySeconds: (F32, 0x0, 0x0, 0x0) = 0.25
@@ -1491,11 +1474,6 @@ class 0x3aee5d80():
     BuffLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
     BuffDisplayTemplate: (Embed, 0x0, 0x0, BuffDisplayData) = {"CooldownFx":"0x0","Group":"0x0","HitRegion":"0x0","Icon":"0x0","IconBorderNegative":"0x0","IconBorderPositive":"0x0","StacksText":"0x0"}
     MaxBuffDisplayCount: (U32, 0x0, 0x0, 0x0) = 1
-    pass
-
-class 0x3b09052f(IUiVariable):
-    value: (Pointer, 0x0, 0x0, 0x73b4a2eb) = null
-    0x75d77845: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x3b2ba6c0():
@@ -2175,10 +2153,6 @@ class 0x4d80ee3d():
 
 class 0x4d909a30(IOptionTemplate):
     Label: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x4dd20b88(IUiVariable):
-    value: (I32, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x4e16b860():
@@ -3660,10 +3634,6 @@ class 0x7a5040ea(BaseLoadoutData):
     DifficultyLevel: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0x7ac03bd3(IUiVariable, 0xbf767b39):
-    value: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0x7ac70a36():
     0x2af14c7: (File, 0x0, 0x0, 0x0) = "0x0"
     0x3d0587a: (File, 0x0, 0x0, 0x0) = "0x0"
@@ -4775,9 +4745,6 @@ class 0x99427f15(IGameModeConfigClient):
     Overrides: (List2, 0x0, Embed, 0xb46f120c) = []
     pass
 
-class 0x994ae080(IFloatParametricUpdater):
-    pass
-
 class 0x9999dd64():
     KeyedParameters: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
     InitialParameters: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
@@ -4940,12 +4907,6 @@ class 0x9e0d4004():
     pass
 
 class 0x9e1df0c9():
-    pass
-
-class 0x9e1e8775(IFloatUpdateElement):
-    LocalizedTextFormat: (String, 0x0, 0x0, 0x0) = ""
-    TextFormat: (String, 0x0, 0x0, 0x0) = "%f"
-    TextElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x9e5f5386():
@@ -5273,10 +5234,6 @@ class 0xa8c6f5f0():
     0xb80015ba: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xa8c7473f(0xacf95576, IUiVariable):
-    value: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0xa8dcba52():
     0x3cb97286: (List2, 0x0, Embed, 0x7be50d9e) = []
     0x55dd7d5: (Link, 0x0, 0x0, ProgressTrack) = "0x0"
@@ -5408,10 +5365,6 @@ class 0xabc3f62a(UIElement):
 class 0xabce29fc():
     name: (String, 0x0, 0x0, 0x0) = ""
     0xa7d51676: (List2, 0x0, U8, 0x0) = []
-    pass
-
-class 0xabe2709a(IFloatUpdateElement):
-    ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xac27b13a():
@@ -5668,10 +5621,6 @@ class 0xaff91324(ITagList):
     tags: (Embed, 0x0, 0x0, TagList) = {"tags":[]}
     pass
 
-class 0xb011f563(IFloatUpdateElement):
-    ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xb01df39a(IMinimapIconModifier):
     MinimapIcon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
     0x8ef421e5: (Bool, 0x0, 0x0, 0x0) = true
@@ -5744,10 +5693,6 @@ class 0xb3674a86(TftGameStartSequenceSimpleObject):
     UIElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xb37ab600(IFloatUpdateElement):
-    ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xb3b32e26(GameEntityTemplate, IMapGroup):
     0x10112a28: (Embed, 0x0, 0x0, 0x9ef07ec6) = {}
     0x3634dccb: (List2, 0x0, String, 0x0) = []
@@ -5797,10 +5742,6 @@ class 0xb46f120c():
 
 class 0xb51d7e6e():
     ChampionScores: (Map, U32, F32, 0x0) = {}
-    pass
-
-class 0xb5215699(0xab5db4f2):
-    RadialElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xb53b9fa1():
@@ -6762,10 +6703,6 @@ class 0xd39980cd():
     objectPath: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0xd3d7f73c(IUiVariable):
-    value: (File, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xd3dda5e5(IGeComponentDef):
     0x28e60732: (Bool, 0x0, 0x0, 0x0) = true
     0x37ae4cad: (Bool, 0x0, 0x0, 0x0) = false
@@ -6795,14 +6732,6 @@ class 0xd4737a04(IOptionItemFilter):
 class 0xd47fd63b(ISequenceActionInstance):
     pass
 
-class 0xd4ac6ed4(0xab5db4f2):
-    EndDegrees: (U16, 0x0, 0x0, 0x0) = 360
-    StartDegrees: (U16, 0x0, 0x0, 0x0) = 0
-    FillDirection: (U8, 0x0, 0x0, 0x0) = 0
-    StartPosition: (U8, 0x0, 0x0, 0x0) = 0
-    ArcElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xd52eac74(0x859c9c2f):
     OnEvent: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     pass
@@ -6823,9 +6752,6 @@ class 0xd572a988(0x978bc118):
     pass
 
 class 0xd574bc5b(IOptionItemFilter):
-    pass
-
-class 0xd59163d9(IsMovingParametricUpdater):
     pass
 
 class 0xd5a52c2b(ViewController):
@@ -7385,11 +7311,6 @@ class 0xe78a27ae(0x2b00c366):
     itemID: (String, 0x0, 0x0, 0x0) = ""
     Emote: (Link, 0x0, 0x0, SummonerEmote) = "0x0"
     itemTypeId: (String, 0x0, 0x0, 0x0) = "5cee03fb-af16-4bc9-89f7-064b49e1233f"
-    pass
-
-class 0xe7b61183(0x56b6e09):
-    0x8f149e18: (F32, 0x0, 0x0, 0x0) = 0.0
-    0xe1795243: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0xe8189eeb(BaseParams):
@@ -8042,11 +7963,6 @@ class 0xfa33a427():
 class 0xfacd8b68():
     ChampionNames: (List2, 0x0, String, 0x0) = []
     BoardPosition: (Embed, 0x0, 0x0, TftBoardPosition) = {"Col":1,"Row":1}
-    pass
-
-class 0xfb66c6d7(IValueUpdateElement):
-    IconElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    ParameterNames: (List2, 0x0, String, 0x0) = []
     pass
 
 class 0xfb6952d6():
@@ -12728,6 +12644,9 @@ class FaceTargetEventData(BaseEventData):
     YRotationDegrees: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class FacingAndCursorAngleParametricUpdater(IFloatParametricUpdater):
+    pass
+
 class FacingAndMovementAngleFloatDriver(ILogicFloatDriver):
     pass
 
@@ -12855,6 +12774,18 @@ class Float4LiteralMaterialDriver(ILogicDriver):
     pass
 
 class FloatArrayTableSet(ScriptTableSet):
+    pass
+
+class FloatButtonElementSetActive(IFloatUpdateElement):
+    ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class FloatButtonElementSetEnabled(IFloatUpdateElement):
+    ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class FloatButtonElementSetSelected(IFloatUpdateElement):
+    ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class FloatComparisonMaterialDriver(ILogicBoolDriver):
@@ -13008,6 +12939,28 @@ class FloatTextIconData():
     mColor: (Color, 0x0, 0x0, 0x0) = [255,255,255,255]
     mDisplaySize: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
     mAlignment: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class FloatUpdateArcElement(0xab5db4f2):
+    EndDegrees: (U16, 0x0, 0x0, 0x0) = 360
+    StartDegrees: (U16, 0x0, 0x0, 0x0) = 0
+    FillDirection: (U8, 0x0, 0x0, 0x0) = 0
+    StartPosition: (U8, 0x0, 0x0, 0x0) = 0
+    ArcElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class FloatUpdateMeterElement(0xab5db4f2):
+    MeterElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class FloatUpdateRadialElement(0xab5db4f2):
+    RadialElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class FloatUpdateTextElement(IFloatUpdateElement):
+    LocalizedTextFormat: (String, 0x0, 0x0, 0x0) = ""
+    TextFormat: (String, 0x0, 0x0, 0x0) = "%f"
+    TextElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class FloatingHealthBarBurstData():
@@ -13895,6 +13848,9 @@ class HasGearDynamicMaterialBoolDriver(ILogicBoolDriver):
 
 class HasLossOfControlTypeBoolDriver(ILogicBoolDriver):
     LossOfControlType: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class HasMovedParametricUpdater(IsMovingParametricUpdater):
     pass
 
 class HasMultiKillMaterialBoolDriver(ILogicBoolDriver):
@@ -15185,7 +15141,7 @@ class IUiTextureDataProvider():
     pass
 
 class IUiVariable():
-    0x8d9a165f: (Hash, 0x0, 0x0, 0x0)
+    SchemaFieldId: (Hash, 0x0, 0x0, 0x0)
     pass
 
 class IUnitGet():
@@ -17073,7 +17029,7 @@ class LogicDriverLocalizedString(ILogicDriverValueToStringSimple):
 
 class LogicDriverUpdateViewElements(ILogicValueDriverUpdateViewElements):
     ValueDriver: (Pointer, 0x0, 0x0, ILogicDriver) = null
-    0x7a721423: (List2, 0x0, Pointer, Vector4UpdateModifier) = []
+    ValueUpdateModifiers: (List2, 0x0, Pointer, Vector4UpdateModifier) = []
     ViewElementsToUpdate: (List2, 0x0, Pointer, IValueUpdateElement) = []
     pass
 
@@ -17107,7 +17063,7 @@ class LogicDriverVisibilityController(IMapVisibilityController):
 
 class LogicFloatDriverUpdateViewElements(ILogicValueDriverUpdateViewElements):
     ValueDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
-    0x7a721423: (List2, 0x0, Pointer, IFloatUpdateModifier) = []
+    ValueUpdateModifiers: (List2, 0x0, Pointer, IFloatUpdateModifier) = []
     ViewElementsToUpdate: (List2, 0x0, Pointer, IFloatUpdateElement) = []
     pass
 
@@ -17258,6 +17214,11 @@ class LookAtInterestAngleParametricUpdater(IFloatParametricUpdater):
     pass
 
 class LookAtInterestDistanceParametricUpdater(IFloatParametricUpdater):
+    pass
+
+class LookAtMissileAngleParametricUpdater(0x56b6e09):
+    0x8f149e18: (F32, 0x0, 0x0, 0x0) = 0.0
+    0xe1795243: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class LookAtSpellTargetAngleParametricUpdater(IFloatParametricUpdater):
@@ -29346,6 +29307,40 @@ class UiUnitStatusDurationBarData():
     StatusDurationBar: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class UiVariableBool(IUiVariable, 0xbf767b39):
+    value: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class UiVariableFloat(IUiVariable):
+    value: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class UiVariableImage(IUiVariable):
+    value: (File, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class UiVariableInt(IUiVariable):
+    value: (I32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class UiVariableList(IUiVariable):
+    value: (Pointer, 0x0, 0x0, 0x73b4a2eb) = null
+    ObjectSchema: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class UiVariableObject(IUiVariable):
+    value: (Embed, 0x0, 0x0, 0x3b8d8b3f) = {"VariableValues":{},"itemID":4294967295}
+    ObjectSchema: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class UiVariableString(0xacf95576, IUiVariable):
+    value: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class UiVariableTraKey(0xacf95576, IUiVariable):
+    value: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class UiWeeklyMissionTemplate():
     ObjectiveListLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DescriptionText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -29518,6 +29513,11 @@ class ValueFloat():
     pass
 
 class ValueProcessorData():
+    pass
+
+class ValueUpdateIconElementMaterialParameters(IValueUpdateElement):
+    IconElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ParameterNames: (List2, 0x0, String, 0x0) = []
     pass
 
 class ValueVector2():

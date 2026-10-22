@@ -474,6 +474,7 @@ af8bb8ce Enable
 a0b12922 EncounterButton
 c67a7d17 EncounterIcon
 63508947 EncounterNumber
+1220fb1c EndAudioEvent
 b3110c3d EndColor
 9d636613 EndDegrees
 dffa5e65 EndDivision
@@ -1109,6 +1110,7 @@ c402fafa PlayerDisconnect
 8a7ef9d0 PlayerNames
 8b5831bd PlayerReconnect
 cb3a3644 PlayerRow
+4adc6795 PlayerSelector
 9b97cf6c PlayersToInclude
 c6585a26 PlaystyleCrowdControl
 28f8756b PlaystyleDurability
@@ -1382,6 +1384,7 @@ bc3b7fdc ShaderParameterOverrides
 bdc69b11 ShadowGradientRenderData
 590f9cd2 ShadowQuality
 10087a83 ShadowsEnabled
+d67d18ce ShakesPerSec
 a8d060cb ShapeCenter
 d9ee6a8f ShareRandom
 eb0aabeb ShimmerEmitterDefinitionData
@@ -1423,6 +1426,7 @@ a78f532f SourceLocation
 8c61159d SourcesList
 ea0e4ad5 Spacer
 c8d3a9fe Spacing
+a4c9a8d7 SpawnDelay
 efd909e8 SpawnDuration
 3378edaf SpawnGrubbies
 7511a599 SpawnTypes

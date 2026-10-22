@@ -1746,6 +1746,10 @@
 {"hash": "98840e54", "name": "TagsToActivate", "batch": "script-tree-readers", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
 {"hash": "e2226a17", "name": "TagsToDeactivate", "batch": "script-tree-readers", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
 {"hash": "dec56440", "name": "ValuesToExclude", "batch": "script-tree-readers", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
+{"hash": "1220fb1c", "name": "EndAudioEvent", "batch": "sequencer-16-21", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
+{"hash": "4adc6795", "name": "PlayerSelector", "batch": "sequencer-16-21", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
+{"hash": "d67d18ce", "name": "ShakesPerSec", "batch": "sequencer-16-21", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
+{"hash": "a4c9a8d7", "name": "SpawnDelay", "batch": "sequencer-16-21", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
 {"hash": "75d77845", "name": "ObjectSchema", "batch": "ui-update-parametric", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
 {"hash": "8d9a165f", "name": "SchemaFieldId", "batch": "ui-update-parametric", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
 {"hash": "7a721423", "name": "ValueUpdateModifiers", "batch": "ui-update-parametric", "cracked": "2026-10-22", "status": "pending", "pr": "-"}

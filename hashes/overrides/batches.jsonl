@@ -91,4 +91,5 @@
 {"batch": "driver-family-readers", "note": "Logic drivers and UI text sources (16.21): hash matches named after each Evaluate read in the client; each fits its neighbours in registration order. docs/driver-family.md"}
 {"batch": "game-calculation-parts", "note": "Spell calculation parts (16.21): names parallel named siblings and their fields; each evaluate function read; shipped data fits. docs/script-calc-concept.md"}
 {"batch": "script-tree-readers", "note": "Script blocks, getters, conditions (16.21): Execute read per class; lattices and order brackets; 4 names attested by client error strings. docs/script-calc-concept.md"}
+{"batch": "sequencer-16-21", "note": "Sequencer (16.21): Instance names fold onto actions; GameScreenSequenceActionUi prefix fills 6 actions; inputs read in the client; order brackets fit. docs/sequencer-16-21.md"}
 {"batch": "ui-update-parametric", "note": "UI update elements, UI variables, parametric updaters (16.21): lattices plus each class read in the client; order brackets fit. docs/ui-update-parametric.md"}

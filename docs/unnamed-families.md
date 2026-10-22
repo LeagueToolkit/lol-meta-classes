@@ -72,7 +72,9 @@ rest to 1 - [docs/driver-family.md](driver-family.md)), `BaseParams`
 and off the table: `map-entity-templates` took it from 28 unnamed to 5,
 `logic-drivers` took `ILogicDriver` from 66 to 23, and `game-entity-blocks` took
 `GameEntityBlock` from 28 to 4, which is most of `IScriptBlock`'s drop from 85
-to 56. **`ISequenceAction` has never been touched by a campaign here** - every
+to 56. `script-tree-readers` then took `IScriptBlock` to 11, `IScriptValueGet` to 5 and
+`IScriptCondition` to 0, and `game-calculation-parts` named all of `IGameCalculationPart`
+([docs/script-calc-concept.md](script-calc-concept.md)). **`ISequenceAction` has never been touched by a campaign here** - every
 name beside it came from upstream.
 
 Below the cutoff of this census but worked since: `IContextualCondition`

@@ -313,7 +313,7 @@
 "0xa87ee7f5": {"revisions": [{"from":8306571,"bases":["0xadec1272"],"interface":true,"value":false}], "properties": {
  "0x4fe2b16f": {"revisions":[{"from":8306571,"type":["Vec2","0x0","0x0","0x0"]}]}
 }},
-"0xb1a8a3c0": {"revisions": [{"from":8104348,"bases":["0x2435bbc2"],"interface":false,"value":false}], "properties": {
+"0xb1a8a3c0": {"name": "ExecuteFunctionClientBlock", "revisions": [{"from":8104348,"bases":["0x2435bbc2"],"interface":false,"value":false}], "properties": {
  "0x203e6faa": {"name":"Script","revisions":[{"from":8104348,"to":8298620,"type":["Link","0x0","0x0","0x671bdc8d"],"default":"0x0"},{"from":8306571,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x9ed64249": {"name":"Function","revisions":[{"from":8104348,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},

@@ -9,11 +9,6 @@ class 0x106b7389(0xd04cfb37):
     0xf41f0380: (Pointer, 0x0, 0x0, 0xd04cfb37) = null
     pass
 
-class 0x10757364(IUiBlock):
-    element: (Pointer, 0x0, 0x0, IUiElementIGet) = null
-    Enable: (Pointer, 0x0, 0x0, IBoolGet) = {}
-    pass
-
 class 0x10a4976a():
     pass
 
@@ -199,19 +194,6 @@ class 0x15e1fe7e(ChampionMusicEventTypeConcrete):
     PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     pass
 
-class 0x15ebaa9c(IScriptBlock):
-    Formula: (String, 0x0, 0x0, 0x0) = ""
-    Dest: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
-    pass
-
-class 0x15efa930(GameEntityBlock):
-    offset: (Pointer, 0x0, 0x0, IVectorGet) = null
-    Source: (Pointer, 0x0, 0x0, IEntityGet) = null
-    0x9f97e7c: (Pointer, 0x0, 0x0, IBoolGet) = {}
-    Attachment: (Pointer, 0x0, 0x0, IEntityGet) = null
-    0xe2d12280: (Pointer, 0x0, 0x0, IBoolGet) = {}
-    pass
-
 class 0x15f2f87c(IModesStateTransition):
     StateDuration: (F32, 0x0, 0x0, 0x0) = 5.0
     NextState: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -390,9 +372,6 @@ class 0x1a261378(0xe2a48eac):
     Item: (Embed, 0x0, 0x0, TftMapItemData) = {"ArmoryIconPath":"0x0","IconPath":"0x0","NameId":"","description":"","effectAmounts":[],"itemID":0,"name":""}
     pass
 
-class 0x1a6cd1f8(IScriptValueGet):
-    pass
-
 class 0x1a9062ce(ScriptTableSet):
     pass
 
@@ -411,11 +390,6 @@ class 0x1ab4d045(0x2b00c366):
 class 0x1addb679(VfxShimmerFacingMode):
     pass
 
-class 0x1b08a666(GameEntityBlock):
-    Source: (Pointer, 0x0, 0x0, IEntityGet) = null
-    Attachment: (Pointer, 0x0, 0x0, IEntityGet) = null
-    pass
-
 class 0x1b3a73f0():
     ProgressText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ProgressBar: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -425,24 +399,9 @@ class 0x1b3a73f0():
     0xd5cba936: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x1b5a55fa(IUiBlock):
-    Color: (Pointer, 0x0, 0x0, IColorGet) = {}
-    element: (Pointer, 0x0, 0x0, IUiElementIGet) = null
-    pass
-
-class 0x1b7c5512(GameEntityBlock):
-    Enabled: (Pointer, 0x0, 0x0, IBoolGet) = null
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    pass
-
 class 0x1bb49ec5(SeqInputObject):
     Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     EntityTag: (Link, 0x0, 0x0, 0xb5d9d3a0) = "0x0"
-    pass
-
-class 0x1bbd2264(0x7a3483c4):
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xa85a9d2d: (Pointer, 0x0, 0x0, IIntGet) = {}
     pass
 
 class 0x1bc73dfd(0x39f85a07):
@@ -473,21 +432,6 @@ class 0x1d12c4da(IShapeRenderInfo):
     Material: (Link, 0x0, 0x0, IMaterialDef) = "0x0"
     height: (F32, 0x0, 0x0, 0x0) = 200.0
     Margin: (F32, 0x0, 0x0, 0x0) = 50.0
-    pass
-
-class 0x1d1499b7(0xff4e30bb):
-    0x1757fdc8: (Pointer, 0x0, 0x0, IBoolGet) = null
-    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
-    0x7c891337: (Pointer, 0x0, 0x0, IIntGet) = null
-    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
-    0x9c60d5ba: (List2, 0x0, Pointer, IEntityTagGet) = []
-    0xa1162603: (List2, 0x0, Pointer, IEntityTagGet) = []
-    0xbec77248: (List2, 0x0, Pointer, IEntityTagGet) = []
-    pass
-
-class 0x1d452085(IGameCalculationPartWithStats):
-    DataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xa519b194: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x1d45d814(0xe2a48eac):
@@ -525,9 +469,6 @@ class 0x1e8e7b49(LoadoutGridButtonData):
     RarityGem: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x1ef0f01e(IUnitGet, 0x662c1ec3, IScriptValueGet):
-    pass
-
 class 0x1f0bbd6():
     0x2c2ba982: (String, 0x0, 0x0, 0x0) = ""
     0xa8c1b67d: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -543,12 +484,6 @@ class 0x1f5bef59():
     pass
 
 class 0x1f671180(BaseParams):
-    pass
-
-class 0x1f8480d8(IScriptBlock):
-    InputString: (Pointer, 0x0, 0x0, IStringGet) = null
-    FoundIndex: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
-    TargetString: (Pointer, 0x0, 0x0, IStringGet) = null
     pass
 
 class 0x1fb61ff0(IOptionItemFilter):
@@ -725,11 +660,6 @@ class 0x239ebd66():
     LevelIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x23b32b94(IFloatGet, IIntGet, IScriptValueGet):
-    PropPath: (String, 0x0, 0x0, 0x0) = ""
-    PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x23d6622f(ISequenceActionInstance):
     pass
 
@@ -873,11 +803,6 @@ class 0x28556403(IContextualAction):
     ForceActivate: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x28706210(LevelScriptBlock):
-    DragonCamp: (Pointer, 0x0, 0x0, IEntityGet) = null
-    0x2e104d7: (Embed, 0x0, 0x0, StringArrayTableSet) = {"Table":{},"Var":""}
-    pass
-
 class 0x287a50ff(0x709be6c3):
     particleLifetime: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     EmitterDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
@@ -903,7 +828,7 @@ class 0x29124137(TftConditionData):
     pass
 
 class 0x292991be():
-    0x2e104d7: (List2, 0x0, String, 0x0) = []
+    SoulTypes: (List2, 0x0, String, 0x0) = []
     pass
 
 class 0x292fd63d(0xd04cfb37):
@@ -939,13 +864,6 @@ class 0x2a4d735b():
     pass
 
 class 0x2a5efdcd(0x664d2c6d):
-    pass
-
-class 0x2a721ef1(0xca17e84f):
-    0x512a5551: (Pointer, 0x0, 0x0, IVectorGet) = null
-    0x84ba3181: (Pointer, 0x0, 0x0, IColorGet) = null
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb0e1f0cb: (Pointer, 0x0, 0x0, IFloatGet) = null
     pass
 
 class 0x2a7737be(MinimapIconBehavior):
@@ -988,12 +906,6 @@ class 0x2b11fd98(IContextualCondition):
     pass
 
 class 0x2b2278d6(ISequenceActionInstance):
-    pass
-
-class 0x2b25a73a(IGameCalculationPart):
-    DataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    AbilityResource: (U8, 0x0, 0x0, 0x0) = 0
-    0xd13afc27: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x2b365a82():
@@ -1174,13 +1086,6 @@ class 0x3170c8c7(UiMetricUnitTypeSimpleI):
     ShowDisguise: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x3178c9c1(ILoopScriptBlock):
-    0x31923de: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
-    Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
-    0x4b091a3c: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
-    ShouldRemove: (Embed, 0x0, 0x0, BoolTableSet) = {"Table":{},"Var":"ShouldRemove"}
-    pass
-
 class 0x318f8d72(CountdownTimerController):
     0x1e1bd0c9: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
@@ -1204,10 +1109,6 @@ class 0x31bf21b0(OptionTemplateBase):
     0xbaa5364a: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xcaacc388: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xf6b809cd: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x31d87ea6(ScriptTableGet, IBoolGet):
-    PropPath: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x31fc4adc(ViewController):
@@ -1282,12 +1183,6 @@ class 0x32e94b82():
     0xa25cecc: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x333530c():
-    level: (U32, 0x0, 0x0, 0x0) = 1
-    0xae9b464d: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb0d8b2ac: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x333759dd():
     pass
 
@@ -1300,11 +1195,6 @@ class 0x34262325(ILogicFloatDriver):
 
 class 0x3443461e():
     Group: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x34639b56(0xca17e84f):
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    NewValue: (Pointer, 0x0, 0x0, IFloatGet) = null
     pass
 
 class 0x349845d9(ViewControllerFilterI):
@@ -1447,10 +1337,6 @@ class 0x37fe5e09(ISequenceAction):
 class 0x38074ad2(ISequenceActionInstance):
     pass
 
-class 0x382277da(IGameCalculationPart):
-    mSubparts: (List2, 0x0, Pointer, IGameCalculationPart) = []
-    pass
-
 class 0x38246322():
     AugmentSet: (Embed, 0x0, 0x0, PlayerAugmentSetData) = {"AugmentSetBackground":"0x0","AugmentSetGroup":"0x0","AugmentSetIcon":"0x0"}
     AdditionalSetsGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -1509,13 +1395,6 @@ class 0x393df345():
     SlotsScene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SlotTemplate: (Embed, 0x0, 0x0, 0x5841e5bd) = {"Group":"0x0","Icon":"0x0","Subtitle":"0x0","description":"0x0","title":"0x0"}
     SlotsLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x394dede2(IScriptBlock):
-    Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
-    Dest: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
-    ShouldRemove: (Bool, 0x0, 0x0, 0x0) = false
-    KeyDest: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
     pass
 
 class 0x394f5aaf(0xab5db4f2):
@@ -1790,7 +1669,7 @@ class 0x3f040c8e():
 
 class 0x3f04641e():
     0x2d63dca5: (List2, 0x0, Pointer, 0x10a4976a) = []
-    0x7511a599: (List2, 0x0, Embed, 0xdb26669a) = []
+    SpawnTypes: (List2, 0x0, Embed, 0xdb26669a) = []
     CampName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
@@ -1803,9 +1682,6 @@ class 0x3f1c01bb():
 class 0x3f40d811(0x2b00c366):
     AugmentPillar: (Link, 0x0, 0x0, 0x6afbcb38) = "0x0"
     itemTypeId: (String, 0x0, 0x0, 0x0) = "a100394c-a1fa-4ef1-abdd-0818ac199223"
-    pass
-
-class 0x3f4b8c5(IGameScreenClientBlock):
     pass
 
 class 0x3f667d7e(InputEventBoolKeybind):
@@ -1877,11 +1753,6 @@ class 0x40bae5c7(ICharacterSubcondition):
     0xb62df33d: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
-class 0x40dd375d(IStringGet, IScriptValueGet):
-    PropPath: (String, 0x0, 0x0, 0x0) = ""
-    PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x40f71780():
     pass
 
@@ -1914,10 +1785,6 @@ class 0x41bdce89():
     RarityTags: (List2, 0x0, Embed, 0xf45e04e1) = []
     0x5bf8755d: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ContentTypeIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x41fddcf4(GameEntityBlock):
-    0xae79839e: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
     pass
 
 class 0x420e433d(ILoadoutInfoPanel):
@@ -2095,10 +1962,6 @@ class 0x4618e076():
     internal: (Embed, 0x0, 0x0, 0x3572c5be) = {"0x927c10c9":0,"0xb9f88dc0":0}
     pass
 
-class 0x467070a9(IScriptCondition):
-    value: (Pointer, 0x0, 0x0, ScriptTableGet) = null
-    pass
-
 class 0x46a048a9(ITimerView):
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TimeText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2133,11 +1996,6 @@ class 0x4750ceb6(IStringCalculation):
     RangedResult: (String, 0x0, 0x0, 0x0) = ""
     DefaultResult: (String, 0x0, 0x0, 0x0) = ""
     MeleeResult: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x47c8ad9b(0x7a3483c4):
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xa85a9d2d: (Pointer, 0x0, 0x0, IFloatGet) = {}
     pass
 
 class 0x47f13ab0():
@@ -2309,12 +2167,6 @@ class 0x4c1fe46e(0x7319918a):
     Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
-class 0x4ce08984(IGameCalculationPartByCharLevel):
-    0x91d404a5: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x9823b29a: (List2, 0x0, Embed, 0x333530c) = []
-    0xbbd778a2: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x4d80ee3d():
     EmptyTexturePath: (File, 0x0, 0x0, 0x0) = "0x0"
     Width: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -2327,13 +2179,6 @@ class 0x4d909a30(IOptionTemplate):
 
 class 0x4dd20b88(IUiVariable):
     value: (I32, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0x4e02c1f7(0x7b440079):
-    OutputXyz: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
-    OutputColor: (Embed, 0x0, 0x0, ColorTableSet) = {"Table":{},"Var":""}
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    OutputW: (Embed, 0x0, 0x0, FloatTableSet) = {"Table":{},"Var":""}
     pass
 
 class 0x4e16b860():
@@ -2504,9 +2349,6 @@ class 0x51c026b9(ISubphaseAdditionalData):
     Waves: (List2, 0x0, Link, 0xe75aad84) = []
     pass
 
-class 0x51d069e1(IEntityGet, 0x662c1ec3, IScriptValueGet):
-    pass
-
 class 0x51db35d3():
     LockedHoverIcon: (File, 0x0, 0x0, 0x0) = "0x0"
     CompleteDefaultIcon: (File, 0x0, 0x0, 0x0) = "0x0"
@@ -2560,11 +2402,6 @@ class 0x547679fe():
 class 0x547b9a32(BaseParams):
     pass
 
-class 0x5480000a(EntityScriptCondition):
-    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
-    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
-    pass
-
 class 0x54a1b7a6():
     medium: (U8, 0x0, 0x0, 0x0) = 60
     0x372a116d: (U8, 0x0, 0x0, 0x0) = 20
@@ -2604,11 +2441,6 @@ class 0x56ca5fcf(ISequenceActionInstance):
     pass
 
 class 0x570328ce(0xb08ef62f):
-    pass
-
-class 0x5727ed42(IScriptCondition):
-    Key: (Pointer, 0x0, 0x0, IScriptValueGet) = null
-    CustomTable: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
     pass
 
 class 0x577580a9(EventBusApObject):
@@ -2959,13 +2791,6 @@ class 0x5f5925f1():
     TierBagEntries: (List2, 0x0, Embed, TftTierEntry) = []
     pass
 
-class 0x5fa82956(0xff4e30bb):
-    0x1757fdc8: (Pointer, 0x0, 0x0, IBoolGet) = null
-    Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
-    0x7c891337: (Pointer, 0x0, 0x0, IIntGet) = null
-    pass
-
 class 0x6030f7c6(0xe6f0047):
     0x3cb3392e: (F32, 0x0, 0x0, 0x0) = 0.0
     0x4ec6dd3c: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -2993,11 +2818,6 @@ class 0x6098cd78(0x902e246e):
     pass
 
 class 0x60aeb0e7(OptionItemSliderFloat):
-    pass
-
-class 0x612b3741(0xca17e84f):
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    NewValue: (Pointer, 0x0, 0x0, IIntGet) = null
     pass
 
 class 0x6136d145(0x64c18f7d):
@@ -3113,11 +2933,6 @@ class 0x65720c6a():
     TagColor: (Color, 0x0, 0x0, 0x0) = [140,155,160,255]
     pass
 
-class 0x6587b424(IBehaviorScriptBlock):
-    0x1f50a19e: (Pointer, 0x0, 0x0, IBoolGet) = {}
-    Var: (Pointer, 0x0, 0x0, ScriptTableSet) = null
-    pass
-
 class 0x65ab7bf1(IScriptBt):
     pass
 
@@ -3149,9 +2964,6 @@ class 0x65f7bea2(ClientScript):
 
 class 0x6623db8d(0x87e73e28):
     0xc563f3b8: (Pointer, 0x0, 0x0, IResourceResolver) = null
-    pass
-
-class 0x662c1ec3():
     pass
 
 class 0x663ead72(BaseParams):
@@ -3351,11 +3163,6 @@ class 0x6a4adf05():
     0xe4597f4e: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     pass
 
-class 0x6a66088d(IFloatGet, IIntGet, IScriptValueGet):
-    PropPath: (String, 0x0, 0x0, 0x0) = ""
-    PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x6a68b4f1():
     DefeatFX: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ByeFx: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -3528,11 +3335,6 @@ class 0x6efc1017(IMilestoneBehavior):
     0x73175708: (Embed, 0x0, 0x0, 0x6311fe74) = {"DescriptionTra":"","IconPath":"0x0","TitleTra":""}
     pass
 
-class 0x6f301bf2(0x7b440079):
-    Output: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x6f44928c():
     0x9a800d92: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x9df2c4cd: (List2, 0x0, Hash, 0x0) = []
@@ -3592,9 +3394,6 @@ class 0x71ae72e5(GameModeConstant):
     traits: (List2, 0x0, Link, TftTraitData) = []
     pass
 
-class 0x71bb3057(ScriptTableGet, IDataObjectGet):
-    pass
-
 class 0x71fdeba8():
     ConnectedNodes: (List2, 0x0, Link, 0xa4613655) = []
     GridY: (U32, 0x0, 0x0, 0x0) = 0
@@ -3607,10 +3406,6 @@ class 0x720982c5(BaseParams):
 
 class 0x72387b18(ICharacterSubcondition):
     0xd4e06278: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
-class 0x72651449(IEntityGet, 0x662c1ec3, IScriptValueGet):
-    EntityRef: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0x727d77b9():
@@ -3658,11 +3453,6 @@ class 0x7463e786():
     pass
 
 class 0x7468b64c():
-    pass
-
-class 0x7496f1e(LevelScriptBlock):
-    0x5a4ef4e7: (Pointer, 0x0, 0x0, IDataObjectGet) = null
-    0x7511a599: (Embed, 0x0, 0x0, StringArrayTableSet) = {"Table":{},"Var":""}
     pass
 
 class 0x75582751(BaseParams):
@@ -3827,9 +3617,6 @@ class 0x79ca73e7():
     0xf4186080: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x7a0b0e42(IGameScreenClientBlock):
-    pass
-
 class 0x7a19656():
     TimerText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     DetailPanel: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -3862,9 +3649,6 @@ class 0x7a2b62e():
     missions: (List2, 0x0, Hash, 0x0) = []
     0xf400dc1: (Link, 0x0, 0x0, 0x7a2b62e) = "0x0"
     DescriptionTra: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x7a3483c4(ConceptBlockBase):
     pass
 
 class 0x7a5040ea(BaseLoadoutData):
@@ -3947,9 +3731,6 @@ class 0x7b40445f():
     Tooltip: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x7b440079(ConceptBlockBase):
-    pass
-
 class 0x7b768f17(SeqInputVector):
     TargetPosition: (Pointer, 0x0, 0x0, SeqInputVector) = null
     SourcePosition: (Pointer, 0x0, 0x0, SeqInputVector) = null
@@ -3968,7 +3749,7 @@ class 0x7be50d9e():
     pass
 
 class 0x7c537128(IScriptBlock):
-    0x28d1d977: (Map, Hash, Pointer, IScriptValueGet) = {}
+    EventParameterOverrides: (Map, Hash, Pointer, IScriptValueGet) = {}
     Event: (Link, 0x0, 0x0, 0x2d653ed5) = "0x0"
     pass
 
@@ -4136,9 +3917,6 @@ class 0x8030c161():
     colors: (Map, U32, Embed, 0x634a3a64) = {}
     pass
 
-class 0x803f9938(IGameScreenClientBlock):
-    pass
-
 class 0x804056d8():
     priority: (I32, 0x0, 0x0, 0x0) = 0
     Spell: (Link, 0x0, 0x0, SpellObject) = "0x0"
@@ -4157,11 +3935,6 @@ class 0x806955f3(TftCutsceneClip):
     pitch: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0x807f462a(GameEntityBlock):
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    ScriptDef: (Pointer, 0x0, 0x0, IDataObjectGet) = null
-    pass
-
 class 0x808b810c(UiMetricTypeSimpleI):
     pass
 
@@ -4176,12 +3949,6 @@ class 0x80ab8a15(BaseParams):
     pass
 
 class 0x80b33bc2(0xb5754dad):
-    pass
-
-class 0x80c4552b(GameEntityBlock):
-    Enabled: (Pointer, 0x0, 0x0, IBoolGet) = null
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    Icon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
     pass
 
 class 0x80ca8a75():
@@ -4233,7 +4000,7 @@ class 0x81580a34(IOverrideOptionItem):
 class 0x817d288c(BaseParams):
     pass
 
-class 0x81a1e232(0xff4e30bb):
+class 0x81a1e232(GameEntityLoopBlock):
     OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":"IterEntity"}
     Center: (Pointer, 0x0, 0x0, IVectorGet) = null
     0x90f1641f: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -4575,10 +4342,6 @@ class 0x89ea8a95(ICastRequirement):
 class 0x8a4a4963():
     pass
 
-class 0x8a96ea3c(IGameCalculationPart):
-    mSubparts: (List2, 0x0, Pointer, IGameCalculationPart) = []
-    pass
-
 class 0x8b0381c(0xe2a48eac):
     Item: (Link, 0x0, 0x0, TftItemData) = "0x0"
     pass
@@ -4833,10 +4596,6 @@ class 0x911f126a():
 class 0x91469fee(ElapsedTimerControllerDefinition):
     pass
 
-class 0x914839f7(ScriptTableGet, IFloatGet, IIntGet):
-    PropPath: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x914fafb2(ILocatorPreview):
     pass
 
@@ -4851,14 +4610,9 @@ class 0x9162a320(ISequenceAction):
 class 0x91fd0920(MissileBehaviorSpec):
     pass
 
-class 0x927b13d0(0xca17e84f):
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    NewValue: (Pointer, 0x0, 0x0, IVectorGet) = null
-    pass
-
 class 0x92b6b7fa(IScriptBlock):
     MaxValue: (Pointer, 0x0, 0x0, IIntGet) = null
-    0xdec56440: (List2, 0x0, Pointer, IIntGet) = []
+    ValuesToExclude: (List2, 0x0, Pointer, IIntGet) = []
     OutputTable: (Embed, 0x0, 0x0, CustomTableSet) = {"Table":{},"Var":""}
     MinValue: (Pointer, 0x0, 0x0, IIntGet) = null
     pass
@@ -5216,11 +4970,6 @@ class 0x9e9e1f6d(IContextualCondition):
     0xeb60b2e8: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x9e9e2e5c(IGameCalculationPart):
-    DataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    SourceObject: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x9eb07cec(IEnvironmentShadingModel):
     pass
 
@@ -5233,11 +4982,6 @@ class 0x9ef1e737(IOptionItem):
 
 class 0x9ef54006(0xfbd56421):
     Condition: (Pointer, 0x0, 0x0, 0xfbd56421) = null
-    pass
-
-class 0x9efea40a(IScriptBlock):
-    Average: (Embed, 0x0, 0x0, FloatTableSet) = {"Table":{},"Var":""}
-    Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
     pass
 
 class 0x9f30b8a6(IGameModeConfig):
@@ -5311,10 +5055,6 @@ class 0xa0d6277b():
     name: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xa0d8d1a6(LevelScriptBlock):
-    Dest: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
-    pass
-
 class 0xa0eddc9():
     values: (List, 0x7, F32, 0x0) = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
     pass
@@ -5337,13 +5077,6 @@ class 0xa1898a43(ModalDialogViewController):
 
 class 0xa1e28449(0x8685eb51):
     0xf9bce4c2: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xa23138c5(ILoopScriptBlock):
-    Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
-    DestKey: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
-    Ascending: (Bool, 0x0, 0x0, 0x0) = true
-    DestValue: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
     pass
 
 class 0xa2603d0f():
@@ -5388,11 +5121,6 @@ class 0xa3c3ae3c(ITftItemFilter):
 
 class 0xa3faa7f5():
     MessageTra: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xa407be92(IBoolGet, IScriptValueGet):
-    PropPath: (String, 0x0, 0x0, 0x0) = ""
-    PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xa41315c0():
@@ -5457,11 +5185,6 @@ class 0xa50ab26():
 class 0xa534365c():
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TimerVfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xa5ad6466(0xca17e84f):
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    NewValue: (Pointer, 0x0, 0x0, IBoolGet) = null
     pass
 
 class 0xa625d1a6(EventBusApObject):
@@ -5815,12 +5538,6 @@ class 0xade7ce63():
 class 0xadeddc6():
     pass
 
-class 0xadf77958(GameEntityBlock):
-    RemoveAll: (Pointer, 0x0, 0x0, IBoolGet) = null
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    ScriptDef: (Pointer, 0x0, 0x0, IDataObjectGet) = null
-    pass
-
 class 0xadfcc498(InputEventBoolKeybind):
     pass
 
@@ -5982,11 +5699,6 @@ class 0xb16c4c30(0x2a99a254):
     0xf2e79214: (Link, 0x0, 0x0, SpellObject) = "0x0"
     pass
 
-class 0xb1a8a3c0(IRunFunctionBlock):
-    Script: (Link, 0x0, 0x0, ClientScript) = "0x0"
-    Function: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xb1f9ca3c(ISequenceActionInstance):
     pass
 
@@ -5997,11 +5709,6 @@ class 0xb213e4ff(ISequenceAction):
     element: (Pointer, 0x0, 0x0, 0x34ecdf00) = null
     0x76df2a8b: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     EnableOnStart: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
-class 0xb22609db(IGameCalculationPartByCharLevel):
-    0x91d404a5: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xb2cd0eb0: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xb2430347():
@@ -6026,10 +5733,6 @@ class 0xb2fe8cea(ViewController):
 
 class 0xb2ff06ac(IGameModeConfigClient):
     0x467aa47: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0xb30f6438(ScriptTableGet, IFloatGet, IIntGet):
-    PropPath: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xb34ac035():
@@ -6246,10 +5949,6 @@ class 0xb8a49c96():
     Meter: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xb905f14(EntityScriptCondition):
-    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
-    pass
-
 class 0xb9225383(BaseParams):
     pass
 
@@ -6276,11 +5975,6 @@ class 0xb9884464(UiMetricTypeI):
     pass
 
 class 0xb9e570ee(BaseParams):
-    pass
-
-class 0xba007871(IGameCalculationPart):
-    SourceObject: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    CalculationKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xba65f1fe():
@@ -6575,11 +6269,6 @@ class 0xc1a5c5d7(TftDisplayTag):
     FeatureType: (U8, 0x0, 0x0, 0x0) = 40
     pass
 
-class 0xc1def894(0x7b440079):
-    Output: (Embed, 0x0, 0x0, BoolTableSet) = {"Table":{},"Var":""}
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xc24051e7(MapAction):
     Constant: (U32, 0x0, 0x0, 0x0) = 0
     constantValue: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
@@ -6850,9 +6539,6 @@ class 0xc9feb84a(0xe2a48eac):
     0xd39d85bd: (Link, 0x0, 0x0, TftUnitPropertyDefinition) = "0x0"
     pass
 
-class 0xca17e84f(ConceptBlockBase):
-    pass
-
 class 0xca1804b3():
     0x6b5bdad3: (List2, 0x0, Hash, 0x0) = []
     Item: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6917,10 +6603,6 @@ class 0xcb29f21f():
     HitRegion: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xcb3604f0(IScriptCondition):
-    Emote: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0xcbb4598a(BaseParams):
     pass
 
@@ -6936,11 +6618,6 @@ class 0xccf60865(IGameModeConfig):
 class 0xce50b659(IGameModeConfig):
     0x74df1e31: (List2, 0x0, Embed, 0xabce29fc) = []
     Maps: (List2, 0x0, Embed, BattlegroundsMap) = []
-    pass
-
-class 0xcecd632c(0x7b440079):
-    Output: (Embed, 0x0, 0x0, FloatTableSet) = {"Table":{},"Var":""}
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xcf1bda19(ILolKeybindSetCheck):
@@ -7135,9 +6812,6 @@ class 0xd545dcdd():
     champions: (List2, 0x0, Embed, 0x51a765d1) = []
     pass
 
-class 0xd554425c(ScriptTableGet, IUiElementIGet):
-    pass
-
 class 0xd56fb9cc():
     Size: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
     TextureName: (File, 0x0, 0x0, 0x0) = "0x0"
@@ -7220,8 +6894,8 @@ class 0xd6bc5e0c():
     pass
 
 class 0xd6d3da87(GameEntityBlock):
-    0x98840e54: (List2, 0x0, Pointer, IEntityTagGet) = []
-    0xe2226a17: (List2, 0x0, Pointer, IEntityTagGet) = []
+    TagsToActivate: (List2, 0x0, Pointer, IEntityTagGet) = []
+    TagsToDeactivate: (List2, 0x0, Pointer, IEntityTagGet) = []
     pass
 
 class 0xd6edc2f4(ViewController):
@@ -7229,10 +6903,6 @@ class 0xd6edc2f4(ViewController):
     MessageDisplayData: (Embed, 0x0, 0x0, HudMessageDisplayData) = {"0xf13367cf":false,"MessageDurationSecs":5.0,"TransitionIn":{"EasingType":0,"TransitionStartDelaySecs":0.0,"TransitionTime":0.10000000149011612,"maxAlpha":255,"minAlpha":0},"messageCount":4}
     0x99c3584f: (Map, Hash, Embed, AccessibleColor) = {}
     ItemSceneTemplate: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xd7153407(EntityScriptCondition):
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
 class 0xd738f7c9():
@@ -7346,9 +7016,6 @@ class 0xdb26669a():
 
 class 0xdb7bbf5f():
     RollTable: (List2, 0x0, Embed, 0x5ba2fb13) = []
-    pass
-
-class 0xdb992149(IResourceKeyGet, ScriptTableGet):
     pass
 
 class 0xdb9a90ba(0xe561be2e):
@@ -7638,10 +7305,6 @@ class 0xe4b58196():
     0xe8385425: (List2, 0x0, Embed, 0x843e3fe2) = []
     pass
 
-class 0xe51539c7(ScriptTableGet, IStringGet):
-    PropPath: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0xe53e4779(SeqInputObjectArray):
     EntityTag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -7771,16 +7434,7 @@ class 0xe92f8b6c(ViewController):
     0xfff63be6: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xe945834a(IGameCalculationPart):
-    ItemModifier: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Coefficient: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
 class 0xe98940e1():
-    pass
-
-class 0xe9a3c91d(GameCalculation):
-    mRangedMultiplier: (Pointer, 0x0, 0x0, IGameCalculationPart) = null
     pass
 
 class 0xe9b3cb22(InputEventBoolKeybind):
@@ -7897,11 +7551,6 @@ class 0xed070692(LevelScriptBlock):
     SelectedTerrain: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
     pass
 
-class 0xed124985(LevelScriptBlock):
-    OverrideBehavior: (Pointer, 0x0, 0x0, IMinionWaveBehavior) = null
-    MinionType: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0xed293bf2(ModalDialogViewController):
     PlayerIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     KickButton: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -7934,13 +7583,6 @@ class 0xedd8154():
 class 0xedfd5a0(UiComponent):
     CategoryValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
     CategoryName: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xee18a47b(IGameCalculationPartByCharLevel):
-    0x32a393a: (Bool, 0x0, 0x0, 0x0) = true
-    StartDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    EndDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0xf4e470e6: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0xee28fb8d():
@@ -8143,10 +7785,6 @@ class 0xf3c319e2():
     0xbb21a9ed: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0xf3cbe7b2(IGameCalculationPart):
-    mSpellCalculationKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0xf3cf86a3():
     Scene: (Hash, 0x0, 0x0, 0x0) = "0x0"
     description: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -8321,11 +7959,6 @@ class 0xf8828af9():
 class 0xf890629e(ILolKeybindSetCheck):
     pass
 
-class 0xf8ae8458(GameEntityBlock):
-    Enabled: (Pointer, 0x0, 0x0, IBoolGet) = null
-    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    pass
-
 class 0xf8c18a6e():
     NameTraKey: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -8393,10 +8026,6 @@ class 0xfa040e57(0xbc280d0a):
     Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
-class 0xfa131962(IBehaviorScriptBlock):
-    Sequence: (Embed, 0x0, 0x0, ScriptBtSequence) = {"blocks":[]}
-    pass
-
 class 0xfa28444b():
     L: (I32, 0x0, 0x0, 0x0) = 0
     H: (I32, 0x0, 0x0, 0x0) = 0
@@ -8408,11 +8037,6 @@ class 0xfa33a427():
     DescriptionLong: (String, 0x0, 0x0, 0x0) = ""
     title: (String, 0x0, 0x0, 0x0) = ""
     DescriptionShort: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xfa6a7623(0x7b440079):
-    Output: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
-    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xfacd8b68():
@@ -8541,9 +8165,6 @@ class 0xfe897399():
 class 0xfea81f3e(SequenceActionLerpFloat):
     pass
 
-class 0xff4e30bb(ILoopScriptBlock):
-    pass
-
 class 0xff55db60():
     0x29f5a8d9: (List2, 0x0, Hash, 0x0) = []
     HealthBars: (List2, 0x0, Hash, 0x0) = []
@@ -8648,6 +8269,12 @@ class AbilityResourceByCoefficientCalculationPart(IGameCalculationPart):
     mCoefficient: (F32, 0x0, 0x0, 0x0) = 0.0
     mAbilityResource: (U8, 0x0, 0x0, 0x0) = 0
     mStatFormula: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class AbilityResourceByNamedDataValueCalculationPart(IGameCalculationPart):
+    DataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    AbilityResource: (U8, 0x0, 0x0, 0x0) = 0
+    StatFormula: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class AbilityResourceDynamicMaterialFloatDriver(ILogicFloatDriver):
@@ -8786,12 +8413,12 @@ class AchievementTitleReward(IRewardBase):
 class ActivateEntityBlock(GameEntityBlock):
     ShowDuration: (Pointer, 0x0, 0x0, IFloatGet) = {}
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    0x94018232: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    ActivateThenShow: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
 class ActivateEntityTagBlock(GameEntityBlock):
     ShowDuration: (Pointer, 0x0, 0x0, IFloatGet) = {}
-    0x94018232: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    ActivateThenShow: (Pointer, 0x0, 0x0, IBoolGet) = {}
     tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
     pass
 
@@ -8799,9 +8426,17 @@ class ActiveItemTelemetryData():
     ActiveItemTelemetryEventOptions: (List, 0x0, String, 0x0) = []
     pass
 
+class AddConceptBlockBase(ConceptBlockBase):
+    pass
+
 class AddExperienceCheat(Cheat):
     mTarget: (U32, 0x0, 0x0, 0x0) = 1
     mGiveMaxLevel: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class AddFloatConceptBlock(AddConceptBlockBase):
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    AddValue: (Pointer, 0x0, 0x0, IFloatGet) = {}
     pass
 
 class AddGoldCheat(Cheat):
@@ -8812,6 +8447,11 @@ class AddGoldCheat(Cheat):
 class AddHealthCheat(Cheat):
     mAmount: (F32, 0x0, 0x0, 0x0) = 0.0
     mTarget: (U32, 0x0, 0x0, 0x0) = 1
+    pass
+
+class AddIntConceptBlock(AddConceptBlockBase):
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    AddValue: (Pointer, 0x0, 0x0, IIntGet) = {}
     pass
 
 class AddLevelTimer(LevelScriptBlock):
@@ -9172,6 +8812,19 @@ class AtomicClipData(BlendableClipData):
     mUpdaterResourceData: (Pointer, 0x0, 0x0, UpdaterResourceData) = null
     mAnimationResourceData: (Embed, 0x0, 0x0, AnimationResourceData) = {"mAnimationFilePath":"0x0"}
     EndFrame: (F32, 0x0, 0x0, 0x0) = -1.0
+    pass
+
+class AttachDynamicScript(GameEntityBlock):
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    ScriptDef: (Pointer, 0x0, 0x0, IDataObjectGet) = null
+    pass
+
+class AttachEntityBlock(GameEntityBlock):
+    offset: (Pointer, 0x0, 0x0, IVectorGet) = null
+    Source: (Pointer, 0x0, 0x0, IEntityGet) = null
+    0x9f97e7c: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    Attachment: (Pointer, 0x0, 0x0, IEntityGet) = null
+    0xe2d12280: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
 class AttackCausedDamageConstraintInfo(ListenerConstraintInfo):
@@ -9741,6 +9394,10 @@ class BehaviorLevelController(ILevelController):
 class BehaviorScript(RScript):
     pass
 
+class BehaviorScriptCommentBlock(IBehaviorScriptBlock):
+    Sequence: (Embed, 0x0, 0x0, ScriptBtSequence) = {"blocks":[]}
+    pass
+
 class BerserkTargetingParameters():
     mAffectsStatusFlags: (U32, 0x0, 0x0, 0x0) = 0
     radius: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -10013,8 +9670,31 @@ class ByCharLevelInterpolationCalculationPart(IGameCalculationPartByCharLevel):
     mStartValue: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class ByCharLevelNamedDataValueBreakpointsCalculationPart(IGameCalculationPartByCharLevel):
+    Level1DataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    DataValueBreakpoints: (List2, 0x0, Embed, NamedDataValueBreakpoint) = []
+    InitialBonusPerLevelDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ByCharLevelNamedDataValuesCalculationPart(IGameCalculationPartByCharLevel):
+    Level1DataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    BonusPerLevelDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ByCharLevelNamedDataValuesInterpolationCalculationPart(IGameCalculationPartByCharLevel):
+    ScalePastDefaultMaxLevel: (Bool, 0x0, 0x0, 0x0) = true
+    StartDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    EndDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    ScaleByStatProgressionMultiplier: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
 class ByItemEpicnessCountCalculationPart(IGameCalculationPart):
     epicness: (U8, 0x0, 0x0, 0x0) = 1
+    Coefficient: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class ByItemModifierCalculationPart(IGameCalculationPart):
+    ItemModifier: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Coefficient: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
@@ -11006,6 +10686,11 @@ class ClearBit(IScriptBlock):
     BitField: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
     pass
 
+class ClearGameEntityIconOverride(GameEntityBlock):
+    Enabled: (Pointer, 0x0, 0x0, IBoolGet) = null
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
 class ClearSkillsSumsCooldownCheat(Cheat):
     mTarget: (U32, 0x0, 0x0, 0x0) = 1
     pass
@@ -11202,7 +10887,7 @@ class ConceptBase():
     pass
 
 class ConceptBlockBase(IScriptBlock):
-    ConceptObject: (Pointer, 0x0, 0x0, 0x662c1ec3)
+    ConceptObject: (Pointer, 0x0, 0x0, ILogicDriverSourceGet)
     pass
 
 class ConceptEasingData():
@@ -11887,6 +11572,11 @@ class CustomTableContainsValueBlock(IScriptBlock):
 class CustomTableGet(ScriptTableGet, ICustomGet):
     pass
 
+class CustomTableHasKeyCondition(IScriptCondition):
+    Key: (Pointer, 0x0, 0x0, IScriptValueGet) = null
+    CustomTable: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
+    pass
+
 class CustomTableSet(ScriptTableSet):
     pass
 
@@ -11960,23 +11650,62 @@ class DamageUnitCheat(Cheat):
     mHitResult: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
+class DataObjectBoolGet(IBoolGet, IScriptValueGet):
+    PropPath: (String, 0x0, 0x0, 0x0) = ""
+    PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class DataObjectBoolTableGet(ScriptTableGet, IBoolGet):
+    PropPath: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class DataObjectFloatGet(IFloatGet, IIntGet, IScriptValueGet):
+    PropPath: (String, 0x0, 0x0, 0x0) = ""
+    PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class DataObjectFloatTableGet(ScriptTableGet, IFloatGet, IIntGet):
+    PropPath: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class DataObjectGet(IDataObjectGet, IScriptValueGet):
     PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class DataObjectIntGet(IFloatGet, IIntGet, IScriptValueGet):
+    PropPath: (String, 0x0, 0x0, 0x0) = ""
+    PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class DataObjectIntTableGet(ScriptTableGet, IFloatGet, IIntGet):
+    PropPath: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class DataObjectStringGet(IStringGet, IScriptValueGet):
+    PropPath: (String, 0x0, 0x0, 0x0) = ""
+    PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class DataObjectStringTableGet(ScriptTableGet, IStringGet):
+    PropPath: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class DataObjectTableSet(ScriptTableSet):
     pass
 
+class DataObjectValueTableGet(ScriptTableGet, IDataObjectGet):
+    pass
+
 class DeactivateEntityBlock(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     HideDuration: (Pointer, 0x0, 0x0, IFloatGet) = {}
-    0x9e8fcd0c: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    HideThenDeactivate: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
 class DeactivateEntityTagBlock(GameEntityBlock):
     HideDuration: (Pointer, 0x0, 0x0, IFloatGet) = {}
     tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
-    0x9e8fcd0c: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    HideThenDeactivate: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
 class DeathGeComponent(0x2576b4fc, GameEntityComponent):
@@ -12123,6 +11852,17 @@ class DestroyOnMovementComplete(MissileBehaviorSpec):
     mDelay: (I32, 0x0, 0x0, 0x0) = 0
     pass
 
+class DetachDynamicScript(GameEntityBlock):
+    RemoveAll: (Pointer, 0x0, 0x0, IBoolGet) = null
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    ScriptDef: (Pointer, 0x0, 0x0, IDataObjectGet) = null
+    pass
+
+class DetachEntityBlock(GameEntityBlock):
+    Source: (Pointer, 0x0, 0x0, IEntityGet) = null
+    Attachment: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
 class DetailedItemSlots():
     Item6: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","StateBorderFX":"0x0","TimerFX":"0x0","ToggleFx":"0x0"}
     Item4: (Embed, 0x0, 0x0, ItemSlotDetailedUiData) = {"0x42522ee4":{},"0x5b00b702":"0x0","0x7b2ad5af":"0x0","0xd56f4129":"0x0","AmmoFx":"0x0","Backdrop":"0x0","BorderDefault":"0x0","BorderDisabled":"0x0","BorderEnabled":"0x0","BorderSelected":"0x0","CompleteFx":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","HotkeyText":"0x0","Icon":"0x0","MajorActive":"0x0","NewItemFx":"0x0","OverlayDisabled":"0x0","OverlayHover":"0x0","OverlayLoc":"0x0","OverlayOom":"0x0","StackText":"0x0","StateBorderFX":"0x0","TimerFX":"0x0","ToggleFx":"0x0"}
@@ -12199,14 +11939,14 @@ class DragDirection(TargetingTypeData):
     pass
 
 class DragonCampEntityTemplate(NeutralCampEntityTemplate):
-    0x1def5862: (Embed, 0x0, 0x0, DragonCampGeComponentDef) = {"0x2e104d7":"0x0"}
+    0x1def5862: (Embed, 0x0, 0x0, DragonCampGeComponentDef) = {"SoulTypes":"0x0"}
     pass
 
 class DragonCampGeComponent(GameEntityComponent):
     pass
 
 class DragonCampGeComponentDef(IGeComponentDef):
-    0x2e104d7: (Link, 0x0, 0x0, 0x292991be) = "0x0"
+    SoulTypes: (Link, 0x0, 0x0, 0x292991be) = "0x0"
     pass
 
 class DrawAreaList():
@@ -12490,6 +12230,10 @@ class EmoteConfigData():
 class EmoteIdIntDriver(ILogicIntDriver):
     pass
 
+class EmoteIsCondition(IScriptCondition):
+    Emote: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
 class EmoteItemData():
     intro: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Portrait: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -12612,9 +12356,22 @@ class EntityCircleData(EntityShapeData):
     radius: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class EntityExistsCondition(EntityScriptCondition):
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
+class EntityHasTag(EntityScriptCondition):
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
+    Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
 class EntityPolygonData(EntityShapeData):
     0x174f6af: (Bool, 0x0, 0x0, 0x0) = false
     Vertices: (List2, 0x0, Vec3, 0x0) = [[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]
+    pass
+
+class EntityReferenceGet(IEntityGet, ILogicDriverSourceGet, IScriptValueGet):
+    EntityRef: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class EntityScriptCondition(IScriptCondition):
@@ -12633,7 +12390,7 @@ class EntityStateMachine():
     DefaultState: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class EntityTableGet(ScriptTableGet, IEntityGet, 0x662c1ec3):
+class EntityTableGet(ScriptTableGet, IEntityGet, ILogicDriverSourceGet):
     pass
 
 class EntityTableSet(ScriptTableSet):
@@ -12904,6 +12661,11 @@ class ExecuteFunctionBlock(IRunFunctionBlock):
     Function: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class ExecuteFunctionClientBlock(IRunFunctionBlock):
+    Script: (Link, 0x0, 0x0, ClientScript) = "0x0"
+    Function: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class ExecuteFunctionEntityBlock(GameEntityBlock):
     PassThroughParameters: (Map, Hash, Pointer, IScriptValueGet) = {}
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
@@ -12941,6 +12703,16 @@ class ExponentSubPartsCalculationPart(IGameCalculationPart):
     pass
 
 class ExtendedSpellSlotIntDriver(ILogicIntDriver):
+    pass
+
+class ExternalCalculationCalculationPart(IGameCalculationPart):
+    SourceObject: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CalculationKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ExternalNamedDataValueCalculationPart(IGameCalculationPart):
+    DataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    SourceObject: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class ExtraJointChainData():
@@ -12993,6 +12765,12 @@ class FeatureAudioDataProperties():
     music: (Embed, 0x0, 0x0, MusicAudioDataProperties) = {"GameQuitEvent":"","GameStartEvent":"","ambientEvent":"","defeatBannerSound":"","defeatMusicID":"","legacyThemeMusicID":"","legacyThemeMusicTransitionID":"","reverbPreset":"","themeMusicID":"","themeMusicTransitionID":"","victoryBannerSound":"","victoryMusicID":""}
     feature: (Hash, 0x0, 0x0, 0x0) = "0x0"
     bankUnits: (List2, 0x0, Embed, BankUnit) = []
+    pass
+
+class FindInString(IScriptBlock):
+    InputString: (Pointer, 0x0, 0x0, IStringGet) = null
+    FoundIndex: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
+    TargetString: (Pointer, 0x0, 0x0, IStringGet) = null
     pass
 
 class FixedDistanceIgnoringTerrain(MissileBehaviorSpec):
@@ -13427,6 +13205,23 @@ class FontType():
     localeTypes: (List, 0x0, Embed, FontLocaleType) = []
     pass
 
+class ForEachEntityWithScriptBlock(GameEntityLoopBlock):
+    FilterByMapIndex: (Pointer, 0x0, 0x0, IBoolGet) = null
+    Script: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
+    MapIndexOverride: (Pointer, 0x0, 0x0, IIntGet) = null
+    pass
+
+class ForEachEntityWithTagBlock(GameEntityLoopBlock):
+    FilterByMapIndex: (Pointer, 0x0, 0x0, IBoolGet) = null
+    OutEntity: (Embed, 0x0, 0x0, EntityTableSet) = {"Table":{},"Var":""}
+    MapIndexOverride: (Pointer, 0x0, 0x0, IIntGet) = null
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
+    0x9c60d5ba: (List2, 0x0, Pointer, IEntityTagGet) = []
+    0xa1162603: (List2, 0x0, Pointer, IEntityTagGet) = []
+    0xbec77248: (List2, 0x0, Pointer, IEntityTagGet) = []
+    pass
+
 class ForEachInCustomTableBlock(ILoopScriptBlock):
     SortedByKeys: (Pointer, 0x0, 0x0, IBoolGet) = null
     Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
@@ -13434,8 +13229,20 @@ class ForEachInCustomTableBlock(ILoopScriptBlock):
     DestValue: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
     pass
 
+class ForEachInSortedCustomTableBlock(ILoopScriptBlock):
+    Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
+    DestKey: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
+    Ascending: (Bool, 0x0, 0x0, 0x0) = true
+    DestValue: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
+    pass
+
 class ForceSpawnNeutralCampsCheat(Cheat):
     0x30ce16ae: (List2, 0x0, String, 0x0) = []
+    pass
+
+class FreeformMathBlock(IScriptBlock):
+    Formula: (String, 0x0, 0x0, 0x0) = ""
+    Dest: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
     pass
 
 class FunctionDefinition():
@@ -13474,7 +13281,7 @@ class GameCalculation(IGameCalculation):
 
 class GameCalculationConditional(IGameCalculation):
     mDefaultGameCalculation: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x353099b0: (Bool, 0x0, 0x0, 0x0) = false
+    UseTargetForRequirements: (Bool, 0x0, 0x0, 0x0) = false
     mConditionalGameCalculation: (Hash, 0x0, 0x0, 0x0) = "0x0"
     mConditionalCalculationRequirements: (Pointer, 0x0, 0x0, ICastRequirement) = null
     pass
@@ -13482,6 +13289,10 @@ class GameCalculationConditional(IGameCalculation):
 class GameCalculationModified(IGameCalculation):
     mModifiedGameCalculation: (Hash, 0x0, 0x0, 0x0) = "0x0"
     mOverrideSpellLevel: (Option, 0x0, I32, 0x0) = null
+    pass
+
+class GameCalculationWithRangedSplit(GameCalculation):
+    mRangedMultiplier: (Pointer, 0x0, 0x0, IGameCalculationPart) = null
     pass
 
 class GameEntity(ILogicDriverSource, 0xd738f7c9):
@@ -13506,6 +13317,9 @@ class GameEntityIconData():
 class GameEntityIconTexture():
     ColorblindTexturePath: (File, 0x0, 0x0, 0x0) = "0x0"
     texturePath: (File, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class GameEntityLoopBlock(ILoopScriptBlock):
     pass
 
 class GameEntityOnActivate(IGameEntityScriptEvent):
@@ -13835,6 +13649,29 @@ class GenericSplineMovementSpec(MissileMovementSpec):
     0xff738f10: (U8, 0x0, 0x0, 0x0)
     pass
 
+class GetAverageValueInCustomTableBlock(IScriptBlock):
+    Average: (Embed, 0x0, 0x0, FloatTableSet) = {"Table":{},"Var":""}
+    Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
+    pass
+
+class GetBuildingLaneBlock(LevelScriptBlock):
+    Dest: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
+    pass
+
+class GetCampSpawnTypes(LevelScriptBlock):
+    0x5a4ef4e7: (Pointer, 0x0, 0x0, IDataObjectGet) = null
+    SpawnTypes: (Embed, 0x0, 0x0, StringArrayTableSet) = {"Table":{},"Var":""}
+    pass
+
+class GetCurrentScriptHashBlock(GameEntityBlock):
+    ScriptHash: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
+    pass
+
+class GetDragonSoulTypes(LevelScriptBlock):
+    DragonCamp: (Pointer, 0x0, 0x0, IEntityGet) = null
+    SoulTypes: (Embed, 0x0, 0x0, StringArrayTableSet) = {"Table":{},"Var":""}
+    pass
+
 class GetEntityDirectionBlock(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     Dest: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
@@ -13886,6 +13723,13 @@ class GetModePreloadFlags(LevelScriptBlock):
 
 class GetNextBuildingInLaneBlock(LevelScriptBlock):
     RelativeIndex: (Pointer, 0x0, 0x0, IIntGet) = null
+    pass
+
+class GetRandomFromCustomTableBlock(IScriptBlock):
+    Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
+    Dest: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
+    ShouldRemove: (Bool, 0x0, 0x0, 0x0) = false
+    KeyDest: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
     pass
 
 class GetSizeOfCustomTableBlock(IScriptBlock):
@@ -14936,7 +14780,7 @@ class IGameCalculationPartWithStats(IGameCalculationPart):
     mStatFormula: (U8, 0x0, 0x0, 0x0)
     statType: (U8, 0x0, 0x0, 0x0)
     OutputType: (U8, 0x0, 0x0, 0x0)
-    0xa8cb9c14: (Bool, 0x0, 0x0, 0x0)
+    UseTargetStats: (Bool, 0x0, 0x0, 0x0)
     UseNewStats: (Bool, 0x0, 0x0, 0x0)
     pass
 
@@ -14956,16 +14800,25 @@ class IGameModeConfigBase():
 class IGameModeConfigClient(IGameModeConfigBase):
     pass
 
+class IGameScreenAudioBlock(IGameScreenClientBlock):
+    pass
+
 class IGameScreenCameraBlock(IGameScreenClientBlock):
     pass
 
 class IGameScreenClientBlock(IScriptBlock):
     pass
 
+class IGameScreenDebugBlock(IGameScreenClientBlock):
+    pass
+
 class IGameScreenEntityBlock(IGameScreenClientBlock):
     pass
 
 class IGameScreenNode():
+    pass
+
+class IGameScreenOperationBlock(IGameScreenClientBlock):
     pass
 
 class IGameScreenVfxBlock(IGameScreenClientBlock):
@@ -15034,6 +14887,9 @@ class ILogicDriver():
     pass
 
 class ILogicDriverSource():
+    pass
+
+class ILogicDriverSourceGet():
     pass
 
 class ILogicDriverValueToString():
@@ -15673,6 +15529,10 @@ class IsEntityActive(EntityScriptCondition):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
+class IsEntityTagActive(EntityScriptCondition):
+    tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
+    pass
+
 class IsHomeguardParametricUpdater(IBooleanParametricUpdater):
     pass
 
@@ -15708,6 +15568,10 @@ class IsMovingBoolDriver(ILogicBoolDriver):
 class IsMovingParametricUpdater(IBooleanParametricUpdater):
     pass
 
+class IsNilCondition(IScriptCondition):
+    value: (Pointer, 0x0, 0x0, ScriptTableGet) = null
+    pass
+
 class IsOnGameplayTextureBoolDriver(ILogicBoolDriver):
     GameplayTexture: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -15730,6 +15594,11 @@ class IsStealthedBoolDriver(ILogicBoolDriver):
     pass
 
 class IsTurningParametricUpdater(IBooleanParametricUpdater):
+    pass
+
+class IsVarInTableBlock(IBehaviorScriptBlock):
+    0x1f50a19e: (Pointer, 0x0, 0x0, IBoolGet) = {}
+    Var: (Pointer, 0x0, 0x0, ScriptTableSet) = null
     pass
 
 class ItemAdviceAttribute():
@@ -18368,6 +18237,10 @@ class MaxMaterialDriver(ILogicDriver):
     mDrivers: (List, 0x0, Pointer, ILogicDriver) = []
     pass
 
+class MaxOfSubPartsCalculationPart(IGameCalculationPart):
+    mSubparts: (List2, 0x0, Pointer, IGameCalculationPart) = []
+    pass
+
 class MeshEntity(GameEntity):
     pass
 
@@ -18417,6 +18290,10 @@ class MilestoneDefinition():
 
 class MinMaterialDriver(ILogicDriver):
     mDrivers: (List, 0x0, Pointer, ILogicDriver) = []
+    pass
+
+class MinOfSubPartsCalculationPart(IGameCalculationPart):
+    mSubparts: (List2, 0x0, Pointer, IGameCalculationPart) = []
     pass
 
 class MinimapBackground():
@@ -18957,6 +18834,12 @@ class MutatorMapVisibilityController(IMapVisibilityController):
     MutatorName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class NamedDataValueBreakpoint():
+    level: (U32, 0x0, 0x0, 0x0) = 1
+    AdditionalBonusAtThisLevelDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    BonusPerLevelAtAndAfterDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class NamedDataValueCalculationPart(IGameCalculationPart):
     mDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -19266,6 +19149,15 @@ class NexusFinisher(BaseLoadoutData):
     pass
 
 class NexusFinisherViewController(ViewController):
+    pass
+
+class NilEntityGet(IEntityGet, ILogicDriverSourceGet, IScriptValueGet):
+    pass
+
+class NilGet(IScriptValueGet):
+    pass
+
+class NilUnitGet(IUnitGet, ILogicDriverSourceGet, IScriptValueGet):
     pass
 
 class NotInputSourceBool(IInputSourceBool):
@@ -20954,6 +20846,36 @@ class RawVector4ConceptLogicDriver(ILogicDriver):
     Concept: (Link, 0x0, 0x0, Vector4Concept) = "0x0"
     pass
 
+class ReadBoolConceptBlock(ReadConceptBlockBase):
+    Output: (Embed, 0x0, 0x0, BoolTableSet) = {"Table":{},"Var":""}
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ReadConceptBlockBase(ConceptBlockBase):
+    pass
+
+class ReadFloatConceptBlock(ReadConceptBlockBase):
+    Output: (Embed, 0x0, 0x0, FloatTableSet) = {"Table":{},"Var":""}
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ReadIntConceptBlock(ReadConceptBlockBase):
+    Output: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ReadVector3ConceptBlock(ReadConceptBlockBase):
+    Output: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ReadVector4ConceptBlock(ReadConceptBlockBase):
+    OutputXyz: (Embed, 0x0, 0x0, VectorTableSet) = {"Table":{},"Var":""}
+    OutputColor: (Embed, 0x0, 0x0, ColorTableSet) = {"Table":{},"Var":""}
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    OutputW: (Embed, 0x0, 0x0, FloatTableSet) = {"Table":{},"Var":""}
+    pass
+
 class RecSpellRankUpInfo():
     mDefaultPriority: (List, 0x4, U32, 0x0) = [3,0,1,2]
     mEarlyLevelOverrides: (List, 0x0, U32, 0x0) = []
@@ -21138,6 +21060,13 @@ class RemapVec4MaterialDriver(ILogicDriver):
     MinValue: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     pass
 
+class RemoveEachFromCustomTableWhereBlock(ILoopScriptBlock):
+    IterKey: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
+    Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
+    IterValue: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
+    ShouldRemove: (Embed, 0x0, 0x0, BoolTableSet) = {"Table":{},"Var":"ShouldRemove"}
+    pass
+
 class RemoveFromCustomTableBlock(IScriptBlock):
     Table: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
     Key: (Pointer, 0x0, 0x0, IScriptValueGet) = null
@@ -21258,6 +21187,9 @@ class ResimulateTrailVfxOnEnterVisibility(MissileBehaviorSpec):
     TimeToResimulate: (F32, 0x0, 0x0, 0x0) = 0.0
     SimulationFrames: (U32, 0x0, 0x0, 0x0) = 0
     Cycles: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class ResourceKeyValueTableGet(IResourceKeyGet, ScriptTableGet):
     pass
 
 class ResourceMeterBaseData():
@@ -22132,7 +22064,7 @@ class Sequence():
     pass
 
 class SequenceActionActivateEntity(ISequenceAction):
-    0x94018232: (Bool, 0x0, 0x0, 0x0) = true
+    ActivateThenShow: (Bool, 0x0, 0x0, 0x0) = true
     Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -22140,7 +22072,7 @@ class SequenceActionActivateEntityInstance(ISequenceActionInstance):
     pass
 
 class SequenceActionActivateEntityTag(ISequenceAction):
-    0x94018232: (Bool, 0x0, 0x0, 0x0) = true
+    ActivateThenShow: (Bool, 0x0, 0x0, 0x0) = true
     tag: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
@@ -22164,13 +22096,13 @@ class SequenceActionCurveFloat(ISequenceAction):
     pass
 
 class SequenceActionDeactivateEntity(ISequenceAction):
-    0x9e8fcd0c: (Bool, 0x0, 0x0, 0x0) = false
+    HideThenDeactivate: (Bool, 0x0, 0x0, 0x0) = false
     Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class SequenceActionDeactivateEntityTag(ISequenceAction):
     tag: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x9e8fcd0c: (Bool, 0x0, 0x0, 0x0) = false
+    HideThenDeactivate: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class SequenceActionDeactivateEntityTagInstance(ISequenceActionInstance):
@@ -22359,6 +22291,14 @@ class SetBit(IScriptBlock):
     BitField: (Embed, 0x0, 0x0, IntTableSet) = {"Table":{},"Var":""}
     pass
 
+class SetBoolConceptBlock(SetConceptBlockBase):
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    NewValue: (Pointer, 0x0, 0x0, IBoolGet) = null
+    pass
+
+class SetConceptBlockBase(ConceptBlockBase):
+    pass
+
 class SetEntityPositionBlock(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
     Position: (Pointer, 0x0, 0x0, IVectorGet) = null
@@ -22367,6 +22307,27 @@ class SetEntityPositionBlock(GameEntityBlock):
 class SetEntityRotationBlock(GameEntityBlock):
     rotation: (Pointer, 0x0, 0x0, IVectorGet) = null
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
+class SetFloatConceptBlock(SetConceptBlockBase):
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    NewValue: (Pointer, 0x0, 0x0, IFloatGet) = null
+    pass
+
+class SetGameEntityIconEnabled(GameEntityBlock):
+    Enabled: (Pointer, 0x0, 0x0, IBoolGet) = null
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    pass
+
+class SetGameEntityIconOverride(GameEntityBlock):
+    Enabled: (Pointer, 0x0, 0x0, IBoolGet) = null
+    Target: (Pointer, 0x0, 0x0, IEntityGet) = null
+    Icon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
+    pass
+
+class SetIntConceptBlock(SetConceptBlockBase):
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    NewValue: (Pointer, 0x0, 0x0, IIntGet) = null
     pass
 
 class SetInvulnerableBlock(LevelScriptBlock):
@@ -22401,6 +22362,23 @@ class SetTimerCheat(Cheat):
 class SetVarInTableBlock(IBehaviorScriptBlock):
     Dest: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
     Src: (Pointer, 0x0, 0x0, IScriptValueGet) = null
+    pass
+
+class SetVector3ConceptBlock(SetConceptBlockBase):
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    NewValue: (Pointer, 0x0, 0x0, IVectorGet) = null
+    pass
+
+class SetVector4ConceptBlock(SetConceptBlockBase):
+    NewValueXyz: (Pointer, 0x0, 0x0, IVectorGet) = null
+    NewValueColor: (Pointer, 0x0, 0x0, IColorGet) = null
+    Concept: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    NewValueW: (Pointer, 0x0, 0x0, IFloatGet) = null
+    pass
+
+class SetWaveBehaviorOverrideBlock(LevelScriptBlock):
+    OverrideBehavior: (Pointer, 0x0, 0x0, IMinionWaveBehavior) = null
+    MinionType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class SfxEntityTemplate(GameEntityTemplate):
@@ -22923,6 +22901,10 @@ class SpellBookIndex():
     SpellBook: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
+class SpellCalculationCalculationPart(IGameCalculationPart):
+    mSpellCalculationKey: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class SpellChoiceTemplate():
     description: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Button: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -23358,6 +23340,11 @@ class StatByCoefficientCalculationPart(IGameCalculationPartWithStats):
     mCoefficient: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class StatByExternalNamedDataValueCalculationPart(IGameCalculationPartWithStats):
+    DataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    DataValueSourceObject: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class StatByNamedDataValueCalculationPart(IGameCalculationPartWithStats):
     mDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -23371,7 +23358,7 @@ class StatEfficiencyPerHundred(IGameCalculationPart):
     mStatFormula: (U8, 0x0, 0x0, 0x0) = 0
     statType: (U8, 0x0, 0x0, 0x0) = 13
     OutputType: (U8, 0x0, 0x0, 0x0) = 0
-    0xa8cb9c14: (Bool, 0x0, 0x0, 0x0) = false
+    UseTargetStats: (Bool, 0x0, 0x0, 0x0) = false
     UseNewStats: (Bool, 0x0, 0x0, 0x0) = false
     mDataValue: (Hash, 0x0, 0x0, 0x0) = "0x0"
     mBonusStatForEfficiency: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -23968,7 +23955,7 @@ class SubPartScaledProportionalToStat(IGameCalculationPart):
     OutputType: (U8, 0x0, 0x0, 0x0) = 0
     mStyleTag: (String, 0x0, 0x0, 0x0) = ""
     mStyleTagIfScaled: (String, 0x0, 0x0, 0x0) = ""
-    0xa8cb9c14: (Bool, 0x0, 0x0, 0x0) = false
+    UseTargetStats: (Bool, 0x0, 0x0, 0x0) = false
     UseNewStats: (Bool, 0x0, 0x0, 0x0) = false
     mRatio: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
@@ -28732,6 +28719,9 @@ class UiElementIGet(IUiElementIGet, IScriptValueGet):
     value: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class UiElementITableGet(ScriptTableGet, IUiElementIGet):
+    pass
+
 class UiElementIcon(UiElementAsset):
     pass
 
@@ -28792,6 +28782,16 @@ class UiElementScissorRegion(UIElement):
 
 class UiElementScissorRegionData(UiElementData):
     SceneToScissor: (Link, 0x0, 0x0, UISceneData) = "0x0"
+    pass
+
+class UiElementSetColor(IUiBlock):
+    Color: (Pointer, 0x0, 0x0, IColorGet) = {}
+    element: (Pointer, 0x0, 0x0, IUiElementIGet) = null
+    pass
+
+class UiElementSetEnable(IUiBlock):
+    element: (Pointer, 0x0, 0x0, IUiElementIGet) = null
+    Enable: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
 class UiElementShow(0x10fa8e8f):
@@ -29462,7 +29462,7 @@ class UnitStatusPriorityList():
     TextureName: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class UnitTableGet(ScriptTableGet, IUnitGet, 0x662c1ec3):
+class UnitTableGet(ScriptTableGet, IUnitGet, ILogicDriverSourceGet):
     pass
 
 class UnitTableSet(ScriptTableSet):

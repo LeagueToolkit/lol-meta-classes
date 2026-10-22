@@ -172,6 +172,8 @@ strings as shipped, and our tables already carry `EventMapIndex` and
 
 ## What is left
 
+**Resolved by `script-tree-readers` except `d6d3da87`; see [script-calc-concept.md](script-calc-concept.md).**
+
 4 live members, and 6 unresolved field hashes across them.
 
     1b7c5512  .Enabled: Pointer IBoolGet, .Target: Pointer IEntityGet

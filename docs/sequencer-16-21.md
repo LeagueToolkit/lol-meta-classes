@@ -9,7 +9,7 @@ The batch names 54 classes and 4 fields:
 |---|---:|---:|---:|
 | `ISequenceAction` (eb31be9b) | 67 | 12 | 0 |
 | `ISequenceActionInstance` (fb677f88) | 36 | 23 | 0 |
-| `SeqInput*` inputs | 55 | 14 | 1 |
+| `SeqInput*` inputs | 57 | 15 | 1 |
 | `IMinimapIconModifier` (d5b0f96f) | 3 | 3 | 0 |
 
 No string attests any name; casing follows named siblings (`Ui`, `Hdr`).

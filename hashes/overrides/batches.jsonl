@@ -86,3 +86,5 @@
 {"batch": "map-rim-light", "note": "Map rim light of characters (16.20): 2 classes, 8 fields. 5 names are identifiers of the shipped shader reflection; 4 are hash matches fixed by the client reader and the shader. docs/map-rim-light.md"}
 {"batch": "ui-audio-events", "note": "UI audio events (16.19): 2 interfaces, 17 fields. Hash matches from word searches; the client pairs each new pointer with an old string field by index. docs/ui-audio-events.md"}
 {"batch": "vfx-effector-component", "note": "VFX component runtimes (16.21 PBE): effector and audio components, data and runtime classes. Hash matches from stem lists, one pattern per group. docs/vfx-effector-component.md"}
+{"batch": "driver-family-brute", "note": "VFX graph and logic driver holdouts (16.21): one middle word run reproduces up to five sibling hashes; singles fit registration order. docs/driver-family.md"}
+{"batch": "driver-family-readers", "note": "Logic drivers and UI text sources (16.21): hash matches named after each Evaluate read in the client; each fits its neighbours in registration order. docs/driver-family.md"}

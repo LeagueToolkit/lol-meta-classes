@@ -72,6 +72,8 @@ Kind-digit relations prove that each row shares a stem ending in
 
 ## What is left
 
+**Most of this table is resolved by `driver-family`; see [driver-family.md](driver-family.md) for what remains.**
+
 | hash | what is known |
 |---|---|
 | `9a2d73f2` `def9bfd5` `7c387678` | broadcast Float -> Vec{2,3,4}; proven shared stem `0x94de5689` before `Vector{n}Driver` |

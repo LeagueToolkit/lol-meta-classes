@@ -72,6 +72,7 @@ d952d55b BoolConcept
 893847cc BotComposition
 e78a175a BoundingBoxLengthFloatDriver
 ae4d057b BoundingBoxSizeVector3Driver
+00206916 BoundingBoxWhVector2Driver
 e90ab695 BoundingRadiusFloatDriver
 e3c2c81a BundleReward
 9f4272ac CapEntitlementsReward
@@ -287,6 +288,7 @@ ff5060b7 GameplayTextureChannel
 2994bb4f GetEntityMapIndexBlock
 667eafac GetEntityPositionBlock
 7a1b11f3 GetEntityRotationBlock
+608a3ee7 GetGearIndexIntDriver
 2d67b83f GetTemplateFromEntityBlock
 b2246553 GlobalContextualActionData
 ab3be611 GreenEntityPrefab
@@ -296,8 +298,10 @@ d53a02a6 GreenGeComponentDefinition
 8b331b12 GuestOfHonor
 c7ccb2ce GuestOfHonorListData
 de75be67 HasEntityScript
+43d11d7f HasMultiKillMaterialBoolDriver
 0820c053 HasSkinAugmentBoolDriver
 18278f59 HasUnitTagBoolDriver
+b2a6e394 HasValueChanged
 6ba221d7 HideEntityBlock
 a66992af HideEntityTagBlock
 c3a44766 HudFeedbackDamageConfig
@@ -338,7 +342,10 @@ a56f7c7a ILobbySegmentBlock
 702b5022 ILocatorPreview
 a4f28691 ILogicDriverSource
 06ca3cfd ILogicDriverValueToString
+d37e7059 ILogicDriverValueToStringList
+49832ca7 ILogicDriverValueToStringSimple
 30aa7360 ILogicValueDriverUpdateViewElements
+ac0fb04b ILogicVector2Driver
 fed5253f ILolGameStateViewController
 2a9f4223 ILolKeybindCheck
 7f631ac9 ILolKeybindSetCheck
@@ -408,15 +415,22 @@ e524b2fc IfConditionBlock
 070cf2e7 InputEventBoolKeybind
 b606ece6 IntConcept
 9dec456b IntConceptBase
+06a97ad3 InterestPointVector3Driver
 103b4f7d InterpolateDeltaFloatUpdate
 9eba3f83 InterpolateDurationFloatUpdate
+791c5a64 IsAliveBoolDriver
 418af145 IsBitSetCondition
 635d04b7 IsChampionNameBoolDriver
+9bc366ca IsCharacterSkinIdBoolDriver
 d4933ea0 IsCloneBoolDriver
+5f357aaf IsContentCensoredFloatDriver
+83a9f4f8 IsEmoteMutedBoolDriver
 1036ea1c IsEntityActive
 fe70e9c4 IsInCombatDynamicMaterialBoolDriver
 20fd5854 IsInJungleBlock
+c83eb239 IsInShopRangeBoolDriver
 f5821f8b IsInWaterBoolDriver
+0cb6a541 IsOnGameplayTextureBoolDriver
 77b42f3f IsStealthedBoolDriver
 dc7b01b2 ItemAutoBuyViewController
 8ab00c3b ItemRecommendationConfig
@@ -429,6 +443,7 @@ fba9327c LastDamageAmountFloatDriver
 02ef7017 LastDamageTypeMaterialBoolDriver
 60f809c3 LastHitAssistConfig
 fe87f21e LastHitData
+4f92775c LeaderFacingVector3Driver
 4a7f3786 LeaderboardConfiguration
 09a124d7 LegacyTeam
 6b863734 LegacyVisFlagVisController
@@ -445,6 +460,7 @@ ea830028 LinkedTagList
 ea69d6f3 ListGet
 60e2ec74 LoadingScreenBackgroundGameModeConfig
 05e73536 LoadoutViewControllerV2
+134d9e65 LocalPlayerMaterialLogicDriverSource
 1e90bc62 LocatorEntity
 2461f3a9 LocatorEntityDef
 70e76440 LocatorEntityPrefab
@@ -452,6 +468,8 @@ ea69d6f3 ListGet
 4f0aa8a0 LogicDriverElementTooltip
 315aff8e LogicDriverFloatModifier
 8e65fb6b LogicDriverFloatToString
+1aaa358b LogicDriverLiteralString
+9a7de981 LogicDriverLocalizedString
 1a21fc8a LogicDriverUpdateViewElements
 34f43159 LogicDriverValueToStringArray
 feacedf2 LogicFloatDriverUpdateViewElements
@@ -719,6 +737,7 @@ f24aeac2 ParamsUndoEnabledChange
 83456589 ParticlePointLightInfo
 0edc4dad PathReferenceGet
 e9e530a6 PathTableGet
+b7b43e1d PercentageEnabledBoolMaterialDriver
 665c9fe7 PhysicsSimGlobalSettings
 c20b2e61 PhysicsSimLocalSettings
 a4975765 PictureInPictureViewController
@@ -957,6 +976,7 @@ d65315ee TftConstants
 c6066f97 TftCutsceneValueProvider
 37755a8f TftDisplayTag
 025ad6e2 TftEventHubSkillTreeViewController
+c8d666b4 TftIsEnemyMaterialBoolDriver
 d2c4bed8 TftItemDisplayData
 5d0f7d97 TftItemTrackerViewController
 d456bab6 TftMapConditionData
@@ -990,6 +1010,7 @@ bcbc4216 TimersViewController
 c3eea75e TooltipConfig
 cd25febc TooltipInstanceSpec
 f0ae6ff1 TooltipViewData
+19da44b2 TrackedMissilePositionVector3Driver
 7ec8e5ed UiBehavior
 174c7096 UiComponent
 b06a22db UiControlScheme
@@ -1023,6 +1044,7 @@ fa8f1b00 VfxAbsVector4Driver
 82905e5b VfxAddVector2Driver
 c0a2ff18 VfxAddVector3Driver
 7bd6aa75 VfxAddVector4Driver
+88406627 VfxAttachedBoneScaleDriver
 7a98ac76 VfxAudioComponent
 fdbf829b VfxAudioComponentBase
 86af78a6 VfxAudioCue
@@ -1043,8 +1065,12 @@ f52cb77e VfxBurstSpawn
 bf052457 VfxClampVector2Driver
 9228bd44 VfxClampVector3Driver
 ec5fc819 VfxClampVector4Driver
+fc39b68c VfxColorAnimatedWithRandomByFactorDriver
+7cc5a312 VfxColorAnimatedWithRandomDriver
+c5b349bf VfxColorAnimatedWithRandomMaterialDriver
 8b6cce68 VfxColorConstantDriver
 c06dcfdd VfxColorContainer
+44852d75 VfxColorRgbAnimatedWithRandomDriver
 2015ccfc VfxColorRgbBase
 78c749ab VfxColorRgbConstantDriver
 e168ec0e VfxColorRgbaDriver
@@ -1090,6 +1116,9 @@ fddb75c6 VfxEmitterVelocityDriver
 a0660647 VfxFacingModeCameraAligned
 91575b97 VfxFacingModeCameraFacing
 6a3a14b5 VfxFacingModeViewAligned
+2959e51d VfxFloatAnimatedWithRandomByFactorDriver
+1d04cfa7 VfxFloatAnimatedWithRandomDriver
+fbef6376 VfxFloatAnimatedWithRandomMaterialDriver
 ceeafc35 VfxFloatConstantDriver
 afe1d569 VfxFloatDynamicProperty
 ed986974 VfxFloatEasingDriver
@@ -1158,11 +1187,16 @@ adec1272 VfxShimmerPrimitiveBase
 fd1cc89f VfxShimmerPrimitiveMeshBase
 dba754d5 VfxShimmerPrimitiveMeshBeam
 576d0010 VfxShimmerPrimitiveQuad
+9a2d73f2 VfxSplatFloatOntoVector2Driver
+def9bfd5 VfxSplatFloatOntoVector3Driver
+7c387678 VfxSplatFloatOntoVector4Driver
 c5e53afa VfxSquareRootRangedRandomDriver
 19af3490 VfxSwitchVector4LogicDriver
 eed60e9c VfxTrapezoidEffectorComponentData
 a7cee9c8 VfxTrapezoidEffectorComponentRuntime
 414d1503 VfxUniformRangedRandomDriver
+5ff9a600 VfxVector2AnimatedWithRandomByFactorDriver
+3eb74cbe VfxVector2AnimatedWithRandomDriver
 194508a4 VfxVector2ConstantDriver
 373272a6 VfxVector2DynamicProperty
 e3366d39 VfxVector2EasingDriver
@@ -1170,6 +1204,8 @@ dab8397c VfxVector2FromVector3Driver
 0fd9b311 VfxVector2FromVector4Driver
 f7d1b1a5 VfxVector2LerpDriver
 93fdd326 VfxVector2LogicDriver
+7a39d82b VfxVector3AnimatedWithRandomByFactorDriver
+2d42ea41 VfxVector3AnimatedWithRandomDriver
 55d35477 VfxVector3ConstantDriver
 67104c43 VfxVector3DynamicProperty
 6ee0055e VfxVector3EasingDriver

@@ -936,6 +936,7 @@ f0ec999e ModuleName
 70e43c7e MovementRotation
 b74298af Mult
 5f832b26 MultiKill
+f7a07027 MultiKillSize
 a7b33361 MusicProfile
 11196556 MusicProfiles
 64e312ae MusicQueueConfigs
@@ -1088,6 +1089,7 @@ c402fafa PlayerDisconnect
 8a7ef9d0 PlayerNames
 8b5831bd PlayerReconnect
 cb3a3644 PlayerRow
+9b97cf6c PlayersToInclude
 c6585a26 PlaystyleCrowdControl
 28f8756b PlaystyleDurability
 aa74f19a PointAndClick
@@ -1207,6 +1209,7 @@ f60220b1 RequiredValue
 8b075f3e RespawnDelay
 ca411bdb RespawnDuration
 e343a0c6 RespawnSequence
+3b0a7a6a RespectDisguise
 d406b031 ResponseCurve
 27c534f4 RestoreOnStop
 71e60c24 RestrictedType

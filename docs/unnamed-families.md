@@ -65,7 +65,8 @@ separately are listed in the write-ups below.
 Prior campaigns, from `hashes/overrides/ledger.bintypes.jsonl`, so nobody
 re-treads: `IVfxBaseDriver` is 83/83 ours (`vfx-driver-graph`, then
 `vfx-driver-graph-math` took the 16.x math nodes from 39 unnamed to 13 -
-[docs/vfx-driver-graph-math.md](vfx-driver-graph-math.md)), `BaseParams`
+[docs/vfx-driver-graph-math.md](vfx-driver-graph-math.md), and `driver-family` took the
+rest to 1 - [docs/driver-family.md](driver-family.md)), `BaseParams`
 20/20 and `ViewController` 31/189 (`season16-modes-ui`, `viewcontroller-family`),
 `IGameModeConfigBase` 5/19 (`gamemode-configs`). `MapPlaceableBase` is finished
 and off the table: `map-entity-templates` took it from 28 unnamed to 5,
@@ -132,7 +133,8 @@ the 65 carry resolved fields, and the defaults are unusually loud.
 
 ### 3. `ILogicDriver` (995ca734) - 66 unnamed, 68 named
 
-**Worked: `logic-drivers` landed 46 names and left 23. See
+**Worked: `logic-drivers` landed 46 names and left 23; `driver-family` took the tree to 3
+([docs/driver-family.md](driver-family.md)). See
 [docs/logic-drivers.md](logic-drivers.md); the arithmetic quartet below is
 cracked, and so is the Concept cluster.** The rest of this section is the
 pre-campaign reading, kept because it is what the campaign was aimed with.

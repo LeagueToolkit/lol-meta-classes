@@ -1713,3 +1713,6 @@
 {"hash": "1d445284", "name": "VoBehavior", "batch": "ui-audio-events", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "584327ed", "name": "AudioCues", "batch": "vfx-effector-component", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
 {"hash": "fa48afb7", "name": "UpdateMode", "batch": "vfx-effector-component", "cracked": "2026-10-09", "status": "pending", "pr": "-"}
+{"hash": "f7a07027", "name": "MultiKillSize", "batch": "driver-family-readers", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
+{"hash": "9b97cf6c", "name": "PlayersToInclude", "batch": "driver-family-readers", "cracked": "2026-10-22", "status": "pending", "pr": "-"}
+{"hash": "3b0a7a6a", "name": "RespectDisguise", "batch": "driver-family-readers", "cracked": "2026-10-22", "status": "pending", "pr": "-"}

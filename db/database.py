@@ -90,9 +90,6 @@ class 0x131f5725(0x911f126a):
     StaticTexture: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x134d9e65(IMaterialLogicDriverSource):
-    pass
-
 class 0x135a0579():
     ResultGridItem: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TooltipOffset: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -338,10 +335,6 @@ class 0x190ed0b9():
 class 0x19ccc111():
     pass
 
-class 0x19da44b2(ILogicVector3Driver):
-    MissileSpellObjects: (List2, 0x0, Hash, 0x0) = []
-    pass
-
 class 0x19ff61ac():
     NameTra: (String, 0x0, 0x0, 0x0) = ""
     0x24e84a36: (Bool, 0x0, 0x0, 0x0) = false
@@ -401,10 +394,6 @@ class 0x1a6cd1f8(IScriptValueGet):
     pass
 
 class 0x1a9062ce(ScriptTableSet):
-    pass
-
-class 0x1aaa358b(0x49832ca7):
-    value: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x1aae122(0x377491e8):
@@ -476,12 +465,6 @@ class 0x1c4bac51(MapGraphicsFeature):
 
 class 0x1c5e3bb6(0x2b00c366):
     Tactician: (Link, 0x0, 0x0, CompanionData) = "0x0"
-    pass
-
-class 0x1d04cfa7(IVfxFloatDriver):
-    frequency: (U8, 0x0, 0x0, 0x0) = 0
-    looping: (Bool, 0x0, 0x0, 0x0) = false
-    Float: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":0.0,"dynamics":null}
     pass
 
 class 0x1d12c4da(IShapeRenderInfo):
@@ -603,9 +586,6 @@ class 0x1ff0e246(IGameModeConfig):
 class 0x20194a16(0xd0c7ee75):
     ResourceResolver: (Hash, 0x0, 0x0, 0x0) = "0x0"
     IsOwner: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
-class 0x206916(0xac0fb04b):
     pass
 
 class 0x20946fd8(IDeathGeComponentDef):
@@ -935,11 +915,6 @@ class 0x294650d7():
     Output: (Pointer, 0x0, 0x0, ScriptTableGet) = null
     pass
 
-class 0x2959e51d(IVfxFloatDriver):
-    Factor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    Float: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":0.0,"dynamics":null}
-    pass
-
 class 0x296c4c00(0xa8a6ac21):
     value: (String, 0x0, 0x0, 0x0) = ""
     pass
@@ -1063,13 +1038,6 @@ class 0x2bde0c9c(0x8e30b80e):
     pass
 
 class 0x2c17e4a1(IOptionItemFilter):
-    pass
-
-class 0x2d42ea41(IVfxVector3Driver):
-    Vector3: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[1.0,1.0,1.0],"dynamics":null}
-    frequency: (U8, 0x0, 0x0, 0x0) = 0
-    looping: (Bool, 0x0, 0x0, 0x0) = false
-    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0x2d653ed5():
@@ -1811,13 +1779,6 @@ class 0x3ea620c5():
     NameText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x3eb74cbe(IVfxVector2Driver):
-    Vector2: (Embed, 0x0, 0x0, ValueVector2) = {"constantValue":[1.0,1.0],"dynamics":null}
-    frequency: (U8, 0x0, 0x0, 0x0) = 0
-    looping: (Bool, 0x0, 0x0, 0x0) = false
-    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0x3eed1ba8(0xe561be2e):
     KeyType: (Pointer, 0x0, 0x0, 0xed4b858b) = null
     pass
@@ -2055,10 +2016,6 @@ class 0x43b8e695(ICastRequirement):
     0xa117890c: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0x43d11d7f(ILogicBoolDriver):
-    0xf7a07027: (U8, 0x0, 0x0, 0x0) = 5
-    pass
-
 class 0x43e3a4d4(BaseParams):
     pass
 
@@ -2075,13 +2032,6 @@ class 0x442e8e3a():
 class 0x44705030():
     CustomTooltip: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x747e99c6: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x44852d75(IVfxVector3Driver):
-    frequency: (U8, 0x0, 0x0, 0x0) = 0
-    looping: (Bool, 0x0, 0x0, 0x0) = false
-    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
-    colors: (Embed, 0x0, 0x0, ValueColorRgb) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
     pass
 
 class 0x44ad5085(InputEventBoolKeybind):
@@ -2255,9 +2205,6 @@ class 0x4945c5ac():
 class 0x4979fb5d(0x2b00c366):
     Zoom: (Link, 0x0, 0x0, TftZoomSkin) = "0x0"
     itemTypeId: (String, 0x0, 0x0, 0x0) = "5c964e25-76f1-4485-9bfd-08001b923447"
-    pass
-
-class 0x49832ca7(ILogicDriverValueToString):
     pass
 
 class 0x499d3e3d():
@@ -2441,9 +2388,6 @@ class 0x4f4c4ffc():
 
 class 0x4f526553(0x811d959e):
     0x16e7c68b: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x4f92775c(ILogicVector3Driver):
     pass
 
 class 0x4f938d97():
@@ -3004,9 +2948,6 @@ class 0x5f33c34():
     PortraitIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x5f357aaf(ILogicFloatDriver):
-    pass
-
 class 0x5f38de60(0x859c9c2f):
     OnEvent: (Link, 0x0, 0x0, AnnouncerVoEvent) = "0x0"
     pass
@@ -3025,12 +2966,6 @@ class 0x5fa82956(0xff4e30bb):
     0x7c891337: (Pointer, 0x0, 0x0, IIntGet) = null
     pass
 
-class 0x5ff9a600(IVfxVector2Driver):
-    Vector2: (Embed, 0x0, 0x0, ValueVector2) = {"constantValue":[1.0,1.0],"dynamics":null}
-    Factor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0x6030f7c6(0xe6f0047):
     0x3cb3392e: (F32, 0x0, 0x0, 0x0) = 0.0
     0x4ec6dd3c: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -3047,9 +2982,6 @@ class 0x605a9a2f(0x41bb3fd7):
 
 class 0x607ade7e(TftCutsceneMissileClip):
     TimeToTarget: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
-class 0x608a3ee7(ILogicIntDriver):
     pass
 
 class 0x608e61e9():
@@ -3429,9 +3361,6 @@ class 0x6a68b4f1():
     ByeFx: (Hash, 0x0, 0x0, 0x0) = "0x0"
     FightingFX: (Hash, 0x0, 0x0, 0x0) = "0x0"
     VictoryFX: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x6a97ad3(ILogicVector3Driver):
     pass
 
 class 0x6ac509ac():
@@ -3879,9 +3808,6 @@ class 0x7908fe0e(IResourceKeyGet, IScriptValueGet):
     ResourceKey: (Embed, 0x0, 0x0, 0xba65f1fe) = {"Reference":"0x0"}
     pass
 
-class 0x791c5a64(ILogicBoolDriver):
-    pass
-
 class 0x791d1108(0x7379bca6):
     Color: (Pointer, 0x0, 0x0, SpecificColorMaterialDriver) = null
     path: (File, 0x0, 0x0, 0x0) = "0x0"
@@ -3939,12 +3865,6 @@ class 0x7a2b62e():
     pass
 
 class 0x7a3483c4(ConceptBlockBase):
-    pass
-
-class 0x7a39d82b(IVfxVector3Driver):
-    Vector3: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[1.0,1.0,1.0],"dynamics":null}
-    Factor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class 0x7a5040ea(BaseLoadoutData):
@@ -4047,10 +3967,6 @@ class 0x7be50d9e():
     0xc12465e0: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x7c387678(IVfxVector4Driver):
-    Float: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    pass
-
 class 0x7c537128(IScriptBlock):
     0x28d1d977: (Map, Hash, Pointer, IScriptValueGet) = {}
     Event: (Link, 0x0, 0x0, 0x2d653ed5) = "0x0"
@@ -4064,13 +3980,6 @@ class 0x7c809adf():
     pass
 
 class 0x7c8b2cd8(0x26d26471):
-    pass
-
-class 0x7cc5a312(IVfxVector4Driver):
-    frequency: (U8, 0x0, 0x0, 0x0) = 0
-    looping: (Bool, 0x0, 0x0, 0x0) = false
-    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
-    colors: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}
     pass
 
 class 0x7cddd381(ICastRequirement):
@@ -4419,9 +4328,6 @@ class 0x836a672c():
     EndDivision: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
-class 0x83a9f4f8(ILogicBoolDriver):
-    pass
-
 class 0x83c283ae():
     Enabled: (Bool, 0x0, 0x0, 0x0) = false
     pass
@@ -4562,9 +4468,6 @@ class 0x87ef793c():
 
 class 0x8819bac7():
     Levels: (List2, 0x0, Link, 0x83047936) = []
-    pass
-
-class 0x88406627(IVfxVector3Driver):
     pass
 
 class 0x88679cf5(BaseParams):
@@ -5138,10 +5041,6 @@ class 0x99c5a706():
     title: (String, 0x0, 0x0, 0x0) = ""
     pass
 
-class 0x9a2d73f2(IVfxVector2Driver):
-    Float: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    pass
-
 class 0x9a397a79(0x41bb3fd7):
     TargetElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SourceVariable: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -5168,10 +5067,6 @@ class 0x9a722730(IGameModeConfig):
     TimerDefinitions: (List2, 0x0, Link, ITimerControllerDefinition) = []
     pass
 
-class 0x9a7de981(0x49832ca7):
-    value: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x9ab8b8e6():
     description: (String, 0x0, 0x0, 0x0) = ""
     Vfx: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -5188,13 +5083,6 @@ class 0x9b29aa9d(ISequenceActionInstance):
 class 0x9b321633(GameEntityTemplate):
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
     0xd6ebb885: (Pointer, 0x0, 0x0, 0xfdb6b027) = {}
-    pass
-
-class 0x9bc366ca(ILogicBoolDriver):
-    0x267c4080: (Bool, 0x0, 0x0, 0x0) = false
-    0x3b0a7a6a: (Bool, 0x0, 0x0, 0x0) = true
-    SkinID: (U32, 0x0, 0x0, 0x0) = 0
-    UseValidParentForChroma: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class 0x9be3a010():
@@ -5803,9 +5691,6 @@ class 0xabe2709a(IFloatUpdateElement):
     ButtonElement: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xac0fb04b(ILogicDriver):
-    pass
-
 class 0xac27b13a():
     groups: (List2, 0x0, Embed, HudItemShopItemGroupDefinition) = []
     pass
@@ -6128,10 +6013,6 @@ class 0xb26bd951():
     units: (Map, Hash, Pointer, 0xb72a7d67) = {}
     pass
 
-class 0xb2a6e394(ILogicBoolDriver):
-    LogicDriver: (Pointer, 0x0, 0x0, ILogicDriver) = null
-    pass
-
 class 0xb2fe8cea(ViewController):
     GroupFadeTransitionTimeSec: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
     MessageTemplate: (Embed, 0x0, 0x0, QuestTrackerMessageTemplate) = {"Background":"0x0","BodyIcon":"0x0","PulseBackground":"0x0","SlotArea":"0x0","SwoshAnim":"0x0","Text":"0x0","TextByIcon":"0x0"}
@@ -6240,7 +6121,7 @@ class 0xb5754dad(ILolKeybindCheck):
 class 0xb5c28890(ILogicBoolDriver):
     0x6f521854: (List2, 0x0, U32, 0x0) = []
     0x8f7bb6e: (U32, 0x0, 0x0, 0x0) = 0
-    0x9b97cf6c: (List2, 0x0, U32, 0x0) = []
+    PlayersToInclude: (List2, 0x0, U32, 0x0) = []
     0x9c5f0056: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -6322,11 +6203,6 @@ class 0xb76a119c():
     0x9bf11475: (List2, 0x0, Pointer, Vector4UpdateModifier) = []
     ParameterNames: (List2, 0x0, String, 0x0) = []
     Material: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
-    pass
-
-class 0xb7b43e1d(ILogicBoolDriver):
-    Percentage: (F32, 0x0, 0x0, 0x0) = 0.5
-    BoolDriver: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
     pass
 
 class 0xb7b9b55b(0x2bde0c9c):
@@ -6770,11 +6646,6 @@ class 0xc4587d4a():
 class 0xc4fd2fbc(ISequenceActionInstance):
     pass
 
-class 0xc5b349bf(IVfxMaterialDriver):
-    frequency: (U8, 0x0, 0x0, 0x0) = 0
-    colors: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[0.0,0.0,0.0,0.0],"dynamics":null}
-    pass
-
 class 0xc5d432c3(InputEventBoolKeybind):
     0x961bc309: (I32, 0x0, 0x0, 0x0) = 0
     pass
@@ -6903,9 +6774,6 @@ class 0xc83d315a():
     Gamma: (Embed, 0x0, 0x0, GammaParameters) = {"Brightness":1.0499999523162842,"Contrast":1.100000023841858,"Gamma":0.8999999761581421,"level":1.100000023841858}
     pass
 
-class 0xc83eb239(ILogicBoolDriver):
-    pass
-
 class 0xc841f949(BaseParams):
     pass
 
@@ -6929,9 +6797,6 @@ class 0xc8c47da():
     RootGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xedd2d807: (Hash, 0x0, 0x0, 0x0) = "0x0"
     PortraitIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xc8d666b4(ILogicBoolDriver):
     pass
 
 class 0xc8d6dccd(InputEventBoolKeybind):
@@ -7054,10 +6919,6 @@ class 0xcb29f21f():
 
 class 0xcb3604f0(IScriptCondition):
     Emote: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
-class 0xcb6a541(ILogicBoolDriver):
-    GameplayTexture: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xcbb4598a(BaseParams):
@@ -7217,10 +7078,6 @@ class 0xd37b1519():
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Text: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Icon: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xd37e7059(ILogicDriverValueToString):
-    0xc011585: (Pointer, 0x0, 0x0, 0x49832ca7)
     pass
 
 class 0xd39980cd():
@@ -7642,10 +7499,6 @@ class 0xdec5122e():
     comp: (Embed, 0x0, 0x0, 0xc90736f4) = {"Rows":[],"name":""}
     pass
 
-class 0xdef9bfd5(IVfxVector3Driver):
-    Float: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    pass
-
 class 0xdf08b80b(BaseParams):
     pass
 
@@ -7832,10 +7685,10 @@ class 0xe60fd4f2(0x8a4a4963):
 class 0xe6144e6d(0x64c18f7d):
     pass
 
-class 0xe67a27c8(0xd37e7059):
+class 0xe67a27c8(ILogicDriverValueToStringList):
     0x6f521854: (List2, 0x0, U32, 0x0) = []
     0x8f7bb6e: (U32, 0x0, 0x0, 0x0) = 0
-    0x9b97cf6c: (List2, 0x0, U32, 0x0) = []
+    PlayersToInclude: (List2, 0x0, U32, 0x0) = []
     0x9c5f0056: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
@@ -8593,21 +8446,10 @@ class 0xfbd2dcc6():
 class 0xfbd56421():
     pass
 
-class 0xfbef6376(IVfxMaterialDriver):
-    frequency: (U8, 0x0, 0x0, 0x0) = 0
-    graph: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":0.0,"dynamics":null}
-    pass
-
 class 0xfc331f53():
     0x25c9d993: (Pointer, 0x0, 0x0, 0x7aca1f4d) = null
     AugmentLayout: (Hash, 0x0, 0x0, 0x0) = "0x0"
     AugmentSlotData: (Embed, 0x0, 0x0, AugmentSlot) = {"0x2023e0aa":"0x0","0x71aaad67":null,"0x7ee47949":"","0xec5ca4c4":"0x0","AugmentGridItem":"0x0","Backdrop":"0x0","HitArea":"0x0","Icon":"0x0","PenetrationRecently":"0x0","PrismaticBorder":"0x0","SelectionAvailable":"0x0"}
-    pass
-
-class 0xfc39b68c(IVfxVector4Driver):
-    Factor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
-    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
-    colors: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}
     pass
 
 class 0xfc6af367():
@@ -10039,6 +9881,9 @@ class BoundingBoxLengthFloatDriver(ILogicFloatDriver):
     pass
 
 class BoundingBoxSizeVector3Driver(ILogicVector3Driver):
+    pass
+
+class BoundingBoxWhVector2Driver(ILogicVector2Driver):
     pass
 
 class BoundingRadiusFloatDriver(ILogicFloatDriver):
@@ -14018,6 +13863,9 @@ class GetGameStartCountdownTime(LevelScriptBlock):
     Dest: (Embed, 0x0, 0x0, FloatTableSet) = {"Table":{},"Var":""}
     pass
 
+class GetGearIndexIntDriver(ILogicIntDriver):
+    pass
+
 class GetKeyValueInCustomTableBlock(IScriptBlock):
     SrcTable: (Embed, 0x0, 0x0, CustomTableGet) = {"Table":{},"Var":"0x0"}
     Dest: (Embed, 0x0, 0x0, ScriptTableSet) = {"Table":{},"Var":""}
@@ -14205,6 +14053,10 @@ class HasLossOfControlTypeBoolDriver(ILogicBoolDriver):
     LossOfControlType: (U32, 0x0, 0x0, 0x0) = 0
     pass
 
+class HasMultiKillMaterialBoolDriver(ILogicBoolDriver):
+    MultiKillSize: (U8, 0x0, 0x0, 0x0) = 5
+    pass
+
 class HasNNearbyUnitsRequirement(ICastRequirement):
     mUnitsRequirements: (List, 0x0, Pointer, ICastRequirement) = []
     mDistanceType: (U32, 0x0, 0x0, 0x0) = 0
@@ -14249,6 +14101,10 @@ class HasUnitTagBoolDriver(ILogicBoolDriver):
 
 class HasUnitTagsCastRequirement(ICastRequirement):
     mUnitTags: (Embed, 0x0, 0x0, ObjectTags) = {"mObjectTagList":[]}
+    pass
+
+class HasValueChanged(ILogicBoolDriver):
+    LogicDriver: (Pointer, 0x0, 0x0, ILogicDriver) = null
     pass
 
 class HealthBarData():
@@ -15183,6 +15039,13 @@ class ILogicDriverSource():
 class ILogicDriverValueToString():
     pass
 
+class ILogicDriverValueToStringList(ILogicDriverValueToString):
+    0xc011585: (Pointer, 0x0, 0x0, ILogicDriverValueToStringSimple)
+    pass
+
+class ILogicDriverValueToStringSimple(ILogicDriverValueToString):
+    pass
+
 class ILogicFloatDriver(ILogicDriver):
     pass
 
@@ -15190,6 +15053,9 @@ class ILogicIntDriver(ILogicFloatDriver):
     pass
 
 class ILogicValueDriverUpdateViewElements():
+    pass
+
+class ILogicVector2Driver(ILogicDriver):
     pass
 
 class ILogicVector3Driver(ILogicDriver):
@@ -15736,6 +15602,9 @@ class InteractionData():
     shouldRandomizeIdleAnimPhase: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
+class InterestPointVector3Driver(ILogicVector3Driver):
+    pass
+
 class InterpolateDeltaFloatUpdate(IInterpolateFloatUpdate):
     DeltaDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     pass
@@ -15750,6 +15619,9 @@ class InvalidDeviceViewController(ViewController):
 
 class InvertFloatMaterialDriver(ILogicFloatDriver):
     driver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
+    pass
+
+class IsAliveBoolDriver(ILogicBoolDriver):
     pass
 
 class IsAllyParametricUpdater(IBooleanParametricUpdater):
@@ -15775,10 +15647,23 @@ class IsChampionNameBoolDriver(ILogicBoolDriver):
     championName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class IsCharacterSkinIdBoolDriver(ILogicBoolDriver):
+    0x267c4080: (Bool, 0x0, 0x0, 0x0) = false
+    RespectDisguise: (Bool, 0x0, 0x0, 0x0) = true
+    SkinID: (U32, 0x0, 0x0, 0x0) = 0
+    UseValidParentForChroma: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
 class IsCloneBoolDriver(ILogicBoolDriver):
     pass
 
+class IsContentCensoredFloatDriver(ILogicFloatDriver):
+    pass
+
 class IsDeadDynamicMaterialBoolDriver(ILogicBoolDriver):
+    pass
+
+class IsEmoteMutedBoolDriver(ILogicBoolDriver):
     pass
 
 class IsEnemyDynamicMaterialBoolDriver(ILogicBoolDriver):
@@ -15797,6 +15682,9 @@ class IsInCombatDynamicMaterialBoolDriver(ILogicBoolDriver):
     pass
 
 class IsInGrassDynamicMaterialBoolDriver(ILogicBoolDriver):
+    pass
+
+class IsInShopRangeBoolDriver(ILogicBoolDriver):
     pass
 
 class IsInTerrainParametricUpdater(IBooleanParametricUpdater):
@@ -15818,6 +15706,10 @@ class IsMovingBoolDriver(ILogicBoolDriver):
     pass
 
 class IsMovingParametricUpdater(IBooleanParametricUpdater):
+    pass
+
+class IsOnGameplayTextureBoolDriver(ILogicBoolDriver):
+    GameplayTexture: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class IsOptionEnabledBoolDriver(ILogicBoolDriver):
@@ -16357,6 +16249,9 @@ class LayoutStyleHorizontalList(LayoutStyleBase):
 class LayoutStyleVerticalList(LayoutStyleBase):
     VerticalFillDirection: (U8, 0x0, 0x0, 0x0) = 0
     ColumnHorizontalAlignment: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class LeaderFacingVector3Driver(ILogicVector3Driver):
     pass
 
 class LeaderboardConfiguration():
@@ -17241,6 +17136,9 @@ class LobbyViewController(ViewController):
     LobbyMusicState: (String, 0x0, 0x0, 0x0)
     pass
 
+class LocalPlayerMaterialLogicDriverSource(IMaterialLogicDriverSource):
+    pass
+
 class Location(TargetingTypeData):
     pass
 
@@ -17294,6 +17192,14 @@ class LogicDriverFloatToString(ILogicDriverValueToString):
     ValueDriver: (Pointer, 0x0, 0x0, ILogicFloatDriver) = null
     LocalizedTextFormat: (String, 0x0, 0x0, 0x0) = ""
     TextFormat: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class LogicDriverLiteralString(ILogicDriverValueToStringSimple):
+    value: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
+class LogicDriverLocalizedString(ILogicDriverValueToStringSimple):
+    value: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class LogicDriverUpdateViewElements(ILogicValueDriverUpdateViewElements):
@@ -20264,6 +20170,11 @@ class PerLocaleTooltipAdjustments():
     0x8b64dacd: (Bool, 0x0, 0x0, 0x0) = true
     BottomHrYPreAdjustment: (I32, 0x0, 0x0, 0x0) = 0
     BottomHrYPostAdjustment: (I32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class PercentageEnabledBoolMaterialDriver(ILogicBoolDriver):
+    Percentage: (F32, 0x0, 0x0, 0x0) = 0.5
+    BoolDriver: (Pointer, 0x0, 0x0, ILogicBoolDriver) = null
     pass
 
 class PercentageOfBuffNameElapsed(IGameCalculationPart):
@@ -26427,6 +26338,9 @@ class TftInfoNubData():
     0xeb74e3c6: (Hash, 0x0, 0x0, 0x0)
     pass
 
+class TftIsEnemyMaterialBoolDriver(ILogicBoolDriver):
+    pass
+
 class TftItemCodexHeaderData():
     MainItemName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     MainItemIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -28316,6 +28230,10 @@ class TrackMouseMovement(MissileMovementSpec):
     mMaxSpeed: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class TrackedMissilePositionVector3Driver(ILogicVector3Driver):
+    MissileSpellObjects: (List2, 0x0, Hash, 0x0) = []
+    pass
+
 class TransitionClipBlendData(BaseBlendData):
     mClipName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
@@ -29775,6 +29693,9 @@ class VfxAssetRemap():
     newAsset: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class VfxAttachedBoneScaleDriver(IVfxVector3Driver):
+    pass
+
 class VfxAudioComponent(VfxAudioComponentBase):
     AudioCues: (List2, 0x0, Embed, VfxAudioCue) = []
     pass
@@ -29890,6 +29811,24 @@ class VfxClampVector4Driver(IVfxVector4Driver):
     Low: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     pass
 
+class VfxColorAnimatedWithRandomByFactorDriver(IVfxVector4Driver):
+    Factor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
+    colors: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}
+    pass
+
+class VfxColorAnimatedWithRandomDriver(IVfxVector4Driver):
+    frequency: (U8, 0x0, 0x0, 0x0) = 0
+    looping: (Bool, 0x0, 0x0, 0x0) = false
+    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
+    colors: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}
+    pass
+
+class VfxColorAnimatedWithRandomMaterialDriver(IVfxMaterialDriver):
+    frequency: (U8, 0x0, 0x0, 0x0) = 0
+    colors: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[0.0,0.0,0.0,0.0],"dynamics":null}
+    pass
+
 class VfxColorBase():
     pass
 
@@ -29906,6 +29845,13 @@ class VfxColorContainer():
 class VfxColorOverLifeMaterialDriver(IVfxMaterialDriver):
     frequency: (U8, 0x0, 0x0, 0x0) = 0
     colors: (Embed, 0x0, 0x0, VfxAnimatedColorVariableData) = {"probabilityTables":[null,null,null,null],"times":[],"values":[]}
+    pass
+
+class VfxColorRgbAnimatedWithRandomDriver(IVfxVector3Driver):
+    frequency: (U8, 0x0, 0x0, 0x0) = 0
+    looping: (Bool, 0x0, 0x0, 0x0) = false
+    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
+    colors: (Embed, 0x0, 0x0, ValueColorRgb) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
     pass
 
 class VfxColorRgbBase():
@@ -30049,14 +29995,14 @@ class VfxEmbeddedMaterial(VfxMaterialContainer):
     pass
 
 class VfxEmissionBox(IVfxEmissionSource):
-    Distribution: (Pointer, 0x0, 0x0, 0x2d42ea41) = null
+    Distribution: (Pointer, 0x0, 0x0, VfxVector3AnimatedWithRandomDriver) = null
     BoxSize: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
     DistributionMode: (U8, 0x0, 0x0, 0x0) = 0
     FillMode: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class VfxEmissionCylinder(IVfxEmissionSource):
-    0x654153c3: (Pointer, 0x0, 0x0, 0x3eb74cbe) = null
+    0x654153c3: (Pointer, 0x0, 0x0, VfxVector2AnimatedWithRandomDriver) = null
     DistributionMode: (U8, 0x0, 0x0, 0x0) = 0
     height: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     radius: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
@@ -30097,7 +30043,7 @@ class VfxEmissionSkin(IVfxEmissionSource):
     pass
 
 class VfxEmissionSphere(IVfxEmissionSource):
-    0x654153c3: (Pointer, 0x0, 0x0, 0x3eb74cbe) = null
+    0x654153c3: (Pointer, 0x0, 0x0, VfxVector2AnimatedWithRandomDriver) = null
     DistributionMode: (U8, 0x0, 0x0, 0x0) = 0
     radius: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     pass
@@ -30346,6 +30292,22 @@ class VfxFlexShapeDefinitionData():
     scaleBirthScaleByBoundObjectSize: (F32, 0x0, 0x0, 0x0) = 0.0
     scaleEmitOffsetByBoundObjectSize: (F32, 0x0, 0x0, 0x0) = 0.0
     scaleBirthScaleByBoundObjectHeight: (F32, 0x0, 0x0, 0x0) = 0.0
+    pass
+
+class VfxFloatAnimatedWithRandomByFactorDriver(IVfxFloatDriver):
+    Factor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    Float: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":0.0,"dynamics":null}
+    pass
+
+class VfxFloatAnimatedWithRandomDriver(IVfxFloatDriver):
+    frequency: (U8, 0x0, 0x0, 0x0) = 0
+    looping: (Bool, 0x0, 0x0, 0x0) = false
+    Float: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":0.0,"dynamics":null}
+    pass
+
+class VfxFloatAnimatedWithRandomMaterialDriver(IVfxMaterialDriver):
+    frequency: (U8, 0x0, 0x0, 0x0) = 0
+    graph: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":0.0,"dynamics":null}
     pass
 
 class VfxFloatBase():
@@ -31075,6 +31037,18 @@ class VfxSoftParticleDefinitionData():
 class VfxSpawnBehavior():
     pass
 
+class VfxSplatFloatOntoVector2Driver(IVfxVector2Driver):
+    Float: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
+class VfxSplatFloatOntoVector3Driver(IVfxVector3Driver):
+    Float: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
+class VfxSplatFloatOntoVector4Driver(IVfxVector4Driver):
+    Float: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    pass
+
 class VfxSquareRootRangedRandomDriver(IVfxFloatDriver):
     Range: (Vec2, 0x0, 0x0, 0x0) = [0.0,1.0]
     pass
@@ -31162,6 +31136,19 @@ class VfxUniformRangedRandomDriver(IVfxFloatDriver):
     Range: (Vec2, 0x0, 0x0, 0x0) = [0.0,1.0]
     pass
 
+class VfxVector2AnimatedWithRandomByFactorDriver(IVfxVector2Driver):
+    Vector2: (Embed, 0x0, 0x0, ValueVector2) = {"constantValue":[1.0,1.0],"dynamics":null}
+    Factor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class VfxVector2AnimatedWithRandomDriver(IVfxVector2Driver):
+    Vector2: (Embed, 0x0, 0x0, ValueVector2) = {"constantValue":[1.0,1.0],"dynamics":null}
+    frequency: (U8, 0x0, 0x0, 0x0) = 0
+    looping: (Bool, 0x0, 0x0, 0x0) = false
+    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
 class VfxVector2ConstantDriver(IVfxVector2Driver):
     Vector2: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
     pass
@@ -31188,10 +31175,23 @@ class VfxVector2LerpDriver(IVfxVector2Driver):
 
 class VfxVector2LogicDriver(IVfxVector2Driver):
     Source: (U8, 0x0, 0x0, 0x0) = 0
-    LogicDriver: (Pointer, 0x0, 0x0, 0xac0fb04b) = null
+    LogicDriver: (Pointer, 0x0, 0x0, ILogicVector2Driver) = null
     pass
 
 class VfxVector2fBase():
+    pass
+
+class VfxVector3AnimatedWithRandomByFactorDriver(IVfxVector3Driver):
+    Vector3: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[1.0,1.0,1.0],"dynamics":null}
+    Factor: (Pointer, 0x0, 0x0, IVfxFloatDriver) = null
+    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class VfxVector3AnimatedWithRandomDriver(IVfxVector3Driver):
+    Vector3: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[1.0,1.0,1.0],"dynamics":null}
+    frequency: (U8, 0x0, 0x0, 0x0) = 0
+    looping: (Bool, 0x0, 0x0, 0x0) = false
+    ShareRandom: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class VfxVector3ConstantDriver(IVfxVector3Driver):

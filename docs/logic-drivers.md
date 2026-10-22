@@ -158,6 +158,8 @@ structure, no string.
 
 ## What is left
 
+**Most of this table is resolved by `driver-family`; see [driver-family.md](driver-family.md) for what remains.**
+
 23 live members, and 24 unresolved field hashes across them. Ruled out for all
 23, so nobody re-treads: `identity`, `delete`, `chain` depth 3 and 4, `force`
 depth 2 over the full wordlist, `force` depth 3 over the top 300, the whole

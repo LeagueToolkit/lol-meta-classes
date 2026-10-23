@@ -2,6 +2,7 @@
 a87cd8f8 AbilityHasteMod
 4680aae9 AbilityInfo
 01ba2bd1 AbilityResource
+65fad9fb AbilityResourceIsPips
 25a09a75 AbilityResourceSlot
 b3ec72b9 AbilityResourceType
 3510dea4 Aced
@@ -144,6 +145,7 @@ e61bf09e BlendToDefaultDuration
 bceaaa2a BlockButton
 adee7179 BloomIntensityScale
 82fbf5cd Blue
+2f68e6e3 BlueTeamSpectatorEvent
 c8c453d3 BoardButton
 7c666488 Boards
 ee255a71 BoneAName
@@ -251,6 +253,7 @@ ef85fb92 CharacterRecords
 8ef4ba18 CharacterType
 9bc68be3 ChatRegion
 928eb9b4 CheatList
+b293a6a9 CheckChronologicalOrder
 d1519ad2 CheckMark
 aa8fd0c5 CheckNewGearId
 dba9e788 CheckPrevGearId
@@ -280,6 +283,7 @@ c170f95e ColumnCount
 4e748038 CombatGroup
 a2e2709c CommandFinisherAnimation
 6173f330 CommonLoadable
+b95ee9e0 CompareToSource
 8760c87a CompareUnit
 b7a1ea38 CompleteBorder
 d77ad395 CompleteColor
@@ -539,6 +543,8 @@ dcf1a165 EventMapIndex
 7632a5e7 EventType
 26546c1d EventsView
 9f56fb21 ExchangeIcon
+395e4a90 ExcludeChangedToZero
+fa24eccf ExcludeDecrements
 ea59c349 ExcludeJointNames
 e40347b4 ExcludeTags
 a01e3d98 Execute
@@ -551,6 +557,7 @@ cf15afeb Expression
 332a7c6d FacetTypeId
 ce697851 Facets
 b8aa6948 FacingMode
+ec1b2b3c FactName
 5c8ff3a6 Factor
 fdf7c618 FadeGreyscaleDurationSecs
 20407665 FadeOut
@@ -577,6 +584,7 @@ a9a04dd9 FillIcon
 2c24fe60 FillPriority
 11292cca FillVolume
 0ccdd309 FilledTicks
+04bd0e2b FilterBuffByCaster
 815aaee7 FilterButton
 1757fdc8 FilterByMapIndex
 f2c9b3be FilterGroup
@@ -725,6 +733,7 @@ d1d746ab Images
 d0fc9cec Impacts
 4191b710 ImportButton
 5f4f2e4d ImpulseRadiusMultiplier
+68ddd682 InCombat
 f6e17fdc InProgressIcon
 fbc9eeef InSequence
 a59d8bc6 InactiveBorder
@@ -803,9 +812,11 @@ b95926b1 IsDirectionVelocityOriented
 68309c0b IsExclusive
 c4c472c8 IsExpanded
 ec01928c IsGameplayGroup
+d4e06278 IsLocal
 66d660db IsOverflow
 fcea40c4 IsOwner
 086f3c70 IsReplicated
+b62df33d IsStealthed
 44780383 IsUniform
 dfefe716 IsUnique
 3ed21981 IsValid
@@ -852,6 +863,8 @@ d8b966a9 KeysList
 d7150c53 KeysTemplate
 42fb312d KeystoneSpell
 5ca5224c KeywordData
+55848081 KillBaseSource
+6caa1bcc KillCompareToSource
 f1cea006 KillOffset
 6611a3fc KillThreshold
 2a95f870 Killed
@@ -1041,6 +1054,7 @@ b1c14e0d Node
 d6b1e82e NoiseVector
 74752bb3 NormalStrength
 70bb674e NotificationVfx
+ea4213a0 NotifyMixAction
 f82a9a98 NovaItem
 3ddab580 NumFramesInAnimation
 342dcc43 NumPlayers
@@ -1258,6 +1272,7 @@ edc675ea RarityType
 cb1bebae RecipeDef
 1a35cd0d RecipeTemplate
 40f480dc Red
+11e8956e RedTeamSpectatorEvent
 5a81f39a Reference
 2119af58 ReflectionSkyTint
 018a801e RegenTickInterval
@@ -1437,6 +1452,7 @@ d8c398f2 SeriesBackgroundImageUrl
 3a942548 SetName
 a98993fb SetOnEnd
 dfe510ee SetOnStart
+913543b4 SetUserFactAction
 4be54abc SettingsSwitchDuration
 d01ec7fc Sfx
 a1d375b5 ShaderModel
@@ -1724,6 +1740,8 @@ ee641224 UseInitialStart
 353099b0 UseTargetForRequirements
 a8cb9c14 UseTargetStats
 e1e591e3 UseText
+eb60b2e8 UserFact
+24392a01 UserFacts
 e013f720 UsingRandomLoadingScreen
 0b248040 UvAnimation
 6a5b6251 ValueTooltip
@@ -1766,6 +1784,7 @@ deb1ff88 WDriver
 590fd966 WUpdateModifier
 8729115e WValueModifier
 51e9b98e WadDependencies
+cab8f282 WaitForShopkeeperVo
 b1c48ff9 WakeAmplitudeMaxSpeedMult
 d27c716b WakeAmplitudeMinSpeedMult
 64d84dad WakeDirectionSmoothingTime
@@ -1824,3 +1843,4 @@ df92e232 Zoom
 d1257b43 ZoomEasing
 83fa5f0d ZoomFov
 5a68002e Zw
+be662223 mTargetTimeToLive

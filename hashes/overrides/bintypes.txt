@@ -31,6 +31,8 @@ e97bc20d AreaTriggerEntityPrefab
 48b525af AtlasDataVideo
 807f462a AttachDynamicScript
 15efa930 AttachEntityBlock
+eb9f2cd7 AttachmentGeComponent
+666d2e06 AttachmentGeComponentDef
 01e1cce2 AttackableEntity
 3c2bf0c0 AttackableEntityPrefab
 ad65d8c4 AttackableEntityTemplate
@@ -58,6 +60,8 @@ bb109c9b AugmentSelectionViewController
 e24d73c6 AugmentSetTooltipViewController
 e8402935 AugmentSetTraitTrackerViewController
 2f798a22 AugmentTierDisplayData
+210fea10 AutoRegionTaggingGeComponent
+fdb6b027 AutoRegionTaggingGeComponentDef
 fde6a2d7 BarracksDefinition
 71d0eabd BarracksEntity
 c71ee7fb BarracksEntityPrefab
@@ -206,6 +210,7 @@ de125976 DistanceToEnemyMinionMaterialFloatDriver
 ff378352 DragonCampEntityPrefab
 7f3c93aa DragonCampEntityTemplate
 054665eb DragonCampGeComponentDefinition
+292991be DragonSoulTypes
 85bf79cf DynamicCameraConfig
 c565e640 DynamicCameraSettings
 d5db92ad DynamicPointLightEntityTemplate
@@ -266,6 +271,9 @@ e4b83f6f EnvironmentEffectorMovement
 12328447 EnvironmentEntityPrefab
 fa42cdaf EnvironmentEntityTemplate
 9eb07cec EnvironmentPbrDynamicShadingModel
+00393d54 EsportsBannerEntityTemplate
+bdaa899c EsportsBannerGeComponent
+eb5cafc3 EsportsBannerGeComponentDef
 02ec49d8 EventBusApBaseObject
 256ae2c6 EventBusApClickElement
 56e39b84 EventBusApClickNavigation
@@ -296,6 +304,7 @@ ba007871 ExternalCalculationCalculationPart
 73425974 FacingAndMovementAngleFloatDriver
 de07f33b FeatsViewController
 1f8480d8 FindInString
+ca19d90e FlickerMapLightUpdater
 b0be1066 Float4FromLogicDrivers
 b011f563 FloatButtonElementSetActive
 abe2709a FloatButtonElementSetEnabled
@@ -332,6 +341,7 @@ deb252e8 GameEntityOnUpdate
 e2b34203 GameEntityScript
 d79c24ee GameEntityScriptBase
 3aa4575e GameEntityScriptDefinition
+b34ac035 GameEntitySelectorMapping
 e75836d4 GameEntityTemplateLocatorPreview
 de5dac9e GameEntityTemplateProxyLink
 1099c885 GameModeConstantTftCharacter
@@ -356,6 +366,7 @@ fd52ca74 GameScreenSequenceActionUiEnableSceneInstance
 ffabacc8 GameScreenSequenceActionUiPlaySpineAnimationInstance
 87f91549 GameScreenVars
 fdf5991e GameScreenViewController
+9b321633 GameplayLocatorTemplate
 ff5060b7 GameplayTextureChannel
 8d65d994 GameplayTextureSampler
 67c6fe50 GearGeComponentDef
@@ -386,6 +397,8 @@ d59163d9 HasMovedParametricUpdater
 b2a6e394 HasValueChanged
 6ba221d7 HideEntityBlock
 a66992af HideEntityTagBlock
+ac98ac97 HierarchyGeComponent
+9ef07ec6 HierarchyGeComponentDef
 c3a44766 HudFeedbackDamageConfig
 eacbd3e9 IAsyncBlock
 2f910682 IChromaData
@@ -409,6 +422,7 @@ bc413e21 IFloatUpdateElement
 9a573886 IFloatUpdateModifier
 4feb7d99 IGameEntityComponentEvents
 4e8d1d3e IGameEntityScriptEvent
+2576b4fc IGameObjectEvents
 03f4b8c5 IGameScreenAudioBlock
 fdb7d876 IGameScreenCameraBlock
 ece68ca6 IGameScreenClientBlock
@@ -450,6 +464,7 @@ c657a95d IMonarchItemData
 4cc1ed12 IMonarchPropertyKey
 645e288b IMonarchTagQueryValue
 7992a72c IMonarchTargetingRequirement
+608e61e9 INeutralCampPreSpawnDef
 70f6f74b INovaItemSelectionFilter
 da0d41ce INumericModifier
 116f5c56 IOverrideOptionItem
@@ -481,6 +496,7 @@ b3499e6f IUiElementIGet
 b041c60a IUiVariable
 540d65a6 IUnitGet
 cc52ed40 IUnitLogicData
+0129e311 IUpdatableGeComponent
 53de4f74 IValueUpdateElement
 5a8ba29d IValueUpdateModifier
 c239373a IVfxAudioRuntime
@@ -496,6 +512,8 @@ f9dd7e92 IVfxEmissionSurface
 505f1532 IVfxVector3Driver
 c59dfcfb IVfxVector4Driver
 77274757 IconPath
+7a1cab0d IconReference
+db26669a IdentifierComponents
 e524b2fc IfConditionBlock
 1c315cd8 InputEvent2AxisKeybind
 070cf2e7 InputEventBoolKeybind
@@ -740,6 +758,7 @@ d82714cc NavGridTerrainTagDefinition
 1f69daba NeutralCampEntity
 42239bf8 NeutralCampEntityPrefab
 d178749c NeutralCampEntityTemplate
+3f04641e NeutralCampIdentifier
 21814e41 NexusFinisherViewController
 51d069e1 NilEntityGet
 1a6cd1f8 NilGet
@@ -839,6 +858,9 @@ b7b43e1d PercentageEnabledBoolMaterialDriver
 c20b2e61 PhysicsSimLocalSettings
 a4975765 PictureInPictureViewController
 a55c9d58 PlaceEntityBlock
+59f5f97e PlanarReflectorEntityTemplate
+34f2d06e PlanarReflectorGeComponent
+d3dda5e5 PlanarReflectorGeComponentDef
 75d39a3b PlayAnimation
 b9542d9d PlayerFrameViewControllerBase
 e622d482 PlayerGoldFloatDriver
@@ -847,6 +869,12 @@ a4892234 PlayerInventoryViewControllerBase
 ff3c9ff8 PortraitLine
 e78d94fa PortraitSet
 dd3213ec PostEffectOptions
+595e6ce0 PreSpawnAudioDef
+e8f20237 PreSpawnTimerIconData
+31acb60e PreSpawnTimerIconDef
+da370296 PreSpawnTimerIconProgression
+2dfc7ffc PrefabEntity
+b3b32e26 PrefabEntityTemplate
 e7ee4f28 PresetChromaData
 449b05d1 ProgressTrackList
 2761403d PropertyTraits
@@ -1091,8 +1119,11 @@ c7e628b9 SpellPreviewParamsData
 239d0a76 SpellPreviewSource
 549452c3 SpellVars
 e8f5408e SplashUpgradeTier
+82cab1b3 SrLaneDefinition
 1d452085 StatByExternalNamedDataValueCalculationPart
 29b5826a StateMachineHelperDef
+00f2a39a StateMachineHelperSequenceData
+ad399234 StateMachineHelperStateData
 892fb608 StoreFilter
 9b62c977 StoreFilterItem
 1c3ab3f1 StoreReward

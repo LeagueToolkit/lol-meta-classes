@@ -227,8 +227,8 @@
 }},
 "0x58ec86b0": {"revisions": [{"from":8312239,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0x59f5f97e": {"revisions": [{"from":7345787,"to":7345787,"bases":["0x40a9c74a"],"interface":false,"value":false},{"from":7371049,"bases":["0x40a9c74a"],"interface":false,"value":false}], "properties": {
- "0x50a298b": {"revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0xd3dda5e5"],"default":{"Polygon":{"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}}},{"from":7371049,"type":["Embed","0x0","0x0","0xd3dda5e5"],"default":{"0x28e60732":true,"0x37ae4cad":false,"Polygon":{"0x174f6af":false,"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]},"0x539ea54d":false,"DynamicLighting":false,"SSAO":false,"0xaecee07f":100,"0xfc90acf2":"0x0"}}]}
+"0x59f5f97e": {"name": "PlanarReflectorEntityTemplate", "revisions": [{"from":7345787,"to":7345787,"bases":["0x40a9c74a"],"interface":false,"value":false},{"from":7371049,"bases":["0x40a9c74a"],"interface":false,"value":false}], "properties": {
+ "0x50a298b": {"name":"PlanarReflector","revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0xd3dda5e5"],"default":{"Polygon":{"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}}},{"from":7371049,"type":["Embed","0x0","0x0","0xd3dda5e5"],"default":{"RenderEnvironment":true,"RenderSunShadow":false,"Polygon":{"Smooth":false,"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]},"ForceOn":false,"DynamicLighting":false,"SSAO":false,"PercentageResolution":100,"SkyboxTexture":"0x0"}}]}
 }},
 "0x5d9795fb": {"revisions": [{"from":8207193,"to":8298620,"bases":["0xed2da5b0"],"interface":false,"value":false}], "properties": {
  "0x1d445284": {"name":"VoBehavior","revisions":[{"from":8207193,"to":8248524,"type":["Link","0x0","0x0","0xa35db897"],"default":"0x0"},{"from":8298620,"to":8298620,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -816,16 +816,16 @@
  "0xd0a4e40b": {"revisions":[{"from":7584427,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe1281da0": {"name":"mMapObjectsCFG","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0xd3dda5e5": {"revisions": [{"from":7345787,"to":7345787,"bases":["0x62a09c62"],"interface":false,"value":false},{"from":7371049,"bases":["0x62a09c62"],"interface":false,"value":false}], "properties": {
- "0x51cb889": {"name":"Polygon","revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x78e42784"],"default":{"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}},{"from":7371049,"type":["Embed","0x0","0x0","0x78e42784"],"default":{"0x174f6af":false,"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}}]},
- "0x28e60732": {"revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
- "0x37ae4cad": {"revisions":[{"from":7584427,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x539ea54d": {"revisions":[{"from":7747445,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+"0xd3dda5e5": {"name": "PlanarReflectorGeComponentDef", "revisions": [{"from":7345787,"to":7345787,"bases":["0x62a09c62"],"interface":false,"value":false},{"from":7371049,"bases":["0x62a09c62"],"interface":false,"value":false}], "properties": {
+ "0x51cb889": {"name":"Polygon","revisions":[{"from":7345787,"to":7345787,"type":["Embed","0x0","0x0","0x78e42784"],"default":{"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}},{"from":7371049,"type":["Embed","0x0","0x0","0x78e42784"],"default":{"Smooth":false,"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}}]},
+ "0x28e60732": {"name":"RenderEnvironment","revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
+ "0x37ae4cad": {"name":"RenderSunShadow","revisions":[{"from":7584427,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x539ea54d": {"name":"ForceOn","revisions":[{"from":7747445,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x7168974e": {"name":"DynamicLighting","revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x9b15d5eb": {"name":"SSAO","revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xaecee07f": {"revisions":[{"from":7695709,"type":["U8","0x0","0x0","0x0"],"default":100}]},
+ "0xaecee07f": {"name":"PercentageResolution","revisions":[{"from":7695709,"type":["U8","0x0","0x0","0x0"],"default":100}]},
  "0xc7543bfc": {"name":"RenderParticles","revisions":[{"from":7695709,"to":8298620,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
- "0xfc90acf2": {"revisions":[{"from":7643737,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0xfc90acf2": {"name":"SkyboxTexture","revisions":[{"from":7643737,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xd486d6e9": {"name": "SpellLockDeltaTimeData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0xc2245959": {"name":"mSpellLockDeltaTimeCalculation","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x17373233"],"default":{"mMultiplier":null,"mExpandedTooltipCalculationDisplay":8,"DamageType":4,"ResultModifier":0,"0xacc210ca":null,"0xbafc65c0":null,"mSimpleTooltipCalculationDisplay":8,"tooltipOnly":false}}]}

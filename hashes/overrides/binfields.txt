@@ -39,6 +39,7 @@ ddb9d277 AdditionalStats
 199c85a4 AdditiveVfxs
 4ab787f3 AffectsStatus
 9a6a9339 AffectsType
+de46f1d8 AiScriptOverride
 3a77d53c AlignPitch
 0be0de52 AlignX
 0ce0dfe5 AlignY
@@ -109,6 +110,7 @@ cce2113c AugmentPillar
 b924d38b AutoAttackLineMaxRange
 8eb174a9 AutoAttackMode
 20fc97e7 AutoAttackSpellScript
+d6ebb885 AutoTagging
 f85b5e9b AutomaticallyStarts
 fd597a5a AvailableStatus
 175eb228 Average
@@ -130,6 +132,7 @@ bcbb5260 BaronKills
 98912876 BaronSpawn
 3ae31586 BaronSteal
 d1ed70fe Barracks
+45403ae3 BarracksConfigMutatorOverrides
 4397646b BarracksProperty
 49e47ecd BaseSource
 a75279fa Beam
@@ -195,6 +198,7 @@ e1fb2076 CameraMass
 4e3b1910 CameraRes
 480698c7 CameraStiffness
 5793fe9f CameraUpdater
+5a4ef4e7 CampIdentifier
 87ac0600 CanvasSize
 9094c397 CardAnimation
 631a990f CardButton
@@ -218,11 +222,13 @@ e7e90aee CastShadow
 3a3c1fee CastType
 11bd49bb CastW
 4310d45d CasterRequirements
+75708a14 CastsShadows
 536c1dd1 CatalogEntryId
 5eb0c06d Categories
 78115fc4 CategoryId
 b5bd9b2a CategoryName
 9a1a1c7e CategoryValue
+bec32eb5 CellHitThreshold
 d94acbb2 Cells
 39340876 CensoredColorModulate
 058c4484 Center
@@ -610,6 +616,7 @@ bb80885a FlatPhysicalDamageMod
 b4ca9c18 FlatPhysicalReduction
 f0383e4b FlatSpellBlockMod
 1440dec2 FlexEmitterRate
+6c8cda47 FlickerIntensityVariance
 a6c45d85 Float
 c04df9d4 FloatCurve
 8144ce88 FloatProperty
@@ -620,6 +627,7 @@ ed4469b5 FontStyle
 2bf77ed0 FontWeight
 f36010f5 ForceActivate
 7c4a8c7b ForceMultiplier
+539ea54d ForceOn
 f1a61846 FormIcon
 b99d8552 Format
 2642955f ForwardAxis
@@ -700,8 +708,10 @@ b0d4508d HeightFogColor
 9e6ab7fa Helpers
 47ac0d65 HideDuration
 9e8fcd0c HideThenDeactivate
+10112a28 Hierarchy
 3dddb9fd High
 949cfb4a HighlightedTrait
+3c871ab8 HitRect
 eb6c72dd HitTexture
 00fbeff0 HoldType
 d5411c8f Holder
@@ -786,6 +796,7 @@ f248d989 InputEvent
 f54539eb InputMinDb
 0214e671 InputParams
 0b86d992 Instance
+819816ff InstanceVariableOverrides
 ee26c73f InstanceVariables
 b7218bcb IntProperty
 8a59b96a IntVariable
@@ -948,6 +959,9 @@ cf7f6e66 Maps
 1f14dbe7 MaterialContainer
 e81d2ece MaterialMapping
 4e994b61 MaxAcceleration
+65981a0f MaxFlickerCycleDuration
+6bee7e96 MaxFlickerCyclesBeforeSleep
+6cc7e340 MaxFlickerIntensity
 2a96dc56 MaxGameEvents
 2d0b672c MaxLod
 6438040c MaxNumClustersX
@@ -959,10 +973,12 @@ a4c80814 MaxPlays
 c8b6a592 MaxQueueTimes
 df4673e5 MaxScaleChange
 029bb1fe MaxScaleFactor
+1ded15f4 MaxSleepDuration
 a42ce6b4 MaxTimeout
 4057334e MaxToken
 0ce02655 MaxWaterFloatCount
 22a237ce MaximumRange
+3634dccb MemberList
 38823ae2 MenuButton
 8fba2ead MenuGroup
 a100bebc Mesh
@@ -979,15 +995,20 @@ af3fe1c9 MiddleElements
 1de82be3 MilestoneAsset
 297c5518 MilestoneDefinition
 86bf2c9e MinClusterSize
+1c29a921 MinFlickerCycleDuration
+5e5e6c74 MinFlickerCyclesBeforeSleep
+c95af14a MinFlickerIntensity
 fd301d67 MinLevel
 c89676aa MinLod
 97030a35 MinMoveDistance
 377d1a73 MinScaleChange
 4e06a418 MinScaleFactor
 eaebcf6e MinSize
+5f55b386 MinSleepDuration
 59716ba2 MinTimeBetweenMoveOrders
 dd3fe563 MinimapCircularRangeIndicator
 c5ea66ab MinimapColor
+1f2e5fd0 MinimapTimerDefinition
 1405b98c MinimumRange
 6ac4e44f MinionsSpawn
 adbcc5ee Minutes
@@ -1156,6 +1177,7 @@ c0339c8f PercentSlowResistMod
 c5e2a3e4 PercentTenacityItemMod
 97537db5 Percentage
 a86fc2ef PercentageDamageForFlash
+aecee07f PercentageResolution
 76599c8b PhysicalDamageEnhanced
 73276a01 PhysicsComponent
 c20b2e61 PhysicsSimLocalSettings
@@ -1172,6 +1194,7 @@ e0bf6ea7 PipSequence
 fbf05517 Pivot
 4fe2b16f PivotPoint
 8bbc0365 Pixelate
+050a298b PlanarReflector
 ab2e032a PlaneConstraint
 2a4a32b2 Platform
 75d39a3b PlayAnimation
@@ -1205,6 +1228,8 @@ b2f876c7 PositionProvider
 5ed8887b Positions
 da6afd7c PossibleRandomLoadingScreenBackgrounds
 5b0d842a PostEffectDefines
+173cf5d9 PreSpawnAudio
+b8252467 PreSpawnBehavior
 83f71517 Precision
 de7d679e PremiumTag
 01fcf9b4 Press
@@ -1229,6 +1254,7 @@ cb084e46 Progress
 e94a6ba8 Progression
 56de9f99 ProjectableInvalid
 1dccddbf Projected
+f6298343 ProjectedTextureMaterial
 dfe6493b Prompt
 5b2e77af PropPath
 8f80bc0f PropertyDef
@@ -1242,6 +1268,7 @@ b7c0bbbc Provider
 b9903ec9 PveComp
 049d68aa PveData
 2d85c640 PveScoreboard
+90eca7c5 QualityLevels
 f8ce75e3 Query
 f02bce06 QueryButtonId
 09d0cf3d Quest
@@ -1275,7 +1302,9 @@ cb1bebae RecipeDef
 11e8956e RedTeamSpectatorEvent
 5a81f39a Reference
 2119af58 ReflectionSkyTint
+3520349d RegenAreaRadius
 018a801e RegenTickInterval
+8eced3a0 RegionGroupIndex
 2340a395 RegionLocator
 e2ba931c RegionLocatorGroup
 bed02ff8 RegionTags
@@ -1286,10 +1315,12 @@ dc4a0b3b ReleaseSeconds
 7471eac6 Remap
 20079c4c RemoveAll
 3b5dbe09 RemoveButton
+28e60732 RenderEnvironment
 ebb5881f RenderOrder
 c7543bfc RenderParticles
 8bfaa580 RenderPass
 62c9f9c0 RenderPhase
+37ae4cad RenderSunShadow
 8536b021 RenderTargetSize
 d4f8a53b RepeatTriggers
 f3c442af RequiredCount
@@ -1438,6 +1469,7 @@ eca4ae5d SelectedClicked
 4408e6c2 SelectedTextColor
 c0ac6e28 SelectionAvailable
 a3a16c61 SelectionButton
+3636114b SelectorMappings
 5b45d71e SelfHeader
 c060792d SelfLayout
 6f478bcd SendFullGameState
@@ -1487,11 +1519,13 @@ ae789376 SingleCompleted
 6556dc9f Skills
 174a6a47 SkinItem
 911d1120 SkipExecution
+fc90acf2 SkyboxTexture
 39781626 SliderTemplate
 af20b401 SlotData
 58526469 SlotRestriction
 d04a0fe6 SlotsButton
 d3a91466 SlotsScene
+0174f6af Smooth
 42abffde SmoothTime
 04a40f92 SocketDefinitions
 02e104d7 SoulTypes
@@ -1579,6 +1613,7 @@ d32ade2a Stretch
 b0727511 Strings
 9d17b3be StructureLink
 44735f30 StunTexture
+0c8140e7 StyleSets
 752ff961 StyleSheet
 bd00b074 SubEvents
 a0f848d1 SubRequirements
@@ -1636,6 +1671,7 @@ b038b134 TeamPriority
 50b8f3f6 TeamPriorityBehavior
 848de224 TeamScene
 e71e9783 TeamSeparator
+bbf9e56b TeamSpawnPoint
 8e8371bb TeamSucceededEvent
 141437e7 TeamSucceededPriorityBehavior
 5d473c96 TeamTemplate
@@ -1665,6 +1701,7 @@ f5092643 TierNames
 2414834f TierTemplate
 397d10d8 TiersLayout
 5d3c9be4 Time
+e59ce2fa TimeBeforeSpawn
 d853c3f4 TimePercentage
 615964d8 TimeWindow
 146b3900 TimerDefinitions

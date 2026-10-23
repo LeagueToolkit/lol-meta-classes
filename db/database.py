@@ -65,9 +65,6 @@ class 0x12908937(0xfbd56421):
     items: (List2, 0x0, Hash, 0x0) = []
     pass
 
-class 0x129e311():
-    pass
-
 class 0x12b12bdf():
     0xa41734ff: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xa9d41f94: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -522,9 +519,6 @@ class 0x20ff220e():
     0xe5f3c5d4: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x210fea10(GameEntityComponent):
-    pass
-
 class 0x213ccd36():
     EventName: (U32, 0x0, 0x0, 0x0) = 474
     0x30963364: (List, 0x0, Embed, RotatingBanner) = []
@@ -675,17 +669,14 @@ class 0x25427320():
 class 0x257477d2(ScriptTableGet, 0x8923a755, IFloatGet):
     pass
 
-class 0x2576b4fc():
-    pass
-
 class 0x25bfa52(LevelScriptBlock):
     value: (Pointer, 0x0, 0x0, IFloatGet) = null
     BarracksProperty: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x2630bcc1():
-    0x1b08afa4: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":"0x0"}
-    0x921ce7d6: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":"0x0"}
+    0x1b08afa4: (Embed, 0x0, 0x0, IconReference) = {"texturePath":"0x0"}
+    0x921ce7d6: (Embed, 0x0, 0x0, IconReference) = {"texturePath":"0x0"}
     pass
 
 class 0x266047aa(TftCutsceneValueProvider):
@@ -784,10 +775,6 @@ class 0x29124137(TftConditionData):
     traits: (List2, 0x0, Embed, 0xd6bc5e0c) = []
     0x9631656f: (List2, 0x0, I32, 0x0) = []
     DescriptionTra: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x292991be():
-    SoulTypes: (List2, 0x0, String, 0x0) = []
     pass
 
 class 0x292fd63d(0xd04cfb37):
@@ -917,9 +904,6 @@ class 0x2db7365f():
     Label: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x2dfc7ffc(GameEntity):
-    pass
-
 class 0x2e69c9a2(BaseParams):
     pass
 
@@ -1030,10 +1014,6 @@ class 0x3170c8c7(UiMetricUnitTypeSimpleI):
 
 class 0x318f8d72(CountdownTimerController):
     0x1e1bd0c9: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
-class 0x31acb60e(0x608e61e9):
-    Progression: (Link, 0x0, 0x0, 0xda370296) = "0x0"
     pass
 
 class 0x31aebe7d(BaseParams):
@@ -1154,9 +1134,6 @@ class 0x34cca270():
     pass
 
 class 0x34ecdf00():
-    pass
-
-class 0x34f2d06e(GameEntityComponent):
     pass
 
 class 0x3527f5d8():
@@ -1294,12 +1271,6 @@ class 0x38d7429(0x34ecdf00):
 class 0x3906c4b9():
     0x3a4bfe4e: (List2, 0x0, Hash, 0x0) = []
     0x5fa4298d: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x393d54(GameEntityTemplate):
-    CharacterMesh: (Embed, 0x0, 0x0, CharacterMeshGeComponentDef) = {"0xb887f6e9":0.0,"IdleAnimationName":"","PlayIdleAnimation":false}
-    banner: (Embed, 0x0, 0x0, 0xeb5cafc3) = {"banner":"0x0"}
-    Character: (Embed, 0x0, 0x0, SkinCharacterGeComponentDef) = {"CharacterRecord":"","Skin":""}
     pass
 
 class 0x393df345():
@@ -1561,12 +1532,6 @@ class 0x3eed1ba8(0xe561be2e):
 class 0x3f040c8e():
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Text: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x3f04641e():
-    0x2d63dca5: (List2, 0x0, Pointer, 0x10a4976a) = []
-    SpawnTypes: (List2, 0x0, Embed, 0xdb26669a) = []
-    CampName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x3f1c01bb():
@@ -2348,11 +2313,6 @@ class 0x58d3e60():
 class 0x58fd9529(IRewardBase):
     pass
 
-class 0x595e6ce0():
-    rtpcName: (String, 0x0, 0x0, 0x0) = ""
-    duration: (F32, 0x0, 0x0, 0x0) = 8.0
-    pass
-
 class 0x598e6212():
     QuestAcquireFX: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Outline: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2370,10 +2330,6 @@ class 0x59c21541():
 
 class 0x59ef46df(0xd0c7ee75):
     ResourceBin: (Link, 0x0, 0x0, BinFileContainer) = "0x0"
-    pass
-
-class 0x59f5f97e(GameEntityTemplate):
-    0x50a298b: (Embed, 0x0, 0x0, 0xd3dda5e5) = {"0x28e60732":true,"0x37ae4cad":false,"0x539ea54d":false,"0xaecee07f":100,"0xfc90acf2":"0x0","DynamicLighting":false,"Polygon":{"0x174f6af":false,"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]},"RenderParticles":true,"SSAO":false}
     pass
 
 class 0x5a43dcb1(Cheat):
@@ -2624,9 +2580,6 @@ class 0x607ade7e(TftCutsceneMissileClip):
     TimeToTarget: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0x608e61e9():
-    pass
-
 class 0x6098cd78(0x902e246e):
     HotkeyText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ValueText: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -2677,7 +2630,7 @@ class 0x629f5938():
     pass
 
 class 0x62abd8e():
-    0xff4593ca: (Map, U8, Embed, 0x7a1cab0d) = {}
+    0xff4593ca: (Map, U8, Embed, IconReference) = {}
     pass
 
 class 0x62d020ca():
@@ -2786,9 +2739,6 @@ class 0x664d2c6d():
 
 class 0x6653bfda(CharacterQuestConditionData):
     Spell: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x666d2e06(IGeComponentDef):
     pass
 
 class 0x666e8cb6():
@@ -2974,7 +2924,7 @@ class 0x6ac509ac():
 
 class 0x6acfc178():
     name: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    Icon: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":"0x0"}
+    Icon: (Embed, 0x0, 0x0, IconReference) = {"texturePath":"0x0"}
     pass
 
 class 0x6afbcb38(BaseLoadoutData):
@@ -3406,10 +3356,6 @@ class 0x7a1a2d27():
     DefaultPhysicalDamageFormat: (Link, 0x0, 0x0, FloatTextFormattingData) = "0x0"
     pass
 
-class 0x7a1cab0d():
-    texturePath: (File, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x7a2b62e():
     ObjectiveId: (Hash, 0x0, 0x0, 0x0) = "0x0"
     Enabled: (Bool, 0x0, 0x0, 0x0) = true
@@ -3770,8 +3716,8 @@ class 0x821da484():
     itemID: (Hash, 0x0, 0x0, 0x0) = "0x0"
     NameTra: (String, 0x0, 0x0, 0x0) = ""
     0x74916360: (String, 0x0, 0x0, 0x0) = ""
-    0x9225213: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":"0x0"}
-    0xa25cecc: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":"0x0"}
+    0x9225213: (Embed, 0x0, 0x0, IconReference) = {"texturePath":"0x0"}
+    0xa25cecc: (Embed, 0x0, 0x0, IconReference) = {"texturePath":"0x0"}
     pass
 
 class 0x825a4d66():
@@ -3792,11 +3738,6 @@ class 0x82a00368(0x38ad3494):
 class 0x82bdb583():
     0xe82a5770: (U8, 0x0, 0x0, 0x0) = 0
     0xf1bc6341: (Map, Hash, Embed, 0x92c8c778) = {}
-    pass
-
-class 0x82cab1b3():
-    lane: (U16, 0x0, 0x0, 0x0) = 3
-    Position: (U16, 0x0, 0x0, 0x0) = 3
     pass
 
 class 0x82e8ec62(TftConditionData):
@@ -4546,11 +4487,6 @@ class 0x9af7b542():
     PathHash: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x9b321633(GameEntityTemplate):
-    Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    0xd6ebb885: (Pointer, 0x0, 0x0, 0xfdb6b027) = {}
-    pass
-
 class 0x9be3a010():
     StartValueOffset: (Vec4, 0x0, 0x0, 0x0)
     pass
@@ -4666,9 +4602,6 @@ class 0x9e5fdaf2():
     BottomGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xb141c6ec: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xb9cd79d2: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x9ef07ec6(IGeComponentDef):
     pass
 
 class 0x9ef1e737(IOptionItem):
@@ -5007,7 +4940,7 @@ class 0xa9593c80():
 class 0xa975a9cf(0xb08ef62f):
     pass
 
-class 0xa98b5b03(0x129e311, GameEntityComponent):
+class 0xa98b5b03(IUpdatableGeComponent, GameEntityComponent):
     pass
 
 class 0xa9e4d0f1():
@@ -5084,9 +5017,6 @@ class 0xac27b13a():
     groups: (List2, 0x0, Embed, HudItemShopItemGroupDefinition) = []
     pass
 
-class 0xac98ac97(GameEntityComponent):
-    pass
-
 class 0xacb2dba1():
     Region: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xba819369: (U8, 0x0, 0x0, 0x0) = 0
@@ -5098,10 +5028,6 @@ class 0xacef4da(0xd8927a7):
     pass
 
 class 0xacf95576():
-    pass
-
-class 0xad399234():
-    sequences: (Map, Hash, Embed, 0xf2a39a) = {}
     pass
 
 class 0xad4d38bb():
@@ -5378,16 +5304,6 @@ class 0xb2fe8cea(ViewController):
 
 class 0xb2ff06ac(IGameModeConfigClient):
     0x467aa47: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
-class 0xb34ac035():
-    Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
-    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0xb3b32e26(GameEntityTemplate, IMapGroup):
-    0x10112a28: (Embed, 0x0, 0x0, 0x9ef07ec6) = {}
-    0x3634dccb: (List2, 0x0, String, 0x0) = []
     pass
 
 class 0xb3d0d405():
@@ -5776,9 +5692,6 @@ class 0xbd77f870():
     AutomaticallyStarts: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0xbdaa899c(0x129e311, GameEntityComponent):
-    pass
-
 class 0xbdbf785f(0xd866344b):
     value: (U8, 0x0, 0x0, 0x0) = 0
     pass
@@ -6159,21 +6072,6 @@ class 0xca1804b3():
     Item: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0xca19d90e(IMapLightUpdater):
-    0x1c29a921: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
-    0x1ded15f4: (F32, 0x0, 0x0, 0x0) = 1.0
-    0x5e5e6c74: (U8, 0x0, 0x0, 0x0) = 1
-    0x5f55b386: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
-    0x65981a0f: (F32, 0x0, 0x0, 0x0) = 0.4000000059604645
-    0x6bee7e96: (U8, 0x0, 0x0, 0x0) = 4
-    0x6c8cda47: (F32, 0x0, 0x0, 0x0) = 0.004999999888241291
-    0x6cc7e340: (F32, 0x0, 0x0, 0x0) = 1.0499999523162842
-    TransitionDuration: (F32, 0x0, 0x0, 0x0) = 0.30000001192092896
-    0xc95af14a: (F32, 0x0, 0x0, 0x0) = 0.949999988079071
-    RandomVariance: (F32, 0x0, 0x0, 0x0) = 0.009999999776482582
-    TranslationRange: (Vec3, 0x0, 0x0, 0x0) = [10.0,10.0,10.0]
-    pass
-
 class 0xca4d32d1():
     pass
 
@@ -6357,18 +6255,6 @@ class 0xd37b1519():
 class 0xd39980cd():
     0x19385305: (Hash, 0x0, 0x0, 0x0) = "0x0"
     objectPath: (List2, 0x0, Hash, 0x0) = []
-    pass
-
-class 0xd3dda5e5(IGeComponentDef):
-    0x28e60732: (Bool, 0x0, 0x0, 0x0) = true
-    0x37ae4cad: (Bool, 0x0, 0x0, 0x0) = false
-    Polygon: (Embed, 0x0, 0x0, EntityPolygonData) = {"0x174f6af":false,"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}
-    0x539ea54d: (Bool, 0x0, 0x0, 0x0) = false
-    DynamicLighting: (Bool, 0x0, 0x0, 0x0) = false
-    SSAO: (Bool, 0x0, 0x0, 0x0) = false
-    0xaecee07f: (U8, 0x0, 0x0, 0x0) = 100
-    RenderParticles: (Bool, 0x0, 0x0, 0x0) = true
-    0xfc90acf2: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class 0xd428e2c8(IGameModeConfigClient):
@@ -6556,10 +6442,6 @@ class 0xd97f9bd3(TftCutsceneMissileClip):
     SplineInfo: (Pointer, 0x0, 0x0, ISplineInfo)
     pass
 
-class 0xda370296():
-    IconData: (List2, 0x0, Embed, 0xe8f20237) = []
-    pass
-
 class 0xda3ef735():
     Group: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x74e35b36: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -6576,12 +6458,6 @@ class 0xdae7f670(IScriptBt):
 
 class 0xdb03f8f4():
     0x3b5b846f: (String, 0x0, 0x0, 0x0) = "Play_mus_Client_LOL_Lobby_PRISM_Test"
-    pass
-
-class 0xdb26669a():
-    TypeName: (String, 0x0, 0x0, 0x0) = ""
-    0x2d63dca5: (List2, 0x0, Pointer, 0x10a4976a) = []
-    0x90373b91: (List2, 0x0, Pointer, 0xaa0bf832) = []
     pass
 
 class 0xdb7bbf5f():
@@ -6946,11 +6822,6 @@ class 0xe8c34b52(IGameModeConfig):
     0xf021feb3: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
-class 0xe8f20237():
-    0xe59ce2fa: (F32, 0x0, 0x0, 0x0) = 0.0
-    Icon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
-    pass
-
 class 0xe90af953():
     Buff: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xbe161d6e: (U8, 0x0, 0x0, 0x0) = 0
@@ -7000,10 +6871,6 @@ class 0xeaf8e31e(SkinnedMeshDataMaterialController):
     0x4c776a95: (List2, 0x0, Embed, 0xf4da6088) = []
     pass
 
-class 0xeb5cafc3(IGeComponentDef):
-    banner: (Link, 0x0, 0x0, EsportsBannerData) = "0x0"
-    pass
-
 class 0xeb8aa5d6():
     rtpcName: (String, 0x0, 0x0, 0x0) = ""
     0x714bd26f: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -7013,9 +6880,6 @@ class 0xeb8aa5d6():
     0xd1f8128: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
     0xd7c027d2: (U32, 0x0, 0x0, 0x0) = 0
     0xe31a8851: (F32, 0x0, 0x0, 0x0) = 0.4000000059604645
-    pass
-
-class 0xeb9f2cd7(GameEntityComponent):
     pass
 
 class 0xebe7428(IGameModeConfig):
@@ -7227,10 +7091,6 @@ class 0xf25571f0(0x50794e0e):
     pass
 
 class 0xf2839c7c(ILolKeybindSetCheck):
-    pass
-
-class 0xf2a39a():
-    0x3636114b: (List2, 0x0, Embed, 0xb34ac035) = []
     pass
 
 class 0xf2bc55fb():
@@ -7639,9 +7499,6 @@ class 0xfd7ee1ad():
     LowerBound: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0xfdb6b027(IGeComponentDef):
-    pass
-
 class 0xfe1f7ae3(IGameModeConfig):
     pass
 
@@ -7976,7 +7833,7 @@ class AddPARCheat(Cheat):
 
 class AddScriptToEntity(GameEntityBlock):
     Target: (Pointer, 0x0, 0x0, IEntityGet) = null
-    ScriptDef: (Embed, 0x0, 0x0, GameEntityScriptDefinition) = {"0x819816ff":{},"Script":"0x0"}
+    ScriptDef: (Embed, 0x0, 0x0, GameEntityScriptDefinition) = {"InstanceVariableOverrides":{},"Script":"0x0"}
     pass
 
 class AddTagToEntityBlock(GameEntityBlock):
@@ -8336,6 +8193,12 @@ class AttachEntityBlock(GameEntityBlock):
     0xe2d12280: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
+class AttachmentGeComponent(GameEntityComponent):
+    pass
+
+class AttachmentGeComponentDef(IGeComponentDef):
+    pass
+
 class AttackCausedDamageConstraintInfo(ListenerConstraintInfo):
     DamageThresholdRequired: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
@@ -8366,7 +8229,7 @@ class AttackableEntity(LolGameEntity):
     pass
 
 class AttackableEntityTemplate(GameEntityTemplate):
-    AttackableUnit: (Embed, 0x0, 0x0, AttackableUnitGeComponentDef) = {"0x397fe037":false,"0x4b31cd83":false,"0xaa0ee4f5":false,"0xafc7dac6":true,"0xcf9b9ca4":{},"0xde46f1d8":"","0xf1d3a034":false,"BotDifficulty":0,"LaneDefinition":null,"type":3}
+    AttackableUnit: (Embed, 0x0, 0x0, AttackableUnitGeComponentDef) = {"0x397fe037":false,"0x4b31cd83":false,"0xaa0ee4f5":false,"0xafc7dac6":true,"0xcf9b9ca4":{},"0xf1d3a034":false,"AiScriptOverride":"","BotDifficulty":0,"LaneDefinition":null,"type":3}
     Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     StateMachine: (Pointer, 0x0, 0x0, StateMachineGeComponentDef) = null
     dynamicMaterial: (Embed, 0x0, 0x0, DynamicMaterialGeComponentDef) = {}
@@ -8380,7 +8243,7 @@ class AttackableEntityTemplate(GameEntityTemplate):
 class AttackableUnit(GameObject):
     pass
 
-class AttackableUnitGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent):
+class AttackableUnitGeComponent(IUpdatableGeComponent, IGameObjectEvents, GameEntityComponent):
     pass
 
 class AttackableUnitGeComponentDef(IGeComponentDef):
@@ -8391,8 +8254,8 @@ class AttackableUnitGeComponentDef(IGeComponentDef):
     0xaa0ee4f5: (Bool, 0x0, 0x0, 0x0) = false
     0xafc7dac6: (Bool, 0x0, 0x0, 0x0) = true
     0xcf9b9ca4: (Map, String, Pointer, IScriptValueGet) = {}
-    0xde46f1d8: (String, 0x0, 0x0, 0x0) = ""
-    LaneDefinition: (Pointer, 0x0, 0x0, 0x82cab1b3) = null
+    AiScriptOverride: (String, 0x0, 0x0, 0x0) = ""
+    LaneDefinition: (Pointer, 0x0, 0x0, SrLaneDefinition) = null
     0xf1d3a034: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
@@ -8688,6 +8551,12 @@ class AugmentTierDisplayData():
     LevelDisplayData: (Embed, 0x0, 0x0, 0x6685fe5a) = {"0x16118b27":"0x0","0x756be398":"0x0","0xc8c5e272":"0x0","0xd6ce8043":"0x0"}
     pass
 
+class AutoRegionTaggingGeComponent(GameEntityComponent):
+    pass
+
+class AutoRegionTaggingGeComponentDef(IGeComponentDef):
+    pass
+
 class AutoSpellCastInfo():
     AutoSpellCast: (Bool, 0x0, 0x0, 0x0) = false
     pass
@@ -8765,16 +8634,16 @@ class BarracksEntity(LolGameEntity):
 class BarracksEntityTemplate(GameEntityTemplate):
     Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    Barracks: (Embed, 0x0, 0x0, BarracksGeComponentDef) = {"0x45403ae3":{},"BarracksConfig":"0x0","LinkedPath":"0x0","lane":3}
+    Barracks: (Embed, 0x0, 0x0, BarracksGeComponentDef) = {"BarracksConfig":"0x0","BarracksConfigMutatorOverrides":{},"LinkedPath":"0x0","lane":3}
     Icon: (Embed, 0x0, 0x0, NewIconGeComponentDef) = {"Config":null}
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
-class BarracksGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent):
+class BarracksGeComponent(IUpdatableGeComponent, IGameObjectEvents, GameEntityComponent):
     pass
 
 class BarracksGeComponentDef(IGeComponentDef):
-    0x45403ae3: (Map, String, Hash, 0x0) = {}
+    BarracksConfigMutatorOverrides: (Map, String, Hash, 0x0) = {}
     BarracksConfig: (Hash, 0x0, 0x0, 0x0) = "0x0"
     lane: (U16, 0x0, 0x0, 0x0) = 3
     LinkedPath: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -8932,14 +8801,14 @@ class BillboardEntityTemplate(GameEntityTemplate):
     Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Vfx: (Embed, 0x0, 0x0, VfxGeComponentDef) = {"0x63176011":false,"0x658b896a":[],"0x9d9b6793":false,"0x9f499a15":false,"0xf718ab13":false,"AllDimensions":false,"TextureOverride":null,"colorModulate":[1.0,1.0,1.0,1.0],"eyeCandy":false,"system":"0x0"}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    Billboard: (Embed, 0x0, 0x0, BillboardGeComponentDef) = {"0x3c871ab8":[0.0,0.0,0.0,0.0],"0x461a5f31":"0x0","0x584ffb14":false,"0x795c065":false}
+    Billboard: (Embed, 0x0, 0x0, BillboardGeComponentDef) = {"0x461a5f31":"0x0","0x584ffb14":false,"0x795c065":false,"HitRect":[0.0,0.0,0.0,0.0]}
     pass
 
 class BillboardGeComponent(0x12b2d1cc, GameEntityComponent, 0xc85b063):
     pass
 
 class BillboardGeComponentDef(IGeComponentDef):
-    0x3c871ab8: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
+    HitRect: (Vec4, 0x0, 0x0, 0x0) = [0.0,0.0,0.0,0.0]
     0x461a5f31: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x584ffb14: (Bool, 0x0, 0x0, 0x0) = false
     0x795c065: (Bool, 0x0, 0x0, 0x0) = false
@@ -9666,7 +9535,7 @@ class CharacterMeshEntityTemplate(GameEntityTemplate):
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
-class CharacterMeshGeComponent(0x129e311, 0x12b2d1cc, 0x2576b4fc, GameEntityComponent, 0xa4795108, 0xc85b063):
+class CharacterMeshGeComponent(IUpdatableGeComponent, 0x12b2d1cc, IGameObjectEvents, GameEntityComponent, 0xa4795108, 0xc85b063):
     pass
 
 class CharacterMeshGeComponentDef(IGeComponentDef):
@@ -11069,7 +10938,7 @@ class CreateNeutralCamp(LevelScriptBlock):
     SpawnDurationSecs: (Pointer, 0x0, 0x0, IFloatGet) = null
     MinimapIconOffset: (Pointer, 0x0, 0x0, IVectorGet) = null
     StopSpawnTimeSecs: (Pointer, 0x0, 0x0, IFloatGet) = null
-    0x5a4ef4e7: (Pointer, 0x0, 0x0, IDataObjectGet) = null
+    CampIdentifier: (Pointer, 0x0, 0x0, IDataObjectGet) = null
     RespawnDelaySecs: (Pointer, 0x0, 0x0, IFloatGet) = null
     0x7633e7cf: (Pointer, 0x0, 0x0, IVectorGet) = null
     0x7d27af7f: (Bool, 0x0, 0x0, 0x0) = false
@@ -11300,7 +11169,7 @@ class DeactivateEntityTagBlock(GameEntityBlock):
     HideThenDeactivate: (Pointer, 0x0, 0x0, IBoolGet) = {}
     pass
 
-class DeathGeComponent(0x2576b4fc, GameEntityComponent):
+class DeathGeComponent(IGameObjectEvents, GameEntityComponent):
     pass
 
 class DeathGeComponentDef(IGeComponentDef):
@@ -11538,7 +11407,11 @@ class DragonCampGeComponent(GameEntityComponent):
     pass
 
 class DragonCampGeComponentDef(IGeComponentDef):
-    SoulTypes: (Link, 0x0, 0x0, 0x292991be) = "0x0"
+    SoulTypes: (Link, 0x0, 0x0, DragonSoulTypes) = "0x0"
+    pass
+
+class DragonSoulTypes():
+    SoulTypes: (List2, 0x0, String, 0x0) = []
     pass
 
 class DrawAreaList():
@@ -11625,7 +11498,7 @@ class DynamicMaterialTextureSwapOption():
     pass
 
 class DynamicPointLightEntityTemplate(GameEntityTemplate):
-    Light: (Embed, 0x0, 0x0, DynamicPointLightGeComponentDef) = {"0x75708a14":false,"0x90eca7c5":31,"HdrScale":5.0,"Impact":3,"LightChannels":1,"UpdaterType":"0x0","intensityScale":1.0,"lightColor":[1.0,1.0,1.0,1.0],"radius":500.0}
+    Light: (Embed, 0x0, 0x0, DynamicPointLightGeComponentDef) = {"CastsShadows":false,"HdrScale":5.0,"Impact":3,"LightChannels":1,"QualityLevels":31,"UpdaterType":"0x0","intensityScale":1.0,"lightColor":[1.0,1.0,1.0,1.0],"radius":500.0}
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
@@ -11637,15 +11510,15 @@ class DynamicPointLightGeComponentDef(IGeComponentDef):
     intensityScale: (F32, 0x0, 0x0, 0x0) = 1.0
     UpdaterType: (Link, 0x0, 0x0, MapLightUpdaterType) = "0x0"
     lightColor: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
-    0x75708a14: (Bool, 0x0, 0x0, 0x0) = false
-    0x90eca7c5: (U8, 0x0, 0x0, 0x0) = 31
+    CastsShadows: (Bool, 0x0, 0x0, 0x0) = false
+    QualityLevels: (U8, 0x0, 0x0, 0x0) = 31
     HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
     radius: (F32, 0x0, 0x0, 0x0) = 500.0
     LightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
 class DynamicSpotlightEntityTemplate(GameEntityTemplate):
-    Light: (Embed, 0x0, 0x0, DynamicSpotlightGeComponentDef) = {"0x75708a14":false,"0x90eca7c5":31,"0xf6298343":"0x0","Aspect":1.0,"Color":[1.0,1.0,1.0,1.0],"HdrScale":5.0,"Impact":3,"LightChannels":1,"Near":10.0,"ProjectedTexture":"0x0","UpdaterType":"0x0","far":500.0,"fov":60.0,"intensity":1.0}
+    Light: (Embed, 0x0, 0x0, DynamicSpotlightGeComponentDef) = {"Aspect":1.0,"CastsShadows":false,"Color":[1.0,1.0,1.0,1.0],"HdrScale":5.0,"Impact":3,"LightChannels":1,"Near":10.0,"ProjectedTexture":"0x0","ProjectedTextureMaterial":"0x0","QualityLevels":31,"UpdaterType":"0x0","far":500.0,"fov":60.0,"intensity":1.0}
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
@@ -11657,15 +11530,15 @@ class DynamicSpotlightGeComponentDef(IGeComponentDef):
     Color: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
     Near: (F32, 0x0, 0x0, 0x0) = 10.0
     UpdaterType: (Link, 0x0, 0x0, MapLightUpdaterType) = "0x0"
-    0x75708a14: (Bool, 0x0, 0x0, 0x0) = false
+    CastsShadows: (Bool, 0x0, 0x0, 0x0) = false
     intensity: (F32, 0x0, 0x0, 0x0) = 1.0
-    0x90eca7c5: (U8, 0x0, 0x0, 0x0) = 31
+    QualityLevels: (U8, 0x0, 0x0, 0x0) = 31
     ProjectedTexture: (File, 0x0, 0x0, 0x0) = "0x0"
     Aspect: (F32, 0x0, 0x0, 0x0) = 1.0
     fov: (F32, 0x0, 0x0, 0x0) = 60.0
     far: (F32, 0x0, 0x0, 0x0) = 500.0
     HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
-    0xf6298343: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
+    ProjectedTextureMaterial: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
     LightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
@@ -11958,7 +11831,7 @@ class EntityHasTag(EntityScriptCondition):
     pass
 
 class EntityPolygonData(EntityShapeData):
-    0x174f6af: (Bool, 0x0, 0x0, 0x0) = false
+    Smooth: (Bool, 0x0, 0x0, 0x0) = false
     Vertices: (List2, 0x0, Vec3, 0x0) = [[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]
     pass
 
@@ -12044,6 +11917,19 @@ class EsportsBannerConfiguration():
 class EsportsBannerData():
     bannerName: (String, 0x0, 0x0, 0x0) = ""
     Team: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class EsportsBannerEntityTemplate(GameEntityTemplate):
+    CharacterMesh: (Embed, 0x0, 0x0, CharacterMeshGeComponentDef) = {"0xb887f6e9":0.0,"IdleAnimationName":"","PlayIdleAnimation":false}
+    banner: (Embed, 0x0, 0x0, EsportsBannerGeComponentDef) = {"banner":"0x0"}
+    Character: (Embed, 0x0, 0x0, SkinCharacterGeComponentDef) = {"CharacterRecord":"","Skin":""}
+    pass
+
+class EsportsBannerGeComponent(IUpdatableGeComponent, GameEntityComponent):
+    pass
+
+class EsportsBannerGeComponentDef(IGeComponentDef):
+    banner: (Link, 0x0, 0x0, EsportsBannerData) = "0x0"
     pass
 
 class EsportsBannerMaterialController(SkinnedMeshDataMaterialController):
@@ -12431,6 +12317,21 @@ class FlexValueVector2():
 class FlexValueVector3():
     mValue: (Embed, 0x0, 0x0, ValueVector3) = {"constantValue":[0.0,0.0,0.0],"dynamics":null}
     mFlexID: (U32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class FlickerMapLightUpdater(IMapLightUpdater):
+    MinFlickerCycleDuration: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
+    MaxSleepDuration: (F32, 0x0, 0x0, 0x0) = 1.0
+    MinFlickerCyclesBeforeSleep: (U8, 0x0, 0x0, 0x0) = 1
+    MinSleepDuration: (F32, 0x0, 0x0, 0x0) = 0.20000000298023224
+    MaxFlickerCycleDuration: (F32, 0x0, 0x0, 0x0) = 0.4000000059604645
+    MaxFlickerCyclesBeforeSleep: (U8, 0x0, 0x0, 0x0) = 4
+    FlickerIntensityVariance: (F32, 0x0, 0x0, 0x0) = 0.004999999888241291
+    MaxFlickerIntensity: (F32, 0x0, 0x0, 0x0) = 1.0499999523162842
+    TransitionDuration: (F32, 0x0, 0x0, 0x0) = 0.30000001192092896
+    MinFlickerIntensity: (F32, 0x0, 0x0, 0x0) = 0.949999988079071
+    RandomVariance: (F32, 0x0, 0x0, 0x0) = 0.009999999776482582
+    TranslationRange: (Vec3, 0x0, 0x0, 0x0) = [10.0,10.0,10.0]
     pass
 
 class Float4FromLogicDrivers(ILogicDriver):
@@ -12972,7 +12873,12 @@ class GameEntityScriptBase(CommonScript):
 
 class GameEntityScriptDefinition():
     Script: (Link, 0x0, 0x0, GameEntityScriptBase) = "0x0"
-    0x819816ff: (Map, Hash, Pointer, IScriptValueGet) = {}
+    InstanceVariableOverrides: (Map, Hash, Pointer, IScriptValueGet) = {}
+    pass
+
+class GameEntitySelectorMapping():
+    Selector: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
+    Entity: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
 class GameEntityTemplate(MapPlaceableBase, 0xd738f7c9):
@@ -13268,6 +13174,11 @@ class GameplayFeatureToggles():
     fowCastRayAccurate: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
+class GameplayLocatorTemplate(GameEntityTemplate):
+    Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
+    AutoTagging: (Pointer, 0x0, 0x0, AutoRegionTaggingGeComponentDef) = {}
+    pass
+
 class GameplayTextureChannel():
     0x54a1d02e: (Hash, 0x0, 0x0, 0x0) = "0x0"
     SoundName: (String, 0x0, 0x0, 0x0) = ""
@@ -13349,7 +13260,7 @@ class GetBuildingLaneBlock(LevelScriptBlock):
     pass
 
 class GetCampSpawnTypes(LevelScriptBlock):
-    0x5a4ef4e7: (Pointer, 0x0, 0x0, IDataObjectGet) = null
+    CampIdentifier: (Pointer, 0x0, 0x0, IDataObjectGet) = null
     SpawnTypes: (Embed, 0x0, 0x0, StringArrayTableSet) = {"Table":{},"Var":""}
     pass
 
@@ -13809,6 +13720,12 @@ class HideEntityBlock(GameEntityBlock):
 class HideEntityTagBlock(GameEntityBlock):
     duration: (Pointer, 0x0, 0x0, IFloatGet) = {}
     tag: (Pointer, 0x0, 0x0, IEntityTagGet) = null
+    pass
+
+class HierarchyGeComponent(GameEntityComponent):
+    pass
+
+class HierarchyGeComponentDef(IGeComponentDef):
     pass
 
 class HighlighterViewController(ViewController):
@@ -14493,6 +14410,9 @@ class IGameModeConfigBase():
 class IGameModeConfigClient(IGameModeConfigBase):
     pass
 
+class IGameObjectEvents():
+    pass
+
 class IGameScreenAudioBlock(IGameScreenClientBlock):
     pass
 
@@ -14653,6 +14573,9 @@ class IMinionWaveBehavior():
     pass
 
 class IModesStateTransition():
+    pass
+
+class INeutralCampPreSpawnDef():
     pass
 
 class INeutralCampSpawnBehavior():
@@ -14887,6 +14810,9 @@ class IUnitGet():
 class IUnitLogicData():
     pass
 
+class IUpdatableGeComponent():
+    pass
+
 class IValueUpdateElement():
     pass
 
@@ -14981,11 +14907,21 @@ class IconPath(IRewardMedia):
     image: (File, 0x0, 0x0, 0x0) = "0x0"
     pass
 
+class IconReference():
+    texturePath: (File, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class IconStateData():
     IconActiveHover: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x5786f895: (Hash, 0x0, 0x0, 0x0) = "0x0"
     IconInactiveHover: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xcf3d6a50: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class IdentifierComponents():
+    TypeName: (String, 0x0, 0x0, 0x0) = ""
+    0x2d63dca5: (List2, 0x0, Pointer, 0x10a4976a) = []
+    0x90373b91: (List2, 0x0, Pointer, 0xaa0bf832) = []
     pass
 
 class IdentityInstance():
@@ -17438,7 +17374,7 @@ class MapDynamicSpotlight(MapSpotlightBase, 0xd738f7c9):
     VisibilityController: (Link, 0x0, 0x0, IMapVisibilityController) = "0x0"
     UpdaterType: (Link, 0x0, 0x0, MapLightUpdaterType) = "0x0"
     HdrScale: (F32, 0x0, 0x0, 0x0) = 5.0
-    0xf6298343: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
+    ProjectedTextureMaterial: (Link, 0x0, 0x0, StaticMaterialDef) = "0x0"
     LightChannels: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
@@ -17560,7 +17496,7 @@ class MapMotionPath(MapPlaceable):
     pass
 
 class MapNavGrid(MapComponent):
-    RegionBoundaryConfig: (Embed, 0x0, 0x0, RegionBoundaryConfig) = {"0x240ebb1b":3,"0xb9ace82c":0.75,"0xbec32eb5":0.4000000059604645}
+    RegionBoundaryConfig: (Embed, 0x0, 0x0, RegionBoundaryConfig) = {"0x240ebb1b":3,"0xb9ace82c":0.75,"CellHitThreshold":0.4000000059604645}
     0x34ffd0bd: (Bool, 0x0, 0x0, 0x0) = false
     0x3fbad3b9: (Bool, 0x0, 0x0, 0x0) = false
     NavGridConfig: (Link, 0x0, 0x0, NavGridConfig) = "0x0"
@@ -18125,7 +18061,7 @@ class MinimapTimerStyleSet():
     pass
 
 class MinimapTimerStyleSheet():
-    0xc8140e7: (List2, 0x0, Embed, MinimapTimerStyleSet) = []
+    StyleSets: (List2, 0x0, Embed, MinimapTimerStyleSet) = []
     pass
 
 class MinimapViewController(ViewController):
@@ -18356,7 +18292,7 @@ class ModeSelectViewController(ViewController):
 class ModesQuestData():
     QuestNameTra: (String, 0x0, 0x0, 0x0) = ""
     Milestones: (List2, 0x0, Embed, 0x898bb7cb) = []
-    QuestIcon: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":"0x0"}
+    QuestIcon: (Embed, 0x0, 0x0, IconReference) = {"texturePath":"0x0"}
     0x9d67381: (List2, 0x0, Pointer, 0x8685eb51) = []
     QuestName: (String, 0x0, 0x0, 0x0) = ""
     0xa9210050: (String, 0x0, 0x0, 0x0) = ""
@@ -18386,7 +18322,7 @@ class ModesScenarioGeComponent(GameEntityComponent, IGameEntityComponentEvents):
 class ModesScenarioGeComponentDef(IGeComponentDef):
     0xacbf093d: (String, 0x0, 0x0, 0x0) = ""
     0xd15f7f26: (Bool, 0x0, 0x0, 0x0) = true
-    Icon: (Embed, 0x0, 0x0, 0x7a1cab0d) = {"texturePath":"0x0"}
+    Icon: (Embed, 0x0, 0x0, IconReference) = {"texturePath":"0x0"}
     pass
 
 class ModesSpectateViewController(ViewController):
@@ -18736,32 +18672,38 @@ class NeutralCampEntity(LolGameEntity):
 class NeutralCampEntityTemplate(GameEntityTemplate):
     Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     StateMachine: (Pointer, 0x0, 0x0, StateMachineGeComponentDef) = null
-    NeutralCamp: (Embed, 0x0, 0x0, NeutralCampGeComponentDef) = {"0x173cf5d9":null,"0x1f2e5fd0":null,"0x3011fe7":0.0,"0x5a4ef4e7":"0x0","0x7d27af7f":false,"0x7fd43d60":false,"0xb8252467":null,"0xf224db3e":false,"CampLevel":1,"IconHelper":null,"LeashShape":null,"MinimapIcon":"","MinimapIconOffset":[0.0,0.0,0.0],"RevealEvent":0,"ScoreboardTimer":0,"StopSpawnTimeSecs":25000.0}
+    NeutralCamp: (Embed, 0x0, 0x0, NeutralCampGeComponentDef) = {"0x3011fe7":0.0,"0x7d27af7f":false,"0x7fd43d60":false,"0xf224db3e":false,"CampIdentifier":"0x0","CampLevel":1,"IconHelper":null,"LeashShape":null,"MinimapIcon":"","MinimapIconOffset":[0.0,0.0,0.0],"MinimapTimerDefinition":null,"PreSpawnAudio":null,"PreSpawnBehavior":null,"RevealEvent":0,"ScoreboardTimer":0,"StopSpawnTimeSecs":25000.0}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
     Icon: (Embed, 0x0, 0x0, NewIconGeComponentDef) = {"Config":null}
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
-class NeutralCampGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent, 0x49b45024):
+class NeutralCampGeComponent(IUpdatableGeComponent, IGameObjectEvents, GameEntityComponent, 0x49b45024):
     pass
 
 class NeutralCampGeComponentDef(IGeComponentDef):
-    0x173cf5d9: (Pointer, 0x0, 0x0, 0x595e6ce0) = null
-    0x1f2e5fd0: (Pointer, 0x0, 0x0, MinimapTimerDefinition) = null
+    PreSpawnAudio: (Pointer, 0x0, 0x0, PreSpawnAudioDef) = null
+    MinimapTimerDefinition: (Pointer, 0x0, 0x0, MinimapTimerDefinition) = null
     MinimapIcon: (String, 0x0, 0x0, 0x0) = ""
     LeashShape: (Pointer, 0x0, 0x0, EntityShapeData) = null
     0x3011fe7: (F32, 0x0, 0x0, 0x0) = 0.0
     IconHelper: (Pointer, 0x0, 0x0, 0x313c0076) = null
     MinimapIconOffset: (Vec3, 0x0, 0x0, 0x0) = [0.0,0.0,0.0]
     StopSpawnTimeSecs: (F32, 0x0, 0x0, 0x0) = 25000.0
-    0x5a4ef4e7: (Link, 0x0, 0x0, 0x3f04641e) = "0x0"
+    CampIdentifier: (Link, 0x0, 0x0, NeutralCampIdentifier) = "0x0"
     0x7d27af7f: (Bool, 0x0, 0x0, 0x0) = false
     0x7fd43d60: (Bool, 0x0, 0x0, 0x0) = false
     RevealEvent: (U16, 0x0, 0x0, 0x0) = 0
     ScoreboardTimer: (U16, 0x0, 0x0, 0x0) = 0
     CampLevel: (U16, 0x0, 0x0, 0x0) = 1
-    0xb8252467: (Pointer, 0x0, 0x0, 0x608e61e9) = null
+    PreSpawnBehavior: (Pointer, 0x0, 0x0, INeutralCampPreSpawnDef) = null
     0xf224db3e: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class NeutralCampIdentifier():
+    0x2d63dca5: (List2, 0x0, Pointer, 0x10a4976a) = []
+    SpawnTypes: (List2, 0x0, Embed, IdentifierComponents) = []
+    CampName: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class NeutralMinionCamp(NeutralMinionCampCommon):
@@ -18782,7 +18724,7 @@ class NeutralMinionSpawnConfig():
 class NeutralTimerData():
     SourceIcons: (List, 0x0, Embed, NeutralTimerSourceIconData) = []
     0x3995c23b: (Bool, 0x0, 0x0, 0x0) = true
-    0x5a4ef4e7: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CampIdentifier: (Hash, 0x0, 0x0, 0x0) = "0x0"
     OverrideName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TimerName: (Hash, 0x0, 0x0, 0x0) = "0x0"
     TooltipRespawn: (String, 0x0, 0x0, 0x0) = ""
@@ -18808,7 +18750,7 @@ class NeutralTimerSourceIconData():
 
 class NeutralTimerState():
     0x56841fae: (List2, 0x0, Hash, 0x0) = []
-    0x5a4ef4e7: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    CampIdentifier: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xbe0caaff: (List2, 0x0, Hash, 0x0) = []
     pass
 
@@ -19535,7 +19477,7 @@ class PaintedRegionCell():
     pass
 
 class PaintedRegionData():
-    0x8eced3a0: (U32, 0x0, 0x0, 0x0) = 1
+    RegionGroupIndex: (U32, 0x0, 0x0, 0x0) = 1
     Cells: (List2, 0x0, Embed, PaintedRegionCell) = []
     pass
 
@@ -19543,7 +19485,7 @@ class PaintedRegionEntity(GameEntity):
     pass
 
 class PaintedRegionEntityTemplate(GameEntityTemplate):
-    PaintedRegion: (Embed, 0x0, 0x0, PaintedRegionGeComponentDef) = {"data":{"0x8eced3a0":1,"Cells":[]},"priority":0.0}
+    PaintedRegion: (Embed, 0x0, 0x0, PaintedRegionGeComponentDef) = {"data":{"Cells":[],"RegionGroupIndex":1},"priority":0.0}
     pass
 
 class PaintedRegionGeComponent(GameEntityComponent):
@@ -19551,7 +19493,7 @@ class PaintedRegionGeComponent(GameEntityComponent):
 
 class PaintedRegionGeComponentDef(IGeComponentDef):
     priority: (F32, 0x0, 0x0, 0x0) = 0.0
-    data: (Embed, 0x0, 0x0, PaintedRegionData) = {"0x8eced3a0":1,"Cells":[]}
+    data: (Embed, 0x0, 0x0, PaintedRegionData) = {"Cells":[],"RegionGroupIndex":1}
     pass
 
 class ParBarPercentParametricUpdater(IFloatParametricUpdater):
@@ -19956,6 +19898,25 @@ class PlaceEntityBlock(GameEntityBlock):
     Entity: (Pointer, 0x0, 0x0, IEntityGet) = null
     pass
 
+class PlanarReflectorEntityTemplate(GameEntityTemplate):
+    PlanarReflector: (Embed, 0x0, 0x0, PlanarReflectorGeComponentDef) = {"DynamicLighting":false,"ForceOn":false,"PercentageResolution":100,"Polygon":{"Smooth":false,"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]},"RenderEnvironment":true,"RenderParticles":true,"RenderSunShadow":false,"SSAO":false,"SkyboxTexture":"0x0"}
+    pass
+
+class PlanarReflectorGeComponent(GameEntityComponent):
+    pass
+
+class PlanarReflectorGeComponentDef(IGeComponentDef):
+    RenderEnvironment: (Bool, 0x0, 0x0, 0x0) = true
+    RenderSunShadow: (Bool, 0x0, 0x0, 0x0) = false
+    Polygon: (Embed, 0x0, 0x0, EntityPolygonData) = {"Smooth":false,"Vertices":[[-200.0,0.0,-200.0],[200.0,0.0,-200.0],[200.0,0.0,200.0],[-200.0,0.0,200.0]]}
+    ForceOn: (Bool, 0x0, 0x0, 0x0) = false
+    DynamicLighting: (Bool, 0x0, 0x0, 0x0) = false
+    SSAO: (Bool, 0x0, 0x0, 0x0) = false
+    PercentageResolution: (U8, 0x0, 0x0, 0x0) = 100
+    RenderParticles: (Bool, 0x0, 0x0, 0x0) = true
+    SkyboxTexture: (File, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
 class PlatformSpellInfo():
     mGameModes: (List, 0x0, String, 0x0) = []
     mAvatarLevelRequired: (I32, 0x0, 0x0, 0x0) = -1
@@ -20346,6 +20307,32 @@ class PracticeToolViewController(ViewController):
     MaximumScale: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
 
+class PreSpawnAudioDef():
+    rtpcName: (String, 0x0, 0x0, 0x0) = ""
+    duration: (F32, 0x0, 0x0, 0x0) = 8.0
+    pass
+
+class PreSpawnTimerIconData():
+    TimeBeforeSpawn: (F32, 0x0, 0x0, 0x0) = 0.0
+    Icon: (Link, 0x0, 0x0, GameEntityIconData) = "0x0"
+    pass
+
+class PreSpawnTimerIconDef(INeutralCampPreSpawnDef):
+    Progression: (Link, 0x0, 0x0, PreSpawnTimerIconProgression) = "0x0"
+    pass
+
+class PreSpawnTimerIconProgression():
+    IconData: (List2, 0x0, Embed, PreSpawnTimerIconData) = []
+    pass
+
+class PrefabEntity(GameEntity):
+    pass
+
+class PrefabEntityTemplate(GameEntityTemplate, IMapGroup):
+    Hierarchy: (Embed, 0x0, 0x0, HierarchyGeComponentDef) = {}
+    MemberList: (List2, 0x0, String, 0x0) = []
+    pass
+
 class PreloadCharacter(LevelScriptBlock):
     CharacterName: (Pointer, 0x0, 0x0, IStringGet) = null
     pass
@@ -20708,7 +20695,7 @@ class RegionBoundary(MapPlaceable):
 class RegionBoundaryConfig():
     0x240ebb1b: (U8, 0x0, 0x0, 0x0) = 3
     0xb9ace82c: (F32, 0x0, 0x0, 0x0) = 0.75
-    0xbec32eb5: (F32, 0x0, 0x0, 0x0) = 0.4000000059604645
+    CellHitThreshold: (F32, 0x0, 0x0, 0x0) = 0.4000000059604645
     pass
 
 class RegionBoundaryInstanceParams(RegionBoundaryInstanceParamsBase):
@@ -22213,7 +22200,7 @@ class SfxEntityTemplate(GameEntityTemplate):
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
-class SfxGeComponent(0x129e311, GameEntityComponent):
+class SfxGeComponent(IUpdatableGeComponent, GameEntityComponent):
     pass
 
 class SfxGeComponentDef(IGeComponentDef):
@@ -22313,7 +22300,7 @@ class ShopEntityTemplate(GameEntityTemplate):
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
-class ShopGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent):
+class ShopGeComponent(IUpdatableGeComponent, IGameObjectEvents, GameEntityComponent):
     pass
 
 class ShopGeComponentDef(IGeComponentDef):
@@ -23183,6 +23170,11 @@ class SpringPhysicsRigPoseModifierData(BaseRigPoseModifierData):
     maxDistance: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class SrLaneDefinition():
+    lane: (U16, 0x0, 0x0, 0x0) = 3
+    Position: (U16, 0x0, 0x0, 0x0) = 3
+    pass
+
 class StatByCoefficientCalculationPart(IGameCalculationPartWithStats):
     mCoefficient: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
@@ -23378,7 +23370,15 @@ class StateMachineGeComponent(GameEntityComponent, IGameEntityComponentEvents):
 
 class StateMachineGeComponentDef(IGeComponentDef):
     StateMachineDef: (Link, 0x0, 0x0, EntityStateMachine) = "0x0"
-    states: (Map, Hash, Embed, 0xad399234) = {}
+    states: (Map, Hash, Embed, StateMachineHelperStateData) = {}
+    pass
+
+class StateMachineHelperSequenceData():
+    SelectorMappings: (List2, 0x0, Embed, GameEntitySelectorMapping) = []
+    pass
+
+class StateMachineHelperStateData():
+    sequences: (Map, Hash, Embed, StateMachineHelperSequenceData) = {}
     pass
 
 class StaticMaterialChildTechniqueDef():
@@ -23873,7 +23873,7 @@ class SuperwardEntity(LolGameEntity):
     pass
 
 class SuperwardEntityTemplate(GameEntityTemplate):
-    AttackableUnit: (Embed, 0x0, 0x0, AttackableUnitGeComponentDef) = {"0x397fe037":false,"0x4b31cd83":false,"0xaa0ee4f5":false,"0xafc7dac6":true,"0xcf9b9ca4":{},"0xde46f1d8":"","0xf1d3a034":false,"BotDifficulty":0,"LaneDefinition":null,"type":3}
+    AttackableUnit: (Embed, 0x0, 0x0, AttackableUnitGeComponentDef) = {"0x397fe037":false,"0x4b31cd83":false,"0xaa0ee4f5":false,"0xafc7dac6":true,"0xcf9b9ca4":{},"0xf1d3a034":false,"AiScriptOverride":"","BotDifficulty":0,"LaneDefinition":null,"type":3}
     Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Superward: (Embed, 0x0, 0x0, SuperwardGeComponentDef) = {"0x724108b0":0.0,"0xe8f75502":"0x0","VfxSystem":"0x0","visionRegion":"0x0"}
     Character: (Embed, 0x0, 0x0, SkinCharacterGeComponentDef) = {"CharacterRecord":"","Skin":""}
@@ -23881,7 +23881,7 @@ class SuperwardEntityTemplate(GameEntityTemplate):
     Sequencer: (Embed, 0x0, 0x0, SequencerGeComponentDef) = {}
     pass
 
-class SuperwardGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent, IGameEntityComponentEvents):
+class SuperwardGeComponent(IUpdatableGeComponent, IGameObjectEvents, GameEntityComponent, IGameEntityComponentEvents):
     pass
 
 class SuperwardGeComponentDef(IGeComponentDef):
@@ -25020,15 +25020,15 @@ class TeamSpawnPointEntity(LolGameEntity):
 class TeamSpawnPointEntityTemplate(GameEntityTemplate):
     Networking: (Embed, 0x0, 0x0, NetworkingGeComponentDef) = {}
     Team: (Embed, 0x0, 0x0, TeamGeComponentDef) = {"Team":100,"TeamDefinition":"0x0"}
-    0xbbf9e56b: (Embed, 0x0, 0x0, TeamSpawnPointGeComponentDef) = {"0x3520349d":800.0,"0x46551578":false,"HealthRegenPercent":0.019999999552965164,"HpMaxPenaltyRegenPercent":0.07999999821186066,"ManaRegenPercent":0.019999999552965164,"RegenTickInterval":0.25}
+    TeamSpawnPoint: (Embed, 0x0, 0x0, TeamSpawnPointGeComponentDef) = {"0x46551578":false,"HealthRegenPercent":0.019999999552965164,"HpMaxPenaltyRegenPercent":0.07999999821186066,"ManaRegenPercent":0.019999999552965164,"RegenAreaRadius":800.0,"RegenTickInterval":0.25}
     pass
 
-class TeamSpawnPointGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent):
+class TeamSpawnPointGeComponent(IUpdatableGeComponent, IGameObjectEvents, GameEntityComponent):
     pass
 
 class TeamSpawnPointGeComponentDef(IGeComponentDef):
     RegenTickInterval: (F32, 0x0, 0x0, 0x0) = 0.25
-    0x3520349d: (F32, 0x0, 0x0, 0x0) = 800.0
+    RegenAreaRadius: (F32, 0x0, 0x0, 0x0) = 800.0
     HealthRegenPercent: (F32, 0x0, 0x0, 0x0) = 0.019999999552965164
     0x46551578: (Bool, 0x0, 0x0, 0x0) = false
     ManaRegenPercent: (F32, 0x0, 0x0, 0x0) = 0.019999999552965164
@@ -30332,7 +30332,7 @@ class VfxFloatTimeDriver(IVfxFloatDriver):
     Time: (U8, 0x0, 0x0, 0x0) = 7
     pass
 
-class VfxGeComponent(0x129e311, 0x2576b4fc, GameEntityComponent):
+class VfxGeComponent(IUpdatableGeComponent, IGameObjectEvents, GameEntityComponent):
     pass
 
 class VfxGeComponentDef(IGeComponentDef):

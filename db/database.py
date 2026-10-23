@@ -373,9 +373,6 @@ class 0x1ab4d045(0x2b00c366):
     itemTypeId: (String, 0x0, 0x0, 0x0) = "a6bdfd45-048a-4ab7-859e-f87abe7efab5"
     pass
 
-class 0x1addb679(VfxShimmerFacingMode):
-    pass
-
 class 0x1b3a73f0():
     ProgressText: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ProgressBar: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -391,12 +388,6 @@ class 0x1bc73dfd(0x39f85a07):
 class 0x1c0e452():
     0x1aad2ecc: (Bool, 0x0, 0x0, 0x0) = true
     DelayKillSeconds: (F32, 0x0, 0x0, 0x0) = 0.0
-    pass
-
-class 0x1c3dfd0c(VfxColorRgbBase):
-    values: (List, 0x0, Vec3, 0x0) = []
-    times: (List, 0x0, F32, 0x0) = []
-    probabilityTables: (List, 0x3, Pointer, VfxProbabilityTableData) = [null,null,null]
     pass
 
 class 0x1c4bac51(MapGraphicsFeature):
@@ -777,13 +768,13 @@ class 0x28556403(IContextualAction):
     ForceActivate: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
-class 0x287a50ff(0x709be6c3):
+class 0x287a50ff(VfxLifetimeStateBehavior):
     particleLifetime: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     EmitterDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     startDelay: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     IntroDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     OutroDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    0xdcad4b02: (Flag, 0x0, 0x0, 0x0) = false
+    DoesParticleLifeScale: (Flag, 0x0, 0x0, 0x0) = false
     pass
 
 class 0x288b8edc():
@@ -1058,11 +1049,6 @@ class 0x31acb60e(0x608e61e9):
 class 0x31aebe7d(BaseParams):
     pass
 
-class 0x31beb841(VfxSpawnBehavior):
-    0x10498eed: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    EmissionRate: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    pass
-
 class 0x31bf21b0(OptionTemplateBase):
     0x25b31bc: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0x2a781f11: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -1120,13 +1106,6 @@ class 0x32902d31():
     0x2f6a2e0c: (U32, 0x0, 0x0, 0x0) = 1
     0x326a32c5: (U32, 0x0, 0x0, 0x0) = 1
     texturePath: (File, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x32952395():
-    0x3ddab580: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":null}
-    AnimationDimensions: (Vec2, 0x0, 0x0, 0x0) = [1.0,1.0]
-    0xf5ffae5b: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":null}
-    AnimCurve: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":null}
     pass
 
 class 0x32a4dd4(ViewController):
@@ -1242,9 +1221,6 @@ class 0x36255113(AnnouncerVoEventTypeConcrete):
     TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
     TeamFailedPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
     IndividualFailedEvent: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x362b4996(VfxShimmerPrimitiveBase):
     pass
 
 class 0x367e5ca(InputEventBoolKeybind):
@@ -1617,10 +1593,6 @@ class 0x3f40d811(0x2b00c366):
 class 0x3f667d7e(InputEventBoolKeybind):
     pass
 
-class 0x3fd44d66(VfxSpawnBehavior):
-    EmissionRate: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    pass
-
 class 0x40114a13():
     EquippedBorder: (Hash, 0x0, 0x0, 0x0) = "0x0"
     BannerIcon: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -1639,7 +1611,7 @@ class 0x401634a5(IClockProvider):
     pass
 
 class 0x402b2a8f(VfxPhysicsModifierBase):
-    0x8934ebb0: (List2, 0x0, Pointer, VfxPhysicsAttractionDefinitionData) = []
+    Attractors: (List2, 0x0, Pointer, VfxPhysicsAttractionDefinitionData) = []
     pass
 
 class 0x402bee9a(ILolKeybindSetCheck):
@@ -1828,10 +1800,6 @@ class 0x44705030():
 class 0x44ad5085(InputEventBoolKeybind):
     pass
 
-class 0x44ad896b(VfxMaterialContainer):
-    Material: (Link, 0x0, 0x0, IMaterialDef) = "0x0"
-    pass
-
 class 0x451eb606(IMilestoneBehavior):
     0x73175708: (Link, 0x0, 0x0, 0x6311fe74) = "0x0"
     pass
@@ -1908,9 +1876,6 @@ class 0x47046dd0(MapAction):
 class 0x470b636c():
     priority: (I8, 0x0, 0x0, 0x0) = 0
     StartSoundEvent: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0x472a8dd8(VfxShimmerFacingMode):
     pass
 
 class 0x4750ceb6(IStringCalculation):
@@ -2289,10 +2254,6 @@ class 0x544b6c60():
     0x7c009eb5: (U8, 0x0, 0x0, 0x0) = 1
     pass
 
-class 0x5467726b(VfxRenderComponentBase):
-    RenderOrder: (I16, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0x547679fe():
     0x794d06db: (F32, 0x0, 0x0, 0x0) = 0.25
     0x81947899: (F32, 0x0, 0x0, 0x0) = 5.0
@@ -2308,10 +2269,10 @@ class 0x547b9a32(BaseParams):
 
 class 0x54a1b7a6():
     medium: (U8, 0x0, 0x0, 0x0) = 60
-    0x372a116d: (U8, 0x0, 0x0, 0x0) = 20
+    VeryLow: (U8, 0x0, 0x0, 0x0) = 20
     High: (U8, 0x0, 0x0, 0x0) = 100
     Low: (U8, 0x0, 0x0, 0x0) = 40
-    0x5a47a861: (U8, 0x0, 0x0, 0x0) = 100
+    VeryHigh: (U8, 0x0, 0x0, 0x0) = 100
     pass
 
 class 0x55047b08():
@@ -3219,14 +3180,6 @@ class 0x6f44928c():
 class 0x6fbad630():
     pass
 
-class 0x7015f762(0x709be6c3):
-    particleLifetime: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    EmitterDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    startDelay: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    OutroDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    0xdcad4b02: (Flag, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0x70749bea(IOptionItemFilter):
     pass
 
@@ -3240,9 +3193,6 @@ class 0x7084628f(0x18871c61):
 
 class 0x709bc2e4():
     0xa9db704: (List2, 0x0, Embed, 0x87ef793c) = []
-    pass
-
-class 0x709be6c3():
     pass
 
 class 0x70cd6a18(0xa9e4d0f1):
@@ -3846,13 +3796,6 @@ class 0x811d959e():
 
 class 0x8137940d():
     0x3f2e4716: (List2, 0x0, Link, 0x6b4ee221) = []
-    pass
-
-class 0x8152c1ec(VfxColorRgbBase):
-    values: (List2, 0x0, Vec3, 0x0) = []
-    times: (List2, 0x0, F32, 0x0) = []
-    InterpModes: (List2, 0x0, U8, 0x0) = []
-    probabilityTables: (List, 0x3, Pointer, VfxProbabilityTableData) = [null,null,null]
     pass
 
 class 0x81580a34(IOverrideOptionItem):
@@ -4604,11 +4547,6 @@ class 0x9925c3c2():
 
 class 0x99427f15(IGameModeConfigClient):
     Overrides: (List2, 0x0, Embed, 0xb46f120c) = []
-    pass
-
-class 0x9999dd64():
-    KeyedParameters: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
-    InitialParameters: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
     pass
 
 class 0x99bb100(OptionTemplateBase):
@@ -5591,11 +5529,6 @@ class 0xb53e2f1a():
     0x4b733ea3: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
-class 0xb56b2deb(VfxShimmerFacingMode):
-    0x3a77d53c: (Bool, 0x0, 0x0, 0x0) = true
-    0xb8c87a61: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
 class 0xb5754dad(ILolKeybindCheck):
     pass
 
@@ -6140,10 +6073,10 @@ class 0xc66dcba5(UiMetricTypeSimpleI):
 class 0xc685a3b6(VfxPhysicsModifierBase):
     0x1d52d0ea: (F32, 0x0, 0x0, 0x0) = 4.0
     0x41d74438: (F32, 0x0, 0x0, 0x0) = 0.5
-    0x4e994b61: (F32, 0x0, 0x0, 0x0) = 2000.0
+    MaxAcceleration: (F32, 0x0, 0x0, 0x0) = 2000.0
     0x6bb5eb62: (Bool, 0x0, 0x0, 0x0) = true
     0x76092f1c: (Bool, 0x0, 0x0, 0x0) = false
-    0x7c4a8c7b: (F32, 0x0, 0x0, 0x0) = 2000.0
+    ForceMultiplier: (F32, 0x0, 0x0, 0x0) = 2000.0
     0x9ec69b60: (F32, 0x0, 0x0, 0x0) = 0.25
     0xcf04b143: (Bool, 0x0, 0x0, 0x0) = true
     0xe8375566: (F32, 0x0, 0x0, 0x0) = 1.0
@@ -6753,18 +6686,6 @@ class 0xdb9a90ba(0xe561be2e):
     Source: (Link, 0x0, 0x0, SequenceObjectSelector) = "0x0"
     pass
 
-class 0xdbb4f634(0x709be6c3):
-    particleLifetime: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    0x317b5050: (I16, 0x0, 0x0, 0x0) = 2
-    EmitterDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    startDelay: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    LoopDelay: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    IntroDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    OutroDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    0xdcad4b02: (Flag, 0x0, 0x0, 0x0) = false
-    0xf3ac39a6: (Flag, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0xdbc7c1ae(TftCutsceneClip):
     PositionProvider: (Pointer, 0x0, 0x0, TftCutscenePositionProvider) = null
     GameObjectBlackboardName: (String, 0x0, 0x0, 0x0) = ""
@@ -7333,13 +7254,6 @@ class 0xeee5fffe():
     pass
 
 class 0xef2cc9a6(IOptionItemFilter):
-    pass
-
-class 0xef7e7bb1():
-    0x29bb1fe: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
-    Enabled: (Bool, 0x0, 0x0, 0x0) = false
-    0x4e06a418: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
-    VelocityThreshold: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class 0xefe2309(IVectorGet, IScriptValueGet):
@@ -17092,6 +17006,18 @@ class LoopBlock(ILoopScriptBlock):
     step: (Pointer, 0x0, 0x0, IIntGet) = null
     pass
 
+class LoopingIntroOutro(VfxLifetimeStateBehavior):
+    particleLifetime: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    EmitterLoops: (I16, 0x0, 0x0, 0x0) = 2
+    EmitterDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    startDelay: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    LoopDelay: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    IntroDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    OutroDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    DoesParticleLifeScale: (Flag, 0x0, 0x0, 0x0) = false
+    0xf3ac39a6: (Flag, 0x0, 0x0, 0x0) = false
+    pass
+
 class LooseUiTextureData(LooseUiTextureDataBase, IUiEffectTextureDataProvider):
     pass
 
@@ -22447,6 +22373,14 @@ class SimpleItemSlots():
     Item3: (Embed, 0x0, 0x0, ItemSlotSimpleUiData) = {"0x7b2ad5af":"0x0","Backdrop":"0x0","BorderDefault":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","Icon":"0x0","StackText":"0x0"}
     Item0: (Embed, 0x0, 0x0, ItemSlotSimpleUiData) = {"0x7b2ad5af":"0x0","Backdrop":"0x0","BorderDefault":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","Icon":"0x0","StackText":"0x0"}
     Item1: (Embed, 0x0, 0x0, ItemSlotSimpleUiData) = {"0x7b2ad5af":"0x0","Backdrop":"0x0","BorderDefault":"0x0","CooldownEffects":{"CooldownCompleteEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","RadialEffect":"0x0"},"HitArea":"0x0","Icon":"0x0","StackText":"0x0"}
+    pass
+
+class SimpleOutro(VfxLifetimeStateBehavior):
+    particleLifetime: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    EmitterDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    startDelay: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    OutroDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    DoesParticleLifeScale: (Flag, 0x0, 0x0, 0x0) = false
     pass
 
 class SineMaterialDriver(ILogicFloatDriver):
@@ -29642,6 +29576,19 @@ class VfxAnimatedColor(VfxColorBase):
     probabilityTables: (List, 0x4, Pointer, VfxProbabilityTableData) = [null,null,null,null]
     pass
 
+class VfxAnimatedColorRgb(VfxColorRgbBase):
+    values: (List2, 0x0, Vec3, 0x0) = []
+    times: (List2, 0x0, F32, 0x0) = []
+    InterpModes: (List2, 0x0, U8, 0x0) = []
+    probabilityTables: (List, 0x3, Pointer, VfxProbabilityTableData) = [null,null,null]
+    pass
+
+class VfxAnimatedColorRgbVariableData(VfxColorRgbBase):
+    values: (List, 0x0, Vec3, 0x0) = []
+    times: (List, 0x0, F32, 0x0) = []
+    probabilityTables: (List, 0x3, Pointer, VfxProbabilityTableData) = [null,null,null]
+    pass
+
 class VfxAnimatedColorVariableData(VfxColorBase):
     values: (List, 0x0, Vec4, 0x0) = []
     times: (List, 0x0, F32, 0x0) = []
@@ -29766,11 +29713,11 @@ class VfxBurstEffectorComponentRuntime(VfxEffectorComponentRuntime):
     pass
 
 class VfxBurstSpawn(VfxSpawnBehavior):
-    0x10498eed: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    SpawnBurstCount: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     pass
 
 class VfxChildComponent(VfxComponentBase):
-    0x36a938e0: (Pointer, 0x0, 0x0, VfxChildParticleSetDefinitionData) = null
+    ChildDefinitionData: (Pointer, 0x0, 0x0, VfxChildParticleSetDefinitionData) = null
     pass
 
 class VfxChildIdentifier():
@@ -29838,7 +29785,7 @@ class VfxColorConstantDriver(IVfxVector4Driver):
 
 class VfxColorContainer():
     InitialColor: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
-    0x39340876: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
+    CensoredColorModulate: (Vec4, 0x0, 0x0, 0x0) = [1.0,1.0,1.0,1.0]
     ColorOverLife: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
     pass
 
@@ -29902,6 +29849,11 @@ class VfxConditionVector4Driver(IVfxVector4Driver):
     Right: (Pointer, 0x0, 0x0, IVfxVector4Driver) = null
     pass
 
+class VfxDefaultSpawnBehavior(VfxSpawnBehavior):
+    SpawnBurstCount: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    EmissionRate: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    pass
+
 class VfxDistanceBasedTransparencyParams():
     AlphaAtFarthestDistance: (F32, 0x0, 0x0, 0x0) = 0.10000000149011612
     ClosestDistance: (F32, 0x0, 0x0, 0x0) = 0.0
@@ -29951,7 +29903,7 @@ class VfxDivideByFactorVector4Driver(IVfxVector4Driver):
     pass
 
 class VfxDriverContainer():
-    0x8ed7a68f: (Map, U8, Pointer, 0x9999dd64) = {}
+    DynamicParticleParameter: (Map, U8, Pointer, VfxDynamicParticleParameterDefinition) = {}
     materialDrivers: (Map, String, Pointer, IVfxVector4Driver) = {}
     pass
 
@@ -29974,6 +29926,11 @@ class VfxDynamicParameterRoundModifier(IVfxDynamicParameterModifier):
 
 class VfxDynamicParametersData():
     0x1dcc5270: (List2, 0x0, Embed, 0xd5c9eb1) = []
+    pass
+
+class VfxDynamicParticleParameterDefinition():
+    KeyedParameters: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
+    InitialParameters: (Embed, 0x0, 0x0, VfxVector4DynamicProperty) = {"Vector4":{}}
     pass
 
 class VfxEffectorComponent(VfxComponentBase):
@@ -30223,6 +30180,10 @@ class VfxEmitterLegacySimple():
 class VfxEmitterVelocityDriver(IVfxVector3Driver):
     pass
 
+class VfxEmptyRenderComponent(VfxRenderComponentBase):
+    RenderOrder: (I16, 0x0, 0x0, 0x0) = 0
+    pass
+
 class VfxEntity(LolGameEntity):
     pass
 
@@ -30239,6 +30200,17 @@ class VfxFacingModeCameraAligned(VfxShimmerFacingMode):
     pass
 
 class VfxFacingModeCameraFacing(VfxShimmerFacingMode):
+    pass
+
+class VfxFacingModeCameraFacingDirectionOriented(VfxShimmerFacingMode):
+    pass
+
+class VfxFacingModeCameraFacingPerAxis(VfxShimmerFacingMode):
+    AlignPitch: (Bool, 0x0, 0x0, 0x0) = true
+    AlignYaw: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
+class VfxFacingModeCameraFacingRotationOriented(VfxShimmerFacingMode):
     pass
 
 class VfxFacingModeViewAligned(VfxShimmerFacingMode):
@@ -30406,23 +30378,23 @@ class VfxLegacyGeometryComponent(VfxGeometryComponentBase):
     pass
 
 class VfxLegacyLifetimeComponent(VfxLifetimeComponentBase):
-    0x1440dec2: (Pointer, 0x0, 0x0, FlexValueFloat) = null
+    FlexEmitterRate: (Pointer, 0x0, 0x0, FlexValueFloat) = null
     timeBeforeFirstEmission: (F32, 0x0, 0x0, 0x0) = 0.0
     particleLinger: (Option, 0x0, F32, 0x0) = null
     particleLifetime: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":3.0,"dynamics":null}
-    0x2f61e63c: (Embed, 0x0, 0x0, 0x54a1b7a6) = {"0x372a116d":20,"0x5a47a861":100,"High":100,"Low":40,"medium":60}
+    0x2f61e63c: (Embed, 0x0, 0x0, 0x54a1b7a6) = {"High":100,"Low":40,"VeryHigh":100,"VeryLow":20,"medium":60}
     EmitterLifetime: (Option, 0x0, F32, 0x0) = null
     particleLingerType: (U8, 0x0, 0x0, 0x0) = 0
     emitterLinger: (Option, 0x0, F32, 0x0) = null
     HasVariableStartTime: (Flag, 0x0, 0x0, 0x0) = false
     EmitterPeriod: (Option, 0x0, F32, 0x0) = null
     flexParticleLifetime: (Pointer, 0x0, 0x0, FlexValueFloat) = null
-    0x7e88cd49: (Flag, 0x0, 0x0, 0x0) = false
-    0xc1251a31: (Embed, 0x0, 0x0, ValueVector2) = {"constantValue":[0.0,0.0],"dynamics":null}
+    IsBurstEmitter: (Flag, 0x0, 0x0, 0x0) = false
+    EmitterRateByVelocity: (Embed, 0x0, 0x0, ValueVector2) = {"constantValue":[0.0,0.0],"dynamics":null}
     MaximumRateByVelocity: (Option, 0x0, F32, 0x0) = null
-    0xdcad4b02: (Flag, 0x0, 0x0, 0x0) = false
-    0xddee6cc6: (Option, 0x0, F32, 0x0) = null
-    0xf0bff897: (F32, 0x0, 0x0, 0x0) = 0.0
+    DoesParticleLifeScale: (Flag, 0x0, 0x0, 0x0) = false
+    EmitterTimeActiveDuringPeriod: (Option, 0x0, F32, 0x0) = null
+    EmitterTimeOffset: (F32, 0x0, 0x0, 0x0) = 0.0
     EmissionRate: (Embed, 0x0, 0x0, ValueFloat) = {"constantValue":0.0,"dynamics":null}
     pass
 
@@ -30496,16 +30468,16 @@ class VfxLegacyRenderComponent(VfxRenderComponentBase):
     WriteAlphaOnly: (Flag, 0x0, 0x0, 0x0) = false
     0x53ff5986: (F32, 0x0, 0x0, 0x0) = 0.0
     ColorOverLife: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}
-    0x5b82c164: (Vec2, 0x0, 0x0, 0x0) = [1.0,1.0]
+    TextureDivisions: (Vec2, 0x0, 0x0, 0x0) = [1.0,1.0]
     SeparateLingerColor: (Embed, 0x0, 0x0, ValueColor) = {"constantValue":[1.0,1.0,1.0,1.0],"dynamics":null}
-    0x71164c40: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
+    ColorTextureOffset: (Vec2, 0x0, 0x0, 0x0) = [0.0,0.0]
     0x73fc541d: (U8, 0x0, 0x0, 0x0) = 0
     uvTransformCenter: (Vec2, 0x0, 0x0, 0x0) = [0.5,0.5]
     startFrame: (U16, 0x0, 0x0, 0x0) = 0
     0x79bdd6bb: (Embed, 0x0, 0x0, IntegratedValueFloat) = {"constantValue":0.0,"dynamics":null}
     0x7aa0b8b1: (Flag, 0x0, 0x0, 0x0) = false
     stencilRef: (U8, 0x0, 0x0, 0x0) = 0
-    0x7c04e863: (Flag, 0x0, 0x0, 0x0) = false
+    DisableBackfaceCulling: (Flag, 0x0, 0x0, 0x0) = false
     0x7db9efd5: (U8, 0x0, 0x0, 0x0) = 0
     DisableFogOfWar: (Flag, 0x0, 0x0, 0x0) = false
     paletteDefinition: (Pointer, 0x0, 0x0, VfxPaletteDefinitionData) = null
@@ -30535,7 +30507,7 @@ class VfxLegacyRenderComponent(VfxRenderComponentBase):
     uvScale: (Embed, 0x0, 0x0, ValueVector2) = {"constantValue":[1.0,1.0],"dynamics":null}
     0xf34f9bf8: (Flag, 0x0, 0x0, 0x0) = false
     blendMode: (U8, 0x0, 0x0, 0x0) = 0
-    0xfe3746b: (Vec2, 0x0, 0x0, 0x0) = [1.0,1.0]
+    ColorTextureScale: (Vec2, 0x0, 0x0, 0x0) = [1.0,1.0]
     pass
 
 class VfxLengthVector2Driver(IVfxFloatDriver):
@@ -30548,11 +30520,14 @@ class VfxLengthVector3Driver(IVfxFloatDriver):
 
 class VfxLifetimeComponent(VfxLifetimeComponentBase):
     SpawnBehavior: (Pointer, 0x0, 0x0, VfxSpawnBehavior) = {}
-    0x2f61e63c: (Embed, 0x0, 0x0, 0x54a1b7a6) = {"0x372a116d":20,"0x5a47a861":100,"High":100,"Low":40,"medium":60}
-    LifetimeBehavior: (Pointer, 0x0, 0x0, 0x709be6c3) = {}
+    0x2f61e63c: (Embed, 0x0, 0x0, 0x54a1b7a6) = {"High":100,"Low":40,"VeryHigh":100,"VeryLow":20,"medium":60}
+    LifetimeBehavior: (Pointer, 0x0, 0x0, VfxLifetimeStateBehavior) = {}
     pass
 
 class VfxLifetimeComponentBase(VfxComponentBase):
+    pass
+
+class VfxLifetimeStateBehavior():
     pass
 
 class VfxLightComponent(VfxComponentBase):
@@ -30608,10 +30583,10 @@ class VfxMaterialRenderComponent(VfxRenderComponentBase):
     StencilReferenceId: (Hash, 0x0, 0x0, 0x0) = "0x0"
     stencilMode: (U8, 0x0, 0x0, 0x0) = 0
     MaterialContainer: (Pointer, 0x0, 0x0, VfxMaterialContainer) = null
-    Color: (Embed, 0x0, 0x0, VfxColorContainer) = {"0x39340876":[1.0,1.0,1.0,1.0],"ColorOverLife":{"Vector4":{}},"InitialColor":{"Vector4":{}}}
+    Color: (Embed, 0x0, 0x0, VfxColorContainer) = {"CensoredColorModulate":[1.0,1.0,1.0,1.0],"ColorOverLife":{"Vector4":{}},"InitialColor":{"Vector4":{}}}
     RenderPhase: (U8, 0x0, 0x0, 0x0) = 4
-    Drivers: (Embed, 0x0, 0x0, VfxDriverContainer) = {"0x8ed7a68f":{},"materialDrivers":{}}
-    UvAnimation: (Embed, 0x0, 0x0, 0x32952395) = {"0x3ddab580":{"Float":null},"0xf5ffae5b":{"Float":null},"AnimCurve":{"Float":null},"AnimationDimensions":[1.0,1.0]}
+    Drivers: (Embed, 0x0, 0x0, VfxDriverContainer) = {"DynamicParticleParameter":{},"materialDrivers":{}}
+    UvAnimation: (Embed, 0x0, 0x0, VfxUvAnimationContainer) = {"AnimCurve":{"Float":null},"AnimationDimensions":[1.0,1.0],"InitialFrameOffset":{"Float":null},"NumFramesInAnimation":{"Float":null}}
     DepthPushPull: (F32, 0x0, 0x0, 0x0) = 0.0
     CastShadow: (Flag, 0x0, 0x0, 0x0) = false
     RenderOrder: (I16, 0x0, 0x0, 0x0) = 0
@@ -30668,11 +30643,11 @@ class VfxMinVector4Driver(IVfxVector4Driver):
 class VfxModularPhysicsComponent(VfxPhysicsComponentBase):
     0x1064c2a8: (Flag, 0x0, 0x0, 0x0) = false
     0x1fd12444: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    0x2debe213: (Flag, 0x0, 0x0, 0x0) = false
+    IsDirectionVelocityOrientedOnSpawn: (Flag, 0x0, 0x0, 0x0) = false
     Modifiers: (List2, 0x0, Pointer, VfxPhysicsModifierBase) = []
-    0x44aa0ead: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    EmitterOrientationWeight: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     0xb5d23158: (U8, 0x0, 0x0, 0x0) = 1
-    0xb95926b1: (Flag, 0x0, 0x0, 0x0) = false
+    IsDirectionVelocityOriented: (Flag, 0x0, 0x0, 0x0) = false
     0xf35c764c: (Flag, 0x0, 0x0, 0x0) = true
     pass
 
@@ -30723,10 +30698,10 @@ class VfxParentInheritanceParams():
     pass
 
 class VfxPhysicsAccelerationModifier(VfxPhysicsModifierBase):
-    0x64ba2252: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0xc7245e17: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0xd4fc9cd1: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0xf6f3a934: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    InitialLocalAcceleration: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    KeyedWorldAcceleration: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    InitialWorldAcceleration: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    KeyedLocalAcceleration: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
     pass
 
 class VfxPhysicsAttractionDefinitionData():
@@ -30750,9 +30725,9 @@ class VfxPhysicsFollowTerrainModifier(VfxPhysicsModifierBase):
     pass
 
 class VfxPhysicsGroundCollisionModifier(VfxPhysicsModifierBase):
-    0x3363663d: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    Bounce: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     Friction: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    0xbfefeba: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    GroundHeightOffset: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     0xc3c071f0: (Flag, 0x0, 0x0, 0x0) = true
     pass
 
@@ -30780,49 +30755,49 @@ class VfxPhysicsNoiseDefinitionData():
     pass
 
 class VfxPhysicsOrbitModifier(VfxPhysicsModifierBase):
-    0x23662b14: (F32, 0x0, 0x0, 0x0) = 1.0
-    0x2fe3404c: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0x6767262: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0x75f4cf52: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
+    DragScaleFactor: (F32, 0x0, 0x0, 0x0) = 1.0
+    KeyedOrbitOffset: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    InitialOrbitOffset: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    InitialRotationOffset: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
     ApplyDrag: (Flag, 0x0, 0x0, 0x0) = true
-    0xa69848a1: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0xdadd3881: (U8, 0x0, 0x0, 0x0) = 1
-    0xe0a6507: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0xf26d7c01: (Flag, 0x0, 0x0, 0x0) = false
+    InitialOrbitRotationalVelocity: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    OrbitOriginSpace: (U8, 0x0, 0x0, 0x0) = 1
+    KeyedOrbitRotationalVelocity: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    WorldSpaceRotation: (Flag, 0x0, 0x0, 0x0) = false
     pass
 
 class VfxPhysicsPositionModifier(VfxPhysicsModifierBase):
     EmissionSource: (Pointer, 0x0, 0x0, IVfxEmissionSource) = null
-    0x2ae87cd1: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
-    0x2b7d1e76: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0x69e9c2b8: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
-    0xb4d94af5: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    LocalKeyedOffset: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
+    InitialWorldOffset: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    WorldKeyedOffset: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
+    InitialLocalOffset: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
     pass
 
 class VfxPhysicsRotationModifier(VfxPhysicsModifierBase):
-    0x37d2fea0: (Flag, 0x0, 0x0, 0x0) = false
+    UseKeyedRotation: (Flag, 0x0, 0x0, 0x0) = false
     InitialRotation: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0x831231db: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0x8eed5411: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0x8fd57237: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
-    0xf26d7c01: (Flag, 0x0, 0x0, 0x0) = false
+    InitialRotationalVelocity: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    KeyedRotationalVelocity: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    KeyedRotation: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
+    WorldSpaceRotation: (Flag, 0x0, 0x0, 0x0) = false
     pass
 
 class VfxPhysicsScaleModifier(VfxPhysicsModifierBase):
-    0x3583aec3: (Embed, 0x0, 0x0, 0xef7e7bb1) = {"0x29bb1fe":{"Vector3":null},"0x4e06a418":{"Vector3":null},"Enabled":false,"VelocityThreshold":0.0}
+    ScaleByVelocity: (Embed, 0x0, 0x0, VfxScaleByVelocityData) = {"Enabled":false,"MaxScaleFactor":{"Vector3":null},"MinScaleFactor":{"Vector3":null},"VelocityThreshold":0.0}
     IsUniform: (Flag, 0x0, 0x0, 0x0) = false
     KeyedScale: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
     InitialScale: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
     pass
 
 class VfxPhysicsVelocityModifier(VfxPhysicsModifierBase):
-    0x47fa9d7e: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0xb732476c: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0xc9a224bb: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
-    0xd3804733: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0xd7dec099: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
-    0xe7a3cf2b: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
-    0xef751fb5: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    InitialWorldVelocity: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    KeyedWorldVelocity: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    InitialRadialVelocity: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    KeyedLocalVelocity: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    InitialLocalVelocity: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":{}}
+    RadialOriginOffset: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
+    KeyedRadialVelocity: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     pass
 
 class VfxPrimitiveArbitraryQuad(VfxLegacyPrimitiveBase):
@@ -30928,6 +30903,10 @@ class VfxReflectionDefinitionData():
     fresnel: (F32, 0x0, 0x0, 0x0) = 1.0
     pass
 
+class VfxRegularSpawnRate(VfxSpawnBehavior):
+    EmissionRate: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
+    pass
+
 class VfxRenderComponentBase(VfxComponentBase):
     pass
 
@@ -30939,6 +30918,13 @@ class VfxRibbonDefinitionData():
     0xa4b83760: (Bool, 0x0, 0x0, 0x0) = false
     0xb8ec3a49: (U8, 0x0, 0x0, 0x0) = 1
     0xfd674e81: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
+class VfxScaleByVelocityData():
+    MaxScaleFactor: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
+    Enabled: (Bool, 0x0, 0x0, 0x0) = false
+    MinScaleFactor: (Embed, 0x0, 0x0, VfxVector3DynamicProperty) = {"Vector3":null}
+    VelocityThreshold: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
 class VfxScaleVector2Driver(IVfxVector2Driver):
@@ -30978,6 +30964,10 @@ class VfxShapeVolume(IVfxShape):
     flags: (U8, 0x0, 0x0, 0x0)
     pass
 
+class VfxSharedMaterial(VfxMaterialContainer):
+    Material: (Link, 0x0, 0x0, IMaterialDef) = "0x0"
+    pass
+
 class VfxShimmerEmitterDefinitionData():
     VfxComponents: (Pointer, 0x0, 0x0, VfxComponents) = null
     disabled: (Bool, 0x0, 0x0, 0x0) = false
@@ -31015,8 +31005,11 @@ class VfxShimmerPrimitiveMeshBeam(VfxShimmerPrimitiveBase):
     Beam: (Embed, 0x0, 0x0, VfxShimmerMeshBeamDefinitionData) = {"mLocalSpaceSourceOffset":[0.0,0.0,0.0],"mLocalSpaceTargetOffset":[0.0,0.0,0.0]}
     pass
 
+class VfxShimmerPrimitiveNonRenderable(VfxShimmerPrimitiveBase):
+    pass
+
 class VfxShimmerPrimitiveQuad(VfxShimmerPrimitiveBase):
-    0x4fe2b16f: (Vec2, 0x0, 0x0, 0x0) = [0.5,0.5]
+    PivotPoint: (Vec2, 0x0, 0x0, 0x0) = [0.5,0.5]
     FacingMode: (Pointer, 0x0, 0x0, VfxShimmerFacingMode) = null
     pass
 
@@ -31134,6 +31127,13 @@ class VfxTrapezoidEffectorComponentRuntime(VfxEffectorComponentRuntime):
 
 class VfxUniformRangedRandomDriver(IVfxFloatDriver):
     Range: (Vec2, 0x0, 0x0, 0x0) = [0.0,1.0]
+    pass
+
+class VfxUvAnimationContainer():
+    NumFramesInAnimation: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":null}
+    AnimationDimensions: (Vec2, 0x0, 0x0, 0x0) = [1.0,1.0]
+    InitialFrameOffset: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":null}
+    AnimCurve: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":null}
     pass
 
 class VfxVector2AnimatedWithRandomByFactorDriver(IVfxVector2Driver):

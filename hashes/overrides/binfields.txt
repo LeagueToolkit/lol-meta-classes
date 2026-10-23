@@ -38,8 +38,10 @@ ddb9d277 AdditionalStats
 199c85a4 AdditiveVfxs
 4ab787f3 AffectsStatus
 9a6a9339 AffectsType
+3a77d53c AlignPitch
 0be0de52 AlignX
 0ce0dfe5 AlignY
+b8c87a61 AlignYaw
 dd85c53b AliveMaterial
 e21f1d86 AllowEmitterRotation
 4cf24bd7 AllowInactive
@@ -89,6 +91,7 @@ d631c93e AtakhanIcon
 2092043f AttackableUnit
 b7c14674 AttractionAcceleration
 aeefa0e6 AttractionRadius
+8934ebb0 Attractors
 55001320 AudioBanks
 9087c853 AudioBehavior
 584327ed AudioCues
@@ -159,6 +162,7 @@ f31c8cd4 BossData
 61c10808 BotSpellTag
 42d15d45 BothTeamsLaneColor
 5c83cddd BottomGroup
+3363663d Bounce
 4154c75c BoundsRegion
 0d5ed622 BountyEnded
 ae8418d9 BountyGroup
@@ -215,6 +219,7 @@ e7e90aee CastShadow
 b5bd9b2a CategoryName
 9a1a1c7e CategoryValue
 d94acbb2 Cells
+39340876 CensoredColorModulate
 058c4484 Center
 1558b9d3 CenterText
 65b78965 CeremonyLink
@@ -247,6 +252,7 @@ d1519ad2 CheckMark
 aa8fd0c5 CheckNewGearId
 dba9e788 CheckPrevGearId
 ddf728ec CheckboxButton
+36a938e0 ChildDefinitionData
 1418c47f Chroma
 c3a944e7 ChromaData
 debd7dbe ClientData
@@ -262,6 +268,8 @@ eb8dc96c Coc
 5b593ba8 ColorOverLife
 095a8cab ColorScales
 a74bc193 ColorTexture
+71164c40 ColorTextureOffset
+0fe3746b ColorTextureScale
 419458b7 Colorblind
 d4db947d ColorblindTexturePath
 c170f95e ColumnCount
@@ -392,6 +400,7 @@ bff2f361 DescriptionShort
 fdf1d536 DifficultyLevel
 670b6ae3 Dimension
 51674b53 DisableAtEnd
+7c04e863 DisableBackfaceCulling
 827aac32 DisableFogOfWar
 97812f3b DisableThrottle
 f688ec43 DisabledOverlay
@@ -412,12 +421,14 @@ acee2354 DistributionMode
 3a568777 DividerTra
 11784e5b DivisionUp
 88c7215d Divisor
+dcad4b02 DoesParticleLifeScale
 e568bb76 Dof
 9b8085f1 DofDebug
 cc492242 DoubleActive
 64761191 DoubleCompleted
 bd63565e DoubleLocked
 5a2649b0 DragEnd
+23662b14 DragScaleFactor
 fa73afb1 DragStart
 260c7a67 DragonCamp
 2dbcf122 DragonKill
@@ -432,6 +443,7 @@ af128762 DurationSeconds
 7168974e DynamicLighting
 ed17c5c8 DynamicLightsEnabled
 8b301739 DynamicParameterData
+8ed7a68f DynamicParticleParameter
 9561c6b3 EarlyComp
 8e97ff30 EasingData
 ff0af490 EasingFunction
@@ -458,7 +470,12 @@ de03ac0a EmblemIcon
 2808fffd EmissionSurface
 7fa67a85 EmitterDuration
 363b38d6 EmitterLifetime
+317b5050 EmitterLoops
+44aa0ead EmitterOrientationWeight
 6365206c EmitterPeriod
+c1251a31 EmitterRateByVelocity
+ddee6cc6 EmitterTimeActiveDuringPeriod
+f0bff897 EmitterTimeOffset
 f92d1cec EmoteDirection
 713db564 EmoteItem
 bcd3fffb EmoteType
@@ -580,6 +597,7 @@ d41d1aba FlatMovementSpeedMod
 bb80885a FlatPhysicalDamageMod
 b4ca9c18 FlatPhysicalReduction
 f0383e4b FlatSpellBlockMod
+1440dec2 FlexEmitterRate
 a6c45d85 Float
 c04df9d4 FloatCurve
 8144ce88 FloatProperty
@@ -589,6 +607,7 @@ e3fdb170 FlowId
 ed4469b5 FontStyle
 2bf77ed0 FontWeight
 f36010f5 ForceActivate
+7c4a8c7b ForceMultiplier
 f1a61846 FormIcon
 b99d8552 Format
 2642955f ForwardAxis
@@ -640,6 +659,7 @@ f2c97a22 GreyscaleConfig
 5089a721 GridData
 3aaf5ccb GridX
 39af5b38 GridY
+0bfefeba GroundHeightOffset
 1ad36bf4 GroupElement
 fc51c324 GroupHelper
 53703081 GroupID
@@ -726,13 +746,25 @@ e1ea923b InhibitorRespawn
 bbd778a2 InitialBonusPerLevelDataValue
 1d2e3b42 InitialColor
 3e590ae1 InitialDrag
+f5ffae5b InitialFrameOffset
 193b8a8a InitialFrameRate
+64ba2252 InitialLocalAcceleration
+b4d94af5 InitialLocalOffset
+d7dec099 InitialLocalVelocity
+06767262 InitialOrbitOffset
+a69848a1 InitialOrbitRotationalVelocity
 7170a81b InitialParameters
+c9a224bb InitialRadialVelocity
 5176379d InitialRotation
+75f4cf52 InitialRotationOffset
+831231db InitialRotationalVelocity
 ea0b5c3b InitialScale
 16037af4 InitialState
 1d6b0e07 InitialUvOffset
 11b9a054 InitialVelocity
+d4fc9cd1 InitialWorldAcceleration
+2b7d1e76 InitialWorldOffset
+47fa9d7e InitialWorldVelocity
 0fd2cf85 InnateGrouping
 e4ecb00c InputCondition
 f11dede3 InputData
@@ -760,7 +792,10 @@ fd36c650 InvertResult
 863f1f6f InvulnerableIcon
 2c36fecc IpAddress
 7a9d64ea IsAutoAttackOverride
+7e88cd49 IsBurstEmitter
 808fcd61 IsButton
+b95926b1 IsDirectionVelocityOriented
+2debe213 IsDirectionVelocityOrientedOnSpawn
 68309c0b IsExclusive
 c4c472c8 IsExpanded
 ec01928c IsGameplayGroup
@@ -798,8 +833,17 @@ f1e19578 KeyDest
 5307f5e1 KeybindSet
 82d6dcb0 Keybinds
 56280f9b KeyedDrag
+f6f3a934 KeyedLocalAcceleration
+d3804733 KeyedLocalVelocity
+2fe3404c KeyedOrbitOffset
+0e0a6507 KeyedOrbitRotationalVelocity
 5546f441 KeyedParameters
+ef751fb5 KeyedRadialVelocity
+8fd57237 KeyedRotation
+8eed5411 KeyedRotationalVelocity
 b4bc0449 KeyedScale
+c7245e17 KeyedWorldAcceleration
+b732476c KeyedWorldVelocity
 d8b966a9 KeysList
 d7150c53 KeysTemplate
 42fb312d KeystoneSpell
@@ -847,6 +891,7 @@ c995099d LoadableModifiers
 753697fe LoadingGroup
 554b1325 LocKeys
 37885f1c LocalAcceleration
+2ae87cd1 LocalKeyedOffset
 16a02153 LocationIcon
 c2463f9f LocationTags
 2ab3b60a LockCameraEnabled
@@ -881,6 +926,7 @@ cf7f6e66 Maps
 10abaf49 MaterialBin
 1f14dbe7 MaterialContainer
 e81d2ece MaterialMapping
+4e994b61 MaxAcceleration
 2a96dc56 MaxGameEvents
 6438040c MaxNumClustersX
 6538059f MaxNumClustersY
@@ -890,6 +936,7 @@ a4c80814 MaxPlays
 9240af8c MaxQuantity
 c8b6a592 MaxQueueTimes
 df4673e5 MaxScaleChange
+029bb1fe MaxScaleFactor
 a42ce6b4 MaxTimeout
 4057334e MaxToken
 0ce02655 MaxWaterFloatCount
@@ -913,6 +960,7 @@ af3fe1c9 MiddleElements
 fd301d67 MinLevel
 97030a35 MinMoveDistance
 377d1a73 MinScaleChange
+4e06a418 MinScaleFactor
 eaebcf6e MinSize
 59716ba2 MinTimeBetweenMoveOrders
 dd3fe563 MinimapCircularRangeIndicator
@@ -984,6 +1032,7 @@ d6b1e82e NoiseVector
 74752bb3 NormalStrength
 70bb674e NotificationVfx
 f82a9a98 NovaItem
+3ddab580 NumFramesInAnimation
 342dcc43 NumPlayers
 182f3d26 ObjectCreator
 75d77845 ObjectSchema
@@ -1005,6 +1054,7 @@ dbde2288 OptionalConfigs
 e10174d4 OptionalIcon
 236c71e4 OptionalInputs
 401f7351 OptionsButton
+dadd3881 OrbitOriginSpace
 292cb8e0 OrderAnchorPoint
 b6639fce OrderSequence
 e92580fe OrientationMode
@@ -1096,6 +1146,7 @@ aa3e5b12 PinningData
 7cae3080 PipLayout
 e0bf6ea7 PipSequence
 fbf05517 Pivot
+4fe2b16f PivotPoint
 8bbc0365 Pixelate
 ab2e032a PlaneConstraint
 2a4a32b2 Platform
@@ -1179,6 +1230,7 @@ d0271699 QuestList
 86749f57 QueueMaxSize
 cd02e270 QueuePriority
 f70c4715 R
+e7a3cf2b RadialOriginOffset
 1068640f RadialTimer
 e04f1ab5 RandomVariance
 3f65fe98 RandomizeButton
@@ -1313,6 +1365,7 @@ e45800c2 SandSingleCrossingRatio
 ef3c7f81 SandWindAngleDegrees
 e6aecd89 SandWindInfillRate
 f4e470e6 ScaleByStatProgressionMultiplier
+3583aec3 ScaleByVelocity
 1d59898a ScaleFactor
 032a393a ScalePastDefaultMaxLevel
 9ce1222b ScaleX
@@ -1426,6 +1479,7 @@ a78f532f SourceLocation
 8c61159d SourcesList
 ea0e4ad5 Spacer
 c8d3a9fe Spacing
+10498eed SpawnBurstCount
 a4c9a8d7 SpawnDelay
 efd909e8 SpawnDuration
 3378edaf SpawnGrubbies
@@ -1569,6 +1623,7 @@ a0e9b9b4 TextBackdrop
 0153ef3f TextElements
 59d65fab TextProperty
 af8d054a TextVariable
+5b82c164 TextureDivisions
 67542274 TextureElementType
 dcf71c47 TextureHeight
 ece16964 TextureRenderDataList
@@ -1651,6 +1706,7 @@ b9d5eb37 UseFirstParticlePosition
 acc83ffa UseFistBump
 7bd430bd UseInitialEnd
 ee641224 UseInitialStart
+37d2fea0 UseKeyedRotation
 4ee81483 UseRawValue
 6e48edbe UseRodPhysics
 064440d6 UseSkinName
@@ -1676,6 +1732,8 @@ bb2a70a6 Vector4Input
 c050e5f7 Vector4Property
 ad790f5d VelocityThreshold
 e2edf451 VerticalLayout
+5a47a861 VeryHigh
+372a116d VeryLow
 57826247 VfxData
 55f100ce VfxIcon
 df782aae VfxProperty
@@ -1735,6 +1793,8 @@ de7ec34a WipStat3
 d97ebb6b WipStat4
 d87eb9d8 WipStat5
 db7ebe91 WipStat6
+69e9c2b8 WorldKeyedOffset
+f26d7c01 WorldSpaceRotation
 a99b42a4 WorldVelocity
 fd0c5087 X
 0527728d XDriver

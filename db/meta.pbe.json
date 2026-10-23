@@ -217,7 +217,7 @@
  "0xfa73afb1": {"name":"DragStart","revisions":[{"from":8207193,"to":8298620,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8312239,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null}]}
 }},
 "0x576d0010": {"name": "VfxShimmerPrimitiveQuad", "revisions": [{"from":7538272,"to":8298620,"bases":["0xadec1272"],"interface":false,"value":false},{"from":8312239,"bases":["0xa87ee7f5"],"interface":false,"value":false}], "properties": {
- "0x4fe2b16f": {"revisions":[{"from":7538272,"to":8298620,"type":["Vec2","0x0","0x0","0x0"],"default":[0.5,0.5]}]},
+ "0x4fe2b16f": {"name":"PivotPoint","revisions":[{"from":7538272,"to":8298620,"type":["Vec2","0x0","0x0","0x0"],"default":[0.5,0.5]}]},
  "0xb8aa6948": {"name":"FacingMode","revisions":[{"from":7538272,"type":["Pointer","0x0","0x0","0xeeadd18f"],"default":null}]}
 }},
 "0x57b5ff8c": {"name": "OverrideAttackTimeData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -363,8 +363,8 @@
  "0x42a11948": {"revisions":[{"from":8298620,"type":["Pointer","0x0","0x0","0xf77593b5"],"default":null}]},
  "0x9087c853": {"name":"AudioBehavior","revisions":[{"from":8298620,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xa87ee7f5": {"revisions": [{"from":8312239,"bases":["0xadec1272"],"interface":true,"value":false}], "properties": {
- "0x4fe2b16f": {"revisions":[{"from":8312239,"type":["Vec2","0x0","0x0","0x0"]}]}
+"0xa87ee7f5": {"name": "VfxShimmerPrimitiveQuadBase", "revisions": [{"from":8312239,"bases":["0xadec1272"],"interface":true,"value":false}], "properties": {
+ "0x4fe2b16f": {"name":"PivotPoint","revisions":[{"from":8312239,"type":["Vec2","0x0","0x0","0x0"]}]}
 }},
 "0xa8efd56d": {"name": "MapAntiAliasing", "revisions": [{"from":7851316,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
  "0x1a52dfe9": {"revisions":[{"from":8104348,"type":["String","0x0","0x0","0x0"],"default":""}]},

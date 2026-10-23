@@ -582,6 +582,7 @@ a19405b3 LolSpellScriptTargetExecute
 51f3b0ef LolSpellSlotLevelUpKeybind
 fce68422 LolUiKeybindSet
 e7b61183 LookAtMissileAngleParametricUpdater
+dbb4f634 LoopingIntroOutro
 b3ecfad0 LootReward
 90f7282b LuaDeprecationConfig
 fcf30f98 MapActionGroupAnimation
@@ -1049,6 +1050,7 @@ e6bb215e ShopEntity
 2bfff098 ShowEntityBlock
 d859356a ShowEntityTagBlock
 a4eb8410 ShuffleCustomTableBlock
+7015f762 SimpleOutro
 881be5aa SkinCharacterDefinition
 0f2fb88d SmartPingParticleOverrides
 8fe295c8 SocketDefinitionBase
@@ -1196,6 +1198,8 @@ fa8f1b00 VfxAbsVector4Driver
 82905e5b VfxAddVector2Driver
 c0a2ff18 VfxAddVector3Driver
 7bd6aa75 VfxAddVector4Driver
+8152c1ec VfxAnimatedColorRgb
+1c3dfd0c VfxAnimatedColorRgbVariableData
 88406627 VfxAttachedBoneScaleDriver
 7a98ac76 VfxAudioComponent
 fdbf829b VfxAudioComponentBase
@@ -1231,6 +1235,7 @@ dfe3528c VfxConditionFloatDriver
 c2685905 VfxConditionVector2Driver
 1d708462 VfxConditionVector3Driver
 4b5aa9eb VfxConditionVector4Driver
+31beb841 VfxDefaultSpawnBehavior
 8ad25772 VfxDefinition
 7fb92f53 VfxDistanceBasedTransparencyParams
 997d54ab VfxDivideByComponentVector2Driver
@@ -1247,6 +1252,7 @@ ff2348d3 VfxDivideByFactorVector4Driver
 51445de9 VfxDynamicParameterMultiplierModifier
 bce20874 VfxDynamicParameterRoundModifier
 75e34c40 VfxDynamicParametersData
+9999dd64 VfxDynamicParticleParameterDefinition
 524de342 VfxEffectorComponent
 858d9212 VfxEffectorComponentData
 b9b8fb5a VfxEffectorComponentRuntime
@@ -1263,10 +1269,14 @@ dbd91337 VfxEmissionSkeleton
 5507b309 VfxEmissionSkin
 72a4bae5 VfxEmissionSphere
 fddb75c6 VfxEmitterVelocityDriver
+5467726b VfxEmptyRenderComponent
 677c1488 VfxEntity
 07ad3dda VfxEntityPrefab
 a0660647 VfxFacingModeCameraAligned
 91575b97 VfxFacingModeCameraFacing
+472a8dd8 VfxFacingModeCameraFacingDirectionOriented
+b56b2deb VfxFacingModeCameraFacingPerAxis
+1addb679 VfxFacingModeCameraFacingRotationOriented
 6a3a14b5 VfxFacingModeViewAligned
 2959e51d VfxFloatAnimatedWithRandomByFactorDriver
 1d04cfa7 VfxFloatAnimatedWithRandomDriver
@@ -1284,6 +1294,7 @@ ae0ba078 VfxFloatSineDriver
 2335a083 VfxLaserDefinitionData
 614f2da4 VfxLengthVector2Driver
 159d4bb7 VfxLengthVector3Driver
+709be6c3 VfxLifetimeStateBehavior
 b0cdad34 VfxLightComponent
 f6e84048 VfxLightComponentRuntime
 01e6acb1 VfxLogicDriver
@@ -1324,12 +1335,15 @@ a38a798c VfxPrimitiveRibbon
 f67d2b9a VfxPropertyFloatDriver
 ef7ad77c VfxPropertyVector3Driver
 249c5111 VfxPropertyVector4Driver
+3fd44d66 VfxRegularSpawnRate
 3fccf1e3 VfxRenderParamVector4Driver
 9789a09a VfxRibbonDefinitionData
+ef7e7bb1 VfxScaleByVelocityData
 fffd118e VfxScaleColorRgbaDriver
 c8d6a694 VfxScaleVector2Driver
 6302c267 VfxScaleVector3Driver
 ee39916f VfxShapePointDoNotUse
+44ad896b VfxSharedMaterial
 94be93d1 VfxShimmerEmitterDefinitionData
 eeadd18f VfxShimmerFacingMode
 7f3cb96d VfxShimmerMeshBeamDefinitionData
@@ -1338,7 +1352,9 @@ adec1272 VfxShimmerPrimitiveBase
 710b2bc2 VfxShimmerPrimitiveMesh
 fd1cc89f VfxShimmerPrimitiveMeshBase
 dba754d5 VfxShimmerPrimitiveMeshBeam
+362b4996 VfxShimmerPrimitiveNonRenderable
 576d0010 VfxShimmerPrimitiveQuad
+a87ee7f5 VfxShimmerPrimitiveQuadBase
 9a2d73f2 VfxSplatFloatOntoVector2Driver
 def9bfd5 VfxSplatFloatOntoVector3Driver
 7c387678 VfxSplatFloatOntoVector4Driver
@@ -1347,6 +1363,7 @@ c5e53afa VfxSquareRootRangedRandomDriver
 eed60e9c VfxTrapezoidEffectorComponentData
 a7cee9c8 VfxTrapezoidEffectorComponentRuntime
 414d1503 VfxUniformRangedRandomDriver
+32952395 VfxUvAnimationContainer
 5ff9a600 VfxVector2AnimatedWithRandomByFactorDriver
 3eb74cbe VfxVector2AnimatedWithRandomDriver
 194508a4 VfxVector2ConstantDriver

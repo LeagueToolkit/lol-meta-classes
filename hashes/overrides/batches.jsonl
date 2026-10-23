@@ -93,3 +93,4 @@
 {"batch": "script-tree-readers", "note": "Script blocks, getters, conditions (16.21): Execute read per class; lattices and order brackets; 4 names attested by client error strings. docs/script-calc-concept.md"}
 {"batch": "sequencer-16-21", "note": "Sequencer (16.21): Instance names fold onto actions; GameScreenSequenceActionUi prefix fills 6 actions; inputs read in the client; order brackets fit. docs/sequencer-16-21.md"}
 {"batch": "ui-update-parametric", "note": "UI update elements, UI variables, parametric updaters (16.21): lattices plus each class read in the client; order brackets fit. docs/ui-update-parametric.md"}
+{"batch": "vfx-components-16-21", "note": "VFX components (16.21): Initial/Keyed and Local/World field sets; each class read in the client; order brackets fit. docs/vfx-components-16-21.md"}

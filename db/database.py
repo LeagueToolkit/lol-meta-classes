@@ -762,12 +762,6 @@ class 0x27f036af(0x64c18f7d):
     EndMoveSpeed: (F32, 0x0, 0x0, 0x0) = 100.0
     pass
 
-class 0x28556403(IContextualAction):
-    OverrideLingerTime: (Option, 0x0, F32, 0x0) = null
-    MixState: (Link, 0x0, 0x0, AudioDynamicMixState) = "0x0"
-    ForceActivate: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0x287a50ff(VfxLifetimeStateBehavior):
     particleLifetime: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
     EmitterDuration: (Embed, 0x0, 0x0, VfxFloatDynamicProperty) = {"Float":{}}
@@ -857,10 +851,6 @@ class 0x2af4e3d0(InputEventBoolKeybind):
 class 0x2b00c366(TftPassRewardBase):
     type: (String, 0x0, 0x0, 0x0)
     typeId: (String, 0x0, 0x0, 0x0)
-    pass
-
-class 0x2b11fd98(IContextualCondition):
-    KillerType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x2b365a82():
@@ -1210,9 +1200,9 @@ class 0x35ba6cda():
     pass
 
 class 0x36255113(AnnouncerVoEventTypeConcrete):
-    0x11e8956e: (String, 0x0, 0x0, 0x0) = ""
+    RedTeamSpectatorEvent: (String, 0x0, 0x0, 0x0) = ""
     TeamSucceededPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
-    0x2f68e6e3: (String, 0x0, 0x0, 0x0) = ""
+    BlueTeamSpectatorEvent: (String, 0x0, 0x0, 0x0) = ""
     IndividualSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
     TeamSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
     IndividualPriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
@@ -1649,10 +1639,6 @@ class 0x409a5657(IGameModeConfig):
     0x8794a0e6: (Map, U8, U8, 0x0) = {}
     0xab3d3711: (Bool, 0x0, 0x0, 0x0) = false
     0xba9783c7: (U8, 0x0, 0x0, 0x0) = 2
-    pass
-
-class 0x40bae5c7(ICharacterSubcondition):
-    0xb62df33d: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class 0x40f71780():
@@ -2346,12 +2332,6 @@ class 0x58808e37(BaseParams):
 class 0x589faf60():
     pass
 
-class 0x58a4ecbd(ThemeMusicEventTypeConcrete):
-    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
-    TeamSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
-    TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
 class 0x58c2dd4f(IRegionBoundaryRenderInfo):
     Material: (Link, 0x0, 0x0, IMaterialDef) = "0x0"
     pass
@@ -2836,22 +2816,12 @@ class 0x66969f1a(Cheat):
 class 0x66b91c41(BaseParams):
     pass
 
-class 0x66dc7e9b(IContextualAction):
-    Subject: (Option, 0x0, U8, 0x0) = null
-    0xec1b2b3c: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x67406e7f(0xbc280d0a):
     value: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0x67953695(ILolGameStateViewController):
     DrawAreaList: (Embed, 0x0, 0x0, DrawAreaList) = {"DrawRegions":[]}
-    pass
-
-class 0x67a18e0c(ICharacterSubcondition):
-    mCompareOp: (U8, 0x0, 0x0, 0x0) = 4
-    0xbe662223: (F32, 0x0, 0x0, 0x0) = 5.0
     pass
 
 class 0x67bfa45e():
@@ -3216,10 +3186,6 @@ class 0x71fdeba8():
 class 0x720982c5(BaseParams):
     pass
 
-class 0x72387b18(ICharacterSubcondition):
-    0xd4e06278: (Bool, 0x0, 0x0, 0x0) = true
-    pass
-
 class 0x727d77b9():
     pass
 
@@ -3256,12 +3222,6 @@ class 0x7442c4c0():
     0xc549c782: (Hash, 0x0, 0x0, 0x0) = "0x0"
     RootGroup: (Hash, 0x0, 0x0, 0x0) = "0x0"
     0xcc043494: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
-class 0x7463e786():
-    KillThreshold: (I32, 0x0, 0x0, 0x0) = -1
-    SourceId: (U8, 0x0, 0x0, 0x0) = 0
-    KillOffset: (I32, 0x0, 0x0, 0x0) = 0
     pass
 
 class 0x7468b64c():
@@ -4708,14 +4668,6 @@ class 0x9e5fdaf2():
     0xb9cd79d2: (Hash, 0x0, 0x0, 0x0) = "0x0"
     pass
 
-class 0x9e9e1f6d(IContextualCondition):
-    Count: (U32, 0x0, 0x0, 0x0) = 1
-    TimeWindow: (F32, 0x0, 0x0, 0x0) = 8.0
-    CompareOp: (U8, 0x0, 0x0, 0x0) = 0
-    CharacterType: (Option, 0x0, U8, 0x0) = null
-    0xeb60b2e8: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    pass
-
 class 0x9ef07ec6(IGeComponentDef):
     pass
 
@@ -4823,12 +4775,6 @@ class 0xa1e28449(0x8685eb51):
     pass
 
 class 0xa2603d0f():
-    pass
-
-class 0xa29e7869(ChampionMusicEventTypeConcrete):
-    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
-    TeamSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
-    TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class 0xa2db60b0(0x9449f1a5):
@@ -5812,10 +5758,6 @@ class 0xbd3b9f20():
     MaxDuration: (F32, 0x0, 0x0, 0x0) = 60.0
     pass
 
-class 0xbd465a5(IContextualCondition):
-    0x65fad9fb: (Bool, 0x0, 0x0, 0x0) = false
-    pass
-
 class 0xbd57ee48():
     pass
 
@@ -6253,13 +6195,6 @@ class 0xcae029f6():
     0x9960a9ff: (File, 0x0, 0x0, 0x0) = "0x0"
     0x9f6876f5: (List, 0x3, File, 0x0) = ["0x0","0x0","0x0"]
     0xe3b09115: (Color, 0x0, 0x0, 0x0) = [0,0,0,255]
-    pass
-
-class 0xcae2695f(IContextualCondition):
-    0x24392a01: (List2, 0x0, Hash, 0x0) = []
-    TimeWindow: (F32, 0x0, 0x0, 0x0) = 8.0
-    CharacterType: (Option, 0x0, U8, 0x0) = null
-    0xb293a6a9: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class 0xcaefc854(InputEventBoolKeybind):
@@ -6908,13 +6843,6 @@ class 0xe4130eb0(BaseParams):
 class 0xe4420d48(UiMetricTypeSimpleI):
     pass
 
-class 0xe46a1cdb():
-    objectives: (U32, 0x0, 0x0, 0x0) = 0
-    CountThreshold: (U32, 0x0, 0x0, 0x0) = 0
-    CountOffset: (U32, 0x0, 0x0, 0x0) = 0
-    SourceId: (U8, 0x0, 0x0, 0x0) = 0
-    pass
-
 class 0xe4b58196():
     BossName: (String, 0x0, 0x0, 0x0) = ""
     0x667975df: (List2, 0x0, Link, TftItemData) = []
@@ -7332,10 +7260,6 @@ class 0xf2dd2d14():
     ByeLabels: (Embed, 0x0, 0x0, 0xf3c319e2) = {"0x3f8acbfd":"","0x3fca802":"","0x6c52029a":"","0xbb21a9ed":"","TitleTra":""}
     0xd0133f4a: (String, 0x0, 0x0, 0x0) = ""
     0xe130f1de: (String, 0x0, 0x0, 0x0) = ""
-    pass
-
-class 0xf2f334(ICharacterSubcondition):
-    0x68ddd682: (Embed, 0x0, 0x0, IsInCombatDynamicMaterialBoolDriver) = {"0x3ef62dce":0,"CombatGroup":0}
     pass
 
 class 0xf307d6c9(0x114828a9):
@@ -9568,6 +9492,12 @@ class ChampionMusicEventTypeGeneric(ChampionMusicEventTypeConcrete):
     GenericEvent: (String, 0x0, 0x0, 0x0) = ""
     pass
 
+class ChampionMusicEventTypeTeamwide(ChampionMusicEventTypeConcrete):
+    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    TeamSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
+    TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
+    pass
+
 class ChampionMusicEvents():
     RiftHeraldSteal: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
     BaronKill: (Link, 0x0, 0x0, ChampionMusicEvent) = "0x0"
@@ -10574,6 +10504,25 @@ class ContextualActionData(IResource):
     mHealthPercentThreshold: (F32, 0x0, 0x0, 0x0) = 0.0
     pass
 
+class ContextualActionKillCountSource():
+    KillThreshold: (I32, 0x0, 0x0, 0x0) = -1
+    SourceId: (U8, 0x0, 0x0, 0x0) = 0
+    KillOffset: (I32, 0x0, 0x0, 0x0) = 0
+    pass
+
+class ContextualActionNotifyMixAction(IContextualAction):
+    OverrideLingerTime: (Option, 0x0, F32, 0x0) = null
+    MixState: (Link, 0x0, 0x0, AudioDynamicMixState) = "0x0"
+    ForceActivate: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class ContextualActionObjectiveCountSource():
+    objectives: (U32, 0x0, 0x0, 0x0) = 0
+    CountThreshold: (U32, 0x0, 0x0, 0x0) = 0
+    CountOffset: (U32, 0x0, 0x0, 0x0) = 0
+    SourceId: (U8, 0x0, 0x0, 0x0) = 0
+    pass
+
 class ContextualActionPlayAnimation(IContextualAction):
     mHashedSituationTrigger: (Hash, 0x0, 0x0, 0x0) = "0x0"
     mHashedAnimationName: (Hash, 0x0, 0x0, 0x0) = "0x0"
@@ -10590,7 +10539,7 @@ class ContextualActionPlayAudio(IContextualAction):
     mAllyEventName: (String, 0x0, 0x0, 0x0)
     mResolveEventAsTarget: (Bool, 0x0, 0x0, 0x0)
     mSelfEventName: (String, 0x0, 0x0, 0x0)
-    0xcab8f282: (Bool, 0x0, 0x0, 0x0)
+    WaitForShopkeeperVo: (Bool, 0x0, 0x0, 0x0)
     mSpectatorEventName: (String, 0x0, 0x0, 0x0)
     pass
 
@@ -10600,6 +10549,15 @@ class ContextualActionPlayVO(ContextualActionPlayAudio):
 
 class ContextualActionTriggerEvent(IContextualAction):
     mHashedSituationTrigger: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ContextualActionUserFactAction(IContextualAction):
+    Subject: (Option, 0x0, U8, 0x0) = null
+    FactName: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ContextualConditionAbilityResourceIsPips(IContextualCondition):
+    AbilityResourceIsPips: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class ContextualConditionAbilityResourceSlot(IContextualCondition):
@@ -10624,10 +10582,10 @@ class ContextualConditionAnyOtherHero(IContextualCondition):
     pass
 
 class ContextualConditionBuffCounterChanged(IContextualConditionBuff):
-    0x395e4a90: (Bool, 0x0, 0x0, 0x0) = false
+    ExcludeChangedToZero: (Bool, 0x0, 0x0, 0x0) = false
     Buff: (Hash, 0x0, 0x0, 0x0) = "0x0"
     ExcludeIncrements: (Bool, 0x0, 0x0, 0x0) = false
-    0xfa24eccf: (Bool, 0x0, 0x0, 0x0) = false
+    ExcludeDecrements: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
 class ContextualConditionBuffCounterReachedLimitFromZero(IContextualConditionBuff):
@@ -10660,7 +10618,7 @@ class ContextualConditionCharacter(IContextualCondition):
 class ContextualConditionCharacterBuffStackCount(ICharacterSubcondition):
     Count: (U32, 0x0, 0x0, 0x0) = 0
     Buff: (Hash, 0x0, 0x0, 0x0) = "0x0"
-    0x4bd0e2b: (Bool, 0x0, 0x0, 0x0) = false
+    FilterBuffByCaster: (Bool, 0x0, 0x0, 0x0) = false
     CompareOp: (U8, 0x0, 0x0, 0x0) = 3
     BuffCaster: (U8, 0x0, 0x0, 0x0) = 0
     pass
@@ -10699,6 +10657,10 @@ class ContextualConditionCharacterInRangeForSyncedAnimation(ICharacterSubconditi
 class ContextualConditionCharacterIsCastingRecall(ICharacterSubcondition):
     pass
 
+class ContextualConditionCharacterIsLocalPlayer(ICharacterSubcondition):
+    IsLocal: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
 class ContextualConditionCharacterLevel(IContextualCondition):
     mCompareOp: (U8, 0x0, 0x0, 0x0) = 0
     mCharacterLevel: (U8, 0x0, 0x0, 0x0) = 0
@@ -10731,6 +10693,11 @@ class ContextualConditionCharacterRole(ICharacterSubcondition):
 
 class ContextualConditionCharacterSkinID(ICharacterSubcondition):
     mSkinIDs: (List, 0x0, I32, 0x0) = []
+    pass
+
+class ContextualConditionCharacterTimeToLive(ICharacterSubcondition):
+    mCompareOp: (U8, 0x0, 0x0, 0x0) = 4
+    mTargetTimeToLive: (F32, 0x0, 0x0, 0x0) = 5.0
     pass
 
 class ContextualConditionCharacterUnitTags(ICharacterSubcondition):
@@ -10805,8 +10772,16 @@ class ContextualConditionIsAlly(ICharacterSubcondition):
     mIsAlly: (Bool, 0x0, 0x0, 0x0) = false
     pass
 
+class ContextualConditionIsInCombat(ICharacterSubcondition):
+    InCombat: (Embed, 0x0, 0x0, IsInCombatDynamicMaterialBoolDriver) = {"0x3ef62dce":0,"CombatGroup":0}
+    pass
+
 class ContextualConditionIsSelf(ICharacterSubcondition):
     IsSelf: (Bool, 0x0, 0x0, 0x0) = false
+    pass
+
+class ContextualConditionIsStealthed(ICharacterSubcondition):
+    IsStealthed: (Bool, 0x0, 0x0, 0x0) = true
     pass
 
 class ContextualConditionItemCanBePurchased(IContextualCondition):
@@ -10830,14 +10805,18 @@ class ContextualConditionItemVOGroup(IContextualCondition):
     pass
 
 class ContextualConditionKillComparison(IContextualCondition):
-    0x55848081: (Embed, 0x0, 0x0, 0x7463e786) = {"KillOffset":0,"KillThreshold":-1,"SourceId":0}
-    0x6caa1bcc: (Embed, 0x0, 0x0, 0x7463e786) = {"KillOffset":0,"KillThreshold":-1,"SourceId":0}
+    KillBaseSource: (Embed, 0x0, 0x0, ContextualActionKillCountSource) = {"KillOffset":0,"KillThreshold":-1,"SourceId":0}
+    KillCompareToSource: (Embed, 0x0, 0x0, ContextualActionKillCountSource) = {"KillOffset":0,"KillThreshold":-1,"SourceId":0}
     CompareOp: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class ContextualConditionKillCount(IContextualCondition):
     mCompareOp: (U8, 0x0, 0x0, 0x0) = 0
     mTotalKills: (U16, 0x0, 0x0, 0x0) = 0
+    pass
+
+class ContextualConditionKillerType(IContextualCondition):
+    KillerType: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
 class ContextualConditionLastBoughtItem(IContextualCondition):
@@ -10899,9 +10878,9 @@ class ContextualConditionNumberOfCharactersNearTargetPos(IContextualCondition):
     pass
 
 class ContextualConditionObjectiveCountComparison(IContextualCondition):
-    BaseSource: (Embed, 0x0, 0x0, 0xe46a1cdb) = {"CountOffset":0,"CountThreshold":0,"SourceId":0,"objectives":0}
+    BaseSource: (Embed, 0x0, 0x0, ContextualActionObjectiveCountSource) = {"CountOffset":0,"CountThreshold":0,"SourceId":0,"objectives":0}
     CompareOp: (U8, 0x0, 0x0, 0x0) = 3
-    0xb95ee9e0: (Embed, 0x0, 0x0, 0xe46a1cdb) = {"CountOffset":0,"CountThreshold":0,"SourceId":0,"objectives":0}
+    CompareToSource: (Embed, 0x0, 0x0, ContextualActionObjectiveCountSource) = {"CountOffset":0,"CountThreshold":0,"SourceId":0,"objectives":0}
     pass
 
 class ContextualConditionObjectiveTakeByMyTeam(IContextualCondition):
@@ -10974,6 +10953,21 @@ class ContextualConditionTurretPosition(IContextualCondition):
     mTurretPosition: (U8, 0x0, 0x0, 0x0) = 0
     pass
 
+class ContextualConditionUserFactCount(IContextualCondition):
+    Count: (U32, 0x0, 0x0, 0x0) = 1
+    TimeWindow: (F32, 0x0, 0x0, 0x0) = 8.0
+    CompareOp: (U8, 0x0, 0x0, 0x0) = 0
+    CharacterType: (Option, 0x0, U8, 0x0) = null
+    UserFact: (Hash, 0x0, 0x0, 0x0) = "0x0"
+    pass
+
+class ContextualConditionUserFactSequence(IContextualCondition):
+    UserFacts: (List2, 0x0, Hash, 0x0) = []
+    TimeWindow: (F32, 0x0, 0x0, 0x0) = 8.0
+    CharacterType: (Option, 0x0, U8, 0x0) = null
+    CheckChronologicalOrder: (Bool, 0x0, 0x0, 0x0) = true
+    pass
+
 class ContextualConditionWinningTeam(IContextualCondition):
     IsSameTeam: (Bool, 0x0, 0x0, 0x0) = false
     pass
@@ -10987,12 +10981,12 @@ class ContextualRule():
     mConditionRelationship: (U32, 0x0, 0x0, 0x0) = 0
     CanStompSelf: (Bool, 0x0, 0x0, 0x0) = false
     StompLowerPriority: (Bool, 0x0, 0x0, 0x0) = true
-    0x913543b4: (Pointer, 0x0, 0x0, 0x66dc7e9b) = null
+    SetUserFactAction: (Pointer, 0x0, 0x0, ContextualActionUserFactAction) = null
     CooldownModifications: (Pointer, 0x0, 0x0, ContextualActionCooldownModifications) = null
     ChanceWeight: (F32, 0x0, 0x0, 0x0) = 1.0
     mTriggerEventAction: (Pointer, 0x0, 0x0, ContextualActionTriggerEvent) = null
     mAudioAction: (Pointer, 0x0, 0x0, ContextualActionPlayAudio) = null
-    0xea4213a0: (Pointer, 0x0, 0x0, 0x28556403) = null
+    NotifyMixAction: (Pointer, 0x0, 0x0, ContextualActionNotifyMixAction) = null
     TriggerAnnouncerVoEventAction: (Pointer, 0x0, 0x0, ContextualActionAnnouncerVoEvent) = null
     mPriority: (Option, 0x0, I32, 0x0) = null
     pass
@@ -27825,6 +27819,12 @@ class ThemeMusicEventTypeConcrete(ThemeMusicEventType):
 class ThemeMusicEventTypeGeneric(ThemeMusicEventTypeConcrete):
     0x2a2e7fd9: (String, 0x0, 0x0, 0x0) = ""
     PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    pass
+
+class ThemeMusicEventTypeTeamwide(ThemeMusicEventTypeConcrete):
+    PriorityBehavior: (Embed, 0x0, 0x0, AudioPriorityBehavior) = {"MaxQueueTimes":null,"TargetQueue":"0x0","disabled":false,"priority":0.5}
+    TeamSucceededEvent: (String, 0x0, 0x0, 0x0) = ""
+    TeamFailedEvent: (String, 0x0, 0x0, 0x0) = ""
     pass
 
 class ThemeMusicEvents():

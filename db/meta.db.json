@@ -385,8 +385,8 @@
 "0xf2a39a": {"revisions": [{"from":6509216,"bases":[],"interface":false,"value":false}], "properties": {
  "0x3636114b": {"revisions":[{"from":6509216,"type":["List2","0x0","Embed","0xb34ac035"],"default":[]}]}
 }},
-"0xf2f334": {"revisions": [{"from":8248524,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
- "0x68ddd682": {"revisions":[{"from":8248524,"type":["Embed","0x0","0x0","0xfe70e9c4"],"default":{"0x3ef62dce":0,"CombatGroup":0}}]}
+"0xf2f334": {"name": "ContextualConditionIsInCombat", "revisions": [{"from":8248524,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
+ "0x68ddd682": {"name":"InCombat","revisions":[{"from":8248524,"type":["Embed","0x0","0x0","0xfe70e9c4"],"default":{"0x3ef62dce":0,"CombatGroup":0}}]}
 }},
 "0xf3e59f": {"name": "MonarchSpectateViewController", "revisions": [{"from":7067412,"to":7067412,"bases":["0xed511190"],"interface":false,"value":false},{"from":7079808,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x123272cf": {"revisions":[{"from":7067412,"to":7067412,"type":["Bool","0x0","0x0","0x0"],"default":true},{"from":7079808,"to":7480682,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
@@ -1929,8 +1929,8 @@
  "0x9028d1ed": {"revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0xbbb37ef7": {"name":"SpecialOfferToastScene","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xbd465a5": {"revisions": [{"from":6575386,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
- "0x65fad9fb": {"revisions":[{"from":6575386,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
+"0xbd465a5": {"name": "ContextualConditionAbilityResourceIsPips", "revisions": [{"from":6575386,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+ "0x65fad9fb": {"name":"AbilityResourceIsPips","revisions":[{"from":6575386,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0xbdbe495": {"revisions": [{"from":6738244,"to":6781456,"bases":[],"interface":false,"value":false}], "properties": {
  "0x186c3198": {"name":"NodeId","revisions":[{"from":6738244,"to":6781456,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -4846,12 +4846,12 @@
  "0x68fee3c4": {"name":"mOverrideCacCooldown","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x8eaf0f33": {"name":"mConditionRelationship","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x8f1e90ff": {"name":"StompLowerPriority","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
- "0x913543b4": {"revisions":[{"from":7794239,"type":["Pointer","0x0","0x0","0x66dc7e9b"],"default":null}]},
+ "0x913543b4": {"name":"SetUserFactAction","revisions":[{"from":7794239,"type":["Pointer","0x0","0x0","0x66dc7e9b"],"default":null}]},
  "0x98b66135": {"name":"CooldownModifications","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x15f6e07a"],"default":null}]},
  "0xc9969515": {"name":"ChanceWeight","revisions":[{"from":5409873,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xcd89877e": {"name":"mTriggerEventAction","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x1dce7928"],"default":null}]},
  "0xddac2570": {"name":"mAudioAction","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x6376b900"],"default":null}]},
- "0xea4213a0": {"revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x28556403"],"default":null}]},
+ "0xea4213a0": {"name":"NotifyMixAction","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x28556403"],"default":null}]},
  "0xf007f2a9": {"name":"TriggerAnnouncerVoEventAction","revisions":[{"from":7643737,"type":["Pointer","0x0","0x0","0x1c23f02c"],"default":null}]}
 }},
 "0x22d8a036": {"name": "LerpVec4LogicDriver", "revisions": [{"from":5229820,"bases":["0x995ca734"],"interface":false,"value":false}], "properties": {
@@ -6079,7 +6079,7 @@
  "0x5933da7e": {"name":"RecSpellRankUpInfolist","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xda585234": {"name":"DesignerRecSpellOverride","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0x28556403": {"revisions": [{"from":8207193,"bases":["0x3ff90079"],"interface":false,"value":false}], "properties": {
+"0x28556403": {"name": "ContextualActionNotifyMixAction", "revisions": [{"from":8207193,"bases":["0x3ff90079"],"interface":false,"value":false}], "properties": {
  "0x7c00519f": {"name":"OverrideLingerTime","revisions":[{"from":8248524,"type":["Option","0x0","F32","0x0"],"default":null}]},
  "0xc10d2292": {"name":"MixState","revisions":[{"from":8207193,"type":["Link","0x0","0x0","0x70726e31"],"default":"0x0"}]},
  "0xf36010f5": {"name":"ForceActivate","revisions":[{"from":8248524,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
@@ -6422,7 +6422,7 @@
  "0x5127f14d": {"name":"type","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"]}]},
  "0xa8953bd8": {"name":"typeId","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"]}]}
 }},
-"0x2b11fd98": {"revisions": [{"from":8104348,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+"0x2b11fd98": {"name": "ContextualConditionKillerType", "revisions": [{"from":8104348,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x18932962": {"name":"KillerType","revisions":[{"from":8104348,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x2b211648": {"name": "UiElementIcon", "revisions": [{"from":5229820,"bases":["0x55f59db3"],"interface":false,"value":false}], "properties": {
@@ -7807,9 +7807,9 @@
  "0xff0c53ad": {"name":"Z","revisions":[{"from":7345787,"to":7345787,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null},{"from":7371049,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]}
 }},
 "0x36255113": {"revisions": [{"from":7584427,"bases":["0xab30ed5e"],"interface":false,"value":false}], "properties": {
- "0x11e8956e": {"revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x11e8956e": {"name":"RedTeamSpectatorEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x141437e7": {"name":"TeamSucceededPriorityBehavior","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
- "0x2f68e6e3": {"revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x2f68e6e3": {"name":"BlueTeamSpectatorEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x7c74a459": {"name":"IndividualSucceededEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x8e8371bb": {"name":"TeamSucceededEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xa084e3ec": {"name":"IndividualPriorityBehavior","revisions":[{"from":7794239,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
@@ -8964,8 +8964,8 @@
  "0xa9a420c6": {"name":"BlackboardGameObjectName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xddef486b": {"name":"Loop","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
-"0x40bae5c7": {"revisions": [{"from":8248524,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
- "0xb62df33d": {"revisions":[{"from":8248524,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
+"0x40bae5c7": {"name": "ContextualConditionIsStealthed", "revisions": [{"from":8248524,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
+ "0xb62df33d": {"name":"IsStealthed","revisions":[{"from":8248524,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
 "0x40bff419": {"name": "ContextualConditionItemID", "revisions": [{"from":5229820,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0xb12ced9c": {"name":"mItems","revisions":[{"from":5229820,"type":["List","0x0","Hash","0x0"],"default":[]}]}
@@ -10425,8 +10425,8 @@
  "0xef8b25c1": {"name":"SceneTemplate","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x4af7e9f2": {"name": "ContextualConditionKillComparison", "revisions": [{"from":6950646,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
- "0x55848081": {"revisions":[{"from":6950646,"type":["Embed","0x0","0x0","0x7463e786"],"default":{"KillThreshold":-1,"SourceId":0,"KillOffset":0}}]},
- "0x6caa1bcc": {"revisions":[{"from":6950646,"type":["Embed","0x0","0x0","0x7463e786"],"default":{"KillThreshold":-1,"SourceId":0,"KillOffset":0}}]},
+ "0x55848081": {"name":"KillBaseSource","revisions":[{"from":6950646,"type":["Embed","0x0","0x0","0x7463e786"],"default":{"KillThreshold":-1,"SourceId":0,"KillOffset":0}}]},
+ "0x6caa1bcc": {"name":"KillCompareToSource","revisions":[{"from":6950646,"type":["Embed","0x0","0x0","0x7463e786"],"default":{"KillThreshold":-1,"SourceId":0,"KillOffset":0}}]},
  "0x728eb9a3": {"name":"CompareOp","revisions":[{"from":6950646,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x4aff6f5a": {"name": "ColorChooserMaterialDriver", "revisions": [{"from":5229820,"bases":["0x995ca734"],"interface":false,"value":false}], "properties": {
@@ -11892,7 +11892,7 @@
 }},
 "0x589faf60": {"revisions": [{"from":7200925,"bases":[],"interface":false,"value":false}], "properties": {
 }},
-"0x58a4ecbd": {"revisions": [{"from":8159717,"bases":["0x84899de0"],"interface":false,"value":false}], "properties": {
+"0x58a4ecbd": {"name": "ThemeMusicEventTypeTeamwide", "revisions": [{"from":8159717,"bases":["0x84899de0"],"interface":false,"value":false}], "properties": {
  "0x64132003": {"name":"PriorityBehavior","revisions":[{"from":8159717,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0x8e8371bb": {"name":"TeamSucceededEvent","revisions":[{"from":8159717,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xd4714dbb": {"name":"TeamFailedEvent","revisions":[{"from":8159717,"type":["String","0x0","0x0","0x0"],"default":""}]}
@@ -13246,7 +13246,7 @@
  "0x683ae1b9": {"name":"mAllyEventName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"]}]},
  "0xbeb655b5": {"name":"mResolveEventAsTarget","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"]}]},
  "0xc0a5d6dd": {"name":"mSelfEventName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"]}]},
- "0xcab8f282": {"revisions":[{"from":6950646,"type":["Bool","0x0","0x0","0x0"]}]},
+ "0xcab8f282": {"name":"WaitForShopkeeperVo","revisions":[{"from":6950646,"type":["Bool","0x0","0x0","0x0"]}]},
  "0xe810044c": {"name":"mSpectatorEventName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"]}]}
 }},
 "0x6395ef34": {"name": "GameModeConstant", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
@@ -13580,9 +13580,9 @@
 }},
 "0x66cbd003": {"name": "EndEventBlock", "revisions": [{"from":7945912,"bases":["0x3c2ab5b0"],"interface":false,"value":false}], "properties": {
 }},
-"0x66dc7e9b": {"revisions": [{"from":7794239,"bases":["0x3ff90079"],"interface":false,"value":false}], "properties": {
+"0x66dc7e9b": {"name": "ContextualActionUserFactAction", "revisions": [{"from":7794239,"bases":["0x3ff90079"],"interface":false,"value":false}], "properties": {
  "0x891cfe4f": {"name":"Subject","revisions":[{"from":7794239,"type":["Option","0x0","U8","0x0"],"default":null}]},
- "0xec1b2b3c": {"revisions":[{"from":7794239,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0xec1b2b3c": {"name":"FactName","revisions":[{"from":7794239,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x67104c43": {"name": "VfxVector3DynamicProperty", "revisions": [{"from":7231955,"bases":[],"interface":false,"value":false}], "properties": {
  "0x27188523": {"name":"Vector3","revisions":[{"from":7231955,"type":["Pointer","0x0","0x0","0x505f1532"],"default":null}]}
@@ -13633,9 +13633,9 @@
 "0x67953695": {"revisions": [{"from":7465697,"to":7668562,"bases":["0x811882fd"],"interface":false,"value":false},{"from":7695709,"bases":["0xfed5253f"],"interface":false,"value":false}], "properties": {
  "0x3b1c66a": {"name":"DrawAreaList","revisions":[{"from":7465697,"type":["Embed","0x0","0x0","0x3b1c66a"],"default":{"DrawRegions":[]}}]}
 }},
-"0x67a18e0c": {"revisions": [{"from":8248524,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
+"0x67a18e0c": {"name": "ContextualConditionCharacterTimeToLive", "revisions": [{"from":8248524,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
  "0x32f22728": {"name":"mCompareOp","revisions":[{"from":8248524,"type":["U8","0x0","0x0","0x0"],"default":4}]},
- "0xbe662223": {"revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":5.0}]}
+ "0xbe662223": {"name":"mTargetTimeToLive","revisions":[{"from":8248524,"type":["F32","0x0","0x0","0x0"],"default":5.0}]}
 }},
 "0x67ac9672": {"name": "PersistentEffectConditionData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0x71f3c1d": {"name":"PersistentVfxs","revisions":[{"from":5229820,"type":["List2","0x0","Embed","0xfa43e4"],"default":[]}]},
@@ -14851,7 +14851,7 @@
 "0x70f5ed1c": {"name": "ContextualConditionObjectiveCountComparison", "revisions": [{"from":7426169,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x49e47ecd": {"name":"BaseSource","revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xe46a1cdb"],"default":{"objectives":0,"CountThreshold":0,"CountOffset":0,"SourceId":0}}]},
  "0x728eb9a3": {"name":"CompareOp","revisions":[{"from":7426169,"type":["U8","0x0","0x0","0x0"],"default":3}]},
- "0xb95ee9e0": {"revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xe46a1cdb"],"default":{"objectives":0,"CountThreshold":0,"CountOffset":0,"SourceId":0}}]}
+ "0xb95ee9e0": {"name":"CompareToSource","revisions":[{"from":7426169,"type":["Embed","0x0","0x0","0xe46a1cdb"],"default":{"objectives":0,"CountThreshold":0,"CountOffset":0,"SourceId":0}}]}
 }},
 "0x70f6f74b": {"name": "INovaItemSelectionFilter", "revisions": [{"from":8104348,"to":8230722,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -14968,8 +14968,8 @@
 }},
 "0x7230780e": {"name": "FloatCast", "revisions": [{"from":5379010,"to":5394823,"bases":["0x22383aea","0xa6d3b432"],"interface":false,"value":false}], "properties": {
 }},
-"0x72387b18": {"revisions": [{"from":8248524,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
- "0xd4e06278": {"revisions":[{"from":8248524,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
+"0x72387b18": {"name": "ContextualConditionCharacterIsLocalPlayer", "revisions": [{"from":8248524,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
+ "0xd4e06278": {"name":"IsLocal","revisions":[{"from":8248524,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
 "0x72553f91": {"name": "NarrativeBarksDefinition", "revisions": [{"from":5837922,"bases":[],"interface":false,"value":false}], "properties": {
  "0x6b2944": {"revisions":[{"from":5837922,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
@@ -15162,7 +15162,7 @@
  "0xe66084ec": {"name":"mClashLogoColorId","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xf314571b": {"name":"mClashLogoId","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x7463e786": {"revisions": [{"from":6950646,"bases":[],"interface":false,"value":false}], "properties": {
+"0x7463e786": {"name": "ContextualActionKillCountSource", "revisions": [{"from":6950646,"bases":[],"interface":false,"value":false}], "properties": {
  "0x6611a3fc": {"name":"KillThreshold","revisions":[{"from":6950646,"type":["I32","0x0","0x0","0x0"],"default":-1}]},
  "0xdf38ac45": {"name":"SourceId","revisions":[{"from":6950646,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xf1cea006": {"name":"KillOffset","revisions":[{"from":6997589,"type":["I32","0x0","0x0","0x0"],"default":0}]}
@@ -20602,12 +20602,12 @@
 "0x9e95efe7": {"revisions": [{"from":7170001,"to":7336673,"bases":["0xb33b2406"],"interface":false,"value":false},{"from":7347485,"to":7347485,"bases":["0xb33b2406"],"interface":false,"value":false}], "properties": {
  "0x6815c86c": {"name":"Key","revisions":[{"from":7170001,"to":7218442,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":7231955,"to":7336673,"type":["Link","0x0","0x0","0x9af7b542"],"default":"0x0"},{"from":7347485,"to":7347485,"type":["Link","0x0","0x0","0x9af7b542"],"default":"0x0"}]}
 }},
-"0x9e9e1f6d": {"revisions": [{"from":7794239,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+"0x9e9e1f6d": {"name": "ContextualConditionUserFactCount", "revisions": [{"from":7794239,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x39b1ddf4": {"name":"Count","revisions":[{"from":7794239,"type":["U32","0x0","0x0","0x0"],"default":1}]},
  "0x615964d8": {"name":"TimeWindow","revisions":[{"from":7794239,"type":["F32","0x0","0x0","0x0"],"default":8.0}]},
  "0x728eb9a3": {"name":"CompareOp","revisions":[{"from":7794239,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x8ef4ba18": {"name":"CharacterType","revisions":[{"from":7794239,"type":["Option","0x0","U8","0x0"],"default":null}]},
- "0xeb60b2e8": {"revisions":[{"from":7794239,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0xeb60b2e8": {"name":"UserFact","revisions":[{"from":7794239,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x9e9e2e5c": {"name": "ExternalNamedDataValueCalculationPart", "revisions": [{"from":6841658,"bases":["0xb60012ce"],"interface":false,"value":false}], "properties": {
  "0x137cf12a": {"name":"DataValue","revisions":[{"from":6841658,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -21009,7 +21009,7 @@
 "0xa2913bfb": {"name": "SeqActionVfxBase", "revisions": [{"from":6575386,"bases":["0xeb31be9b"],"interface":true,"value":false}], "properties": {
  "0xb10e2d1e": {"name":"ParticleSystem","revisions":[{"from":6575386,"type":["Link","0x0","0x0","0x45cd899f"]}]}
 }},
-"0xa29e7869": {"revisions": [{"from":7584427,"bases":["0xc87f69f4"],"interface":false,"value":false}], "properties": {
+"0xa29e7869": {"name": "ChampionMusicEventTypeTeamwide", "revisions": [{"from":7584427,"bases":["0xc87f69f4"],"interface":false,"value":false}], "properties": {
  "0x64132003": {"name":"PriorityBehavior","revisions":[{"from":7695709,"type":["Embed","0x0","0x0","0x7a55218f"],"default":{"disabled":false,"priority":0.5,"MaxQueueTimes":null,"TargetQueue":"0x0"}}]},
  "0x8e8371bb": {"name":"TeamSucceededEvent","revisions":[{"from":7584427,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x94e4e309": {"name":"priority","revisions":[{"from":7584427,"to":7668562,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
@@ -23128,7 +23128,7 @@
 "0xb33b2406": {"name": "ILogicFloatDriver", "revisions": [{"from":5229820,"bases":["0x995ca734"],"interface":true,"value":false}], "properties": {
 }},
 "0xb3420260": {"name": "ContextualConditionCharacterBuffStackCount", "revisions": [{"from":7389684,"bases":["0xde0b1bc8"],"interface":false,"value":false}], "properties": {
- "0x4bd0e2b": {"revisions":[{"from":7389684,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x4bd0e2b": {"name":"FilterBuffByCaster","revisions":[{"from":7389684,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x39b1ddf4": {"name":"Count","revisions":[{"from":7389684,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x4a2aa0cc": {"name":"Buff","revisions":[{"from":7389684,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x728eb9a3": {"name":"CompareOp","revisions":[{"from":7389684,"type":["U8","0x0","0x0","0x0"],"default":3}]},
@@ -26102,11 +26102,11 @@
  "0x9f6876f5": {"revisions":[{"from":7389684,"to":8049184,"type":["List","0x3","String","0x0"],"default":["","",""]},{"from":8104348,"type":["List","0x3","File","0x0"],"default":["0x0","0x0","0x0"]}]},
  "0xe3b09115": {"revisions":[{"from":7389684,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]}
 }},
-"0xcae2695f": {"revisions": [{"from":7794239,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
- "0x24392a01": {"revisions":[{"from":7794239,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
+"0xcae2695f": {"name": "ContextualConditionUserFactSequence", "revisions": [{"from":7794239,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+ "0x24392a01": {"name":"UserFacts","revisions":[{"from":7794239,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
  "0x615964d8": {"name":"TimeWindow","revisions":[{"from":7794239,"type":["F32","0x0","0x0","0x0"],"default":8.0}]},
  "0x8ef4ba18": {"name":"CharacterType","revisions":[{"from":7794239,"type":["Option","0x0","U8","0x0"],"default":null}]},
- "0xb293a6a9": {"revisions":[{"from":7794239,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
+ "0xb293a6a9": {"name":"CheckChronologicalOrder","revisions":[{"from":7794239,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
 "0xcaefc854": {"revisions": [{"from":7067412,"to":7067412,"bases":["0xbe07ec3f"],"interface":false,"value":false},{"from":7079808,"to":7765552,"bases":["0xbe07ec3f"],"interface":false,"value":false},{"from":7794239,"bases":["0x70cf2e7"],"interface":false,"value":false}], "properties": {
 }},
@@ -29656,7 +29656,7 @@
  "0x11de6cdc": {"name":"properties","revisions":[{"from":6359815,"to":7480682,"type":["List2","0x0","Pointer","0x3e149034"],"default":[]}]},
  "0xcfdb2d7c": {"name":"Includes","revisions":[{"from":6359815,"to":7480682,"type":["List2","0x0","Link","0xe45d99fc"],"default":[]}]}
 }},
-"0xe46a1cdb": {"revisions": [{"from":7426169,"bases":[],"interface":false,"value":false}], "properties": {
+"0xe46a1cdb": {"name": "ContextualActionObjectiveCountSource", "revisions": [{"from":7426169,"bases":[],"interface":false,"value":false}], "properties": {
  "0x11e3a11": {"name":"objectives","revisions":[{"from":7426169,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x1ccf05c7": {"name":"CountThreshold","revisions":[{"from":7426169,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x6b5e21ef": {"name":"CountOffset","revisions":[{"from":7426169,"type":["U32","0x0","0x0","0x0"],"default":0}]},
@@ -30707,10 +30707,10 @@
  "0xe58b5931": {"name":"AnimatedIconLink","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xebddd91a": {"name": "ContextualConditionBuffCounterChanged", "revisions": [{"from":5798615,"bases":["0xfaf1fb95"],"interface":false,"value":false}], "properties": {
- "0x395e4a90": {"revisions":[{"from":5798615,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x395e4a90": {"name":"ExcludeChangedToZero","revisions":[{"from":5798615,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x4a2aa0cc": {"name":"Buff","revisions":[{"from":5798615,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x7f615b1b": {"name":"ExcludeIncrements","revisions":[{"from":5837922,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xfa24eccf": {"revisions":[{"from":5837922,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
+ "0xfa24eccf": {"name":"ExcludeDecrements","revisions":[{"from":5837922,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0xebe4c19a": {"name": "CustomAbilitiesUiData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0x47e0cdf1": {"name":"ExtraAbilities","revisions":[{"from":5229820,"type":["Map","U32","Embed","0x222410ce"],"default":{}}]}

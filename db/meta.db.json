@@ -9140,7 +9140,7 @@
 "0x429c75be": {"name": "X3DSharedSamplerDef", "revisions": [{"from":6359815,"bases":[],"interface":false,"value":false}], "properties": {
  "0x19310df1": {"name":"filterMin","revisions":[{"from":6359815,"type":["U8","0x0","0x0","0x0"],"default":1}]},
  "0x21bafb31": {"name":"mipLodBias","revisions":[{"from":6359815,"type":["I32","0x0","0x0","0x0"],"default":0}]},
- "0x2d0b672c": {"revisions":[{"from":6359815,"type":["U32","0x0","0x0","0x0"],"default":12}]},
+ "0x2d0b672c": {"name":"MaxLod","revisions":[{"from":6359815,"type":["U32","0x0","0x0","0x0"],"default":12}]},
  "0x2d6871c0": {"name":"register","revisions":[{"from":6359815,"type":["I32","0x0","0x0","0x0"],"default":-1}]},
  "0x4044d30e": {"name":"filterMag","revisions":[{"from":6359815,"type":["U8","0x0","0x0","0x0"],"default":1}]},
  "0x5127f14d": {"name":"type","revisions":[{"from":6359815,"type":["U8","0x0","0x0","0x0"],"default":0}]},
@@ -9154,7 +9154,7 @@
  "0xa1d375b5": {"name":"ShaderModel","revisions":[{"from":6359815,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xb0afcae5": {"name":"BindLocation","revisions":[{"from":6359815,"type":["U32","0x0","0x0","0x0"],"default":1}]},
  "0xb6887851": {"name":"maxAnisotropy","revisions":[{"from":6359815,"type":["U8","0x0","0x0","0x0"],"default":1}]},
- "0xc89676aa": {"revisions":[{"from":6359815,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xc89676aa": {"name":"MinLod","revisions":[{"from":6359815,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xd37fa39a": {"name":"PlatformMask","revisions":[{"from":6359815,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x429f3e94": {"name": "MapStaticPointLightBase", "revisions": [{"from":5229820,"bases":["0xc2da185a"],"interface":true,"value":false}], "properties": {
@@ -10514,10 +10514,10 @@
 }},
 "0x4bb80830": {"name": "NavRegionGeComponentDef", "revisions": [{"from":7231955,"bases":["0x62a09c62"],"interface":false,"value":false}], "properties": {
 }},
-"0x4bcf438a": {"revisions": [{"from":7851316,"bases":[],"interface":false,"value":false}], "properties": {
+"0x4bcf438a": {"name": "X3DSharedDataBufferDef", "revisions": [{"from":7851316,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2d6871c0": {"name":"register","revisions":[{"from":7851316,"type":["I32","0x0","0x0","0x0"],"default":-1}]},
  "0x2fb31c01": {"name":"frequency","revisions":[{"from":7851316,"type":["U8","0x0","0x0","0x0"],"default":0}]},
- "0x52fc6665": {"revisions":[{"from":7851316,"type":["U8","0x0","0x0","0x0"],"default":1}]},
+ "0x52fc6665": {"name":"DataBufferElementType","revisions":[{"from":7851316,"type":["U8","0x0","0x0","0x0"],"default":1}]},
  "0x8d39bde6": {"name":"name","revisions":[{"from":7851316,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x9d17b3be": {"name":"StructureLink","revisions":[{"from":7851316,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa1d375b5": {"name":"ShaderModel","revisions":[{"from":7851316,"type":["U8","0x0","0x0","0x0"],"default":0}]},
@@ -20614,7 +20614,7 @@
  "0x1bcac48f": {"name":"SourceObject","revisions":[{"from":7200925,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x5e7e5a06": {"name":"SpellObject","revisions":[{"from":6841658,"to":7190545,"type":["Link","0x0","0x0","0x5e7e5a06"],"default":"0x0"}]}
 }},
-"0x9eb07cec": {"revisions": [{"from":5253974,"bases":["0x213b92"],"interface":false,"value":false}], "properties": {
+"0x9eb07cec": {"name": "EnvironmentPbrDynamicShadingModel", "revisions": [{"from":5253974,"bases":["0x213b92"],"interface":false,"value":false}], "properties": {
 }},
 "0x9eba3f83": {"name": "InterpolateDurationFloatUpdate", "revisions": [{"from":5681102,"bases":["0x65a1bb16"],"interface":false,"value":false}], "properties": {
  "0x5f366897": {"name":"DurationDriver","revisions":[{"from":5681102,"type":["Pointer","0x0","0x0","0xb33b2406"],"default":null}]}
@@ -21748,17 +21748,17 @@
 }},
 "0xa8f2f8d9": {"name": "ITargetingRangeValue", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
 }},
-"0xa8fef3df": {"revisions": [{"from":7231955,"bases":[],"interface":false,"value":false}], "properties": {
- "0x25f550a": {"revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x2fec612a": {"revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x4549fe91": {"revisions":[{"from":7231955,"to":7413171,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x49a76d44": {"revisions":[{"from":7426169,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x68337617": {"revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x87753e0a": {"revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
+"0xa8fef3df": {"name": "SharedTargeterResources", "revisions": [{"from":7231955,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x25f550a": {"name":"AoeRangeIndicator","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x2fec612a": {"name":"LineRangeLocalTarget","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x4549fe91": {"name":"AutoAttackLineIndicator","revisions":[{"from":7231955,"to":7413171,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x49a76d44": {"name":"AutoAttackDistanceIndicatorOutOfRange","revisions":[{"from":7426169,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x68337617": {"name":"WallRangeIndicator","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x87753e0a": {"name":"LineRangeLocalBase","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa586608d": {"name":"ConicRangeIndicator","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xba54f86d": {"revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xba54f86d": {"name":"LineRangeGlobalIndicatorBase","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xcdf065dc": {"name":"AutoAttackRangeIndicator","revisions":[{"from":7426169,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xd3a0a511": {"revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xd3a0a511": {"name":"LineRangeGlobalIndicatorTarget","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd41df86e": {"name":"CircularRangeIndicator","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xdd3fe563": {"name":"MinimapCircularRangeIndicator","revisions":[{"from":7231955,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe8b9cb1a": {"name":"AutoAttackDistanceIndicator","revisions":[{"from":7426169,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]}

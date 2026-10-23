@@ -70,6 +70,7 @@ b24341c8 AnimationDimensions
 de72a3a2 AnnouncerVoEventTypes
 9963c03a AnnouncerVoEvents
 a7cdb46f AnonymousTra
+025f550a AoeRangeIndicator
 79ed2e39 ApplyDrag
 3bd77ed1 ApplyTeamColorCorrection
 f359eded ArcElement
@@ -100,8 +101,10 @@ cce2113c AugmentPillar
 2d96f463 AugmentRarities
 05e940ec AugmentRegion
 81f43042 AugmentReroll
+49a76d44 AutoAttackDistanceIndicatorOutOfRange
 1e5c4657 AutoAttackLineDisplayEasing
 50b07b92 AutoAttackLineDurationSecs
+4549fe91 AutoAttackLineIndicator
 b924d38b AutoAttackLineMaxRange
 8eb174a9 AutoAttackMode
 20fc97e7 AutoAttackSpellScript
@@ -346,6 +349,7 @@ c70f6a1e DailyLoginViewController
 aa13ab5a DamageTypeToMatch
 3965005a DampingEnd
 9ccb16cf DampingStart
+52fc6665 DataBufferElementType
 09a05a12 DataGetter
 f3e7ac05 DataOptions
 137cf12a DataValue
@@ -877,6 +881,10 @@ cfd1d6cf LimitAngle
 b519cb5c LimitAngleEnd
 65887d65 LimitAngleStart
 ff102002 LineCooldown
+ba54f86d LineRangeGlobalIndicatorBase
+d3a0a511 LineRangeGlobalIndicatorTarget
+87753e0a LineRangeLocalBase
+2fec612a LineRangeLocalTarget
 f4606717 LingerTime
 db6ea1a7 LinkedPath
 0cfb5881 List
@@ -928,6 +936,7 @@ cf7f6e66 Maps
 e81d2ece MaterialMapping
 4e994b61 MaxAcceleration
 2a96dc56 MaxGameEvents
+2d0b672c MaxLod
 6438040c MaxNumClustersX
 6538059f MaxNumClustersY
 66380732 MaxNumClustersZ
@@ -958,6 +967,7 @@ af3fe1c9 MiddleElements
 297c5518 MilestoneDefinition
 86bf2c9e MinClusterSize
 fd301d67 MinLevel
+c89676aa MinLod
 97030a35 MinMoveDistance
 377d1a73 MinScaleChange
 4e06a418 MinScaleFactor
@@ -1772,6 +1782,7 @@ f8b87dfd WakeRefSpeed
 fc60df61 WakeTroughLengthMinSpeedMult
 74804a02 WakeTroughWeightMult
 1a5286ae WakeTroughWidthMult
+68337617 WallRangeIndicator
 bc9ba03a WallSlideDirectionThresholdDeg
 02253423 WallSlideSearchEnabled
 52d1e5c3 WallSlideSearchMaxBackDist

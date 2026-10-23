@@ -1813,3 +1813,14 @@
 {"hash": "372a116d", "name": "VeryLow", "batch": "vfx-components-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
 {"hash": "69e9c2b8", "name": "WorldKeyedOffset", "batch": "vfx-components-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
 {"hash": "f26d7c01", "name": "WorldSpaceRotation", "batch": "vfx-components-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "025f550a", "name": "AoeRangeIndicator", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "49a76d44", "name": "AutoAttackDistanceIndicatorOutOfRange", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "4549fe91", "name": "AutoAttackLineIndicator", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "52fc6665", "name": "DataBufferElementType", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "ba54f86d", "name": "LineRangeGlobalIndicatorBase", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "d3a0a511", "name": "LineRangeGlobalIndicatorTarget", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "87753e0a", "name": "LineRangeLocalBase", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "2fec612a", "name": "LineRangeLocalTarget", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "2d0b672c", "name": "MaxLod", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "c89676aa", "name": "MinLod", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "68337617", "name": "WallRangeIndicator", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}

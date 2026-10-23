@@ -94,3 +94,4 @@
 {"batch": "sequencer-16-21", "note": "Sequencer (16.21): Instance names fold onto actions; GameScreenSequenceActionUi prefix fills 6 actions; inputs read in the client; order brackets fit. docs/sequencer-16-21.md"}
 {"batch": "ui-update-parametric", "note": "UI update elements, UI variables, parametric updaters (16.21): lattices plus each class read in the client; order brackets fit. docs/ui-update-parametric.md"}
 {"batch": "vfx-components-16-21", "note": "VFX components (16.21): Initial/Keyed and Local/World field sets; each class read in the client; order brackets fit. docs/vfx-components-16-21.md"}
+{"batch": "vfx-shading-targeters-16-21", "note": "Shading resources and targeter textures (16.21): twin names and shared-prefix pairs, each read in the client; order bracket fits. docs/vfx-shading-targeters-16-21.md"}

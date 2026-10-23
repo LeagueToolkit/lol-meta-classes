@@ -1398,3 +1398,6 @@
 {"hash": "362b4996", "name": "VfxShimmerPrimitiveNonRenderable", "batch": "vfx-components-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
 {"hash": "a87ee7f5", "name": "VfxShimmerPrimitiveQuadBase", "batch": "vfx-components-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
 {"hash": "32952395", "name": "VfxUvAnimationContainer", "batch": "vfx-components-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "9eb07cec", "name": "EnvironmentPbrDynamicShadingModel", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "a8fef3df", "name": "SharedTargeterResources", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}
+{"hash": "4bcf438a", "name": "X3DSharedDataBufferDef", "batch": "vfx-shading-targeters-16-21", "cracked": "2026-10-23", "status": "pending", "pr": "-"}

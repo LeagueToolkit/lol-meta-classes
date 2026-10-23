@@ -252,6 +252,7 @@ e4b83f6f EnvironmentEffectorMovement
 50759990 EnvironmentEntityDef
 12328447 EnvironmentEntityPrefab
 fa42cdaf EnvironmentEntityTemplate
+9eb07cec EnvironmentPbrDynamicShadingModel
 02ec49d8 EventBusApBaseObject
 256ae2c6 EventBusApClickElement
 56e39b84 EventBusApClickNavigation
@@ -1041,6 +1042,7 @@ d2d78714 SfxHelper
 338822e7 ShaderFunctionDef
 de0583cb ShaderFunctionInputDef
 bdc69b11 ShadowGradientRenderData
+a8fef3df SharedTargeterResources
 8f7f3f4e ShieldingParams
 eb0aabeb ShimmerEmitterDefinitionData
 f775806c ShopDefinition
@@ -1397,4 +1399,5 @@ cd481b33 VfxVector4PropertyDriver
 83efb6f9 WeightedTags
 9c33070d WhileLoopBlock
 ead9c70c WorldSpaceUiEntityTemplate
+4bcf438a X3DSharedDataBufferDef
 571eec0a XpReward

@@ -1,7 +1,7 @@
 {
 "formatVersion": 1,
 "hashSource": {"fetchedAt":"2026-10-05T10:07:55Z","bintypes":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt","entries":3825},"binfields":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt","entries":10096}},
-"latest": 8298620,
+"latest": 8342754,
 "versions": [
 {"patch":"13.15","build":5229820},
 {"patch":"13.15","build":5232423},
@@ -260,7 +260,10 @@
 {"patch":"16.19","build":8217343},
 {"patch":"16.19","build":8230722},
 {"patch":"16.20","build":8248524},
-{"patch":"16.21","build":8298620}
+{"patch":"16.21","build":8298620},
+{"patch":"16.21","build":8328265},
+{"patch":"16.21","build":8341395},
+{"patch":"16.21","build":8342754}
 ],
 "externalTypeNames": {
 },
@@ -436,7 +439,7 @@
  "0xa1d375b5": {"name":"ShaderModel","revisions":[{"from":6359815,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xd37fa39a": {"name":"PlatformMask","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
-"0x12759fb": {"name": "IUiSfxEvent", "revisions": [{"from":8207193,"bases":["0xed2da5b0"],"interface":true,"value":false}], "properties": {
+"0x12759fb": {"name": "IUiSfxEvent", "revisions": [{"from":8207193,"to":8328265,"bases":["0xed2da5b0"],"interface":true,"value":false},{"from":8342754,"bases":["0xed2da5b0"],"interface":true,"value":false}], "properties": {
 }},
 "0x129e311": {"name": "IUpdatableGeComponent", "revisions": [{"from":7102027,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -814,6 +817,7 @@
  "0x23382109": {"revisions":[{"from":7695709,"to":8175716,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x3cc9ab8a": {"name":"GenerateLateralLinks","revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x56670932": {"revisions":[{"from":7747445,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
+ "0x95f72993": {"name":"tag","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xb0f77798": {"name":"JointTrees","revisions":[{"from":7643737,"type":["List2","0x0","Embed","0x339ecf91"],"default":[]}]},
  "0xbb2fa3e3": {"name":"ChainProperties","revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0x408a4521"],"default":{"RodBendStiffness":{"value":1.0,"Curve":null,"UseCurve":true},"UseRodPhysics":false,"RodStretchStiffness":{"value":1.0,"Curve":null,"UseCurve":true},"JointRadius":{"value":5.0,"Curve":null,"UseCurve":true},"RodTwistStiffness":{"value":1.0,"Curve":null,"UseCurve":true},"Damping":{"value":0.5,"Curve":null,"UseCurve":true},"AnimPoseAttraction":{"value":0.5,"Curve":null,"UseCurve":true},"LimitAngle":{"value":180.0,"Curve":null,"UseCurve":true},"RodShearStiffness":{"value":1.0,"Curve":null,"UseCurve":true},"Stretch":{"value":0.0,"Curve":null,"UseCurve":true},"Envelope":{"value":1.0,"Curve":null,"UseCurve":true}}}]}
 }},
@@ -1438,6 +1442,7 @@
 }},
 "0x9188776": {"name": "DynamicsChainRigPoseModifierData", "revisions": [{"from":7643737,"bases":["0xb2dd588a"],"interface":false,"value":false}], "properties": {
  "0x23d901d3": {"name":"JointTreeGroups","revisions":[{"from":7643737,"type":["List2","0x0","Embed","0x3ca1fe0"],"default":[]}]},
+ "0x95f72993": {"name":"tag","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xbb1d1aac": {"revisions":[{"from":7643737,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xbdaa6f16": {"name":"GlobalEnvelope","revisions":[{"from":7695709,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xc20b2e61": {"name":"PhysicsSimLocalSettings","revisions":[{"from":7643737,"type":["Embed","0x0","0x0","0xc20b2e61"],"default":{"GravityScale":1.0,"GravityOverride":null,"0xf057d92a":1.0}}]},
@@ -1986,6 +1991,8 @@
  "0xd20a71a6": {"name":"Frame","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xed195e1b": {"name":"Team2Meter","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
+"0xc76ae51": {"revisions": [{"from":8341395,"to":8341395,"bases":["0x1e290429"],"interface":false,"value":false}], "properties": {
+}},
 "0xc7a3b52": {"name": "VfxGeComponent", "revisions": [{"from":6804378,"to":6972104,"bases":["0x3497f0cf"],"interface":false,"value":false},{"from":6997589,"to":7016241,"bases":["0x2576b4fc","0x3497f0cf"],"interface":false,"value":false},{"from":7027993,"to":7085788,"bases":["0x2576b4fc","0x3497f0cf"],"interface":true,"value":false},{"from":7102027,"to":7151836,"bases":["0x129e311","0x2576b4fc","0x3497f0cf"],"interface":true,"value":false},{"from":7170001,"to":7218442,"bases":["0x129e311","0x2576b4fc","0x2a036a61","0x3497f0cf"],"interface":true,"value":false},{"from":7231955,"to":7728292,"bases":["0x129e311","0x2576b4fc","0x2a036a61","0x3497f0cf"],"interface":false,"value":false},{"from":7747445,"bases":["0x129e311","0x2576b4fc","0x3497f0cf"],"interface":false,"value":false}], "properties": {
 }},
 "0xc8093bd": {"name": "EventBusApObject", "revisions": [{"from":7695709,"to":7829736,"bases":["0xd027765c"],"interface":true,"value":false},{"from":7851316,"bases":["0x2ec49d8"],"interface":true,"value":false}], "properties": {
@@ -2229,6 +2236,10 @@
  "0xae26f217": {"name":"mIsAdvancedStyle","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xae686ed6": {"name":"mDefaultSplash","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x8f5daa75"],"default":null}]},
  "0xda2ad2dd": {"name":"mStyleVFXResourceResolver","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xef3a0f33"],"default":null}]}
+}},
+"0xe5e4f77": {"revisions": [{"from":8341395,"to":8341395,"bases":["0x87e73e28"],"interface":false,"value":false}], "properties": {
+ "0x45350a96": {"revisions":[{"from":8341395,"to":8341395,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0xc5973f0c": {"revisions":[{"from":8341395,"to":8341395,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0xe603295": {"name": "StringArrayTableSet", "revisions": [{"from":5715678,"bases":["0xf6b622c6"],"interface":false,"value":false}], "properties": {
 }},
@@ -2626,11 +2637,11 @@
  "0x8f59d48c": {"name":"inheritedTags","revisions":[{"from":7027993,"to":7336673,"type":["List2","0x0","Hash","0x0"]},{"from":7347485,"to":7347485,"type":["List2","0x0","Hash","0x0"]}]},
  "0xf416eba0": {"name":"tags","revisions":[{"from":6738244,"to":7016241,"type":["List2","0x0","Link","0x5566d3a3"]},{"from":7027993,"to":7336673,"type":["List2","0x0","Hash","0x0"]},{"from":7347485,"to":7347485,"type":["List2","0x0","Hash","0x0"]}]}
 }},
-"0x115e8f6a": {"revisions": [{"from":8042660,"bases":["0x41bb3fd7"],"interface":false,"value":false}], "properties": {
- "0x43851f70": {"name":"TargetElement","revisions":[{"from":8042660,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x715ccf9c": {"revisions":[{"from":8248524,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x834f3ed8": {"name":"SourceVariable","revisions":[{"from":8042660,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xc5ca3948": {"revisions":[{"from":8042660,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+"0x115e8f6a": {"revisions": [{"from":8042660,"to":8328265,"bases":["0x41bb3fd7"],"interface":false,"value":false},{"from":8341395,"to":8341395,"bases":["0x1e290429"],"interface":false,"value":false},{"from":8342754,"bases":["0x41bb3fd7"],"interface":false,"value":false}], "properties": {
+ "0x43851f70": {"name":"TargetElement","revisions":[{"from":8042660,"to":8328265,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":8342754,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x715ccf9c": {"revisions":[{"from":8248524,"to":8328265,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":8342754,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x834f3ed8": {"name":"SourceVariable","revisions":[{"from":8042660,"to":8328265,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":8342754,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xc5ca3948": {"revisions":[{"from":8042660,"to":8328265,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":8342754,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x1163f2ec": {"name": "TftBehaviorScript", "revisions": [{"from":5229820,"to":5290642,"bases":["0x5eac2a00"],"interface":false,"value":false}], "properties": {
  "0xf9f16781": {"name":"sequences","revisions":[{"from":5229820,"to":5266810,"type":["Map","U32","Embed","0x9ef32dd9"],"default":{}}]}
@@ -2715,6 +2726,8 @@
  "0xe501995f": {"name":"CharacterSplash","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe6e3afce": {"name":"SummonerName","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xb0d49a20"],"default":{"OtherPlayerNameColor":[210,230,240,255],"LocalPlayerNameColor":[10,190,250,255],"SummonerName":[]}}]},
  "0xf2891050": {"name":"Rating","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xaf7c0947"],"default":{"QueueTypeToSourceTierIcons":{},"RatedText":"0x0","RatedTierIcon":"0x0","0x60d19c3d":true}}]}
+}},
+"0x124d0a99": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x125a3586": {"name": "JointOrientationBlendEventData", "revisions": [{"from":6318255,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2b969c0d": {"name":"BlendFromDefaultDuration","revisions":[{"from":6318255,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -2997,10 +3010,10 @@
  "0x640657c": {"name":"fields","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x8d39bde6": {"name":"name","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x14a6b9ba": {"revisions": [{"from":8298620,"bases":["0xed2da5b0"],"interface":false,"value":false}], "properties": {
- "0xd212fabe": {"name":"Condition","revisions":[{"from":8298620,"type":["Pointer","0x0","0x0","0x8a4a4963"],"default":null}]},
- "0xd949ebd1": {"revisions":[{"from":8298620,"type":["Pointer","0x0","0x0","0xed2da5b0"],"default":null}]},
- "0xeb6f3310": {"revisions":[{"from":8298620,"type":["Pointer","0x0","0x0","0xed2da5b0"],"default":null}]}
+"0x14a6b9ba": {"revisions": [{"from":8298620,"to":8328265,"bases":["0xed2da5b0"],"interface":false,"value":false},{"from":8342754,"bases":["0xed2da5b0"],"interface":false,"value":false}], "properties": {
+ "0xd212fabe": {"name":"Condition","revisions":[{"from":8298620,"to":8328265,"type":["Pointer","0x0","0x0","0x8a4a4963"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x8a4a4963"],"default":null}]},
+ "0xd949ebd1": {"revisions":[{"from":8298620,"to":8328265,"type":["Pointer","0x0","0x0","0xed2da5b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0xed2da5b0"],"default":null}]},
+ "0xeb6f3310": {"revisions":[{"from":8298620,"to":8328265,"type":["Pointer","0x0","0x0","0xed2da5b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0xed2da5b0"],"default":null}]}
 }},
 "0x14aef50c": {"name": "StoreCategoryInventoryFilter", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x31061454": {"name":"mInventoryType","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -3347,6 +3360,8 @@
  "0x37070a8d": {"name":"mExpandedTooltipCalculationDisplay","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"]}]},
  "0x72c5c2a8": {"name":"DamageType","revisions":[{"from":7170001,"type":["U32","0x0","0x0","0x0"]}]},
  "0x75a116d5": {"name":"ResultModifier","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"]}]},
+ "0xacc210ca": {"revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0xb60012ce"]}]},
+ "0xbafc65c0": {"revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0xb60012ce"]}]},
  "0xcbcac618": {"name":"mSimpleTooltipCalculationDisplay","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"]}]},
  "0xd6b7a622": {"name":"tooltipOnly","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"]}]},
  "0xe6eebb2f": {"name":"StaticTooltipCalculationDisplay","revisions":[{"from":5229820,"to":7102811,"type":["U8","0x0","0x0","0x0"]}]}
@@ -4160,6 +4175,12 @@
 "0x1e26bfa8": {"revisions": [{"from":6359815,"bases":["0x7971fbee"],"interface":false,"value":false}], "properties": {
  "0x694aaa0b": {"name":"template","revisions":[{"from":6359815,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
+"0x1e290429": {"revisions": [{"from":8341395,"to":8341395,"bases":["0x41bb3fd7"],"interface":true,"value":false}], "properties": {
+ "0x43851f70": {"name":"TargetElement","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"]}]},
+ "0x715ccf9c": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"]}]},
+ "0x834f3ed8": {"name":"SourceVariable","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"]}]},
+ "0xc5ca3948": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"]}]}
+}},
 "0x1e2d1428": {"revisions": [{"from":6950646,"bases":[],"interface":false,"value":false}], "properties": {
  "0x2d55c701": {"name":"StatPageViewController","revisions":[{"from":6950646,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x43b27471": {"name":"Button","revisions":[{"from":6950646,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -4183,6 +4204,9 @@
 "0x1e4b4a7c": {"name": "FloatPerSpellLevel", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x8f99bbe1": {"name":"mValueType","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0xfc8585d5": {"name":"mPerLevelValues","revisions":[{"from":5229820,"type":["List","0x6","F32","0x0"],"default":[0.0,0.0,0.0,0.0,0.0,0.0]}]}
+}},
+"0x1e595681": {"revisions": [{"from":8341395,"to":8341395,"bases":["0x8776327e"],"interface":false,"value":false}], "properties": {
+ "0x4c10ca77": {"name":"CounterDefinitions","revisions":[{"from":8341395,"to":8341395,"type":["List2","0x0","Link","0x8776327e"],"default":[]}]}
 }},
 "0x1e7ae2cb": {"name": "VfxModifierBase", "revisions": [{"from":7200925,"to":7218442,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -4774,6 +4798,7 @@
  "0x2834cb6f": {"name":"AbilityAugmentGroup","revisions":[{"from":7851316,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x34794473": {"name":"Hotkey","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x3f4ed42c": {"name":"HotKeyBg","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x40b29b37": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x48a23073": {"name":"ToggleFx","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x5b4a2352": {"revisions":[{"from":7695709,"to":7829736,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x663c338a": {"name":"ResetFlashFxAttention","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -4800,6 +4825,9 @@
  "0x6eea382f": {"name":"lane","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xc214849f"],"default":null}]},
  "0xa2fd7d0c": {"name":"Team","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xc214849f"],"default":null}]},
  "0xb804d4fd": {"name":"TurretIndex","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0xc214849f"],"default":null}]}
+}},
+"0x223763b1": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xf77593b5"],"interface":false,"value":false}], "properties": {
+ "0x26b603f": {"revisions":[{"from":8341395,"to":8341395,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x22383aea": {"name": "ScriptTableGet", "revisions": [{"from":5229820,"bases":["0xf6e711b0"],"interface":false,"value":false}], "properties": {
  "0x4a9c9bdf": {"name":"Table","revisions":[{"from":5229820,"type":["Pointer","0x0","0x0","0x24f32dbe"],"default":{}}]},
@@ -6912,6 +6940,7 @@
  "0x6faefc1d": {"name":"PreloadResourceName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x2f798a22": {"name": "AugmentTierDisplayData", "revisions": [{"from":7695709,"to":8248524,"bases":[],"interface":false,"value":false},{"from":8298620,"bases":[],"interface":false,"value":true}], "properties": {
+ "0x29abd024": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x2c4a7c82": {"name":"PickedVfxSystem","revisions":[{"from":7695709,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
  "0x34296273": {"name":"FlashInVfxSystem","revisions":[{"from":7695709,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
  "0x5f2af0b8": {"name":"IdleVfxSystem","revisions":[{"from":7695709,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]},
@@ -6958,6 +6987,7 @@
 }},
 "0x2fcaa83c": {"name": "NexusFinisher", "revisions": [{"from":6085125,"bases":["0x95e0c840"],"interface":false,"value":false}], "properties": {
  "0x4681146": {"name":"ChaosSequence","revisions":[{"from":6236777,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x33f36f05": {"name":"disabled","revisions":[{"from":6085125,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x34c3be84": {"revisions":[{"from":6236777,"type":["List2","0x0","Embed","0xa64f90fb"],"default":[]}]},
  "0x3b182105": {"name":"AudioBankPaths","revisions":[{"from":6124791,"type":["List2","0x0","String","0x0"],"default":[]}]},
@@ -7076,6 +7106,7 @@
  "0x7453bb15": {"revisions":[{"from":7643737,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x94e4e309": {"name":"priority","revisions":[{"from":6690024,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xc5ea66ab": {"name":"MinimapColor","revisions":[{"from":6690024,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
+ "0xf3bcf9bc": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf416eba0": {"name":"tags","revisions":[{"from":6690024,"type":["Map","U32","U32","0x0"],"default":{}}]}
 }},
 "0x302f19b8": {"name": "ViewControllerFilter_Clash", "revisions": [{"from":5229820,"bases":["0xa4913311"],"interface":false,"value":false}], "properties": {
@@ -7227,6 +7258,9 @@
  "0x4a9c9bdf": {"name":"Table","revisions":[{"from":6048769,"type":["Embed","0x0","0x0","0x9fd741ae"],"default":{"Table":{},"Var":"0x0"}}]},
  "0x4b091a3c": {"name":"IterValue","revisions":[{"from":6048769,"type":["Embed","0x0","0x0","0xf6b622c6"],"default":{"Table":{},"Var":""}}]},
  "0xb872990e": {"name":"ShouldRemove","revisions":[{"from":6048769,"type":["Embed","0x0","0x0","0xa2a7edad"],"default":{"Table":{},"Var":"ShouldRemove"}}]}
+}},
+"0x31832241": {"revisions": [{"from":8341395,"to":8341395,"bases":["0x6395ef34"],"interface":false,"value":false}], "properties": {
+ "0x425ed3ca": {"name":"value","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x318f8d72": {"revisions": [{"from":6950646,"bases":["0x62113c15"],"interface":false,"value":false}], "properties": {
  "0x1e1bd0c9": {"revisions":[{"from":6950646,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
@@ -7473,7 +7507,8 @@
 "0x32e94b82": {"revisions": [{"from":8207193,"bases":[],"interface":false,"value":false}], "properties": {
  "0x9225213": {"revisions":[{"from":8207193,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa25cecc": {"revisions":[{"from":8207193,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x5fb91e8c": {"name":"Group","revisions":[{"from":8207193,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+ "0x5fb91e8c": {"name":"Group","revisions":[{"from":8207193,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x8f44134c": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0x32ea23b7": {"name": "ResourceMeterBaseData", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -7507,6 +7542,7 @@
  "0xfc881855": {"name":"outputs","revisions":[{"from":7027993,"type":["List2","0x0","Embed","0xedd8154"],"default":[]}]}
 }},
 "0x339ecf91": {"name": "DynamicsJointTreeData", "revisions": [{"from":7643737,"bases":[],"interface":false,"value":true}], "properties": {
+ "0x95f72993": {"name":"tag","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x9df0bf7f": {"revisions":[{"from":7643737,"to":7668562,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xaa3e5b12": {"name":"PinningData","revisions":[{"from":8298620,"type":["Embed","0x0","0x0","0xf9b5b50e"],"default":{"PinRoot":true,"PinnedJointNames":[]}}]},
  "0xc11c69b4": {"name":"RootJointName","revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -7552,6 +7588,7 @@
  "0x9f76df12": {"name":"rangeGrowthStartTime","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x1e4b4a7c"],"default":{"mValueType":0,"mPerLevelValues":[0.0,0.0,0.0,0.0,0.0,0.0]}}]},
  "0xb2f634ab": {"name":"minimumDisplayedRange","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":50.0}]},
  "0xc85cceeb": {"name":"startLocator","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xcdb319f6"],"default":{"orientationType":0,"basePosition":0,"angleOffsetRadian":0.0,"distanceOffset":0.0}}]},
+ "0xc8f6a648": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xdddc3025": {"name":"overrideBaseRange","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x1e4b4a7c"],"default":{"mValueType":0,"mPerLevelValues":[0.0,0.0,0.0,0.0,0.0,0.0]}}]},
  "0xe013ab15": {"name":"hasMaxGrowRange","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xe04e5e7d": {"name":"textureTargetMaxGrowName","revisions":[{"from":5229820,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -8766,6 +8803,12 @@
  "0x9ce1222b": {"name":"ScaleX","revisions":[{"from":7269074,"type":["F32","0x0","0x0","0x0"],"default":1000.0}]},
  "0xed511190": {"name":"ViewController","revisions":[{"from":7269074,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
+"0x3f934c8f": {"revisions": [{"from":8341395,"to":8341395,"bases":["0x3c2ab5b0"],"interface":false,"value":false}], "properties": {
+ "0x8f89e802": {"revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0xdb7bbc6d"],"default":null}]},
+ "0xfc0c4ef4": {"name":"Y","revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0xd4cb8dc5"],"default":null}]},
+ "0xfd0c5087": {"name":"X","revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0xd4cb8dc5"],"default":null}]},
+ "0xff0c53ad": {"name":"Z","revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0xd4cb8dc5"],"default":null}]}
+}},
 "0x3fa64abf": {"name": "SetEntityRotationBlock", "revisions": [{"from":7695709,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x21ac415f": {"name":"rotation","revisions":[{"from":7695709,"type":["Pointer","0x0","0x0","0xdb7bbc6d"],"default":null}]},
  "0x32608848": {"name":"Target","revisions":[{"from":7695709,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
@@ -8940,7 +8983,7 @@
  "0x6575891f": {"revisions":[{"from":5681102,"type":["Map","U8","U8","0x0"],"default":{}}]},
  "0x857c9848": {"revisions":[{"from":5379010,"type":["List2","0x0","Embed","0x587d08e4"],"default":[]}]},
  "0x8794a0e6": {"revisions":[{"from":5304653,"type":["Map","U8","U8","0x0"],"default":{}}]},
- "0xab3d3711": {"revisions":[{"from":7067412,"to":7067412,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":7079808,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xab3d3711": {"revisions":[{"from":7067412,"to":7067412,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":7079808,"to":8328265,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":8342754,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xba9783c7": {"revisions":[{"from":5304653,"type":["U8","0x0","0x0","0x0"],"default":2}]}
 }},
 "0x40a87ffc": {"name": "TftBoardPosition", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -9881,9 +9924,9 @@
  "0xdd58f41d": {"revisions":[{"from":7135912,"type":["U8","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x46b4ec0a": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
- "0x2370e859": {"name":"Starting","revisions":[{"from":7584427,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x4be35766": {"revisions":[{"from":7584427,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
- "0xa2fd7d0c": {"name":"Team","revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]}
+ "0x2370e859": {"name":"Starting","revisions":[{"from":7584427,"to":8328265,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":8342754,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x4be35766": {"revisions":[{"from":7584427,"to":8328265,"type":["F32","0x0","0x0","0x0"],"default":0.0},{"from":8342754,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0xa2fd7d0c": {"name":"Team","revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x46ce0526": {"revisions": [{"from":6649480,"to":7765552,"bases":["0xbe07ec3f"],"interface":false,"value":false},{"from":7794239,"bases":["0x70cf2e7"],"interface":false,"value":false}], "properties": {
 }},
@@ -9929,6 +9972,10 @@
  "0x158508fb": {"name":"RangedResult","revisions":[{"from":5715678,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xd92cd177": {"name":"DefaultResult","revisions":[{"from":5715678,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xf61974d2": {"name":"MeleeResult","revisions":[{"from":5715678,"type":["String","0x0","0x0","0x0"],"default":""}]}
+}},
+"0x4754de7a": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x19385305": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
 "0x47704df2": {"name": "QualitySetting", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x33eb38d": {"name":"mBackBufferScale","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.75}]},
@@ -10319,6 +10366,7 @@
  "0x832a4da7": {"name":"BorderDisabled","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x8f16c514": {"name":"OverlayOom","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x93c0f4f7": {"name":"Backdrop","revisions":[{"from":5229820,"to":8049184,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x986a21eb": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xb3e1c78a": {"name":"StateBorderFX","revisions":[{"from":7851316,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xb666bd80": {"name":"BorderDefault","revisions":[{"from":5229820,"to":8049184,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xb6f9350f": {"name":"HitArea","revisions":[{"from":5229820,"to":8049184,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -10327,6 +10375,7 @@
  "0xd56f4129": {"revisions":[{"from":7643737,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xd61e0008": {"name":"StackText","revisions":[{"from":5229820,"to":8049184,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe64015f0": {"name":"Icon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xeb5cae8f": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf0b6f573": {"name":"OverlayHover","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf750283e": {"name":"CooldownEffects","revisions":[{"from":5229820,"to":8049184,"type":["Embed","0x0","0x0","0x7a9a96ff"],"default":{"RadialEffect":"0x0","CooldownJumpEffect":"0x0","CooldownText":"0x0","CooldownCompleteEffect":"0x0"}}]},
  "0xf99c4ac4": {"name":"MajorActive","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -10408,6 +10457,8 @@
 }},
 "0x4ad0847a": {"name": "BuffCounterByCoefficientCalculationPart", "revisions": [{"from":5229820,"bases":["0x76913151"],"interface":false,"value":false}], "properties": {
  "0x295c2889": {"name":"mCoefficient","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+}},
+"0x4aed8209": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
 }},
 "0x4aef2936": {"name": "QuestTrackerViewController", "revisions": [{"from":5229820,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x62eab0b": {"name":"BetweenGroupSpacing","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":15}]},
@@ -11611,12 +11662,12 @@
  "0xd5e57340": {"name":"TurretsAreValid","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0x560e6c39": {"name": "UiElementGroupSliderSoundEvents", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
- "0x5a2649b0": {"name":"DragEnd","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x5a2649b0": {"name":"DragEnd","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0x73dbef7a": {"name":"OnBarClickedEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x8f1a336d": {"name":"OnDragEndEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x976d3aeb": {"name":"BarClicked","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x976d3aeb": {"name":"BarClicked","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0xd8073196": {"name":"OnDragStartEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xfa73afb1": {"name":"DragStart","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]}
+ "0xfa73afb1": {"name":"DragStart","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]}
 }},
 "0x56276148": {"name": "NovaItemGetStringProperty", "revisions": [{"from":8104348,"to":8230722,"bases":["0x3f8dac45"],"interface":false,"value":false}], "properties": {
  "0xa4c6cd6b": {"name":"PropertyName","revisions":[{"from":8104348,"to":8230722,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -11729,8 +11780,8 @@
  "0xa96fc6c9": {"name":"Spell","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xc8e37ef0": {"name":"mScriptName","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
-"0x576d0010": {"name": "VfxShimmerPrimitiveQuad", "revisions": [{"from":7538272,"bases":["0xadec1272"],"interface":false,"value":false}], "properties": {
- "0x4fe2b16f": {"name":"PivotPoint","revisions":[{"from":7538272,"type":["Vec2","0x0","0x0","0x0"],"default":[0.5,0.5]}]},
+"0x576d0010": {"name": "VfxShimmerPrimitiveQuad", "revisions": [{"from":7538272,"to":8328265,"bases":["0xadec1272"],"interface":false,"value":false},{"from":8341395,"to":8341395,"bases":["0xa87ee7f5"],"interface":false,"value":false},{"from":8342754,"bases":["0xadec1272"],"interface":false,"value":false}], "properties": {
+ "0x4fe2b16f": {"name":"PivotPoint","revisions":[{"from":7538272,"to":8328265,"type":["Vec2","0x0","0x0","0x0"],"default":[0.5,0.5]},{"from":8342754,"type":["Vec2","0x0","0x0","0x0"],"default":[0.5,0.5]}]},
  "0xb8aa6948": {"name":"FacingMode","revisions":[{"from":7538272,"type":["Pointer","0x0","0x0","0xeeadd18f"],"default":null}]}
 }},
 "0x577455c5": {"revisions": [{"from":6048769,"to":6070022,"bases":["0x8930818a"],"interface":false,"value":false}], "properties": {
@@ -11912,6 +11963,8 @@
  "0x43e53626": {"name":"PanelBg","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa76f8e16": {"name":"PanelBgAltSide","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe095d841": {"name":"ObjectName","revisions":[{"from":5229820,"to":5241760,"type":["String","0x0","0x0","0x0"],"default":""}]}
+}},
+"0x58ec86b0": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x58ecf288": {"revisions": [{"from":6161179,"to":6354945,"bases":[],"interface":false,"value":false},{"from":6359815,"to":7480682,"bases":["0x38bae4b6","0x827227f3","0xc657a95d"],"interface":false,"value":false}], "properties": {
  "0xd72df3ad": {"revisions":[{"from":6161179,"to":7480682,"type":["Map","String","Pointer","0x6395ef34"],"default":{}}]}
@@ -12513,6 +12566,8 @@
  "0x7b5d1934": {"name":"mBreakpoints","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x8e93d8ee"],"default":[]}]},
  "0xad62f672": {"name":"mLevel1Value","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
+"0x5cf739c6": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xe7b5f8e8"],"interface":false,"value":false}], "properties": {
+}},
 "0x5cf82f9b": {"name": "IMilestoneProperty", "revisions": [{"from":5837922,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x5cfe6ce7": {"revisions": [{"from":5352535,"to":5719528,"bases":["0x618b992b"],"interface":false,"value":false},{"from":5756478,"bases":["0xd08c4ee6"],"interface":false,"value":false}], "properties": {
@@ -12602,12 +12657,13 @@
  "0x2eb4ff5e": {"revisions":[{"from":6919951,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x324daf2d": {"revisions":[{"from":6919951,"to":7480682,"type":["Pointer","0x0","0x0","0xc481fd75"],"default":null}]}
 }},
-"0x5d9795fb": {"revisions": [{"from":8207193,"bases":["0xed2da5b0"],"interface":false,"value":false}], "properties": {
- "0x1d445284": {"name":"VoBehavior","revisions":[{"from":8207193,"to":8248524,"type":["Link","0x0","0x0","0xa35db897"],"default":"0x0"},{"from":8298620,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0x2a078c9c": {"name":"EventName","revisions":[{"from":8207193,"type":["String","0x0","0x0","0x0"],"default":""}]}
+"0x5d9795fb": {"revisions": [{"from":8207193,"to":8328265,"bases":["0xed2da5b0"],"interface":false,"value":false},{"from":8342754,"bases":["0xed2da5b0"],"interface":false,"value":false}], "properties": {
+ "0x1d445284": {"name":"VoBehavior","revisions":[{"from":8207193,"to":8248524,"type":["Link","0x0","0x0","0xa35db897"],"default":"0x0"},{"from":8298620,"to":8328265,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":8342754,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x2a078c9c": {"name":"EventName","revisions":[{"from":8207193,"to":8328265,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8342754,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x5d9fffed": {"name": "DynamicsChainBlendEventData", "revisions": [{"from":7643737,"bases":["0x798c7d28"],"interface":false,"value":false}], "properties": {
  "0x2b969c0d": {"name":"BlendFromDefaultDuration","revisions":[{"from":7643737,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0xe1d49cba": {"revisions":[{"from":8341395,"to":8341395,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
  "0xe61bf09e": {"name":"BlendToDefaultDuration","revisions":[{"from":7643737,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0x5da4336c": {"name": "SeqInputMaterialParamFloat", "revisions": [{"from":6649480,"bases":["0x8930818a"],"interface":false,"value":false}], "properties": {
@@ -12930,10 +12986,10 @@
  "0x9f3d999f": {"name":"LastHitAssistRadius","revisions":[{"from":6738244,"type":["F32","0x0","0x0","0x0"],"default":1200.0}]}
 }},
 "0x60fd8a21": {"name": "ParamsMinionKill", "revisions": [{"from":7584427,"bases":["0xd83b6b03"],"interface":false,"value":false}], "properties": {
- "0x62ab3bf": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x2e38e6c5": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x50a509c1": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0xe86ba2bf": {"revisions":[{"from":7584427,"type":["I32","0x0","0x0","0x0"],"default":0}]}
+ "0x62ab3bf": {"revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x2e38e6c5": {"revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x50a509c1": {"revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xe86ba2bf": {"revisions":[{"from":7584427,"to":8328265,"type":["I32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["I32","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x60fea92f": {"revisions": [{"from":5229820,"to":5588314,"bases":["0xfb677f88"],"interface":false,"value":false}], "properties": {
 }},
@@ -13312,6 +13368,13 @@
 "0x643d3b29": {"name": "MapContainsOtherMaps", "revisions": [{"from":5229820,"bases":["0x44f9e6c"],"interface":false,"value":false}], "properties": {
  "0xdcd3b0f0": {"name":"MapContainerLocations","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xb25c0a3f"],"default":"0x0"}]}
 }},
+"0x644f3506": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x4939f3f8": {"name":"Threshold","revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":0.10000000149011612}]},
+ "0x724b7460": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":25.0}]},
+ "0xa354b1bd": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":2.0}]},
+ "0xdb47ac14": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":16.0}]},
+ "0xe504e4eb": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":8.0}]}
+}},
 "0x64502b50": {"revisions": [{"from":7996036,"bases":["0xd04cfb37"],"interface":false,"value":false}], "properties": {
  "0xa5baa7fc": {"revisions":[{"from":7996036,"type":["List2","0x0","Pointer","0xd04cfb37"],"default":[]}]}
 }},
@@ -13389,11 +13452,11 @@
  "0x71755aa6": {"name":"ClickParticles","revisions":[{"from":5229820,"type":["Map","String","Link","0x45cd899f"],"default":{}}]}
 }},
 "0x6548c848": {"name": "ParamsChampionKill", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
- "0x62ab3bf": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0xcaccb87": {"name":"Assists","revisions":[{"from":7584427,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]},
- "0x1b8094ed": {"revisions":[{"from":7584427,"type":["I32","0x0","0x0","0x0"],"default":-1}]},
- "0x8bffd7b6": {"revisions":[{"from":7584427,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xadce1b8d": {"name":"assistCount","revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]}
+ "0x62ab3bf": {"revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xcaccb87": {"name":"Assists","revisions":[{"from":7584427,"to":8328265,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{"from":8342754,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]},
+ "0x1b8094ed": {"revisions":[{"from":7584427,"to":8328265,"type":["I32","0x0","0x0","0x0"],"default":-1},{"from":8342754,"type":["I32","0x0","0x0","0x0"],"default":-1}]},
+ "0x8bffd7b6": {"revisions":[{"from":7584427,"to":8328265,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":8342754,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xadce1b8d": {"name":"assistCount","revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x65606039": {"revisions": [{"from":7231955,"bases":[],"interface":false,"value":false}], "properties": {
  "0xbdd80f6": {"name":"HoverText","revisions":[{"from":7231955,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -14585,6 +14648,9 @@
  "0xd975992f": {"name":"Active","revisions":[{"from":7465697,"to":7620675,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0xee192a3e": {"revisions":[{"from":7465697,"to":7620675,"type":["Embed","0x0","0x0","0x6efc4aa7"],"default":{"intro":{"0x1327149b":"","0x66bde3f":"","LoopAnimation":"","0xe7214e2d":"","IntroAnimation":""},"Canvas":{"0x5c77e8b":0,"CanvasSize":0,"0xc12d04c6":""},"Transition":{"0x99b0deea":"","TransitionAnimation":""}}}]},
  "0xffe0c49a": {"name":"types","revisions":[{"from":7465697,"to":7620675,"type":["List2","0x0","String","0x0"],"default":[]}]}
+}},
+"0x6ec6ed80": {"revisions": [{"from":8341395,"to":8341395,"bases":["0x505f1532"],"interface":false,"value":false}], "properties": {
+ "0xcc42a2fb": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0x6ec744fb": {"revisions": [{"from":6421879,"to":7480682,"bases":["0x827227f3"],"interface":false,"value":false}], "properties": {
  "0x3b699169": {"revisions":[{"from":6421879,"to":7480682,"type":["F32","0x0","0x0","0x0"],"default":-1.0}]},
@@ -16129,11 +16195,11 @@
 "0x7b82a730": {"revisions": [{"from":6421879,"to":7480682,"bases":["0x645e288b"],"interface":false,"value":false}], "properties": {
  "0xf8ce75e3": {"name":"Query","revisions":[{"from":6421879,"to":7480682,"type":["Embed","0x0","0x0","0x64be4d61"],"default":{"0xbb9be826":[],"ExcludeTags":[],"RequiredTags":[]}}]}
 }},
-"0x7b9423e1": {"revisions": [{"from":8159717,"bases":["0xc8093bd"],"interface":false,"value":false}], "properties": {
- "0x10b79afa": {"revisions":[{"from":8159717,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x33290b2f": {"revisions":[{"from":8159717,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x66fdf6bf": {"revisions":[{"from":8159717,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x978d1c13": {"revisions":[{"from":8159717,"type":["String","0x0","0x0","0x0"],"default":""}]}
+"0x7b9423e1": {"revisions": [{"from":8159717,"to":8328265,"bases":["0xc8093bd"],"interface":false,"value":false},{"from":8342754,"bases":["0xc8093bd"],"interface":false,"value":false}], "properties": {
+ "0x10b79afa": {"revisions":[{"from":8159717,"to":8328265,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8342754,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x33290b2f": {"revisions":[{"from":8159717,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x66fdf6bf": {"revisions":[{"from":8159717,"to":8328265,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8342754,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x978d1c13": {"revisions":[{"from":8159717,"to":8328265,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8342754,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x7ba9ed2e": {"name": "SkinEmblem", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x564eb981": {"name":"mLoadingScreenAnchor","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":5}]},
@@ -16150,6 +16216,9 @@
  "0xc12465e0": {"revisions":[{"from":8298620,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x7c044fe1": {"name": "ParamsHeal", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
+}},
+"0x7c115bc2": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xf77593b5"],"interface":false,"value":false}], "properties": {
+ "0x26b603f": {"revisions":[{"from":8341395,"to":8341395,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x7c1c1df4": {"name": "NextSpellVars", "revisions": [{"from":5437084,"bases":["0x24f32dbe"],"interface":false,"value":false}], "properties": {
 }},
@@ -16354,7 +16423,7 @@
  "0xb2246553": {"name":"GlobalContextualActionData","revisions":[{"from":7695709,"to":7728292,"type":["List2","0x0","Link","0xcf313c24"],"default":[]},{"from":7747445,"to":8230722,"type":["List2","0x0","Link","0xb2246553"],"default":[]},{"from":8248524,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
 "0x7da835ce": {"revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
- "0x79ef5f32": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]}
+ "0x79ef5f32": {"revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x7da8bcc4": {"revisions": [{"from":8104348,"to":8104348,"bases":[],"interface":false,"value":false}], "properties": {
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":8104348,"to":8104348,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -16959,6 +17028,11 @@
  "0xea4b69c5": {"name":"DuplicateText","revisions":[{"from":5876777,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xeacdfcfd": {"name":"Parent","revisions":[{"from":5756478,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
+"0x81931b49": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x34474c3b": {"name":"values","revisions":[{"from":8341395,"to":8341395,"type":["List2","0x0","Link","0xc1e61cdb"],"default":[]}]},
+ "0x8d39bde6": {"name":"name","revisions":[{"from":8341395,"to":8341395,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x933b5bde": {"name":"Default","revisions":[{"from":8341395,"to":8341395,"type":["Link","0x0","0x0","0xc1e61cdb"],"default":"0x0"}]}
+}},
 "0x8195235f": {"name": "PlayerProfileMatchHistoryView", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
  "0x3228d244": {"name":"MatchHistoryTraitTemplate","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x3228d244"],"default":{"FrameLevelsSelected":[],"Group":"0x0","FrameLevels":[],"Icon":"0x0","TooltipButton":"0x0"}}]},
  "0x4cca91ee": {"name":"NoMatchHistoryText","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -17049,6 +17123,9 @@
 "0x82a00368": {"revisions": [{"from":6421879,"bases":["0x38ad3494"],"interface":false,"value":false}], "properties": {
  "0x8b075f3e": {"name":"RespawnDelay","revisions":[{"from":6421879,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xca411bdb": {"name":"RespawnDuration","revisions":[{"from":6421879,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+}},
+"0x82aa810c": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xf77593b5"],"interface":false,"value":false}], "properties": {
+ "0x26b603f": {"revisions":[{"from":8341395,"to":8341395,"type":["U32","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x82b49579": {"name": "VfxGeComponentDef", "revisions": [{"from":7231955,"bases":["0x62a09c62"],"interface":false,"value":false}], "properties": {
  "0x17c543dc": {"name":"TextureOverride","revisions":[{"from":7389684,"type":["Pointer","0x0","0x0","0x3e265091"],"default":null}]},
@@ -17300,6 +17377,8 @@
 }},
 "0x845f6e73": {"name": "AreaTriggerEntity", "revisions": [{"from":6421879,"to":7016241,"bases":["0x9d021f61"],"interface":false,"value":false},{"from":7027993,"to":7374870,"bases":["0x9d021f61"],"interface":true,"value":false}], "properties": {
  "0x84145ca0": {"name":"definition","revisions":[{"from":6421879,"to":7016241,"type":["Pointer","0x0","0x0","0xfbbe5989"],"default":null}]}
+}},
+"0x84634350": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xe7b5f8e8"],"interface":false,"value":false}], "properties": {
 }},
 "0x84721309": {"revisions": [{"from":5437084,"to":5479214,"bases":["0x7546469c"],"interface":false,"value":false}], "properties": {
 }},
@@ -18145,6 +18224,14 @@
  "0x84145ca0": {"name":"definition","revisions":[{"from":7200925,"to":7336673,"type":["Embed","0x0","0x0","0x2461f3a9"],"default":{"inheritedTags":[],"tags":[]}},{"from":7347485,"to":7347485,"type":["Embed","0x0","0x0","0x2461f3a9"],"default":{"inheritedTags":[],"tags":[]}}]},
  "0xf8f165ee": {"name":"Sequencer","revisions":[{"from":7231955,"type":["Embed","0x0","0x0","0x1eee9d10"],"default":{}}]}
 }},
+"0x8a58053a": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xb33b2406"],"interface":false,"value":false}], "properties": {
+ "0x2c0031b": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
+ "0xc31d27b": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0x6596cc94": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x7e1284d1": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
+ "0x85dd4742": {"revisions":[{"from":8341395,"to":8341395,"type":["U32","0x0","0x0","0x0"],"default":1}]},
+ "0xc79e8b8c": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+}},
 "0x8a63c32f": {"name": "OffScreenPOIViewController", "revisions": [{"from":5229820,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x8dc7d3": {"name":"ChampionPortraitScene","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x3f19432c": {"name":"BaseLoadable","revisions":[{"from":5229820,"to":6781456,"type":["Link","0x0","0x0","0xe0d5fc7e"],"default":"0x0"}]},
@@ -18515,9 +18602,9 @@
 "0x8d941811": {"name": "NovaItemGetImage", "revisions": [{"from":8104348,"to":8230722,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0x8db1dc6a": {"name": "ParamsKillingSpree", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
- "0xcaccb87": {"name":"Assists","revisions":[{"from":7893741,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]},
- "0xadce1b8d": {"name":"assistCount","revisions":[{"from":7893741,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0xf785ce49": {"name":"Amount","revisions":[{"from":7584427,"type":["I32","0x0","0x0","0x0"],"default":0}]}
+ "0xcaccb87": {"name":"Assists","revisions":[{"from":7893741,"to":8328265,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{"from":8342754,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]},
+ "0xadce1b8d": {"name":"assistCount","revisions":[{"from":7893741,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xf785ce49": {"name":"Amount","revisions":[{"from":7584427,"to":8328265,"type":["I32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["I32","0x0","0x0","0x0"],"default":0}]}
 }},
 "0x8db28f0c": {"name": "RadialMenuBase", "revisions": [{"from":7643737,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -19163,6 +19250,10 @@
  "0x3f19432c": {"name":"BaseLoadable","revisions":[{"from":6236777,"to":6781456,"type":["Link","0x0","0x0","0xe0d5fc7e"],"default":"0x0"}]},
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":6236777,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
+"0x92af2ecc": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x19385305": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
+}},
 "0x92b6b7fa": {"revisions": [{"from":5466062,"bases":["0x3c2ab5b0"],"interface":false,"value":false}], "properties": {
  "0x7332c626": {"name":"MaxValue","revisions":[{"from":5466062,"type":["Pointer","0x0","0x0","0xc214849f"],"default":null}]},
  "0xdec56440": {"name":"ValuesToExclude","revisions":[{"from":5466062,"type":["List2","0x0","Pointer","0xc214849f"],"default":[]}]},
@@ -19183,6 +19274,7 @@
 "0x92c8c778": {"revisions": [{"from":7200925,"bases":[],"interface":false,"value":false}], "properties": {
  "0x28c538e1": {"name":"fontSize","revisions":[{"from":7200925,"to":7218442,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":7231955,"type":["U16","0x0","0x0","0x0"],"default":0}]},
  "0x2bf77ed0": {"name":"FontWeight","revisions":[{"from":7200925,"to":7218442,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":7231955,"type":["U8","0x0","0x0","0x0"],"default":4}]},
+ "0x4f608643": {"revisions":[{"from":8341395,"to":8341395,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x51c7ac80": {"name":"FontFamily","revisions":[{"from":7200925,"type":["Link","0x0","0x0","0x215f4776"],"default":"0x0"}]},
  "0x9eab8cf8": {"revisions":[{"from":7200925,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xed4469b5": {"name":"FontStyle","revisions":[{"from":7200925,"type":["U8","0x0","0x0","0x0"],"default":0}]}
@@ -19575,6 +19667,17 @@
  "0xd7750a6a": {"name":"ExcludedPortals","revisions":[{"from":7102027,"to":7218442,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
 "0x96ddbc74": {"name": "VfxPrimitiveCameraQuad", "revisions": [{"from":5229820,"to":7527101,"bases":["0xe29392e1"],"interface":false,"value":false},{"from":7538272,"to":7620675,"bases":["0x60c24094"],"interface":false,"value":false},{"from":7643737,"bases":["0x60c24094","0x67ee2ddb"],"interface":false,"value":false}], "properties": {
+}},
+"0x97125ae0": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x2c4774c5": {"name":"AdaptationTime","revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0x2d5dfced": {"name":"RtpcObject","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x48623ab6": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":0.5}]},
+ "0x4939f3f8": {"name":"Threshold","revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":0.699999988079071}]},
+ "0x6b392dd7": {"name":"AdaptationZoom","revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":4.0}]},
+ "0xe095d841": {"name":"ObjectName","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xf8c69a26": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":0.15000000596046448}]},
+ "0xfb1c9f49": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":0.05000000074505806}]}
 }},
 "0x97234459": {"revisions": [{"from":7465697,"to":7620675,"bases":[],"interface":false,"value":false}], "properties": {
  "0x99b0deea": {"revisions":[{"from":7465697,"to":7620675,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -20078,6 +20181,7 @@
  "0x592970c": {"name":"CanShareThemeMusic","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x62ca0ae": {"revisions":[{"from":7135912,"type":["Pointer","0x0","0x0","0x62ca0ae"],"default":null}]},
  "0x89aff69": {"name":"iconAvatar","revisions":[{"from":5229820,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xee05e09": {"revisions":[{"from":8341395,"to":8341395,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x123393ed": {"name":"defaultAnimations","revisions":[{"from":5229820,"type":["List","0x0","String","0x0"],"default":[]}]},
  "0x14854159": {"name":"skipVOOverride","revisions":[{"from":5229820,"to":7527101,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x1b2d7605": {"name":"particleOverride_ChampionKillDeathParticle","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -20119,7 +20223,7 @@
  "0x8ce04c3d": {"name":"uncensoredIconCircles","revisions":[{"from":5229820,"to":8049184,"type":["Map","Hash","String","0x0"],"default":{}},{"from":8104348,"type":["Map","Hash","File","0x0"],"default":{}}]},
  "0x8f7b194f": {"name":"skinAudioProperties","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x8f7b194f"],"default":{"PlaysVo":true,"tagEventList":[],"bankUnits":[]}}]},
  "0x939e7b29": {"name":"metaDataTags","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x957f2fcc": {"revisions":[{"from":8298620,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x957f2fcc": {"revisions":[{"from":8298620,"to":8328265,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8342754,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x97f7188d": {"name":"loadscreen","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0xd06263ff"],"default":{"UncensoredImages":{},"image":"0x0"}}]},
  "0x9cf5d363": {"revisions":[{"from":8042660,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xa5f167ec": {"name":"uncensoredIconSquares","revisions":[{"from":5229820,"to":8049184,"type":["Map","Hash","String","0x0"],"default":{}},{"from":8104348,"type":["Map","Hash","File","0x0"],"default":{}}]},
@@ -20295,7 +20399,7 @@
  "0xca0e79b5": {"name":"LabelTraKey","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xe7e19b94": {"name":"option","revisions":[{"from":5229820,"type":["U16","0x0","0x0","0x0"],"default":65535}]}
 }},
-"0x9c875600": {"revisions": [{"from":8298620,"bases":["0xed2da5b0"],"interface":false,"value":false}], "properties": {
+"0x9c875600": {"revisions": [{"from":8298620,"to":8328265,"bases":["0xed2da5b0"],"interface":false,"value":false},{"from":8341395,"to":8341395,"bases":["0x58ec86b0"],"interface":false,"value":false},{"from":8342754,"bases":["0xed2da5b0"],"interface":false,"value":false}], "properties": {
  "0x2a078c9c": {"name":"EventName","revisions":[{"from":8298620,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x42a11948": {"revisions":[{"from":8298620,"type":["Pointer","0x0","0x0","0xf77593b5"],"default":null}]},
  "0x9087c853": {"name":"AudioBehavior","revisions":[{"from":8298620,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
@@ -21176,6 +21280,10 @@
 "0xa41315c0": {"revisions": [{"from":6161179,"bases":[],"interface":true,"value":false}], "properties": {
  "0x411b1019": {"name":"Modifiers","revisions":[{"from":6161179,"type":["List2","0x0","Pointer","0xa4b9367d"]}]}
 }},
+"0xa41607c3": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x19385305": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
+}},
 "0xa422530f": {"name": "ItemRecommendationOverrideSet", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x813a5f81": {"name":"mOverrides","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x63019e19"],"default":[]}]}
 }},
@@ -21683,6 +21791,9 @@
  "0x23c80d88": {"name":"Distributions","revisions":[{"from":5549136,"type":["List2","0x0","Link","0x42c94584"],"default":[]}]},
  "0x4e5fff2b": {"name":"Encounters","revisions":[{"from":5379010,"type":["List2","0x0","Link","0x84972e16"],"default":[]}]}
 }},
+"0xa87ee7f5": {"name": "VfxShimmerPrimitiveQuadBase", "revisions": [{"from":8341395,"to":8341395,"bases":["0xadec1272"],"interface":true,"value":false}], "properties": {
+ "0x4fe2b16f": {"name":"PivotPoint","revisions":[{"from":8341395,"to":8341395,"type":["Vec2","0x0","0x0","0x0"]}]}
+}},
 "0xa8823dc8": {"revisions": [{"from":6124791,"bases":[],"interface":false,"value":false}], "properties": {
  "0x31a43617": {"name":"ScoreBreakpoints","revisions":[{"from":6124791,"type":["List2","0x0","I32","0x0"],"default":[]}]}
 }},
@@ -21743,8 +21854,12 @@
 "0xa8efd56d": {"name": "MapAntiAliasing", "revisions": [{"from":7851316,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
  "0x1a52dfe9": {"revisions":[{"from":8104348,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x367871e6": {"revisions":[{"from":8104348,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x88487b88": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x9bea6fb4": {"revisions":[{"from":8341395,"to":8341395,"type":["U8","0x0","0x0","0x0"],"default":1}]},
  "0xb91780a6": {"revisions":[{"from":7851316,"type":["U8","0x0","0x0","0x0"],"default":1}]},
- "0xec6ee012": {"name":"Mode","revisions":[{"from":7851316,"type":["U8","0x0","0x0","0x0"],"default":1}]}
+ "0xec6ee012": {"name":"Mode","revisions":[{"from":7851316,"type":["U8","0x0","0x0","0x0"],"default":1}]},
+ "0xf1d0c022": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xfe57b881": {"revisions":[{"from":8341395,"to":8341395,"type":["Embed","0x0","0x0","0x644f3506"],"default":{"Threshold":0.10000000149011612,"0x724b7460":25.0,"0xa354b1bd":2.0,"0xdb47ac14":16.0,"0xe504e4eb":8.0}}]}
 }},
 "0xa8f2f8d9": {"name": "ITargetingRangeValue", "revisions": [{"from":5229820,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -21810,6 +21925,8 @@
  "0x35648278": {"name":"Badge","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x3d7e6258": {"name":"Color","revisions":[{"from":5229820,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
  "0x43b27471": {"name":"Button","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+}},
+"0xa9554b88": {"revisions": [{"from":8341395,"to":8341395,"bases":["0x31832241"],"interface":false,"value":false}], "properties": {
 }},
 "0xa9580c30": {"name": "TftGameStartSequenceTurbo", "revisions": [{"from":5229820,"to":5290642,"bases":["0xb9cf2414"],"interface":false,"value":false}], "properties": {
  "0x14713b68": {"name":"GameStartTextShowDelaySecs","revisions":[{"from":5229820,"to":5290642,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -22099,6 +22216,10 @@
 "0xac7a5f1d": {"name": "MapAreaGroupCheck", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x47d35afc": {"name":"AreasToCheck","revisions":[{"from":5229820,"type":["List2","0x0","U32","0x0"],"default":[]}]},
  "0xc6e1d5c4": {"name":"AreaCheckQuantifier","revisions":[{"from":5229820,"type":["U32","0x0","0x0","0x0"],"default":0}]}
+}},
+"0xac8e59f3": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x19385305": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
 "0xac98ac97": {"name": "HierarchyGeComponent", "revisions": [{"from":8248524,"bases":["0x3497f0cf"],"interface":false,"value":false}], "properties": {
 }},
@@ -22942,7 +23063,7 @@
  "0xe04c974f": {"name":"AnimIn","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xb1a8a3c0": {"name": "ExecuteFunctionClientBlock", "revisions": [{"from":8104348,"bases":["0x2435bbc2"],"interface":false,"value":false}], "properties": {
- "0x203e6faa": {"name":"Script","revisions":[{"from":8104348,"type":["Link","0x0","0x0","0x671bdc8d"],"default":"0x0"}]},
+ "0x203e6faa": {"name":"Script","revisions":[{"from":8104348,"to":8328265,"type":["Link","0x0","0x0","0x671bdc8d"],"default":"0x0"},{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":8342754,"type":["Link","0x0","0x0","0x671bdc8d"],"default":"0x0"}]},
  "0x9ed64249": {"name":"Function","revisions":[{"from":8104348,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xb1c52813": {"name": "RegionGeComponentDef", "revisions": [{"from":7345787,"to":7345787,"bases":["0x62a09c62"],"interface":false,"value":false},{"from":7371049,"bases":["0x62a09c62"],"interface":false,"value":false}], "properties": {
@@ -23176,6 +23297,8 @@
 }},
 "0xb36da9ac": {"name": "MapAudioDataProperties", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x1cf84925": {"name":"MobileMixEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x3a5754e0": {"revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0xbbc70f90"],"default":null}]},
  "0x561de536": {"name":"PcMixEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x5f8383ca": {"name":"features","revisions":[{"from":5229820,"to":5869705,"type":["List","0x0","Link","0xf2b58198"],"default":[]}]},
  "0x81c35ced": {"name":"ListenerConfiguration","revisions":[{"from":8248524,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -23367,6 +23490,7 @@
  "0x1cea1301": {"revisions":[{"from":7200925,"to":7218442,"type":["Embed","0x0","0x0","0xf301caaa"],"default":{"0xd01c6167":0}}]}
 }},
 "0xb440906e": {"name": "ClientStateAudioDataProperties", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x42d15a72": {"revisions":[{"from":8159717,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x53ad3c01": {"name":"themeMusic","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xc6040c09": {"name":"BankPaths","revisions":[{"from":5229820,"type":["List","0x0","String","0x0"],"default":[]}]}
@@ -23399,6 +23523,22 @@
  "0x954d766f": {"name":"mRuleCooldown","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0xb4b5ab41": {"revisions": [{"from":7695709,"to":7884269,"bases":["0x2610a4a3"],"interface":true,"value":false}], "properties": {
+}},
+"0xb4b8ae88": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
+ "0x29971eb5": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x319dbade": {"revisions":[{"from":8341395,"to":8341395,"type":["List2","0x0","Hash","0x0"],"default":[]}]},
+ "0x48b6fe24": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x4d302530": {"name":"MainScene","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x6925b368": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":2.0}]},
+ "0x6fb120f5": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x7e226078": {"name":"ItemTemplate","revisions":[{"from":8341395,"to":8341395,"type":["Embed","0x0","0x0","0x32e94b82"],"default":{"Group":"0x0","0x8f44134c":"0x0","0x9225213":"0x0","0xa25cecc":"0x0"}}]},
+ "0x961e9382": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xb1be4e53": {"name":"RewardHitRegion","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xba9cac3a": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xd3179841": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xd5cf5f07": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xe4013f31": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":6.0}]},
+ "0xeb437b12": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xb4c4e463": {"name": "LerpMaterialDriver", "revisions": [{"from":5229820,"bases":["0xb33b2406"],"interface":false,"value":false}], "properties": {
  "0x26f47ae": {"name":"mOnValue","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
@@ -23502,6 +23642,7 @@
  "0xa97376aa": {"name":"NavGridOverlay","revisions":[{"from":5437084,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xc5ea66ab": {"name":"MinimapColor","revisions":[{"from":6124791,"type":["Color","0x0","0x0","0x0"],"default":[0,0,0,255]}]},
  "0xd7713c7b": {"name":"Margin","revisions":[{"from":5437084,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
+ "0xf3bcf9bc": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf416eba0": {"name":"tags","revisions":[{"from":6738244,"type":["Map","U32","U32","0x0"],"default":{}}]}
 }},
 "0xb5754dad": {"revisions": [{"from":7794239,"bases":["0x2a9f4223"],"interface":true,"value":false}], "properties": {
@@ -23615,13 +23756,13 @@
  "0xe9790525": {"name":"queueId","revisions":[{"from":5229820,"type":["I64","0x0","0x0","0x0"],"default":0}]}
 }},
 "0xb6639ef2": {"revisions": [{"from":7851316,"bases":[],"interface":true,"value":false}], "properties": {
- "0x1a6dc297": {"revisions":[{"from":7851316,"type":["List2","0x0","Vec3","0x0"]}]},
- "0x1b1e7503": {"revisions":[{"from":7851316,"type":["Map","U32","U32","0x0"]}]},
- "0x347f3405": {"revisions":[{"from":7851316,"type":["Bool","0x0","0x0","0x0"]}]},
- "0x37386ae0": {"name":"ID","revisions":[{"from":7851316,"type":["U32","0x0","0x0","0x0"]}]},
- "0x6359ca6b": {"revisions":[{"from":7851316,"type":["Bool","0x0","0x0","0x0"]}]},
- "0x71d08e70": {"revisions":[{"from":7851316,"type":["String","0x0","0x0","0x0"]}]},
- "0xd7306713": {"revisions":[{"from":7851316,"type":["F32","0x0","0x0","0x0"]}]}
+ "0x1a6dc297": {"revisions":[{"from":7851316,"to":8328265,"type":["List2","0x0","Vec3","0x0"]},{"from":8342754,"type":["List2","0x0","Vec3","0x0"]}]},
+ "0x1b1e7503": {"revisions":[{"from":7851316,"to":8328265,"type":["Map","U32","U32","0x0"]},{"from":8342754,"type":["Map","U32","U32","0x0"]}]},
+ "0x347f3405": {"revisions":[{"from":7851316,"to":8328265,"type":["Bool","0x0","0x0","0x0"]},{"from":8342754,"type":["Bool","0x0","0x0","0x0"]}]},
+ "0x37386ae0": {"name":"ID","revisions":[{"from":7851316,"to":8328265,"type":["U32","0x0","0x0","0x0"]},{"from":8342754,"type":["U32","0x0","0x0","0x0"]}]},
+ "0x6359ca6b": {"revisions":[{"from":7851316,"to":8328265,"type":["Bool","0x0","0x0","0x0"]},{"from":8342754,"type":["Bool","0x0","0x0","0x0"]}]},
+ "0x71d08e70": {"revisions":[{"from":7851316,"to":8328265,"type":["String","0x0","0x0","0x0"]},{"from":8342754,"type":["String","0x0","0x0","0x0"]}]},
+ "0xd7306713": {"revisions":[{"from":7851316,"to":8328265,"type":["F32","0x0","0x0","0x0"]},{"from":8342754,"type":["F32","0x0","0x0","0x0"]}]}
 }},
 "0xb67aee6f": {"name": "VfxFieldOrbitalDefinitionData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x3040923e": {"name":"isLocalSpace","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
@@ -23678,6 +23819,7 @@
 }},
 "0xb6adadea": {"name": "HeroFloatingInfoIconData", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x1f523237": {"name":"border","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x5c150da4": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe5a8465e": {"name":"HighlightAnim","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe64015f0": {"name":"Icon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
@@ -24228,6 +24370,9 @@
 "0xbbc6d7f5": {"name": "RadialMenuButtonDefinitionBase", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0xef2cd5bb": {"name":"DefaultIcon","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
+"0xbbc70f90": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":false,"value":true}], "properties": {
+ "0xe5b32e1": {"name":"scaleOverride","revisions":[{"from":8341395,"to":8341395,"type":["Option","0x0","F32","0x0"],"default":null}]}
+}},
 "0xbbca8e5a": {"revisions": [{"from":6236777,"to":7480682,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0xf087db8": {"name":"ItemSceneTemplate","revisions":[{"from":6236777,"to":6804378,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x2063cb13": {"name":"Scene","revisions":[{"from":6275678,"to":7480682,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -24288,8 +24433,8 @@
  "0x8d47ee4": {"name":"mPrecision","revisions":[{"from":5229820,"type":["I32","0x0","0x0","0x0"],"default":0}]},
  "0x50f145c0": {"name":"mFormulaParts","revisions":[{"from":5229820,"type":["List","0x0","Pointer","0xb60012ce"],"default":[]}]},
  "0x5a2297d3": {"name":"mDisplayAsPercent","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xacc210ca": {"revisions":[{"from":8298620,"type":["Pointer","0x0","0x0","0xb60012ce"],"default":null}]},
- "0xbafc65c0": {"revisions":[{"from":8298620,"type":["Pointer","0x0","0x0","0xb60012ce"],"default":null}]}
+ "0xacc210ca": {"revisions":[{"from":8298620,"to":8328265,"type":["Pointer","0x0","0x0","0xb60012ce"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0xb60012ce"],"default":null}]},
+ "0xbafc65c0": {"revisions":[{"from":8298620,"to":8328265,"type":["Pointer","0x0","0x0","0xb60012ce"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0xb60012ce"],"default":null}]}
 }},
 "0xbc413e21": {"name": "IFloatUpdateElement", "revisions": [{"from":5681102,"bases":["0x53de4f74"],"interface":true,"value":false}], "properties": {
 }},
@@ -24407,17 +24552,17 @@
  "0x934f4e0a": {"name":"Position","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xbcb052b9": {"revisions": [{"from":7851316,"bases":[],"interface":true,"value":false}], "properties": {
- "0x2a078c9c": {"name":"EventName","revisions":[{"from":7851316,"type":["String","0x0","0x0","0x0"]}]},
- "0x454fd872": {"revisions":[{"from":7851316,"type":["U32","0x0","0x0","0x0"]}]},
- "0x47494134": {"revisions":[{"from":7851316,"type":["Bool","0x0","0x0","0x0"]}]},
- "0x7e4dc9ee": {"revisions":[{"from":7851316,"type":["U64","0x0","0x0","0x0"]}]},
- "0x8f86c4d2": {"name":"eventID","revisions":[{"from":7851316,"type":["U32","0x0","0x0","0x0"]}]},
- "0x934f4e0a": {"name":"Position","revisions":[{"from":7851316,"type":["Vec3","0x0","0x0","0x0"]}]},
- "0x9a2f253c": {"revisions":[{"from":7851316,"type":["String","0x0","0x0","0x0"]}]},
- "0xb5fd6649": {"revisions":[{"from":7851316,"type":["U32","0x0","0x0","0x0"]}]},
- "0xc4c8127c": {"revisions":[{"from":7851316,"type":["F32","0x0","0x0","0x0"]}]},
- "0xc869b8bb": {"revisions":[{"from":7851316,"type":["Bool","0x0","0x0","0x0"]}]},
- "0xfffedd10": {"revisions":[{"from":7851316,"type":["U32","0x0","0x0","0x0"]}]}
+ "0x2a078c9c": {"name":"EventName","revisions":[{"from":7851316,"to":8328265,"type":["String","0x0","0x0","0x0"]},{"from":8342754,"type":["String","0x0","0x0","0x0"]}]},
+ "0x454fd872": {"revisions":[{"from":7851316,"to":8328265,"type":["U32","0x0","0x0","0x0"]},{"from":8342754,"type":["U32","0x0","0x0","0x0"]}]},
+ "0x47494134": {"revisions":[{"from":7851316,"to":8328265,"type":["Bool","0x0","0x0","0x0"]},{"from":8342754,"type":["Bool","0x0","0x0","0x0"]}]},
+ "0x7e4dc9ee": {"revisions":[{"from":7851316,"to":8328265,"type":["U64","0x0","0x0","0x0"]},{"from":8342754,"type":["U64","0x0","0x0","0x0"]}]},
+ "0x8f86c4d2": {"name":"eventID","revisions":[{"from":7851316,"to":8328265,"type":["U32","0x0","0x0","0x0"]},{"from":8342754,"type":["U32","0x0","0x0","0x0"]}]},
+ "0x934f4e0a": {"name":"Position","revisions":[{"from":7851316,"to":8328265,"type":["Vec3","0x0","0x0","0x0"]},{"from":8342754,"type":["Vec3","0x0","0x0","0x0"]}]},
+ "0x9a2f253c": {"revisions":[{"from":7851316,"to":8328265,"type":["String","0x0","0x0","0x0"]},{"from":8342754,"type":["String","0x0","0x0","0x0"]}]},
+ "0xb5fd6649": {"revisions":[{"from":7851316,"to":8328265,"type":["U32","0x0","0x0","0x0"]},{"from":8342754,"type":["U32","0x0","0x0","0x0"]}]},
+ "0xc4c8127c": {"revisions":[{"from":7851316,"to":8328265,"type":["F32","0x0","0x0","0x0"]},{"from":8342754,"type":["F32","0x0","0x0","0x0"]}]},
+ "0xc869b8bb": {"revisions":[{"from":7851316,"to":8328265,"type":["Bool","0x0","0x0","0x0"]},{"from":8342754,"type":["Bool","0x0","0x0","0x0"]}]},
+ "0xfffedd10": {"revisions":[{"from":7851316,"to":8328265,"type":["U32","0x0","0x0","0x0"]},{"from":8342754,"type":["U32","0x0","0x0","0x0"]}]}
 }},
 "0xbcbc4216": {"name": "TimersViewController", "revisions": [{"from":6950646,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
  "0x2063cb13": {"name":"Scene","revisions":[{"from":6950646,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -24502,6 +24647,8 @@
  "0x93eda67c": {"name":"CurveType","revisions":[{"from":5798615,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xc3628f91": {"revisions":[{"from":5798615,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xec1f44b9": {"name":"MaxDuration","revisions":[{"from":5798615,"type":["F32","0x0","0x0","0x0"],"default":60.0}]}
+}},
+"0xbd3d4dee": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xa87ee7f5"],"interface":false,"value":false}], "properties": {
 }},
 "0xbd57ee48": {"revisions": [{"from":6124791,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -24594,6 +24741,8 @@
  "0x3ffd2c83": {"name":"mShowPBITipsOnLoadingScreen","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x8208140d": {"name":"mDurationInGame","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
  "0xd313cbc5": {"name":"mPBITipDurationOnLoadingScreen","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+}},
+"0xbe3e69bd": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xe7b5f8e8"],"interface":false,"value":false}], "properties": {
 }},
 "0xbe4626e1": {"name": "AchievementTitleReward", "revisions": [{"from":7426169,"bases":["0x2508c71e"],"interface":false,"value":false}], "properties": {
  "0x55a243d9": {"name":"TitleData","revisions":[{"from":7426169,"type":["Link","0x0","0x0","0x512e2440"],"default":"0x0"}]}
@@ -24899,8 +25048,8 @@
  "0x6d230e2b": {"name":"mHidefromAll","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
 }},
 "0xc03c9e4e": {"name": "BaseParams", "revisions": [{"from":7584427,"bases":[],"interface":false,"value":false}], "properties": {
- "0x4c819a10": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0xfe30d09f": {"name":"Event","revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":474}]}
+ "0x4c819a10": {"revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xfe30d09f": {"name":"Event","revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":474},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":474}]}
 }},
 "0xc03dda3f": {"name": "DeactivateEntityGroup", "revisions": [{"from":6421879,"to":6897804,"bases":["0x3c2ab5b0"],"interface":false,"value":false},{"from":6919951,"to":7046097,"bases":["0x27d92a31"],"interface":false,"value":false},{"from":7067476,"to":7067476,"bases":["0x27d92a31"],"interface":false,"value":false}], "properties": {
  "0x5fb91e8c": {"name":"Group","revisions":[{"from":6421879,"to":7046097,"type":["Pointer","0x0","0x0","0x13d71082"],"default":null},{"from":7067476,"to":7067476,"type":["Pointer","0x0","0x0","0x13d71082"],"default":null}]}
@@ -24970,6 +25119,7 @@
  "0x2d2de997": {"revisions":[{"from":7695709,"to":7949266,"type":["Embed","0x0","0x0","0x3412c115"],"default":{"rtpcName":"AroundGame_VisualModulation","0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}}]},
  "0x2d5dfced": {"name":"RtpcObject","revisions":[{"from":8159717,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x55383fd3": {"revisions":[{"from":8104348,"to":8104348,"type":["Embed","0x0","0x0","0x55383fd3"],"default":{"rtpcName":"AroundGame_VisualModulation","add":48.0,"Mult":0.02083333395421505}}]},
+ "0x6596cc94": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xe20b540b": {"name":"MusicTrack","revisions":[{"from":7996036,"type":["Embed","0x0","0x0","0xdb03f8f4"],"default":{"0x3b5b846f":"Play_mus_Client_LOL_Lobby_PRISM_Test"}}]}
 }},
 "0xc126997e": {"name": "SeqActionMinimapPulse", "revisions": [{"from":7643737,"bases":["0xeb31be9b"],"interface":false,"value":false}], "properties": {
@@ -25035,6 +25185,10 @@
 "0xc1def894": {"name": "ReadBoolConceptBlock", "revisions": [{"from":6919951,"bases":["0x7b440079"],"interface":false,"value":false}], "properties": {
  "0x79a94f04": {"name":"Output","revisions":[{"from":6919951,"type":["Embed","0x0","0x0","0xa2a7edad"],"default":{"Table":{},"Var":""}}]},
  "0xa3383d13": {"name":"Concept","revisions":[{"from":6919951,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+}},
+"0xc1e61cdb": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x8d39bde6": {"name":"name","revisions":[{"from":8341395,"to":8341395,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x8d9a165f": {"name":"SchemaFieldId","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xc1f3e2a0": {"name": "EvolutionDescription", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x5edaa69e": {"name":"mTitle","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -25182,19 +25336,19 @@
  "0xe898aa4d": {"name":"EnableOnStart","revisions":[{"from":5229820,"to":5588314,"type":["Bool","0x0","0x0","0x0"],"default":true}]}
 }},
 "0xc3a01413": {"name": "AudioBank", "revisions": [{"from":7893741,"to":7949266,"bases":[],"interface":true,"value":false},{"from":7996036,"bases":[],"interface":false,"value":false}], "properties": {
- "0x166e9b1a": {"revisions":[{"from":7996036,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x23e64fd4": {"revisions":[{"from":7893741,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x2a21ad00": {"name":"bankPath","revisions":[{"from":7893741,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x2f9b5265": {"revisions":[{"from":7893741,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0x7e91261a": {"revisions":[{"from":7893741,"type":["I32","0x0","0x0","0x0"],"default":0}]},
- "0xa4a718a3": {"revisions":[{"from":7893741,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x166e9b1a": {"revisions":[{"from":7996036,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x23e64fd4": {"revisions":[{"from":7893741,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x2a21ad00": {"name":"bankPath","revisions":[{"from":7893741,"to":8328265,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8342754,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x2f9b5265": {"revisions":[{"from":7893741,"to":8328265,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":8342754,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x7e91261a": {"revisions":[{"from":7893741,"to":8328265,"type":["I32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["I32","0x0","0x0","0x0"],"default":0}]},
+ "0xa4a718a3": {"revisions":[{"from":7893741,"to":8328265,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":8342754,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xa73ab9d0": {"revisions":[{"from":7893741,"to":7949266,"type":["Bool","0x0","0x0","0x0"]}]},
- "0xa948c711": {"revisions":[{"from":7996036,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0xad857dc4": {"revisions":[{"from":7996036,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xb8bf4770": {"revisions":[{"from":7996036,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xeb986cf8": {"revisions":[{"from":7996036,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xf7d00b66": {"revisions":[{"from":7996036,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
- "0xf8d08354": {"revisions":[{"from":7893741,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0xa948c711": {"revisions":[{"from":7996036,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xad857dc4": {"revisions":[{"from":7996036,"to":8328265,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8342754,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0xb8bf4770": {"revisions":[{"from":7996036,"to":8328265,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":8342754,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xeb986cf8": {"revisions":[{"from":7996036,"to":8328265,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":8342754,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xf7d00b66": {"revisions":[{"from":7996036,"to":8328265,"type":["Bool","0x0","0x0","0x0"],"default":false},{"from":8342754,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0xf8d08354": {"revisions":[{"from":7893741,"to":8328265,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8342754,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xf9a9e1b8": {"revisions":[{"from":7893741,"to":7949266,"type":["Bool","0x0","0x0","0x0"]}]},
  "0xfd210254": {"revisions":[{"from":7893741,"to":7949266,"type":["String","0x0","0x0","0x0"]}]}
 }},
@@ -25561,6 +25715,7 @@
  "0x210c06ba": {"revisions":[{"from":6359815,"to":6564086,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x23260843": {"revisions":[{"from":6421879,"to":6724034,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x234d078f": {"revisions":[{"from":5681102,"to":5719528,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
+ "0x241e4d84": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x242609d6": {"revisions":[{"from":6421879,"to":6724034,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x255d65d7": {"revisions":[{"from":8298620,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x2560015b": {"name":"TftSocialModeRequestSystem","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
@@ -25600,6 +25755,7 @@
  "0x408974da": {"revisions":[{"from":5549136,"to":6034237,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x46019bf0": {"name":"closeOnEndGameAfterDelay","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x466647d6": {"revisions":[{"from":7747445,"to":8049184,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
+ "0x46978367": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x46a63d99": {"revisions":[{"from":7231955,"to":7668562,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x47271038": {"revisions":[{"from":5276396,"to":6682516,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x488bc114": {"revisions":[{"from":6275678,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
@@ -26481,6 +26637,7 @@
  "0x10087a83": {"name":"ShadowsEnabled","revisions":[{"from":5923585,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0x14f54bbd": {"name":"mMapSkinServerConstants","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xc07acc5"],"default":"0x0"}]},
  "0x16349e22": {"name":"MapNavigationMesh","revisions":[{"from":5229820,"to":7336673,"type":["Link","0x0","0x0","0x16349e22"],"default":"0x0"},{"from":7347485,"to":7347485,"type":["Link","0x0","0x0","0x16349e22"],"default":"0x0"}]},
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x2d3285eb": {"revisions":[{"from":7231955,"type":["List2","0x0","Embed","0x34a5a0c9"],"default":[]}]},
  "0x42fcf599": {"name":"mMinimapBackgroundConfig","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x2acfe5ae"],"default":{"0x47dc1276":{},"mCustomMinimapBackgrounds":{},"0x7035cf20":false,"PreloadTextures":true,"0xb4263aa3":[255,255,255,255],"0xbe8bb0cd":"0x0","0xe27f3283":true,"mDefaultTextureName":"0x0"}}]},
  "0x63242493": {"name":"mNavigationMesh","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -26965,6 +27122,8 @@
  "0xf10a1a1f": {"name":"eventMutator","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xf58450d9"],"default":"0x0"}]},
  "0xf7e7945a": {"name":"AssociatedVersions","revisions":[{"from":5229820,"type":["List","0x0","String","0x0"],"default":[]}]}
 }},
+"0xd0d923a5": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xe7b5f8e8"],"interface":false,"value":false}], "properties": {
+}},
 "0xd0da4932": {"revisions": [{"from":5876777,"bases":["0xa403698b"],"interface":false,"value":false}], "properties": {
  "0x1a734ec3": {"name":"AssociatedPlayers","revisions":[{"from":5876777,"type":["List2","0x0","String","0x0"],"default":[]}]},
  "0xcbbc2c33": {"name":"VisibleFilter","revisions":[{"from":5876777,"type":["U32","0x0","0x0","0x0"],"default":0}]},
@@ -27344,7 +27503,7 @@
  "0x7168974e": {"name":"DynamicLighting","revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x9b15d5eb": {"name":"SSAO","revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xaecee07f": {"name":"PercentageResolution","revisions":[{"from":7695709,"type":["U8","0x0","0x0","0x0"],"default":100}]},
- "0xc7543bfc": {"name":"RenderParticles","revisions":[{"from":7695709,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
+ "0xc7543bfc": {"name":"RenderParticles","revisions":[{"from":7695709,"to":8328265,"type":["Bool","0x0","0x0","0x0"],"default":true},{"from":8342754,"type":["Bool","0x0","0x0","0x0"],"default":true}]},
  "0xfc90acf2": {"name":"SkyboxTexture","revisions":[{"from":7643737,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
 "0xd3e01da6": {"name": "MapTerrainPaint", "revisions": [{"from":5229820,"bases":["0x3f47efa"],"interface":false,"value":false}], "properties": {
@@ -27855,15 +28014,18 @@
  "0x32608848": {"name":"Target","revisions":[{"from":7135912,"type":["Pointer","0x0","0x0","0x3ff050d9"],"default":null}]}
 }},
 "0xd71d9476": {"name": "UiElementTextData", "revisions": [{"from":5229820,"bases":["0x62fa6cad"],"interface":false,"value":false}], "properties": {
+ "0x8b5b69f": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xf4122b2": {"name":"IconScale","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0x1352a6d0": {"name":"outlineColor","revisions":[{"from":7231955,"type":["Option","0x0","Color","0x0"],"default":null}]},
  "0x211cfbf4": {"name":"outlineSize","revisions":[{"from":7231955,"type":["Option","0x0","U32","0x0"],"default":null}]},
  "0x24972bb9": {"revisions":[{"from":7584427,"type":["F32","0x0","0x0","0x0"],"default":0.699999988079071}]},
  "0x2886ee61": {"revisions":[{"from":7231955,"type":["Link","0x0","0x0","0x82bdb583"],"default":"0x0"}]},
+ "0x32d7c91e": {"revisions":[{"from":8341395,"to":8341395,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0x3d7e6258": {"name":"Color","revisions":[{"from":7231955,"type":["Option","0x0","Color","0x0"],"default":null}]},
  "0x403767da": {"name":"FontDescription","revisions":[{"from":5229820,"type":["Link","0x0","0x0","0xe343b9b0"],"default":"0x0"}]},
  "0x6a093406": {"name":"WrappingMode","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0x6e4f45c5": {"name":"FlipForRTL","revisions":[{"from":5798615,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
+ "0x85e4eb6e": {"revisions":[{"from":8341395,"to":8341395,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xb157685d": {"name":"TRAKey","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xc1d0e91a": {"revisions":[{"from":7135912,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xceaf4fab": {"name":"TextAlignmentHorizontal","revisions":[{"from":5229820,"type":["U8","0x0","0x0","0x0"],"default":0}]},
@@ -27956,14 +28118,14 @@
  "0xb7571618": {"revisions":[{"from":7538272,"type":["Color","0x0","0x0","0x0"],"default":[0,215,255,255]}]}
 }},
 "0xd83b6b03": {"name": "ParamsDie", "revisions": [{"from":7584427,"bases":["0xc03c9e4e"],"interface":false,"value":false}], "properties": {
- "0xcaccb87": {"name":"Assists","revisions":[{"from":7584427,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]},
- "0x1b8094ed": {"revisions":[{"from":7584427,"type":["I32","0x0","0x0","0x0"],"default":-1}]},
- "0x53858b44": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0x8bffd7b6": {"revisions":[{"from":7584427,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
- "0xadce1b8d": {"name":"assistCount","revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0xcf48cc78": {"revisions":[{"from":7584427,"type":["List","0x2","Hash","0x0"],"default":["0x0","0x0"]}]},
- "0xdf8f1009": {"revisions":[{"from":7584427,"type":["U32","0x0","0x0","0x0"],"default":0}]},
- "0xee979cdc": {"revisions":[{"from":7584427,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
+ "0xcaccb87": {"name":"Assists","revisions":[{"from":7584427,"to":8328265,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{"from":8342754,"type":["List","0x10","U32","0x0"],"default":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]},
+ "0x1b8094ed": {"revisions":[{"from":7584427,"to":8328265,"type":["I32","0x0","0x0","0x0"],"default":-1},{"from":8342754,"type":["I32","0x0","0x0","0x0"],"default":-1}]},
+ "0x53858b44": {"revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x8bffd7b6": {"revisions":[{"from":7584427,"to":8328265,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"},{"from":8342754,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0xadce1b8d": {"name":"assistCount","revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xcf48cc78": {"revisions":[{"from":7584427,"to":8328265,"type":["List","0x2","Hash","0x0"],"default":["0x0","0x0"]},{"from":8342754,"type":["List","0x2","Hash","0x0"],"default":["0x0","0x0"]}]},
+ "0xdf8f1009": {"revisions":[{"from":7584427,"to":8328265,"type":["U32","0x0","0x0","0x0"],"default":0},{"from":8342754,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0xee979cdc": {"revisions":[{"from":7584427,"to":8328265,"type":["F32","0x0","0x0","0x0"],"default":0.0},{"from":8342754,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0xd845a4ab": {"name": "CelebrationLabFields", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0xbb14a627": {"name":"RatedTierVfx","revisions":[{"from":5229820,"type":["Map","U32","Hash","0x0"],"default":{}}]},
@@ -28602,6 +28764,7 @@
  "0x8e731442": {"name":"HeightFogStart","revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":300.0}]},
  "0x9b8085f1": {"name":"DofDebug","revisions":[{"from":5876777,"type":["Bool","0x0","0x0","0x0"],"default":false}]},
  "0xa6ce8c9a": {"name":"DepthFogStart","revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":5000.0}]},
+ "0xacdf6cfc": {"revisions":[{"from":8341395,"to":8341395,"type":["F32","0x0","0x0","0x0"],"default":100000.0}]},
  "0xadee7179": {"name":"BloomIntensityScale","revisions":[{"from":7300505,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
  "0xb0d4508d": {"name":"HeightFogColor","revisions":[{"from":5876777,"type":["Vec4","0x0","0x0","0x0"],"default":[0.0,0.0,0.0,1.0]}]},
  "0xb4e1daa3": {"revisions":[{"from":5876777,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -28740,6 +28903,11 @@
  "0xfbf67a11": {"revisions":[{"from":6950646,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xfce8e78c": {"name":"BackgroundTexture","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xfd920198": {"name":"SceneDivider","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
+}},
+"0xddd8919e": {"revisions": [{"from":8341395,"to":8341395,"bases":["0x58ec86b0"],"interface":false,"value":false}], "properties": {
+ "0xd212fabe": {"name":"Condition","revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x8a4a4963"],"default":null}]},
+ "0xd949ebd1": {"revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null}]},
+ "0xeb6f3310": {"revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null}]}
 }},
 "0xdddee91a": {"name": "VfxAbsVector2Driver", "revisions": [{"from":7269074,"bases":["0x68eabd15"],"interface":false,"value":false}], "properties": {
  "0x4e0e3632": {"name":"Param","revisions":[{"from":7269074,"type":["Pointer","0x0","0x0","0x68eabd15"],"default":null}]}
@@ -29074,7 +29242,7 @@
  "0x35b8ee35": {"name":"anchorLeft","revisions":[{"from":5229820,"type":["Vec2","0x0","0x0","0x0"],"default":[0.0,0.0]}]},
  "0xea0df64e": {"name":"anchorRight","revisions":[{"from":5229820,"type":["Vec2","0x0","0x0","0x0"],"default":[0.0,0.0]}]}
 }},
-"0xdf305970": {"revisions": [{"from":8207193,"bases":["0x12759fb"],"interface":false,"value":false}], "properties": {
+"0xdf305970": {"revisions": [{"from":8207193,"to":8328265,"bases":["0x12759fb"],"interface":false,"value":false},{"from":8341395,"to":8341395,"bases":["0x58ec86b0"],"interface":false,"value":false},{"from":8342754,"bases":["0x12759fb"],"interface":false,"value":false}], "properties": {
  "0x2a078c9c": {"name":"EventName","revisions":[{"from":8207193,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0xdf3bdc62": {"name": "UiElementGroupSliderState", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
@@ -29381,6 +29549,8 @@
  "0x9865b509": {"name":"title","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xa9affd87": {"revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
+"0xe1b00b4d": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xe7b5f8e8"],"interface":false,"value":false}], "properties": {
+}},
 "0xe1bb8efb": {"name": "MapActionToggleMapThemeMusic", "revisions": [{"from":5229820,"bases":["0xcbcee203"],"interface":false,"value":false}], "properties": {
 }},
 "0xe1c21adb": {"revisions": [{"from":5304653,"to":5706276,"bases":["0x75259ad3"],"interface":false,"value":false}], "properties": {
@@ -29492,7 +29662,7 @@
 "0xe260302c": {"name": "AiHeroClient", "revisions": [{"from":5229820,"bases":["0x66615e8b"],"interface":false,"value":false}], "properties": {
 }},
 "0xe262e6be": {"name": "UiComboBoxSoundEvents", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
- "0x11c2662d": {"name":"Select","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x11c2662d": {"name":"Select","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0x84e7e74a": {"name":"OnSelectionEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0xe27f0273": {"name": "RewardGroupCelebrationCanvas", "revisions": [{"from":7426169,"bases":[],"interface":false,"value":false}], "properties": {
@@ -30051,6 +30221,8 @@
  "0x3c695f5b": {"name":"mMinimumDisplayTime","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.125}]},
  "0x6a90713f": {"name":"mPrioritizedUnitStatusData","revisions":[{"from":5229820,"type":["List","0x0","Embed","0x4bebf6c1"],"default":[]}]},
  "0xb311d4ef": {"name":"TextureName","revisions":[{"from":5229820,"to":8049184,"type":["String","0x0","0x0","0x0"],"default":""},{"from":8104348,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]}
+}},
+"0xe7b5f8e8": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xb041c60a"],"interface":true,"value":false}], "properties": {
 }},
 "0xe7b61183": {"name": "LookAtMissileAngleParametricUpdater", "revisions": [{"from":6048769,"bases":["0x56b6e09"],"interface":false,"value":false}], "properties": {
  "0x8f149e18": {"revisions":[{"from":6275678,"type":["F32","0x0","0x0","0x0"],"default":0.0}]},
@@ -30935,7 +31107,7 @@
  "0xd8d71d83": {"name":"PromoteButton","revisions":[{"from":6161179,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xdffc8083": {"name":"PlayerName","revisions":[{"from":6161179,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]}
 }},
-"0xed2da5b0": {"name": "IUiAudioEvent", "revisions": [{"from":8207193,"bases":[],"interface":true,"value":false}], "properties": {
+"0xed2da5b0": {"name": "IUiAudioEvent", "revisions": [{"from":8207193,"to":8328265,"bases":[],"interface":true,"value":false},{"from":8342754,"bases":[],"interface":true,"value":false}], "properties": {
 }},
 "0xed4b858b": {"revisions": [{"from":5579166,"bases":[],"interface":true,"value":false}], "properties": {
 }},
@@ -30995,6 +31167,12 @@
  "0x78e32de5": {"name":"Right","revisions":[{"from":7465697,"to":7480682,"type":["Pointer","0x0","0x0","0x8877ad7c"],"default":null}]},
  "0xb33bbb28": {"name":"Easing","revisions":[{"from":7465697,"to":7480682,"type":["U8","0x0","0x0","0x0"],"default":0}]},
  "0xff0af490": {"name":"EasingFunction","revisions":[{"from":7496037,"type":["U8","0x0","0x0","0x0"],"default":0}]}
+}},
+"0xeda147c3": {"revisions": [{"from":8341395,"to":8341395,"bases":["0x3c2ab5b0"],"interface":false,"value":false}], "properties": {
+ "0x8f89e802": {"revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x92f4ecee"],"default":null}]},
+ "0xfc0c4ef4": {"name":"Y","revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0xedd323b9"],"default":null}]},
+ "0xfd0c5087": {"name":"X","revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0xedd323b9"],"default":null}]},
+ "0xff0c53ad": {"name":"Z","revisions":[{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0xedd323b9"],"default":null}]}
 }},
 "0xeda5f528": {"revisions": [{"from":7584427,"bases":[],"interface":false,"value":false}], "properties": {
  "0x34474c3b": {"name":"values","revisions":[{"from":7584427,"type":["List","0x6","I32","0x0"],"default":[0,0,0,0,0,0]}]}
@@ -31677,6 +31855,7 @@
 }},
 "0xf2b58198": {"name": "FeatureAudioDataProperties", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":false}], "properties": {
  "0x1ad40789": {"revisions":[{"from":8104348,"type":["String","0x0","0x0","0x0"],"default":"play_vo_Announcer_Chili_SummonersRift_"}]},
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x9f9c4fd4": {"name":"music","revisions":[{"from":5229820,"type":["Embed","0x0","0x0","0x6630947b"],"default":{"defeatBannerSound":"","ambientEvent":"","defeatMusicID":"","legacyThemeMusicTransitionID":"","victoryBannerSound":"","themeMusicTransitionID":"","reverbPreset":"","victoryMusicID":"","GameQuitEvent":"","legacyThemeMusicID":"","themeMusicID":"","GameStartEvent":""}}]},
  "0xe4ba733d": {"name":"feature","revisions":[{"from":5229820,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf8f29f92": {"name":"bankUnits","revisions":[{"from":5229820,"type":["List2","0x0","Embed","0xa4416515"],"default":[]}]}
@@ -31989,6 +32168,9 @@
  "0xbed02ff8": {"name":"RegionTags","revisions":[{"from":6318255,"type":["List2","0x0","String","0x0"],"default":[]}]},
  "0xd0e71bc7": {"name":"groupName","revisions":[{"from":6318255,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
+"0xf433ec4d": {"revisions": [{"from":8341395,"to":8341395,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
+ "0x72c5c2a8": {"name":"DamageType","revisions":[{"from":8341395,"to":8341395,"type":["U32","0x0","0x0","0x0"],"default":0}]}
+}},
 "0xf43ad1ce": {"revisions": [{"from":5352535,"bases":[],"interface":false,"value":false}], "properties": {
  "0x19bbc023": {"name":"IconShadowT1","revisions":[{"from":5352535,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
  "0x1abbc1b6": {"name":"IconShadowT2","revisions":[{"from":5352535,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -32117,6 +32299,10 @@
 }},
 "0xf4ec6a11": {"name": "ContextualConditionItemPurchased", "revisions": [{"from":5229820,"bases":["0xcab0d4ec"],"interface":false,"value":false}], "properties": {
  "0x1363db14": {"name":"mItemPurchased","revisions":[{"from":5229820,"type":["Bool","0x0","0x0","0x0"],"default":false}]}
+}},
+"0xf4f7067b": {"revisions": [{"from":8341395,"to":8341395,"bases":[],"interface":false,"value":false}], "properties": {
+ "0x19385305": {"revisions":[{"from":8341395,"to":8341395,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
+ "0x1d369c29": {"name":"objectPath","revisions":[{"from":8341395,"to":8341395,"type":["List2","0x0","Hash","0x0"],"default":[]}]}
 }},
 "0xf5022dc7": {"revisions": [{"from":5379010,"bases":[],"interface":false,"value":false}], "properties": {
  "0x44fff45": {"name":"BaseModel","revisions":[{"from":5379010,"type":["String","0x0","0x0","0x0"],"default":""}]},
@@ -32873,18 +33059,18 @@
  "0xc6a8b1d0": {"name":"mCoolDownTime","revisions":[{"from":5229820,"type":["F32","0x0","0x0","0x0"],"default":0.0}]}
 }},
 "0xfc2d67aa": {"name": "UiElementGroupButtonSoundEvents", "revisions": [{"from":5229820,"bases":[],"interface":false,"value":true}], "properties": {
- "0xfdb425": {"name":"PressInactive","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
- "0x1fcf9b4": {"name":"Press","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0xfdb425": {"name":"PressInactive","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x1fcf9b4": {"name":"Press","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0x452034c": {"name":"MouseDownOnInactive","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x1036ae7e": {"name":"Release","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x1036ae7e": {"name":"Release","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0x210ea29e": {"name":"RollOutEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x5977e147": {"name":"ReleaseSelected","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
- "0x5d147744": {"name":"RollOver","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
- "0x66b8c713": {"name":"ReleaseInactive","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x5977e147": {"name":"ReleaseSelected","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x5d147744": {"name":"RollOver","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x66b8c713": {"name":"ReleaseInactive","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0x7c552179": {"name":"MouseDownSelected","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x84b6cf03": {"name":"MouseUpEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0x8b848362": {"name":"RollOut","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
- "0xa52ae29d": {"name":"PressSelected","revisions":[{"from":8207193,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0x8b848362": {"name":"RollOut","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
+ "0xa52ae29d": {"name":"PressSelected","revisions":[{"from":8207193,"to":8328265,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null},{"from":8341395,"to":8341395,"type":["Pointer","0x0","0x0","0x58ec86b0"],"default":null},{"from":8342754,"type":["Pointer","0x0","0x0","0x12759fb"],"default":null}]},
  "0xa55a6b7c": {"name":"RollOverEvent","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xb416d0a8": {"name":"MouseUpSelected","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xb49ca145": {"name":"MouseUpOnInactive","revisions":[{"from":5229820,"type":["String","0x0","0x0","0x0"],"default":""}]},

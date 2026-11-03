@@ -10,7 +10,7 @@
 python3 scripts/db_build.py
 ```
 - Folds **all** of `dumps/*.json` in build-number order into the interval model, resolves names from `hashes/`, and writes `db/meta.db.json` plus the `db/database.py` snapshot.
-- The listing of `dumps/` is not recursive. The dump in `dumps/pbe/` is not part of the live history and only feeds `db/meta.pbe.json`, which the same run writes (see "PBE preview"). `--no-preview` skips that file, `--preview-dumps <dir>` reads the PBE dump from another directory, and `--preview-out <path>` writes the overlay elsewhere.
+- The listing of `dumps/` is not recursive. The dump in `dumps/pbe/` is not part of the live history and feeds `db/meta.pbe.json` and `db/meta.pbe-history.json`, which the same run writes (see "PBE preview"). `--no-preview` skips that file, `--preview-dumps <dir>` reads the PBE dump from another directory, and `--preview-out <path>` writes the overlay elsewhere.
 - The build is fully deterministic and stateless: the file is rebuilt from scratch from the dumps every run, so there is no incremental state that can drift or corrupt.
 - CI: the `Sync LoL Meta Classes` workflow runs this whenever `dumps/` changes.
 
@@ -92,7 +92,7 @@ The `Hash` type gives neither the width of the stored value nor the hash functio
 - A new revision starts when either the definition changes **or** the entity was absent from the previous build (so a genuine remove + re-add is never masked, even if the definition matches).
 
 ### PBE preview (db/meta.pbe.json)
-`db/meta.pbe.json` describes the newest PBE build as an overlay on the live database. It is the only place where a PBE build appears: `db/meta.db.json` and `db/database.py` are live only, and a PBE build never changes them.
+`db/meta.pbe.json` describes the newest PBE build as an overlay on the live database. `db/meta.db.json` and `db/database.py` are live only, and a PBE build never changes them.
 
 ```jsonc
 {
@@ -121,7 +121,7 @@ The `Hash` type gives neither the width of the stored value nor the hash functio
   - A definition that PBE changes has a revision that ends at `base`, followed by a revision that starts at `build`.
   - A property whose type is unchanged and whose default differs has the PBE default on its open revision.
 - **Ordering is by channel, not by build number.** PBE and live builds come from separate branches, and their build numbers interleave: a live hotfix build can be greater than the overlay's `build`. Do not sort it into `versions` by number. It always follows `base`.
-- **Lifetime**: the repository keeps one PBE dump, the newest. Each new PBE build replaces the overlay, so the overlay has no history of its own. A PBE build is not promoted as is: the live build of the same patch has a different build number and arrives as a normal entry in `versions`, at which point the overlay becomes empty or moves to the next patch.
+- **Lifetime**: the repository keeps every observed PBE dump permanently. Each new PBE build replaces the overlay, so the overlay has no history of its own. A PBE build is not promoted as is: the live build of the same patch has a different build number and arrives as a normal entry in `versions`, at which point the overlay becomes empty or moves to the next patch.
 - **Why a separate file**: a PBE build arrives on most days. In its own file it does not add a commit to the history of `meta.db.json`, and a consumer chooses whether a PBE build alone is worth a rebuild (see the `meta-pbe-updated` event of the Notify Wiki workflow).
 
 ### Identity and names
@@ -134,3 +134,20 @@ The `Hash` type gives neither the width of the stored value nor the hash functio
 - Revisions, class entries, and property entries are open objects: new fields (e.g. `offset`, `size`, `alignment`, flags from the raw dumps) can be added additively without breaking consumers. Consumers must ignore unknown keys.
 - `formatVersion` is bumped only for breaking changes (removed/renamed fields, changed semantics).
 - Anything not captured here is still recoverable: `dumps/` keeps the full raw per-build data, and the whole file is a pure function of it.
+
+### Permanent PBE history (db/meta.pbe-history.json)
+
+This file has the same top-level shape as `meta.db.json`, with PBE-only
+`versions` and revision intervals. It is independent of the live database:
+never merge its versions into the live timeline. An empty archive has
+`latest: 0`, `versions: []`, and empty class and external-name maps.
+
+All observed PBE builds remain in the archive. Each build compares against the
+preceding PBE build, including across patch boundaries. The first build is a
+baseline, not a list of additions. Live releases do not remove PBE revisions.
+Unlike the live database, a changed or missing default starts a new property
+revision, so exact-build queries retain the observed default.
+
+The generator writes this file beside `--preview-out`; `--no-preview` skips it.
+Consumers fetch all three database files from one commit. The existing overlay
+format and its live-only base remain unchanged.

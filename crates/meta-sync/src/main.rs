@@ -19,8 +19,8 @@
 //! The tool will process all versions newer than the legacy cutoff (13.14.5227601)
 //! and skip any versions that have already been dumped.
 //!
-//! `--channel pbe` runs the PBE pass instead: it keeps the newest PBE build as
-//! the only dump in `dumps/pbe/`. See [`preview`]. With `--plan` the PBE pass
+//! `--channel pbe` runs the PBE pass instead: it archives the newest PBE build
+//! in `dumps/pbe/`. See [`preview`]. With `--plan` the PBE pass
 //! reports what it would do and changes nothing. `--outputs <path>` appends the
 //! result of the PBE pass to a file as `key=value` lines.
 
@@ -45,7 +45,7 @@ use std::path::PathBuf;
 enum Channel {
     /// Dumps every live EUW1 build that `dumps/` lacks
     Live,
-    /// Keeps the newest PBE build as the only dump in `dumps/pbe/`
+    /// Archives the newest PBE build in `dumps/pbe/`
     Pbe,
 }
 
@@ -186,7 +186,10 @@ async fn sync_live(config: &Config) -> Result<()> {
     println!("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
     if failed_count > 0 {
-        println!("⚠️  {} version(s) failed to process. Check logs above for details.", failed_count);
+        println!(
+            "⚠️  {} version(s) failed to process. Check logs above for details.",
+            failed_count
+        );
     } else if processed_count > 0 {
         println!("🎉 All versions processed successfully!");
     } else {

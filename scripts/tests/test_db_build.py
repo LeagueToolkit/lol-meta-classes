@@ -92,6 +92,30 @@ class Corpus:
 
 
 class PreviewTest(unittest.TestCase):
+    def test_pbe_history_keeps_defaults_at_each_build(self):
+        with tempfile.TemporaryDirectory() as root:
+            corpus = Corpus(root)
+            for build, default in [(300, 1), (310, 2), (400, None)]:
+                data = {KEPT: klass({FIELD_A: "U32"})}
+                data[KEPT]["defaults"] = {FIELD_A: default} if default is not None else {}
+                corpus.add_pbe(f"16.22.{build}", data)
+            history = db_build.build_pbe_history(corpus.pbe_dir, H_TYPES, H_FIELDS)
+            revisions = history["classes"][KEPT]["properties"][FIELD_A]["revisions"]
+            self.assertEqual([r.get("default") for r in revisions], [1, 2, None])
+
+    def test_pbe_history_survives_rollover_and_live_catchup(self):
+        with tempfile.TemporaryDirectory() as root:
+            corpus = Corpus(root)
+            corpus.add_pbe("16.22.300", LIVE_CLASSES)
+            corpus.add_pbe("16.22.310", PBE_CLASSES)
+            corpus.add_pbe("16.23.400", LIVE_CLASSES)
+            history = db_build.build_pbe_history(corpus.pbe_dir, H_TYPES, H_FIELDS)
+            self.assertEqual([v["build"] for v in history["versions"]], [300, 310, 400])
+            revisions = history["classes"][CHANGED]["properties"][FIELD_A]["revisions"]
+            self.assertEqual([r["type"][0] for r in revisions], ["U32", "F32", "U32"])
+            write_dump(corpus.dumps_dir, "16.23.500", LIVE_CLASSES)
+            self.assertEqual(db_build.build_pbe_history(corpus.pbe_dir, H_TYPES, H_FIELDS), history)
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)

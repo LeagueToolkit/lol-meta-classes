@@ -21,9 +21,9 @@ keeps them current without a human in the loop.
 
 ```text
 dumps/          raw per-build dumps from the game client, e.g. 16.13.7915903.json
-dumps/pbe/      the newest PBE dump in reduced form, kept while its patch is ahead of live
+dumps/pbe/      permanent archive of observed PBE dumps in reduced form
 db/             generated database - meta.db.json (versioned), database.py (latest-build snapshot),
-                meta.pbe.json (PBE overlay)
+                meta.pbe.json (PBE overlay), meta.pbe-history.json (permanent PBE history)
 hashes/         type/field hash -> name tables, plus local overrides
 crates/         the Rust toolchain that produces dumps/
 scripts/        the Python that turns dumps/ into db/
@@ -477,9 +477,7 @@ cargo run --release --bin meta-sync -- --channel pbe
 default path - cross-compilation, or CI's `--target` subdirectory - point `DUMPER_PATH` at it.
 
 `--channel pbe` runs the PBE pass instead of the live pass. It asks sieve for the newest PBE1 build
-and writes the reduced dump to `dumps/pbe/{version}.json` if the patch of that build is greater
-than the latest live patch. The full dump stays in `temp/pbe/`. The directory holds one dump: the
-pass removes the older PBE dumps, and it removes a PBE dump once live has reached its patch. If the
+and writes the reduced dump to `dumps/pbe/{version}.json` if that build is not archived yet. The full dump stays in `temp/pbe/`. Earlier dumps remain permanently, including after live reaches their patch. If the
 dumper fails or the dump is rejected, the dump that the directory held stays in place.
 
 `--plan` reports what the PBE pass would do without changing a file, downloading a binary or needing
@@ -498,7 +496,7 @@ Seven workflows keep the repo current:
 - **Sync PBE Meta Classes** (`sync-pbe.yml`) - runs daily, after each live dump lands on `main`, and
   on manual dispatch. It plans first with `meta-sync --plan` and builds the dumper only if PBE has a
   build that `dumps/pbe/` lacks. It keeps one rolling PR on the branch `sync/pbe`, force-pushed by
-  each run, and uploads the full dump to the rolling `pbe` prerelease. It is separate from the live
+  each run. Pending dumps are restored before the next run, and full dumps accumulate in the `pbe` prerelease. It is separate from the live
   sync, so a dumper fault on a PBE build fails this workflow alone, before the patch reaches live.
 - **Manual LoL Meta Sync** (`manual-sync.yml`) - the same pipeline on demand, narrowed to one
   version or region.
@@ -524,7 +522,7 @@ The Rust workspace under `crates/`:
 - **meta-sync** - the orchestrator: discovers versions from `Morilli/riot-manifests`, pulls the build
   over the Riot CDN, extracts the macOS binary, runs the dumper, writes `dumps/{version}.json`.
   With `--channel pbe` it resolves the newest PBE build through sieve and keeps it, in reduced
-  form, as the only dump in `dumps/pbe/`.
+  form, alongside earlier dumps in `dumps/pbe/`.
   Its `download-binary` bin fetches one build's macOS binary on its own, for the dumper or for a
   disassembler:
 
@@ -574,3 +572,12 @@ layer, and the automation that keeps both current.
   files.
 - [Morilli](https://github.com/Morilli) for `riot-manifests`, which is how new builds are
   discovered.
+
+### Permanent PBE history
+
+`db/meta.pbe-history.json` uses the versioned database schema for PBE builds only.
+Every observed build stays in `versions`, even after live ships the same patch.
+PBE property revisions also preserve default-value changes. The first archived
+build is the baseline; subsequent builds compare against the preceding PBE build.
+The wiki uses this file for permanent patch changelogs and exact-build definitions.
+The current live-based preview in `meta.pbe.json` remains a separate view.

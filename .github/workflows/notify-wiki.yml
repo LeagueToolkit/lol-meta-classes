@@ -26,6 +26,7 @@ on:
     paths:
       - 'db/meta.db.json'
       - 'db/meta.pbe.json'
+      - 'db/meta.pbe-history.json'
 
   workflow_call:
     secrets:

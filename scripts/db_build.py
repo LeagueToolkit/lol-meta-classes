@@ -91,6 +91,20 @@ def discover_dumps(dumps_dir):
     return dumps
 
 
+def build_pbe_history(preview_dir, h_types, h_fields):
+    """Builds permanent PBE history independently of live release timing."""
+    dumps = discover_dumps(preview_dir) if os.path.isdir(preview_dir) else []
+    latest = dumps[-1]["build"] if dumps else 0
+    classes = finalize(build_history(dumps, track_defaults=True), latest, h_types, h_fields)
+    return {
+        "formatVersion": FORMAT_VERSION,
+        "latest": latest,
+        "versions": [{"patch": d["patch"], "build": d["build"]} for d in dumps],
+        "externalTypeNames": external_type_names(classes, h_types),
+        "classes": classes,
+    }
+
+
 def discover_preview(preview_dir, dumps):
     """Returns the PBE dump that the preview is built from, or None.
 
@@ -173,7 +187,7 @@ def advance(revisions, sig, build, prev_build):
     return rev
 
 
-def fold_dump(classes, d, prev_build):
+def fold_dump(classes, d, prev_build, *, track_defaults=False):
     """Folds one dump into `classes` as the build that follows `prev_build`."""
     build = d["build"]
     meta = read_meta(d["path"])
@@ -194,7 +208,11 @@ def fold_dump(classes, d, prev_build):
             prop = entry["properties"].setdefault(fhash, {"revisions": []})
             tsig = field_type_tuple(field)
             hsig = field_hasher(field, hashers)
-            frev = advance(prop["revisions"], (tsig, hsig), build, prev_build)
+            signature = (tsig, hsig)
+            if track_defaults:
+                has_default = isinstance(defaults, dict) and fname in defaults
+                signature += (has_default, defaults[fname] if has_default else None)
+            frev = advance(prop["revisions"], signature, build, prev_build)
             frev["payload"]["type"] = list(tsig)
             if hsig:
                 frev["payload"]["hasher"] = {
@@ -209,11 +227,11 @@ def fold_dump(classes, d, prev_build):
                 frev["payload"]["default"] = defaults[fname]
 
 
-def build_history(dumps):
+def build_history(dumps, *, track_defaults=False):
     classes = {}
     prev_build = None
     for d in dumps:
-        fold_dump(classes, d, prev_build)
+        fold_dump(classes, d, prev_build, track_defaults=track_defaults)
         prev_build = d["build"]
     return classes
 
@@ -466,6 +484,10 @@ def main():
         write_preview_json(preview_out, preview)
         with open(preview_out, encoding="utf-8") as f:
             json.load(f)
+        history = build_pbe_history(preview_dir, h_types, h_fields)
+        history_out = os.path.join(os.path.dirname(preview_out), "meta.pbe-history.json")
+        write_db_json(history_out, history["versions"], history["latest"],
+                      history["classes"], history["externalTypeNames"], hash_source)
 
     total_props = sum(len(k["properties"]) for k in classes_out.values())
     removed_classes = sum(1 for k in classes_out.values() if "to" in k["revisions"][-1])

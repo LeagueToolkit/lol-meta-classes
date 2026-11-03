@@ -1,6 +1,6 @@
 name: Sync PBE Meta Classes
 
-# Keeps dumps/pbe/ on the newest PBE build and db/meta.pbe.json in step with it.
+# Archives observed PBE builds and rebuilds the preview and permanent PBE history.
 #
 # The live sync (sync-on-manifest-update.yml) is a separate workflow, so a PBE
 # failure never blocks a live dump. A dumper fault on a PBE build fails this
@@ -16,7 +16,7 @@ name: Sync PBE Meta Classes
 #   4. Rebuilds db/ and force-pushes one commit to the branch sync/pbe. One PR
 #      is open for that branch at a time, so it always holds the newest PBE
 #      build, and two PBE PRs cannot merge out of order.
-#   5. Uploads the full dump to the rolling `pbe` prerelease.
+#   5. Adds the full dump to the `pbe` prerelease archive.
 #
 # Setup this depends on: the same GitHub App as the live sync (secrets
 # SYNC_APP_ID / SYNC_APP_PRIVATE_KEY, `contents: write` and
@@ -28,8 +28,8 @@ on:
   schedule:
     - cron: '0 18 * * *'
 
-  # A live dump can retire the PBE dump, and it makes an open sync/pbe PR
-  # conflict on db/meta.pbe.json. A run after the merge handles both.
+  # A live dump changes the preview base. Refresh a pending archive PR after
+  # the live merge so its generated files match the new base.
   push:
     branches: [main]
     paths:
@@ -70,6 +70,21 @@ jobs:
       with:
         token: ${{ steps.app_token.outputs.token }}
         persist-credentials: true
+
+    # Preserve dumps from a pending rolling PR before starting the next run.
+    # Otherwise a force-push before merge would discard an observed build.
+    - name: Restore pending PBE archive
+      run: |
+        set -euo pipefail
+        status=0
+        git ls-remote --exit-code origin "refs/heads/$BRANCH" > /dev/null || status=$?
+        if [ "$status" -eq 0 ]; then
+          git fetch --depth=1 origin "$BRANCH"
+          git archive FETCH_HEAD dumps/pbe | tar -x
+        elif [ "$status" -ne 2 ]; then
+          echo "Could not check the pending archive branch; refusing to replace it."
+          exit "$status"
+        fi
 
     - name: Setup Rust
       uses: actions-rust-lang/setup-rust-toolchain@v1
@@ -132,13 +147,11 @@ jobs:
         DUMPER_PATH: ${{ github.workspace }}/target/x86_64-unknown-linux-gnu/release/dumper
 
     - name: Rebuild database from all dumps
-      if: steps.pbe.outputs.changed == 'true'
       run: |
         python3 scripts/db_build.py
 
     - name: Update the rolling pull request
       id: pr
-      if: steps.pbe.outputs.changed == 'true'
       env:
         GH_TOKEN: ${{ steps.app_token.outputs.token }}
         VERSION: ${{ steps.pbe.outputs.version }}
@@ -152,7 +165,13 @@ jobs:
 
         git add dumps/pbe db/
         if git diff --cached --quiet; then
-          echo "The pass reported a change, but the tree equals main."
+          echo "The complete archive already matches main."
+          # Only close after restoring pending dumps and rebuilding: a plan
+          # with no new download can still have an unmerged archive to save.
+          PR_NUMBER=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$PR_NUMBER" ]; then
+            gh pr close "$PR_NUMBER" --delete-branch
+          fi
           exit 0
         fi
 
@@ -160,7 +179,7 @@ jobs:
           TITLE="chore(dumper): PBE ${VERSION}"
           DUMP_LINE="- PBE dump: \`dumps/pbe/${VERSION}.json\` (reduced). Full dump: release [\`${RELEASE_TAG}\`](${{ github.server_url }}/${{ github.repository }}/releases/tag/${RELEASE_TAG})."
         else
-          TITLE="chore(dumper): remove the PBE dump"
+          TITLE="chore(dumper): preserve PBE archive"
           DUMP_LINE="- No PBE dump is added."
         fi
 
@@ -182,7 +201,7 @@ jobs:
 
         ${DUMP_LINE}
         - PBE dumps removed: \`${REMOVED:-none}\`
-        - \`db/meta.pbe.json\` is rebuilt. \`db/meta.db.json\` and \`db/database.py\` are live only and do not change.
+        - \`db/meta.pbe.json\` and \`db/meta.pbe-history.json\` are rebuilt. \`db/meta.db.json\` and \`db/database.py\` are live only and do not change.
         EOF
         )
 
@@ -207,25 +226,8 @@ jobs:
           echo "::warning title=auto-merge::Could not enable auto-merge - merge ${PR_URL} manually."
         fi
 
-    # The plan found nothing to change, so main already matches the newest PBE
-    # build. An open sync/pbe PR then proposes a state that is out of date, for
-    # example a dump of a patch that live has reached.
-    - name: Close an obsolete pull request
-      if: steps.plan.outcome == 'success' && steps.plan.outputs.changed == 'false'
-      env:
-        GH_TOKEN: ${{ steps.app_token.outputs.token }}
-      run: |
-        set -e
-        PR_NUMBER=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
-        if [ -z "$PR_NUMBER" ]; then
-          echo "No open ${BRANCH} pull request."
-          exit 0
-        fi
-        gh pr close "$PR_NUMBER" --delete-branch \
-          --comment "Closed by the PBE sync: main already matches the newest PBE build, so this PR is out of date."
-
     # The repository keeps the reduced dump. The full dump of the newest PBE
-    # build is the single asset of a rolling prerelease. A failure here does not
+    # build is added to a permanent prerelease archive. A failure here does not
     # fail the sync: the PR above does not depend on the release.
     - name: Publish the full dump to the rolling prerelease
       id: release
@@ -238,7 +240,7 @@ jobs:
       run: |
         set -e
         TITLE="PBE ${VERSION}"
-        NOTES="Full dump of PBE ${VERSION}, as the dumper wrote it. \`dumps/pbe/${VERSION}.json\` in the repository is the reduced form of this file. Each PBE sync replaces the asset of this release."
+        NOTES="Full dump of PBE ${VERSION}, as the dumper wrote it. \`dumps/pbe/${VERSION}.json\` in the repository is the reduced form of this file. Each observed PBE build remains available as an asset of this release."
 
         if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
           gh release edit "$RELEASE_TAG" --title "$TITLE" --notes "$NOTES" --prerelease
@@ -247,15 +249,8 @@ jobs:
             --target "$GITHUB_SHA" --title "$TITLE" --notes "$NOTES"
         fi
 
-        # The new asset is uploaded before the earlier assets are deleted, so
-        # the release is never empty.
+        # Keep earlier full dumps permanently.
         gh release upload "$RELEASE_TAG" "$FULL_DUMP" --clobber
-        KEEP=$(basename "$FULL_DUMP")
-        gh release view "$RELEASE_TAG" --json assets --jq '.assets[].name' | while IFS= read -r NAME; do
-          if [ "$NAME" != "$KEEP" ]; then
-            gh release delete-asset "$RELEASE_TAG" "$NAME" --yes
-          fi
-        done
 
     - name: Upload artifacts
       if: always() && steps.pbe.outcome != 'skipped'

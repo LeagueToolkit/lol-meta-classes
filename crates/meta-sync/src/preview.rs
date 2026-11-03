@@ -1,8 +1,8 @@
-//! PBE pass: keeps the newest PBE build as the only dump in `dumps/pbe/`.
+//! PBE pass: archives each observed PBE build in `dumps/pbe/`.
 //!
 //! `scripts/db_build.py` folds that dump on top of the live history and writes
-//! the difference to `db/meta.pbe.json`. A PBE dump is kept only while its
-//! patch is greater than the latest live patch.
+//! the difference to `db/meta.pbe.json` and keeps a separate PBE history.
+//! Archived dumps remain after newer PBE builds and live releases arrive.
 //!
 //! The newest build is resolved through sieve. The manifest archive lags sieve
 //! by up to a day and drops a build that was superseded inside one snapshot
@@ -46,11 +46,9 @@ type Patch = (u64, u64);
 /// What the PBE pass does with the newest PBE build.
 #[derive(Debug, PartialEq)]
 enum Decision {
-    /// The patch of the build is not greater than the latest live patch.
-    NotAhead,
-    /// `dumps/pbe/` already holds the build or a newer build.
+    /// `dumps/pbe/` already holds the build.
     UpToDate,
-    /// The build is dumped and replaces the dumps in `dumps/pbe/`.
+    /// The build is dumped alongside the archived dumps in `dumps/pbe/`.
     Dump,
 }
 
@@ -112,12 +110,11 @@ impl Report {
 
 /// Runs the PBE pass and records what it does in `report`.
 ///
-/// Removes every PBE dump whose patch is not greater than the latest live
-/// patch, and every PBE dump except the newest. Dumps the newest PBE build if
-/// its patch is greater than the latest live patch and `dumps/pbe/` holds no
-/// dump of that build or of a newer build. If the lookup, the download, the
-/// dumper or the validation fails, returns the error and leaves the remaining
-/// PBE dump in place.
+/// Archives the served PBE build if it has not been archived yet. Existing dumps are never removed.
+///
+/// # Errors
+///
+/// Returns an error if discovery, download, dumping, validation, or storage fails.
 ///
 /// In [`Mode::Plan`] the pass changes no file and downloads no binary.
 pub async fn run(config: &Config, mode: Mode, report: &mut Report) -> Result<()> {
@@ -129,42 +126,13 @@ pub async fn run(config: &Config, mode: Mode, report: &mut Report) -> Result<()>
     }
 
     let existing = dump_versions(&preview_dir)?;
-    let stale = stale_dumps(&existing, live);
-    for version in &stale {
-        println!("🧹 PBE dump {} - live has reached its patch", version);
-    }
-    let existing: Vec<Version> = existing
-        .into_iter()
-        .filter(|v| !stale.contains(v))
-        .collect();
-
-    // Two sync PRs that merge out of order leave two dumps in the directory.
-    let superseded = superseded_dumps(&existing);
-    for version in &superseded {
-        println!("🧹 PBE dump {} - a newer PBE dump exists", version);
-    }
-    let existing: Vec<Version> = existing.into_iter().max().into_iter().collect();
-
-    let obsolete: Vec<Version> = stale.into_iter().chain(superseded).collect();
-    if mode == Mode::Apply {
-        remove_dumps(&preview_dir, &obsolete)?;
-    }
-    report.removed.extend(obsolete);
-
     let release = sieve::fetch_sieve_latest(PREVIEW_REGION).await?;
     println!("✓ {} is serving {}", PREVIEW_REGION, release.version);
     let newest = Version::parse(&release.version)
         .map_err(|_| SyncError::InvalidVersion(release.version.clone()))?;
     report.newest = Some(newest.clone());
 
-    match decide(&newest, &existing, live) {
-        Decision::NotAhead => {
-            println!(
-                "⏭️  Skipping {} - not ahead of the latest live patch",
-                newest
-            );
-            return Ok(());
-        }
+    match decide(&newest, &existing) {
         Decision::UpToDate => {
             println!("⏭️  Skipping {} - already dumped", newest);
             return Ok(());
@@ -174,7 +142,6 @@ pub async fn run(config: &Config, mode: Mode, report: &mut Report) -> Result<()>
 
     if mode == Mode::Plan {
         println!("🎮 {} is not dumped", newest);
-        report.removed.extend(existing);
         report.dumped = Some(newest);
         return Ok(());
     }
@@ -204,11 +171,10 @@ pub async fn run(config: &Config, mode: Mode, report: &mut Report) -> Result<()>
     let reduced_dump_path = temp_dir.join(format!("{}.reduced.json", newest));
     write_reduced_dump(&reduced_dump_path, &dump)?;
 
-    let output_path = replace_dumps(&preview_dir, &existing, &newest, &reduced_dump_path)?;
+    let output_path = archive_dump(&preview_dir, &newest, &reduced_dump_path)?;
     println!("✅ Wrote {}", output_path.display());
     println!("   Full dump: {}", full_dump_path.display());
 
-    report.removed.extend(existing);
     report.dumped = Some(newest);
     report.full_dump = Some(full_dump_path);
 
@@ -251,40 +217,9 @@ fn latest_patch(versions: &[Version]) -> Option<Patch> {
     versions.iter().map(|v| (v.major, v.minor)).max()
 }
 
-/// Returns `true` if the patch of `version` is greater than `live`.
-///
-/// Returns `true` if `live` is `None`.
-fn is_ahead(version: &Version, live: Option<Patch>) -> bool {
-    live.is_none_or(|live| (version.major, version.minor) > live)
-}
-
-/// Returns the versions in `existing` whose patch is not greater than `live`.
-fn stale_dumps(existing: &[Version], live: Option<Patch>) -> Vec<Version> {
-    existing
-        .iter()
-        .filter(|v| !is_ahead(v, live))
-        .cloned()
-        .collect()
-}
-
-/// Returns every version in `existing` except the greatest.
-fn superseded_dumps(existing: &[Version]) -> Vec<Version> {
-    let newest = existing.iter().max();
-    existing
-        .iter()
-        .filter(|v| Some(*v) != newest)
-        .cloned()
-        .collect()
-}
-
-/// Decides what the PBE pass does with `newest`, the newest PBE build.
-///
-/// `existing` holds the versions of the dumps in `dumps/pbe/` and `live` is the
-/// latest live patch.
-fn decide(newest: &Version, existing: &[Version], live: Option<Patch>) -> Decision {
-    if !is_ahead(newest, live) {
-        Decision::NotAhead
-    } else if existing.iter().any(|v| v >= newest) {
+/// Decides whether the served build needs archiving, including after a rollback.
+fn decide(newest: &Version, existing: &[Version]) -> Decision {
+    if existing.contains(newest) {
         Decision::UpToDate
     } else {
         Decision::Dump
@@ -296,23 +231,8 @@ fn dump_path(dir: &Path, version: &Version) -> PathBuf {
     dir.join(format!("{}.json", version))
 }
 
-/// Removes the dumps of `versions` from `dir`.
-fn remove_dumps(dir: &Path, versions: &[Version]) -> std::io::Result<()> {
-    for version in versions {
-        std::fs::remove_file(dump_path(dir, version))?;
-    }
-    Ok(())
-}
-
-/// Moves the dump at `new_dump` into `dir` as the dump of `version`, then
-/// removes the dumps of `existing` from `dir`. Returns the path of the moved
-/// dump.
-fn replace_dumps(
-    dir: &Path,
-    existing: &[Version],
-    version: &Version,
-    new_dump: &Path,
-) -> std::io::Result<PathBuf> {
+/// Moves a validated dump into the archive without removing earlier builds.
+fn archive_dump(dir: &Path, version: &Version, new_dump: &Path) -> std::io::Result<PathBuf> {
     std::fs::create_dir_all(dir)?;
     let output_path = dump_path(dir, version);
     // `rename` fails if the temporary directory is on another filesystem.
@@ -320,7 +240,6 @@ fn replace_dumps(
         std::fs::copy(new_dump, &output_path)?;
         std::fs::remove_file(new_dump)?;
     }
-    remove_dumps(dir, existing)?;
     Ok(output_path)
 }
 
@@ -562,104 +481,68 @@ mod tests {
     }
 
     #[test]
-    fn is_ahead_returns_false_if_patch_equals_live_patch() {
-        assert!(!is_ahead(&v("16.19.9999999"), Some((16, 19))));
-        assert!(!is_ahead(&v("16.18.8175716"), Some((16, 19))));
-        assert!(is_ahead(&v("16.20.8245011"), Some((16, 19))));
-        assert!(is_ahead(&v("17.1.1"), Some((16, 24))));
-    }
-
-    #[test]
-    fn is_ahead_returns_true_if_no_live_patch_exists() {
-        assert!(is_ahead(&v("16.21.8255794"), None));
-    }
-
-    #[test]
-    fn stale_dumps_returns_dumps_whose_patch_live_has_reached() {
-        let existing = [v("16.20.8245011"), v("16.21.8255794")];
-        assert_eq!(stale_dumps(&existing, Some((16, 19))), []);
-        assert_eq!(stale_dumps(&existing, Some((16, 20))), [v("16.20.8245011")]);
-        assert_eq!(stale_dumps(&existing, Some((16, 21))), existing);
-    }
-
-    #[test]
-    fn superseded_dumps_returns_every_dump_except_the_greatest() {
-        let existing = [v("16.21.8250000"), v("16.21.8255794"), v("16.20.8245011")];
-        assert_eq!(
-            superseded_dumps(&existing),
-            [v("16.21.8250000"), v("16.20.8245011")]
-        );
-        assert_eq!(superseded_dumps(&[v("16.21.8255794")]), []);
-        assert_eq!(superseded_dumps(&[]), []);
-    }
-
-    #[test]
-    fn decide_returns_not_ahead_if_patch_equals_live_patch() {
-        assert_eq!(
-            decide(&v("16.19.8198988"), &[], Some((16, 19))),
-            Decision::NotAhead
-        );
+    fn decide_archives_build_even_if_live_has_reached_its_patch() {
+        assert_eq!(decide(&v("16.19.8198988"), &[]), Decision::Dump);
     }
 
     #[test]
     fn decide_returns_dump_if_build_is_below_live_build() {
         // Ordering is by channel. PBE 16.20 builds start at 8209878 and live
         // 16.19 reached 8230722.
-        assert_eq!(
-            decide(&v("16.20.8209878"), &[], Some((16, 19))),
-            Decision::Dump
-        );
+        assert_eq!(decide(&v("16.20.8209878"), &[]), Decision::Dump);
     }
 
     #[test]
     fn decide_returns_up_to_date_if_build_is_dumped() {
         assert_eq!(
-            decide(&v("16.21.8255794"), &[v("16.21.8255794")], Some((16, 19))),
+            decide(&v("16.21.8255794"), &[v("16.21.8255794")]),
             Decision::UpToDate
         );
     }
 
     #[test]
-    fn decide_returns_up_to_date_if_newer_build_is_dumped() {
+    fn decide_archives_unseen_build_after_rollback() {
         assert_eq!(
-            decide(&v("16.21.8250000"), &[v("16.21.8255794")], Some((16, 19))),
-            Decision::UpToDate
+            decide(&v("16.21.8250000"), &[v("16.21.8255794")]),
+            Decision::Dump
         );
     }
 
     #[test]
     fn decide_returns_dump_if_only_older_builds_are_dumped() {
         assert_eq!(
-            decide(&v("16.21.8255794"), &[v("16.20.8245011")], Some((16, 19))),
+            decide(&v("16.21.8255794"), &[v("16.20.8245011")]),
             Decision::Dump
         );
     }
 
     #[test]
-    fn replace_dumps_moves_new_dump_and_removes_existing_dumps() {
+    fn archive_dump_keeps_earlier_patch_on_rollover() {
         let tmp = tempfile::tempdir().unwrap();
         let dir = tmp.path().join("pbe");
         touch(&dir, "16.20.8245011.json");
         let new_dump = tmp.path().join("16.21.8255794.reduced.json");
         fs::write(&new_dump, b"new").unwrap();
 
-        let output =
-            replace_dumps(&dir, &[v("16.20.8245011")], &v("16.21.8255794"), &new_dump).unwrap();
+        let output = archive_dump(&dir, &v("16.21.8255794"), &new_dump).unwrap();
 
         assert_eq!(output, dir.join("16.21.8255794.json"));
         assert_eq!(fs::read(&output).unwrap(), b"new");
         assert!(!new_dump.exists());
-        assert_eq!(dump_versions(&dir).unwrap(), [v("16.21.8255794")]);
+        assert_eq!(
+            dump_versions(&dir).unwrap(),
+            [v("16.20.8245011"), v("16.21.8255794")]
+        );
     }
 
     #[test]
-    fn replace_dumps_creates_directory_if_missing() {
+    fn archive_dump_creates_directory_if_missing() {
         let tmp = tempfile::tempdir().unwrap();
         let dir = tmp.path().join("pbe");
         let new_dump = tmp.path().join("16.21.8255794.reduced.json");
         fs::write(&new_dump, b"new").unwrap();
 
-        replace_dumps(&dir, &[], &v("16.21.8255794"), &new_dump).unwrap();
+        archive_dump(&dir, &v("16.21.8255794"), &new_dump).unwrap();
 
         assert_eq!(dump_versions(&dir).unwrap(), [v("16.21.8255794")]);
     }

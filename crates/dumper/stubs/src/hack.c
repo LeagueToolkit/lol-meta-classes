@@ -1,6 +1,7 @@
 #include <common.h>
 #include <setjmp.h>
 #include <stdio.h>
+#include <string.h>
 
 struct $darwin$objc2_class_ro {
   uint32_t flags;

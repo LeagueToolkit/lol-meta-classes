@@ -1,4 +1,5 @@
 #include <dlfcn.h>
+#include <string.h>
 
 #define FOREACH_$darwin$(apply) \
     apply(AUGraphAddNode) \

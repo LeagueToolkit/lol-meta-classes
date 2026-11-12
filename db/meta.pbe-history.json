@@ -1,7 +1,7 @@
 {
 "formatVersion": 1,
 "hashSource": {"fetchedAt":"2026-10-05T10:07:55Z","bintypes":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.bintypes.txt","entries":3825},"binfields":{"url":"https://raw.communitydragon.org/data/hashes/lol/hashes.binfields.txt","entries":10096}},
-"latest": 8377539,
+"latest": 8379578,
 "versions": [
 {"patch":"16.21","build":8255794},
 {"patch":"16.21","build":8260843},
@@ -22,7 +22,8 @@
 {"patch":"16.22","build":8334968},
 {"patch":"16.22","build":8340287},
 {"patch":"16.23","build":8350685},
-{"patch":"16.23","build":8377539}
+{"patch":"16.23","build":8377539},
+{"patch":"16.23","build":8379578}
 ],
 "externalTypeNames": {
 },
@@ -2254,15 +2255,17 @@
  "0xba72875f": {"name":"states","revisions":[{"from":8255794,"type":["Map","Hash","Embed","0xad399234"],"default":{}}]}
 }},
 "0x13f50786": {"revisions": [{"from":8255794,"bases":[],"interface":false,"value":false}], "properties": {
- "0x81f82f1": {"name":"LocalizedName","revisions":[{"from":8255794,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x81f82f1": {"name":"LocalizedName","revisions":[{"from":8255794,"to":8377539,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x13bddc7b": {"name":"itemID","revisions":[{"from":8255794,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x4b7f058a": {"name":"rarity","revisions":[{"from":8255794,"type":["U32","0x0","0x0","0x0"],"default":0}]},
  "0x54d3f7cf": {"name":"contentId","revisions":[{"from":8255794,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x6194e22e": {"name":"NameTraKey","revisions":[{"from":8379578,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x84874d36": {"name":"path","revisions":[{"from":8255794,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xb98f9422": {"revisions":[{"from":8255794,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0xba8affe1": {"name":"DescriptionTraKey","revisions":[{"from":8379578,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xf511a169": {"name":"imagePath","revisions":[{"from":8255794,"type":["File","0x0","0x0","0x0"],"default":"0x0"}]},
  "0xf6ec748b": {"name":"VideoPath","revisions":[{"from":8255794,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xfbc94a2c": {"name":"LocalizedDescription","revisions":[{"from":8255794,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0xfbc94a2c": {"name":"LocalizedDescription","revisions":[{"from":8255794,"to":8377539,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0xfd8f8d6e": {"revisions":[{"from":8255794,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x13f6b804": {"name": "TftGameStartViewController", "revisions": [{"from":8255794,"bases":["0xed511190"],"interface":false,"value":false}], "properties": {
@@ -12384,10 +12387,12 @@
 "0x757b6f7f": {"name": "VfxDynamicParameterCeilModifier", "revisions": [{"from":8255794,"bases":["0xa4b9367d"],"interface":false,"value":false}], "properties": {
 }},
 "0x75895412": {"name": "WardSkin", "revisions": [{"from":8255794,"bases":[],"interface":false,"value":false}], "properties": {
- "0x81f82f1": {"name":"LocalizedName","revisions":[{"from":8255794,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0x81f82f1": {"name":"LocalizedName","revisions":[{"from":8255794,"to":8377539,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x13bddc7b": {"name":"itemID","revisions":[{"from":8255794,"type":["U32","0x0","0x0","0x0"],"default":0}]},
+ "0x6194e22e": {"name":"NameTraKey","revisions":[{"from":8379578,"type":["String","0x0","0x0","0x0"],"default":""}]},
  "0x9cf5d363": {"revisions":[{"from":8255794,"type":["String","0x0","0x0","0x0"],"default":""}]},
- "0xfbc94a2c": {"name":"LocalizedDescription","revisions":[{"from":8255794,"type":["String","0x0","0x0","0x0"],"default":""}]}
+ "0xba8affe1": {"name":"DescriptionTraKey","revisions":[{"from":8379578,"type":["String","0x0","0x0","0x0"],"default":""}]},
+ "0xfbc94a2c": {"name":"LocalizedDescription","revisions":[{"from":8255794,"to":8377539,"type":["String","0x0","0x0","0x0"],"default":""}]}
 }},
 "0x759a8c58": {"name": "LoadoutUpgradeDialogViewController", "revisions": [{"from":8255794,"bases":["0x75259ad3"],"interface":false,"value":false}], "properties": {
  "0x1bffa622": {"name":"errorText","revisions":[{"from":8255794,"type":["Hash","0x0","0x0","0x0"],"default":"0x0"}]},
@@ -19817,6 +19822,12 @@
  "0xd3689f20": {"name":"Dot","revisions":[{"from":8255794,"type":["Link","0x0","0x0","0xff5b9c5"],"default":"0x0"}]},
  "0xda701865": {"name":"DotSlow","revisions":[{"from":8255794,"type":["Link","0x0","0x0","0xff5b9c5"],"default":"0x0"}]},
  "0xf3cd2188": {"name":"DotNoCombine","revisions":[{"from":8255794,"type":["Link","0x0","0x0","0xff5b9c5"],"default":"0x0"}]}
+}},
+"0xb9f3b1bf": {"revisions": [{"from":8379578,"bases":["0xeb31be9b"],"interface":false,"value":false}], "properties": {
+ "0xbf5a9a6": {"name":"Location","revisions":[{"from":8379578,"type":["Pointer","0x0","0x0","0x94e82d1f"],"default":null}]},
+ "0x32608848": {"name":"Target","revisions":[{"from":8379578,"type":["Pointer","0x0","0x0","0x8b54c9a7"],"default":null}]},
+ "0x82971c71": {"name":"scale","revisions":[{"from":8379578,"type":["F32","0x0","0x0","0x0"],"default":1.0}]},
+ "0xb10e2d1e": {"name":"ParticleSystem","revisions":[{"from":8379578,"type":["Link","0x0","0x0","0x45cd899f"],"default":"0x0"}]}
 }},
 "0xb9fcce52": {"name": "FontResolution", "revisions": [{"from":8255794,"bases":[],"interface":false,"value":false}], "properties": {
  "0x65faaf6": {"name":"screenHeight","revisions":[{"from":8255794,"type":["U32","0x0","0x0","0x0"],"default":1080}]},
